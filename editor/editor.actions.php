@@ -65,7 +65,11 @@ function pl_editor_actions(){
 				
 				$s = $pl_section_factory->sections[ $section_object ];
 				
-				$response['opts'] = $s->section_opts();
+				$opts = $s->section_opts();
+				
+				$opts = (is_array($opts)) ? $opts : array();
+				
+				$response['opts'] = array_merge($opts, pl_standard_section_options());
 				
 				ob_start();
 					$s->active_loading = true;

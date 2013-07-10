@@ -438,7 +438,7 @@ class PageLinesTemplateHandler {
 					unset($o); // set by reference
 				}
 
-				$opts = array_merge($opts, $this->siteset->standard_section_options());
+				$opts = array_merge($opts, pl_standard_section_options());
 
 				$opts_config[ $s->meta['clone'] ][ 'opts' ] = $opts;
 

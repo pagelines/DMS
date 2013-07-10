@@ -53,36 +53,7 @@ class EditorSettings {
 	}
 	
 
-	function standard_section_options( ){
-		$options = array();
 
-		$options['standard'] = array(
-
-			'key'			=> 'pl_section_styling',
-			'type' 			=> 'multi',
-			'label' 	=> __( 'Standard Options', 'pagelines' ),
-			'opts'	=> array(
-				array(
-
-					'key'		=> 'pl_area_class',
-					'type' 		=> 'text',
-					'label' 	=> __( 'Styling Classes', 'pagelines' ),
-					'help'		=> __( 'Separate with a space " "', 'pagelines' ),
-				)
-				// , array(
-				// 
-				// 					'key'		=> 'pl_disabled_section',
-				// 					'type' 		=> 'check',
-				// 					'label' 	=> __( 'Hide On Current Page?', 'pagelines' ),
-				// 					'scope'		=> 'local'
-				// 				)
-			),
-			
-
-		);
-		
-		return $options;
-	}
 
 	function get_set( ){
 
@@ -350,4 +321,35 @@ class EditorSettings {
 		
 		return $settings;
 	}
+}
+
+function pl_standard_section_options( ){
+	$options = array();
+
+	$options['standard'] = array(
+
+		'key'			=> 'pl_section_styling',
+		'type' 			=> 'multi',
+		'label' 	=> __( 'Standard Options', 'pagelines' ),
+		'opts'	=> array(
+			array(
+
+				'key'		=> 'pl_area_class',
+				'type' 		=> 'text',
+				'label' 	=> __( 'Styling Classes', 'pagelines' ),
+				'help'		=> __( 'Separate with a space " "', 'pagelines' ),
+			)
+			// , array(
+			// 
+			// 					'key'		=> 'pl_disabled_section',
+			// 					'type' 		=> 'check',
+			// 					'label' 	=> __( 'Hide On Current Page?', 'pagelines' ),
+			// 					'scope'		=> 'local'
+			// 				)
+		),
+		
+
+	);
+	
+	return $options;
 }
