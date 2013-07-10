@@ -72,7 +72,8 @@ function process_old_opt( $key, $old, $otop = array()){
 		'selectvalues'	=> array(),
 		'taxonomy_id'	=> '',
 		'post_type'		=> '',
-		'span'			=> 1
+		'span'			=> 1,
+		'default'		=> 1
 	);
 
 	$old = wp_parse_args($old, $defaults);
@@ -100,7 +101,6 @@ function process_old_opt( $key, $old, $otop = array()){
 		'help'			=> $exp,
 		'opts'			=> $old['selectvalues'],
 		'span'			=> $old['span'],
-		
 	);
 
 	if($old['type'] == 'count_select'){
@@ -113,6 +113,9 @@ function process_old_opt( $key, $old, $otop = array()){
 
 	if($old['post_type'] != '')
 		$new['post_type'] = $old['post_type'];
+		
+	if($old['default'] != '')
+		$new['default'] = $old['default'];
 
 	return $new;
 }
