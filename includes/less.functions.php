@@ -53,10 +53,10 @@ class PageLinesLess {
 			'pl-secondary-width'	=> pl_secondary_sidebar_width() . 'px'
 		);
 
-		if(is_array($less_vars))
-			$constants = array_merge($less_vars, $constants);
+		if ( is_array( $less_vars ) )
+			$constants = array_merge( $less_vars, $constants );
 
-		$constants = array_merge($this->type_vars(), $constants);
+		$constants = array_merge( $this->type_vars(), $constants );
 
 		$this->constants = apply_filters('pless_vars', $constants);
 	}
@@ -112,7 +112,7 @@ class PageLinesLess {
 		if( ! $this->lparser )
 			$this->lparser = new plessc();
 
-		$pless = $this->add_constants( '' ) . $this->add_bootstrap() . $pless;
+		$pless = $this->add_constants() . $this->add_bootstrap() . $pless;
 
 		try {
 			$css = $this->lparser->compile( $pless );
@@ -126,28 +126,36 @@ class PageLinesLess {
 		return $css;
 	}
 
-	function add_bootstrap( ) {
+	public static function add_bootstrap() {
 		$less = '';
-
-		$less .= $this->load_less_file( 'variables' );
-		$less .= $this->load_less_file( 'colors' );
-		$less .= $this->load_less_file( 'mixins' );
+		foreach ( array('variables','colors','mixins') as $file )
+			$less .= self::load_less_file( $file );
 
 		return $less;
 	}
 
+	/**
+	 * Return less file contents
+	 * @param  string $file 	less file slug
+	 * @return string 			raw less
+	 */
 	public static function load_less_file( $file ) {
+		return pl_file_get_contents( self::get_less_filepath( $file ) );
+	}
 
-		$file 	= sprintf( '%s.less', $file );
-		$parent = sprintf( '%s/%s', PL_CORE_LESS, $file );
-		$child 	= sprintf( '%s/%s', PL_CHILD_LESS, $file );
+	/**
+	 * Determines the filepath to use for a given less file
+	 * Allows for individual files to be overriden with filter "pl_less_file_$file"
+	 * Otherwise @uses locate_template to check child theme before parent
+	 * 
+	 * @param  string $file 	less file slug
+	 * @return string 			absolute path to file
+	 */
+	public static function get_less_filepath( $file ) {
+		if ( $override = apply_filters( "pl_less_file_$file", '' ) )
+			return $override;
 
-		// check for child 1st if not load the main file.
-
-		if ( is_file( $child ) )
-			return pl_file_get_contents( $child );
-		else
-			return pl_file_get_contents( $parent );
+		return locate_template( array( "less/$file.less" ) );
 	}
 
 
@@ -160,14 +168,18 @@ class PageLinesLess {
 		return $pless . $color;
 	}
 
-	function add_constants( $pless ) {
+	/**
+	 * Formats registered less vars into LESS syntax
+	 * @param string 	$pless 	raw less to append
+	 */
+	function add_constants( $pless = '' ) {
 
-		$prepend = '';
+		$vars = '';
 
-		foreach($this->constants as $key => $value)
-			$prepend .= sprintf('@%s:%s;%s', $key, $value, "\n");
+		foreach ( $this->constants as $key => $value )
+			$vars .= sprintf('@%s:%s;%s', $key, $value, "\n" );
 
-		return $prepend . $pless;
+		return $vars . $pless;
 	}
 
 	private function invert( $mode = 'dark', $delta = 5 ){
@@ -238,12 +250,11 @@ class PageLinesLess {
  *
  * Must be added before header.
  **************************/
-function pagelines_less_var( $name, $value ){
+function pagelines_less_var( $name, $value ) {
 
 	global $less_vars;
 
-	$less_vars[$name] = $value;
-
+	$less_vars[ $name ] = $value;
 }
 
 

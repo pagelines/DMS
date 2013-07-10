@@ -3,7 +3,6 @@
 
 class PageLinesRenderCSS {
 
-	var $lessfiles;
 	var $types;
 	var $ctimeout;
 	var $btimeout;
@@ -16,7 +15,6 @@ class PageLinesRenderCSS {
 		$this->ctimeout = 86400;
 		$this->btimeout = 604800;
 		$this->types = array( 'sections', 'core', 'custom' );
-		$this->lessfiles = $this->get_core_lessfiles();
 		self::actions();
 	}
 
@@ -27,19 +25,19 @@ class PageLinesRenderCSS {
 	 *  @package PageLines Framework
 	 *  @since 2.2
 	 */
-	function get_core_lessfiles(){
+	public static function get_core_lessfiles() {
 
-		$files[] = 'reset';
+		$files = array('reset');
 
-		if(pl_has_editor()){
+		if ( pl_has_editor() ) {
 			$files[] = 'pl-structure';
 			$files[] = 'pl-editor';
 		}
 		
-		if(!pl_deprecate_v2()) {
-
-			$files[] = 'pl-core';
-			$files[] = 'deprecated';
+		if ( !pl_deprecate_v2() ) {
+			/*$files[] = 'pl-core';
+			$files[] = 'deprecated';*/
+			$files[] = 'pl-v2';
 		}
 
 		$bootstrap = array(
@@ -72,7 +70,7 @@ class PageLinesRenderCSS {
 			'responsive'
 		);
 
-		return array_merge($files, $bootstrap);
+		return apply_filters('pagelines_core_less_files', array_merge( $files, $bootstrap ) );
 	}
 
 	/**
@@ -113,10 +111,10 @@ class PageLinesRenderCSS {
 		if ( ! get_theme_mod( 'pl_save_version' ) )
 			return;
 
-		if( defined( 'LESS_FILE_MODE' ) && false == LESS_FILE_MODE )
+		if( defined( 'LESS_FILE_MODE' ) && ! LESS_FILE_MODE )
 			return;
 
-		if( defined( 'PL_NO_DYNAMIC_URL' ) && true == PL_NO_DYNAMIC_URL )
+		if( defined( 'PL_NO_DYNAMIC_URL' ) && PL_NO_DYNAMIC_URL )
 			return;
 
 		$folder = $this->get_css_dir( 'path' );
@@ -544,13 +542,15 @@ class PageLinesRenderCSS {
 	/**
 	 *
 	 *  Get Core LESS code
-	 *
+	 *  Loads all core LESS files
+	 *  @return string 	merged less code
+	 * 
 	 *  @package PageLines Framework
 	 *  @since 2.2
 	 */
 	function get_core_lesscode() {
-
-			return $this->load_core_cssfiles( apply_filters( 'pagelines_core_less_files', $this->lessfiles ) );
+		$core_less = $this->load_core_cssfiles( $this->get_core_lessfiles() );
+		return apply_filters( 'pagelines_insert_core_less', $core_less );
 	}
 
 	/**
@@ -563,11 +563,10 @@ class PageLinesRenderCSS {
 	function load_core_cssfiles( $files ) {
 
 		$code = '';
-		foreach( $files as $less ) {
-
+		foreach ( $files as $less )
 			$code .= PageLinesLess::load_less_file( $less );
-		}
-		return apply_filters( 'pagelines_insert_core_less', $code );
+	
+		return $code;
 	}
 
 	/**
@@ -788,7 +787,7 @@ class PageLinesRenderCSS {
 		return apply_filters('pagelines_lesscode', $out);
 	}
 
-} //end of PageLinesRenderCSS
+} // PageLinesRenderCSS
 
 function pagelines_insert_core_less( $file ) {
 
@@ -798,4 +797,8 @@ function pagelines_insert_core_less( $file ) {
 		$pagelines_raw_lesscode_external = array();
 
 	$pagelines_raw_lesscode_external[] = $file;
+}
+
+function pl_get_core_lessfiles() {
+	return PageLinesRenderCSS::get_core_lessfiles();
 }
