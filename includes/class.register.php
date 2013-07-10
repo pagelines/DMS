@@ -227,24 +227,25 @@ class PageLinesRegister {
 			if ( !in_array( $type, array('custom','child','parent') ) ) {
 
 				// Ok so we're a plugin then.. if not active then bypass.
+				$plugin_slug = $type;
+
+				// base plugin path
+				$plugin = sprintf( '%s/%s.php', $plugin_slug, $plugin_slug );
 
 				$check = str_replace('\\', '/', $fullFileName); // must convert backslashes before preg_match
 				preg_match( '#\/sections\/([^\/]+)#', $check, $out );
 
-				if ( ! isset( $out[1] ) )
+				// check for active container plugin and existing individual section directory
+				if ( ! is_plugin_active( $plugin ) || ! isset( $out[1] ) )
 					continue;
 
-				$section_slug = $type;
-				$file  = basename( $dir );
-				$pfile = sprintf( '%s/%s.php', $section_slug, $section_slug );
+				$section_slug = $out[1];
 
-				if ( ! is_plugin_active( $pfile ) )
-					continue;
-
-				$url  = plugins_url( $type );
-
-				$base_url = sprintf( '%s/%s/%s', untrailingslashit( $url ), $file, $section_slug );
-				$base_dir = sprintf( '%s/%s/', untrailingslashit( $dir ), $section_slug );
+				$base_url = sprintf( '%s/sections/%s',
+					untrailingslashit( plugins_url( $plugin_slug ) ),
+					$section_slug
+				);
+				$base_dir = dirname( $fullFileName );
 			}
 
 
@@ -271,6 +272,7 @@ class PageLinesRegister {
 
 			if ( $load )
 				$purchased = 'purchased';
+
 
 			$sections[ $headers['classname'] ] = array(
 				'class'			=> $headers['classname'],
@@ -305,8 +307,8 @@ class PageLinesRegister {
 				'filter'		=> $headers['filter'],
 				'loading'		=> $headers['loading']
 			);
-
 		}
+
 		return $sections;
 	}
 
