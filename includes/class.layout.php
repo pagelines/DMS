@@ -398,21 +398,21 @@ class PageLinesLayout {
 
 
 			// Set CSS for content and page width
-				if( $layout_handling == 'percent'){
-
-					if($contained){
-						$css .= sprintf($page_width_sel . '{ width: %s%%;}', $p);
-						$css .= sprintf($content_width_sel . '{ width: %s%%; }', '100');
-					} else
-						$css .= sprintf($content_width_sel . '{ width: %s%%; }', $p);
-
-				} elseif( $layout_handling == 'pixels' ){
-					$css .= sprintf($page_width_sel . '{ max-width:%spx; }', $c);
-					$css .= sprintf($content_width_sel . '{ width: 100%%; max-width:%spx;}', $c);
-				}else{
-					$css .= sprintf($page_width_sel . '{ max-width:%spx; }', $c);
-					$css .= sprintf($content_width_sel . '{ width:%spx;}', $c);
-				}
+				// if( $layout_handling == 'percent'){
+				// 
+				// 				if($contained){
+				// 					$css .= sprintf($page_width_sel . '{ width: %s%%;}', $p);
+				// 					$css .= sprintf($content_width_sel . '{ width: %s%%; }', '100');
+				// 				} else
+				// 					$css .= sprintf($content_width_sel . '{ width: %s%%; }', $p);
+				// 
+				// 			} elseif( $layout_handling == 'pixels' ){
+				// 				$css .= sprintf($page_width_sel . '{ max-width:%spx; }', $c);
+				// 				$css .= sprintf($content_width_sel . '{ width: 100%%; max-width:%spx;}', $c);
+				// 			}else{
+				// 				$css .= sprintf($page_width_sel . '{ max-width:%spx; }', $c);
+				// 				$css .= sprintf($content_width_sel . '{ width:%spx;}', $c);
+				// 			}
 
 			// Set CSS for inner elements based on mode
 				$content_id = apply_filters('pl_content_id', '#pagelines_content');

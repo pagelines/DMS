@@ -279,12 +279,34 @@ class EditorSettings {
 								   sprintf( '<br /><a href="%s">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
 			),
 			array(
-					'key'		=> 'enable_v2',
-					'type'		=> 'check',
-					'label'		=> __( 'Enable v2 Compatibility Mode?', 'pagelines' ),
-					'title'		=> __( 'v2 Compatibility Mode', 'pagelines' ),
-					'help'		=> __( 'Use this option to enable v2 interfaces and options. Not all v2 options work in DMS due to specificity; but it allows you to reference your old settings as you are rebuilding your site using the DMS system.', 'pagelines' ),				  
-			)
+					'key'	=> 'v2_upgrading', 
+					'type'	=> 'multi',
+					'title'	=> 'Framework V2 Upgrade (MUST PUBLISH)', 
+					'opts'	=> array(
+						array(
+								'key'		=> 'v2_upgrade_help',
+								'type'		=> 'help',
+								'help'		=> __( 'PL has added some settings that may help you upgrade from Framework (v2). To use these, select them and then publish. <br/><strong>Note</strong> that due to the substantial amount of changes in DMS, there may still be issues. These features will be removed with DMS v3.1.', 'pagelines' ),		  
+						),
+						array(
+								'key'		=> 'enable_v2',
+								'type'		=> 'check',
+								'label'		=> __( 'Enable v2 Compatibility Mode?<br/>(Refresh to see changes.)', 'pagelines' ),
+								'title'		=> __( 'v2 Compatibility Mode', 'pagelines' ),
+								'help'		=> __( 'Note: you must publish this setting.', 'pagelines' ),
+								'ref'		=> __( 'Use this option to enable v2 interfaces and options. Not all v2 options work in DMS due to specificity; but it allows you to reference your old settings as you are rebuilding your site using the DMS system.', 'pagelines' ),				  
+						), 
+						array(
+								'key'		=> 'v2_sections_live',
+								'type'		=> 'check',
+								'label'		=> __( 'Only Show v2 Sections "Live"<br/>(Compatibility Mode Req.)', 'pagelines' ),
+								'title'		=> __( 'Only Show v2 Sections "Live"', 'pagelines' ),
+								'help'		=> __( 'Note: you must publish this setting.', 'pagelines' ),
+								'ref'		=> __( 'Enabling this options keeps all DMS sections from showing on your "live" site. This allows you to go through every page in draft mode, and duplicate your layout using DMS sections. When you are ready, disable compatibility mode and your v2 sections disappear sitewide.', 'pagelines' ),				  
+						)
+					)
+			), 
+			
 		);
 		return $settings;
 	}
