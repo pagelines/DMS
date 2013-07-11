@@ -771,10 +771,10 @@ class PageLinesTemplateHandler {
 		if( !isset($this->row_width[ $level ]) ){
 			$this->row_width[ $level ] = 0;
 		}
-
+		
 
 		if( $count == 1 ){
-
+			
 			$this->row_width[ $level ] = 0;
 			printf('<div class="row grid-row">');
 		}
@@ -784,7 +784,6 @@ class PageLinesTemplateHandler {
 			$section_width = $s->meta['span'] + $s->meta['offset'];
 
 			$this->row_width[ $level ] +=  $section_width;
-
 
 			if( $this->row_width[ $level ] > 12 || $s->meta['newrow'] == 'true' ){
 
@@ -901,7 +900,7 @@ class PageLinesTemplateHandler {
 /**
  * For use inside of sections
  */
-function render_nested_sections( $sections ){
+function render_nested_sections( $sections, $level = 2){
 	ob_start(); 
 	
 	global $pagelines_editor;
@@ -912,7 +911,7 @@ function render_nested_sections( $sections ){
 		$sections_total = count($sections);
 
 		foreach( $sections as $key => $meta )
-			$pagelines_editor->handler->render_section( $meta, ++$section_count, $sections_total, 2);
+			$pagelines_editor->handler->render_section( $meta, ++$section_count, $sections_total, $level);
 
 	}
 	

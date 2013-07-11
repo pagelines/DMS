@@ -3,6 +3,7 @@
 	Section: Column
 	Class Name: PLColumn
 	Filter: layout
+	Loading: active
 */
 
 class PLColumn extends PageLinesSection {
@@ -15,7 +16,7 @@ class PLColumn extends PageLinesSection {
 
 			<?php
 
-			echo render_nested_sections( $this->meta['content'] );
+			echo render_nested_sections( $this->meta['content'], 2 );
 
 			?>
 			<span class="pl-column-forcer">&nbsp;</span>
