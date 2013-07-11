@@ -155,7 +155,7 @@ class PLMasthead extends PageLinesSection {
 
 		$masthtmlwidth = ($this->opt('masthead_html_width',$this->oset)) ? $this->opt('masthead_html_width',$this->oset).'px' : '';
 
-		$mast_title = (!$mast_title) ? 'Masthead' : $mast_title;
+		$mast_title = (!$mast_title) ? 'Hello.' : $mast_title;
 
 		$classes = ($mast_img) ? 'with-splash' : '';
 		
