@@ -153,7 +153,7 @@ class PLSectionArea extends PageLinesSection {
 
 	function section_template( ) {
 		
-		$section_output = (!$this->active_loading) ? render_nested_sections( $this->meta['content'] ) : false;
+		$section_output = (!$this->active_loading) ? render_nested_sections( $this->meta['content'], 1) : false;
 		
 		$style = '';
 		$inner_style = '';
