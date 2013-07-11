@@ -23,16 +23,17 @@ class PageLinesEditor {
 		if( pl_draft_mode() || is_admin() )
 			add_action( 'init', array(&$this, 'installer_scripts' ), 9 );
 
-		add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
-		add_action( 'wp_head', array(&$this, 'process_head' ) );
-		add_action( 'wp_footer', array(&$this, 'process_foot' ) );
+		
+			
+			add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
+			add_action( 'wp_head', array(&$this, 'process_head' ) );
+			add_action( 'wp_footer', array(&$this, 'process_foot' ) );
 
-		// RENDER ACTIONS
+	
+		// RENDER SECTION TEMPLATES ACTIONS
 		add_action( 'pagelines_header', array(&$this, 'process_header' ) );
 		add_action( 'pagelines_template', array(&$this, 'process_template' ) );
 		add_action( 'pagelines_footer', array(&$this, 'process_footer' ) );
-
-
 
 	}
 
@@ -183,13 +184,31 @@ class PageLinesEditor {
 	}
 
 	function process_header(){
+		// DEPRECATE THIS CONDITIONAL > 3.1
+		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
+			return;
+		
 		$this->handler->process_region('header');
+		
 	}
 	function process_template(){
+		
+		// DEPRECATE THIS CONDITIONAL > 3.1
+		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
+			return;
+			
 		$this->handler->process_region('template');
+		
 	}
+	
 	function process_footer(){
+		
+		// DEPRECATE THIS CONDITIONAL > 3.1
+		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
+			return;
+			
 		$this->handler->process_region('footer');
+		
 	}
 
 

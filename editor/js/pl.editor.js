@@ -209,13 +209,19 @@
 					|| (load && store.get('plPagePreview') == true)
 				)
 			){
+				
 				$('[data-action="toggle-grid"]').addClass('active-tab')
 				$('body').removeClass('drag-drop-editing width-resize')
 				store.set('plPagePreview', true)
+				$('.ui-sortable').sortable( "disable" )
+				
 			} else {
+				
 				$('[data-action="toggle-grid"]').removeClass('active-tab')
 				$('body').addClass('drag-drop-editing width-resize')
 				store.set('plPagePreview', false)
+				$('.ui-sortable').sortable( "enable" )
+				
 			}
 
 		}

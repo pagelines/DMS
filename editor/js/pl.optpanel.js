@@ -569,7 +569,7 @@
 			){
 
 			
-				var select_opts = (o.type != 'select_multi') ? '<option value="" >&mdash; Default &mdash;</option>' : ''
+				var select_opts = (o.type != 'select_multi') ? '<option value="" >&mdash; SELECT &mdash;</option>' : ''
 				
 				if(o.type == 'count_select' || o.type == 'count_select_same'){
 
@@ -640,7 +640,12 @@
 							})
 							
 						} else {
-							var selected = (o.value == optValue) ? 'selected' : ''
+							
+							if(o.value != '')
+								var selected = (o.value == optValue) ? 'selected' : ''
+							else if( plIsset(o.default) )
+								var selected = (o.default == optValue) ? 'selected' : ''
+							
 						}
 							
 					
