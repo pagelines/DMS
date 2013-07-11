@@ -185,7 +185,7 @@ class PageLinesEditor {
 
 	function process_header(){
 		// DEPRECATE THIS CONDITIONAL > 3.1
-		if( !pl_draft_mode() && pl_setting('v2_sections_live') )
+		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
 			return;
 		
 		$this->handler->process_region('header');
@@ -194,7 +194,7 @@ class PageLinesEditor {
 	function process_template(){
 		
 		// DEPRECATE THIS CONDITIONAL > 3.1
-		if( !pl_draft_mode() && pl_setting('v2_sections_live') )
+		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
 			return;
 			
 		$this->handler->process_region('template');
@@ -204,7 +204,7 @@ class PageLinesEditor {
 	function process_footer(){
 		
 		// DEPRECATE THIS CONDITIONAL > 3.1
-		if( !pl_draft_mode() && pl_setting('v2_sections_live') )
+		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
 			return;
 			
 		$this->handler->process_region('footer');
