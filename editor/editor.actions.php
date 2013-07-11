@@ -21,23 +21,23 @@ function pl_editor_actions(){
 		$map = $postdata['map_object'] = new PageLinesTemplates( $tpl );
 
 		if ( $run == 'map' || $run == 'all' || $run == 'draft' || $run == 'publish'){
-			
+
 			$draft->save_draft( $pageID, $typeID, $postdata['pageData'] );
-			// 
+			//
 			// if( ($run == 'map' || $run == 'all') && isset($postdata['map']) ){
-			// 	
+			//
 			// 	$template_mode = (isset($postdata['templateMode'])) ? $postdata['templateMode'] : 'type';
-			// 	
+			//
 			// 	$response['changes'] = $map->save_map_draft( $pageID, $typeID, $postdata['map'], $template_mode );
-			// 	
+			//
 			// }
-			
+
 
 		}
 
 		if ( $run == 'publish' )
 			pl_publish_settings( $pageID, $typeID );
-		
+
 		elseif ( $run == 'revert' )
 			$draft->revert( $postdata, $map );
 
@@ -52,36 +52,36 @@ function pl_editor_actions(){
 			$available = $load_sections->pagelines_register_sections( true, false );
 			$response['result'] = $available;
 		} elseif( $run == 'load' ){
-			
+
 			$section_object = $postdata['object'];
 			$section_unique_id = $postdata['uniqueID'];
-			
+
 			global $pl_section_factory;
-			
+
 			if( is_object($pl_section_factory->sections[ $section_object ]) ){
-				
-				global $post; 
+
+				global $post;
 				$post = get_post($postdata['pageID']);
-				
+
 				$s = $pl_section_factory->sections[ $section_object ];
-				
+
 				$opts = $s->section_opts();
-				
+
 				$opts = (is_array($opts)) ? $opts : array();
-				
+
 				$response['opts'] = array_merge($opts, pl_standard_section_options());
-				
+
 				ob_start();
 					$s->active_loading = true;
 					$s->section_template();
 				$section_template = ob_get_clean();
-				
+
 				$response['template'] = $section_template;
-			
+
 			}
-			
-			
-			
+
+
+
 		}
 
 
@@ -156,7 +156,7 @@ function pl_editor_actions(){
 				pl_global_update( $field, false );
 			else
 				pl_global_update( $field, $value );
-			
+
 
 			$response['result'] = pl_global( $field );
 
@@ -177,31 +177,31 @@ function pl_editor_actions(){
 			$settings->reset_local( $pageID );
 
 		} elseif( $run == 'delete' ){
-			
+
 			// delete clone index by keys
-			
-			
+
+
 		}elseif( $run == 'exporter' ) {
-			
+
 			$data = $postdata['formData'];
 			$data = stripslashes_deep( $data );
-			$fileOpts = new EditorFileOpts;		
+			$fileOpts = new EditorFileOpts;
 			$response['export'] = $fileOpts->init( $data );
 			$response['export_data'] = $data;
-			
+
 		} elseif( $run == 'reset_global_child' ) {
-			
+
 			$opts = array();
 			$opts['global_import'] = $_POST['global_import'];
 			$opts['type_import'] = $_POST['type_import'];
 			$opts['page_tpl_import'] = $_POST['page_tpl_import'];
 			$settings->reset_global_child( $opts );
-		
+
 		} elseif( 'reset_cache' == $run ) {
 			$settings->reset_caches();
 		}
 
-	} 
+	}
 
 
 	// RESPONSE
@@ -213,7 +213,7 @@ function pl_editor_actions(){
 
 add_action('wp_ajax_upload_config_file', 'pl_upload_config_file');
 function pl_upload_config_file(){
-	
+
 	$fileOpts = new EditorFileOpts;
 	$filename = $_FILES['files']['name'][0];
 
@@ -224,19 +224,19 @@ function pl_upload_config_file(){
 
 	if( preg_match( '/pl\-config[^\.]*\.json/', $filename ) ) {
 		$file = $_FILES['files']['tmp_name'][0];
-		
+
 	$response['file'] = $file;
 
 	if( isset( $file ) )
 		$response['import_reponse'] = $fileOpts->import( $file, $opts );
-	
+
 
 		$response['import_file'] = $file;
 		$response['post'] = $_POST;
 	} else {
 		$reponse['import_error'] = 'filename?';
 	}
-	
+
 	echo json_encode(  pl_arrays_to_objects( $response ) );
 	die();
 }
@@ -268,13 +268,13 @@ function pl_dms_admin_actions(){
 
 	$field = $postdata['setting'];
 	$value = $postdata['value'];
-	
+
 	pl_setting_update($field, $value);
-	
+
 	echo json_encode(  pl_arrays_to_objects( $response ) );
 	if( $lessflush )
 		pl_flush_draft_caches( false );
-	die();	
+	die();
 }
 
 
@@ -328,62 +328,4 @@ function pl_up_image (){
 
 	}
 	die(); // don't forget this, always returns 0 w/o
-}
-
-add_action( 'wp_ajax_pl_account_actions', 'pl_account_actions' );
-
-function pl_account_actions() {
-	$postdata = $_POST;
-	$response = array();
-	
-	$response['key'] = $postdata['key'];
-	$response['email'] = $postdata['email'];
-	$response['active'] = false;
-	$response['refresh'] = false;
-	
-	$activated = array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' );
-	
-	if( $postdata['key'] && $postdata['email'] ) {
-		$state = 'activation';
-		
-		if( true == $postdata['revoke'] )
-			$state = 'deactivation';
-	
-		$url = sprintf( 'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', $state, $response['key'], $response['email'], site_url() );
-	
-		$response['url'] = $url;
-//		$response['postdata'] = $postdata;
-		$data = wp_remote_get( $url );
-	
-
-	
-		$rsp = json_decode( $data['body'] );
-	
-		if( isset( $rsp->activated ) ) {
-			$response['active'] = $rsp->activated;		
-		}		
-		$response['message'] = ( isset( $rsp->error ) ) ? $rsp->error : $rsp->message;
-
-		} else {
-			$response['message'] = 'There was an error!';
-		}
-	if( true == $rsp->activated ) {
-		$activated['message'] = $rsp->message;
-		$activated['instance'] = $rsp->instance;
-		$activated['active'] = true;
-		$activated['key'] = $response['key'];
-		$activated['email'] = $response['email'];
-		$response['refresh'] = true;
-	}
-	
-	if( isset( $rsp->reset ) && true == $rsp->reset ){
-		$response['message'] = 'Deactivated activation for ' . site_url();
-		$response['refresh'] = true;
-	}
-	
-//	$response['rsp'] = $rsp;
-	update_option( 'dms_activation', $activated );
-	echo json_encode(  pl_arrays_to_objects( $response ) );
-	
-	exit();
 }
