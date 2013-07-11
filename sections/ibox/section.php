@@ -178,9 +178,9 @@ class pliBox extends PageLinesSection {
 			$output .= sprintf(
 				'<div class="span%s ibox %s fix">
 					<div class="ibox-media img">
-						<a class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s" %s>
+						<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s" %s>
 							%s
-						</a>
+						</span>
 					</div>
 					<div class="ibox-text bd">
 						%s
