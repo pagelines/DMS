@@ -88,6 +88,8 @@ class PageLinesEditor {
 
 	function load_libs(){
 
+		$this->account_panel = new PLAccountPanel;
+
 		if(!pl_use_editor())
 			return;
 
@@ -131,11 +133,9 @@ class PageLinesEditor {
 		$this->extend_panel = new PageLinesExtendPanel;
 		$this->settings_panel = new PageLinesSettingsPanel;
 	//	$this->live_panel = new PageLinesLivePanel;
-		$this->account_panel = new PLAccountPanel;
+
 		$this->themer = new EditorThemeHandler;
-
 		$this->code = new EditorCode( $this->draft );
-
 		$this->areas = new PageLinesAreas;
 
 
