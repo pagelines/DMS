@@ -10,12 +10,6 @@ class PLAccountPanel{
 
 		add_action( 'wp_ajax_pl_account_actions', array( &$this, 'pl_account_actions' ) );
 
-		add_action( 'pl_check_activation', array( &$this, 'activation_check_function' ) );
-
-		// hourly for testing...
-		if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
-  			wp_schedule_event( time(), 'hourly', 'pl_check_activation' );
-
 	}
 
 	function activation_check_function() {
@@ -24,7 +18,7 @@ class PLAccountPanel{
 		if( ! pl_is_pro() )
 			return;
 
-		wp_mail( get_bloginfo( 'admin_email' ), 'Running cron', $message );
+		wp_mail( get_bloginfo( 'admin_email' ), 'DEBUG: checking activation', 'sup' );
 
 		$data = get_option( 'dms_activation' );
 
@@ -51,8 +45,7 @@ class PLAccountPanel{
 		// Either the key is invalid or there was an error..
 
 		if( isset( $rsp->error ) && isset( $rsp->code ) && 102 == $rsp->code)
-			$this->send_email( $rsp->code, $data );
-
+			self::send_email( $rsp->code, $data );
 	}
 
 	function send_email( $error ) {

@@ -23,24 +23,29 @@ class PageLinesEditor {
 		if( pl_draft_mode() || is_admin() )
 			add_action( 'init', array(&$this, 'installer_scripts' ), 9 );
 
-		
-			
+
+
 			add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
 			add_action( 'wp_head', array(&$this, 'process_head' ) );
 			add_action( 'wp_footer', array(&$this, 'process_foot' ) );
 
-	
+
 		// RENDER SECTION TEMPLATES ACTIONS
 		add_action( 'pagelines_header', array(&$this, 'process_header' ) );
 		add_action( 'pagelines_template', array(&$this, 'process_template' ) );
 		add_action( 'pagelines_footer', array(&$this, 'process_footer' ) );
 
+		add_action( 'pl_check_activation', 'PLAccountPanel::activation_check_function' );
+
+		// hourly for testing...
+		if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
+  			wp_schedule_event( time(), 'hourly', 'pl_check_activation' );
 	}
 
 	function load_files(){
 		require_once( PL_EDITOR . '/editor.premium.php' );
 		require_once( PL_EDITOR . '/editor.admin.php' ); // admin stuff
-		
+
 		require_once( PL_EDITOR . '/editor.settings.php' );
 		require_once( PL_EDITOR . '/editor.actions.php' );
 		require_once( PL_EDITOR . '/editor.draft.php' );
@@ -50,7 +55,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.typography.php' );
 		require_once( PL_EDITOR . '/editor.importexport.php' );
 		require_once( PL_EDITOR . '/editor.color.php' );
-		
+
 		require_once( PL_EDITOR . '/editor.templates.php' );
 
 		// Mobile
@@ -64,7 +69,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/panel.sections.php' );
 		require_once( PL_EDITOR . '/panel.extend.php' );
 		require_once( PL_EDITOR . '/panel.themes.php' );
-		
+
 		require_once( PL_EDITOR . '/panel.settings.php' );
 
 		require_once( PL_EDITOR . '/editor.extensions.php' );
@@ -100,7 +105,7 @@ class PageLinesEditor {
 		global $editorless;
 		global $storeapi;
 		global $fileopts;
-		
+
 		$plpg = $this->page = new PageLinesPage;
 		$pldraft = $this->draft = new EditorDraft( $this->page );
 		$storeapi = $this->storeapi = new EditorStoreFront;
@@ -126,7 +131,7 @@ class PageLinesEditor {
 		$plopts = $this->opts = new PageLinesOpts;
 
 		// Mobile
-		$this->mobile_menu = new PageLinesMobileMenu; 
+		$this->mobile_menu = new PageLinesMobileMenu;
 
 		// Interfaces
 		$this->xlist = new EditorXList;
@@ -177,7 +182,7 @@ class PageLinesEditor {
 
 		$this->handler->process_head();
 	}
-	
+
 	function process_foot(){
 
 		$this->handler->process_foot();
@@ -187,28 +192,28 @@ class PageLinesEditor {
 		// DEPRECATE THIS CONDITIONAL > 3.1
 		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
 			return;
-		
+
 		$this->handler->process_region('header');
-		
+
 	}
 	function process_template(){
-		
+
 		// DEPRECATE THIS CONDITIONAL > 3.1
 		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
 			return;
-			
+
 		$this->handler->process_region('template');
-		
+
 	}
-	
+
 	function process_footer(){
-		
+
 		// DEPRECATE THIS CONDITIONAL > 3.1
 		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
 			return;
-			
+
 		$this->handler->process_region('footer');
-		
+
 	}
 
 
