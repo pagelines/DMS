@@ -10,14 +10,21 @@ class PLAccountPanel{
 
 		add_action( 'wp_ajax_pl_account_actions', array( &$this, 'pl_account_actions' ) );
 
-		add_action( 'template_redirect', array( &$this, 'activation_check' ) );
+		add_action( 'pl_check_activation', array( &$this, 'activation_check_function' ) );
+
+		// hourly for testing...
+		if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
+  			wp_schedule_event( time(), 'hourly', 'pl_check_activation' );
+
 	}
 
-	function activation_check() {
+	function activation_check_function() {
 
 		// If not activated we dont need to check for activation /0!
 		if( ! pl_is_pro() )
 			return;
+
+		wp_mail( get_bloginfo( 'admin_email' ), 'Running cron', $message );
 
 		$data = get_option( 'dms_activation' );
 
@@ -48,12 +55,13 @@ class PLAccountPanel{
 
 	}
 
-	function send_email( $error, $data ) {
+	function send_email( $error ) {
 
 		if( 102 == $error ) {
+			$data = get_option( 'dms_activation' );
 
-			$message = sprintf( 'The key <strong>%s</strong> failed to authenticate.', $data['key'] );
-			wp_mail( get_bloginfo( 'admin_email' ), 'Activation Failed', $message, $headers = "Content-Type: text/htmlrn", $attachments = "" );
+			$message = sprintf( 'The key %s failed to authenticate.', $data['key'] );
+			wp_mail( get_bloginfo( 'admin_email' ), 'Activation Failed', $message );
 			update_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
 		}
 	}
