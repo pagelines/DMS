@@ -44,12 +44,18 @@ class PLAccountPanel{
 		// Either the key is invalid or there was an error..
 
 		if( isset( $rsp->error ) && isset( $rsp->code ) && 102 == $rsp->code)
-			$this->send_email( $rsp->code );
+			$this->send_email( $rsp->code, $data );
 
 	}
 
-	function send_email() {
-		update_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
+	function send_email( $error, $data ) {
+
+		if( 102 == $error ) {
+
+			$message = sprintf( 'The key <strong>%s</strong> failed to authenticate.', $data['key'] );
+			wp_mail( get_bloginfo( 'admin_email' ), 'Activation Failed', $message, $headers = "Content-Type: text/htmlrn", $attachments = "" );
+			update_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
+		}
 	}
 
 	function pl_account_actions() {
