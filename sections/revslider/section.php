@@ -283,7 +283,8 @@ class plRevSlider extends PageLinesSection {
 						data-speed="500"
 						data-start="10"
 						data-easing="easeOutBack">
-							<iframe src="http://player.vimeo.com/video/22775048?title=0&amp;byline=0&amp;portrait=0;api=1" width="100%" height="100%"></iframe>
+							<iframe src="http://player.vimeo.com/video/67237715?title=0&amp;byline=0&amp;portrait=0;api=1" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+					
 					</div>
 
 			</li>
