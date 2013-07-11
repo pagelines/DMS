@@ -6,19 +6,10 @@
  * Navigation) for each page in your theme. You can control what shows up where
  * using WordPress and PageLines PHP conditionals.
  *
- * @package     PageLines Framework
- * @since       1.0
- *
  * @link        http://www.pagelines.com/
- * @link        http://www.pagelines.com/tour
  *
- * @author      PageLines   http://www.pagelines.com/
- * @copyright   Copyright (c) 2008-2012, PageLines  hello@pagelines.com
- *
- * @internal    last revised January 23, 2012
- * @version     ...
- *
- * @todo Define version
+ * @author      PageLines Inc.  http://www.pagelines.com/
+ * @copyright   Copyright (c) 2008-2013, PageLines  hello@pagelines.com
  */
 
 pagelines_register_hook('pagelines_before_html'); // Hook
@@ -67,8 +58,7 @@ else:  ?>
 					<?php pagelines_register_hook('pagelines_before_main'); // Hook ?>
 					<div id="page-main" class="pl-region" data-region="template">
 						<div id="dynamic-content" class="outline template-region-wrap pl-area-container">
-	<?php
-					pagelines_special_content_wrap_top();
+	<?php pagelines_special_content_wrap_top();
 
 endif;
 
