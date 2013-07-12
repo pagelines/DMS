@@ -44,7 +44,7 @@ class EditorLess extends EditorLessHandler {
 	 * Get the URI for the right less file to be used
 	 */
 	function get_less_file_uri( $file ) {
-		$path = $this->pless->get_less_filepath( $file );
+		$path = pl_get_less_filepath( $file );
 		$url = str_replace(WP_CONTENT_DIR, WP_CONTENT_URL, $path);
 		return $url; 
 	}
