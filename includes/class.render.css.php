@@ -27,17 +27,18 @@ class PageLinesRenderCSS {
 	 *  @package PageLines Framework
 	 *  @since 2.2
 	 */
-	function get_core_lessfiles(){
+	function get_core_lessfiles() {
 
-		$files[] = 'reset';
+		$files = array('reset');
 
-		if(pl_has_editor()){
+		if ( pl_has_editor() ) {
 			$files[] = 'pl-structure';
 			$files[] = 'pl-editor';
-		} 
-
-		if(!pl_deprecate_v2()) {
-
+		}
+		
+		if ( !pl_deprecate_v2() ) {
+			/*$files[] = 'pl-core';
+			$files[] = 'deprecated';*/
 			$files[] = 'pl-v2';
 		}
 
@@ -71,7 +72,7 @@ class PageLinesRenderCSS {
 			'responsive'
 		);
 
-		return array_merge($files, $bootstrap);
+		return apply_filters('pagelines_core_less_files', array_merge( $files, $bootstrap ) );
 	}
 
 	/**
@@ -112,10 +113,10 @@ class PageLinesRenderCSS {
 		if ( ! get_theme_mod( 'pl_save_version' ) )
 			return;
 
-		if( defined( 'LESS_FILE_MODE' ) && false == LESS_FILE_MODE )
+		if( defined( 'LESS_FILE_MODE' ) && ! LESS_FILE_MODE )
 			return;
 
-		if( defined( 'PL_NO_DYNAMIC_URL' ) && true == PL_NO_DYNAMIC_URL )
+		if( defined( 'PL_NO_DYNAMIC_URL' ) && PL_NO_DYNAMIC_URL )
 			return;
 
 		$folder = $this->get_css_dir( 'path' );
@@ -542,31 +543,16 @@ class PageLinesRenderCSS {
 
 	/**
 	 *
-	 *  Get Core LESS code
-	 *
+	 *  Load and return all core LESS file code
+	 *  @return string 	merged less code
+	 * 
 	 *  @package PageLines Framework
 	 *  @since 2.2
 	 */
 	function get_core_lesscode() {
-
-			return $this->load_core_cssfiles( apply_filters( 'pagelines_core_less_files', $this->lessfiles ) );
-	}
-
-	/**
-	 *
-	 *  Helper for get_core_less_code()
-	 *
-	 *  @package PageLines Framework
-	 *  @since 2.2
-	 */
-	function load_core_cssfiles( $files ) {
-
-		$code = '';
-		foreach( $files as $less ) {
-
-			$code .= PageLinesLess::load_less_file( $less );
-		}
-		return apply_filters( 'pagelines_insert_core_less', $code );
+		$core_files = $this->get_core_lessfiles();
+		$core_less  = PageLinesLess::get_files_less( $core_files );
+		return apply_filters( 'pagelines_insert_core_less', $core_less );
 	}
 
 	/**
@@ -787,7 +773,7 @@ class PageLinesRenderCSS {
 		return apply_filters('pagelines_lesscode', $out);
 	}
 
-} //end of PageLinesRenderCSS
+} // PageLinesRenderCSS
 
 function pagelines_insert_core_less( $file ) {
 
@@ -797,4 +783,9 @@ function pagelines_insert_core_less( $file ) {
 		$pagelines_raw_lesscode_external = array();
 
 	$pagelines_raw_lesscode_external[] = $file;
+}
+
+function pl_get_core_lessfiles() {
+	global $render_css;
+	return $render_css->get_core_lessfiles();
 }
