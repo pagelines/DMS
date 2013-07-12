@@ -6,12 +6,11 @@ class EditorCode{
 
 	function __construct( ){
 
-		add_filter('pl_toolbar_config', array(&$this, 'toolbar'));
-		add_action('pagelines_editor_scripts', array(&$this, 'scripts'));
-
-		add_action( 'pagelines_head_last', array( &$this, 'draw_custom_styles' ), 200 );
-			
-		add_action( 'pagelines_head_last', array( &$this, 'draw_custom_scripts' ) );
+		add_filter( 'pl_toolbar_config',		array(&$this, 'toolbar'));
+		
+		add_action( 'pagelines_editor_scripts',	array(&$this, 'scripts'));
+		add_action( 'pagelines_head_last',		array(&$this, 'draw_custom_styles' ), 200 );
+		add_action( 'pagelines_head_last',		array(&$this, 'draw_custom_scripts' ) );
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
@@ -19,29 +18,27 @@ class EditorCode{
 	function scripts(){
 
 		// Codemirror Styles
-		wp_enqueue_style( 'codemirror', PL_ADMIN_JS . '/codemirror/codemirror.css' );
-		wp_enqueue_style( 'css3colorpicker', $this->url . '/js/colorpicker/colorpicker.css');
+		wp_enqueue_style( 'codemirror',			PL_ADMIN_JS . '/codemirror/codemirror.css' );
+		wp_enqueue_style( 'css3colorpicker',	$this->url . '/js/colorpicker/colorpicker.css');
 
 		// CodeMirror Syntax Highlighting
-		wp_enqueue_script( 'codemirror', PL_ADMIN_JS . '/codemirror/codemirror.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-css', PL_ADMIN_JS . '/codemirror/css/css.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-less', PL_ADMIN_JS . '/codemirror/less/less.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-js', PL_ADMIN_JS . '/codemirror/javascript/javascript.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-xml', PL_ADMIN_JS . '/codemirror/xml/xml.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-html', PL_ADMIN_JS . '/codemirror/htmlmixed/htmlmixed.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'codemirror',		PL_ADMIN_JS . '/codemirror/codemirror.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'codemirror-css',	PL_ADMIN_JS . '/codemirror/css/css.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'codemirror-less',	PL_ADMIN_JS . '/codemirror/less/less.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'codemirror-js',		PL_ADMIN_JS . '/codemirror/javascript/javascript.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'codemirror-xml',	PL_ADMIN_JS . '/codemirror/xml/xml.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'codemirror-html',	PL_ADMIN_JS . '/codemirror/htmlmixed/htmlmixed.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
 
 		// PageLines Specific JS @Code Stuff
-		wp_enqueue_script( 'pl-js-code', $this->url . '/js/pl.code.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'pl-less-parser', $this->url . '/js/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-less-parser',	$this->url . '/js/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-js-code',		$this->url . '/js/pl.code.js', array( 'jquery', 'codemirror', 'pl-less-parser' ), PL_CORE_VERSION, true );
 		
-		// LESS/CSS Codebox defaults
-		$custom_css = array(
-
-				'lineNumbers'	=>	true,
-				'mode'	=> 'text/x-less',
-				'lineWrapping'	=> true,
+		// Codebox defaults
+		$base_editor_config = array(
+			'lineNumbers'  => true,
+			'lineWrapping' => true,
 		);
-		wp_localize_script( 'codemirror', 'CMCustomCSS', apply_filters( 'pagelines_customcss_cm_options', $custom_css ) );
+		wp_localize_script( 'codemirror', 'cm_base_config', apply_filters( 'pagelines_cm_config', $base_editor_config ) );
 	}
 
 	function toolbar( $toolbar ){
@@ -76,20 +73,12 @@ class EditorCode{
 		if( ! is_object( $pldraft ) || is_object( $pldraft ) && $pldraft->mode != 'draft' )
 			return;
 		
-		if( is_pl_debug() )
-			echo '<script>var less = {env: "development"};</script>';
-		
-		$css = pl_setting( 'custom_less' );
-	
-		printf(
-			'<style id="pl-custom-less" type="text/less" data-mixins="%1$s">
-				@import "%1$s";
-				
-				%2$s
-			</style>', 
-			PL_PARENT_URL.'/less/mixins.less',
-			$css 
+		$lessjs_config = array(
+			'env' => is_pl_debug() ? 'development' : 'production'
 		);
+		wp_localize_script( 'pl-less-parser', 'less', $lessjs_config );
+		
+		printf('<style id="pl-custom-less" type="text/css">%s</style>', pl_setting( 'custom_less' ) );
 	}
 
 	function draw_custom_scripts(){
@@ -108,7 +97,7 @@ class EditorCode{
 					<label class="codetext-label">Custom LESS/CSS</label>
 					<span class="codetext-help help-block"><span class="label label-info">Tip</span> Hit [Cmd&#8984;+Return] or [Ctrl+Return] to Preview Live</span>
 				</div>
-				<form class="code-form"><textarea class="custom-less" name="settings[custom_less]" placeholder=""><?php echo pl_setting('custom_less'); ?></textarea></form>
+				<form class="code-form"><textarea id="custom_less" class="custom-less" name="settings[custom_less]" placeholder=""><?php echo pl_setting('custom_less'); ?></textarea></form>
 			</div>
 		</div>
 
@@ -125,7 +114,7 @@ class EditorCode{
 				<div class="codetext-meta fix">
 					<label class="codetext-label">Custom Javascript or Header HTML</label>
 				</div>
-				<form class="code-form"><textarea class="custom-scripts" name="settings[custom_scripts]" placeholder=""><?php echo stripslashes( pl_setting( 'custom_scripts' ) ); ?></textarea></form>
+				<form class="code-form"><textarea id="custom_scripts" class="custom-scripts" name="settings[custom_scripts]" placeholder=""><?php echo stripslashes( pl_setting( 'custom_scripts' ) ); ?></textarea></form>
 			</div>
 		</div>
 

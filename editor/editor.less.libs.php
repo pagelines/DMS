@@ -28,6 +28,8 @@ class EditorLessHandler{
 			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
 			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
 			add_action( 'pl_scripts_on_ready', array( &$pagelines_template, 'print_on_ready_scripts' ), 12 );
+			add_action( 'pagelines_editor_scripts', array(&$this, 'localize_less_data'), 11 );
+			add_action( 'wp_footer', array(&$this, 'print_core_less') );
 	}
 
 	/**
@@ -67,8 +69,8 @@ class EditorLessHandler{
 		if(pl_has_editor()){
 			$files[] = 'pl-structure';
 			$files[] = 'pl-editor';
-		} 
-		
+		}
+
 		if(!pl_deprecate_v2()) {
 
 			$files[] = 'pl-v2';
@@ -174,7 +176,7 @@ class EditorLessHandler{
 			}
 		}
 
-		if( $this->is_draft() && defined( 'PL_LESS_DEV' ) && true == PL_LESS_DEV ){
+		if( $this->is_draft() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
 
 			$raw_cached = pl_cache_get( 'draft_core_raw', array( &$this, 'draft_core_data' ) );
 
@@ -336,7 +338,7 @@ class EditorLessHandler{
 		global $load_sections;
 		$available = $load_sections->pagelines_register_sections( true, true );
 
-		$disabled = get_option( 'pagelines_sections_disabled', array() );
+		$disabled = pl_get_disabled_sections();
 
 		/*
 		* Filter out disabled sections
@@ -396,7 +398,6 @@ class EditorLessHandler{
 	 */
 	public function googlefont_replace( $data ) {
 
-	
 		return $data;
 	}
 
