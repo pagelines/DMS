@@ -1,86 +1,111 @@
 !function ($) {
 
-$.plCode = {
+PL_Code = function () {
+	this.panel    = $('[data-action="pl-design"]')
+	this.tabs     = $('[data-tab-action="user_less"], [data-tab-action="user_scripts"]')
+	this.compiler = new ( less.Parser )
+	this.txtarea  = {
+		less : $("#custom_less")
+		, htmlmixed : $("#custom_scripts")
+	}
+	this.editors = {
+		less : 0
+		, htmlmixed : 0
+	}
+	this.lookup = {
+		user_less : 'less'
+		, user_scripts : 'htmlmixed'
+	}
+	this.core_less = $('#pl_core_less')
 
-	activateLESS: function( ){
+	this.activateEditors()
+	
+	this.setUIBindings()
 
-		var lessText = $(".custom-less")
-		,	scriptsText = $(".custom-scripts")
+	$(document).trigger('plcode-loaded')
+}
+PL_Code.prototype = {
 
+	compile : function ( code ) {
 
-		if( !lessText.hasClass('mirrored') ){
+		var core = this.core_less.text()
 
-			var editorDefaultObject = {
-					
-					onKeyEvent: function(instance, e){
-console.log('yo')
-					lessText.val( instance.getValue() )
-					var theCode = lessText.parent().formParams()
+		code = core + code
 
-					$.pl.data.global = $.extend(true, $.pl.data.global, theCode)
-				
-					// Keyboard shortcut for live LESS previewing
-					if(e.type == 'keydown' && e.which == 13 && (e.metaKey || e.ctrlKey) ){
-						
-						var mixinsFile = $('#pl-custom-less').data('mixins')
-						
-						$('#pl-custom-less')
-							.text(instance.getValue())
-							.prepend( sprintf('@import "%s";', mixinsFile))
-							.attr('type', 'text/less')
-							
-						
-						less.refresh()
-
-					}
-				}
-			}
-
-			$.extend(editorDefaultObject, CMCustomCSS)
-
-			var editor = CodeMirror.fromTextArea( lessText.addClass('mirrored').get(0), editorDefaultObject)
-
-			editor.on('blur', function(instance, changeObj){
-
-				$.plAJAX.saveData(	)
-			})
-
-
-		}
-
-
+		var compiled = ''
+		this.compiler.parse( code, function ( err, tree ) {
+			if ( err )
+				return plPrint( err )
+			compiled = tree.toCSS()
+		} )
+		return compiled || ''
 	}
 
-	, 	activateScripts: function(){
+	,	activateEditors : function() {
 
-		var lessText = $(".custom-less")
-		,	scriptsText = $(".custom-scripts")
+		that = this
 
-		if( !scriptsText.hasClass('mirrored') ){
+		$.each( that.txtarea, function ( mode, $area ) {
 
-			var editor2 = CodeMirror.fromTextArea( scriptsText.addClass('mirrored').get(0), {
-					lineNumbers: true
-				,	mode: 'htmlmixed'
-				, 	lineWrapping: true
-				, 	onKeyEvent: function(instance, e){
+			if ($area.hasClass( 'mirrored' )) return
+			// config setup
+			var config = $.extend( cm_base_config, { mode : mode } )
+			// instantiate codemirror
+			that.editors[ mode ] = CodeMirror.fromTextArea( $area.addClass('mirrored').get(0), config )
+			// set bindings
+			that.setEditorBindings( mode, $area )
+		})
+	}
 
-					scriptsText.val( instance.getValue() )
-					var theCode = scriptsText.parent().formParams()
+	,	setEditorBindings : function ( mode, $area ) {
+		that = this
+		editor = this.editors[ mode ]
 
-					$.pl.data.global = $.extend(true, $.pl.data.global, theCode)
+		// common bindings
+		editor.on('blur', that.triggerSave )
+		editor.on('change', function ( instance ) {
+			// Update the content of the textarea.
+			instance.save()
+			// get data object
+			dataobj = $area.parent().formParams();
+			// extend
+			$.pl.data.global = $.extend(true, $.pl.data.global, dataobj)
+		})
 
-
+		if ('less' === mode) {
+			editor.on('keydown', function (instance, e) {
+				if ( e.which == 13 && (e.metaKey || e.ctrlKey) ) {
+					var code = instance.getValue();
+					$('#pl-custom-less').text( that.compile( code ) )
 				}
-
-			})
-			editor2.on('blur', function(instance, changeObj){
-
-				$.plAJAX.saveData(	)
-			})
-
+			} )
 		}
 	}
 
+	,	setUIBindings : function () {
+		that = this
+
+		this.tabs.on('click', function () {
+			var type = $(this).data('tab-action')
+			,	mode = that.lookup[ type ]
+			,	editor = that.editors[ mode ]
+			editor.refresh()
+		})
+		this.panel.on('shown', function() {
+			$.each( that.editors, function (mode, editor) {
+				editor.refresh()
+			})
+		})
+	}
+
+	,	triggerSave : function () {
+		$.plAJAX.saveData()
+	}
 }
 
-}(window.jQuery);
+
+$(document).ready(function() {
+	$.plCode = new PL_Code
+})
+
+}( window.jQuery );
