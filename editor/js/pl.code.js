@@ -1,7 +1,8 @@
 !function ($) {
 
 PL_Code = function () {
-	this.panel    = $('[data-action="pl-design"]')
+	this.handletab = $('[data-action="pl-design"]')
+	this.panel = $('.panel-pl-design')
 	this.tabs     = $('[data-tab-action="user_less"], [data-tab-action="user_scripts"]')
 	this.compiler = new ( less.Parser )
 	this.txtarea  = {
@@ -85,16 +86,21 @@ PL_Code.prototype = {
 	,	setUIBindings : function () {
 		that = this
 
+		this.handletab.click( that.refreshEditors )
+		this.panel.on('shown', that.refreshEditors )
 		this.tabs.on('click', function () {
 			var type = $(this).data('tab-action')
 			,	mode = that.lookup[ type ]
 			,	editor = that.editors[ mode ]
 			editor.refresh()
 		})
-		this.panel.on('shown', function() {
-			$.each( that.editors, function (mode, editor) {
-				editor.refresh()
-			})
+	}
+
+	,	refreshEditors : function() {
+		that = $.plCode
+
+		$.each( that.editors, function (mode, editor) {
+			editor.refresh()
 		})
 	}
 
