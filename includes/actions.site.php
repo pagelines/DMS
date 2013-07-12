@@ -107,7 +107,7 @@ function gallery_filter( $a, $template_name) {
 
 $GLOBALS['render_css'] = new PageLinesRenderCSS;
 
-add_action( 'template_redirect', 'pl_check_integrations' );
+// add_action( 'template_redirect', 'pl_check_integrations' ); // shouldnt be needed now
 
 add_action( 'comment_form_before', 'pl_comment_form_js' );
 function pl_comment_form_js() {
@@ -134,7 +134,7 @@ function pagelines_register_js() {
 	wp_register_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), PL_CORE_VERSION, true );
 	wp_register_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), PL_CORE_VERSION, true );
 	wp_register_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	
+
 
 }
 
@@ -162,7 +162,7 @@ function pagelines_check_lessdev(){
 		&& defined( 'PL_LESS_DEV' )
 		&& PL_LESS_DEV
 		&& false == EditorLessHandler::is_draft()
-		) {	
+		) {
 		PageLinesRenderCSS::flush_version( false );
 	}
 }
