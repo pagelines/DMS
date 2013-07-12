@@ -39,7 +39,7 @@ class PageLinesEditor {
 
 		// hourly for testing...
 		if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
-  			wp_schedule_event( time(), 'hourly', 'pl_check_activation' );
+  			wp_schedule_event( time(), 'daily', 'pl_check_activation' );
 	}
 
 	function load_files(){
