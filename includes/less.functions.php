@@ -128,8 +128,20 @@ class PageLinesLess {
 	}
 
 	public static function add_bootstrap() {
+		return self::get_files_less( array('variables','colors','mixins') );
+	}
+
+	/**
+	 * Reads in raw less from an array of filenames to load
+	 * @uses  	self::load_less_file()
+	 * @see  	self::add_bootstrap()
+	 * 
+	 * @param  	array 	$files 	filenames
+	 * @return 	string 			less code
+	 */
+	public static function get_files_less( $files ) {
 		$less = '';
-		foreach ( array('variables','colors','mixins') as $file )
+		foreach ( (array) $files as $file )
 			$less .= self::load_less_file( $file );
 
 		return $less;

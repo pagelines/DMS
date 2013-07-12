@@ -68,7 +68,7 @@ class EditorLessHandler{
 
 			$data = $this->get_dynamic_css();
 			$data['sections'] = $this->get_all_active_sections();
-			$data['core'] = $this->get_core_lesscode();
+			$data['core'] = PageLinesRenderCSS::get_core_lesscode();
 
 			return $data;
 	}
@@ -148,18 +148,8 @@ class EditorLessHandler{
 			pl_flush_draft_caches( $this->draft_less_file );
 	}
 
-	/**
-	 *
-	 *  Get all core less as uncompiled code.
-	 *
-	 *  @package PageLines Framework
-	 *  @since 3.0
-	 *  @uses  load_core_cssfiles
-	 */
-	private function get_core_lesscode() {
-		global $render_css;
-		return $render_css->get_core_lesscode();
-	}
+
+
 
 	/**
 	 *

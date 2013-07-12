@@ -541,32 +541,16 @@ class PageLinesRenderCSS {
 
 	/**
 	 *
-	 *  Get Core LESS code
-	 *  Loads all core LESS files
+	 *  Load and return all core LESS file code
 	 *  @return string 	merged less code
 	 * 
 	 *  @package PageLines Framework
 	 *  @since 2.2
 	 */
-	function get_core_lesscode() {
-		$core_less = $this->load_core_cssfiles( $this->get_core_lessfiles() );
+	public static function get_core_lesscode() {
+		$core_files = self::get_core_lessfiles();
+		$core_less  = PageLinesLess::get_files_less( $core_files );
 		return apply_filters( 'pagelines_insert_core_less', $core_less );
-	}
-
-	/**
-	 *
-	 *  Helper for get_core_less_code()
-	 *
-	 *  @package PageLines Framework
-	 *  @since 2.2
-	 */
-	function load_core_cssfiles( $files ) {
-
-		$code = '';
-		foreach ( $files as $less )
-			$code .= PageLinesLess::load_less_file( $less );
-	
-		return $code;
 	}
 
 	/**
