@@ -38,8 +38,8 @@ class PageLinesEditor {
 		add_action( 'pl_check_activation', 'PLAccountPanel::activation_check_function' );
 
 		// hourly for testing...
-		if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
-  			wp_schedule_event( time(), 'daily', 'pl_check_activation' );
+		// if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
+  // 			wp_schedule_event( time(), 'daily', 'pl_check_activation' );
 	}
 
 	function load_files(){
