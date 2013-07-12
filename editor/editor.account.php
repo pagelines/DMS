@@ -50,11 +50,11 @@ class PLAccountPanel{
 			<a href="#" class="dms-tab-link btn btn-success btn-mini" data-tab-link="account" data-stab-link="account"><i class="icon-user"></i> Add Account Info</a>
 			
 		</p>
-		<p>
-			<iframe width="560" height="315" src="//www.youtube.com/embed/_EDemMLMcQ0" frameborder="0" allowfullscreen></iframe>
-		</p>
-		
 		<?php
+		/*<p>
+			<iframe width="560" height="315" src="//www.youtube.com/embed/_EDemMLMcQ0" frameborder="0" allowfullscreen></iframe>
+		</p>*/
+		
 	}
 
 	function pagelines_account(){
