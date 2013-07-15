@@ -51,6 +51,7 @@ function pl_editor_actions(){
 			global $load_sections;
 			$available = $load_sections->pagelines_register_sections( true, false );
 			$response['result'] = $available;
+			
 		} elseif( $run == 'load' ){
 
 			$section_object = $postdata['object'];
@@ -61,10 +62,14 @@ function pl_editor_actions(){
 			if( is_object($pl_section_factory->sections[ $section_object ]) ){
 
 				global $post;
+			
 				$post = get_post($postdata['pageID']);
 
 				$s = $pl_section_factory->sections[ $section_object ];
 
+				// needs to be set.. ??
+				$s->meta['content'] = array();
+				
 				$opts = $s->section_opts();
 
 				$opts = (is_array($opts)) ? $opts : array();
