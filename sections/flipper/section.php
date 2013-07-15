@@ -92,6 +92,32 @@ class PageLinesFlipper extends PageLinesSection {
 			'label' 		=> __( 'Total Posts Loaded', 'pagelines' ),
 			
 		);
+		
+		$options[] = array(
+			
+			'title' => __( 'Require Meta Key', 'pagelines' ),
+			'type'	=> 'multi',
+			'help'		=> __( 'Select only posts which have a certain meta key and corresponding meta value. Useful for featured posts, or similar.', 'pagelines' ),
+			'opts'	=> array(
+				array(
+					'key'			=> 'flipper_meta_key',
+					'type' 			=> 'text',
+				
+					'label' 	=> __( 'Meta Key', 'pagelines' ),
+				),
+				array(
+					'key'			=> 'flipper_meta_value',
+					'type' 			=> 'text',
+				
+					'label' 	=> __( 'Meta Key Value', 'pagelines' ),
+					
+				),
+				
+			
+			)
+
+		);
+		
 
 	
 		return $options;
@@ -118,6 +144,12 @@ class PageLinesFlipper extends PageLinesSection {
 			'posts_per_page' 	=> $total,
 			'post_type' 		=> $post_type
 		);
+		
+		if( $this->opt('flipper_meta_key') && $this->opt('flipper_meta_key') != '' && $this->opt('flipper_meta_value') ){
+			$the_query['meta_key'] = $this->opt('flipper_meta_key');
+			$the_query['meta_value'] = $this->opt('flipper_meta_value');
+		}
+		
 		query_posts( $the_query ); 
 		
 		if(have_posts()) { ?>
