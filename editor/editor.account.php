@@ -14,6 +14,8 @@ class PLAccountPanel{
 
 	function activation_check_function() {
 
+		wp_clear_scheduled_hook( 'pl_check_activation' );
+
 		// If not activated we dont need to check for activation /0!
 		if( ! pl_is_pro() )
 			return;
