@@ -6,6 +6,7 @@
 	Description: Displays your most popular, and latest posts as well as comments and tags in a tabbed format.
 	Class Name: PLWatermark
 	Filter: widgetized
+	Loading: active
 */
 
 class PLWatermark extends PageLinesSection {
@@ -109,10 +110,11 @@ class PLWatermark extends PageLinesSection {
 			<a href="<?php echo $twitter_url;?>" class="twitter-follow-button" data-width="150px" data-show-count="true" data-lang="en" data-show-screen-name="false">&nbsp;</a>
 
 		</div>
+		<?php if(!pl_is_pro()):?>
 		<div class="powered-by stack-element" style="display: block; visibility: visible; opacity: 1;">
 			<?php echo $powered;?>
 		</div>
-		
+		<?php endif; ?>
 		<?php echo $watermark; ?>
 	</div>
 	<?php
