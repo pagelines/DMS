@@ -95,7 +95,7 @@ class PageLinesFlipper extends PageLinesSection {
 		
 		$options[] = array(
 			
-			'title' => __( 'Require Meta Key', 'pagelines' ),
+			'title' => __( 'Query Meta Key', 'pagelines' ),
 			'type'	=> 'multi',
 			'help'		=> __( 'Select only posts which have a certain meta key and corresponding meta value. Useful for featured posts, or similar.', 'pagelines' ),
 			'opts'	=> array(
