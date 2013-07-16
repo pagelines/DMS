@@ -101,17 +101,20 @@ function pagelines_try_api( $url, $args ) {
 	$defaults = array(
 		'sslverify'	=>	false,
 		'timeout'	=>	5,
-		'body'		=> array()
+		'body'		=> array(),
+		'method'	=> 'post'
 	);
 
 	$options = wp_parse_args( $args, $defaults );
 	$prot = array( 'https://', 'http://' );
+	$command = sprintf( 'wp_remote_%s', $options['method'] );
 
+	$method = $options['method'];
 	foreach( $prot as $type ) {
 		// sometimes wamp does not have curl!
 		if ( $type === 'https://' && !function_exists( 'curl_init' ) )
 			continue;
-		$r = wp_remote_post( $type . $url, $options );
+		$r = $command( $type . $url, $options );
 		if ( !is_wp_error($r) && is_array( $r ) ) {
 			return $r;
 		}

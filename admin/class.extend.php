@@ -1183,7 +1183,7 @@
 
 		$url = trailingslashit( PL_API . $type );
 		if( 'all' == $type )
-			$url = 'www.pagelines.com/api/v4/all';
+			$url = 'www.pagelines.com/api/v5/store.json';
 
 		$options = array(
 			'body' => array(
@@ -1194,6 +1194,7 @@
 		);
 		// if v4 all, we just want stuff, its cached on the server.
 		if( 'all' == $type ) {
+				$options['method'] = 'get';
 				$response = pagelines_try_api( $url, $options );
 
 				if ( $response !== false ) {

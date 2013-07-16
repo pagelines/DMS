@@ -76,9 +76,9 @@ class EditorExtensions {
 			if( ! isset( $s['name'] ) )
 				continue;
 
-			$purchased = ( isset( $s['purchased'] ) ) ? $s['purchased'] : '';
+//			$purchased = ( isset( $s['purchased'] ) ) ? $s['purchased'] : '';
 
-			if( isset( $s['plus_product'] ) && true ==  $s['plus_product'] && defined( 'VPLUS' ) && VPLUS )
+//			if( isset( $s['plus_product'] ) && true ==  $s['plus_product'] && defined( 'VPLUS' ) && VPLUS )
 				$purchased = 'purchased';
 
 			$this->ext[ $key ] = array(
@@ -86,7 +86,7 @@ class EditorExtensions {
 				'desc'		=> $s['description'],
 				'thumb'		=> $s['thumb'],
 				'splash'	=> $s['splash'],
-				'purchase'	=>  sprintf( '%s,%s|%s|%s', $s['productid'], $s['uid'], $s['price'], $s['name'] ),
+				'purchase'	=> $s['overview'],
 				'owned'		=> ( 'free' == $s['price'] || 'purchased' == $purchased ) ? true : false,
 				'overview'	=> $s['overview'],
 				'type'		=> $s['type'],

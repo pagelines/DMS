@@ -6,8 +6,8 @@ class PageLinesExtendPanel{
 
 	function __construct(){
 
-		add_filter('pl_toolbar_config', array(&$this, 'toolbar'));
-		add_action('pagelines_editor_scripts', array(&$this, 'scripts'));
+		add_filter('pl_toolbar_config', array($this, 'toolbar'));
+		add_action('pagelines_editor_scripts', array($this, 'scripts'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
@@ -27,7 +27,7 @@ class PageLinesExtendPanel{
 					'name'	=> 'PageLines Store',
 					'filter'=> '*',
 					'type'	=> 'call',
-					'call'	=> array(&$this, 'the_store_callback'),
+					'call'	=> array($this, 'the_store_callback'),
 					'icon'	=> 'icon-gears'
 				),
 				'heading2'	=> "<i class='icon-filter'></i> Filters",
@@ -78,12 +78,12 @@ class PageLinesExtendPanel{
 		//		'upload'	=> array(
 		//			'name'	=> 'Upload',
 		//			'icon'	=> 'icon-upload',
-		//			'call'	=> array(&$this, 'upload_callback'),
+		//			'call'	=> array($this, 'upload_callback'),
 		//		),
 				'search'	=> array(
 					'name'	=> 'Search',
 					'icon'	=> 'icon-search',
-					'call'	=> array(&$this, 'search_callback'),
+					'call'	=> array($this, 'search_callback'),
 				),
 			)
 		);

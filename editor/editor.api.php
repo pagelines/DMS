@@ -7,7 +7,7 @@
 class EditorStoreFront extends PageLinesAPI {
 
 	function __construct(){
-		$this->data_url = $this->base_url . '/v4/all';
+		$this->data_url = $this->base_url . '/v5/store.json';
 		$this->username = get_pagelines_credentials( 'user' );
 		$this->password = get_pagelines_credentials( 'pass' );
 		$this->bootstrap();
@@ -127,13 +127,9 @@ class PageLinesAPI {
 	 *  @since 3.0
 	 */
 	function json_get( $url ) {
-
 		$options = array(
 			'timeout'	=>	15,
-			'body' => array(
-				'username'	=>	( $this->username != '' ) ? $this->username : false,
-				'password'	=>	( $this->password != '' ) ? $this->password : false,
-			)
+			'method'	=> 'get',
 		);
 		$f  = $this->try_api( $url, $options );
 		return wp_remote_retrieve_body( $f );
@@ -151,15 +147,20 @@ class PageLinesAPI {
 		$defaults = array(
 			'sslverify'	=>	false,
 			'timeout'	=>	5,
-			'body'		=> array()
+			'body'		=> array(),
+			'method'	=> 'post'
 		);
 		$options = wp_parse_args( $args, $defaults );
+		$command = sprintf( 'wp_remote_%s', $options['method'] );
+
+		if( 'get' == $options['method'] )
+			$options = array();
 
 		foreach( $this->prot as $type ) {
 			// sometimes wamp does not have curl!
 			if ( $type === 'https://' && ! function_exists( 'curl_init' ) )
 				continue;
-			$r = wp_remote_post( $type . $url, $options );
+			$r = $command( $type . $url, $options );
 			if ( !is_wp_error($r) && is_array( $r ) ) {
 				return $r;
 			}
