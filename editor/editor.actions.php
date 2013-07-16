@@ -249,13 +249,13 @@ function pl_upload_config_file(){
 add_action('wp_ajax_pl_editor_mode', 'pl_editor_mode');
 function pl_editor_mode(){
 
-	$data = $_POST;
+	$postdata = $_POST;
 	$key = 'pl_editor_state';
-	$user_id = $data['userID'];
+	$user_id = $postdata[ 'userID' ];
 
 	$current_state = get_user_meta($user_id, $key, true);
 
-	$new_state = ($current_state == 'on') ? 'off' : 'on';
+	$new_state = (!$current_state || $current_state == 'on' || $current_state == '') ? 'off' : 'on';
 
 	update_user_meta( $user_id, $key, $new_state );
 
