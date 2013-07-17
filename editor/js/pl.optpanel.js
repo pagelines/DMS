@@ -789,11 +789,10 @@
 				}
 				
 				if( theAction == 'reset_cache') {
-					var confirmText = "<h3>Are you sure?</h3><p>This will clear the LESS/CSS cached data.</p>"
 					var args = {
 							mode: 'settings'
 						,	run: theAction
-						,	confirm: true
+						,	confirm: false
 						,	confirmText: confirmText
 						,	savingText: 'Flushing Caches'
 						,	refresh: false
