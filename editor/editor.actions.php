@@ -334,3 +334,22 @@ function pl_up_image (){
 	}
 	die(); // don't forget this, always returns 0 w/o
 }
+
+add_filter( 'pagelines_global_notification', 'pagelines_check_folders_dms');
+function pagelines_check_folders_dms( $note ) {
+	$folder = basename( get_template_directory() );
+
+	if( 'dms' == $folder )
+		return $note;
+		
+	ob_start(); ?>
+
+		<div class="alert alert-important">
+
+		  	<strong><i class="icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
+
+		</div>
+		
+		<?php return ob_get_clean();
+
+}
