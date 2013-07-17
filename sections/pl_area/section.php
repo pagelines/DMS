@@ -196,7 +196,7 @@ class PLSectionArea extends PageLinesSection {
 	?>
 	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
 		<div class="pl-content <?php echo $content_class;?>">
-			<div class="pl-inner area-region pl-sortable-area" style="<?php echo $inner_style;?>">
+			<div class="pl-inner area-region pl-sortable-area editor-row" style="<?php echo $inner_style;?>">
 				<?php  echo $section_output; ?>
 			</div>
 		</div>

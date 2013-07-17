@@ -6,17 +6,8 @@
 	// --> Initialize
 	$(document).ready(function() {
 
-		
-
-		$(".dropdown-toggle").dropdown()
-
-		$.plHotKeys.init()
-
 		$.pageTools.startUp()
 		
-		
-		
-
 	})
 	
 	$.plHotKeys = {
@@ -48,6 +39,10 @@
 	$.pageTools = {
 
 		startUp: function(){
+			
+			$.plHotKeys.init()
+			
+			$(".dropdown-toggle").dropdown()
 
 			$.pageBuilder.reloadConfig({ location: 'start', storeMap: false})
 
@@ -754,7 +749,7 @@
 		} 
 
         , reloadConfig: function( obj ) {
-			
+		
 			$('.pl-sortable-area')
 				.addClass('editor-row')
 				.find('.pl-section')
