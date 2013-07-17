@@ -1194,7 +1194,7 @@
 		);
 		// if v4 all, we just want stuff, its cached on the server.
 		if( 'all' == $type ) {
-				$options['method'] = 'get';
+				$options['method'] = 'GET';
 				$response = pagelines_try_api( $url, $options );
 
 				if ( $response !== false ) {

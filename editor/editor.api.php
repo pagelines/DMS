@@ -129,7 +129,7 @@ class PageLinesAPI {
 	function json_get( $url ) {
 		$options = array(
 			'timeout'	=>	15,
-			'method'	=> 'get',
+			'method'	=> 'GET',
 		);
 		$f  = $this->try_api( $url, $options );
 		return wp_remote_retrieve_body( $f );
@@ -148,7 +148,7 @@ class PageLinesAPI {
 			'sslverify'	=>	false,
 			'timeout'	=>	5,
 			'body'		=> array(),
-			'method'	=> 'post'
+			'method'	=> 'POST'
 		);
 		$options = wp_parse_args( $args, $defaults );
 		$command = sprintf( 'wp_remote_%s', $options['method'] );
