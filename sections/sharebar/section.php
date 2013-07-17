@@ -35,14 +35,8 @@ class PageLinesShareBar extends PageLinesSection {
         ?>
 
         <div class="pl-sharebar">
-            <div class="pl-sharebar-pad media">
-                
-                <div class="bd fix">
-                    <?php
-                    echo $this->get_shares();
-                    ?>
-                </div>
-
+            <div class="pl-sharebar-pad">
+                <?php echo $this->get_shares(); ?>
                 <div class="clear"></div>
             </div>
         </div>
