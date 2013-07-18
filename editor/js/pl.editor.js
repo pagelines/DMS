@@ -7,7 +7,7 @@
 	$(document).ready(function() {
 
 		$.pageTools.startUp()
-		
+
 	})
 	
 	$.plHotKeys = {
@@ -39,9 +39,9 @@
 	$.pageTools = {
 
 		startUp: function(){
-			
+
 			$.plHotKeys.init()
-			
+
 			$(".dropdown-toggle").dropdown()
 
 			$.pageBuilder.reloadConfig({ location: 'start', storeMap: false})
@@ -57,8 +57,8 @@
 			this.bindUIActions()
 			
 			that.toggleGrid( true )
-			
-			
+
+
 
 
 		}
@@ -87,9 +87,9 @@
 				if( btnAction == 'drag-drop' )
 					$.pageBuilder.showEditingTools()
 				else if( btn.hasClass('btn-panel') )
-					that.showPanel(btnAction)
+					$.pageTools.showPanel(btnAction)
 				else if( btn.hasClass('btn-toggle-grid') )
-					that.toggleGrid( )
+					$.pageTools.toggleGrid( )
 			})
 
 			$(".btn-action").on("click.actionButton", function(e) {
@@ -327,12 +327,8 @@
 						return
 					}
 
-					if (tabFlag == 'custom-scripts'){
 
-
-						$.plCode.activateScripts()
-
-					} else if ( tabFlag == 'link-storefront' ){
+					if ( tabFlag == 'link-storefront' ){
 
 						e.preventDefault()
 
@@ -362,6 +358,7 @@
 			selectedPanel
 				.addClass('current-panel')
 				.show()
+				.trigger('shown')
 
 
 			// Has to be after shown
@@ -382,10 +379,6 @@
 				selectedPanel
 					.find('.panel-tab-content')
 					.html(liveFrame)
-
-			} else if (key == 'pl-design'){
-				
-				$.plCode.activateLESS()
 
 			} else if (key == 'section-options'){
 
@@ -749,7 +742,7 @@
 		} 
 
         , reloadConfig: function( obj ) {
-		
+
 			$('.pl-sortable-area')
 				.addClass('editor-row')
 				.find('.pl-section')
