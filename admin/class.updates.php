@@ -4,21 +4,17 @@ class PageLinesUpdateCheck {
     function __construct( $version = null ){
 
 		global $current_user;
-    	$this->url_theme = apply_filters( 'pagelines_theme_update_url', PL_API . 'v3' );
-    	$this->theme  = 'PageLines';
+    	$this->url_theme = apply_filters( 'pagelines_theme_update_url', PL_API . 'dms-updates' );
+    	$this->theme  = 'DMS';
  		$this->version = $version;
-		$this->username = get_pagelines_credentials( 'user' );
-		$this->password = get_pagelines_credentials( 'pass' );
+
+		$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
+
+		$this->email	 = $status['email'];
+		$this->key = $status['key'];
 
 		$this->site_tran = get_site_transient('update_themes');
 
-		get_currentuserinfo();
-		$bad_users = apply_filters( 'pagelines_updates_badusernames', array( 'admin', 'root', 'test', 'testing', '' ) );
-		if ( in_array( strtolower( $this->username ),  $bad_users ) ) {
-			delete_option( 'pagelines_extend_creds' );
-			$this->username = '';
-			$this->password = '';
-		}
 		$this->pagelines_theme_check_version();
     }
 
@@ -27,17 +23,18 @@ class PageLinesUpdateCheck {
 	 */
 	function pagelines_theme_check_version() {
 
-		if ( get_pagelines_option('disable_updates') == true )
+		if ( true == get_pagelines_option('disable_updates') || ! pl_is_pro() )
 			return;
-		if ( !VPRO ) {
-			$this->pagelines_theme_update_check();
-		} else {
-			add_action('admin_notices', array(&$this,'pagelines_theme_update_nag') );
-			add_filter('site_transient_update_themes', array(&$this,'pagelines_theme_update_push') );
-			add_filter('transient_update_themes', array(&$this,'pagelines_theme_update_push') );
-			add_action('load-update.php', array(&$this,'pagelines_theme_clear_update_transient') );
-			add_action('load-themes.php', array(&$this,'pagelines_theme_clear_update_transient') );
-		}
+		$folder = basename( get_template_directory() );
+
+		if( 'dms' != $folder )
+			return;
+		
+		add_action('admin_notices', array(&$this,'pagelines_theme_update_nag') );
+		add_filter('site_transient_update_themes', array(&$this,'pagelines_theme_update_push') );
+		add_filter('transient_update_themes', array(&$this,'pagelines_theme_update_push') );
+		add_action('load-update.php', array(&$this,'pagelines_theme_clear_update_transient') );
+		add_action('load-themes.php', array(&$this,'pagelines_theme_clear_update_transient') );
 	}
 
 		/**
@@ -56,15 +53,6 @@ class PageLinesUpdateCheck {
 			}
 			return $value;
 		}
-
-	/**
-	 * TODO Document!
-	 */
-	function bad_creds( $errors ) {
-		$errors['api']['title'] = 'API error';
-		$errors['api']['text'] = 'Launchpad Username and Password are required for automatic updates.';
-		return $errors;
-	}
 
 	/**
 	 * TODO Document!
@@ -89,7 +77,7 @@ class PageLinesUpdateCheck {
 		if ( ! is_super_admin() || ! $pagelines_update || ! current_user_can( 'edit_themes' ) )
 			return false;
 
-		if ( $this->username == '' || $this->password == '' || $pagelines_update['package'] == 'bad' ) {
+		if ( $this->email == '' || $this->key == '' || $pagelines_update['package'] == 'bad' ) {
 
 			//	add_filter('pagelines_admin_notifications', array(&$this,'bad_creds') );
 
@@ -97,7 +85,7 @@ class PageLinesUpdateCheck {
 
 		echo '<div class="updated">';
 
-		printf( '<p>%s Framework %s is available.', $this->theme, esc_html( $pagelines_update['new_version'] ) );
+		printf( '<p>%s v%s is available.', $this->theme, esc_html( $pagelines_update['new_version'] ) );
 
 		printf(
 			' %s',
@@ -128,8 +116,8 @@ class PageLinesUpdateCheck {
 						'php_version'	=> phpversion(),
 						'uri'			=> home_url(),
 						'theme'			=> $this->theme,
-						'user'			=> $this->username,
-						'password'		=> $this->password,
+						'email'			=> $this->email,
+						'key'			=> $this->key,
 						'user-agent'	=> "WordPress/$wp_version;"
 					)
 			);
@@ -151,7 +139,7 @@ class PageLinesUpdateCheck {
 			if ( isset( $pagelines_update['licence'] ) )
 				update_pagelines_licence( $pagelines_update['licence'] );
 
-			$this->pagelines_get_user_updates();
+		//	$this->pagelines_get_user_updates();
 
 		}
 
