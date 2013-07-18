@@ -14,15 +14,15 @@ class PageLinesDashboard {
 		$rss = new PageLines_RSS;
 		$updates = $this->get_updates();
 
-		$args = array(
-			'title'	=> __( 'Your Available Updates', 'pagelines' ),
-			'data'	=> $updates,
-			'icon'	=> PL_ADMIN_ICONS . '/download.png',
-			'excerpt-trim'	=> 0
-		);
-
-		if ( ! EXTEND_NETWORK && !pl_has_editor())
-			$dashboards = $this->dashboard_pane('updates', $args);
+		// $args = array(
+		// 	'title'	=> __( 'Your Available Updates', 'pagelines' ),
+		// 	'data'	=> $updates,
+		// 	'icon'	=> PL_ADMIN_ICONS . '/download.png',
+		// 	'excerpt-trim'	=> 0
+		// );
+		// 
+		// if ( ! EXTEND_NETWORK && !pl_has_editor())
+		// 	$dashboards = $this->dashboard_pane('updates', $args);
 
 		// PageLines Blog Dashboard
 
