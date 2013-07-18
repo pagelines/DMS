@@ -307,7 +307,7 @@ class EditorInterface {
 			</ul>
 			<ul class="unstyled controls send-right">
 				
-				<!--<li class="li-draft"><span class="btn-toolbox btn-save btn-draft" data-mode="draft"><i class="icon-save"></i> <span class="txt">Preview</span></li>-->
+				<li class="li-refresh type-btn"><span class="btn-toolbox btn-save btn-refresh" data-mode="pagerefresh" title="Refresh needed to view changes."><i class="icon-refresh"></i></li>
 				<li class="li-publish"><span class="btn-toolbox btn-save btn-publish" data-mode="publish" title="Publish Live (alt+s)"><i class="icon-ok"></i> <span class="txt">Publish</span></li>
 
 			</ul>

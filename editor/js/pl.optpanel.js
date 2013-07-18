@@ -240,8 +240,6 @@
 
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], that.activeForm.formParams())
 		
-				$.pl.flags.refreshOnSave = true;
-
 				if(uniqueID)
 					var sel = sprintf('[data-clone="%s"] [data-sync="%s"]', uniqueID, theInput.attr('id'))
 				else 	
@@ -275,7 +273,7 @@
 				} else {
 				
 					$.pl.flags.refreshOnSave = true
-					$('.btn-save i').addClass('icon-refresh').removeClass('icon-ok')
+					$('.li-refresh').show()
 				}
 
 				

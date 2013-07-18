@@ -108,7 +108,8 @@
 .pl-region-bar,
 .pl-area-controls,
 .pl-column-forcer,
-.pl-sortable-buffer{
+.pl-sortable-buffer, 
+.li-refresh{
 	display: none;
 }
 
@@ -786,11 +787,14 @@
 						font-size: 1.4em;
 						vertical-align: middle;
 					}
+					&.btn-publish,
+					&.btn-refresh{
+						i{ color: #225E9B;}
+					}
 					&.btn-publish{
 						padding: 0 10px;
 						height: 28px;
 						#gradient > .vertical(#ddd, #ccc);
-						i{ color: #225E9B;}
 					}
 					&.btn-state{
 						padding: 0 10px;

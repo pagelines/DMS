@@ -193,18 +193,17 @@
 
 			var that = this
 
-
-
-			$( '.btn-save' ).on('click.saveButton', function(){
-
-				var btn = $(this)
-				,	run = (btn.data('mode')) ? btn.data('mode') : ''
+			$( '.btn-publish' ).on('click.saveButton', function(){
 
 				$.plAJAX.saveData( { 
-					run: run, 
-					refresh: $.pl.flags.refreshOnSave 
+					run: 'publish'
 				} )
 
+
+			})
+			
+			$( '.btn-refresh' ).on('click.saveButton', function(){
+				location.reload()
 
 			})
 
