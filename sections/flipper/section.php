@@ -72,9 +72,26 @@ class PageLinesFlipper extends PageLinesSection {
 		);
 		
 		$options[] = array(
-			'key'			=> 'flipper_title',
-			'type' 			=> 'text',
-			'label' 		=> __( 'Flipper Title', 'pagelines' ),
+			
+			'title' => __( 'Flipper Title', 'pagelines' ),
+			'type'	=> 'multi',
+			'help'		=> __( 'Options to control the text and link in the Flipper title.', 'pagelines' ),
+			'opts'	=> array(
+				array(
+					'key'			=> 'flipper_title',
+					'type' 			=> 'text',
+					'label' 		=> __( 'Flipper Title Text', 'pagelines' ),
+				),
+				array(
+					'key'			=> 'flipper_hide_title_link',
+					'type' 			=> 'check',
+					'label' 	=> __( 'Hide Title Link?', 'pagelines' ),
+					
+				),
+				
+			
+			)
+
 		);
 		
 		$options[] = array(
@@ -136,6 +153,8 @@ class PageLinesFlipper extends PageLinesSection {
 		
 		$title = ($this->opt('flipper_title')) ? $this->opt('flipper_title') : $pt->label; 
 		
+		$hide_link = ($this->opt('flipper_hide_title_link')) ? $this->opt('flipper_hide_title_link') : false; 
+		
 		$meta = ($this->opt('flipper_meta')) ? $this->opt('flipper_meta') : '[post_date] [post_edit]'; 
 		
 		
@@ -163,7 +182,7 @@ class PageLinesFlipper extends PageLinesSection {
 							
 							$archive_link = get_post_type_archive_link( $post_type );
 							
-							if( $archive_link ){
+							if( $archive_link && !$hide_link ){
 								printf( '<a href="%s" > %s</a>', 
 									$archive_link, 
 									__(' / View All', 'pagelines')
