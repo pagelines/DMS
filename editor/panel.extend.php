@@ -174,6 +174,9 @@ class PageLinesExtendPanel{
 			$img = sprintf('<img src="%s" style=""/>', $item['thumb']);
 
 			$sub = ($item['price'] == 'free') ? __('Free!', 'pagelines') : '$'.$item['price'];
+			
+			if( $item['sale'] )
+				$sub = sprintf( '<s>%s</s> %s', $item['price'], $item['sale']);
 
 			$class[] = ($item['price'] == 'free') ? 'free-item' : 'premium-item';
 

@@ -36,6 +36,8 @@ $.plExtend = {
 		,	ext				= $.pl.config.extensions[theID] || false
 		,	overviewLink	= ext.overview || false
 		,	demoLink 		= ext.demo || false
+		,	author			= ext.author || false
+		,	authorURL		= ext.author_url || false
 		,	purchase		= ext.purchase || false
 		,	Owned			= ext.owned || false
 		,	ptext			= 'Download'
@@ -57,18 +59,21 @@ $.plExtend = {
 		if(!Owned && !Status)
 			buttons = sprintf('<a href="https://www.pagelines.com/api/paypal/button.php?paypal=%s" class="btn btn-primary x-remove"><i class="icon-money"></i> Purchase</a> ', payLink)
 
-		if(Status == 'active' )
-			buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-remove"></i> Deactivate</a> ', Deactivate )
-		if(Status == 'installed' )
-			buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-ok"></i> Activate</a> ', Activate)
-		if(Owned && !Status)
-			buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-cloud-download"></i> Install</a> ', InstallLink)
+		// if(Status == 'active' )
+		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-remove"></i> Deactivate</a> ', Deactivate )
+		// if(Status == 'installed' )
+		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-ok"></i> Activate</a> ', Activate)
+		// if(Owned && !Status)
+		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-cloud-download"></i> Install</a> ', InstallLink)
 
 		if(overviewLink)
-			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-external-link"></i> Full Overview</a> ', overviewLink)
+			buttons += sprintf('<a href="%s" class="btn btn-primary x-remove" target="_blank"><i class="icon-money"></i> Purchase</a> ', overviewLink)
 
 		if(demoLink)
 			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-desktop"></i> Demo</a> ', demoLink)
+			
+		if(authorURL && author)
+			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-external-link"></i> Author: %s</a> ', authorURL, author)
 
 		return buttons
 	}

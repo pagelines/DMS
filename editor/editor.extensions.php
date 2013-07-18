@@ -90,7 +90,9 @@ class EditorExtensions {
 				'owned'		=> ( 'free' == $s['price'] || 'purchased' == $purchased ) ? true : false,
 				'overview'	=> $s['overview'],
 				'type'		=> $s['type'],
-				'status'	=> $this->get_ext_state( $key, $s['type'] )
+				'status'	=> $this->get_ext_state( $key, $s['type'] ),
+				'author_url'	=> $s['author_url'],
+				'author'	=> $s['author']
 			);
 		}
 	}
