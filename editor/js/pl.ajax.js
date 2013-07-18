@@ -203,6 +203,7 @@
 			})
 			
 			$( '.btn-refresh' ).on('click.saveButton', function(){
+				window.onbeforeunload = null
 				location.reload()
 
 			})
