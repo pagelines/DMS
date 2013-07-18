@@ -182,4 +182,19 @@ class PageLinesPage {
 
 }
 
+function pl_page_id(){
+	global $plpg; 
+	return $plpg->id; 
+}
+
+function pl_type_id(){
+	global $plpg; 
+	return $plpg->typeid; 
+}
+
+function pl_type_slug(){
+	global $plpg; 
+	return $plpg->type; 
+}
+
 
