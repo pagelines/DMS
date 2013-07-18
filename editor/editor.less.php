@@ -16,6 +16,20 @@ class EditorLess extends EditorLessHandler {
 	}
 
 	/**
+	 * Output raw core less into footer for use with less.js
+	 * Will output the same LESS that is used when compiling with PHP
+	 * Allows for all custom variables, mixins, as well as any filtered/overriden files
+	 */
+	function print_core_less() {
+		
+		$core_less = $this->pless->add_constants('') . $this->pless->add_bootstrap();
+
+		printf('<div id="pl_core_less" style="display:none;">%s</div>', 
+			$this->minify( $core_less )
+		);
+	}
+
+	/**
 	 *
 	 *  Display Draft Less.
 	 *
