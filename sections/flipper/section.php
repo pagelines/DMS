@@ -150,9 +150,9 @@ class PageLinesFlipper extends PageLinesSection {
 			$the_query['meta_value'] = $this->opt('flipper_meta_value');
 		}
 		
-		query_posts( $the_query ); 
+		$posts = get_posts( $the_query ); 
 		
-		if(have_posts()) { ?>
+		if(!empty($posts)) { setup_postdata( $post ); ?>
 				
 				<div class="flipper-heading">
 					<div class="flipper-title">
@@ -187,13 +187,18 @@ class PageLinesFlipper extends PageLinesSection {
 				<ul class="row flipper-items text-align-center flipper" data-scroll-speed="800" data-easing="easeInOutQuart" data-shown="<?php echo $shown;?>">
 		<?php } ?>
 			
-			<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+			<?php 
+			if(!empty($posts)):
+				 foreach( $posts as $post ): setup_postdata( $post ); ?> 
 			
 				
 			<li style="">
 				
 				<div class="flipper-item fix">
 					<?php 
+					global $product;
+					$product = get_product($post->ID);
+					
 					if ( has_post_thumbnail() ) { 
 						echo get_the_post_thumbnail( $post->ID, 'aspect-thumb', array('title' => '')); 
 					} else { 
@@ -223,7 +228,7 @@ class PageLinesFlipper extends PageLinesSection {
 				
 				<div class="flipper-meta">
 					<h4 class="flipper-post-title"><?php the_title(); ?></h4>
-					<div class="flipper-metabar"><?php echo do_shortcode( $meta ); ?></div>
+					<div class="flipper-metabar"><?php echo do_shortcode( apply_filters('pl_flipper_meta', $meta, $post->ID, pl_type_slug() )); ?></div>
 				</div>
 			
 				
@@ -231,11 +236,13 @@ class PageLinesFlipper extends PageLinesSection {
 				
 			</li>
 			
-			<?php endwhile; endif; 
+			<?php endforeach; endif; 
 			
 			
-			if(have_posts())
+			if(!empty($posts))
 		 		echo '</ul></div>'; 
+		
+		//	wp_reset_query();
 	
 	}
 
