@@ -31,12 +31,12 @@ class PageLinesExtendPanel{
 					'icon'	=> 'icon-gears'
 				),
 				'heading2'	=> "<i class='icon-filter'></i> Filters",
-				'plus'		=> array(
-					'name'	=> 'Plus Extensions',
-					'href'	=> '#store',
-					'filter'=> '.plus',
-					'icon'	=> 'icon-plus-sign'
-				),
+				// 'plus'		=> array(
+				// 	'name'	=> 'Plus Extensions',
+				// 	'href'	=> '#store',
+				// 	'filter'=> '.plus',
+				// 	'icon'	=> 'icon-plus-sign'
+				// ),
 				'featured'		=> array(
 					'name'	=> 'Featured',
 					'href'	=> '#store',
