@@ -9,7 +9,6 @@ class EditorCode{
 		add_filter( 'pl_toolbar_config',		array(&$this, 'toolbar'));
 		
 		add_action( 'pagelines_editor_scripts',	array(&$this, 'scripts'));
-		add_action( 'pagelines_head_last',		array(&$this, 'draw_custom_styles' ), 200 );
 		add_action( 'pagelines_head_last',		array(&$this, 'draw_custom_scripts' ) );
 
 		$this->url = PL_PARENT_URL . '/editor';
@@ -33,6 +32,10 @@ class EditorCode{
 		wp_enqueue_script( 'pl-less-parser',	$this->url . '/js/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
 		wp_enqueue_script( 'pl-js-code',		$this->url . '/js/pl.code.js', array( 'jquery', 'codemirror', 'pl-less-parser' ), PL_CORE_VERSION, true );
 		
+		// less.js
+		$lessjs_config = array('env' => is_pl_debug() ? 'development' : 'production');
+		wp_localize_script( 'pl-less-parser', 'less', $lessjs_config );
+
 		// Codebox defaults
 		$base_editor_config = array(
 			'lineNumbers'  => true,
@@ -65,20 +68,6 @@ class EditorCode{
 			);
 
 		return $toolbar;
-	}
-
-	function draw_custom_styles(){
-
-		global $pldraft;
-		if( ! is_object( $pldraft ) || is_object( $pldraft ) && $pldraft->mode != 'draft' )
-			return;
-		
-		$lessjs_config = array(
-			'env' => is_pl_debug() ? 'development' : 'production'
-		);
-		wp_localize_script( 'pl-less-parser', 'less', $lessjs_config );
-		
-		printf('<style id="pl-custom-less" type="text/css">%s</style>', pl_setting( 'custom_less' ) );
 	}
 
 	function draw_custom_scripts(){
