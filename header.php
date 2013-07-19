@@ -43,7 +43,8 @@ else:  ?>
 			<?php pagelines_template_area('pagelines_fixed_top', 'fixed_top'); // Hook ?>
 		</div>
 		<div class="fixed-top-pusher"></div>
-	
+		<script> jQuery('.fixed-top-pusher').height( jQuery('.pl-fixed-top').height() ) </script>
+		
 		<div class="pl-region-wrap">
 			<div id="page" class="thepage page-wrap">
 
