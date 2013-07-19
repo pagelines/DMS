@@ -11,7 +11,6 @@
 	padding: 4px 10px 4px;
 	margin-bottom: 0; // For input.btn
 	font-size: @buttonFontSize;
-	font-family: @buttonFontFamily;
 	line-height: @baseLineHeight - 1;
 	color: @grayDark;
 	text-align: center;
@@ -29,14 +28,14 @@
 	.ie7-restore-left-whitespace();
 	
 	&:hover {
-	  color: @grayDark;
-	  text-decoration: none;
-	  background-color: @btnBackgroundHighlight;
-	  background-position: 0 -15px;
+		color: @grayDark;
+		text-decoration: none;
+		background-color: @btnBackgroundHighlight;
+		background-position: 0 -25px;
 
-	  // transition is only when going to hover, otherwise the background
-	  // behind the gradient (there for IE<=9 fallback) gets mismatched
-	  .transition(background-position .1s linear);
+		// transition is only when going to hover, otherwise the background
+		// behind the gradient (there for IE<=9 fallback) gets mismatched
+		.transition(background-position .1s linear);
 	}
 	&:focus {
 	  .tab-focus();
@@ -52,6 +51,7 @@ body a.btn:hover {
 // Active state
 .btn.active,
 .btn:active {
+	.translate3d(0, 1px, 0);
   background-image: none;
   @shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
   .box-shadow(@shadow);
@@ -76,35 +76,37 @@ body a.btn:hover {
 
 // Large
 .btn-large {
-  padding: 12px 16px;
-  font-size: @buttonFontSize + 2px;
-  line-height: normal;
-  .border-radius( 3px );
-}
-.btn-large [class^="icon-"] {
-  margin-top: 1px;
+	padding: 14px 20px;
+	font-size: @buttonFontSize + 4px;
+	line-height: normal;
+	.border-radius( 3px );
+	[class^="icon-"] {
+		margin-top: 1px;
+	}
 }
 
 // Small
 .btn-small {
-  padding: @paddingSmall;
-  font-size: @fontSizeSmall;
-  .border-radius(@borderRadiusSmall);
+	padding: @paddingSmall;
+	font-size: @fontSizeSmall;
+	.border-radius(@borderRadiusSmall);
+	[class^="icon-"],
+	[class*=" icon-"] {
+	  margin-top: 0;
+	}
 }
-.btn-small [class^="icon-"],
-.btn-small [class*=" icon-"] {
-  margin-top: 0;
-}
-.btn-mini [class^="icon-"],
-.btn-mini [class*=" icon-"] {
-  margin-top: -1px;
-}
+
+
 
 // Mini
 .btn-mini {
-  padding: 2px 6px;
-  font-size: 11px;
-  line-height: 14px;
+	padding: 2px 6px;
+	font-size: 11px;
+	line-height: 14px;
+	[class^="icon-"],
+	[class*=" icon-"] {
+ 		margin-top: -1px;
+	}
 }
 
 
