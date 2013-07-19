@@ -196,7 +196,7 @@ class PLMasthead extends PageLinesSection {
 				$btheme = ( $this->opt( 'masthead_button_theme_'.$i, $this->oset ) ) ? $this->opt( 'masthead_button_theme_'.$i, $this->oset ) : 'primary';
 
 				if($btn_link)
-					printf('<a %s class="btn btn-%s btn-large" href="%s" data-sync="masthead_button_text_%s">%s</a> ', $target, $btheme, $btn_link, $i, $btn_text);
+					printf('<a %s class="btn %s btn-large" href="%s" data-sync="masthead_button_text_%s">%s</a> ', $target, $btheme, $btn_link, $i, $btn_text);
 			}
 
 	    ?>
