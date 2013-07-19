@@ -564,7 +564,7 @@ function pl_icon_array(){
 	
 	$r = asort($icons);
 	$icons = array_values($icons);
-	return $icons;
+	return apply_filters( 'pl_icon_array', $icons );
 }
 
 function pl_button_classes(){
