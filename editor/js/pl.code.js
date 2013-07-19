@@ -76,8 +76,9 @@ PL_Code.prototype = {
 		if ('less' === mode) {
 			editor.on('keydown', function (instance, e) {
 				if ( e.which == 13 && (e.metaKey || e.ctrlKey) ) {
-					var code = instance.getValue();
-					$('#pl-custom-less').text( that.compile( code ) )
+					var code = instance.getValue()
+					// update custom css
+					$('#pagelines-custom').text( that.compile( code ) )
 				}
 			} )
 		}
