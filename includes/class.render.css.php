@@ -358,7 +358,7 @@ class PageLinesRenderCSS {
 
 		$parent = apply_filters( 'pl_parent_css_url', PL_PARENT_URL );
 		
-		$url = add_query_arg( 'pageless', $version, site_url() );
+		$url = add_query_arg( 'pageless', $version, trailingslashit( site_url() ) );
 		
 		if ( defined( 'DYNAMIC_FILE_URL' ) )
 			$url = DYNAMIC_FILE_URL;
