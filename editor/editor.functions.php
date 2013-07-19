@@ -201,9 +201,9 @@ function pl_animation_array(){
  */
 function pl_icon_array() {
 
-	$iconsdotless = locate_template( array( 'less/icons.less' ) );
+	$iconsdotless = PL_CORE_LESS . '/icons.less';
 	$modified     = filemtime( $iconsdotless );
-	$cached       = pl_cache_get('icon_array', 'regenerate_pl_icons', array( $iconsdotless, $modified ), 0 );
+	$cached       = pl_cache_get('icon_array', 'regenerate_pl_icons', array(), 0 );
 
 	$d = array(
 		'modified' => '',
@@ -212,25 +212,26 @@ function pl_icon_array() {
 	$saved = wp_parse_args( $cached, $d );
 	
 	if ( !is_array( $saved['icons'] ) || $saved['modified'] != $modified )
-		$saved = regenerate_pl_icons( $iconsdotless, $modified );
+		$saved = regenerate_pl_icons();
 
 	return apply_filters( 'pl_icons', $saved['icons'] );
 }
 
-function regenerate_pl_icons( $filepath, $modified = false ) {
+function regenerate_pl_icons() {
 
-	$rawfile	= pl_file_get_contents( $filepath );
-	$start      = strpos( $rawfile, '.icon-glass:before'); // find the pos of the first icon
-	$raw_icons  = substr( $rawfile, $start ); // slice off the part we want
+	$iconsdotless = PL_CORE_LESS . '/icons.less';
+	$rawfile      = pl_file_get_contents( $iconsdotless );
+	$start        = strpos( $rawfile, '.icon-glass:before' ); // find the pos of the first icon
+	$raw_icons    = substr( $rawfile, $start ); // slice off the part we want
+
 	// get them all
 	preg_match_all('/\.icon-([^:]+)/', $raw_icons, $icons);
-
 	// grab all the captured matches
 	$icon_array = $icons[1];
 	sort( $icon_array );
 
 	return array(
-		'modified' => $modified ? $modified : filemtime( $filepath ),
+		'modified' => filemtime( $iconsdotless ),
 		'icons'    => $icon_array
 	);
 }
