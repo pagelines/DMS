@@ -421,11 +421,13 @@ class EditorLessHandler{
 	function write_draft_less_file($css) {
 		$folder = PageLinesRenderCSS::get_css_dir( 'path' );
 		$file = 'editor-draft.css';
-		if( !is_dir( $folder ) )
-			wp_mkdir_p( $folder );
+		if( !is_dir( $folder ) ) {
+			if( true !== wp_mkdir_p( $folder ) )
+				return false;
+		}
 		include_once( ABSPATH . 'wp-admin/includes/file.php' );
 		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials('', '', false, false, null);
+			$creds = request_filesystem_credentials('', 'direct', false, false, null);
 			if ( ! WP_Filesystem($creds) )
 				return false;
 		}

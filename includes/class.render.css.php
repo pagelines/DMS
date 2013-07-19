@@ -184,14 +184,16 @@ class PageLinesRenderCSS {
 
 		add_filter('request_filesystem_credentials', '__return_true' );
 
-		$method = '';
+		$method = 'direct';
 		$url = 'themes.php?page=pagelines';
 
 		$folder = $this->get_css_dir( 'path' );
 		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
 
-		if( !is_dir( $folder ) )
-			wp_mkdir_p( $folder );
+		if( !is_dir( $folder ) ) {
+			if( true !== wp_mkdir_p( $folder ) )
+				return false;
+		}
 
 		include_once( ABSPATH . 'wp-admin/includes/file.php' );
 
