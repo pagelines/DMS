@@ -73,7 +73,7 @@ $.plExtend = {
 			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-desktop"></i> Demo</a> ', demoLink)
 			
 		if(authorURL && author)
-			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-external-link"></i> Author: %s</a> ', authorURL, author)
+			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-external-link"></i> Author</a> ', authorURL )
 
 		return buttons
 	}

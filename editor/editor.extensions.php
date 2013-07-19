@@ -92,7 +92,8 @@ class EditorExtensions {
 				'type'		=> $s['type'],
 				'status'	=> $this->get_ext_state( $key, $s['type'] ),
 				'author_url'	=> $s['author_url'],
-				'author'	=> $s['author']
+				'author'	=> $s['author'],
+				'demo'		=> $s['demo']
 			);
 		}
 	}

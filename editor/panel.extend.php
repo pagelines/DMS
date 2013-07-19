@@ -139,7 +139,15 @@ class PageLinesExtendPanel{
 					
 					jQuery.each(result.data, function(i, field){
 						
-						var btns = sprintf('<br/><a href="%s" class="btn btn-mini">Overview <i class="icon-external-link" target="_blank"></i></a> <a href="%s" class="btn btn-mini">Demo <i class="icon-picture" target="_blank"></i></a>', field.external, field.demo)
+						var demo = field.demo || false
+						
+						if(demo) {
+							demo = sprintf( ' <a href="%s" class="btn btn-mini">Demo <i class="icon-picture" target="_blank"></i></a>', demo)
+						} else {
+							demo = ''
+						}
+						
+						var btns = sprintf('<br/><a href="%s" class="btn btn-mini">Overview <i class="icon-external-link" target="_blank"></i></a>%s', field.overview, demo)
 						
 						var output = sprintf('<div class="img" style="max-width: 130px;"><img src="%s" /></div><div class="bd"><h4>%s</h4><p>%s %s</p></div>', field.thumb, field.name, field.description, btns)
 						
