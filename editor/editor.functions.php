@@ -201,38 +201,38 @@ function pl_animation_array(){
  */
 function pl_icon_array() {
 
-	// have we done this before?
-	// if so, check if it's still good
-	if ( is_array( $saved = get_option('pl_icons') ) ) {
-		$d = array(
-			'version' => '',
-			'icons'   => ''
-		);
-		$saved = wp_parse_args( $saved, $d );
-		
-		if ( $saved['version'] == PL_CORE_VERSION && is_array( $saved['icons'] ) )
-			return $saved['icons'];
-	}
+	$iconsdotless = locate_template( array( 'less/icons.less' ) );
+	$modified     = filemtime( $iconsdotless );
+	$cached       = pl_cache_get('icon_array', 'regenerate_pl_icons', array( $iconsdotless, $modified ), 0 );
 
-	// build/regenerate the new array from icons.less
+	$d = array(
+		'modified' => '',
+		'icons'    => ''
+	);
+	$saved = wp_parse_args( $cached, $d );
+	
+	if ( !is_array( $saved['icons'] ) || $saved['modified'] != $modified )
+		$saved = regenerate_pl_icons( $iconsdotless, $modified );
 
-	$iconfile   = pl_file_get_contents( PL_CORE_LESS . '/icons.less' );
-	$start      = strpos( $iconfile, '.icon-glass:before'); // find the pos of the first icon
-	$icons_str  = substr( $iconfile, $start ); // slice off the part we want
+	return apply_filters( 'pl_icons', $saved['icons'] );
+}
+
+function regenerate_pl_icons( $filepath, $modified = false ) {
+
+	$rawfile	= pl_file_get_contents( $filepath );
+	$start      = strpos( $rawfile, '.icon-glass:before'); // find the pos of the first icon
+	$raw_icons  = substr( $rawfile, $start ); // slice off the part we want
 	// get them all
-	preg_match_all('/\.icon-([^:]+)/', $icons_str, $icons);
+	preg_match_all('/\.icon-([^:]+)/', $raw_icons, $icons);
 
 	// grab all the captured matches
 	$icon_array = $icons[1];
 	sort( $icon_array );
 
-	// store away for a while
-	update_option('pl_icons', array(
-		'version' => PL_CORE_VERSION,
-		'icons'   => $icon_array
-	) );
-
-	return $icon_array;
+	return array(
+		'modified' => $modified ? $modified : filemtime( $filepath ),
+		'icons'    => $icon_array
+	);
 }
 
 function pl_button_classes(){
