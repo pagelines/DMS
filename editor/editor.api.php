@@ -80,7 +80,7 @@ class PageLinesAPI {
 	 *  Get cache data
 	 *
 	 */
-	function get( $id, $callback = false, $args = array() ){
+	function get( $id, $callback = false, $args = array() , $timeout = 3600 ){
 
 		$data = '';
 
@@ -88,7 +88,7 @@ class PageLinesAPI {
 
 			$data = call_user_func_array( $callback, $args );
 			if( '' != $data )
-				$this->put( $data, $id );
+				$this->put( $data, $id, $timeout );
 		}
 		return $data;
 	}
@@ -223,13 +223,13 @@ class PageLinesAPI {
  *
  *	@since 3.0
  */
-function pl_cache_get( $id, $callback = false, $args = array() ) {
+function pl_cache_get( $id, $callback = false, $args = array(), $timeout = 3600 ) {
 	global $storeapi;
 	if( ! is_object( $storeapi ) )
 		$storeapi = new EditorStoreFront;
 
 	if( is_object( $storeapi ) )
-		return $storeapi->get( $id, $callback, $args );
+		return $storeapi->get( $id, $callback, $args, $timeout );
 	else
 		return false;
 }
