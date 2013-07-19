@@ -214,10 +214,7 @@ class PageLinesFlipper extends PageLinesSection {
 			<li style="">
 				
 				<div class="flipper-item fix">
-					<?php 
-					global $product;
-					$product = get_product($post->ID);
-					
+					<?php 					
 					if ( has_post_thumbnail() ) { 
 						echo get_the_post_thumbnail( $post->ID, 'aspect-thumb', array('title' => '')); 
 					} else { 

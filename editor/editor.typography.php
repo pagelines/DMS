@@ -37,7 +37,16 @@ class EditorTypography{
 	function add_google_imports(){
 
 		$gcss = $this->foundry->google_import( $this->import_fonts, 'link' );
-		printf( "<link rel='stylesheet' id='master_font_import' type='text/css' href='%s' media='screen'>\n", $gcss );
+		
+		$added = (pl_setting('font_extra')) ? pl_setting('font_extra') : ''; 
+		
+		if($gcss != '')
+			$gcss .= '|'.$added;
+		else 
+			$gcss .= $added;
+			
+		if($gcss != '' )
+			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", $gcss );
 	}
 
 	function add_settings( $settings ){
@@ -130,6 +139,21 @@ class EditorTypography{
 						),
 						'default' 		=> '600',
 					),
+				),
+
+			),
+			array(
+				'type' 	=> 	'multi',
+				'title' => __( 'Extra Fonts', 'pagelines' ),
+				'help' 		=> __( '<p>Add additional <a href="http://www.google.com/fonts" target="_blank">Google fonts</a> to your sites using this option.</p><p>For example, to add "Yellowtail" and "Lato Bold" you would enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</p>', 'pagelines' ),
+				'opts'	=> array(
+					array(
+						'key'			=> 'font_extra',
+						'type' 			=> 'text',
+						'label' 		=> 'Extra Google Fonts',
+						
+					),
+					
 				),
 
 			),

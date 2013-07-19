@@ -203,6 +203,9 @@
 			})
 			
 			$( '.btn-refresh' ).on('click.saveButton', function(){
+				
+				$(this).find('i').addClass('icon-spin')
+				
 				window.onbeforeunload = null
 				location.reload()
 

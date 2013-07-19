@@ -51,33 +51,33 @@
 // -------------------------
 @blue:                  #049cdb;
 @blueDark:              #0064cd;
-@green:                 #46a546;
-@red:                   #9d261d;
+@green:                 #27Ae60;
+@red:                   #f04831;
 @yellow:                #ffc40d;
-@orange:                #f89406;
+@orange:                #f1c844;
 @pink:                  #c3325f;
 @purple:                #7a43b6;
 
 // Buttons
 // -------------------------
-@btnBackground:                     @white;
-@btnBackgroundHighlight:            darken(@white, 7%);
-@btnBorder:                         darken(@white, 20%);
+@btnBackground:                     #FFFFFF;
+@btnBackgroundHighlight:            darken(@btnBackground, 5%);
+@btnBorder:                         darken(@btnBackground, 20%);
 
-@btnPrimaryBackground:              #0093FF;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 7%);
+@btnPrimaryBackground:              #1780ff;
+@btnPrimaryBackgroundHighlight:     darken( @btnPrimaryBackground, 8% );
 
-@btnInfoBackground:                 #5bc0de;
-@btnInfoBackgroundHighlight:        #2f96b4;
+@btnInfoBackground:                 #25b9e7;
+@btnInfoBackgroundHighlight:        darken( @btnInfoBackground, 5% );
 
-@btnSuccessBackground:              #62c462;
-@btnSuccessBackgroundHighlight:     #51a351;
+@btnSuccessBackground:              #27ce60;
+@btnSuccessBackgroundHighlight:     darken( @btnSuccessBackground, 8% );
 
-@btnWarningBackground:              lighten(@orange, 10%);
-@btnWarningBackgroundHighlight:     @orange;
+@btnWarningBackground:              @orange;
+@btnWarningBackgroundHighlight:     spin( @btnWarningBackground, -5% );
 
-@btnImportantBackground:            #ee5f5b;
-@btnImportantBackgroundHighlight:   #bd362f;
+@btnImportantBackground:            @red;
+@btnImportantBackgroundHighlight:   darken( @btnImportantBackground, 5% );
 
 @btnInverseBackground:              @gray;
 @btnInverseBackgroundHighlight:     @grayDarker;

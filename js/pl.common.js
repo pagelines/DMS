@@ -175,9 +175,15 @@
 				element.waypoint(function(direction){
 				 	$(this)
 						.find('.pl-animation')
-						.each(function(i){
-							var element = $(this);
-							setTimeout(function(){ element.addClass('animation-loaded') }, (i * 200));
+						.each( function(i){
+							var element = $(this)
+							
+							setTimeout(
+								function(){ 
+									element.addClass('animation-loaded') 
+								}
+								, (i * 250)
+							);
 						})
 
 				}

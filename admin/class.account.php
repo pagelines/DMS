@@ -49,45 +49,45 @@ class PageLinesAccount {
 
 		$d = array();
 
-			$d['dashboard']	= $this->pl_add_dashboard();
+		$d['dashboard']	= $this->pl_add_dashboard();
 				
+			// 
+			// if(!pl_deprecate_v2())
+			// 	$d['Your_Account']	= array(
+			// 		'icon'			=> PL_ADMIN_ICONS.'/user.png',
+			// 		'credentials' 	=> array(
+			// 			'type'		=> 'updates_setup',
+			// 			'title'		=> __( 'Configure PageLines Account &amp; Auto Updates', 'pagelines' ),
+			// 			'shortexp'	=> __( 'Get your latest updates automatically, direct from PageLines.', 'pagelines' ),
+			// 			'layout'	=> 'full',
+			// 		)
+			// 	);
 			
-			if(!pl_deprecate_v2())
-				$d['Your_Account']	= array(
-					'icon'			=> PL_ADMIN_ICONS.'/user.png',
-					'credentials' 	=> array(
-						'type'		=> 'updates_setup',
-						'title'		=> __( 'Configure PageLines Account &amp; Auto Updates', 'pagelines' ),
-						'shortexp'	=> __( 'Get your latest updates automatically, direct from PageLines.', 'pagelines' ),
-						'layout'	=> 'full',
-					)
-				);
-			
-			$d['DMS_tools']	= $dms_tools->admin_interface();
+		$d['DMS_tools']	= $dms_tools->admin_interface();
 
 
 			
 			
 
-			if(!pl_deprecate_v2()){
+		if(!pl_deprecate_v2()){
 				
-				$d['_plus_extensions'] = $this->pl_add_extensions_dash();
-				
-				$d['_live_chat'] = $this->pl_add_live_chat_dash();
+				// $d['_plus_extensions'] = $this->pl_add_extensions_dash();
+				// 
+				// $d['_live_chat'] = $this->pl_add_live_chat_dash();
 				$d['_resources'] = $this->pl_add_support_dash();
 				
 				$d['_getting_started'] = $this->pl_add_welcome();
 
-				$d['Import-Export']	= array(
-					'icon'			=> PL_ADMIN_ICONS.'/extend-inout.png',
-					'import_set'	=> array(
-						'default'	=> '',
-						'type'		=> 'import_export',
-						'layout'	=> 'full',
-						'title'		=> __( 'Import/Export PageLines Settings', 'pagelines' ),
-						'shortexp'	=> __( 'Use this form to upload PageLines settings from another install.', 'pagelines' ),
-					)
-				);
+				// $d['Import-Export']	= array(
+				// 	'icon'			=> PL_ADMIN_ICONS.'/extend-inout.png',
+				// 	'import_set'	=> array(
+				// 		'default'	=> '',
+				// 		'type'		=> 'import_export',
+				// 		'layout'	=> 'full',
+				// 		'title'		=> __( 'Import/Export PageLines Settings', 'pagelines' ),
+				// 		'shortexp'	=> __( 'Use this form to upload PageLines settings from another install.', 'pagelines' ),
+				// 	)
+				// );
 
 			}
 
