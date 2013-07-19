@@ -357,16 +357,9 @@ class PageLinesRenderCSS {
 		$version = sprintf( '%s_%s', $id, $version );
 
 		$parent = apply_filters( 'pl_parent_css_url', PL_PARENT_URL );
-
-		if ( '' != get_option('permalink_structure') && ! $this->check_compat() )
-			$url = sprintf( '%s/pagelines-compiled-css-%s/', $parent, $version );
-		else {
-
-			if ( false !== ( strpos( $this->get_base_url(), '?' ) ) )
-				$this->url_string = '%s&pageless=%s';
-
-			$url = sprintf( $this->url_string, untrailingslashit( $this->get_base_url() ), $version );
-		}
+		
+		$url = add_query_arg( 'pageless', $version, site_url() );
+		
 		if ( defined( 'DYNAMIC_FILE_URL' ) )
 			$url = DYNAMIC_FILE_URL;
 
@@ -567,30 +560,6 @@ class PageLinesRenderCSS {
 			$code .= PageLinesLess::load_less_file( $less );
 		}
 		return apply_filters( 'pagelines_insert_core_less', $code );
-	}
-
-	/**
-	 *
-	 *  Add rewrite.
-	 *
-	 *  @package PageLines Framework
-	 *  @since 2.2
-	 */
-	function pagelines_less_rewrite( $wp_rewrite ) {
-
-	    $less_rule = array(
-	        '(.*)pagelines-compiled-css' => '/?pageless=1'
-	    );
-	    $wp_rewrite->rules = $less_rule + $wp_rewrite->rules;
-	}
-
-	// flush_rules() if our rules are not yet included
-	public static function check_rules(){
-		$rules = get_option( 'rewrite_rules' );
-		if ( ! isset( $rules['(.*)pagelines-compiled-css'] ) ) {
-			global $wp_rewrite;
-		   	$wp_rewrite->flush_rules();
-		}
 	}
 
 	function pagelines_add_trigger( $vars ) {

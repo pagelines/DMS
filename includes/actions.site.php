@@ -166,8 +166,6 @@ function pagelines_check_lessdev(){
 		PageLinesRenderCSS::flush_version( false );
 	}
 }
-add_filter( 'generate_rewrite_rules', array( 'PageLinesRenderCSS', 'pagelines_less_rewrite' ) );
-add_action( 'wp_loaded', array( 'PageLinesRenderCSS', 'check_rules') );
 
 /**
  * Auto load child less file.
