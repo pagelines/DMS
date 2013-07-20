@@ -56,9 +56,9 @@ class PageLinesColumnizer extends PageLinesSection {
 							'key'	=> 'columnizer_area',
 							'type'	=> 'select',
 							'opts'	=> get_sidebar_select(),
-							'title'	=> 'Select Widgetized Area',
-							'label'		=>	'Select widgetized area',
-							'help'		=> "Select the widgetized area you would like to use with this instance.",
+							'title'	=> __( 'Select Widgetized Area', 'pagelines' ),
+							'label'		=>	__( 'Select widgetized area', 'pagelines' ),
+							'help'		=> __( "Select the widgetized area you would like to use with this instance.", 'pagelines' ),
 						),
 						array(
 							'key'			=> 'columnizer_cols',
@@ -75,17 +75,17 @@ class PageLinesColumnizer extends PageLinesSection {
 				'key'	=> 'columnizer_help',
 				'type'	=> 'link',
 				'url'	=> admin_url( 'widgets.php' ),
-				'title'	=> 'Widgetized Areas Help',
-				'label'		=>	'<i class="icon-retweet"></i> Edit Widgetized Areas',
-				'help'		=> "This section uses widgetized areas that are created and edited in inside your admin.",
+				'title'	=> __( 'Widgetized Areas Help', 'pagelines' ),
+				'label'		=>	sprintf( '<i class="icon-retweet"></i> %s', __( 'Edit Widgetized Areas', 'pagelines' ) ),
+				'help'		=> __( "This section uses widgetized areas that are created and edited in inside your admin.", 'pagelines' ),
 			),
 			array(
 				'key'	=> 'columnizer_description',
 				'type'	=> 'textarea',
 			
-				'title'	=> 'Column Site Description',
-				'label'		=>	'Column Site Description',
-				'help'		=> "If you use the default display of the columnizer, this field is used as a description of your company. You may want to add your address or links.",
+				'title'		=> __( 'Column Site Description', 'pagelines' ),
+				'label'		=>	__( 'Column Site Description', 'pagelines' ),
+				'help'		=> __( "If you use the default display of the columnizer, this field is used as a description of your company. You may want to add your address or links.", 'pagelines' ),
 			)
 		);
 
@@ -94,7 +94,7 @@ class PageLinesColumnizer extends PageLinesSection {
 				'key'	=> 'widgetizer_custom_sidebars',
 				'type'	=> 'link',
 				'url'	=> 'http://wordpress.org/extend/plugins/custom-sidebars/',
-				'title'	=> 'Get Custom Sidebars',
+				'title'	=> __( 'Get Custom Sidebars', 'pagelines' ),
 				'label'		=>	'<i class="icon-external-link"></i> Check out plugin',
 				'help'		=> "We have detected that you don't have the Custom Sidebars plugin installed. We recommend you install this plugin to create custom widgetized areas on demand.",
 			);

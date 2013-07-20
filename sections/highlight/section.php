@@ -27,49 +27,49 @@ class PageLinesHighlight extends PageLinesSection {
 		$opts = array(
 			array(
 				'type' 			=> 'select',
-				'title' 		=> 'Select Format',
+				'title' 		=> __( 'Select Format', 'pagelines' ),
 				'key'			=> '_highlight_splash_position',
-				'label' 		=> 'Highlight Format',
+				'label' 		=> __( 'Highlight Format', 'pagelines' ),
 				'opts'=> array(
-					'top'			=> array( 'name' => 'Image on top of text' ),
-					'bottom'	 	=> array( 'name' => 'Image on bottom of text' ),
-					'notext'	 	=> array( 'name' => 'No text, just the image' )
+					'top'			=> array( 'name' => __( 'Image on top of text', 'pagelines' ) ),
+					'bottom'	 	=> array( 'name' => __( 'Image on bottom of text' , 'pagelines' )),
+					'notext'	 	=> array( 'name' => __( 'No text, just the image', 'pagelines' ) )
 				),
 			),
 			'hl_text' => array(
 				'type' 			=> 'multi',
-				'title' 		=> 'Highlight Text',
+				'title' 		=> __( 'Highlight Text', 'pagelines' ),
 				'opts'	=> array(
 					array(
 						'key'			=> '_highlight_head',
 						'version' 		=> 'pro',
 						'type' 			=> 'text',
 						'size'			=> 'big',
-						'label' 		=> 'Highlight Header Text (Optional)',
+						'label' 		=> __( 'Highlight Header Text (Optional)', 'pagelines' ),
 					),
 					array(
 						'key'			=> '_highlight_subhead',
 						'version' 		=> 'pro',
 						'type' 			=> 'textarea',
-						'label' 		=> 'Highlight Subheader Text (Optional)',
+						'label' 		=> __( 'Highlight Subheader Text (Optional)', 'pagelines' ),
 					)
 
 				)
 			),
 			'hl_image' => array(
 				'type' 			=> 'multi',
-				'title' 		=> 'Highlight Image and Format',
+				'title' 		=> __( 'Highlight Image and Format', 'pagelines' ),
 				'opts'	=> array(
 
 					 array(
 						'key'			=> '_highlight_splash',
 						'type' 			=> 'image_upload',
-						'label'			=> 'Upload Splash Image'
+						'label'			=> __( 'Upload Splash Image', 'pagelines' )
 					),
 					array(
 						'key'				=> '_highlight_image_frame',
 						'type' 				=> 'check',
-						'label' 			=> 'Add frame to image?'
+						'label' 			=> __( 'Add frame to image?', 'pagelines' )
 					),
 				)
 			)
@@ -93,40 +93,40 @@ class PageLinesHighlight extends PageLinesSection {
 			'hl_options' => array(
 				'version' 		=> 'pro',
 				'type' 			=> 'multi_option',
-				'title' 		=> 'Highlight Header Text (Optional)',
-				'shortexp' 		=> 'Add the main header text for the highlight section.',
+				'title' 		=> __( 'Highlight Header Text (Optional)', 'pagelines' ),
+				'shortexp' 		=> __( 'Add the main header text for the highlight section.', 'pagelines' ),
 				'selectvalues'	=> array(
 					'_highlight_head' => array(
 						'version' 		=> 'pro',
 						'type' 			=> 'text',
 						'size'			=> 'big',
-						'inputlabel' 	=> 'Highlight Header Text (Optional)',
+						'inputlabel' 	=> __( 'Highlight Header Text (Optional)', 'pagelines' ),
 					),
 					'_highlight_subhead' => array(
 						'version' 		=> 'pro',
 						'type' 			=> 'text',
 						'size'			=> 'big',
-						'inputlabel' 	=> 'Highlight Subheader Text (Optional)',
+						'inputlabel' 	=> __( 'Highlight Subheader Text (Optional)', 'pagelines' ),
 					),
 
 					'_highlight_splash' => array(
 						'version' 		=> 'pro',
 						'type' 			=> 'image_upload',
-						'inputlabel'	=> 'Upload Splash Image'
+						'inputlabel'	=> __( 'Upload Splash Image', 'pagelines' )
 					),
 					'_highlight_splash_position' => array(
 						'version' 		=> 'pro',
 						'type' 			=> 'select',
-						'inputlabel' 		=> 'Highlight Image Style',
+						'inputlabel' 		=> __( 'Highlight Image Style', 'pagelines' ),
 						'selectvalues'=> array(
-							'top'			=> array( 'name' => 'Image on top of text' ),
-							'bottom'	 	=> array( 'name' => 'Image on bottom of text' ),
-							'notext'	 	=> array( 'name' => 'No text, just the image' )
+							'top'			=> array( 'name' => __( 'Image on top of text', 'pagelines' ) ),
+							'bottom'	 	=> array( 'name' => __( 'Image on bottom of text', 'pagelines' ) ),
+							'notext'	 	=> array( 'name' => __( 'No text, just the image', 'pagelines' ) )
 						),
 					),
 					'_highlight_image_frame' => array(
 						'type' 				=> 'check',
-						'inputlabel' 		=> 'Add frame to image?'
+						'inputlabel' 		=> __( 'Add frame to image?', 'pagelines' )
 					),
 				)
 			)

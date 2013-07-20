@@ -15,25 +15,25 @@ class PageLinesMediaBox extends PageLinesSection {
 		$opts = array(
 	
 			array(
-				'title'	=> 'MediaBox Media', 
+				'title'	=> __( 'MediaBox Media', 'pagelines' ), 
 				'type'	=> 'multi',
 				'span'	=> 2,
 				'opts'	=> array(
 					array(
 						'type' 			=> 'image_upload',
 						'key'			=> 'mediabox_image',
-						'label' 		=> 'MediaBox Image',
+						'label' 		=> __( 'MediaBox Image', 'pagelines' ),
 					),
 					array(
 						'type' 			=> 'text',
 						'key'			=> 'mediabox_title',
-						'label' 		=> 'Title',
+						'label' 		=> __( 'Title', 'pagelines' ),
 					),
 					array(
 						'type' 			=> 'textarea',
 						'key'			=> 'mediabox_html',
-						'label' 		=> 'Text and Embed HTML',
-						'help'			=> 'Enter rich media "embed" HTML in this field to add videos, etc.. instead of an image.'
+						'label' 		=> __( 'Text and Embed HTML', 'pagelines' ),
+						'help'			=> __( 'Enter rich media "embed" HTML in this field to add videos, etc.. instead of an image.', 'pagelines' )
 					),
 					
 				)
@@ -46,24 +46,24 @@ class PageLinesMediaBox extends PageLinesSection {
 					array(
 						'type' 			=> 'select',
 						'key'			=> 'mediabox_align',
-						'label' 		=> 'Text/Media Alignment',
+						'label' 		=> __( 'Text/Media Alignment', 'pagelines' ),
 						'opts'			=> array(
-							'center'		=> array('name' => 'Align Center (Default)'),
-							'left'			=> array('name' => 'Align Left'),
-							'right'			=> array('name' => 'Align Right'),
+							'center'		=> array('name' => __( 'Align Center (Default)', 'pagelines' )),
+							'left'			=> array('name' => __( 'Align Left', 'pagelines' )),
+							'right'			=> array('name' => __( 'Align Right', 'pagelines' )),
 						)
 					),
 					array(
 						'type' 			=> 'text',
 						'key'			=> 'mediabox_height',
 						'default'		=> '300',
-						'label' 		=> 'MediaBox Min Height (px)',
-						'help'			=> 'Required for "cover" mode. Otherwise the mediabox will be drawn at the height of the media.'
+						'label' 		=> __( 'MediaBox Min Height (px)', 'pagelines' ),
+						'help'			=> __( 'Required for "cover" mode. Otherwise the mediabox will be drawn at the height of the media.', 'pagelines' )
 					),
 					array(
 						'type'			=> 'check',
 						'key'			=> 'disable_centering', 
-						'label'			=> 'Disable Media Vertical Centering?'
+						'label'			=> __( 'Disable Media Vertical Centering?', 'pagelines' )
 					),
 				
 				)
@@ -75,15 +75,15 @@ class PageLinesMediaBox extends PageLinesSection {
 					array(
 						'type' 			=> 'image_upload',
 						'key'			=> 'mediabox_background',
-						'label' 		=> 'MediaBox Background Image',
+						'label' 		=> __( 'MediaBox Background Image', 'pagelines' ),
 					),
 				)
 			),
 			array(
 				'type' 			=> 'select_animation',
 				'key'			=> 'mediabox_animation',
-				'label' 		=> 'Viewport Animation',
-				'help' 			=> 'Optionally animate the appearance of this section on view.',
+				'label' 		=> __( 'Viewport Animation', 'pagelines' ),
+				'help' 			=> __( 'Optionally animate the appearance of this section on view.', 'pagelines' ),
 			),
 			
 		

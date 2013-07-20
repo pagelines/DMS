@@ -21,21 +21,21 @@ class PLICallout extends PageLinesSection {
 				'type' 			=> 'select',
 				'title' 		=> 'Select Format',
 				'key'			=> 'icallout_format',
-				'label' 		=> 'Callout Format',
+				'label' 		=> __( 'Callout Format', 'pagelines' ),
 				'opts'=> array(
-					'top'			=> array( 'name' => 'Text on top of button' ),
-					'inline'	 	=> array( 'name' => 'Text/Button Inline' )
+					'top'			=> array( 'name' => __( 'Text on top of button', 'pagelines' ) ),
+					'inline'	 	=> array( 'name' => __( 'Text/Button Inline', 'pagelines' ) )
 				),
 			),
 			array(
 				'type' 			=> 'multi',
-				'title' 		=> 'Callout Text',
+				'title' 		=> __( 'Callout Text', 'pagelines' ),
 				'opts'	=> array(
 					array(
 						'key'			=> 'icallout_text',
 						'version' 		=> 'pro',
 						'type' 			=> 'text',
-						'label' 		=> 'Callout Text',
+						'label' 		=> __( 'Callout Text', 'pagelines' ),
 					),
 
 				)
@@ -48,17 +48,17 @@ class PLICallout extends PageLinesSection {
 					 array(
 						'key'			=> 'icallout_link',
 						'type' 			=> 'text',
-						'label'			=> 'URL'
+						'label'			=> __( 'URL', 'pagelines' )
 					),
 					array(
 						'key'			=> 'icallout_link_text',
 						'type' 			=> 'text',
-						'label'			=> 'Text on Button'
+						'label'			=> __( 'Text on Button', 'pagelines' )
 					),
 					array(
 						'key'			=> 'icallout_btn_theme',
 						'type' 			=> 'select_button',
-						'label'			=> 'Button Color',
+						'label'			=> __( 'Button Color', 'pagelines' ),
 					),
 					
 				)

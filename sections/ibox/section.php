@@ -43,9 +43,9 @@ class pliBox extends PageLinesSection {
 					'key'			=> 'ibox_media',
 					'type' 			=> 'select',
 					'opts'		=> array(
-						'icon'	 	=> array( 'name' => 'Icon Font' ),
-						'image'		=> array( 'name' => 'Images' ),
-						'text'		=> array( 'name' => 'Text Only, No Media' )
+						'icon'	 	=> array( 'name' => __( 'Icon Font', 'pagelines' ) ),
+						'image'		=> array( 'name' => __( 'Images', 'pagelines' ) ),
+						'text'		=> array( 'name' => __( 'Text Only, No Media', 'pagelines' ) )
 					),
 					'default'		=> 'icon',
 					'label' 	=> __( 'Select iBox Media Type', 'pagelines' ),
@@ -54,8 +54,8 @@ class pliBox extends PageLinesSection {
 					'key'			=> 'ibox_format',
 					'type' 			=> 'select',
 					'opts'		=> array(
-						'top'		=> array( 'name' => 'Media on Top' ),
-						'left'	 	=> array( 'name' => 'Media at Left' ),
+						'top'		=> array( 'name' => __( 'Media on Top', 'pagelines' ) ),
+						'left'	 	=> array( 'name' => __( 'Media at Left', 'pagelines' ) ),
 					),
 					'default'		=> 'top',
 					'label' 	=> __( 'Select the iBox Media Location', 'pagelines' ),
