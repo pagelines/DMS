@@ -464,6 +464,12 @@
 				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
 
 				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.key, o.name, o.value )
+				
+				var attach_key = o.key + "_attach_id"
+				,	attach_value =  that.optValue( tabIndex, attach_key )
+				,	attach_name = sprintf('%s[%s]', that.uniqueID, attach_key )
+				
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input upload-input" value="%3$s" />', attach_key, attach_name, attach_value)
 
 				oHTML += sprintf('<div id="upload-%1$s" class="fineupload upload-%1$s fileupload-new" data-provides="fileupload"></div>', o.key)
 
@@ -1131,7 +1137,6 @@
 								,	scope: 'global'
 							}
 					}
-
 					,	multiple: false
 					,	validation: {
 							allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
@@ -1149,7 +1154,7 @@
 					                    '</div>'
 
 				}).on('complete', function(event, id, fileName, response) {
-
+				
 					var optBox = $(this).closest('.img-upload-box')
 
 						if (response.success) {
@@ -1159,6 +1164,9 @@
 
 							theThumb.fadeIn().html( sprintf('<div class="img-wrap"><img src="%s" style="%s"/></div>', response.url, imgStyle ))
 							optBox.find('.text-input').val(response.url).change()
+							
+							optBox.find('.hidden-input').val(response.attach_id).change()
+							
 							optBox.imagesLoaded( function(){
 								optBox.closest('.isotope').isotope( 'reLayout' )
 							})
