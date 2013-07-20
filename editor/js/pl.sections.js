@@ -126,6 +126,7 @@ $.plSections = {
 						
 						var controlType = (type == 'section') ? '.pl-section-controls' : '.pl-area-controls'
 						,	wrapper = (type == 'section') ? '<div class="pl-section-pad fix">%s</div>' : '<div class="pl-area-pad fix">%s</div>'
+						, 	wrapSelect = (type == 'section') ? '.pl-section-pad' : '.pl-inner'
 						,	controls = $( controlType ).first().clone()	
 					
 						controls
@@ -139,6 +140,20 @@ $.plSections = {
 						element
 							.find('.pl-animation')
 							.addClass('animation-loaded')
+							
+							
+						if(response.notice){
+							element
+								.find(wrapSelect)
+								.append('<div class="loaded-notice"><div class="the-notice">Loaded! Note: For this section, page refresh may be needed for complete functionality (Javascript Loading).</div></div>')
+
+
+							setTimeout(function () {
+							    $('.loaded-notice').slideUp()
+							}, 5000)
+						}	
+						
+							
 						
 						var newOpts = {}
 						

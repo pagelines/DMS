@@ -69,6 +69,8 @@ function pl_editor_actions(){
 
 				// needs to be set.. ??
 				$s->meta['content'] = array();
+				$s->meta['unique']	= '';
+				
 				
 				$opts = $s->section_opts();
 
@@ -80,6 +82,16 @@ function pl_editor_actions(){
 					$s->active_loading = true;
 					$s->section_template();
 				$section_template = ob_get_clean();
+
+				ob_start();
+					$s->section_head();
+					$s->section_foot();
+				$head_foot = ob_get_clean();
+				
+				if($head_foot)
+					$response['notice'] = true; 
+				else 
+					$response['notice'] = false;
 
 				$response['template'] = $section_template;
 
@@ -329,7 +341,7 @@ function pl_up_image (){
 	if( !empty( $uploaded_file['error'] ) )
 		echo sprintf( __('Upload Error: %s', 'pagelines' ) , $uploaded_file['error'] );
 	else{
-		echo json_encode(array('url' => $uploaded_file['url'], 'success' => TRUE));
+		echo json_encode( array( 'url' => $uploaded_file['url'], 'success' => TRUE, 'attach_id' => $attach_id ) );
 
 	}
 	die(); // don't forget this, always returns 0 w/o
