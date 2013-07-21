@@ -6,7 +6,6 @@
 	Description: Creates secondary site navigation.
 	Class Name: PageLinesSecondNav
 	Workswith: header, content
-	Edition: pro
 	Filter: deprecated
 */
 

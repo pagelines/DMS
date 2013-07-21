@@ -6,6 +6,7 @@
 	Description: Displays your most popular, and latest posts as well as comments and tags in a tabbed format.
 	Class Name: PLRapidTabs
 	Filter: widgetized
+	Edition: pro
 */
 
 class PLRapidTabs extends PageLinesSection {

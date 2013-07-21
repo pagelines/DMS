@@ -7,6 +7,7 @@
 	Class Name: PLProPricing
 	Filter: component
 	Loading: active
+	Edition: pro
 */
 
 

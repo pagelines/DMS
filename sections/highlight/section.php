@@ -6,7 +6,6 @@
 	Description: Adds a highlight sections with a splash image and 2-big lines of text.
 	Class Name: PageLinesHighlight
 	Workswith: templates, main, header, morefoot, sidebar1, sidebar2, sidebar_wrap
-	Edition: pro
 	Cloning: true
 	Filter: component
 	Loading: active

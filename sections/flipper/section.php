@@ -6,6 +6,7 @@
 	Description: A great way to flip through posts. Simply select a post type and done.
 	Class Name: PageLinesFlipper
 	Cloning: true
+	Edition: pro
 	Workswith: main, templates, sidebar_wrap
 	Filter: format
 */
