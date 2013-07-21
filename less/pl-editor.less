@@ -13,7 +13,7 @@
 	.site-wrap{
 		position: relative;
 		.transition(all .3s ease-in-out);
-		
+		-webkit-backface-visibility: hidden; // fixes flicker
 		&.show-mm {
 			.translate3d(-260px, 0, 0);
 		}
