@@ -580,7 +580,7 @@ function pl_button_classes(){
 		'btn-info'			=> 'Light Blue',
 		'btn-success'		=> 'Green',
 		'btn-warning'		=> 'Orange',
-		'btn-danger'		=> 'Red',
+		'btn-important'		=> 'Red',
 		'btn-inverse'		=> 'Black',
 	); 
 	return $array;
