@@ -49,7 +49,7 @@ class PageLinesTextBox extends PageLinesSection {
 						'count_number'	=> 30,
 						'suffix'		=> 'px',
 						'title'			=> __( 'Textbox Font Size', 'pagelines' ),
-						'default'		=> 14, 
+						'default'		=> '', 
 					),
 					
 					array(

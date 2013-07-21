@@ -507,12 +507,18 @@ function pl_icon_array(){
 		'expand',
 		'euro:before,.icon-eur',
 		'gbp',
-		'dollar:before,.icon-usd',
-		'rupee:before,.icon-inr',
-		'yen:before,.icon-jpy',
-		'renminbi:before,.icon-cny',
-		'won:before,.icon-krw',
-		'bitcoin:before,.icon-btc',
+		'dollar',
+		'usd',
+		'rupee',
+		'inr',
+		'yen',
+		'jpy',
+		'renminbi',
+		'cny',
+		'won',
+		'krw',
+		'bitcoin',
+		'btc',
 		'file',
 		'file-text',
 		'sort-by-alphabet',
@@ -627,5 +633,11 @@ function pl_add_theme_tab( $array ){
 	
 }
 
+function pl_default_thumb(){
+	return PL_IMAGES.'/default-thumb.jpg';
+}
+function pl_default_image(){
+	return PL_IMAGES.'/default-image.jpg';
+}
 
 
