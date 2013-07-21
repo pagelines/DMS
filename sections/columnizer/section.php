@@ -25,10 +25,10 @@ class PageLinesColumnizer extends PageLinesSection {
 
 		$cols = ($this->opt('columnizer_cols')) ? $this->opt('columnizer_cols') : 3;
 
-		
+
 		$params[0]['before_widget'] = sprintf('<div class="span%s">%s', $cols, $params[0]['before_widget']);
 		$params[0]['after_widget'] = sprintf('%s</div>', $params[0]['after_widget']);
-		
+
 		if($this->width == 0)
 			$params[0]['before_widget'] = sprintf('<div class="columnizer row fix">%s', $params[0]['before_widget']);
 
@@ -39,7 +39,7 @@ class PageLinesColumnizer extends PageLinesSection {
 		}
 
 		$this->count++;
-		
+
 		return $params;
 	}
 
@@ -82,7 +82,7 @@ class PageLinesColumnizer extends PageLinesSection {
 			array(
 				'key'	=> 'columnizer_description',
 				'type'	=> 'textarea',
-			
+
 				'title'		=> __( 'Column Site Description', 'pagelines' ),
 				'label'		=>	__( 'Column Site Description', 'pagelines' ),
 				'help'		=> __( "If you use the default display of the columnizer, this field is used as a description of your company. You may want to add your address or links.", 'pagelines' ),
@@ -134,9 +134,9 @@ class PageLinesColumnizer extends PageLinesSection {
 	function get_default(){
 		ob_start();
 
-			
-		$twitter = $this->opt('twittername'); 
-		$facebook = $this->opt('facebook_name'); 
+
+		$twitter = $this->opt('twittername');
+		$facebook = $this->opt('facebook_name');
 		?>
 
 		<li id="the_default_widget_social" class="span3 widget">
@@ -149,67 +149,67 @@ class PageLinesColumnizer extends PageLinesSection {
 					<ul>
 					<?php
 					if($twitter)
-						printf('<li><a href="http://www.twitter.com/%1$s"><i class="icon-twitter"></i> Twitter</a></li>', $twitter); 
-					
+						printf('<li><a href="http://www.twitter.com/%1$s"><i class="icon-twitter"></i> Twitter</a></li>', $twitter);
+
 					if($facebook)
 						printf('<li><a href="http://www.facebook.com/%1$s"><i class="icon-facebook"></i> Facebook</a></li>', $facebook);
-					
+
 						printf('<li><a href="%s"><i class="icon-rss"></i> Subscribe</a></li>', get_bloginfo( 'rss2_url' ) );
 					?>
 					</ul>
-						
+
 				</div>
 			</div>
 		</li>
-		
+
 		<?php
-		
+
 		?>
 		<li id="the_default_widget_latest" class="span3 widget">
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('The Latest','pagelines'); ?></h3>
 				<ul class="media-list">
 					<?php
-			
+
 					foreach( get_posts( array('numberposts' => 3) ) as $p ){
 						$img = (has_post_thumbnail( $p->ID )) ? sprintf('<div class="img"><a class="the-media" href="%s" style="background-image: url(%s)"></a></div>', get_permalink( $p->ID ), pl_the_thumbnail_url( $p->ID, 'thumbnail')) : '';
-						
+
 						printf(
-							'<li class="media fix">%s<div class="bd"><a class="title" href="%s">%s</a><span class="excerpt">%s</span></div></li>', 
+							'<li class="media fix">%s<div class="bd"><a class="title" href="%s">%s</a><span class="excerpt">%s</span></div></li>',
 							$img,
-							get_permalink( $p->ID ), 
-							$p->post_title, 
+							get_permalink( $p->ID ),
+							$p->post_title,
 							pl_short_excerpt($p->ID)
 						);
-					
+
 					} ?>
-				
-						
+
+
 				</ul>
 			</div>
 		</li>
-		
+
 		<li id="the_default_widget_tags" class="span3 widget">
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('Tags','pagelines'); ?></h3>
 				<div class="tags-list">
 					<?php
-			
+
 					wp_tag_cloud( array('number'=> 6, 'smallest' => 10, 'largest' => 10) );
 					 ?>
-				
-						
+
+
 				</div>
 			</div>
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('Categories','pagelines'); ?></h3>
 				<ul class="media-list">
 					<?php
-			
-					echo wp_list_categories( array( 'number' => 5, 'depth' => 1, 'title_li' => '', 'orderby' => 'count' )); 
+
+					echo wp_list_categories( array( 'number' => 5, 'depth' => 1, 'title_li' => '', 'orderby' => 'count' ));
 					 ?>
-				
-						
+
+
 				</ul>
 			</div>
 		</li>
@@ -219,10 +219,10 @@ class PageLinesColumnizer extends PageLinesSection {
 				<h3 class="widget-title"><?php _e('More Info','pagelines'); ?></h3>
 				<div class="textwidget">
 					<?php
-			
+
 					if($this->opt('columnizer_description')):
-						echo $this->opt('columnizer_description'); 
-					else: 
+						echo $this->opt('columnizer_description');
+					else:
 					 ?>
 					<p>Lorem ipsum dolor sit amet elit, consectetur adipiscing. Vestibulum luctus ipsum id quam euismod a malesuada sapien euismot. Vesti bulum ultricies elementum interdum. </p>
 
@@ -230,11 +230,11 @@ class PageLinesColumnizer extends PageLinesSection {
 					200 Brannan St.<br/>
 					San Francisco, CA 94107</address>
 				<?php endif; ?>
-						
+
 				</div>
 			</div>
 		</li>
-		
+
 
 	<?php
 

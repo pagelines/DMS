@@ -66,7 +66,7 @@ class pliBox extends PageLinesSection {
 
 		$slides = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
 		$media = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
-		
+
 		for($i = 1; $i <= $slides; $i++){
 
 			$opts = array(
@@ -127,17 +127,17 @@ class pliBox extends PageLinesSection {
 
 		$width = 0;
 		$output = '';
-		
+
 		for($i = 1; $i <= $boxes; $i++):
 
 			// TEXT
 			$text = ($this->opt('ibox_text_'.$i)) ? $this->opt('ibox_text_'.$i) : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id lectus sem. Cras consequat lorem.';
-			
+
 			$text = sprintf('<div data-sync="ibox_text_%s">%s</div>', $i, $text );
-			
+
 			$title = ($this->opt('ibox_title_'.$i)) ? $this->opt('ibox_title_'.$i) : __('iBox '.$i, 'pagelines');
 			$title = sprintf('<h4 data-sync="ibox_title_%s">%s</h4>', $i, $title );
-			
+
 			// LINK
 			$link = $this->opt('ibox_link_'.$i);
 			$media_link = ($link) ? sprintf('href="%s"', $link) : '';
@@ -146,10 +146,10 @@ class pliBox extends PageLinesSection {
 
 			$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
 			$media_class = 'media-type-'.$media_type;
-			
+
 			$media_bg = '';
 			$media_html = '';
-			
+
 			if( $media_type == 'icon' ){
 				$media = ($this->opt('ibox_icon_'.$i)) ? $this->opt('ibox_icon_'.$i) : false;
 				if(!$media){
@@ -161,19 +161,19 @@ class pliBox extends PageLinesSection {
 			} elseif( $media_type == 'image' ){
 
 				$media = ($this->opt('ibox_image_'.$i)) ? $this->opt('ibox_image_'.$i) : false;
-				
+
 				$media_html = '';
-				 
+
 				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : '';
 
-			} 
-			
-		
+			}
+
+
 
 			if($width == 0)
 				$output .= '<div class="row fix">';
 
-			
+
 
 			$output .= sprintf(
 				'<div class="span%s ibox %s fix">
@@ -210,7 +210,7 @@ class pliBox extends PageLinesSection {
 
 
 		 endfor;
-		
+
 		printf('<div class="ibox-wrapper pl-animation-group">%s</div>', $output);
 
 	}

@@ -60,7 +60,7 @@ class PLICallout extends PageLinesSection {
 						'type' 			=> 'select_button',
 						'label'			=> __( 'Button Color', 'pagelines' ),
 					),
-					
+
 				)
 			)
 
@@ -77,17 +77,17 @@ class PLICallout extends PageLinesSection {
 		$link = $this->opt('icallout_link');
 		$theme = ($this->opt('icallout_btn_theme')) ? $this->opt('icallout_btn_theme') : 'btn-primary';
 		$link_text = ( $this->opt('icallout_link_text') ) ? $this->opt('icallout_link_text') : 'Learn More <i class="icon-angle-right"></i>';
-		
+
 		if(!$text && !$link){
 			$text = __("Call to action!", 'pagelines');
 		}
 
 		?>
 		<div class="icallout-container <?php echo $format;?>">
-			
-			<h2 class="icallout-head" data-sync="icallout_text"><?php echo $text; ?></h2> 
+
+			<h2 class="icallout-head" data-sync="icallout_text"><?php echo $text; ?></h2>
 			<a class="icallout-action btn <?php echo $theme;?> btn-large" href="<?php echo $link; ?>"  data-sync="icallout_link_text"><?php echo $link_text; ?></a>
-		
+
 		</div>
 	<?php
 
