@@ -56,7 +56,7 @@ class PageLinesAreas {
 		<div class="pl-area-controls">
 			<span class="area-control area-delete area-hide" data-area-action="delete" title="Delete">
 				<i class="icon-remove"></i>
-			</span><span class="area-control area-clone area-hide" data-area-action="clone" title="Clone">
+			</span><span class="area-control area-clone area-hide <?php echo pl_pro_disable_class();?>" data-area-action="clone" title="Clone <?php echo pl_pro_text();?>">
 				<i class="icon-copy"></i>
 			</span><span class="area-control area-reorder area-hide" data-area-action="reorder" title="Move">
 				<i class="icon-reorder"></i>

@@ -16,3 +16,15 @@ function pl_is_dev(){
 	return false;
 	
 }
+
+function pl_pro_text(){
+	
+	return (!pl_is_pro()) ? __('(Pro Edition Only)', 'pagelines') : '';
+	
+}
+
+function pl_pro_disable_class(){
+	
+	return (!pl_is_pro()) ? 'pro-only-disabled' : ''; 
+	
+}

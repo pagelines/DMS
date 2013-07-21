@@ -605,7 +605,12 @@
 		, sectionControls: function() {
 			var that = this
 			$('.s-control').tooltip({placement: 'top'})
-			$('.s-control').on('click.sectionControls', function(e){
+			
+			$('.pro-only-disabled').on('click', function(e){
+				bootbox.alert('<h4>This capability is pro edition only.</h4><br/> <a class="btn btn-primary" href="http://www.pagelines.com/DMS" target="_blank"><i class="icon-pagelines"></i> Learn More About PageLines Pro <i class="icon-external-link"></i></a>')
+			})
+			
+			$('.s-control:not(".pro-only-disabled")').on('click.sectionControls', function(e){
 
 				e.preventDefault()
 				e.stopPropagation()

@@ -31,7 +31,7 @@
 			
 			$('.area-control').tooltip({ placement: 'top' })
 
-			$('.area-control').on('click.areaControl', function(e){
+			$('.area-control:not(".pro-only-disabled")').on('click.areaControl', function(e){
 				e.preventDefault()
 
 				var action = $(this).data('area-action')
