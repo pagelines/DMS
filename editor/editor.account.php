@@ -15,7 +15,10 @@ class PLAccountPanel{
 	function activation_check_function() {
 
 		$check = false;
-		
+
+		if ( ! current_user_can( 'edit_theme_options' ) )
+			return;
+
 		if( ! pl_is_pro() ) // no need if were not activated
 			return;
 
@@ -24,27 +27,36 @@ class PLAccountPanel{
 		if( ! isset( $data['date'] ) ) {
 			$data['date'] = date( 'Y-m-d' );
 		}
-			
+
 		if( $data['date'] <= date( 'Y-m-d' ) )
 			$check = true;
-			
+
 		if( false == $check )
 			return;
 
-		$url = sprintf( 'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
+		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
+
 
 		$result = wp_remote_get( $url );
-		
-		if( is_wp_error($result) )
+
+		// if wp_error save error and abort.
+		if( is_wp_error($result) ) {
+			$data['last_error'] = $result->get_error_message();
+			update_option( 'dms_activation', $data );
 			return false;
+		} else {
+			$data['last_error'] = '';
+			update_option( 'dms_activation', $data );
+		}
 
 		// do a couple of sanity checks..
+		if( ! is_array( $result ) )
+			return false;
+
 		if( ! isset( $result['body'] ) )
 			return false;
 
 		$rsp = json_decode( $result['body'] );
-
-
 
 		if( ! is_object( $rsp ) )
 			return false;
@@ -54,13 +66,13 @@ class PLAccountPanel{
 
 		// if success is true means the key was valid, move along nothing to see here.
 		if( true == $rsp->success ) {
-	
+
 			$data['date'] = date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) );
 			update_option( 'dms_activation', $data );
 
-			return;	
+			return;
 		}
-		
+
 		if( isset( $rsp->error ) && isset( $rsp->code ) ) {
 			// lets try again tomorrow
 			$data['date'] = date('Y-m-d', strtotime('+1 days', strtotime( $data['date'] ) ) );
@@ -69,8 +81,8 @@ class PLAccountPanel{
 
 			if( $data['trys'] < 3 ) // try 2 times.
 				return;
-				
-			self::send_email( $rsp, $data );	
+
+			self::send_email( $rsp, $data );
 		}
 	}
 
