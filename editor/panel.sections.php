@@ -129,16 +129,24 @@ class PageLinesSectionsPanel{
 				continue;
 
 
-			if( $s->filter == 'full-width' ){
+			if( strpos($s->filter, 'full-width') ){
 				$section_classes = 'pl-area-sortable area-tag';
 			} else {
 				$section_classes = 'pl-sortable span12 sortable-first sortable-last';
 			}
 
 			$name = $s->name; 
-			$desc = ucfirst($s->filter); 
+			$desc = ucwords($s->filter); 
+			
+			
 
-			$class = array('x-add-new', $section_classes, $special_class, $s->filter);
+			$class = array('x-add-new', $section_classes, $special_class);
+
+			$filters = explode(',', $s->filter);
+			
+			foreach($filters as $f){
+				$class[] = $f;
+			}
 
 			$number = $count++;
 
