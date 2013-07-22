@@ -15,6 +15,8 @@
 		$.plNavigation.init()
 		
 		$.plParallax.init()
+		
+		$('.pl-credit').show()
 	})
 	
 	$(window).load(function() {
