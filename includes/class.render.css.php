@@ -281,10 +281,9 @@ class PageLinesRenderCSS {
 	 *  @since 2.2
 	 */
 	function draw_inline_custom_css() {
-
-			$a = $this->get_compiled_custom();
-			if ( '' != $a['custom'] )
-				return inline_css_markup( 'pagelines-custom', rtrim( $this->minify( $a['custom'] ) ) );
+		// always output this, even if empty - container is needed for live compile
+		$a = $this->get_compiled_custom();
+		return inline_css_markup( 'pagelines-custom', rtrim( $this->minify( $a['custom'] ) ) );
 	}
 
 	/**
