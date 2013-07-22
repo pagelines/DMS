@@ -14,25 +14,34 @@ class PLAccountPanel{
 
 	function activation_check_function() {
 
-		wp_clear_scheduled_hook( 'pl_check_activation' );
-
-		// If not activated we dont need to check for activation /0!
-		if( ! pl_is_pro() )
+		$check = false;
+		
+		if( ! pl_is_pro() ) // no need if were not activated
 			return;
 
-		wp_mail( get_bloginfo( 'admin_email' ), 'DEBUG: checking activation', 'sup' );
+		$data = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
 
-		$data = get_option( 'dms_activation' );
+		if( ! isset( $data['date'] ) ) {
+			$data['date'] = date( 'Y-m-d' );
+		}
+			
+		if( $data['date'] <= date( 'Y-m-d' ) )
+			$check = true;
+			
+		if( false == $check )
+			return;
 
 		$url = sprintf( 'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
 
-		$data = wp_remote_get( $url );
+		$result = wp_remote_get( $url );
 
 		// do a couple of sanity checks..
-		if( ! isset( $data['body'] ) )
+		if( ! isset( $result['body'] ) )
 			return false;
 
-		$rsp = json_decode( $data['body'] );
+		$rsp = json_decode( $result['body'] );
+
+
 
 		if( ! is_object( $rsp ) )
 			return false;
@@ -41,24 +50,33 @@ class PLAccountPanel{
 			return false;
 
 		// if success is true means the key was valid, move along nothing to see here.
-		if( true == $rsp->success )
-			return;
+		if( true == $rsp->success ) {
+	
+			$data['date'] = date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) );
+			update_option( 'dms_activation', $data );
 
-		// Either the key is invalid or there was an error..
+			return;	
+		}
+		
+		if( isset( $rsp->error ) && isset( $rsp->code ) ) {
+			// lets try again tomorrow
+			$data['date'] = date('Y-m-d', strtotime('+1 days', strtotime( $data['date'] ) ) );
+			$data['trys'] = ( isset( $data['trys'] ) ) ? $data['trys'] + 1 : 1;
+			update_option( 'dms_activation', $data );
 
-		if( isset( $rsp->error ) && isset( $rsp->code ) && 102 == $rsp->code)
-			self::send_email( $rsp->code, $data );
+			if( $data['trys'] < 3 ) // try 2 times.
+				return;
+				
+			self::send_email( $rsp, $data );	
+		}
 	}
 
-	function send_email( $error ) {
+	function send_email( $rsp, $data ) {
 
-		if( 102 == $error ) {
 			$data = get_option( 'dms_activation' );
-
-			$message = sprintf( 'The key %s failed to authenticate.', $data['key'] );
-			wp_mail( get_bloginfo( 'admin_email' ), 'Activation Failed', $message );
-			update_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
-		}
+			$message = sprintf( "The DMS activation key %s failed to authenticate after 2 tries. Please log into your account and check your subscription at https://www.pagelines.com/my-account/\n\nThe keyserver error was: %s", $data['key'], $rsp->error );
+			wp_mail( get_bloginfo( 'admin_email' ), 'DMS Activation Failed', $message );
+			update_option( 'dms_activation', array() );
 	}
 
 	function pl_account_actions() {
@@ -101,6 +119,7 @@ class PLAccountPanel{
 			$activated['active'] = true;
 			$activated['key'] = $response['key'];
 			$activated['email'] = $response['email'];
+			$activated['date'] = date( 'Y-m-d' );
 			$response['refresh'] = true;
 		}
 
