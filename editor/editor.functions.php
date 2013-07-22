@@ -23,10 +23,32 @@ function pl_deprecate_v2(){
 
 
 function pl_use_editor(){
+	return true;
+}
+
+function pl_is_pro(){	
 
 	return true;
-
+	$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
+	
+	$pro = (true === $status['active']) ? true : false;
+	
+	return $pro;
+	
 }
+
+function pl_pro_text(){
+	
+	return (!pl_is_pro()) ? __('(Pro Edition Only)', 'pagelines') : '';
+	
+}
+
+function pl_pro_disable_class(){
+	
+	return (!pl_is_pro()) ? 'pro-only-disabled' : ''; 
+	
+}
+
 
 
 // Process old function type to new format
