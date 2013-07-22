@@ -487,9 +487,9 @@ class EditorInterface {
 		
 		<div class="alert alert-info">
 			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-pro"></i> Upgrade To Pro!</strong> You are using the basic version of PageLines DMS. Upgrade to Pro for tons of additional features and support.
-			<a href="http://www.pagelines.com/upgrade" class="btn btn-primary btn-mini" target="_blank">Upgrade Now</a>
-			or <a href="http://www.pagelines.com/upgrade" class="btn btn-mini" target="_blank">Learn More</a>
+		  	<strong><i class="icon-pro"></i> Upgrade To Pro!</strong> You are using the basic version of PageLines DMS. Upgrade to Pro for additional sections, effects, capabilities and support.
+			<a href="http://www.pagelines.com/pricing" class="btn btn-primary btn-mini" target="_blank">Upgrade Now</a>
+			or <a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank">Learn More</a>
 		</div>
 		
 		<?php return ob_get_clean();

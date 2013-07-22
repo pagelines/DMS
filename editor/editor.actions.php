@@ -357,7 +357,7 @@ function pagelines_check_folders_dms( $note ) {
 	ob_start(); ?>
 
 		<div class="alert alert-important">
-
+			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
 		  	<strong><i class="icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
 
 		</div>
