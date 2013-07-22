@@ -128,40 +128,44 @@ function pl_meta_set_url( $tab = null ){
 function pagelines_body_classes(){
 
 	global $pagelines_template;
+	global $pagelines_addclasses;
 
 	$special_body_class = (ploption('special_body_class')) ? ploption('special_body_class') : '';
 
 	
-	
 	$classes = array();
 	
-	$classes[] = $special_body_class; 
-	$classes[] = strtolower( PL_CHILDTHEMENAME );
+	$classes[] = $special_body_class;
+	// child theme name
+	$classes[] = sanitize_html_class( strtolower( PL_CHILDTHEMENAME ) );
 	
-	$classes = apply_filters('pagelines_body_classes', $classes); 
-	
-	$body_classes = join(' ', $classes); 
-	
-	if(!pl_deprecate_v2()){
-		$canvas_shadow = (ploption('canvas_shadow')) ? 'content-shadow' : '';
+	if ( !pl_deprecate_v2() ) {
+		// canvas shadow
+		$classes[] = (ploption('canvas_shadow')) ? 'content-shadow' : '';
 
-		$responsive = (ploption('layout_handling') == 'pixels' || ploption('layout_handling') == 'percent') ? 'responsive' : 'static';
+		// responsive
+		$classes[] = (ploption('layout_handling') == 'pixels' || ploption('layout_handling') == 'percent') ? 'responsive' : 'static';
 
-		$design_mode = (ploption('site_design_mode') && !pl_is_disabled('color_control')) ? ploption('site_design_mode') : 'full_width';
+		// design mode
+		$classes[] = (ploption('site_design_mode') && !pl_is_disabled('color_control')) ? ploption('site_design_mode') : 'full_width';
 
-		$body_classes .= sprintf(
-			' custom %s %s %s %s',
-			$canvas_shadow,
-			$responsive,
-			$pagelines_template->template_type,
-			$design_mode
-		);
+		// template type
+		$classes[] = $pagelines_template->template_type;
+	}
+	else {
+		// for backwards compatiblity, dms is:
+		$classes[] = 'responsive';
+		$classes[] = 'full_width';
 	}
 
-	global $pagelines_addclasses;
+	// externally added via global variable (string)
+	if ( isset( $pagelines_addclasses ) && $pagelines_addclasses )
+		$classes = array_merge( $classes, (array) explode( ' ', $pagelines_addclasses ) );
 
-	if ( isset( $pagelines_addclasses ) )
-		$body_classes .= sprintf( ' %s', $pagelines_addclasses );
+	// ensure no duplicates or empties
+	$classes = array_unique( array_filter( $classes ) );
+	// filter & convert to string
+	$body_classes = join(' ', (array) apply_filters('pagelines_body_classes', $classes) );
 
 	return $body_classes;
 }
