@@ -49,7 +49,7 @@ class PageLinesAreas {
 
 		if( !pl_draft_mode() )
 			return '';
-
+			
 		ob_start();
 		?>
 
@@ -60,7 +60,7 @@ class PageLinesAreas {
 				<i class="icon-copy"></i>
 			</span><span class="area-control area-reorder area-hide" data-area-action="reorder" title="Move">
 				<i class="icon-reorder"></i>
-			</span><span class="area-control area-edit" data-area-action="settings" title="Edit">
+			</span><span class="area-control area-edit section-edit" data-area-action="settings" title="Edit">
 				<i class="icon-pencil"></i>
 			</span>
 		</div>
