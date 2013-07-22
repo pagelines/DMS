@@ -135,6 +135,8 @@ class PageLinesSectionsPanel{
 				$section_classes = 'pl-sortable span12 sortable-first sortable-last';
 			}
 
+			$name = $s->name; 
+			$desc = ucfirst($s->filter); 
 
 			$class = array('x-add-new', $section_classes, $special_class, $s->filter);
 
@@ -157,9 +159,14 @@ class PageLinesSectionsPanel{
 					$number += 100;
 				}
 
-
 			}
 			
+			if( !pl_is_pro() && !empty($s->sinfo['edition']) && !empty($s->sinfo['edition']) == 'pro' ){
+				
+				$class[] = 'x-disable';
+				$desc = '<span class="badge badge-important">PRO ONLY</span>'; 
+			}
+
 			if( !empty($s->loading) ){
 				
 				$class[] = 'loading-'.$s->loading;
@@ -174,7 +181,7 @@ class PageLinesSectionsPanel{
 				'data_array'	=> array(
 					'object' 	=> $s->class_name,
 					'sid'		=> $s->id,
-					'name'		=> $s->name,
+					'name'		=> $name,
 					'image'		=> $s->screenshot,
 					
 					'template'	=> $map,
@@ -183,8 +190,8 @@ class PageLinesSectionsPanel{
 				),
 				'thumb'			=> $s->screenshot,
 				'splash'		=> $s->splash,
-				'name'			=> $s->name,
-				'sub'			=> ucfirst($s->filter)
+				'name'			=> $name,
+				'sub'			=> $desc
 			);
 
 			$list .= $this->xlist->get_x_list_item( $args );

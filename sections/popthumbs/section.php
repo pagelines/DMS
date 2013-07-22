@@ -5,6 +5,7 @@
 	Author URI: http://www.pagelines.com
 	Description: Adds columnized thumbnails that lightbox to full size images on click.
 	Class Name: PLPopThumbs
+	Edition: pro
 	Filter: gallery
 	Loading: active
 */
