@@ -52,8 +52,8 @@ class EditorLessHandler{
 	static function enqueue_draft_css() {
 		
 		// make url safe.		
-		$url = str_replace( 'http://', '//', site_url() );
-		$url = str_replace( 'https://', '//', $url );
+		global $post;
+		$url = untrailingslashit( get_permalink( $post->ID ) );
 
 		wp_register_style( 'pagelines-draft',  sprintf( '%s/?pagedraft=1', $url ), false, null, 'all' );
 		wp_enqueue_style( 'pagelines-draft' );
