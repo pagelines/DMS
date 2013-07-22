@@ -138,6 +138,9 @@ function pagelines_body_classes(){
 	$classes[] = $special_body_class;
 	// child theme name
 	$classes[] = sanitize_html_class( strtolower( PL_CHILDTHEMENAME ) );
+	// pro
+	$classes[] = (pl_is_pro()) ? 'pl-pro-version' : 'pl-basic-version';
+
 	
 	if ( !pl_deprecate_v2() ) {
 		// canvas shadow
