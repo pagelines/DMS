@@ -603,12 +603,22 @@
 		}
 
 		, sectionControls: function() {
+		
 			var that = this
-			$('.s-control').tooltip({placement: 'top'})
+			, proBtn = '<br/> <a class="btn btn-primary" href="http://www.pagelines.com/DMS" target="_blank"><i class="icon-pagelines"></i> Learn more about being a PRO <i class="icon-external-link"></i></a>'
 			
 			$('.pro-only-disabled').on('click', function(e){
-				bootbox.alert('<h4>This capability is pro edition only.</h4><br/> <a class="btn btn-important" href="http://www.pagelines.com/DMS" target="_blank"><i class="icon-pagelines"></i> Learn More About PageLines Pro <i class="icon-external-link"></i></a>')
+				bootbox.alert('<h4>This capability is pro edition only.</h4>'+proBtn)
 			})
+			
+			
+			$('.pro-section .section-edit').addClass('pro-only-disabled').attr('title', 'Edit (Pro Only)').on('click', function(e){
+				bootbox.alert('<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership.<br/>'+proBtn)
+			})
+			
+			$('.s-control').tooltip({placement: 'top'})
+			
+			
 			
 			$('.s-control:not(".pro-only-disabled")').on('click.sectionControls', function(e){
 

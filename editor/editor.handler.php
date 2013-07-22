@@ -825,6 +825,16 @@ class PageLinesTemplateHandler {
 
 		$clone 	= $s->meta['clone'];
 
+		$edition = $s->sinfo['edition'];
+		
+		if(!pl_is_pro()){
+			$edition = $s->sinfo['edition'];
+			
+			if($edition == 'pro'){
+				$class[] = 'pro-section';
+			}
+		}
+		
 		if($s->level == 0){
 			$class[] = 'pl-area pl-area-sortable area-tag';
 			$controls = $this->areas->area_controls( $s );
