@@ -34,6 +34,9 @@ class PLAccountPanel{
 		$url = sprintf( 'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
 
 		$result = wp_remote_get( $url );
+		
+		if( is_wp_error($result) )
+			return false;
 
 		// do a couple of sanity checks..
 		if( ! isset( $result['body'] ) )

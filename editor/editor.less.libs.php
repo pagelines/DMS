@@ -50,7 +50,12 @@ class EditorLessHandler{
 	 *  @since 3.0
 	 */
 	static function enqueue_draft_css() {
-		wp_register_style( 'pagelines-draft',  sprintf( '%s/?pagedraft=1', site_url() ), false, null, 'all' );
+		
+		// make url safe.		
+		$url = str_replace( 'http://', '//', site_url() );
+		$url = str_replace( 'https://', '//', $url );
+
+		wp_register_style( 'pagelines-draft',  sprintf( '%s/?pagedraft=1', $url ), false, null, 'all' );
 		wp_enqueue_style( 'pagelines-draft' );
 	}
 
