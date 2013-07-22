@@ -138,6 +138,8 @@ function pagelines_body_classes(){
 	$classes[] = $special_body_class; 
 	$classes[] = strtolower( PL_CHILDTHEMENAME );
 	
+	$classes[] = (pl_is_pro()) ? 'pl-pro-version' : 'pl-basic-version';
+	
 	$classes = apply_filters('pagelines_body_classes', $classes); 
 	
 	$body_classes = join(' ', $classes); 

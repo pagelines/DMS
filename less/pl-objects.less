@@ -15,59 +15,56 @@
  * @ Animation Stuff
  **********************************************************************/
 
-.pl-viewport{
-	position: relative; 
-	overflow:hidden;
-	
-
-}
 
 .pl-animation{
 	-webkit-backface-visibility: hidden; // fixes flicker
 }
 
-.pla-scale, 
-.pla-fade, 
-.pla-from-left, 
-.pla-from-right, 
-.pla-from-top, 
-.pla-from-bottom{
-	opacity: 0;
-	.transition(all 1s ease-in-out);
-	&.animation-loaded{
-		opacity: 1;
-		.translate3d(0,0,0);
-		.scale(1);
+.pl-pro-version{
+	.pla-scale, 
+	.pla-fade, 
+	.pla-from-left, 
+	.pla-from-right, 
+	.pla-from-top, 
+	.pla-from-bottom{
+		opacity: 0;
+		.transition(all 1s ease-in-out);
+		&.animation-loaded{
+			opacity: 1;
+			.translate3d(0,0,0);
+			.scale(1);
+		}
+	} 
+	.pla-scale{
+		opacity: .3;
+		.scale(.3);
 	}
-} 
-.pla-scale{
-	opacity: .3;
-	.scale(.3);
-}
-.pla-from-left{
-	.translate3d(-100px, 0, 0);
+	.pla-from-left{
+		.translate3d(-100px, 0, 0);
 
-}
-.pla-from-right{
-	.translate3d(100px, 0, 0);
-}
-.pla-from-bottom{
-	.translate3d(0, 100px, 0);
-}
-.pla-from-top{
-	.translate3d(0, -100px, 0);
-}
+	}
+	.pla-from-right{
+		.translate3d(100px, 0, 0);
+	}
+	.pla-from-bottom{
+		.translate3d(0, 100px, 0);
+	}
+	.pla-from-top{
+		.translate3d(0, -100px, 0);
+	}
 
-.pl-appear{
-	opacity: .1;
-	.scale(.5);
-	
-	&.animation-loaded{
-		opacity: 1;
-		.transition(all .5s ease-in-out);
-		.scale(1);
+	.pl-appear{
+		opacity: .1;
+		.scale(.5);
+
+		&.animation-loaded{
+			opacity: 1;
+			.transition(all .5s ease-in-out);
+			.scale(1);
+		}
 	}
 }
+
 
 .no-anim{
 	opacity: 1;
