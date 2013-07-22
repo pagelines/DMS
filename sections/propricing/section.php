@@ -177,9 +177,10 @@ class PLProPricing extends PageLinesSection {
 			
 			if($link != ''){
 				
-				$link_text = ($link_text != '') ? sprintf('% <i class="icon-chevron-sign-right"></i>', $link_text) : 'Sign Up <i class="icon-chevron-sign-right"></i>';
+				$link_text = ($link_text != '') ? $link_text : 'Sign Up';
+				$link_text = sprintf('<span class="btn-link-text" data-sync="propricing_link_text_%s">%s</span>', $i, $link_text);
 				
-				$formatted_link = sprintf('<li class="pp-link"><a href="%s" class="btn btn-large %s" data-sync="propricing_link_text_%s">%s</a></li>', $link, $btn_theme, $i, $link_text);
+				$formatted_link = sprintf('<li class="pp-link"><a href="%s" class="btn btn-large %s" >%s <i class="icon-chevron-sign-right"></i></a></li>', $link, $btn_theme, $link_text);
 				
 			} else {
 				$formatted_link = ''; 
