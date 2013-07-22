@@ -33,7 +33,7 @@ class PLProPricing extends PageLinesSection {
 					'type' 			=> 'count_select',
 					'count_start'	=> 1,
 					'count_number'	=> 12,
-					'default'		=> 4,
+					'default'		=> 3,
 					'label' 	=> __( 'Number of Plans to Configure', 'pagelines' ),
 				),
 				array(
@@ -120,7 +120,7 @@ class PLProPricing extends PageLinesSection {
 
    function section_template( ) { 
 	
-		$cols = ($this->opt('propricing_cols')) ? $this->opt('propricing_cols') : 3;
+		$cols = ($this->opt('propricing_cols')) ? $this->opt('propricing_cols') : 4;
 		$num = ($this->opt('propricing_count')) ? $this->opt('propricing_count') : $this->default_limit;
 		$width = 0;
 		$output = '';
