@@ -853,8 +853,8 @@ class PageLinesTemplateHandler {
 		}
 
 
-
-		$class = array_merge($class, $s->wrapper_classes);
+		$class = array_merge( $class, $s->wrapper_classes, (array) explode( ' ', $s->special_classes ) );
+		$class = array_unique( array_filter( $class ) ); // ensure no empties or duplicates
 
 		printf(
 			'<section id="%s" data-object="%s" data-sid="%s" data-clone="%s" class="%s section-%s">%s<div class="%s fix">',

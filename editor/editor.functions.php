@@ -103,6 +103,9 @@ function process_old_opt( $key, $old, $otop = array()){
 		'span'			=> $old['span'],
 	);
 
+	if ( isset( $old['template'] ) )
+		$new['template'] = $old['template'];
+
 	if($old['type'] == 'count_select'){
 		$new['count_start'] = $old['count_start'];
 		$new['count_number'] = $old['count_number'];
