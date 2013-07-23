@@ -128,8 +128,7 @@ class PageLinesSectionsPanel{
 			if($s->filter == 'deprecated')
 				continue;
 
-
-			if( strpos($s->filter, 'full-width') ){
+			if( strpos($s->filter,'full-width') !== false ){
 				$section_classes = 'pl-area-sortable area-tag';
 			} else {
 				$section_classes = 'pl-sortable span12 sortable-first sortable-last';
