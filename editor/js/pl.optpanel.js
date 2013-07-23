@@ -507,7 +507,7 @@
 				}
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option>&mdash; Select Menu &mdash;</option>%s</select>', o.key, o.name, select_opts)
+				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; Select Menu &mdash;</option>%s</select>', o.key, o.name, select_opts)
 
 				oHTML += sprintf('<a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, 'Configure Menus' )
 			}
