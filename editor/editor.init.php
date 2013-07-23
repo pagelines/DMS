@@ -20,11 +20,9 @@ class PageLinesEditor {
 		add_action( 'wp', array(&$this, 'load_libs' ), 5); // !important - must load after $post variable
 		add_action( 'admin_init', array(&$this, 'load_libs' ), 5);
 
-		if( pl_draft_mode() || is_admin() )
-
-			add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
-			add_action( 'wp_head', array(&$this, 'process_head' ) );
-			add_action( 'wp_footer', array(&$this, 'process_foot' ) );
+		add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
+		add_action( 'wp_head', array(&$this, 'process_head' ) );
+		add_action( 'wp_footer', array(&$this, 'process_foot' ) );
 
 
 		// RENDER SECTION TEMPLATES ACTIONS
