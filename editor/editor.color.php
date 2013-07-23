@@ -15,7 +15,7 @@ class EditorColor{
  		add_filter('pl_settings_array', array(&$this, 'add_settings'));
 		add_filter('pless_vars', array(&$this, 'add_less_vars'));
 		
-		if($this->background)
+		if($this->background && $this->background != '')
 			add_filter('wp_enqueue_scripts', array(&$this, 'background_fit'));
 		
 //		add_filter('pagelines_body_classes', array(&$this, 'add_body_classes'));
@@ -43,6 +43,9 @@ class EditorColor{
 		$vars['pl-text']				= $this->hash( $text );
 		$vars['pl-link']				= $this->hash( $link );
 		$vars['pl-background']			= $this->background( $vars['pl-base'] );
+		
+	//	plprint($vars['pl-background']);
+		
 		return $vars;
 	}
 
@@ -51,14 +54,15 @@ class EditorColor{
 		
 		
 		$fit = pl_setting('supersize_bg');
-		$image = $this->background;
+		
+		$image = ($this->background && $this->background != '') ? $this->background : false;
 
 		if($image && $fit){
 			
 			$background = $bg_color;
 			
 		} elseif($image && !$fit){
-	
+
 			$repeat = pl_setting('page_background_image_repeat');
 			$pos_x = pl_setting('page_background_image_pos_hor');
 			$pos_y = pl_setting('page_background_image_pos_vert');
