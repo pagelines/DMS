@@ -23,7 +23,7 @@ class PageLinesUpdateCheck {
 	 */
 	function pagelines_theme_check_version() {
 
-		if ( true == get_pagelines_option('disable_updates') || ! pl_is_pro() )
+		if ( true == get_pagelines_option('disable_updates') )
 			return;
 		$folder = basename( get_template_directory() );
 
@@ -91,7 +91,7 @@ class PageLinesUpdateCheck {
 			' %s',
 			( $pagelines_update['package'] != 'bad' )
 				? sprintf( 'You should <a href="%s">update now</a>.', admin_url('update-core.php') )
-				: sprintf( '<a href="%s">Click here</a> to setup your PageLines account.', PLAdminPaths::account() )
+				: sprintf( '<a href="%s">Click here</a> to setup your PageLines account.', PLAdminPaths::editor_account() )
 		);
 
 		echo ( $pagelines_update['extra'] ) ? sprintf('<br />%s', $pagelines_update['extra'] ) : '';
