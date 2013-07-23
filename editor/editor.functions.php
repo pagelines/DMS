@@ -94,7 +94,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		'taxonomy_id'	=> '',
 		'post_type'		=> '',
 		'span'			=> 1,
-		'default'		=> 1
+		'default'		=> ''
 	);
 
 	$old = wp_parse_args($old, $defaults);
