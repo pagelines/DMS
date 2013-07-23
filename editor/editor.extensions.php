@@ -26,7 +26,7 @@ class EditorExtensions {
 			foreach($themes as $theme => $t){
 				$class = array();
 
-				if($t->get_template() != 'pagelines')
+				if($t->get_template() != 'dms')
 					continue;
 
 				$thumb = $t->get_screenshot( );
