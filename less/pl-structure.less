@@ -10,7 +10,7 @@ body {
 		z-index: 0;
 		position: relative;
 		.transition(all .3s ease-in-out);
-		-webkit-backface-visibility: hidden; // fixes flicker
+		
 		&.show-mm {
 			.translate3d(-260px, 0, 0);
 		}
@@ -256,8 +256,8 @@ body{
  ****************************************/
 @media screen and ( max-width:@resPortraitTablet ){
 
-	.responsive{
-
+	.site-wrap{
+		-webkit-backface-visibility: hidden; // fixes flicker
 	}
 
 }
