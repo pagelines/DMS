@@ -21,9 +21,6 @@ class PageLinesEditor {
 		add_action( 'admin_init', array(&$this, 'load_libs' ), 5);
 
 		if( pl_draft_mode() || is_admin() )
-			add_action( 'init', array(&$this, 'installer_scripts' ), 9 );
-
-
 
 			add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
 			add_action( 'wp_head', array(&$this, 'process_head' ) );
@@ -83,13 +80,6 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.less.php' );
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
-	}
-	function installer_scripts() {
-
-		require_once (PL_EDITOR . '/editor.installer.libs.php');
-		require_once( PL_EDITOR . '/editor.installer.php' );
-
-		new Editor_Plugin_Installer;
 	}
 
 	function load_libs(){
