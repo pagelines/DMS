@@ -220,12 +220,27 @@ class EditorSettings {
 				'help' 		=> __( 'This places your Twitter feed on the site. Leave blank if you want to hide or not use.', 'pagelines' )
 			),
 			array(
-				'key'		=> 'facebook_name',
-				'type' 		=> 'text',
-				'label' 	=> __( 'Your Facebook Page Name', 'pagelines' ),
-				'title' 	=> __( 'Facebook Page', 'pagelines' ),
-				'help' 		=> __( 'Enter the name component of your Facebook page URL. (For example, what comes after the facebook url: www.facebook.com/[name])', 'pagelines' )
+				'key'		=> 'fb_multi',
+				'type'		=> 'multi', 
+				'title'		=> 'Facebook',
+				'opts'		=> array(
+					array(
+						'key'		=> 'facebook_name',
+						'type' 		=> 'text',
+						'label' 	=> __( 'Your Facebook Page Name', 'pagelines' ),
+						'title' 	=> __( 'Facebook Page', 'pagelines' ),
+						'help' 		=> __( 'Enter the name component of your Facebook page URL. (For example, what comes after the facebook url: www.facebook.com/[name])', 'pagelines' )
+					),
+					array(
+						'key'		=> 'facebook_app_id',
+						'type' 		=> 'text',
+						'label' 	=> __( 'Your Facebook App ID', 'pagelines' ),
+						'title' 	=> __( 'Facebook App ID', 'pagelines' ),
+						'help' 		=> __( 'Add your Facebook Application ID here.', 'pagelines' )
+					),
+				)
 			),
+			
 			array(
 				'key'		=> 'site-hashtag',
 				'type' 		=> 'text',

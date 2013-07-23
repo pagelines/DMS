@@ -126,6 +126,10 @@ class PLWatermark extends PageLinesSection {
 	}
 	
 	function socializer_scripts(){
+		
+		$app_id = '';
+		if( $this->opt( 'facebook_app_id' ) )
+			$app_id = sprintf( '&appId=%s', $this->opt( 'facebook_app_id' ) );
 		?>
 
 		<div id="fb-root"></div>
@@ -133,7 +137,7 @@ class PLWatermark extends PageLinesSection {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=164191023644637";
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1<?php echo $app_id; ?>";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 

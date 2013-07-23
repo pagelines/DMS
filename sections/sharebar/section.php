@@ -292,6 +292,9 @@ class PageLinesShareBar extends PageLinesSection {
 
 		$a = wp_parse_args($args, $defaults);
 
+		$app_id = '';
+		if( $this->opt( 'facebook_app_id' ) )
+			$app_id = sprintf( '&appId=%s', $this->opt( 'facebook_app_id' ) );
 
 		ob_start();
 			// Facebook
@@ -300,7 +303,7 @@ class PageLinesShareBar extends PageLinesSection {
 					var js, fjs = d.getElementsByTagName(s)[0];
 					if (d.getElementById(id)) return;
 					js = d.createElement(s); js.id = id;
-					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1<?php echo $app_id; ?>";
 					fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));
 			</script>
