@@ -47,7 +47,7 @@ class SimpleNav extends PageLinesSection {
 				'type' 			=> 'select',
 				'title' 		=> 'Select Alignment',
 				'key'			=> 'simple_nav_align',
-				'label' 		=> 'Select Alignment',
+				'label' 		=> __( 'Select Alignment', 'pagelines' ),
 				'opts'=> array(
 					'center'	=> array( 'name' => 'Align Center (Default)' ),
 					'left'	 	=> array( 'name' => 'Align Left' ),

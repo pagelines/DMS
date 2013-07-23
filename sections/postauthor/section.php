@@ -32,9 +32,9 @@ class PageLinesPostAuthor extends PageLinesSection {
 				'key'	=> 'author_setup',
 				'type'	=> 'link',
 				'url'	=> admin_url( 'user-edit.php?user_id='.$author_id ),
-				'title'	=> 'Author Setup',
-				'label'		=>	'<i class="icon-edit"></i> Edit Author Info',
-				'help'		=> "This section uses the author's profile information. Set that in your admin. ",
+				'title'	=> __( 'Author Setup', 'pagelines' ),
+				'label'		=> '<i class="icon-edit"></i> Edit Author Info',
+				'help'		=> __( "This section uses the author's profile information. Set that in your admin.", 'pagelines' ),
 			)
 		);
 
@@ -58,7 +58,6 @@ class PageLinesPostAuthor extends PageLinesSection {
 		$author_desc = get_the_author_meta('description', $post->post_author);
 		$google_profile = get_the_author_meta( 'google_profile' );
 ?>
-
 		<div class="media author-info">
 			<div class="img thumbnail author-thumb">
 				<a class="thumbnail" href="<?php echo $link; ?>" target="_blank">
@@ -87,5 +86,4 @@ class PageLinesPostAuthor extends PageLinesSection {
 		</div>
 		<div class="clear"></div>
 <?php	}
-
 }

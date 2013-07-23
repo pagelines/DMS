@@ -21,12 +21,12 @@ class PageLinesTextBox extends PageLinesSection {
 					array(
 						'type' 			=> 'text',
 						'key'			=> 'textbox_title',
-						'label' 		=> 'Title (Optional)',
+						'label' 		=> __( 'Title (Optional)', 'pagelines' ),
 					),
 					array(
 						'type' 			=> 'textarea',
 						'key'			=> 'textbox_content',
-						'label' 		=> 'Text Content',
+						'label' 		=> __( 'Text Content', 'pagelines' ),
 					),
 					
 				)
@@ -66,8 +66,8 @@ class PageLinesTextBox extends PageLinesSection {
 					array(
 						'type' 			=> 'select_animation',
 						'key'			=> 'textbox_animation',
-						'label' 		=> 'Viewport Animation',
-						'help' 			=> 'Optionally animate the appearance of this section on view.',
+						'label' 		=> __( 'Viewport Animation', 'pagelines' ),
+						'help' 			=> __( 'Optionally animate the appearance of this section on view.', 'pagelines' ),
 					),
 					
 				)

@@ -26,26 +26,26 @@ class PLWatermark extends PageLinesSection {
 					array(
 						'key'			=> 'watermark_image',
 						'type' 			=> 'image_upload',
-						'label' 		=> 'Watermark Image',
+						'label' 		=> __( 'Watermark Image', 'pagelines' ),
 						'default'		=> $this->base_url . '/default-watermark.png',
 						'imgsize'			=> '44'
 					),
 					array(
 						'key'			=> 'watermark_link',
 						'type' 			=> 'text',
-						'label'			=> 'Watermark Link (Blank for None)',
+						'label'			=> __( 'Watermark Link (Blank for None)', 'pagelines' ),
 						'default' 		=> 'http://www.pagelines.com'
 					),
 					array(
 						'key'			=> 'watermark_alt',
 						'type' 			=> 'text',
-						'label' 		=> 'Watermark Link alt text',
-						'default' 		=> 'Build a website with PageLines'
+						'label' 		=> __( 'Watermark Link alt text', 'pagelines' ),
+						'default' 		=> __( 'Build a website with PageLines', 'pagelines' )
 					),
 					array(
 						'key'			=> 'watermark_hide',
 						'type' 			=> 'check',
-						'label'		 	=> "Hide Watermark"
+						'label'		 	=> __( "Hide Watermark", 'pagelines' )
 					)
 				),
 

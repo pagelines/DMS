@@ -25,16 +25,16 @@ class PageLinesPostLoop extends PageLinesSection {
 			array(
 				'key'		=> 'post_content',
 				'type'		=> 'edit_post',
-				'title'		=> 'Edit Post Content',
-				'label'		=>	'<i class="icon-edit"></i> Edit Post Info',
-				'help'		=> 'This section uses WordPress posts. Edit post information using WordPress admin.',
+				'title'		=> __( 'Edit Post Content', 'pagelines' ),
+				'label'		=>	__( '<i class="icon-edit"></i> Edit Post Info', 'pagelines' ),
+				'help'		=> __( 'This section uses WordPress posts. Edit post information using WordPress admin.', 'pagelines' ),
 				'classes'	=> 'btn-primary'
 			),
 			array(
 				'key'		=> 'pagetitles',
 				'type'		=> 'check',
 				'case'		=> 'page',
-				'title'		=> 'Page Title',
+				'title'		=> __( 'Page Title', 'pagelines' ),
 				'label'		=> 'Show page title?',
 			),
 
@@ -143,7 +143,7 @@ class PageLinesPostLoop extends PageLinesSection {
 							'key'		=> 'hide_thumb',
 							'case'		=> 'special',
 							'type'		=> 'check',
-							'label'		=> 'Hide thumbs?',
+							'label'		=> __( 'Hide thumbs?', 'pagelines' ),
 							'title'		=> __( 'Post Thumbnails', 'pagelines' ),
 							'help'		=> __( 'Use this option to hide or show thumbs for posts on pages.', 'pagelines' )
 					),
@@ -160,14 +160,14 @@ class PageLinesPostLoop extends PageLinesSection {
 							'key'		=> 'hide_excerpt',
 							'case'		=> 'special',
 							'type'		=> 'check',
-							'label'		=> 'Hide excerpts?',
+							'label'		=> __( 'Hide excerpts?', 'pagelines' ),
 							'title'		=> __( 'Hide Post Excerpt', 'pagelines' ),
 							'help'		=> __( 'Excerpts are short pieces of content that are shown to give users a preview of a post. Hide them using this option.', 'pagelines' )
 					),
 					array(
 							'case'		=> 'special',
 							'key'		=> 'continue_reading_text',
-							'default'	=> 'Read More &raquo;',
+							'default'	=> __( 'Read More &raquo;', 'pagelines' ),
 							'type'		=> 'text',
 							'label'		=> __( 'Continue Reading Link Text', 'pagelines' ),
 							'title'		=> __( 'Excerpts <strong>Continue Reading</strong> Text', 'pagelines' ),
