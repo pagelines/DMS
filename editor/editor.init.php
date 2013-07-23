@@ -31,12 +31,6 @@ class PageLinesEditor {
 		add_action( 'pagelines_header', array(&$this, 'process_header' ) );
 		add_action( 'pagelines_template', array(&$this, 'process_template' ) );
 		add_action( 'pagelines_footer', array(&$this, 'process_footer' ) );
-
-		add_action( 'admin_init', 'PLAccountPanel::activation_check_function' );
-
-		// hourly for testing...
-		// if ( pl_is_pro() && ! wp_next_scheduled( 'pl_check_activation' ) )
-  // 			wp_schedule_event( time(), 'daily', 'pl_check_activation' );
 	}
 
 	function load_files(){

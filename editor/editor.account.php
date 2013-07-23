@@ -9,12 +9,15 @@ class PLAccountPanel{
 			add_filter( 'pl_toolbar_config', array( &$this, 'toolbar' ) );
 
 		add_action( 'wp_ajax_pl_account_actions', array( &$this, 'pl_account_actions' ) );
-
+		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
 	}
 
 	function activation_check_function() {
 
 		$check = false;
+
+		if( defined( 'DOING_AJAX' ) && true == DOING_AJAX )
+			return;
 
 		if ( ! current_user_can( 'edit_theme_options' ) )
 			return;
