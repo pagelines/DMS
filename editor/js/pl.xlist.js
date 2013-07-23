@@ -115,6 +115,8 @@
 
 			var that = this
 			$('.x-extension').on('click.extensionItem', function(){
+				
+				
 				var theExtension = $(this)
 				,	theIsotope = $(this).parent()
 				,	theID = $(this).data('extend-id')
@@ -122,9 +124,9 @@
 				,	filterClass = '.'+filterID
 				,	ext = $.pl.config.extensions[theID] || false
 				,	panel = theIsotope.data('panel') || false
-			
+	
 				if(!theIsotope.hasClass('x-pane-mode') && ext){
-					plPrint(ext)
+				
 
 					var splash	= sprintf('<div class="x-pane-frame"><img src="%s" /></div>', ext.splash)
 					,	btnClose = sprintf('<a class="x-close x-remove %s btn btn-close"><i class="icon-remove"></i> Close</a>', filterID)
@@ -143,6 +145,9 @@
 						.isotope('insert', extPane)
 						.isotope({filter: filterClass})
 						.addClass('x-pane-mode')
+				} else {
+					plPrint('Extension not in JSON array')
+					plPrint($.pl.config.extensions)
 				}
 
 				// load actions after elements added to DOM
