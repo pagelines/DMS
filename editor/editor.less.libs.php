@@ -55,7 +55,7 @@ class EditorLessHandler{
 		global $post;
 		$url = untrailingslashit( get_permalink( $post->ID ) );
 
-		wp_register_style( 'pagelines-draft',  sprintf( '%s/?pagedraft=1', $url ), false, null, 'all' );
+		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
 		wp_enqueue_style( 'pagelines-draft' );
 	}
 
