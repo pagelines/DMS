@@ -189,7 +189,7 @@ class PLAccountPanel{
 		<p>
 			Welcome to PageLines DMS, the world's first comprehensive drag and drop design management system.<br/>
 			You've made it this far, now let's take a minute to show you around. <br/>
-			<a href="#" class="dms-tab-link btn btn-success btn-mini" data-tab-link="account" data-stab-link="account"><i class="icon-user"></i> Add Account Info</a>
+			<a href="#" class="dms-tab-link btn btn-success btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i> Add Account Info</a>
 
 		</p>
 		<p>
@@ -204,23 +204,32 @@ class PLAccountPanel{
 		$disabled = '';
 		$email = '';
 		$key = '';
-		$activate_text = 'Activate';
+		$activate_text = '<i class="icon-ok"></i> Activate';
+		$activate_btn_class = 'btn-primary'; 
 		if( pl_is_pro() ) {
 			$disabled = ' disabled';
 			$data = get_option( 'dms_activation' );
 			$email = sprintf( 'value="%s"', $data['email'] );
 			$key = sprintf( 'value="%s"', $data['key'] );
 			printf( '<div class="account-description"><div class="alert alert-info">%s</div></div>', $data['message'] );
-			$activate_text = 'Deactivate';
+			$activate_text = '<i class="icon-remove"></i> Deactivate';
+			$activate_btn_class = 'btn-important'; 
 		}
 
 		if( ! pl_is_pro() ){
 		?>
-		<h3><i class="icon-user"></i> Enter your PageLines DMS Activation key</h3>
-		<p class="account-description">
-			If you are a Pro member, it will unlock pro features.
-		</p>
-		<?php }
+			<h3><i class="icon-key"></i> Enter your DMS Pro Activation key</h3>
+			<p class="account-description">
+				If you are a Pro member, activate to unlock pro sections, tools, libraries and support.
+			</p>
+		<?php } else { ?>
+			<h3><i class="icon-key"></i> You're A Pro!</h3>
+			<p class="account-description">
+				Congratulations! The latest and greatest DMS tools and features are activated. 
+			</p>
+		<?php 
+		
+		}
 		?>
 		<label for="pl_activation">User email</label>
 		<input type="text" class="pl-text-input" name="pl_email" id="pl_email" <?php echo $email . $disabled ?> />
@@ -236,7 +245,7 @@ class PLAccountPanel{
 
 		?>
 		<div class="submit-area">
-			<button class="btn btn-primary settings-action" data-action="pagelines-account"><?php echo $activate_text; ?></button>
+			<button class="btn <?php echo $activate_btn_class;?> settings-action" data-action="pagelines-account"><?php echo $activate_text; ?></button>
 		</div>
 		<?php
 

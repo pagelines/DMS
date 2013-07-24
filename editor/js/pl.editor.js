@@ -114,7 +114,7 @@
 				var tabLink =  $(this).data('tab-link') || ''
 				,	tabSubLink = $(this).data('stab-link')|| ''
 				
-				that.tabLink( tabLink, tabSubLink)
+				$.pageTools.tabLink( tabLink, tabSubLink)
 				
 
 			})
@@ -164,11 +164,11 @@
 			})
         }
 
-		, tabLink: function(tabLink, tabSubLink){
+		, tabLink: function( tabLink, tabSubLink ){
 			
 			var tabLink =  tabLink || ''
 			,	tabSubLink = tabSubLink || ''
-			
+	
 			tabSubLink = ( tabSubLink != '') ? tabSubLink : '0'
 			
 			if( tabLink != '' ){
