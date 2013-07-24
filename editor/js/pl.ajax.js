@@ -79,15 +79,18 @@
 							bootbox.dialog( that.dialogText( theData.savingText ), [ ], {animate: false})
 						}
 
-
+						$.pl.flags.saving = true
 					}
 				, 	error: function( jqXHR, status, error ){
+					$.pl.flags.saving = false
 					plPrint('AJAX Error')
 					plPrint( status )
 					plPrint( error )
 				}
 				, 	success: function( response ){
-
+					
+						$.pl.flags.saving = false
+						
 						that.runSuccess( theData, response )
 
 						if( theData.refresh ){

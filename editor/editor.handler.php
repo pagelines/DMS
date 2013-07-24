@@ -91,6 +91,7 @@ class PageLinesTemplateHandler {
 						,	savingDialog: 'Saving'
 						,	refreshingDialog: 'Success! Reloading page'
 						,	layoutMode: '<?php echo $this->layout->get_layout_mode();?>'
+						,	saving: false
 					}
 					
 					, config: {
