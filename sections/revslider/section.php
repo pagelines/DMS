@@ -79,6 +79,11 @@ class plRevSlider extends PageLinesSection {
 						'type'		=> 'select_same',
 						'opts'		=> $this->slider_transitions()
 					),
+					'revslider_extra_'.$i 	=> array(
+						'label'		=> __( 'Slide Extra Elements', 'pagelines' ),
+						'type'		=> 'textarea',
+						'ref'		=> __( 'Add extra Revolution Slider markup here. Rev slider is based on Revolution Slider, a jQuery plugin. It supports a wide array of functionality including video embeds and additional transitions if you can handle HTML. Check out the <a href="http://www.orbis-ingenieria.com/code/documentation/documentation.html" target="_blank">docs here</a>.', 'pagelines' )
+					),
 				),
 
 			);
@@ -152,17 +157,14 @@ class plRevSlider extends PageLinesSection {
 							navigationVAlign:"bottom",
 							navigationHOffset:0,
 							navigationVOffset:20,
-
 							soloArrowLeftHalign:"left",
 							soloArrowLeftValign:"center",
 							soloArrowLeftHOffset:20,
 							soloArrowLeftVOffset:0,
-
 							soloArrowRightHalign:"right",
 							soloArrowRightValign:"center",
 							soloArrowRightHOffset:20,
 							soloArrowRightVOffset:0,
-
 							touchenabled:"on",
 							stopAtSlide:-1,
 							stopAfterLoops:-1,
@@ -188,11 +190,14 @@ class plRevSlider extends PageLinesSection {
 		for($i = 1; $i <= $slides; $i++){
 
 			$the_bg = $this->opt( 'revslider_bg_'.$i );
-
-			if( $the_bg ){
+			
+			$extra = $this->opt('revslider_extra_'.$i);
+			
+			if( $the_bg || $extra ){
 
 				$the_text = $this->opt('revslider_text_'.$i);
 				$the_link = $this->opt('revslider_link_'.$i);
+				
 				$the_location = $this->opt('revslider_text_location_'.$i);
 				$transition = $this->opt('revslider_transition_'.$i, array('default' => 'fade'));
 
@@ -207,23 +212,25 @@ class plRevSlider extends PageLinesSection {
 					$caption_class = 'left-side sfl stl';
 				}
 
-				$bg = sprintf('<img src="%s" data-fullwidthcentering="on">', $the_bg);
+				$bg = ($the_bg) ? sprintf('<img src="%s" data-fullwidthcentering="on">', $the_bg) : '';
 
 				$content = sprintf('<h2><span class="slider-text">%s</span></h2>', $the_text);
 
 				$link = ($the_link) ? sprintf('<a href="%s" class="slider-btn">%s</a>', $the_link, __('Read More', 'pagelines')) : '';
 
-				$caption = sprintf(
-						'<div class="caption slider-content %s" data-x="%s" data-y="130" data-speed="300" data-start="500" data-easing="easeOutExpo">%s %s</div>',
-						$caption_class,
-						$the_x,
-						$content,
-						$link
-				);
+				if(!$extra){
+					$caption = sprintf(
+							'<div class="caption slider-content %s" data-x="%s" data-y="130" data-speed="300" data-start="500" data-easing="easeOutExpo">%s %s</div>',
+							$caption_class,
+							$the_x,
+							$content,
+							$link
+					);
+				} else
+					$caption = '';
+				
 
-
-
-				$output .= sprintf('<li data-transition="%s" data-slotamount="7">%s %s</li>', $transition, $bg, $caption);
+				$output .= sprintf('<li data-transition="%s" data-slotamount="7">%s %s %s</li>', $transition, $bg, $caption, $extra);
 			}
 		}
 		return $output;
@@ -272,7 +279,7 @@ class plRevSlider extends PageLinesSection {
 			</li>
 
 
-			<li data-transition="fade" data-slotamount="7" data-masterspeed="300" >
+			<li data-transition="fade" data-slotamount="10"  >
 
 					<img src="<?php echo $this->base_url;?>/images/bg3.jpg" data-fullwidthcentering="on">
 
@@ -283,8 +290,7 @@ class plRevSlider extends PageLinesSection {
 						data-speed="500"
 						data-start="10"
 						data-easing="easeOutBack">
-							<iframe src="http://player.vimeo.com/video/67237715?title=0&amp;byline=0&amp;portrait=0;api=1" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-					
+							<iframe width="100%" height="100%" src="//www.youtube.com/embed/CL1jPb0_Auc?wmode=opaque" frameborder="0" allowfullscreen></iframe>
 					</div>
 
 			</li>
