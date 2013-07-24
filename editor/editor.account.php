@@ -216,8 +216,7 @@ class PLAccountPanel{
 			$activate_btn_class = 'btn-important'; 
 		}
 
-		if( ! pl_is_pro() ){
-		?>
+		if( ! pl_is_pro() ){ ?>
 			<h3><i class="icon-key"></i> Enter your DMS Pro Activation key</h3>
 			<p class="account-description">
 				If you are a Pro member, activate to unlock pro sections, tools, libraries and support.
