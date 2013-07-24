@@ -53,8 +53,10 @@ class EditorLessHandler{
 		
 		// make url safe.		
 		global $post;
-		$url = untrailingslashit( get_permalink( $post->ID ) );
-
+		if( is_object( $post ) )
+			$url = untrailingslashit( get_permalink( $post->ID ) );
+		else
+			$url = trailingslashit( site_url() );
 		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
 		wp_enqueue_style( 'pagelines-draft' );
 	}
