@@ -1,0 +1,131 @@
+.swiper-details{
+	text-align: center;
+	padding: 1em 0 2em;
+	text-shadow: 0 2px 0 #000;
+	font-size: 20px;
+	.pl-sep{
+		margin: 0 3em; 
+		font-style: italic;
+	}
+	.pl-special-font{
+		font-size: 30px;
+		color: @linkColor;
+	}
+	.btn{
+		.border-radius(25px);
+		box-shadow: 0 2px 0 #000;
+		font-size: 18px;
+		padding: 9px 20px;
+		text-transform: uppercase; 
+		font-weight: bold; 
+		i{margin-left: 10px;}
+	}
+	img{
+		width: 30px;
+		margin-left: 5px;
+		margin-bottom: -36px;
+	}
+}
+#swiper-gallery {
+	width: 100%;
+	
+	&.videoGallery {
+		.rsOverflow{
+			box-shadow: 0 1px 15px rgba(0,0,0,.5);
+		}
+		.rsTmb {
+		  padding: 20px;
+		}
+		.rsThumbs {
+			width: 100%;
+			padding: 0;
+			background: none;
+
+			&.rsThumbsHor{
+				height: auto;
+			}
+			.rsThumb {
+
+				width: 200px;	
+				text-align: center;
+				color: #CCC;
+				height: auto;
+				.video-nav-img{
+					position: relative; 
+					> img{
+						max-width: 100%; 
+						border: 4px solid #fff; 
+
+						.border-radius(6px);
+						.box-sizing(border-box);
+						box-shadow: 0 1px 6px rgba(0,0,0,.4);
+						opacity: .85;
+					}
+					.video-nav-icon{
+						width: 100%;
+
+						position: absolute;
+						top: 0; 
+
+						i{
+							color: #FFF; 
+
+							line-height: 84px;
+
+						}
+					}
+				}
+
+				&.rsNavSelected {
+
+					background: transparent;
+					i{display: none; }
+					.video-nav-img > img{
+						opacity: 1;
+
+
+					}
+				}
+				&:hover,
+				&.rsNavSelected {
+
+					.video-nav-img > img{
+
+					   	border-color: @linkColor;
+
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .videoGallery .rsTmb {
+    padding: 6px 8px;
+  }
+  .videoGallery .rsTmb h5 {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .videoGallery .rsThumbs.rsThumbsVer {
+    width: 100px;
+    padding: 0;
+  }
+  .videoGallery .rsThumbs .rsThumb {
+    width: 100px;
+    height: 47px;
+  }
+  .videoGallery .rsTmb span {
+    display: none;
+  }
+  .videoGallery .rsOverflow,
+  .royalSlider.videoGallery {
+    height: 300px !important;
+  }
+  .sampleBlock {
+    font-size: 14px;
+  }
+}
