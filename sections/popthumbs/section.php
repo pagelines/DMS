@@ -81,9 +81,16 @@ class PLPopThumbs extends PageLinesSection {
 			);
 
 			$opts[] = array(
-				'key'		=> 'popthumb_image_'.$i,
-				'label'		=> __( 'PopThumb Image', 'pagelines' ),
-				'type'		=> 'image_upload',
+				'key'			=> 'popthumb_image_'.$i,
+				'label'			=> __( 'PopThumb Image', 'pagelines' ),
+				'type'			=> 'image_upload',
+				'sizelimit'		=> 800000,
+			);
+			
+			$opts[] = array(
+				'key'			=> 'popthumb_thumb_'.$i,
+				'label'			=> __( 'PopThumb Thumb', 'pagelines' ),
+				'type'			=> 'image_upload',
 			);
 
 
@@ -127,7 +134,11 @@ class PLPopThumbs extends PageLinesSection {
 				
 				
 				
-			if($attach_id && $attach_id != ''){
+			if($this->opt('popthumb_thumb_'.$i)){
+				
+				$thumb_url = $this->opt('popthumb_thumb_'.$i);
+				
+			} elseif($attach_id && $attach_id != ''){
 				
 				$img = wp_get_attachment_image_src( $attach_id, 'basic-thumb'); 
 			
