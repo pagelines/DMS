@@ -40,11 +40,16 @@ class EditorLess extends EditorLessHandler {
 
 		if( isset( $_GET['pagedraft'] ) ) {
 
+			global $post;
 			$this->compare_less();
 
 			header( 'Content-type: text/css' );
 			header( 'Expires: ' );
 			header( 'Cache-Control: max-age=604100, public' );
+
+			// If you set a static home page in WordPress then delete it you get no CSS, this fixes it ( WhitchCraft! )
+			if( ! is_object( $post ) )
+				header( 'Stefans Got No Pages', true, 200 );
 
 			if( is_file( $this->draft_less_file ) ) {
 				echo readfile( $this->draft_less_file );
