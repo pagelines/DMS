@@ -27,15 +27,12 @@ class PLAccountPanel{
 
 		$data = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
 
-		if( ! isset( $data['date'] ) ) {
-			$data['date'] = date( 'Y-m-d' );
-		}
-
-		if( $data['date'] <= date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
+		if( isset( $data['date'] ) && $data['date'] <= date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
 			return;
+		else
+			$data['date'] = date( 'Y-m-d' );
 
 		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
-
 
 		$result = wp_remote_get( $url );
 
