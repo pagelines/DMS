@@ -27,7 +27,7 @@ class PLAccountPanel{
 
 		$data = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
 
-		if( isset( $data['date'] ) && $data['date'] <= date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
+		if( isset( $data['date'] ) && $data['date'] > date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
 			return;
 		else
 			$data['date'] = date( 'Y-m-d' );
