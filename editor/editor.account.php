@@ -31,10 +31,7 @@ class PLAccountPanel{
 			$data['date'] = date( 'Y-m-d' );
 		}
 
-		if( $data['date'] <= date( 'Y-m-d' ) )
-			$check = true;
-
-		if( false == $check )
+		if( $data['date'] <= date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
 			return;
 
 		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
