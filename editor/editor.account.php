@@ -14,8 +14,6 @@ class PLAccountPanel{
 
 	function activation_check_function() {
 
-		$check = false;
-
 		if( defined( 'DOING_AJAX' ) && true == DOING_AJAX )
 			return;
 
@@ -31,11 +29,10 @@ class PLAccountPanel{
 			$data['date'] = date( 'Y-m-d' );
 		}
 
-		if( $data['date'] <= date( 'Y-m-d' ) )
-			$check = true;
-
-		if( false == $check )
+		if( isset( $data['date'] ) && $data['date'] > date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
 			return;
+		else
+			$data['date'] = date( 'Y-m-d' );
 
 		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
 
