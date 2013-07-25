@@ -76,7 +76,7 @@ class PLAccountPanel{
 			$data['trys'] = ( isset( $data['trys'] ) ) ? $data['trys'] + 1 : 1;
 			update_option( 'dms_activation', $data );
 
-			if( $data['trys'] < 3 ) // try 2 times.
+			if( $data['trys'] < 3 ) // try again twice.
 				return;
 
 			self::send_email( $rsp, $data );
