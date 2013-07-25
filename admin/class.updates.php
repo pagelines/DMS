@@ -10,8 +10,8 @@ class PageLinesUpdateCheck {
 
 		$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
 
-		$this->email	 = $status['email'];
-		$this->key = $status['key'];
+		$this->email = (isset($status['email'])) ? $status['email'] : '';
+		$this->key = (isset($status['key'])) ? $status['key'] : '';
 
 		$this->site_tran = get_site_transient('update_themes');
 
