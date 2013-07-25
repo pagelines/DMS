@@ -14,8 +14,6 @@ class PLAccountPanel{
 
 	function activation_check_function() {
 
-		$check = false;
-
 		if( defined( 'DOING_AJAX' ) && true == DOING_AJAX )
 			return;
 
@@ -31,11 +29,10 @@ class PLAccountPanel{
 			$data['date'] = date( 'Y-m-d' );
 		}
 
-		if( $data['date'] <= date( 'Y-m-d' ) )
-			$check = true;
-
-		if( false == $check )
+		if( isset( $data['date'] ) && $data['date'] > date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
 			return;
+		else
+			$data['date'] = date( 'Y-m-d' );
 
 		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
 
@@ -82,7 +79,7 @@ class PLAccountPanel{
 			$data['trys'] = ( isset( $data['trys'] ) ) ? $data['trys'] + 1 : 1;
 			update_option( 'dms_activation', $data );
 
-			if( $data['trys'] < 3 ) // try 2 times.
+			if( $data['trys'] < 3 ) // try again twice
 				return;
 
 			self::send_email( $rsp, $data );
@@ -92,7 +89,7 @@ class PLAccountPanel{
 	function send_email( $rsp, $data ) {
 
 			$data = get_option( 'dms_activation' );
-			$message = sprintf( "The DMS activation key %s failed to authenticate after 2 tries. Please log into your account and check your subscription at https://www.pagelines.com/my-account/\n\nThe keyserver error was: %s", $data['key'], $rsp->error );
+			$message = sprintf( "The DMS activation key %s failed to authenticate after 3 tries. Please log into your account and check your subscription at https://www.pagelines.com/my-account/\n\nThe keyserver error was: %s", $data['key'], $rsp->error );
 			wp_mail( get_bloginfo( 'admin_email' ), 'DMS Activation Failed', $message );
 			update_option( 'dms_activation', array() );
 	}
