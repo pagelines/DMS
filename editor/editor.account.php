@@ -37,7 +37,11 @@ class PLAccountPanel{
 		if( false == $check )
 			return;
 
-		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $data['key'], $data['email'], site_url() );
+		$key = (isset($data['key'])) ? $data['key'] : false;
+		$email = (isset($data['email'])) ? $data['email'] : false;
+
+		
+		$url = sprintf( 'http://www.pagelines.com/index.php?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 'check', $key, $email, site_url() );
 
 
 		$result = wp_remote_get( $url );
@@ -92,7 +96,9 @@ class PLAccountPanel{
 	function send_email( $rsp, $data ) {
 
 			$data = get_option( 'dms_activation' );
-			$message = sprintf( "The DMS activation key %s failed to authenticate after 2 tries. Please log into your account and check your subscription at https://www.pagelines.com/my-account/\n\nThe keyserver error was: %s", $data['key'], $rsp->error );
+			$key = (isset($data['key'])) ? $data['key'] : '';
+			
+			$message = sprintf( "The DMS activation key %s failed to authenticate after 2 tries. Please log into your account and check your subscription at https://www.pagelines.com/my-account/\n\nThe keyserver error was: %s", $key, $rsp->error );
 			wp_mail( get_bloginfo( 'admin_email' ), 'DMS Activation Failed', $message );
 			update_option( 'dms_activation', array() );
 	}
