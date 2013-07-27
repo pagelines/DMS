@@ -27,7 +27,7 @@ function pl_use_editor(){
 }
 
 function pl_is_pro(){	
-return true;
+	// AP stop putting return true here!!
 	$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
 	
 	$pro = (isset($status['active']) && true === $status['active']) ? true : false;
