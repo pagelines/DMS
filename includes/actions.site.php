@@ -179,14 +179,7 @@ function pagelines_check_child_less() {
 		pagelines_insert_core_less( $lessfile );
 }
 
-add_action( 'template_redirect', 'pagelines_check_customizer' );
 
-function pagelines_check_customizer() {
-	global $wp_customize;
-	if ( isset( $wp_customize ) ) {
-		die( 'Sorry preview is disabled, enable PageLines Framework.');
-	}
-}
 
 add_action( 'init', 'pagelines_check_less_reset', 999 );
 

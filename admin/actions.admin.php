@@ -3,11 +3,25 @@
  * actions.admin.php
  */
 
-/**
- * Move users to front end after activation
- */
+// *********************************************
+// MOVE USERS TO FRONT END EDITOR
+// *********************************************
+
+define( 'PL_ACTIVATE_URL' , apply_filters('pl_activate_url', home_url().'?tablink=account&tabsublink=welcome'));
+
 if( is_admin() && isset($_GET['activated'] ) && $pagenow == "themes.php" )
-	wp_redirect( apply_filters('pl_activate_url', home_url().'?tablink=account&tabsublink=welcome') );
+	wp_redirect( PL_ACTIVATE_URL );
+
+
+add_action( 'admin_init', 'pagelines_check_customizer' );
+function pagelines_check_customizer() {
+	
+	global $pagenow;
+	
+	if($pagenow == 'customize.php')
+		wp_redirect( PL_ACTIVATE_URL );
+}
+
 
 /**
  * Add Javascript for Layout Controls from the Layout UI class
