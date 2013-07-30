@@ -86,7 +86,7 @@ class PageLinesWelcome {
 			),
 			'story3'	=> array(
 				'title'	=> __( 'Drag &amp; Drop Template Setup', 'pagelines' ),
-				'text'	=> sprintf( __( "Check out the <a href='%s'>Template Setup panel</a>! Using drag and drop you can completely control the appearance of your templates. Learn more in the <a href='http://www.pagelines.com/wiki/'>docs</a>.", 'pagelines' ), admin_url(PL_TEMPLATE_SETUP_URL) ),
+				'text'	=> sprintf( __( "Check out the <a href='%s'>Template Setup panel</a>! Using drag and drop you can completely control the appearance of your templates. Learn more in the <a href='http://docs.pagelines.com/'>docs</a>.", 'pagelines' ), admin_url(PL_TEMPLATE_SETUP_URL) ),
 				'img'	=> PL_ADMIN_ICONS . '/dash-drag-drop.png'
 			),
 			'story4'	=> array(
@@ -96,7 +96,7 @@ class PageLinesWelcome {
 			),
 			'spprt'	=> array(
 				'title'	=> __( 'Get Fast Support', 'pagelines' ),
-				'text'	=> __( "For help getting started, we offer our customers tons of support including comprehensive <a href='http://www.pagelines.com/wiki/' target='_blank'>docs</a>, and an active, moderated <a href='http://www.pagelines.com/forum/' target='_blank'>forum</a>.", 'pagelines' ),
+				'text'	=> __( "For help getting started, we offer our customers tons of support including comprehensive <a href='http://www.pagelines.com/wiki/' target='_blank'>docs</a>, and an active, moderated <a href='http://forum.pagelines.com/' target='_blank'>forum</a>.", 'pagelines' ),
 				'img'	=> PL_ADMIN_ICONS . '/dash-light-bulb.png'
 			),
 			'opts'	=> array(

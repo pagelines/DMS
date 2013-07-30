@@ -236,7 +236,7 @@ class PLAccountPanel{
 		
 		}
 		?>
-		<label for="pl_activation">User email</label>
+		<label for="pl_activation">PageLines Account Email</label>
 		<input type="text" class="pl-text-input" name="pl_email" id="pl_email" <?php echo $email . $disabled ?> />
 
 		<label for="pl_activation">Activation key</label>
@@ -264,7 +264,7 @@ class PLAccountPanel{
 			That's why we have a ton of people standing by to make you happy.
 		</p>
 		<p>
-			<a href="http://www.pagelines.com/forum" class="btn" target="_blank"><i class="icon-comments"></i> PageLines Forum</a>
+			<a href="http://forum.pagelines.com" class="btn" target="_blank"><i class="icon-comments"></i> PageLines Forum</a>
 			<a href="http://docs.pagelines.com" class="btn" target="_blank"><i class="icon-file"></i> DMS Documentation</a>
 		</p>
 

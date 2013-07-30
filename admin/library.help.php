@@ -108,7 +108,7 @@ class PageLines_Inline_Help {
 			$this->screen->set_help_sidebar(
 		        '<p><strong>' . __( 'For more information:', 'pagelines' ) . '</strong></p>' .
 		        '<p>' . sprintf( '<a href="http://www.pagelines.com/wiki/" target="_blank">%s</a>', __( 'Documentation', 'pagelines' ) ) . '</p>' .
-		        '<p>' . sprintf( '<a href="http://www.pagelines.com/forum/" target="_blank">%s</a>', __( 'Support Forums', 'pagelines' ) ) . '</p>'
+		        '<p>' . sprintf( '<a href="http://forum.pagelines.com/" target="_blank">%s</a>', __( 'Support Forums', 'pagelines' ) ) . '</p>'
 		);
 		}
 	}

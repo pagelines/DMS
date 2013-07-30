@@ -77,13 +77,13 @@ class PageLinesSupportPanel {
 				'title'		=> __( 'PageLines Documentation', 'pagelines' ),
 				'text'		=> __( 'Docs for everything you want to do with PageLines.', 'pagelines' ),
 				'img'		=> PL_ADMIN_ICONS . '/dash-docs.png',
-				'link'		=> 'http://www.pagelines.com/wiki/',
+				'link'		=> 'http://docs.pagelines.com/',
 			),
 			'story1'	=> array(
 				'title'		=> __( 'PageLines Forum', 'pagelines' ),
 				'text'		=> __( 'Find answers to common technical issues. Post questions and get responses from PageLines experts.', 'pagelines' ),
 				'img'		=> PL_ADMIN_ICONS . '/dash-forum.png',
-				'link'		=> 'http://www.pagelines.com/forum/',
+				'link'		=> 'http://forum.pagelines.com/',
 			),
 			'vids'	=> array(
 				'title'		=> __( 'PageLines Videos and Training', 'pagelines' ),
