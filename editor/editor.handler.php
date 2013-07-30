@@ -474,9 +474,11 @@ class PageLinesTemplateHandler {
 
 					if($o['type'] == 'select_taxonomy'){
 
-						$terms_array = get_terms( $o['taxonomy_id']);
+						$taxonomy_id = isset( $o['taxonomy_id'] ) ?  $o['taxonomy_id'] : 'category'; 
+						
+						$terms_array = get_terms( $taxonomy_id );
 
-						if($o['taxonomy_id'] == 'category')
+						if( $taxonomy_id == 'category')
 							$o['opts'][] = array('name' => '*Show All*');
 
 						foreach($terms_array as $term){

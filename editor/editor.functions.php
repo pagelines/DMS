@@ -132,8 +132,9 @@ function process_old_opt( $key, $old, $otop = array()){
 		$new['count_number'] = $old['count_number'];
 	}
 
-	if($old['taxonomy_id'] != '')
+	if($old['taxonomy_id'] != ''){
 		$new['taxonomy_id'] = $old['taxonomy_id'];
+	}	
 
 	if($old['post_type'] != '')
 		$new['post_type'] = $old['post_type'];
