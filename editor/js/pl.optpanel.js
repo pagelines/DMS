@@ -792,6 +792,7 @@
 
 				}
 				
+				
 				if( theAction == 'reset_cache') {
 					var args = {
 							mode: 'settings'

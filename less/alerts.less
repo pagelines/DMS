@@ -6,10 +6,9 @@
 	padding: 8px 35px 8px 14px;
 	margin-bottom: 10px;
 	text-shadow: 0 1px 0 rgba(255,255,255,.5);
-	background-color: @warningBackground;
-	border-left: 5px solid @warningBorder;
+	background-color: @baseContrastSlight;
+	border-left: 5px solid @baseContrast;
 	
-	color: @warningText;
 	.close {
 		position: relative;
 		top: -2px;
@@ -43,6 +42,11 @@
 // Alternate styles
 // ----------------
 
+.alert-warning {
+	background-color: @warningBackground;
+	border-color: @warningBorder;
+	color: @warningText;
+}
 .alert-success {
   background-color: @successBackground;
   border-color: @successBorder;

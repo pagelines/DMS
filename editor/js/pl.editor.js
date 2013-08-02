@@ -69,6 +69,8 @@
 			that = this
 
 			$('.btn-toolbox').tooltip({placement: 'top', delay: { show: 1000 }})
+			$('[data-toggle="tooltip"]').tooltip({placement: 'top'})
+			
 			$(".alert").alert()
 			// Show unload if state is changed from live, will be overridden if 
 			// the state changes or by other user actions.
@@ -126,37 +128,64 @@
 				that.tabLink(tabLink, tabSubLink)
 			}
 			
-			$('[data-action="pagelines-account"]').on('click', function() {
+			$('[data-action="pagelines_account"]').on('click', function() {
 			
 			
 				var key = $('#pl_activation').val()
 				,	email = $('#pl_email').val()
-				,	revoke = $('#pl_revoke').val()
+				,	reset = ($(this).hasClass('deactivate-key')) ? true : false
+				,	update = ($(this).hasClass('refresh-user')) ? true : false
 				, 	theData = {
-					action: 'pl_account_actions'
-				,	key: key
-				,	email: email
-				,	revoke: revoke
+						action: 'pl_account_actions'
+					,	key: key
+					,	email: email
+					,	reset: reset
+					, 	update: update
 				}
-				
+
+
 				$.ajax({		
 						type: 'POST'
 					, 	url: ajaxurl
 					, 	data: theData
 					, 	beforeSend: function(){
-						
-					}
+							$('.account-saving').html('<i class="icon-spin icon-refresh"></i> Saving').slideDown()
+						}
 					,	success: function( response ){
-						
+					
+						console.log(response)
 						var rsp	= $.parseJSON( response )
-						,	textRsp = sprintf('<div class="alert alert-info">%s</div>', rsp.message)
-							$('.account-description').html( textRsp )
-							
-							var url = sprintf( '%s?tablink=account&tabsublink=pl_account', $.pl.config.siteURL)
-							if( true == rsp.refresh )
-								pl_url_refresh(url,1000)
+						,	accountDetails = $('.account-details')
 						
-						plPrint(response)
+						$('.account-saving')
+							.slideUp()
+						
+						var theMessages = ''
+						
+						$.each(rsp.messages, function(i, val){ 
+							 theMessages += sprintf('<div>%s</div>', val)
+						})
+						
+						accountDetails
+							.removeClass('alert-warning')
+							.addClass('alert-info')
+							.html( theMessages )
+							.slideDown()
+
+
+						var url = sprintf( '%s?tablink=account&tabsublink=pl_account', $.pl.config.siteURL)
+						
+						if( true == rsp.refresh ){
+							
+							accountDetails
+								.append( '<br/><div><i class="icon-refresh icon-spin"></i> Refreshing Page</div>' )
+								
+							pl_url_refresh( url, 500 )
+							
+						}
+							
+
+						
 					}
 				})
 				

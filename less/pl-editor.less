@@ -977,13 +977,47 @@
 			width: 10000px;
 			h2, 
 			h3{
-				margin-bottom: 10px;
-				font-weight: 100;
+				margin: 10px 0;
+				font-weight: 600;
 			}
 			font-weight: 300;
 			strong{font-weight: 500;}
+			
 			label{
 				font-weight: 700;
+				> small{ display: block; font-style: italic; opacity: .7; font-weight: 300; font-size: 12px; line-height: 1.3em;}
+				> .sbtl{ opacity: .3; font-weight: 400;opacity: .3;font-size: 80%; }
+			}
+			.label-reg{
+				font-size: 13px;
+				line-height: 1em; 
+				margin: 8px 0 12px;
+				> input {margin: 0 3px 0 0; vertical-align: top;}
+			}
+			p,
+			ul,
+			ol{
+				font-size: 1em;
+			}
+			
+			.panel-tab-content{
+				
+				> p{
+					font-size: 16px; 
+					line-height: 1.4em;
+					max-width: 650px;
+				}
+				> .well{
+					margin: 0;
+					> .btn {
+						i:last-child{
+							margin-left: 10px;
+						}
+						i:first-child{
+							margin: 0 4px;
+						}	
+					}
+				}
 			}
 			.pl-text-input{
 				background: #f7f7f7;
@@ -991,6 +1025,10 @@
 				font-size: 22px; 
 				height: 45px; 
 				padding: 10px;
+				max-width: 100%;
+				&:disabled{
+					opacity: .5;
+				}
 			}
 			.tab-panel-inner{
 
@@ -1015,12 +1053,74 @@
 				}
 
 			}
-			p,
-			ul,
-			ol{
-				font-size: 1em;
-			}
 			
+			.account-details{
+				display: none;
+			}
+			.account-creds, 
+			.account-overview{
+				float: left;
+				
+			}
+			.account-creds{
+				float: left;
+				width: 25%;
+				.account-field{
+					margin-bottom: .5em 0;
+				}
+				.account-saving{
+					display: none;
+				}
+			}
+			.account-overview{
+				float: right;
+				width: 70%;
+				
+				margin-bottom: 2em;
+				.account-overview-pad h3{
+					border-bottom: 1px solid #eee;
+				}
+				.account-info{
+					border-top: 1px solid #eee;
+					padding: 1em 0;
+					.karma-nav{
+						text-align: center;
+						margin: .5em;
+					}
+					.well{
+						padding: 10px;
+						margin: 0 0 10px;
+					}
+					h4{
+						font-size: 15px; 
+						font-weight: 600; 
+						margin-bottom: 10px;
+					}
+					.karma-row{
+						text-align: center; 
+						.kcol{ padding: 4px 0 10px; margin-bottom: 0;}
+						.big-karma{
+							font-weight: 800;
+							font-size: 60px;
+							padding: 5px 5px 18px;
+							line-height: 1.3em;
+					//		.border-radius(300px);
+							background: #f7f7f7;
+							text-shadow: 0 1px 0 #fff; 
+							position: relative; 
+							strong{
+								display: block;
+								font-weight: 800;
+								font-size: 12px;
+								line-height: 1em;
+								text-transform: uppercase;
+								opacity: .3;
+								
+							}
+						}
+					}
+				}
+			}
 			.store-search-results{
 				max-width: 600px;
 				li{

@@ -24,18 +24,18 @@
 // Ordered from returning light value to dark
 
 @baseColor: 			@pl-base;
-@baseLighter: 			lighten(@baseColor, 5%);
-@baseLighterMore: 		lighten(@baseColor, 10%);
-@baseLighterMost: 		lighten(@baseColor, 15%);
-@baseContrastSlight: 	lighten(@baseColor, @invert-light*.4);
-  @baseDarker: 			darken(@baseColor, 5%); // Same as @dark-base
+@baseLighter: 			lighten( @baseColor, 5%);
+@baseLighterMore: 		lighten( @baseColor, 10%);
+@baseLighterMost: 		lighten( @baseColor, 15%);
+@baseContrastSlight: 	lighten( @baseColor, @invert-light*.4);
+  @baseDarker: 			darken( @baseColor, 5%); // Same as @dark-base
   @dark-base:           darken( @baseColor, @invert-dark  ); // Same as @baseDarker
-@baseDarkerMore: 		darken(@baseColor, 8%);
+@baseDarkerMore: 		darken( @baseColor, 8%);
   @light-base:          lighten( @baseColor, @invert-light  );  // Same as @baseContrast
-  @baseContrast: 	    lighten(@baseColor, @invert-light); // Same as @light-base
-@baseContrastDark: 		darken(@baseContrast, @invert-dark);
-@baseContrastMore: 		lighten(@baseContrast, @invert-light);
-@baseContrastDarkMore: 	darken(@baseContrastDark, @invert-dark);
+  @baseContrast: 	    lighten( @baseColor, @invert-light); // Same as @light-base
+@baseContrastDark: 		darken( @baseContrast, @invert-dark);
+@baseContrastMore: 		lighten( @baseContrast, @invert-light);
+@baseContrastDarkMore: 	darken( @baseContrastDark, @invert-dark);
 
 // Grays
 // -------------------------
@@ -125,15 +125,15 @@
 // -------------------------
 @warningText:             		#453404;
 @warningBackground:       		#fcf8e3;
-@warningBorder:           		darken(spin(@warningBackground, -10), 3%);
+@warningBorder:           		darken(spin(@warningBackground, -10), 5%);
 
 @errorText:               		#b94a48;
 @errorBackground:         		#f2dede;
-@errorBorder:             		darken(spin(@errorBackground, -10), 3%);
+@errorBorder:             		darken(spin(@errorBackground, -10), 5%);
 
 @successText:             		#468847;
 @successBackground:       		#dff0d8;
-@successBorder:           		darken(spin(@successBackground, -10), 5%);
+@successBorder:           		darken(spin(@successBackground, -10), 8%);
 
 @infoText:                		#3a87ad;
 @infoBackground:          		#d9edf7;
