@@ -339,55 +339,7 @@ class PLAccountPanel{
 		if( ! isset( $rsp['error'] ) || $rsp['error'] == '' ){
 			$response['refresh'] = true;
 		}
-		
-		// PRO ACTIVATION 
-		// if( $email != '' && $key != '' ){
-		// 		
-		// 		// SET KEY
-		// 		$state = ( $postdata['key'] == '' ) ? 'deactivation' : 'activation';
-		// 
-		// 		$url = sprintf( 
-		// 			'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 
-		// 			$state, 
-		// 			$key, 
-		// 			$email, 
-		// 			site_url() 
-		// 		);
-		// 
-		// 		$response['url'] = $url;
-		// 
-		// 		$data = wp_remote_get( $url );
-		// 
-		// 		$rsp = ( isset( $data['body'] ) ) ? json_decode( $data['body'] ) : $activated;
-		// 
-		// 		if( isset( $rsp->activated ) && true == $rsp->activated ) {
-		// 			
-		// 			$activated = array(
-		// 				'message'	=> $rsp->message, 
-		// 				'instance'	=> $rsp->instance, 
-		// 				'active'	=> true,
-		// 				'key'		=> $key, 
-		// 				'email'		=> $email, 
-		// 				'date'		=> date( 'Y-m-d' )
-		// 			);
-		// 			
-		// 		}
-		// 		
-		// 		$message = ( isset( $rsp->message ) ) ? $rsp->message : '';
-		// 		
-		// 		$response['message'] = ( isset( $rsp->error ) ) ? $rsp->error : $message;
-		// 		
-		// 	}		
-		// 
-		// 	if( isset( $rsp->reset ) && true == $rsp->reset ){
-		// 		$response['message'] = 'Deactivated key for ' . site_url();
-		// 		
-		// 	}
-		// 
-		// 	$response['refresh'] = true;
-		// 	
-		// 	update_option( 'dms_activation', $activated );
-		
+
 		
 		
 		echo json_encode(  pl_arrays_to_objects( $response ) );
@@ -506,7 +458,9 @@ class PLAccountPanel{
 						</div>
 						<div class="span6 ">
 							<h4><i class="icon-sun"></i> Karma</h4>
+							
 							<div class="row karma-row">
+							
 								<div class="span6 kcol">
 									<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> Current</strong></div>
 								
@@ -518,12 +472,13 @@ class PLAccountPanel{
 									</div>
 									
 								</div>
-								<p>
-									<a href="#" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
-									<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
-									<a href="#" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
-								</p>
 								
+								
+							</div>
+							<div class="karma-nav">
+								<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
+								<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
+								<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
 							</div>
 						</div>
 						
