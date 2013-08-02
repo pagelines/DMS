@@ -40,24 +40,21 @@
 	&:focus {
 	  .tab-focus();
 	}
+	&.active,
+	&:active {
+		.translate3d(0, 1px, 0);
+		background-image: none;
+		box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+	
+		background-color: darken(@white, 10%);
+		background-color: darken(@white, 15%) e("\9");
+		outline: 0;
+	}
 }
 
 // Hover state
 body a.btn:hover {
   text-decoration:none;
-}
-
-
-// Active state
-.btn.active,
-.btn:active {
-	.translate3d(0, 1px, 0);
-  background-image: none;
-  @shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
-  .box-shadow(@shadow);
-  background-color: darken(@white, 10%);
-  background-color: darken(@white, 15%) e("\9");
-  outline: 0;
 }
 
 // Disabled state
@@ -170,6 +167,12 @@ box-shadow: 0 1px 0 darken(@btnInfoBackgroundHighlight, 10%);
 .btn-inverse {
   .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
 box-shadow: 0 1px 0 darken(@btnInverseBackgroundHighlight, 10%);
+}
+
+.btn-link-icon{
+	> i:first-child {
+		color: @linkColor;
+	}
 }
 
 
