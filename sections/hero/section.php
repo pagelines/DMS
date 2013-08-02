@@ -40,11 +40,20 @@ class PLheroUnit extends PageLinesSection {
 										)
 									),
 
+            array(
+                'title'			=> __( 'Hero Image', 'pagelines' ),
+                'type'			=> 'multi',
+                'opts'			=> array(
 			array(
-				'title'			=> __( 'Hero Image', 'pagelines' ),
 				'key'			=> 'pagelines_herounit_image',
 				'type'			=> 'image_upload',
 				'label'			=> __( 'Upload Custom Image', 'pagelines' ) ),
+            array(
+                'key'			=> 'herounit_reverse',
+                'type'			=> 'check',
+                'default'		=> false,
+                'label'			=> __( 'Reverse the Hero unit (image on left)', 'pagelines' ) ),
+                )),
 
 			array(
 				'title'			=> __( 'Content Widths', 'pagelines' ),
@@ -142,6 +151,7 @@ class PLheroUnit extends PageLinesSection {
 		$hero_butt_text = $this->opt( 'herounit_button_text', $this->oset );
 		$hero_butt_target = ( $this->opt( 'herounit_button_target', $this->oset ) ) ? ' target="_blank"': '';
 		$hero_butt_theme = $this->opt( 'herounit_button_theme', $this->oset );
+        $hero_reverse = ( $this->opt( 'herounit_reverse', $this->oset ) ) ? 'pl-hero-reverse': '';
 
 		if ( ! $hero_rt_width )
 			$hero_rt_width = 'span6';
@@ -152,11 +162,11 @@ class PLheroUnit extends PageLinesSection {
 		$hero_title = ($hero_title) ? $hero_title : __('The Hero!', 'pagelines');
 		$hero_tag = ($hero_tag) ? $hero_tag : __('Now just set up your Hero section options', 'pagelines');
 
-   	?>
 
-	   	<div class="pl-hero-wrap row">
 
-	   	<?php
+	   	printf( '<div class="pl-hero-wrap row %s">', $hero_reverse);
+
+
 	   	if( $hero_lt_width )
 			printf( '<div class="pl-hero %s" >', $hero_lt_width );
 			?>
@@ -175,7 +185,7 @@ class PLheroUnit extends PageLinesSection {
 
 	   	<?php
 	   	if( $hero_rt_width )
-			printf( '<div class="pl-hero-image %s">', $hero_rt_width );
+			printf( '<div class="pl-hero-image %s">', $hero_rt_width);
 
 		if( $hero_img )
 			printf( '<div class="hero_image"><img class="pl-imageframe" data-sync="pagelines_herounit_image" src="%s" /></div>', apply_filters( 'pl_hero_image', $hero_img ) );
