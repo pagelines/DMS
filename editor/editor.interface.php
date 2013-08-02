@@ -487,9 +487,9 @@ class EditorInterface {
 		
 		<div class="alert alert-info">
 			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> (You are using DMS-Basic Edition) <br/><strong>Activate this site with Pro for additional sections, effects, capabilities and support.</strong>
+		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> ( <i class="icon-star-half-empty"></i> You're currently using DMS basic. ) <br/>Activate this site with Pro for additional sections, effects, capabilities and support.
 			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More</a>
-			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-bolt"></i> Activate Site</a> 
+			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> Activate Site</a> 
 		</div>
 		
 		<?php return ob_get_clean();

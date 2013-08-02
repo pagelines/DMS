@@ -11,6 +11,10 @@ class PLAccountPanel{
 		add_action( 'wp_ajax_pl_account_actions', array( &$this, 'pl_account_actions' ) );
 		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
 	}
+	
+	function user_updater(){
+		
+	}
 
 	function activation_check_function() {
 
@@ -103,61 +107,7 @@ class PLAccountPanel{
 			update_option( 'dms_activation', array() );
 	}
 
-	function pl_account_actions() {
-		$postdata = $_POST;
-		$response = array();
-
-		$response['key'] = $postdata['key'];
-		$response['email'] = $postdata['email'];
-		$response['active'] = false;
-		$response['refresh'] = false;
-
-		$activated = array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' );
-
-		if( $postdata['key'] && $postdata['email'] ) {
-			$state = 'activation';
-
-			if( isset( $postdata['revoke'] ) && true == $postdata['revoke'] )
-				$state = 'deactivation';
-
-			$url = sprintf( 'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', $state, $response['key'], $response['email'], site_url() );
-
-			$response['url'] = $url;
-
-			$data = wp_remote_get( $url );
-
-			$rsp = json_decode( $data['body'] );
-
-			if( isset( $rsp->activated ) ) {
-				$response['active'] = $rsp->activated;
-			}
-			$message = ( isset( $rsp->message ) ) ? $rsp->message : '';
-			$response['message'] = ( isset( $rsp->error ) ) ? $rsp->error : $message;
-
-			} else {
-				$response['message'] = 'There was an error!';
-			}
-		if( isset( $rsp->activated ) && true == $rsp->activated ) {
-			$activated['message'] = $rsp->message;
-			$activated['instance'] = $rsp->instance;
-			$activated['active'] = true;
-			$activated['key'] = $response['key'];
-			$activated['email'] = $response['email'];
-			$activated['date'] = date( 'Y-m-d' );
-			$response['refresh'] = true;
-		}
-
-		if( isset( $rsp->reset ) && true == $rsp->reset ){
-			$response['message'] = 'Deactivated key for ' . site_url();
-			$response['refresh'] = true;
-		}
-
-	//	$response['rsp'] = $rsp;
-		update_option( 'dms_activation', $activated );
-		echo json_encode(  pl_arrays_to_objects( $response ) );
-
-		exit();
-	}
+	
 
 	function toolbar( $toolbar ){
 		$toolbar['account'] = array(
@@ -169,14 +119,25 @@ class PLAccountPanel{
 				'heading'	=> "<i class='icon-pagelines'></i> PageLines",
 				'welcome'	=> array(
 					'name'	=> 'Welcome!',
-					'icon'	=> 'icon-star',
+					'icon'	=> 'icon-thumbs-up',
 					'call'	=> array(&$this, 'pagelines_welcome'),
 				),
 				'pl_account'	=> array(
 					'name'	=> 'Your Account',
-					'icon'	=> 'icon-user',
+					'icon'	=> 'icon-pagelines',
 					'call'	=> array(&$this, 'pagelines_account'),
 				),
+				'getting_started'	=> array(
+					'name'	=> 'Getting Started',
+					'icon'	=> 'icon-youtube-play',
+					'call'	=> array($this, 'getting_started'),
+				),
+				'get_karma'	=> array(
+					'name'	=> 'Get Karma',
+					'icon'	=> 'icon-sun',
+					'call'	=> array($this, 'getting_started'),
+				),
+				
 				'support'	=> array(
 					'name'	=> 'Support',
 					'icon'	=> 'icon-comments',
@@ -187,74 +148,415 @@ class PLAccountPanel{
 
 		return $toolbar;
 	}
+	
+	function remote_key_request( $request, $key, $email ){
+		
+		$url = sprintf( 
+			'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 
+			$request, 
+			$key, 
+			$email, 
+			site_url() 
+		);	
+		
+		$data = wp_remote_get( $url );
 
-	function pagelines_welcome(){
-		?>
-
-		<h3><i class="icon-pagelines"></i> Congrats! You're using PageLines DMS.</h3>
-		<p>
-			Welcome to PageLines DMS, the world's first comprehensive drag and drop design management system.<br/>
-			You've made it this far, now let's take a minute to show you around. <br/>
-			<a href="#" class="dms-tab-link btn btn-success btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i> Add Account Info</a>
-
-		</p>
-		<p>
-			<iframe width="560" height="315" src="//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
-		</p>
-
-		<?php
+		$rsp = ( isset( $data['body'] ) ) ? (array) json_decode( $data['body'] ) : array();
+		
+		return $rsp;
+		
 	}
+	
+	function remote_user_request( $email ){
+		
+		$url = sprintf( 
+				'%s&request=public_user&email=%s', 
+				PL_API_URL,
+				$email
+			);
+		
+		$data = wp_remote_get( $url );
+		
+		$rsp = ( isset($data['body']) ) ? (array) json_decode( $data['body'] ) : array();
+		
+		return $rsp;
+	}
+	
+	function pl_account_actions() {
+		
+		$postdata = $_POST;
+	
+		$key = $postdata['key'];
+		$email = $postdata['email'];	
+		$reset = ($postdata['reset'] == "true") ? true : false ;
+		$update = ($postdata['update'] == "true") ? true : false ;
+		
+		
+		$response = array( 
+			'key'	=> $key, 
+			'email'	=> $email, 
+			'reset'	=> $reset
+		);
+		$rsp = '';
+		
+		$default_activation = array( 
+						'active' 			=> false,
+						'message' 			=> '',  
+						'key' 				=> '', 
+						'email' 			=> $email, 
+						'date'				=> date( 'Y-m-d' ),
+						'name'				=> '', 
+						'description'		=> '', 
+						'karma'				=> '', 
+						'lifetime_karma'	=> '', 
+						'avatar'			=> ''
+					);
+		
+		
+		// DEACTIVATION
+		
+		$old_activation = get_option( 'dms_activation' ); 
+
+		$old_activation = wp_parse_args( $old_activation, $default_activation);
+
+		$currently_active = $old_activation['active'];
+		
+		if( $reset && $currently_active ){
+			
+			$current_key = ( isset( $old_activation['key'] ) ) ? $old_activation['key'] : false;
+			$current_email = ( isset( $old_activation['email'] ) ) ? $old_activation['email'] : false;
+			
+			$rsp = $this->remote_key_request( 'deactivation', $key, $email );
+			
+			$response['deactivation_response'] = $rsp; 
+			
+			$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon-remove"></i> Deactivated!';
+			$response['messages'][] = (isset($rsp['message'])) ? $rsp['message'] : '';
+			$message = ( isset( $rsp[ 'message' ] ) ) ? $rsp[ 'message' ] : '';
+			$instance = ( isset( $rsp[ 'instance' ] ) ) ? $rsp[ 'instance' ] : '';
+			
+			$new = array(
+				'key'		=> '',
+				'active'	=> false,
+				'message'	=> $message,
+			); 	
+			
+			$data_to_store = wp_parse_args( $new, $old_activation ); 
+			
+			update_option( 'dms_activation', $data_to_store );
+			
+			$response['refresh'] = true;
+		}
+		
+		// ACCOUNT
+		if( $email != '' && ! $reset ){
+			
+			
+			$rsp = $this->remote_user_request( $email );
+			
+			$rsp['email'] = $email; // not passed back on error
+			
+			// Email doesn't exist
+			if( isset($rsp['error']) ){
+				
+				$rsp['real_user'] = false;
+				$updated_user = wp_parse_args( $rsp, $default_activation ); 
+			
+			} else {
+				$rsp['real_user'] = true;
+				$updated_user = wp_parse_args( $rsp, $old_activation ); 
+			}
+			
+			
+		
+			$response[ 'user_data' ] = $updated_user;
+			
+			$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon-user"></i> User Updated!';
+			$response['messages'][] = (isset($rsp['message'])) ? $rsp['message'] : '';
+		
+			// SET KEY
+			
+			// ACTIVATION OR DEACTIVATION 
+			
+				// If currently active, and key is blank that means they want to deactivate
+				// If not set and blank, who cares? 
+				// If set, and error, update message?
+				// If email unset and key, then it will error. I guess deactivate.
+				
+			
+			
+			if( $key != '' && ! $currently_active ){
+				
+				$request = 'activation';
+				$response['request'] = $request;
+				
+				$rsp = $this->remote_key_request( $request, $key, $email );
+				
+				$response[ 'data' ] = $rsp;
+				
+				$message = ( isset( $rsp[ 'message' ] ) ) ? $rsp[ 'message' ] : '';
+				
+				$instance = ( isset( $rsp[ 'instance' ] ) ) ? $rsp[ 'instance' ] : '';
+				
+				// Set messages for quick JS response 
+				$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon-star"></i> Site Activated!';
+				$response['messages'][] = (isset($rsp['message'])) ? $rsp['message'] : '';
+				
+				
+				if( isset( $rsp['activated'] ) && $rsp['activated'] == true ){
+					
+					$new = array(
+						'key'		=> $key,
+						'active'	=> true,
+						'instance'	=> $instance,
+						'message'	=> $message,
+					); 	
+					
+					$data_to_store = wp_parse_args( $new, $updated_user ); 
+					
+					update_option( 'dms_activation', $data_to_store );
+					
+					
+				}
+				
+				
+					
+			} else {
+				$response['refresh'] = true;
+				update_option( 'dms_activation', $updated_user );
+			}	
+			
+			
+			
+		} elseif( ! $reset ) {
+			
+			$response['messages'][] = 'No email set.';
+				 	
+			
+		}
+		
+		if( ! isset( $rsp['error'] ) || $rsp['error'] == '' ){
+			$response['refresh'] = true;
+		}
+		
+		// PRO ACTIVATION 
+		// if( $email != '' && $key != '' ){
+		// 		
+		// 		// SET KEY
+		// 		$state = ( $postdata['key'] == '' ) ? 'deactivation' : 'activation';
+		// 
+		// 		$url = sprintf( 
+		// 			'http://www.pagelines.com/?wc-api=software-api&request=%s&product_id=dmspro&licence_key=%s&email=%s&instance=%s', 
+		// 			$state, 
+		// 			$key, 
+		// 			$email, 
+		// 			site_url() 
+		// 		);
+		// 
+		// 		$response['url'] = $url;
+		// 
+		// 		$data = wp_remote_get( $url );
+		// 
+		// 		$rsp = ( isset( $data['body'] ) ) ? json_decode( $data['body'] ) : $activated;
+		// 
+		// 		if( isset( $rsp->activated ) && true == $rsp->activated ) {
+		// 			
+		// 			$activated = array(
+		// 				'message'	=> $rsp->message, 
+		// 				'instance'	=> $rsp->instance, 
+		// 				'active'	=> true,
+		// 				'key'		=> $key, 
+		// 				'email'		=> $email, 
+		// 				'date'		=> date( 'Y-m-d' )
+		// 			);
+		// 			
+		// 		}
+		// 		
+		// 		$message = ( isset( $rsp->message ) ) ? $rsp->message : '';
+		// 		
+		// 		$response['message'] = ( isset( $rsp->error ) ) ? $rsp->error : $message;
+		// 		
+		// 	}		
+		// 
+		// 	if( isset( $rsp->reset ) && true == $rsp->reset ){
+		// 		$response['message'] = 'Deactivated key for ' . site_url();
+		// 		
+		// 	}
+		// 
+		// 	$response['refresh'] = true;
+		// 	
+		// 	update_option( 'dms_activation', $activated );
+		
+		
+		
+		echo json_encode(  pl_arrays_to_objects( $response ) );
+
+		exit();
+	}
+
+
 
 	function pagelines_account(){
 
 		$disabled = '';
 		$email = '';
 		$key = '';
-		$activate_text = '<i class="icon-ok"></i> Activate';
+		$activate_text = '<i class="icon-star"></i> Activate Pro';
 		$activate_btn_class = 'btn-primary'; 
-		if( pl_is_pro() ) {
-			$disabled = ' disabled';
-			$data = get_option( 'dms_activation' );
-			$email = sprintf( 'value="%s"', $data['email'] );
-			$key = sprintf( 'value="%s"', $data['key'] );
-			printf( '<div class="account-description"><div class="alert alert-info">%s</div></div>', $data['message'] );
-			$activate_text = '<i class="icon-remove"></i> Deactivate';
-			$activate_btn_class = 'btn-important'; 
-		}
-
-		if( ! pl_is_pro() ){ ?>
-			<h3><i class="icon-key"></i> Enter your DMS Pro Activation key</h3>
-			<p class="account-description">
-				If you are a Pro member, activate to unlock pro sections, tools, libraries and support.
-			</p>
-		<?php } else { ?>
-			<h3><i class="icon-key"></i> You're A Pro!</h3>
-			<p class="account-description">
-				Congratulations! The latest and greatest DMS tools and features are activated. 
-			</p>
-		<?php 
 		
-		}
+		$data = array(
+			'email'		=> '', 
+			'key'		=> '',
+			'message'	=> '', 
+			'avatar'	=> '', 
+			'name'		=> '',
+			'description'	=> '',
+			'active'	=> false, 
+			'real_user'	=> false
+		);
+		
+		$activation_data = (get_option( 'dms_activation' ) && is_array(get_option( 'dms_activation' ))) ? get_option( 'dms_activation' ) : array();
+		
+		$data = wp_parse_args( $activation_data, $data);
+		
+		plprint($data);
+		
+		$active = $data['active'];
+		
+		$disable = ($active) ? 'disabled' : '';
+
+		$activation_message = ($data['message'] == '') ? 'Site not activated.' : $data['message'];
+	
 		?>
-		<label for="pl_activation">PageLines Account Email</label>
-		<input type="text" class="pl-text-input" name="pl_email" id="pl_email" <?php echo $email . $disabled ?> />
-
-		<label for="pl_activation">Activation key</label>
-		<input type="text" class="pl-text-input" name="pl_activation" id="pl_activation" <?php echo $key . $disabled ?>/>
-
-
-		<?php
-		if( pl_is_pro() ) {
-			echo '<input type="hidden" name="pl_revoke" id="pl_revoke" value="true" />';
-		}
-
-		?>
-		<div class="submit-area">
-			<button class="btn <?php echo $activate_btn_class;?> settings-action" data-action="pagelines-account"><?php echo $activate_text; ?></button>
+		<div class="account-creds">
+			<div class="account-saving alert">
+				<i class="icon-spin icon-refresh"></i> Saving
+			</div>
+			<div class="account-details alert alert-warning" style="<?php if(! $active) echo 'display: block;';?>">
+				<?php if( ! $active || $active == ''):  ?>
+					<strong><i class="icon-star-half-empty"></i> Site Not Activated</strong>
+				<?php endif; ?>
+			</div>
+			<?php if( $active ):  ?>
+			
+				<div class="account-field alert">
+			
+					<label for="pl_activation">
+						<i class="icon-star"></i> Pro Activated! 
+						<small><?php printf($activation_message);  ?></small>
+					</label>
+					<button class="btn settings-action refresh-user btn-primary" data-action="pagelines_account"><i class="icon-refresh" ></i> Update Info</button>
+					<button class="btn settings-action deactivate-key" data-action="pagelines_account"><i class="icon-remove" style="color: #ff0000;"></i> Deactivate</button>
+			
+				</div>
+			
+			<?php endif; ?>
+			
+			
+			
+			<div class="account-field">
+				<label for="pl_activation"><i class="icon-pagelines"></i> PageLines Account</label>
+		
+				<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?> />
+				
+			</div>
+		
+			<div class="account-field">
+				<label for="pl_activation"><i class="icon-key"></i> Pro Activation Key <span class="sbtl">(optional)</span></label>
+		
+				<input type="text" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="Enter Pro Key" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
+			
+			</div>
+			<?php if( ! $active ): ?>
+			<div class="submit-area account-field">
+				<button class="btn btn-primary settings-action" data-action="pagelines_account">Update <i class="icon-chevron-sign-right"></i></button>
+				
+			</div>
+			<?php endif; ?>
+			
 		</div>
+		<div class="account-overview">
+			<div class="account-overview-pad">
+				<label>PageLines Account Info</label>
+				<div class="account-info">
+					<?php ?>
+					
+ 					<?php if( !$data[ 'real_user' ] ): ?>
+					<div class="alert alert-info">
+						<i class="icon-hand-left"></i> <strong>PageLines account not added or incorrect.</strong><br/> <em>Add account to configure PageLines APIs, karma system and store access.</em>
+					</div>
+					<?php else: ?>
+					<div class="row">
+						<div class="span6 ">
+							<h4>Profile</h4>
+							<div class="account-profile media">
+								<div class="img">
+									<?php echo $data['avatar'];?>
+								</div>
+								<div class="bd">
+									<h5><?php echo $data['name'];?></h5>
+									<p><?php echo $data['description'];?></p>
+									<p>
+										<a class="btn btn-mini" href="http://www.pagelines.com/my-account/">My Account</a>
+										<a class="btn btn-mini" href="http://www.pagelines.com/wp-admin/">Edit Profile</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="span6 ">
+							<h4><i class="icon-sun"></i> Karma</h4>
+							<div class="row karma-row">
+								<div class="span6 kcol">
+									<div class="big-karma"><?php echo $data['karma'];?></div>
+									<strong>Current Karma Points</strong>
+								</div>
+								<div class="span6 kcol">
+									<div class="big-karma"><?php echo $data['lifetime_karma'];?></div>
+									<strong>Lifetime Karma Points</strong>
+								</div>
+								<p>
+									<a href="#" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
+									<a href="#" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
+								</p>
+								
+							</div>
+						</div>
+						
+					</div>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+		
 		<?php
 
 	}
+	
+	function getting_started(){
+		?>
+		<p>
+			<h3><i class="icon-thumbs-up"></i> Getting Started</h3>
+			<iframe width="700" height="420" src="//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
+		</p>
+		<?php 
+	}
+
+	function pagelines_welcome(){
+		?>
+
+		<h3><i class="icon-pagelines"></i> Congratulations!</h3>
+		<p>
+		 	<strong>Hello! Welcome to DMS.</strong><br/> A drag <span class="spamp">&amp;</span> drop design management system for building, managing, and <em>evolving</em> your website.<br/> To get started please visit the links below &darr; 
+		</p>
+		<div class="alignleft well welcome-well">
+			<a href="#" class="dms-tab-link btn btn-primary" data-tab-link="account" data-stab-link="pl_account"><i class="icon-pagelines"></i> Setup PageLines Account <i class="icon-angle-right"></i></a>
+			<a href="#" class="dms-tab-link btn" data-tab-link="account" data-stab-link="getting_started"><i class="icon-youtube-play"></i> Getting Started Video <i class="icon-angle-right"></i></a>
+		</div>
+		
+
+		<?php
+	}
+	
 
 	function pagelines_support(){
 		?>
