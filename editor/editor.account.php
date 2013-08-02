@@ -127,16 +127,17 @@ class PLAccountPanel{
 					'icon'	=> 'icon-pagelines',
 					'call'	=> array(&$this, 'pagelines_account'),
 				),
-				'getting_started'	=> array(
-					'name'	=> 'Getting Started',
-					'icon'	=> 'icon-youtube-play',
-					'call'	=> array($this, 'getting_started'),
-				),
 				'get_karma'	=> array(
 					'name'	=> 'Get Karma',
 					'icon'	=> 'icon-sun',
 					'call'	=> array($this, 'getting_started'),
 				),
+				'getting_started'	=> array(
+					'name'	=> 'Getting Started',
+					'icon'	=> 'icon-youtube-play',
+					'call'	=> array($this, 'getting_started'),
+				),
+				
 				
 				'support'	=> array(
 					'name'	=> 'Support',
@@ -507,15 +508,19 @@ class PLAccountPanel{
 							<h4><i class="icon-sun"></i> Karma</h4>
 							<div class="row karma-row">
 								<div class="span6 kcol">
-									<div class="big-karma"><?php echo $data['karma'];?></div>
-									<strong>Current Karma Points</strong>
+									<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> Current</strong></div>
+								
 								</div>
 								<div class="span6 kcol">
-									<div class="big-karma"><?php echo $data['lifetime_karma'];?></div>
-									<strong>Lifetime Karma Points</strong>
+									<div class="big-karma">
+										<?php echo $data['lifetime_karma'];?>
+										<strong><i class="icon-sun"></i> Lifetime</strong>
+									</div>
+									
 								</div>
 								<p>
 									<a href="#" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
+									<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
 									<a href="#" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
 								</p>
 								
