@@ -372,7 +372,6 @@ class PLAccountPanel{
 		
 		$data = wp_parse_args( $activation_data, $data);
 		
-		plprint($data);
 		
 		$active = $data['active'];
 		
