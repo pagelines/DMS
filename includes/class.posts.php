@@ -83,20 +83,21 @@ class PageLinesPosts {
 
 		$post_type_class = ( $clip ) ? ( $clip_right ? 'clip clip-right' : 'clip' ) : 'fpost';
 
-		$pagelines_post_classes = apply_filters( 'pagelines_get_article_post_classes', sprintf( '%s post-number-%s', $post_type_class, $this->count ) );
+		$pagelines_post_classes = apply_filters( 'pagelines_get_article_post_classes', sprintf( '%s post-number-%s media', $post_type_class, $this->count ) );
 
 		$post_classes = join( ' ', get_post_class( $pagelines_post_classes ) );
 
 		$wrap_start = ( $clip && $clip_row_start ) ? sprintf( '<div class="clip_box fix">' ) : '';
 		$wrap_end = ( $clip && $clip_row_end ) ? sprintf( '</div>' ) : '';
 
+		$author_tag = (!$clip && $this->section->opt('pl_meta_mode') == 'author') ? $this->get_author_tag() : '';
 
 
 		$post_args = array(
 			'header'		=> $this->post_header( $format ),
 			'entry'			=> $this->post_entry(),
 			'classes'		=> $post_classes,
-			'pad-class'		=> ( $clip ) ? 'hentry-pad blocks' : 'hentry-pad',
+			'pad-class'		=> ( $clip ) ? 'hentry-pad blocks' : 'hentry-pad bd',
 			'wrap-start'	=> $wrap_start,
 			'wrap-end'		=> $wrap_end,
 			'format'		=> $format,
@@ -104,11 +105,13 @@ class PageLinesPosts {
 		);
 
 		$post_args['markup-start'] = sprintf(
-			'%s<article class="%s" id="post-%s"><div class="%s">',
+			'%s<article class="%s" id="post-%s">%s<div class="%s">',
 			$post_args['wrap-start'],
 			$post_args['classes'],
 			$post->ID,
+			$author_tag,
 			$post_args['pad-class']
+			
 		);
 
 		$post_args['markup-end'] = sprintf(
@@ -132,6 +135,26 @@ class PageLinesPosts {
 		// Count the posts
 		$this->count++;
 	 }
+	
+	function get_author_tag(){
+		global $post;
+		$author_email = get_the_author_meta('email', $post->post_author);
+		$author_name = get_the_author();
+		$default_avatar = PL_IMAGES . '/avatar_default.gif';
+		$author_desc = custom_trim_excerpt( get_the_author_meta('description', $post->post_author), 10);
+		ob_start();
+		?>
+		<div class="author-tag img">
+			<p><?php echo get_avatar( $author_email, '120'); ?></p>
+			<p>[post_author_posts_link]</p>
+			<hr/>
+			<p><strong>Published</strong><br/>[post_date]</p>
+		</div>
+		<?php
+		
+		return do_shortcode( ob_get_clean() );
+		
+	}
 
 
 	/**

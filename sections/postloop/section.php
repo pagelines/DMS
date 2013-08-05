@@ -80,10 +80,22 @@ class PageLinesPostLoop extends PageLinesSection {
 
 
 			array(
-				'title' 	=> __( 'Metabar Config', 'pagelines' ),
+				'title' 	=> __( 'Meta Config', 'pagelines' ),
 				'type'		=> 'multi',
 				'ref'			=> __( 'Use shortcodes to control the dynamic information in your metabar. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' ),
 				'opts'		=> array(
+					array(
+						'key'			=> 'pl_meta_mode',
+						'type'			=> 'select',
+						'label'			=> __( 'Select Meta Mode', 'pagelines' ),
+						'title'			=> __( 'Meta Mode', 'pagelines' ),
+						'opts'			=> array(
+							'metabar'	=> array('name' => 'Metabar Mode (default)'),
+							'author'	=> array('name' => 'Author Avatar Mode'),
+						),
+						'help'			=> __( 'Instead of the standard metabar (beneath post title), you can use author meta mode. This mode displays the author avatar and publish date on left.', 'pagelines' ),
+
+					),
 					array(
 						'key'			=> 'metabar_standard',
 						'default'		=> 'By [post_author_posts_link] On [post_date] &middot; [post_comments] [post_edit]',
