@@ -150,7 +150,9 @@ class PageLinesPosts {
 			<hr/>
 			<p><strong>Published</strong><br/>[post_date]</p>
 			
-			<p>[post_categories]</p>
+			<p>In [post_categories]</p>
+			<hr/>
+			<p class="tag-comments"><i class="icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
 		</div>
 		<?php
 		
