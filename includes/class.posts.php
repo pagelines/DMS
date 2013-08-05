@@ -149,6 +149,8 @@ class PageLinesPosts {
 			<p>[post_author_posts_link]</p>
 			<hr/>
 			<p><strong>Published</strong><br/>[post_date]</p>
+			
+			<p>[post_categories]</p>
 		</div>
 		<?php
 		
