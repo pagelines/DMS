@@ -444,7 +444,7 @@ class PageLines_ShortCodes {
 
 	function get_comment_link() {
 
-		$comment = '#wp-comments';
+		$comment = '#comments';
 
 		if( function_exists( 'livefyre_show_comments' ) )
 			$comment = '#lf_comment_stream';
