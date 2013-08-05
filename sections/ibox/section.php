@@ -156,8 +156,6 @@ class pliBox extends PageLinesSection {
 					$media = $icons[ array_rand($icons) ];
 				}
 				$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $media);
-				$media_html = ($link) ? sprintf('<a href="%s">%s</a>',$link,$media_html) : $media_html;
-				
 
 			} elseif( $media_type == 'image' ){
 
@@ -165,23 +163,30 @@ class pliBox extends PageLinesSection {
 
 				$media_html = '';
 
-				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : '';
+				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : ' ';
 
 			}
-
-
+			
+			$media_link = '';
+			$media_link_close = '';
+			
+			if( $link ){
+				$media_link = sprintf('<a href="%s">',$link);
+				$media_link_close = '</a>';
+			}
 
 			if($width == 0)
 				$output .= '<div class="row fix">';
 
 
-
 			$output .= sprintf(
 				'<div class="span%s ibox %s fix">
 					<div class="ibox-media img">
+						%s
 						<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s">
 							%s
 						</span>
+						%s
 					</div>
 					<div class="ibox-text bd">
 						%s
@@ -193,9 +198,11 @@ class pliBox extends PageLinesSection {
 				</div>',
 				$cols,
 				$format_class,
+				$media_link,
 				$media_class,
 				$media_bg,
 				$media_html,
+				$media_link_close,
 				$title,
 				$text,
 				$text_link
