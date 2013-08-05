@@ -163,7 +163,7 @@ class pliBox extends PageLinesSection {
 
 				$media_html = '';
 
-				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : ' ';
+				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : '';
 
 			}
 			
