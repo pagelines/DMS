@@ -130,7 +130,7 @@ class PLAccountPanel{
 				'get_karma'	=> array(
 					'name'	=> 'Get Karma',
 					'icon'	=> 'icon-sun',
-					'call'	=> array($this, 'getting_started'),
+					'call'	=> array($this, 'pagelines_karma'),
 				),
 				'getting_started'	=> array(
 					'name'	=> 'Getting Started',
@@ -347,15 +347,59 @@ class PLAccountPanel{
 		exit();
 	}
 
+	function pagelines_karma(){
+		?>
+		<h2><i class="icon-sun"></i> Get PRO stuff free with Karma.</h2>
+		<p>For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.</p>
+		<div class="row">
+			<div class="span4">
+				<h4>Invite Friends by Email</h4>
+				<textarea class="pl-textarea-input" placeholder="Add emails (Comma separated)"></textarea>
+				<button class="btn btn-primary"><i class="icon-share"></i> Invite</button>
+			</div>
+			<div class="span4">
+				<h4>Your Invite Link</h4>
+				<input type="text" class="pl-text-input" value="http://www.pagelines.com/1235" />
+				
+			</div>
+			<div class="span4">
+				<?php $this->karma_counter(); ?>
+			</div>
+		</div>
+		<?php
+	}
 
-
-	function pagelines_account(){
-
-		$disabled = '';
-		$email = '';
-		$key = '';
-		$activate_text = '<i class="icon-star"></i> Activate Pro';
-		$activate_btn_class = 'btn-primary'; 
+	function karma_counter(){
+		$data = $this->get_account_data();
+		?>
+		<h4><i class="icon-sun"></i> Your Karma</h4>
+		
+		<div class="row karma-row">
+		
+			<div class="span6 kcol">
+				<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> Current</strong></div>
+			
+			</div>
+			<div class="span6 kcol">
+				<div class="big-karma">
+					<?php echo $data['lifetime_karma'];?>
+					<strong><i class="icon-sun"></i> Lifetime</strong>
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		<div class="karma-nav">
+			<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
+			<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
+			<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
+		</div>
+		
+		<?php 
+	}
+	
+	function get_account_data(){
 		
 		$data = array(
 			'email'		=> '', 
@@ -372,6 +416,20 @@ class PLAccountPanel{
 		
 		$data = wp_parse_args( $activation_data, $data);
 		
+		return $data;
+		
+	}
+
+	function pagelines_account(){
+
+		$disabled = '';
+		$email = '';
+		$key = '';
+		$activate_text = '<i class="icon-star"></i> Activate Pro';
+		$activate_btn_class = 'btn-primary'; 
+		
+		
+		$data = $this->get_account_data();
 		
 		$active = $data['active'];
 		
