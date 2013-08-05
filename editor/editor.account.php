@@ -348,6 +348,7 @@ class PLAccountPanel{
 	}
 
 	function pagelines_karma(){
+		$data = $this->get_account_data();
 		?>
 		<h2><i class="icon-sun"></i> Get PRO stuff free with Karma.</h2>
 		<p>For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.</p>
@@ -359,7 +360,7 @@ class PLAccountPanel{
 			</div>
 			<div class="span4">
 				<h4>Your Invite Link</h4>
-				<input type="text" class="pl-text-input" value="http://www.pagelines.com/1235" />
+				<input type="text" class="pl-text-input" value="<?php echo $data['url']; ?>" />
 				
 			</div>
 			<div class="span4">
@@ -409,7 +410,8 @@ class PLAccountPanel{
 			'name'		=> '',
 			'description'	=> '',
 			'active'	=> false, 
-			'real_user'	=> false
+			'real_user'	=> false,
+			'url'		=> ''
 		);
 		
 		$activation_data = (get_option( 'dms_activation' ) && is_array(get_option( 'dms_activation' ))) ? get_option( 'dms_activation' ) : array();
