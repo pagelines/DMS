@@ -145,14 +145,14 @@ class PageLinesPosts {
 		ob_start();
 		?>
 		<div class="author-tag img">
-			<p><?php echo get_avatar( $author_email, '120'); ?></p>
+			<div class="tmb"><?php echo get_avatar( $author_email, '120'); ?></div>
 			<p>[post_author_posts_link]</p>
 			<hr/>
-			<p><strong>Published</strong><br/>[post_date]</p>
-			
-			<p>In [post_categories]</p>
+			<p><strong>Published</strong><br/> [post_date][post_edit]</p>
+			 
+			<p class="hidden-sm hidden-phone">In [post_categories]</p>
 			<hr/>
-			<p class="tag-comments"><i class="icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
+			<p class="tag-comments hidden-sm hidden-phone"><i class="icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
 		</div>
 		<?php
 		
