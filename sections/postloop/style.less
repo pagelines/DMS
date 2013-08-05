@@ -3,7 +3,9 @@
 	.entry-title{
 		margin:0;
 	}
-	.author-tag{
+	
+	 .author-tag{
+	
 		width: 120px;
 		text-align: right;
 		padding-right: 30px;
@@ -31,8 +33,38 @@
 			border: none; 
 			border-bottom: 1px solid @baseContrast;
 		}
+		.tag-comments{
+			a, i{
+				color:  @textColor;
+				opacity: .4;
+				&:hover{
+					opacity: 1;
+				}
+			}
+		}
+		@media (max-width: @resPhoneLandscape) {
+
+			display: block;
+			width: auto;
+			padding: 0;
+			max-width: none;
+			float: none;
+			p{
+				margin: 0 0 8px;
+			}
+			img{
+				float:left;
+			}
+			> hr{
+				display: none !important;
+			}
+
+		}
 	}
+	
 }
+
+
 
 .entry_content{
 	img {
