@@ -216,6 +216,9 @@ class PLAccountPanel{
 		
 		// DEACTIVATION
 		
+		// grab erroneous output
+		ob_start();
+		
 		$old_activation = get_option( 'dms_activation' ); 
 
 		$old_activation = wp_parse_args( $old_activation, $default_activation);
@@ -340,7 +343,7 @@ class PLAccountPanel{
 			$response['refresh'] = true;
 		}
 
-		
+		$response['erroneous_output'] = ob_get_clean();
 		
 		echo json_encode(  pl_arrays_to_objects( $response ) );
 
@@ -349,18 +352,23 @@ class PLAccountPanel{
 
 	function pagelines_karma(){
 		$data = $this->get_account_data();
+		
+		$url = (isset($data['url']) && $data['url'] != '') ? $data['url'] : 'Refresh Account Info';
+		
+		$textarea_placeholder = (isset($data['url']) && $data['url'] != '') ? 'Add emails (Comma separated)' : 'Refresh account info, then add emails!';
+		
 		?>
 		<h2><i class="icon-sun"></i> Get PRO stuff free with Karma.</h2>
 		<p>For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.</p>
 		<div class="row">
 			<div class="span4">
 				<h4>Invite Friends by Email</h4>
-				<textarea class="pl-textarea-input" placeholder="Add emails (Comma separated)"></textarea>
+				<textarea class="pl-textarea-input" data-link="<?php echo $data['url']; ?>" placeholder="<?php echo $textarea_placeholder; ?>"></textarea>
 				<button class="btn btn-primary"><i class="icon-share"></i> Invite</button>
 			</div>
 			<div class="span4">
 				<h4>Your Invite Link</h4>
-				<input type="text" class="pl-text-input" value="<?php echo $data['url']; ?>" />
+				<input type="text" class="pl-text-input" value="<?php echo $url; ?>" />
 				
 			</div>
 			<div class="span4">
