@@ -91,8 +91,9 @@ class PageLinesPosts {
 
 		$post_classes = join( ' ', get_post_class( $pagelines_post_classes ) );
 
-		$wrap_start = ( $clip && $clip_row_start ) ? sprintf( '<div class="clip_box fix">' ) : '';
-		$wrap_start = ( !$clip ) ? sprintf('<div class="article-wrap %s fix">', $meta_mode_class) : $wrap_start;
+		$wrap_type = ($clip) ? 'clip_box' : 'article-wrap';
+		
+		$wrap_start = (($clip && $clip_row_start) || !$clip ) ? sprintf('<div class="%s %s fix">', $wrap_type, $meta_mode_class) : '';
 		 
 		$wrap_end = ( ($clip && $clip_row_end) || !$clip ) ? sprintf( '</div>' ) : '';
 
