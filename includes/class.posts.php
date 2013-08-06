@@ -83,12 +83,14 @@ class PageLinesPosts {
 
 		$post_type_class = ( $clip ) ? ( $clip_right ? 'clip clip-right' : 'clip' ) : 'fpost';
 
-		$pagelines_post_classes = apply_filters( 'pagelines_get_article_post_classes', sprintf( '%s post-number-%s media', $post_type_class, $this->count ) );
+		$pagelines_post_classes = apply_filters( 'pagelines_get_article_post_classes', sprintf( '%s post-number-%s bd', $post_type_class, $this->count ) );
 
 		$post_classes = join( ' ', get_post_class( $pagelines_post_classes ) );
 
 		$wrap_start = ( $clip && $clip_row_start ) ? sprintf( '<div class="clip_box fix">' ) : '';
-		$wrap_end = ( $clip && $clip_row_end ) ? sprintf( '</div>' ) : '';
+		$wrap_start = ( !$clip ) ? sprintf('<div class="article-wrap media fix">') : $wrap_start;
+		 
+		$wrap_end = ( ($clip && $clip_row_end) || !$clip ) ? sprintf( '</div>' ) : '';
 
 		$author_tag = (!$clip && $this->section->opt('pl_meta_mode') == 'author') ? $this->get_author_tag() : '';
 
@@ -105,11 +107,11 @@ class PageLinesPosts {
 		);
 
 		$post_args['markup-start'] = sprintf(
-			'%s<article class="%s" id="post-%s">%s<div class="%s">',
+			'%s%s<article class="%s" id="post-%s"><div class="%s">',
 			$post_args['wrap-start'],
+			$author_tag,
 			$post_args['classes'],
 			$post->ID,
-			$author_tag,
 			$post_args['pad-class']
 			
 		);
