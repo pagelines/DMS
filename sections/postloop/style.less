@@ -9,8 +9,19 @@
 }
 
 .article-wrap{
+	&.meta-mode-author{
+		.wrp{
+			padding-left: 150px;
+			min-height: 250px;
+			@media (max-width: @resPhoneLandscape) {
+				padding-left: 0;
+			}
+		}
+	}
 	.author-tag{
-
+		position: absolute;
+		
+		float: left;
 		width: 120px;
 		text-align: right;
 		padding-right: 30px;
@@ -49,7 +60,7 @@
 			}
 		}
 		@media (max-width: @resPhoneLandscape) {
-
+			position: static;
 			display: block;
 			width: auto;
 			padding: 0;
@@ -117,7 +128,7 @@
 	.hentry {
 		margin: 0 0 @baseLineHeight;
 		.hentry-pad{
-			padding: 0 0 @baseLineHeight;
+			padding-bottom: @baseLineHeight;
 		}
 	}
 	
