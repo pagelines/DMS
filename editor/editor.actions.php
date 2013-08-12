@@ -218,6 +218,9 @@ function pl_editor_actions(){
 			$settings->reset_caches();
 		}
 
+	} else {
+	
+		$response = apply_filters( 'pl_ajax_'.$mode, $response, $postdata ); 
 	}
 
 

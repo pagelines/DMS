@@ -10,10 +10,99 @@ class PLAccountPanel{
 
 		add_action( 'wp_ajax_pl_account_actions', array( &$this, 'pl_account_actions' ) );
 		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
+		add_filter('pl_ajax_account', array($this, 'account_testing_function'), 10, 2); 
+		
 	}
 	
-	function user_updater(){
+	
+	function account_testing_function($response, $postdata){
+
+		$response['worked'] = 'yup!'; 
+		$run = $postdata['run']; 
 		
+		add_filter('wp_mail_content_type', array( $this, 'mail_content_type' ) );
+		
+		if($run == 'email_invites'){
+			$invites = $postdata['invites'];
+			$link = $postdata['link'];
+			$name = $postdata['name'];
+			$emails = array();
+			$html_email = $this->get_invite_email($link, $name);
+			$by_newline = explode ( "\n", $invites );
+			
+			$title = sprintf('%s invited you to check out PageLines DMS.', $name);
+			
+			foreach($by_newline as $newline){
+				$by_comma = explode ( ",", trim($newline) );
+				foreach($by_comma as $eml){
+					$emails[] = $eml;
+				}
+			}
+			
+			foreach( $emails as $eml ){
+				wp_mail($eml, $title, $html_email );
+			}
+			
+		}
+		
+		// Dont want to mess w standard behavior
+		remove_filter('wp_mail_content_type', array( $this, 'mail_content_type' ) );
+		
+		return $response;
+
+	}
+	
+	function get_invite_email( $link, $name = '' ){
+		ob_start();
+			?>
+
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+			<title>Check out DMS</title>
+			<style type="text/css">
+				a{
+					color: #1996fc;
+				}
+				hr{
+					border: none;
+					border-bottom: 1px solid #eee;
+					margin: 1.5em 0;
+				}
+				p{
+					padding-left: 10px;
+				}
+				li{
+					margin-bottom: 1em;
+				}
+			</style>
+		</head>
+		<body>
+
+			<div style="width: 600px; margin: 0 auto; font-family: helvetica, arial; font-size: 16px; line-height: 1.5em;">
+
+				<div style="padding: 15px;">
+					<p>Hey there,</p>
+					<p>Your friend <strong><?php echo $name; ?></strong> wants you to try PageLines DMS!</p> 
+					<p>DMS is a free "design management system" for websites. It's built on WordPress and lets you build and manage a website easily and professionally using drag and drop.</p>
+
+					<p>Plus, you both get <strong>50 points credit</strong> towards premium stuff if you get started through this email.</p>
+				
+					<p><a href="<?php echo $link;?>">Accept Invite and Get Points</a></p>
+				</div>
+			</div>
+			</body>
+			</html>
+			<?php
+
+		$out = ob_get_clean();
+		return $out;
+	}
+	
+	function mail_content_type(){
+		return 'text/html';
 	}
 
 	function activation_check_function() {
@@ -130,7 +219,7 @@ class PLAccountPanel{
 				'get_karma'	=> array(
 					'name'	=> 'Get Karma',
 					'icon'	=> 'icon-sun',
-					'call'	=> array($this, 'getting_started'),
+					'call'	=> array($this, 'pagelines_karma'),
 				),
 				'getting_started'	=> array(
 					'name'	=> 'Getting Started',
@@ -215,6 +304,9 @@ class PLAccountPanel{
 		
 		
 		// DEACTIVATION
+		
+		// grab erroneous output
+		ob_start();
 		
 		$old_activation = get_option( 'dms_activation' ); 
 
@@ -340,22 +432,81 @@ class PLAccountPanel{
 			$response['refresh'] = true;
 		}
 
-		
+		$response['erroneous_output'] = ob_get_clean();
 		
 		echo json_encode(  pl_arrays_to_objects( $response ) );
 
 		exit();
 	}
 
+	function pagelines_karma(){
+		$data = $this->get_account_data();
+		
+		$url = (isset($data['url']) && $data['url'] != '') ? $data['url'] : '';
+		$name = (isset($data['name']) && $data['name'] != '') ? $data['name'] : '';
+		
+		?>
+		<h2><i class="icon-sun"></i> Get PRO stuff free with Karma.</h2>
+		<p>For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.</p>
+		<div class="row">
+			<div class="span4">
+				<h4>Invite Friends by Email</h4>
+				<?php if($url != '' && $name != ''): ?>
+					<textarea class="karma-email-invites pl-textarea-input" placeholder="Add emails (Comma separated)"></textarea>
+					<button class="btn btn-primary submit-invites" data-link="<?php echo $url; ?>" data-name="<?php echo $name;?>"><i class="icon-share"></i> Invite</button>
+				<?php else: ?>
+					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i> Add/Update Account Info</a>
+					<p><small>Name and invite link needed.</small></p>
+				<?php endif; ?>
+			</div>
+			<div class="span4">
+				<h4>Your Invite Link</h4>
+				<?php if($url != '' ): ?>
+					<input type="text" class="pl-text-input" value="<?php echo $url; ?>" />
+				<?php else: ?>
+					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i> Add/Update Account Info</a>
+				<?php endif; ?>
+				
+				
+			</div>
+			<div class="span4">
+				<?php $this->karma_counter(); ?>
+			</div>
+		</div>
+		<?php
+	}
 
-
-	function pagelines_account(){
-
-		$disabled = '';
-		$email = '';
-		$key = '';
-		$activate_text = '<i class="icon-star"></i> Activate Pro';
-		$activate_btn_class = 'btn-primary'; 
+	function karma_counter(){
+		$data = $this->get_account_data();
+		?>
+		<h4><i class="icon-sun"></i> Your Karma</h4>
+		
+		<div class="row karma-row">
+		
+			<div class="span6 kcol">
+				<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> Current</strong></div>
+			
+			</div>
+			<div class="span6 kcol">
+				<div class="big-karma">
+					<?php echo $data['lifetime_karma'];?>
+					<strong><i class="icon-sun"></i> Lifetime</strong>
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		<div class="karma-nav">
+			<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
+			<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
+			<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
+		</div>
+		
+		<?php 
+	}
+	
+	function get_account_data(){
 		
 		$data = array(
 			'email'		=> '', 
@@ -365,14 +516,28 @@ class PLAccountPanel{
 			'name'		=> '',
 			'description'	=> '',
 			'active'	=> false, 
-			'real_user'	=> false
+			'real_user'	=> false,
+			'url'		=> ''
 		);
 		
 		$activation_data = (get_option( 'dms_activation' ) && is_array(get_option( 'dms_activation' ))) ? get_option( 'dms_activation' ) : array();
 		
 		$data = wp_parse_args( $activation_data, $data);
 		
-		plprint($data);
+		return $data;
+		
+	}
+
+	function pagelines_account(){
+
+		$disabled = '';
+		$email = '';
+		$key = '';
+		$activate_text = '<i class="icon-star"></i> Activate Pro';
+		$activate_btn_class = 'btn-primary'; 
+		
+		
+		$data = $this->get_account_data();
 		
 		$active = $data['active'];
 		
@@ -533,3 +698,4 @@ class PLAccountPanel{
 		<?php
 	}
 }
+

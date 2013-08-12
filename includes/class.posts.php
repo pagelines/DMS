@@ -76,20 +76,28 @@ class PageLinesPosts {
 		/* clip handling */
 		$clip = ( $this->pagelines_show_clip( $this->count, $this->paged ) ) ? true : false;
 
+		$meta_mode = $this->section->opt('pl_meta_mode');
+
 		$format = ( $clip ) ? 'clip' : 'feature';
 		$clip_row_start = ( $this->clipcount % 2 == 0 ) ? true : false;
 		$clip_right = ( ( $this->clipcount+1 ) % 2 == 0 ) ? true : false;
 		$clip_row_end = ( $clip_right || $this->count == $this->post_count ) ? true : false;
 
 		$post_type_class = ( $clip ) ? ( $clip_right ? 'clip clip-right' : 'clip' ) : 'fpost';
+		
+		$meta_mode_class = ( isset($meta_mode) && $meta_mode != '') ? 'meta-mode-'.$meta_mode : '';
 
 		$pagelines_post_classes = apply_filters( 'pagelines_get_article_post_classes', sprintf( '%s post-number-%s', $post_type_class, $this->count ) );
 
 		$post_classes = join( ' ', get_post_class( $pagelines_post_classes ) );
 
-		$wrap_start = ( $clip && $clip_row_start ) ? sprintf( '<div class="clip_box fix">' ) : '';
-		$wrap_end = ( $clip && $clip_row_end ) ? sprintf( '</div>' ) : '';
+		$wrap_type = ($clip) ? 'clip_box' : 'article-wrap';
+		
+		$wrap_start = (($clip && $clip_row_start) || !$clip ) ? sprintf('<div class="%s %s fix">', $wrap_type, $meta_mode_class) : '';
+		 
+		$wrap_end = ( ($clip && $clip_row_end) || !$clip ) ? sprintf( '</div>' ) : '';
 
+		$author_tag = (!$clip && $meta_mode == 'author') ? $this->get_author_tag() : '';
 
 
 		$post_args = array(
@@ -104,15 +112,18 @@ class PageLinesPosts {
 		);
 
 		$post_args['markup-start'] = sprintf(
-			'%s<article class="%s" id="post-%s"><div class="%s">',
+			'%s<article class="%s" id="post-%s">%s<div class="wrp"><div class="%s">',
 			$post_args['wrap-start'],
+			
 			$post_args['classes'],
 			$post->ID,
+			$author_tag,
 			$post_args['pad-class']
+			
 		);
 
 		$post_args['markup-end'] = sprintf(
-			'</div></article>%s',
+			'</div></div></article>%s',
 			$post_args['wrap-end']
 		);
 
@@ -132,6 +143,30 @@ class PageLinesPosts {
 		// Count the posts
 		$this->count++;
 	 }
+	
+	function get_author_tag(){
+		global $post;
+		$author_email = get_the_author_meta('email', $post->post_author);
+		$author_name = get_the_author();
+		$default_avatar = PL_IMAGES . '/avatar_default.gif';
+		$author_desc = custom_trim_excerpt( get_the_author_meta('description', $post->post_author), 10);
+		ob_start();
+		?>
+		<div class="author-tag">
+			<div class="tmb"><?php echo get_avatar( $author_email, '120'); ?></div>
+			<p>[post_author_posts_link]</p>
+			<hr/>
+			<p><strong>Published</strong><br/> [post_date][post_edit]</p>
+			 
+			<p class="hidden-sm hidden-phone">In [post_categories]</p>
+			<hr/>
+			<p class="tag-comments hidden-sm hidden-phone"><i class="icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
+		</div>
+		<?php
+		
+		return do_shortcode( ob_get_clean() );
+		
+	}
 
 
 	/**

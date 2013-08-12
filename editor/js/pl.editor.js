@@ -128,6 +128,29 @@
 				that.tabLink(tabLink, tabSubLink)
 			}
 			
+			
+			// ACCOUNT STUFF -- NEEDS TO BE MOVED
+			$('.submit-invites').on('click', function(){
+				
+				var theInvites = $('.karma-email-invites').val()
+				,	link = $(this).data('link')
+				,	name = $(this).data('name')
+				,	args = {
+					mode: 'account'
+					,	run: 'email_invites'
+					,	invites: theInvites
+					,	link: link
+					,	name: name
+				}
+				
+				if(theInvites == ''){
+					$('.karma-email-invites').focus()
+				} else {
+					$.plAJAX.run( args )
+				}
+				
+			})
+			
 			$('[data-action="pagelines_account"]').on('click', function() {
 			
 			
