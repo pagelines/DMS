@@ -587,7 +587,7 @@ class PLAccountPanel{
 			<div class="account-field">
 				<label for="pl_activation"><i class="icon-key"></i> Pro Activation Key <span class="sbtl">(optional)</span></label>
 		
-				<input type="text" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="Enter Pro Key" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
+				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="Enter Pro Key" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
 			
 			</div>
 			<?php if( ! $active ): ?>
