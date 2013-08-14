@@ -174,7 +174,7 @@ class EditorSettings {
 				'type' 			=> 	'image_upload',
 				'imgsize' 			=> 	'16',
 				'title' 		=> 	__( 'Favicon Image', 'pagelines' ),
-				'help' 			=> 	__( 'Enter the full URL location of your custom <strong>favicon</strong> which is visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico file - 32px by 32px</strong>.', 'pagelines' ),
+				'help' 			=> 	__( 'Enter the full URL location of your custom <strong>favicon</strong> which is visible in browser favorites and tabs.<br/> <strong>Must be .png file - 32px by 32px</strong>.', 'pagelines' ),
 				'default'		=>  '[pl_parent_url]/images/default-favicon.png'
 			),
 
