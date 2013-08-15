@@ -1129,6 +1129,12 @@
 			else if( o.type == 'image_upload' ){
 				var val = o.value
 				, 	sizeLimit = o.sizelimit || 512000 // 500 kB
+				,	extension = o.extension || null
+				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png']
+
+				if(extension) {
+					allowedExtensions = extension.split(',')
+				}
 
 				$('.fineupload.upload-'+o.key).fineUploader({
 					request: {
@@ -1140,7 +1146,7 @@
 					}
 					,	multiple: false
 					,	validation: {
-							allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
+							allowedExtensions: allowedExtensions,
 							sizeLimit: sizeLimit
 						}
 					,	text: {
