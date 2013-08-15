@@ -303,10 +303,16 @@ class PLNavBar extends PageLinesSection {
 					esc_attr( get_bloginfo('name') ),
 					apply_filters('navbar_brand', $brand)
 				 );
-			endif; ?>
+			endif;
+				pagelines_register_hook('pagelines_navbar_before_menu');
+				?>
 	      		<div class="nav-collapse collapse">
-	       <?php 	if( !$hidesearch )
+	       <?php 	if( !$hidesearch ) {
+	       				pagelines_register_hook('pagelines_navbar_before_search');
 						get_search_form();
+						pagelines_register_hook('pagelines_navbar_after_search');
+
+					}
 
 					if ( is_array( wp_get_nav_menu_items( $menu ) ) || has_nav_menu( 'primary' ) ) {
 					wp_nav_menu(
@@ -324,6 +330,9 @@ class PLNavBar extends PageLinesSection {
 					}
 	?>
 				</div>
+				<?php
+				pagelines_register_hook('pagelines_navbar_after_menu');
+				?>
 				<div class="clear"></div>
 			</div>
 		</div>
