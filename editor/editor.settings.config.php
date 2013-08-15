@@ -248,8 +248,48 @@ class EditorSettings {
 				'title' 	=> __( 'Website Hashtag', 'pagelines' ),
 				'help'	 	=> __( 'This hashtag will be used in social media (e.g. Twitter) and elsewhere to create feeds.', 'pagelines' )
 			),
-
-		);
+			array(
+				'key'		=> 'sb_multi',
+				'type'		=> 'multi', 
+				'title'		=> 'Sharbar Options',
+				'opts'		=> array(
+					array(
+						'key'		=> 'share_google',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Google+', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_facebook',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Facebook', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_twitter',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Twitter', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_linkedin',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable LinkedIn', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_pinterest',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Pinterest', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_buffer',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Buffer', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_stumble',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Stumbleupon', 'pagelines' ),
+					),
+					 )
+		));
 
 
 		return $settings;
