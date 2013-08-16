@@ -181,6 +181,7 @@ class PageLinesShareBar extends PageLinesSection {
 			'permalink'	=> '',
 			'width'		=> '80',
 			'title'		=> '',
+			'handle'	=> pl_setting('twittername')
 		);
 
 		$a = wp_parse_args($args, $defaults);
