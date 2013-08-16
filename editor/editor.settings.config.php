@@ -258,16 +258,19 @@ class EditorSettings {
 						'key'		=> 'share_google',
 						'type' 		=> 'check',
 						'label' 	=> __( 'Enable Google+', 'pagelines' ),
+						'default'	=> true
 					),
 					array(
 						'key'		=> 'share_facebook',
 						'type' 		=> 'check',
 						'label' 	=> __( 'Enable Facebook', 'pagelines' ),
+						'default'	=> true
 					),
 					array(
 						'key'		=> 'share_twitter',
 						'type' 		=> 'check',
 						'label' 	=> __( 'Enable Twitter', 'pagelines' ),
+						'default'	=> true
 					),
 					array(
 						'key'		=> 'share_linkedin',
