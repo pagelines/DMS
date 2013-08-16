@@ -257,12 +257,13 @@ class PLAccountPanel{
 		
 	}
 	
-	function remote_user_request( $email ){
+	function remote_user_request( $email, $type = 'std' ){
 		
 		$url = sprintf( 
-				'%s&request=public_user&email=%s', 
+				'%s&request=public_user&email=%s&type=%s', 
 				PL_API_URL,
-				$email
+				$email,
+				$type
 			);
 		
 		$data = wp_remote_get( $url );
@@ -299,7 +300,8 @@ class PLAccountPanel{
 						'description'		=> '', 
 						'karma'				=> '', 
 						'lifetime_karma'	=> '', 
-						'avatar'			=> ''
+						'avatar'			=> '',
+						
 					);
 		
 		
@@ -344,8 +346,11 @@ class PLAccountPanel{
 		// ACCOUNT
 		if( $email != '' && ! $reset ){
 			
+			$new_install = get_option('pl_new_install');
 			
-			$rsp = $this->remote_user_request( $email );
+			$type = ( !$new_install || $new_install == 'yes' ) ? 'new_activation' : 'std';
+			
+			$rsp = $this->remote_user_request( $email, $type );
 			
 			$rsp['email'] = $email; // not passed back on error
 			
@@ -358,9 +363,9 @@ class PLAccountPanel{
 			} else {
 				$rsp['real_user'] = true;
 				$updated_user = wp_parse_args( $rsp, $old_activation ); 
+				
+				update_option('pl_new_install', 'no');
 			}
-			
-			
 		
 			$response[ 'user_data' ] = $updated_user;
 			
@@ -419,7 +424,7 @@ class PLAccountPanel{
 				update_option( 'dms_activation', $updated_user );
 			}	
 			
-			
+		
 			
 		} elseif( ! $reset ) {
 			
@@ -582,7 +587,7 @@ class PLAccountPanel{
 			<div class="account-field">
 				<label for="pl_activation"><i class="icon-key"></i> Pro Activation Key <span class="sbtl">(optional)</span></label>
 		
-				<input type="text" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="Enter Pro Key" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
+				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="Enter Pro Key" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
 			
 			</div>
 			<?php if( ! $active ): ?>

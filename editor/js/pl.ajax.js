@@ -249,10 +249,7 @@
 
 				$('.btn-saving').removeClass('active')
 
-
-				$('#stateTool')
-					.removeClass()
-					.addClass('dropup')
+				$('#stateTool').attr('class', 'dropup')
 
 				$.each(state, function(index, el){
 					
@@ -264,8 +261,6 @@
 				} else {
 					window.onbeforeunload = null
 				}
-				
-
 		}
 
 
