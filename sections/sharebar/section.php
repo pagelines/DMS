@@ -27,7 +27,7 @@ class PageLinesShareBar extends PageLinesSection {
     function section_template() {
 
         if( ! $this->get_shares() ) {
-            echo setup_section_notify( $this, __( 'You have no shares setup, please look at PageLines Settings > Blog and Posts > Sharebar Social Sharing Buttons; or deactivate the Sharebar from the Blog Post Template.', 'pagelines' ), admin_url( 'admin.php?page=pagelines' ), __( 'Setup Sharebar', 'pagelines' ), false );
+            echo setup_section_notify( $this, __( 'You have no shares setup, please look at Global Options > Social & Local; or deactivate the Sharebar from the Blog Post Template.', 'pagelines' ), add_query_arg( array( 'tablink' => 'settings', 'tabsublink' => 'social_media' ), site_url() ), __( 'Social Settings', 'pagelines' ), false );
             return;
         }
 
@@ -56,25 +56,25 @@ class PageLinesShareBar extends PageLinesSection {
 
 		$out = '';
 
-		if(ploption('share_google'))
+		if(pl_setting('share_google'))
 			$out .= self::google(array('permalink' => $perm));
 
-		if(ploption('share_twitter'))
+		if(pl_setting('share_twitter'))
 			$out .= self::twitter(array('permalink' => $perm, 'title' => $title));
 
-		if(ploption('share_facebook'))
+		if(pl_setting('share_facebook'))
 			$out .= self::facebook(array('permalink' => $perm));
 
-		if(ploption('share_linkedin'))
+		if(pl_setting('share_linkedin'))
 			$out .= self::linkedin(array('permalink' => $perm, 'title' => $title));
 
-		if(ploption('share_pinterest'))
+		if(pl_setting('share_pinterest'))
 			$out .= self::pinterest(array('permalink' => $perm, 'image' => $thumb, 'desc' => $desc));
 
-		if(ploption('share_buffer'))
+		if(pl_setting('share_buffer'))
 			$out .= self::buffer(array('permalink' => $perm, 'title' => $title));
 
-		if(ploption('share_stumble'))
+		if(pl_setting('share_stumble'))
 			$out .= self::stumbleupon(array('permalink' => $perm, 'title' => $title));
 
 		return $out;
@@ -90,8 +90,6 @@ class PageLinesShareBar extends PageLinesSection {
 		$defaults = array(
 			'permalink'	=> '',
 			'width'		=> '80',
-			'hash'		=> ploption('site-hashtag'),
-			'handle'	=> ploption('twittername'),
 			'title'		=> '',
 			'image'		=> '',
 			'desc'		=> ''
@@ -121,8 +119,6 @@ class PageLinesShareBar extends PageLinesSection {
 		$defaults = array(
 			'permalink'	=> '',
 			'width'		=> '80',
-			'hash'		=> ploption('site-hashtag'),
-			'handle'	=> ploption('twittername'),
 			'title'		=> '',
 		);
 
@@ -150,8 +146,6 @@ class PageLinesShareBar extends PageLinesSection {
 		$defaults = array(
 			'permalink'	=> '',
 			'width'		=> '80',
-			'hash'		=> ploption('site-hashtag'),
-			'handle'	=> ploption('twittername'),
 			'title'		=> '',
 		);
 
@@ -186,9 +180,8 @@ class PageLinesShareBar extends PageLinesSection {
 		$defaults = array(
 			'permalink'	=> '',
 			'width'		=> '80',
-			'hash'		=> ploption('site-hashtag'),
-			'handle'	=> ploption('twittername'),
 			'title'		=> '',
+			'handle'	=> pl_setting('twittername')
 		);
 
 		$a = wp_parse_args($args, $defaults);
@@ -214,8 +207,8 @@ class PageLinesShareBar extends PageLinesSection {
 		$defaults = array(
 			'permalink'	=> '',
 			'width'		=> '80',
-			'hash'		=> ploption('site-hashtag'),
-			'handle'	=> ploption('twittername'),
+			'hash'		=> pl_setting('site-hashtag'),
+			'handle'	=> pl_setting('twittername'),
 			'title'		=> '',
 		);
 
@@ -228,8 +221,8 @@ class PageLinesShareBar extends PageLinesSection {
 				'<a href="https://twitter.com/share" class="twitter-share-button" data-url="%s" data-text="%s" data-via="%s" data-hashtags="%s">Tweet</a>',
 				$a['permalink'],
 				$a['title'],
-				(ploption('twitter_via')) ? $a['handle'] : '',
-				(ploption('twitter_hash')) ? $a['hash'] : ''
+				$a['handle'],
+				$a['hash']
 			);
 
 		?>
@@ -293,8 +286,8 @@ class PageLinesShareBar extends PageLinesSection {
 		$a = wp_parse_args($args, $defaults);
 
 		$app_id = '';
-		if( $this->opt( 'facebook_app_id' ) )
-			$app_id = sprintf( '&appId=%s', $this->opt( 'facebook_app_id' ) );
+		if( pl_setting( 'facebook_app_id' ) )
+			$app_id = sprintf( '&appId=%s', pl_setting( 'facebook_app_id' ) );
 
 		ob_start();
 			// Facebook

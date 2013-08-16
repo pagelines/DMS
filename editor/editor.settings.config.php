@@ -173,8 +173,9 @@ class EditorSettings {
 				'label'			=> 'Upload Favicon (32px by 32px)',
 				'type' 			=> 	'image_upload',
 				'imgsize' 			=> 	'16',
+				'extension'		=> 'ico,png', // ico support
 				'title' 		=> 	__( 'Favicon Image', 'pagelines' ),
-				'help' 			=> 	__( 'Enter the full URL location of your custom <strong>favicon</strong> which is visible in browser favorites and tabs.<br/> <strong>Must be .png file - 32px by 32px</strong>.', 'pagelines' ),
+				'help' 			=> 	__( 'Enter the full URL location of your custom <strong>favicon</strong> which is visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico file - 32px by 32px</strong>.', 'pagelines' ),
 				'default'		=>  '[pl_parent_url]/images/default-favicon.png'
 			),
 
@@ -248,8 +249,51 @@ class EditorSettings {
 				'title' 	=> __( 'Website Hashtag', 'pagelines' ),
 				'help'	 	=> __( 'This hashtag will be used in social media (e.g. Twitter) and elsewhere to create feeds.', 'pagelines' )
 			),
-
-		);
+			array(
+				'key'		=> 'sb_multi',
+				'type'		=> 'multi', 
+				'title'		=> 'Sharbar Options',
+				'opts'		=> array(
+					array(
+						'key'		=> 'share_google',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Google+', 'pagelines' ),
+						'default'	=> true
+					),
+					array(
+						'key'		=> 'share_facebook',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Facebook', 'pagelines' ),
+						'default'	=> true
+					),
+					array(
+						'key'		=> 'share_twitter',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Twitter', 'pagelines' ),
+						'default'	=> true
+					),
+					array(
+						'key'		=> 'share_linkedin',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable LinkedIn', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_pinterest',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Pinterest', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_buffer',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Buffer', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'share_stumble',
+						'type' 		=> 'check',
+						'label' 	=> __( 'Enable Stumbleupon', 'pagelines' ),
+					),
+					 )
+		));
 
 
 		return $settings;
