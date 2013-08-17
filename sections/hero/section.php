@@ -179,7 +179,7 @@ class PLheroUnit extends PageLinesSection {
 		  				printf( '<p data-sync="pagelines_herounit_tagline">%s</p>', $hero_tag );
 
 	  			    if( $hero_butt_link )
-					printf( '<a %s class="btn btn-%s btn-large" href="%s">%s</a> ', $hero_butt_target, $hero_butt_theme, $hero_butt_link, $hero_butt_text );
+					printf( '<a %s class="btn btn-%s btn-large" href="%s" data-sync="herounit_button_text">%s</a> ', $hero_butt_target, $hero_butt_theme, $hero_butt_link, $hero_butt_text );
 	  			?>
 			</div>
 
