@@ -7,7 +7,7 @@
  *
  */
 
-
+global $pagelines_editor;
 $pagelines_editor = new PageLinesEditor;
 
 class PageLinesEditor {
