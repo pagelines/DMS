@@ -419,8 +419,7 @@ class PageLinesPosts {
 				? $before . $this->section->opt( 'metabar_clip' ) . $after
 				: sprintf( '%s%s [post_date] %s [post_author_posts_link] [post_edit]%s', $before, __('On','pagelines'), __('By','pagelines'), $after );
 
-		} else {
-
+		} elseif( 'author' !== $this->section->opt('pl_meta_mode') ) {
 			$metabar = ( $this->section->opt( 'metabar_standard' ) )
 				? $before . $this->section->opt( 'metabar_standard' ) . $after
 				: sprintf( '%s%s [post_author_posts_link] %s [post_date] &middot; [post_comments] &middot; %s [post_categories] [post_edit]%s', $before, __('By','pagelines'), __('On','pagelines'), __('In','pagelines'), $after);
