@@ -67,6 +67,12 @@ require_once( PL_EDITOR . '/editor.init.php' );
 require_once( PL_EDITOR . '/editor.functions.php' );
 
 /**
+ * Load template related functions
+ */
+require_once( PL_INCLUDES . '/library.wordpress.php');
+
+
+/**
  * Load Options Functions
  */
 require_once( PL_INCLUDES . '/library.options.php' );
@@ -76,10 +82,6 @@ require_once( PL_INCLUDES . '/library.options.php' );
  */
 require_once( PL_INCLUDES . '/library.templates.php');
 
-/**
- * Load template related functions
- */
-require_once( PL_INCLUDES . '/library.wordpress.php');
 
 /**
  * Load shortcode library
@@ -111,6 +113,8 @@ require_once( PL_INCLUDES . '/config.options.php' );
  */
 require_once( PL_ADMIN . '/class.welcome.php' );
 
+
+
 /**
  * Dynamic CSS Selectors
  */
@@ -135,6 +139,7 @@ require_once( PL_INCLUDES . '/class.posts.php' );
 require_once( PL_INCLUDES . '/class.layout.php' );
 
 require_once( PL_INCLUDES . '/library.layout.php' );
+
 
 /**
  * Users Handling
@@ -187,18 +192,10 @@ require_once( PL_ADMIN . '/class.options.metapanel.php' );
  */
 require_once( PL_ADMIN . '/class.profiles.php' );
 
-
+/**
+ * Deal with upgrading
+ */
 include( PL_INCLUDES . '/library.upgrades.php' );
-/**
- * Load Singleton Globals
- */
-require_once( PL_INCLUDES . '/init.singleton.php' );
-
-
-/**
- * Add Extension Handlers
- */
-require_once( PL_INCLUDES . '/class.register.php' );
 
 /**
  * Add Integration Functionality
@@ -208,15 +205,13 @@ require_once( PL_INCLUDES . '/class.integration.php' );
 /**
  * Add Multisite
  */
-if(is_multisite())
+if( is_multisite() )
 	require_once( PL_INCLUDES . '/library.multisite.php' );
 
 /**
  * Add Integration Functionality
  */
 require_once( PL_INCLUDES . '/class.themesupport.php' );
-
-
 /**
  * Add Less Functions
  */
@@ -227,24 +222,6 @@ require_once( PL_INCLUDES . '/less.functions.php' );
  */
 require_once( PL_INCLUDES . '/library.plugins.php' );
 
-
-/**
- * Register and load all sections
- */
-$load_sections = new PageLinesRegister();
-$load_sections->pagelines_register_sections();
-$load_sections->register_sidebars();
-
-pagelines_register_hook('pagelines_setup'); // Hook
-
-load_section_persistent(); // Load persistent section functions (e.g. custom post types)
-
-if(is_admin())
-	load_section_admin(); // Load admin only functions from sections
-
-do_global_meta_options(); // Load the global meta settings tab
-
-
 /**
  * Build Version
  */
@@ -252,23 +229,6 @@ require_once( PL_INCLUDES . '/version.php' );
 
 require_once( PL_INCLUDES . '/class.render.css.php' );
 
-/**
- * Load site actions
- */
-require_once (PL_INCLUDES.'/actions.site.php');
-
-if ( pl_setting( 'enable_debug' ) )
-	require_once ( PL_ADMIN . '/class.debug.php');
-
-
-
-/**
- * Run the pagelines_init Hook
- */
-pagelines_register_hook('pagelines_hook_init'); // Hook
-
-if ( is_admin() )
-	include( PL_ADMIN . '/init.admin.php' );
 
 /**
  * Load updater class
@@ -277,3 +237,61 @@ require_once (PL_ADMIN.'/class.updates.php');
 
 if ( is_admin() )
 	new PageLinesUpdateCheck( PL_CORE_VERSION );
+	
+/**
+ * Run the pagelines_init Hook
+ */
+pagelines_register_hook('pagelines_hook_init'); // Hook
+
+// Always best to load most stuff after WP loads fully.
+// The "init" hook is the point at which it has... 
+// NOTE: pl_setting cannot be used BEFORE the 'init' hook
+add_action('init', 'pl_load_registers'); 
+function pl_load_registers(){
+
+	/**
+	 * Load Singleton Globals
+	 */
+	require_once( PL_INCLUDES . '/init.singleton.php' );
+
+
+	/**
+	 * Add Extension Handlers
+	 */
+	require_once( PL_INCLUDES . '/class.register.php' );
+
+	/**
+	 * Register and load all sections
+	 */
+	global $load_sections;
+	$load_sections = new PageLinesRegister();
+	$load_sections->pagelines_register_sections();
+	$load_sections->register_sidebars();
+
+	pagelines_register_hook('pagelines_setup'); // Hook
+
+	load_section_persistent(); // Load persistent section functions (e.g. custom post types)
+
+	if(is_admin())
+		load_section_admin(); // Load admin only functions from sections
+
+	do_global_meta_options(); // Load the global meta settings tab
+
+	/**
+	 * Load site actions
+	 */
+	require_once (PL_INCLUDES.'/actions.site.php');
+
+	if ( pl_setting( 'enable_debug' ) )
+		require_once ( PL_ADMIN . '/class.debug.php');
+
+
+
+	if ( is_admin() )
+		include( PL_ADMIN . '/init.admin.php' );
+
+
+}
+
+
+
