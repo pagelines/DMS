@@ -158,7 +158,7 @@ class PLSectionArea extends PageLinesSection {
 
 	function section_template( ) {
 		
-		$section_output = (!$this->active_loading) ? render_nested_sections( $this->meta['content'], 1) : false;
+		$section_output = (!$this->active_loading) ? render_nested_sections( $this->meta['content'], 1) : '';
 		
 		$style = '';
 		$inner_style = '';
@@ -171,32 +171,26 @@ class PLSectionArea extends PageLinesSection {
 		$classes .= ($this->opt('pl_area_bg_repeat')) ? ' pl-bg-repeat' : ' pl-bg-cover';
 		
 		// If there is no output, there should be no padding or else the empty area will have height.
-		if( $section_output ){
-						
-			$default_padding = (pl_setting('section_area_default_pad'))	? pl_setting('section_area_default_pad') : '20px';		
-					
-			$padding = ($this->opt('pl_area_pad')) ? $this->opt('pl_area_pad') : $default_padding; 
+		if ( $section_output ) {
 			
-			$padding = ( strpos($padding, 'px') ) ? $padding : $padding.'px';
+			// global
+			$default_padding = pl_setting('section_area_default_pad', array('default' => '20'));
+			// opt	
+			$padding		= $this->opt('pl_area_pad',			array('default' => $default_padding)); 			
+			$padding_bottom	= $this->opt('pl_area_pad_bottom',	array('default' => $padding)); 
 			
-			$padding_bottom = ($this->opt('pl_area_pad_bottom')) ? $this->opt('pl_area_pad_bottom') : $padding; 
+			$style .= sprintf('padding-top: %spx; padding-bottom: %spx;',
+				$padding,
+				$padding_bottom
+			);
 			
-			$style .= sprintf('padding-top: %s; padding-bottom: %s;', $padding, $padding_bottom);
-			
-			
-			
-		
-			$content_class = ( $padding != '0px	' ) ? 'nested-section-area' : '';
-			
-			$buffer = ( pl_draft_mode() ) ? sprintf('<div class="pl-sortable pl-sortable-buffer span12 offset0"></div>') : '';
-			
+			$content_class = $padding ? 'nested-section-area' : '';
+			$buffer = pl_draft_mode() ? sprintf('<div class="pl-sortable pl-sortable-buffer span12 offset0"></div>') : '';
 			$section_output = $buffer . $section_output . $buffer;
-			
-		} else {
-			
+		}
+		else {
 			$pad_css = ''; 
 			$content_class = '';
-			
 		}
 			
 	?>
