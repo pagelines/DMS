@@ -84,8 +84,6 @@ class PageLinesSection {
 
 		$type = $this->section_install_type( $available );
 
-		global $load_sections;
-		$available = $load_sections->pagelines_register_sections( false, true );
 		$this->sinfo = $available[$type][$this->class_name];
 
 		// File location information

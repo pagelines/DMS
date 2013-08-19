@@ -37,7 +37,7 @@ class PageLinesRegister {
 	function pagelines_register_sections( $reset = null, $echo = null ){
 
 		global $pl_section_factory;
-
+		
 		if ( $reset )
 			delete_transient( 'pagelines_sections_cache' );
 
@@ -51,6 +51,13 @@ class PageLinesRegister {
 
 			foreach ( $section_dirs as $type => $dir )
 				$sections[ $type ] = $this->get_sections( $dir, $type );
+
+			/**
+			* 
+			* Load special plugin/sections
+			*/
+			$editorsections = new PLSectionsRegister;
+			$sections['editor'] = $editorsections->get_all_plugins();
 
 			// check for deps within the main parent sections, load last if found.
 			foreach ( $sections['parent'] as $key => $section ) {
@@ -224,7 +231,7 @@ class PageLinesRegister {
 			/*
 			* Look for custom dirs.
 			*/
-			if ( !in_array( $type, array('custom','child','parent') ) ) {
+			if ( !in_array( $type, array( 'custom', 'child', 'parent', 'editor' ) ) ) {
 
 				// Ok so we're a plugin then.. if not active then bypass.
 				$plugin_slug = $type;
