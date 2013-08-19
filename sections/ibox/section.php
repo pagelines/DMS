@@ -140,7 +140,6 @@ class pliBox extends PageLinesSection {
 
 			// LINK
 			$link = $this->opt('ibox_link_'.$i);
-			$media_link = ($link) ? sprintf('href="%s"', $link) : '';
 			$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
@@ -167,20 +166,27 @@ class pliBox extends PageLinesSection {
 				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : '';
 
 			}
-
-
+			
+			$media_link = '';
+			$media_link_close = '';
+			
+			if( $link ){
+				$media_link = sprintf('<a href="%s">',$link);
+				$media_link_close = '</a>';
+			}
 
 			if($width == 0)
 				$output .= '<div class="row fix">';
 
 
-
 			$output .= sprintf(
 				'<div class="span%s ibox %s fix">
 					<div class="ibox-media img">
-						<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s" %s>
+						%s
+						<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s">
 							%s
 						</span>
+						%s
 					</div>
 					<div class="ibox-text bd">
 						%s
@@ -192,10 +198,11 @@ class pliBox extends PageLinesSection {
 				</div>',
 				$cols,
 				$format_class,
+				$media_link,
 				$media_class,
 				$media_bg,
-				$media_link,
 				$media_html,
+				$media_link_close,
 				$title,
 				$text,
 				$text_link
