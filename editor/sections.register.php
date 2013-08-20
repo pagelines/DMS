@@ -89,6 +89,7 @@ class PLSectionsRegister {
 						'format'		=> $data['format'],
 						'classes'		=> $data['classes'],
 						'screenshot'	=> ( is_file( $base_dir . '/thumb.png' ) ) ? $base_url . '/thumb.png' : '',
+						'splash'		=> ( is_file( $base_dir . '/splash.png' ) ) ? $base_url . '/splash.png' : '',
 						'less'			=> ( is_file( $base_dir . '/style.less' ) ) ? true : false,
 						'loadme'		=> true,
 						'price'			=> '',
