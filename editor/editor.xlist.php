@@ -52,7 +52,7 @@ class EditorXList{
 			$datas .= sprintf("data-%s='%s' ", $field, $val);
 		}
 
-		$sub = ($args['sub']) ? sprintf('<div class="x-item-sub">%s</div>', $args['sub']) : '';
+		$sub = ($args['sub']) ? sprintf('<div class="x-item-sub">%s</div>', stripslashes( $args['sub'] ) ) : '';
 
 		$thumb = ($args['thumb'] != '') ? sprintf("<div class='x-item-frame'><div class='pl-vignette'>%s</div></div>", $img) : '';
 
