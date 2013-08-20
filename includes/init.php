@@ -246,8 +246,8 @@ pagelines_register_hook('pagelines_hook_init'); // Hook
 // Always best to load most stuff after WP loads fully.
 // The "init" hook is the point at which it has... 
 // NOTE: pl_setting cannot be used BEFORE the 'init' hook
-add_action('init', 'pl_load_registers'); 
-function pl_load_registers(){
+// add_action('init', 'pl_load_registers'); 
+// function pl_load_registers(){
 
 	/**
 	 * Load Singleton Globals
@@ -291,7 +291,7 @@ function pl_load_registers(){
 		include( PL_ADMIN . '/init.admin.php' );
 
 
-}
+//}
 
 
 
