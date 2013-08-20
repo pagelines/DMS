@@ -244,10 +244,10 @@ if ( is_admin() )
 pagelines_register_hook('pagelines_hook_init'); // Hook
 
 // Always best to load most stuff after WP loads fully.
-// The "init" hook is the point at which it has... 
-// NOTE: pl_setting cannot be used BEFORE the 'init' hook
- add_action('after_setup_theme', 'pl_load_registers'); 
- function pl_load_registers(){
+// The "after_setup_theme" hook is the point at which it has... 
+// NOTE: pl_setting cannot be used BEFORE the 'after_setup_theme' hook
+add_action('after_setup_theme', 'pl_load_registers'); 
+function pl_load_registers(){
 
 	/**
 	 * Load Singleton Globals
