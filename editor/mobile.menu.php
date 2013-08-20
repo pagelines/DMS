@@ -32,7 +32,7 @@ class PageLinesMobileMenu {
 							'menu'				=> $menu,
 							'container'			=> null,
 							'container_class'	=> '',
-							'depth'				=> 1,
+							'depth'				=> 2,
 							'fallback_cb'		=> ''
 						)
 					);
