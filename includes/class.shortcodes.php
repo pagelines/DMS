@@ -121,6 +121,7 @@ class PageLines_ShortCodes {
 			'pl_raw'					=>	array( 'function' => 'do_raw' ),
 			'pl_video'					=>	array( 'function' => 'pl_video_shortcode' ),
 			'pl_child_url'				=>	array( 'function' => 'pl_child_url' ),
+			'pl_site_url'				=>	array( 'function' => 'pl_site_url' ),
 			'pl_parent_url'				=>	array( 'function' => 'get_themeurl' )
 			);
 
@@ -1438,6 +1439,10 @@ class PageLines_ShortCodes {
 
 	function pl_child_url() {
 		return get_stylesheet_directory_uri();
+	}
+	
+	function pl_site_url() {
+		return home_url();
 	}
 
 	function filters() {
