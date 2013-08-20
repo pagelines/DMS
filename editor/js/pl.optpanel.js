@@ -1167,9 +1167,10 @@
 						if (response.success) {
 							var theThumb = optBox.find('.upload-thumb')
 							, 	imgStyle = theThumb.data('imgstyle')
-
-
-							theThumb.fadeIn().html( sprintf('<div class="img-wrap"><img src="%s" style="%s"/></div>', response.url, imgStyle ))
+							, 	imgURL = pl_do_shortcode(response.url)
+							
+							theThumb.fadeIn().html( sprintf('<div class="img-wrap"><img src="%s" style="%s"/></div>', imgURL, imgStyle ))
+							
 							optBox.find('.text-input').val(response.url).change()
 							
 							optBox.find('.hidden-input').val(response.attach_id).change()

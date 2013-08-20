@@ -123,6 +123,7 @@ class PageLinesTemplateHandler {
 							, widgets: '<?php echo $this->edit_post_link();?>'
 							, StyleSheetURL: '<?php echo get_stylesheet_directory_uri(); ?>'
 							, ParentStyleSheetURL: '<?php echo get_template_directory_uri(); ?>'
+							, siteURL: '<?php echo home_url(); ?>'
 						}
 					}
 
@@ -812,7 +813,6 @@ class PageLinesTemplateHandler {
 	}
 
 	function before_section( $s ){
-
 		echo pl_source_comment($s->name . ' | Section Template', 2); // Add Comment
 
 		pagelines_register_hook('pagelines_before_'.$s->id, $s->id); // hook

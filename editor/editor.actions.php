@@ -344,7 +344,10 @@ function pl_up_image (){
 	if( !empty( $uploaded_file['error'] ) )
 		echo sprintf( __('Upload Error: %s', 'pagelines' ) , $uploaded_file['error'] );
 	else{
-		echo json_encode( array( 'url' => $uploaded_file['url'], 'success' => TRUE, 'attach_id' => $attach_id ) );
+		
+		$url = str_replace(home_url(), '[pl_site_url]', $uploaded_file['url']);
+		 
+		echo json_encode( array( 'url' => $url, 'success' => TRUE, 'attach_id' => $attach_id ) );
 
 	}
 	die(); // don't forget this, always returns 0 w/o

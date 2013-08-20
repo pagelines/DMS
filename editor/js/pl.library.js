@@ -118,6 +118,8 @@ function pl_do_shortcode(opt) {
 			opt = opt.replace(/\[pl_child_url\]/g, jQuery.pl.config.urls.StyleSheetURL)
 		case 'pl_parent_url':
 			opt = opt.replace(/\[pl_parent_url\]/g, jQuery.pl.config.urls.ParentStyleSheetURL)
+		case 'pl_site_url':
+			opt = opt.replace(/\[pl_site_url\]/g, jQuery.pl.config.urls.siteURL)
 	}
 	return opt
 }
