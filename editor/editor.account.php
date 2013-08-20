@@ -264,12 +264,9 @@ class PLAccountPanel{
 				PL_API_URL,
 				$email,
 				$type
-			);
-		
-		$data = wp_remote_get( $url );
-		
-		$rsp = ( isset($data['body']) ) ? (array) json_decode( $data['body'] ) : array();
-		
+			);		
+		$data = wp_remote_get( $url, array( 'timeout' => 20 ) );		
+		$rsp = ( ! is_wp_error( $data ) && isset($data['body'] ) ) ? (array) json_decode( $data['body'] ) : array();		
 		return $rsp;
 	}
 	
