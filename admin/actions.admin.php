@@ -9,6 +9,7 @@
 
 define( 'PL_ACTIVATE_URL' , apply_filters('pl_activate_url', home_url().'?tablink=account&tabsublink=welcome'));
 
+global $pagenow;
 if( is_admin() && isset($_GET['activated'] ) && $pagenow == "themes.php" )
 	wp_redirect( PL_ACTIVATE_URL );
 
