@@ -664,11 +664,7 @@ class PageLinesRenderCSS {
         	prune_super_cache( $cache_path . 'supercache/', true );
         	prune_super_cache( $cache_path, true );
 		}
-		if( class_exists('W3_Plugin_TotalCacheAdmin') ) {
-		    $plugin_totalcacheadmin = & w3_instance('W3_Plugin_TotalCacheAdmin');
-
-		    $plugin_totalcacheadmin->flush_all();
-		}
+		
 
 		if( $rules )
 			flush_rewrite_rules( true );
