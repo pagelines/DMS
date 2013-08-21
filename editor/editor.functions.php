@@ -117,10 +117,10 @@ function process_old_opt( $key, $old, $otop = array()){
 	$new = array(
 		'key'			=> $key,
 		'title'			=> $old['title'],
-		'label'			=> $old['inputlabel'],
+		'label'			=> ( !isset($old['label']) && isset($old['inputlabel'])) ? $old['inputlabel'] : $old['label'],
 		'type'			=> $type,
 		'help'			=> $exp,
-		'opts'			=> $old['selectvalues'],
+		'opts'			=> ( !isset($old['opts']) && isset($old['selectvalues'])) ? $old['selectvalues'] : $old['opts'],
 		'span'			=> $old['span'],
 	);
 

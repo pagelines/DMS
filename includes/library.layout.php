@@ -116,16 +116,18 @@ function pl_add_options_page( $args ) {
 	if( pl_has_editor() ){
 
 		global $pagelines_add_settings_panel;
-
-		$args['opts'] = (!isset($args['opts']) && isset($args['array'])) ? $args['array'] : array();
-		$args['pos'] = (!isset($args['pos']) && isset($args['position'])) ? $args['position'] : array();
-
+		
 		$d = array(
 			'name' 	=> 'No Name',
 			'icon'	=> 'icon-edit',
 			'pos'	=> 10,
 			'opts' 	=> array()
 		);
+		
+		
+
+		$args['opts'] = (!isset($args['opts']) && isset($args['array'])) ? $args['array'] : $args['opts'];
+		$args['pos'] = (!isset($args['pos']) && isset($args['position'])) ? $args['position'] : $args['pos'];
 
 		$a = wp_parse_args( $args, $d );
 
@@ -134,7 +136,11 @@ function pl_add_options_page( $args ) {
 		// make sure its not set elsewhere. Navbar was already set, and we were writing twice
 		if( !isset( $pagelines_add_settings_panel[ $id ]) )
 			$pagelines_add_settings_panel[ $id ] = $a;
+			
+	
 	}
+	
+	
 
 
 	// Version 2
@@ -171,7 +177,7 @@ add_filter( 'pl_settings_array', 'pl_add_settings_panel', 15 );
 function pl_add_settings_panel( $settings ){
 
 	global $pagelines_add_settings_panel;
-
+	
 	if ( !isset( $pagelines_add_settings_panel ) || !is_array( $pagelines_add_settings_panel ) )
 		return $settings;
 
@@ -179,14 +185,17 @@ function pl_add_settings_panel( $settings ){
 
 		if(strpos($setup['icon'], "http://") !== false)
 			$setup['icon'] = 'icon-circle';
-
+	//	plprint($setup['opts'], 'sent in');
 		$setup['opts'] = process_to_new_option_format( $setup['opts'] );
-
+	//	plprint($setup['opts'], 'sent out');
+		
 		if(!isset($settings[ $panel ]))
 			$settings[ $panel ] = $setup;
 
 
 	}
+	
+	
 
 	return $settings;
 
