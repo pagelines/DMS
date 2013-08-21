@@ -3210,7 +3210,8 @@ font-weight: bold;
 
 
 		@media screen and (max-width:650px) {
-			.responsive #site .pp2, .responsive #site .pp3{
+			.responsive #site .pp2, 
+			.responsive #site .pp3{
 		       	width: 100%;
 				margin-right: 0;
 		    }
