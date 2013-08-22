@@ -235,7 +235,10 @@ class PLAccountPanel{
 				),
 			)
 		);
-
+		if( defined( 'DMS_DISABLE_ACCOUNT_PANEL' ) && DMS_DISABLE_ACCOUNT_PANEL && pl_is_pro() )
+			unset( $toolbar['account']['panel']['pl_account']);
+		if( defined( 'DMS_DISABLE_KARMA_PANEL' ) && DMS_DISABLE_KARMA_PANEL && pl_is_pro() )
+			unset( $toolbar['account']['panel']['get_karma']);			
 		return $toolbar;
 	}
 	
