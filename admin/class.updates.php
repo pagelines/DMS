@@ -23,8 +23,9 @@ class PageLinesUpdateCheck {
 	 */
 	function pagelines_theme_check_version() {
 
-		if ( true == get_pagelines_option('disable_updates') )
+		if( has_action( 'disable_dms_theme_update' ) )
 			return;
+
 		$folder = basename( get_template_directory() );
 
 		if( 'dms' != $folder )
