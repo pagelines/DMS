@@ -291,8 +291,11 @@ class PLNavBar extends PageLinesSection {
 	  <div class="navbar-inner <?php echo $content_width_class;?>">
 	    <div class="navbar-content-pad fix">
 	    	<?php
+				if( current_user_can( 'edit_theme_options' ) && $passive )
+					echo pl_dms_settings_link('settings', 'navbar', 'btn btn-edit btn-mini navbar-edit');
+		
 	   			if($navbartitle)
-				printf( '<span class="navbar-title">%s</span>',$navbartitle );
+					printf( '<span class="navbar-title">%s</span>',$navbartitle );
 			?>
 	      <a href="javascript:void(0)" class="nav-btn nav-btn-navbar mm-toggle">
 	        <?php _e('MENU', 'pagelines'); ?> <i class="icon-reorder"></i>

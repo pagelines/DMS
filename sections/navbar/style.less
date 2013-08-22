@@ -15,6 +15,21 @@ body.navbar_fixed {
 		position: fixed;
 		z-index: @zindexFixedNavbar;
 	}
+	
+}
+
+.section-navbar.fixed-top{
+	.navbar-edit{
+		position: absolute;
+		left: -30px;
+		top: 6px;
+		display: none;
+	}
+	&:hover{
+		.navbar-edit{
+			display: block;
+		}
+	}
 }
 
 /*  Basic formatting
@@ -433,6 +448,7 @@ body.navbar_fixed {
 		.navbar-inner {
 			padding: 5px;
 		}
+		
 	}
 }
 
