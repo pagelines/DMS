@@ -252,7 +252,7 @@ class EditorSettings {
 			array(
 				'key'		=> 'sb_multi',
 				'type'		=> 'multi', 
-				'title'		=> 'Sharbar Options',
+				'title'		=> 'Sharebar Options',
 				'opts'		=> array(
 					array(
 						'key'		=> 'share_google',
