@@ -32,6 +32,7 @@ class PageLinesLess {
 		// PageLines Variables
 		$constants = array(
 			'plRoot'				=> sprintf( "\"%s\"", PL_PARENT_URL ),
+			'plCrossRoot'			=> sprintf( "\"//%s\"", str_replace( array( 'http://','https://' ), '', PL_PARENT_URL ) ),
 			'plSectionsRoot'		=> sprintf( "\"%s\"", PL_SECTION_ROOT ),
 			'plPluginsRoot'			=> sprintf( "\"%s\"", WP_PLUGIN_URL ),
 			'plChildRoot'			=> sprintf( "\"%s\"", PL_CHILD_URL ),
