@@ -185,9 +185,8 @@ function pl_add_settings_panel( $settings ){
 
 		if(strpos($setup['icon'], "http://") !== false)
 			$setup['icon'] = 'icon-circle';
-	//	plprint($setup['opts'], 'sent in');
+			
 		$setup['opts'] = process_to_new_option_format( $setup['opts'] );
-	//	plprint($setup['opts'], 'sent out');
 		
 		if(!isset($settings[ $panel ]))
 			$settings[ $panel ] = $setup;
