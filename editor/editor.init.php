@@ -55,6 +55,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/panel.code.php' );
 		//require_once( PL_EDITOR . '/panel.live.php' );
 		require_once( PL_EDITOR . '/editor.account.php' );
+		require_once( PL_EDITOR . '/editor.updates.php' );
 		require_once( PL_EDITOR . '/panel.sections.php' );
 		require_once( PL_EDITOR . '/panel.extend.php' );
 		require_once( PL_EDITOR . '/panel.themes.php' );
