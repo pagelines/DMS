@@ -186,7 +186,7 @@ class PageLinesExtendPanel{
 			if( $item['sale'] )
 				$sub = sprintf( '<s>%s</s> %s', $item['price'], $item['sale']);
 
-			$class[] = ($item['price'] == 'free') ? 'free-item' : 'premium-item';
+			$class[] = ($item['price'] == 'free' || $item['price'] == '0' || $item['price'] == '') ? 'free-item' : 'premium-item';
 
 			$args = array(
 				'id'			=> $item['slug'],
