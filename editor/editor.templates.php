@@ -37,9 +37,6 @@ class PageLinesTemplates {
 				
 		} elseif( $region == 'template' ){
 			
-			// global $post;
-			// plprint(get_post_type_object( get_post_type( $post->ID ) ));
-			
 			$map = false;
 			
 			$set = (is_page()) ? $this->set->local : $this->set->type;
@@ -79,7 +76,7 @@ class PageLinesTemplates {
 		if( ($region == 'header' || $region == 'footer') && !isset( $this->set->regions[ $region ]) ){
 		
 			$map_global = pl_opt( $this->map_option_slug, pl_settings_default(), true );
-			//	plprint($map_global);
+
 			if(isset($map_global['draft'][$region])){
 			
 				$this->set->regions[$region] = $map_global['draft'][$region]; 

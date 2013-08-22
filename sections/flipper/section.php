@@ -40,8 +40,6 @@ class PageLinesFlipper extends PageLinesSection {
 			}
 
 		}
-		//plprint($pt_objects);
-
 		$options = array();
 
 		$options[] = array(

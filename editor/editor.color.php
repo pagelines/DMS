@@ -44,14 +44,10 @@ class EditorColor{
 		$vars['pl-link']				= $this->hash( $link );
 		$vars['pl-background']			= $this->background( $vars['pl-base'] );
 		
-	//	plprint($vars['pl-background']);
-		
 		return $vars;
 	}
 
 	function background( $bg_color ){
-
-		
 		
 		$fit = pl_setting('supersize_bg');
 		
