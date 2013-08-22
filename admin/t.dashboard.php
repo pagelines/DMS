@@ -49,26 +49,26 @@ class PageLinesDashboard {
 
 		// PageLines Store Latest Dash
 
-		$args = array(
-			'title'		=> __( 'Updates on PageLines Store', 'pagelines' ),
-			'data'		=> $rss->get_dash_rss(),
-			'classes'	=> 'news-dash pl-dash-half pl-dash-space',
-			'icon'		=> PL_ADMIN_ICONS . '/store.png',
-			'footer' 	=> sprintf('Visit <a href="%s">PageLines Store</a>', 'http://www.pagelines.com/store/')
-		);
-
-		$dashboards .= $this->dashboard_pane('store', $args);
-
-		// PageLines Plus
-		$args = array(
-			'title'		=> __( 'Latest Extensions', 'pagelines' ),
-			'data'		=> $rss->get_dash_rss( array( 'feed' => 'http://api.pagelines.com/rss/plus.php' ) ),
-			'classes'	=> 'news-dash pl-dash-half',
-			'icon'		=> PL_ADMIN_ICONS . '/plusbtn.png',
-			'footer' 	=> sprintf('Visit <a href="%s">Plus Overview</a>', 'http://www.pagelines.com/plus/')
-		);
-
-		$dashboards .= $this->dashboard_pane('extensions', $args);
+		// $args = array(
+		// 	'title'		=> __( 'Updates on PageLines Store', 'pagelines' ),
+		// 	'data'		=> $rss->get_dash_rss(),
+		// 	'classes'	=> 'news-dash pl-dash-half pl-dash-space',
+		// 	'icon'		=> PL_ADMIN_ICONS . '/store.png',
+		// 	'footer' 	=> sprintf('Visit <a href="%s">PageLines Store</a>', 'http://www.pagelines.com/store/')
+		// );
+		// 
+		// $dashboards .= $this->dashboard_pane('store', $args);
+		// 
+		// // PageLines Plus
+		// $args = array(
+		// 	'title'		=> __( 'Latest Extensions', 'pagelines' ),
+		// 	'data'		=> $rss->get_dash_rss( array( 'feed' => 'http://api.pagelines.com/rss/plus.php' ) ),
+		// 	'classes'	=> 'news-dash pl-dash-half',
+		// 	'icon'		=> PL_ADMIN_ICONS . '/plusbtn.png',
+		// 	'footer' 	=> sprintf('Visit <a href="%s">Plus Overview</a>', 'http://www.pagelines.com/plus/')
+		// );
+		// 
+		// $dashboards .= $this->dashboard_pane('extensions', $args);
 
 
 		return $this->dashboard_wrap($dashboards);
