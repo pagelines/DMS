@@ -129,12 +129,6 @@ class PageLinesDebug {
 			);
 
 			$this->debug_info[] = array(
-				'title'	=> 'Ajax disbled',
-				'value' => ( get_pagelines_option( 'disable_ajax_save' ) ) ? 'Yes':'',
-				'level'	=> false
-			);
-
-			$this->debug_info[] = array(
 				'title'	=> 'PHP Safe Mode',
 				'value' => ( (bool) ini_get('safe_mode') ) ? 'Yes!':'',
 				'level'	=> false
@@ -169,43 +163,13 @@ class PageLinesDebug {
 				'value' => ( version_compare( $wpdb->get_var("SELECT VERSION() AS version"), '6' ) < 0  ) ? $wpdb->get_var("SELECT VERSION() AS version"):'',
 				'level'	=> false
 			);
-			$ex_dir = PL_EXTEND_DIR;
 
-			if( ! is_dir( $ex_dir ) ) {
-
-				$this->debug_info[] = array(
-					'title'	=> 'Sections Plugin',
-					'value' => 'Not Installed!',
-					'level'	=> true,
-				);
-
-			}
-
-			if( is_dir( $ex_dir ) ) {
-				$this->debug_info[] = array(
-					'title'	=> 'Sections DIR',
-					'value' => ( !is_writable( PL_EXTEND_DIR ) ) ? "Not Writable!":'Writable.',
-					'level'	=> true,
-					'extra' => PL_EXTEND_DIR
-				);
-			}
-
-			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			if( is_dir( $ex_dir ) && ! is_plugin_active( 'pagelines-sections/pagelines-sections.php' ) ) {
-				$this->debug_info[] = array(
-					'title'	=> 'Sections Plugin',
-					'value' => 'Not Active!',
-					'level'	=> true,
-				);
-			}
 
 			$this->debug_info[] = array(
 				'title'	=> 'PHP type',
 				'value' => php_sapi_name(),
 				'level'	=> false
 			);
-
-
 
 			$processUser = ( ! function_exists( 'posix_geteuid') || ! function_exists( 'posix_getpwuid' ) ) ? 'posix functions are disabled on this host!' : posix_getpwuid(posix_geteuid());
 			if ( is_array( $processUser ) )
@@ -223,27 +187,16 @@ class PageLinesDebug {
 				'level'	=> false
 			);
 
-			if ( get_pagelines_option('disable_updates') == true || ( is_multisite() && ! is_super_admin() ) ) {
+			if ( pl_is_pro() ) {
+				$status = get_option( 'dms_activation' );
 				$this->debug_info[] = array(
-					'title'	=> 'Automatic Updates',
-					'value' => 'Disabled',
-					'level'	=> false
-				);
-			} else {
-				$this->debug_info[] = array(
-					'title'	=> 'Launchpad',
-					'value' => ( ! pagelines_check_credentials() ) ? 'Not logged in.' : sprintf( 'Logged in ( %s ) ', get_pagelines_credentials( 'user' ) ),
-					'level'	=> false
-				);
-			if ( pagelines_check_credentials() ) {
-				$this->debug_info[] = array(
-					'title'	=> 'Licence',
-					'value' => get_pagelines_credentials( 'licence' ),
-					'extra'	=> get_pagelines_credentials( 'error' ),
+					'title'	=> 'Licence OK',
+					'value' => $status['email'],
+					'extra'	=> '',
 					'level'	=> false
 				);
 			}
-		}
+
 			$this->debug_info[] = array(
 				'title'	=> 'Plugins',
 				'value' => $this->debug_get_plugins(),
