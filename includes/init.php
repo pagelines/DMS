@@ -237,6 +237,12 @@ require_once (PL_ADMIN.'/class.updates.php');
 
 if ( is_admin() )
 	new PageLinesUpdateCheck( PL_CORE_VERSION );
+
+
+/**
+ * Load site actions
+ */
+require_once (PL_INCLUDES.'/actions.site.php');
 	
 /**
  * Run the pagelines_init Hook
@@ -277,10 +283,9 @@ function pl_load_registers(){
 
 	do_global_meta_options(); // Load the global meta settings tab
 
-	/**
-	 * Load site actions
-	 */
-	require_once (PL_INCLUDES.'/actions.site.php');
+
+	$GLOBALS['render_css'] = new PageLinesRenderCSS;
+	
 
 	if ( pl_setting( 'enable_debug' ) )
 		require_once ( PL_ADMIN . '/class.debug.php');
