@@ -921,7 +921,7 @@ function setup_section_notify( $section, $text = '', $user_url = null, $ltext = 
 
 		$link = sprintf('</br><a href="%s" class="btn btn-mini %s" %s>%s</a>', $url, $class, $extra, $link_text);
 
-		$text = ($text != '') ? $text : __('Configure this section');
+		$text = ($text != '') ? $text : __( 'Configure this section', 'pagelines' );
 
 		return sprintf(
 			'<div class="setup-section"><div class="setup-section-pad">%s <br/><small class="banner_text subhead">%s %s</small></div></div>',
