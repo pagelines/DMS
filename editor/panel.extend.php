@@ -172,8 +172,7 @@ class PageLinesExtendPanel{
 
 		global $storeapi;
 		$mixed_array = $storeapi->get_latest();
-		plprint($mixed_array);
-//plprint($mixed_array);
+
 		foreach( $mixed_array as $key => $item){
 
 			$class = $item['class_array'];
