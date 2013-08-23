@@ -599,7 +599,7 @@ class EditorTemplates {
 		if(pl_deprecate_v2())
 			remove_meta_box( 'pageparentdiv', 'page', 'side' );
 			
-		add_meta_box('specialpagelines', __('DMS Page Setup'), array(&$this, 'page_attributes_meta_box'), 'page', 'side');
+		add_meta_box('specialpagelines', __( 'DMS Page Setup', 'pagelines' ), array(&$this, 'page_attributes_meta_box'), 'page', 'side');
 
 	}
 
@@ -664,7 +664,7 @@ class EditorTemplates {
 				'exclude_tree'     => $post->ID,
 				'selected'         => $post->post_parent,
 				'name'             => 'parent_id',
-				'show_option_none' => __('(no parent)'),
+				'show_option_none' => __('(no parent)', 'pagelines' ),
 				'sort_column'      => 'menu_order, post_title',
 				'echo'             => 0,
 			);
@@ -672,20 +672,12 @@ class EditorTemplates {
 			$dropdown_args = apply_filters( 'page_attributes_dropdown_pages_args', $dropdown_args, $post );
 			$pages = wp_dropdown_pages( $dropdown_args );
 			if ( ! empty($pages) ) {
-				printf('<p><strong>%1$s</strong></p>', __('Parent Page'));
+				printf('<p><strong>%1$s</strong></p>', __( 'Parent Page', 'pagelines' ) );
 				echo $pages;
 			}
 		}
 
-		printf('<p><strong>%1$s</strong></p>', __('Page Order'));
+		printf('<p><strong>%1$s</strong></p>', __( 'Page Order', 'pagelines' ) );
 		printf('<input name="menu_order" type="text" size="4" id="menu_order" value="%s" /></p>', esc_attr($post->menu_order) );
-
 	}
-
 }
-
-
-
-
-
-

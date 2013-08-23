@@ -52,7 +52,7 @@ class EditorLess extends EditorLessHandler {
 				header( 'Stefans Got No Pages', true, 200 );
 
 			if( is_file( $this->draft_less_file ) ) {
-				echo readfile( $this->draft_less_file );
+				echo pl_file_get_contents( $this->draft_less_file );
 			} else {
 				$core = $this->googlefont_replace( $this->get_draft_core() );
 				$css = $this->minify( $core['compiled_core'] );

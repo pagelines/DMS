@@ -23,14 +23,14 @@ class EditorThemeHandler {
 			'name'	=> 'Theme',
 			'icon'	=> 'icon-picture',
 			'pos'	=> 50,
-			'panel'	=> $this->get_settings()
+			'panel'	=> $this->pl_get_settings()
 
 		);
 		
 		return apply_filters('pl_themes_tabs_final', $toolbar);
 	}
 
-	function get_settings(){
+	function pl_get_settings(){
 		
 		$settings = array(
 			

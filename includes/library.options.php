@@ -1060,6 +1060,6 @@ if ( !defined( 'VDEV') )
 	define( 'VDEV', ( get_pagelines_credentials( 'licence' ) === 'dev' ) ? true : false );
 
 if( !defined( 'VPRO' ) )
-	define( 'VPRO', ( get_pagelines_credentials( 'licence' ) === 'pro' || get_pagelines_credentials( 'licence' ) === 'dev' ) ? true : false );
+	define( 'VPRO', ( pl_is_pro() ) ? true : false );
 if ( !defined( 'VPLUS' ) )
 	define( 'VPLUS', ( pagelines_check_credentials( 'plus' ) ) ? true : false );

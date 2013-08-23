@@ -94,12 +94,6 @@ function fix_wp_login_imagetitle( $url ){
 }
 
 /**
- *  Fix The WordPress Login Image Title
- */
-if ( VPRO )
-	add_action('login_head', 'pl_fix_login_image');
-
-/**
  *
  * @TODO document
  *

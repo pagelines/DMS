@@ -200,3 +200,10 @@ function pagelines_google_author_head() {
 	if ( '' != $google_profile )
 		printf( '<link rel="author" href="%s" />%s', $google_profile, "\n" );
 }
+
+
+/**
+ *  Fix The WordPress Login Image Title
+ */
+if ( VPRO )
+	add_action('login_head', 'pl_fix_login_image');
