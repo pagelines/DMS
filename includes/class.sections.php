@@ -924,7 +924,7 @@ function setup_section_notify( $section, $text = '', $user_url = null, $ltext = 
 		$text = ($text != '') ? $text : __( 'Configure this section', 'pagelines' );
 
 		return sprintf(
-			'<div class="setup-section"><div class="setup-section-pad">%s <br/><small class="banner_text subhead">%s %s</small></div></div>',
+			'<div class="setup-section pl-editor-only"><div class="setup-section-pad">%s <br/><small class="banner_text subhead">%s %s</small></div></div>',
 			$banner_title,
 			$text,
 			$link

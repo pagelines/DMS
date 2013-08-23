@@ -93,7 +93,7 @@ function pl_editor_actions(){
 				else 
 					$response['notice'] = false;
 
-				$response['template'] = $section_template;
+				$response['template'] = ($section_template == '') ? pl_blank_template() : $section_template;
 
 			}
 

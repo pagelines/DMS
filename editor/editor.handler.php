@@ -738,6 +738,11 @@ class PageLinesTemplateHandler {
 	
 			$render = (!isset($output) || $output == '') ? false : true;
 
+			if( ! $render && current_user_can( 'edit_theme_options' ) ){
+				$output = pl_blank_template(); 
+				$render = true;
+			}
+
 			if( $level >= 1 )
 				$this->grid_row_start( $s, $count, $total, $render, $level );
 

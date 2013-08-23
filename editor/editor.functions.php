@@ -672,3 +672,12 @@ function pl_dms_settings_link( $panel, $tab, $class = 'btn btn-edit btn-mini', $
 }
 
 
+function pl_blank_template(){
+	if ( current_user_can( 'edit_theme_options' ) )
+		return sprintf('<div class="alert pl-editor-only"><strong>Admin Notice:</strong><br/>This template returned blank and visitors will not see it. Refresh, settings, or data changes may be needed for output.</div>');
+	else 
+		return '';
+	
+}
+
+
