@@ -91,6 +91,27 @@ add_filter( 'user_contactmethods', 'pagelines_add_google_profile', 10, 1);
 
 add_filter( 'ngg_render_template', 'gallery_filter' , 10, 2);
 
+/**
+ * Auto load child less file.
+ */
+add_action( 'init', 'pagelines_check_child_less' );
+function pagelines_check_child_less() {
+
+	$lessfile = sprintf( '%s/style.less', get_stylesheet_directory() );
+
+	if ( is_file( $lessfile ) )
+		pagelines_insert_core_less( $lessfile );
+}
+
+
+
+add_action( 'init', 'pagelines_check_less_reset', 999 );
+function pagelines_check_less_reset() {
+
+	if( isset( $_GET['pl_reset_less'] ) && ! defined( 'PL_CSS_FLUSH' ) )
+		do_action( 'extend_flush' );
+
+}
 
 /**
  *
@@ -105,7 +126,7 @@ function gallery_filter( $a, $template_name) {
 		return $a;
 }
 
-$GLOBALS['render_css'] = new PageLinesRenderCSS;
+
 
 // add_action( 'template_redirect', 'pl_check_integrations' ); // shouldnt be needed now
 
@@ -167,28 +188,7 @@ function pagelines_check_lessdev(){
 	}
 }
 
-/**
- * Auto load child less file.
- */
-add_action( 'init', 'pagelines_check_child_less' );
-function pagelines_check_child_less() {
 
-	$lessfile = sprintf( '%s/style.less', get_stylesheet_directory() );
-
-	if ( is_file( $lessfile ) )
-		pagelines_insert_core_less( $lessfile );
-}
-
-
-
-add_action( 'init', 'pagelines_check_less_reset', 999 );
-
-function pagelines_check_less_reset() {
-
-	if( isset( $_GET['pl_reset_less'] ) && ! defined( 'PL_CSS_FLUSH' ) )
-		do_action( 'extend_flush' );
-
-}
 
 add_action( 'wp_head', 'pagelines_google_author_head' );
 
