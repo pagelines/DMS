@@ -125,9 +125,12 @@ function pl_add_options_page( $args ) {
 		);
 		
 		
+		if( ! isset($args['opts']) && isset($args['array']) )
+			$args['opts'] = $args['array']; 
 
-		$args['opts'] = (!isset($args['opts']) && isset($args['array'])) ? $args['array'] : $args['opts'];
-		$args['pos'] = (!isset($args['pos']) && isset($args['position'])) ? $args['position'] : $args['pos'];
+
+		if( ! isset($args['pos']) && isset($args['position']) )
+			$args['pos'] = $args['position']; 
 
 		$a = wp_parse_args( $args, $d );
 
