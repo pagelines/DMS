@@ -176,8 +176,8 @@ class PLSectionArea extends PageLinesSection {
 			// global
 			$default_padding = pl_setting('section_area_default_pad', array('default' => '20'));
 			// opt	
-			$padding		= $this->opt('pl_area_pad',			array('default' => $default_padding)); 			
-			$padding_bottom	= $this->opt('pl_area_pad_bottom',	array('default' => $padding)); 
+			$padding		= rtrim( $this->opt('pl_area_pad',			array( 'default' => $default_padding ) ), 'px' ); 			
+			$padding_bottom	= rtrim( $this->opt('pl_area_pad_bottom',	array( 'default' => $padding ) ), 'px' ); 
 			
 			$style .= sprintf('padding-top: %spx; padding-bottom: %spx;',
 				$padding,
