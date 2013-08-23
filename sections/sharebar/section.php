@@ -71,12 +71,6 @@ class PageLinesShareBar extends PageLinesSection {
 		if(pl_setting('share_pinterest'))
 			$out .= self::pinterest(array('permalink' => $perm, 'image' => $thumb, 'desc' => $desc));
 
-		if(pl_setting('share_buffer'))
-			$out .= self::buffer(array('permalink' => $perm, 'title' => $title));
-
-		if(pl_setting('share_stumble'))
-			$out .= self::stumbleupon(array('permalink' => $perm, 'title' => $title));
-
 		return $out;
 	}
 
