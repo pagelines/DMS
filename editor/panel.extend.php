@@ -172,6 +172,7 @@ class PageLinesExtendPanel{
 
 		global $storeapi;
 		$mixed_array = $storeapi->get_latest();
+		plprint($mixed_array);
 //plprint($mixed_array);
 		foreach( $mixed_array as $key => $item){
 
@@ -181,10 +182,20 @@ class PageLinesExtendPanel{
 
 			$img = sprintf('<img src="%s" style=""/>', $item['thumb']);
 
-			$sub = ($item['price'] == 'free') ? __('Free!', 'pagelines') : '$'.$item['price'];
+			$sub = ($item['price'] == '0') ? __('Free!', 'pagelines') : '$'.$item['price'];
 			
+			if($item['price'] == '0')
+				$sub = __('Free!', 'pagelines'); 
+			elseif( $item['price'] == '' )
+				$sub = __('<i class="icon-sun"></i> Karma', 'pagelines'); 
+			else 
+				$sub = '$'.$item['price'];
+				
 			if( $item['sale'] )
 				$sub = sprintf( '<s>%s</s> %s', $item['price'], $item['sale']);
+
+			if($item['price'] == '')
+				$item['price'] = 0;
 
 			$class[] = ($item['price'] == 'free' || $item['price'] == '0' || $item['price'] == '') ? 'free-item' : 'premium-item';
 
