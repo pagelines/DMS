@@ -89,7 +89,7 @@ class PageLinesEditorUpdates {
 				if( isset( $object->new_version ) ) {
 					$updates->response[$path] = $object; 
 				}
-			} else {
+			} elseif( isset( $updates->response[$path] ) ) {				
 				unset( $updates->response[$path] );
 			}
 		}
