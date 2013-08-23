@@ -67,7 +67,7 @@ $.plExtend = {
 		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-cloud-download"></i> Install</a> ', InstallLink)
 
 		if(overviewLink)
-			buttons += sprintf('<a href="%s" class="btn btn-primary x-remove" target="_blank"><i class="icon-money"></i> Purchase</a> ', overviewLink)
+			buttons += sprintf('<a href="%s" class="btn btn-primary x-remove" target="_blank">View &amp; Download &nbsp;<i class="icon-chevron-sign-right"></i></a> ', overviewLink)
 
 		if(demoLink)
 			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-desktop"></i> Demo</a> ', demoLink)
