@@ -4,6 +4,19 @@
 
 ********************************************************
 
+Version 1.0.2
+	- CORE - Fixed 3 Github issues. https://github.com/pagelines/DMS/compare/9b1a5e2394...3736e00
+	- CORE - Various fixes for themecheck.
+
+Version 1.0.1
+	
+	- CORE - Remove debugging symbol.
+
+Version 1.0
+
+	- CORE - Fixed 13 Github issues and included 8 pull requests. https://github.com/pagelines/DMS/compare/43495ef685...7580ca6cc9
+	- CORE - New updates system included to 3rd party themes/plugins.
+	
 
 Version 0.9.7
 
