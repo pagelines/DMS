@@ -522,7 +522,10 @@ class PLAccountPanel{
 			'description'	=> '',
 			'active'	=> false, 
 			'real_user'	=> false,
-			'url'		=> ''
+			'url'		=> '',
+			'karma'		=> 0,
+			'lifetime_karma'	=> 0
+			
 		);
 		
 		$activation_data = (get_option( 'dms_activation' ) && is_array(get_option( 'dms_activation' ))) ? get_option( 'dms_activation' ) : array();
