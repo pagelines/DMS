@@ -14,7 +14,7 @@
  * @since       1.0
  *
  * @link        http://www.pagelines.com/
- * @link        http://www.pagelines.com/tour
+ * @link        http://www.pagelines.com/DMS
  *
  * @internal    Tested up to WordPress version 3.3.1
  *
