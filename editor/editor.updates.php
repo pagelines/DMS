@@ -54,45 +54,21 @@ class PageLinesEditorUpdates {
 
 		if( ! is_array( $pl_plugins ) || empty( $pl_plugins ) )
 			return $updates;
-		
+
 		foreach( $pl_plugins as $path => $data ) {
 			$slug = dirname( $path );
-			
-			$default_headers = array(
-				'Version'	=> 'Version',
-				'v3'	=> 'v3'
-				);
 
-			$fullpath = sprintf( '%s%s', trailingslashit( WP_PLUGIN_DIR ), $path );
-			
-			$data = get_file_data( $fullpath, $default_headers );
-
-			if( isset( $mixed_array[$slug] ) ) {
-				
-				// remove a wp.org plugin trying to update a dms plugin.			
-				if( ! isset( $mixed_array[$slug]['version'] ) ) {
-					if( is_object( $updates ) && isset( $updates->response[$path] ) ) {
-						unset( $updates->response[$path] );
-					}
-					continue;
-				}
-
-				if( $mixed_array[$slug]['version'] <= $data['Version'] ) {
-					if( is_object( $updates ) && isset( $updates->response[$path] ) ) {
-						unset( $updates->response[$path] );
-					}
-					continue;
-				}
-				
-				if( $this->pl_is_pro() )
-					$object = $this->build_plugin_object( $mixed_array[$slug], $data );
-				if( isset( $object->new_version ) ) {
-					$updates->response[$path] = $object; 
-				}
-			} elseif( isset( $updates->response[$path] ) ) {				
+			// If PageLines plugin has no API data pass on it.
+			if( ! isset( $mixed_array[$slug] ) ) {
 				unset( $updates->response[$path] );
+				continue;
 			}
-		}
+			
+			// If PageLines plugin has API data and a version check it and build a response.
+			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] >= $data['Version'] ) ) {
+					$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
+			}
+		}		
 		return $updates;
 	}
 	
@@ -100,7 +76,7 @@ class PageLinesEditorUpdates {
 		
 		$object = array();
 		$object['new_version'] = $api_data['version'];
-		$object['upgrade_notice'] = '<strong>Simon is awesome!</strong>';
+		$object['upgrade_notice'] = '';
 		$object['url'] = $api_data['overview'];
 		$object['package'] = $this->build_url( $api_data, $data );
 		return $object;
@@ -137,11 +113,27 @@ class PageLinesEditorUpdates {
 	function get_pl_plugins() {
 		
 		global $pl_plugins;
+		$default_headers = array(
+			'Version'	=> 'Version',
+			'v3'	=> 'v3',
+			'PageLines'	=> 'PageLines'
+			);
+	
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		
-		$pl_plugins = get_plugins();
+		$plugins = get_plugins();
 
-		return $pl_plugins;
+		foreach ( $plugins as $path => $data ) {
+
+			$fullpath = sprintf( '%s%s', trailingslashit( WP_PLUGIN_DIR ), $path );		
+			$plugins[$path] = get_file_data( $fullpath, $default_headers );
+		}
+		
+		foreach ( $plugins as $path => $data ) {
+			if( ! $data['PageLines'] )
+				unset( $plugins[$path] );
+		}
+		return $plugins;
 	}
 	
 	function get_pl_themes() {
