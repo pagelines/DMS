@@ -192,14 +192,13 @@ class EditorFileOpts {
 
 			$args = array(
 			    'public'                => true,
-			    'exclude_from_search'   => false,
-			    '_builtin'              => true
+			    '_builtin'              => false
 			);
 			$output = 'names'; // names or objects, note names is the default
 			$operator = 'and'; // 'and' or 'or'
-			$post_types = array_unique( get_post_types($args,$output,$operator));
+			$post_types = get_post_types( $args,$output,$operator );
 			$meta = array();
-			$master = array_merge( $post_types, $lookup_array );
+			$master = array_unique( array_merge( $post_types, $lookup_array ) );
 
 			foreach( $master as $t => $type ) {
 				$key = pl_create_int_from_string( $type ) + 70000000;
@@ -207,7 +206,6 @@ class EditorFileOpts {
 				if( empty( $meta[$key] ) )
 					unset( $meta[$key] );
 			}
-
 			$option['post_meta'] = $meta;
 		}
 
