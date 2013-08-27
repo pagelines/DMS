@@ -363,21 +363,21 @@ jQuery(document).ready(function() {
 function pagelines_meta_tags(){
 
 	global $pagelines_ID;
-	$oset = array('post_id' => $pagelines_ID);
+	$oset = array( 'post_id' => $pagelines_ID );
 
 	// Meta Images
-	if(ploption('pagelines_favicon') && VPRO)
-		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', ploption('pagelines_favicon'), "\n");
+	if( pl_setting('pagelines_favicon') )
+		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', pl_setting('pagelines_favicon'), "\n");
 
-	if(ploption('pagelines_touchicon'))
-		printf('<link rel="apple-touch-icon" href="%s" />%s', ploption('pagelines_touchicon'), "\n");
+	if( pl_setting('pagelines_touchicon') )
+		printf('<link rel="apple-touch-icon" href="%s" />%s', pl_setting('pagelines_touchicon'), "\n");
 
 	// Meta Data Profiles
-	if(!apply_filters( 'pagelines_xfn', '' ))
+	if( !apply_filters( 'pagelines_xfn', '' ) )
 		echo '<link rel="profile" href="http://gmpg.org/xfn/11" />'."\n";
 
 	// Removes viewport scaling on Phones, Tablets, etc.
-	if(!ploption('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
+	if( !pl_setting('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ) )
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
 
 }
@@ -385,7 +385,7 @@ function pagelines_meta_tags(){
 function pagelines_source_attribution() {
 
 	echo "\n\n<!-- ";
-	printf ( "Site Crafted Using PageLines v%s - WordPress - HTML5 ( %s ) - www.PageLines.com ", PL_CORE_VERSION, get_pagelines_credentials( 'licence' ) );
+	printf ( "Hand crafted using PageLines DMS v%s - WordPress - HTML5 ( %s ) - www.PageLines.com ", PL_CORE_VERSION, get_pagelines_credentials( 'licence' ) );
 
 	echo "-->\n";
 }
@@ -447,7 +447,7 @@ function pagelines_supersize_bg(){
 
 	if(ploption('supersize_bg') && $url && !pl_is_disabled('color_control') && !pl_deprecate_v2()){
 
-		wp_enqueue_script('pagelines-supersize' );
+		wp_enqueue_script( 'pagelines-supersize', PL_JS . '/script.supersize.js', array( 'jquery' ), '3.1.3', false );
 		add_action('wp_head', 'pagelines_runtime_supersize', 20);
 	}
 }
