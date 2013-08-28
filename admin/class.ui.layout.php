@@ -5,7 +5,7 @@
  *  Layout Control Interface
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage OptionsUI
  *  @since 2.0.b3
  *
@@ -28,7 +28,7 @@ class PageLinesLayoutControl {
 	 *  Main Layout Drag and Drop
 	 *
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @subpackage Options
 	 *  @since 2.0.b3
 	 *
