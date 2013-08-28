@@ -3,7 +3,7 @@
  *
  *  PageLines Less Language Parser
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *	@subpackage Less
  *  @since 2.0.b22
  *

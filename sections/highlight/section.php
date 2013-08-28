@@ -14,7 +14,7 @@
 /**
  * Highlight Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PageLinesHighlight extends PageLinesSection {

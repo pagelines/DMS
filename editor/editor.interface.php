@@ -5,7 +5,7 @@
  *  PageLines Front End Template Class
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Sections
  *  @since 3.0.0
  *

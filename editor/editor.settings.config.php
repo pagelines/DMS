@@ -5,7 +5,7 @@
  *  PageLines Default/Standard Options Lib
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 3.0.0
  *
  *
@@ -176,7 +176,7 @@ class EditorSettings {
 				'extension'		=> 'ico,png', // ico support
 				'title' 		=> 	__( 'Favicon Image', 'pagelines' ),
 				'help' 			=> 	__( 'Enter the full URL location of your custom <strong>favicon</strong> which is visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico file - 32px by 32px</strong>.', 'pagelines' ),
-				
+				'default'		=>  '[pl_parent_url]/images/default-favicon.png'
 			),
 
 
@@ -197,6 +197,7 @@ class EditorSettings {
 				'type' 			=> 	'image_upload',
 				'imgsize' 			=> 	'72',
 				'title' 		=> __( 'Mobile Touch Image', 'pagelines' ),
+				'default'		=> '[pl_parent_url]/images/default-touch-icon.png',
 				'help'			=> __( 'Enter the full URL location of your Apple Touch Icon which is visible when your users set your site as a <strong>webclip</strong> in Apple Iphone and Touch Products. It is an image approximately 144px by 144px in either .jpg, .gif or .png format.', 'pagelines' )
 			),
 

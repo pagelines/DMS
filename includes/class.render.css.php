@@ -24,7 +24,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Load LESS files
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function get_core_lessfiles(){
@@ -78,7 +78,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Dynamic mode, CSS is loaded to a file using wp_rewrite
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	private function actions() {
@@ -277,7 +277,7 @@ class PageLinesRenderCSS {
 	 *
 	 * Get custom CSS
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function draw_inline_custom_css() {
@@ -290,7 +290,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Draw dynamic CSS inline.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function draw_inline_dynamic_css() {
@@ -306,7 +306,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Get Dynamic CSS
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 *
 	 */
@@ -333,7 +333,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Enqueue the dynamic css file.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function load_less_css() {
@@ -423,7 +423,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Get compiled/cached CSS
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function get_compiled_core() {
@@ -465,7 +465,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Get compiled/cached CSS
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function get_compiled_sections() {
@@ -502,7 +502,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Get compiled/cached CSS
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function get_compiled_custom() {
@@ -538,7 +538,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Get Core LESS code
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function get_core_lesscode() {
@@ -550,7 +550,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Helper for get_core_less_code()
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function load_core_cssfiles( $files ) {
@@ -601,7 +601,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Minify
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	function minify( $css ) {
@@ -642,7 +642,7 @@ class PageLinesRenderCSS {
 	 *
 	 *  Flush rewrites/cached css
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 2.2
 	 */
 	static function flush_version( $rules = true ) {

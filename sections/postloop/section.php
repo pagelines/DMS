@@ -13,7 +13,7 @@
 /**
  * Main Post Loop Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PageLinesPostLoop extends PageLinesSection {

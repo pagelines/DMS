@@ -33,7 +33,7 @@ class EditorLess extends EditorLessHandler {
 	 *
 	 *  Display Draft Less.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function pagelines_draft_render() {

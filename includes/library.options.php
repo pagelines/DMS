@@ -5,7 +5,7 @@
  *
  * Uses controls to find and retrieve the appropriate option value
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  *
  * @since   ...
  *

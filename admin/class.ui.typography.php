@@ -5,7 +5,7 @@
  *  Typography Control
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage OptionsUI
  *  @since 2.0.b3
  *

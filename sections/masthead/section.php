@@ -14,7 +14,7 @@
 /**
  * Main section class
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PLMasthead extends PageLinesSection {

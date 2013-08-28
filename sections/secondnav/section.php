@@ -12,7 +12,7 @@
 /**
  * Secondary Nav Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
 */
 class PageLinesSecondNav extends PageLinesSection {

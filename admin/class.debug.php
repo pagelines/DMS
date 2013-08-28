@@ -6,7 +6,7 @@
  * Enabled in Framework admin 'advanced' tab
  * Show server debug info using special URL
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @subpackage Debugging
  * @since 2.1
  *
@@ -16,7 +16,7 @@
 /**
  * PageLines Debugging Information Class
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @subpackage Debugging
  * @since 2.1
  *

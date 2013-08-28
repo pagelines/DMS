@@ -5,7 +5,7 @@
  *  Template Builder
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage OptionsUI
  *  @since 2.0.b3
  *
@@ -76,7 +76,7 @@ class PageLinesTemplateBuilder {
 	 *  Template Builder (Sections Drag & Drop)
 	 *
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @subpackage Options
 	 *  @since 4.0
 	 *
@@ -261,7 +261,7 @@ class PageLinesTemplateBuilder {
 	 *  Get Sortable Sections (Sections Drag & Drop)
 	 *
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @subpackage Options
 	 *  @since 4.0
 	 *
@@ -573,7 +573,7 @@ class PageLinesTemplateBuilder {
 	 *  Show Section Control Option in MetaPanel
 	 *
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @subpackage Options
 	 *  @since 4.0
 	 *

@@ -195,7 +195,7 @@ function pagelines_add_bodyclass( $class ) {
  *
  *  Sets up global post ID and $post global for handling, reference and consistency
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.0.0
  *
@@ -696,7 +696,7 @@ function pagelines_nav_classes(){
  *
  *  Loads Special PageLines CSS Files, Optimized
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.2.0
  *
@@ -710,7 +710,7 @@ function pagelines_draw_css( $css_url, $id = '', $enqueue = false){
  *
  *  Abstracts the Enqueue of Stylesheets, fixes bbPress issues with dropping hooks
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 1.3.0
  *
  */
@@ -729,7 +729,7 @@ function pagelines_load_css( $css_url, $id, $hash = PL_CORE_VERSION, $enqueue = 
  *
  *  Loading CSS using relative path to theme root. This allows dynamic versioning, overriding in child theme
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 1.4.0
  *
  */
@@ -771,7 +771,7 @@ function pl_cache_version( $path, $version = PL_CORE_VERSION ){
  *
  *  Get Stylesheet Version
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 1.4.0
  *
  */

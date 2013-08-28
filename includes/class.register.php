@@ -29,7 +29,7 @@ class PageLinesRegister {
 	 *	Class Name: BrandNav
 	 *	Depends: PageLinesNav
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @subpackage Config
 	 *  @since 2.0
 	 *

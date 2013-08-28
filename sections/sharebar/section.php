@@ -14,7 +14,7 @@
 /**
  * ShareBar Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PageLinesShareBar extends PageLinesSection {

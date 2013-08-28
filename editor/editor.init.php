@@ -2,7 +2,7 @@
 /**
  * This file initializes the PageLines Editor
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since 3.0.0
  *
  */

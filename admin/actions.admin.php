@@ -37,7 +37,7 @@ add_action( 'pagelines_admin_head', array(&$layout_control_js, 'layout_control_j
  *
  * Adds the 'pagelines_ui' class
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   ...
  *
  * @param   $class
@@ -55,7 +55,7 @@ function pagelines_admin_body_class( $class ){
  *
  * Tests for installed version of PHP higher than 5.0 and prints message if version is found to be lower.
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @subpackage Functions Library
  * @since 4.0.0
  */
@@ -73,7 +73,7 @@ function pagelines_check_php(){
  * AJAX OPTION SAVING
  * Used to save via AJAX theme options and image uploads
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since 1.2.0
  */
 add_action( 'wp_ajax_pagelines_ajax_post_action', 'pagelines_ajax_callback' );
@@ -151,7 +151,7 @@ function pagelines_ajax_callback() {
  *
  * Used to save via AJAX theme options and image uploads
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   ...
  *
  * @uses save_tempalte_map
@@ -193,7 +193,7 @@ function ajax_save_template_map() {
 /**
  * Ajax Save Options Callback
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   ...
  *
  */
@@ -215,7 +215,7 @@ function pagelines_ajax_save_option_callback() {
  *
  * Load Inline help system.
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   ...
  *
  * @uses    PageLines_Inline_Help
@@ -231,7 +231,7 @@ function pagelines_inline_help() {
  *
  * Add custom columns to page/post views.
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   2.1.3
  *
  * @param   $columns
@@ -248,7 +248,7 @@ function pl_page_columns($columns) {
 /**
  * Post Columns
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   2.1.3
  *
  * @param   $columns
@@ -264,7 +264,7 @@ function pl_post_columns($columns) {
 /**
  * Posts Show Columns
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   ...
  *
  * @param   $name
@@ -287,7 +287,7 @@ function pl_posts_show_columns($name) {
 /**
  * Page Show Columns
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   2.1.3
  *
  * @param   $name
@@ -338,7 +338,7 @@ function pl_page_show_columns($name) {
 /**
  * Setup Versions and flush caches.
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since   2.2
  */
 add_action( 'admin_init', 'pagelines_set_versions' );

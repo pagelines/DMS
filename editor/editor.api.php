@@ -17,7 +17,7 @@ class EditorStoreFront extends PageLinesAPI {
 	 *
 	 *  Bootstrap draft data, must load before page does.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function bootstrap(){
@@ -31,7 +31,7 @@ class EditorStoreFront extends PageLinesAPI {
 	 *  Get all store data for json head data.
 	 *  @TODO make paginated??
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function get_latest(){
@@ -47,7 +47,7 @@ class EditorStoreFront extends PageLinesAPI {
 	 *
 	 *  Unused as yet.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function sort( $data ){
@@ -105,7 +105,7 @@ class PageLinesAPI {
 	 *
 	 *  Make sure something is an array.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function make_array( $data ) {
@@ -123,7 +123,7 @@ class PageLinesAPI {
 	 *
 	 *  Fetch remote json from API server.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function json_get( $url ) {
@@ -139,7 +139,7 @@ class PageLinesAPI {
 	 *
 	 *  Get remote object with POST.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function try_api( $url, $args ) {

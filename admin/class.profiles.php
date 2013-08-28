@@ -5,7 +5,7 @@
  *  API for Working with WordPress User Profiles
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 2.0.b16
  *
  */

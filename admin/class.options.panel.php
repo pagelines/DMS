@@ -3,7 +3,7 @@
  *
  *  PageLines Panel UI
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 2.0
  *
  */

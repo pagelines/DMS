@@ -511,7 +511,7 @@ function build_pagelines_layout(){
  *
  *  Sets Content Width for Large images when adding media
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.2.3
  *

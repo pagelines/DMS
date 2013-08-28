@@ -5,7 +5,7 @@
  *  CSS Selector Groups
  *  for dynamic CSS control
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Options
  *  @since 2.0.b6
  *

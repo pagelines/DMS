@@ -5,7 +5,7 @@
  *  PageLines Legacy Upgrading Class
  *
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @since 3.0.0
  *
  *

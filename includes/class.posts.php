@@ -487,7 +487,7 @@ class PageLinesPosts {
 	 *
 	 *  Gets the continue reading link after excerpts
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @subpackage Functions Library
 	 *  @since 1.3.0
 	 *

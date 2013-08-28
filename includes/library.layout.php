@@ -4,7 +4,7 @@
  *
  * Useful functions for developers.
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 

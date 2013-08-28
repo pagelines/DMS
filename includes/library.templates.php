@@ -2,7 +2,7 @@
 /**
  * This file contains a library of common templates accessed by functions
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  *
  **/
 
@@ -363,21 +363,21 @@ jQuery(document).ready(function() {
 function pagelines_meta_tags(){
 
 	global $pagelines_ID;
-	$oset = array( 'post_id' => $pagelines_ID );
+	$oset = array('post_id' => $pagelines_ID);
 
 	// Meta Images
-	if( pl_setting('pagelines_favicon') )
-		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', pl_setting('pagelines_favicon'), "\n");
+	if(ploption('pagelines_favicon') && VPRO)
+		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', ploption('pagelines_favicon'), "\n");
 
-	if( pl_setting('pagelines_touchicon') )
-		printf('<link rel="apple-touch-icon" href="%s" />%s', pl_setting('pagelines_touchicon'), "\n");
+	if(ploption('pagelines_touchicon'))
+		printf('<link rel="apple-touch-icon" href="%s" />%s', ploption('pagelines_touchicon'), "\n");
 
 	// Meta Data Profiles
-	if( !apply_filters( 'pagelines_xfn', '' ) )
+	if(!apply_filters( 'pagelines_xfn', '' ))
 		echo '<link rel="profile" href="http://gmpg.org/xfn/11" />'."\n";
 
 	// Removes viewport scaling on Phones, Tablets, etc.
-	if( !pl_setting('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ) )
+	if(!ploption('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
 
 }
@@ -385,7 +385,7 @@ function pagelines_meta_tags(){
 function pagelines_source_attribution() {
 
 	echo "\n\n<!-- ";
-	printf ( "Hand crafted using PageLines DMS v%s - WordPress - HTML5 ( %s ) - www.PageLines.com ", PL_CORE_VERSION, get_pagelines_credentials( 'licence' ) );
+	printf ( "Site Crafted Using PageLines v%s - WordPress - HTML5 ( %s ) - www.PageLines.com ", PL_CORE_VERSION, get_pagelines_credentials( 'licence' ) );
 
 	echo "-->\n";
 }
@@ -447,7 +447,7 @@ function pagelines_supersize_bg(){
 
 	if(ploption('supersize_bg') && $url && !pl_is_disabled('color_control') && !pl_deprecate_v2()){
 
-		wp_enqueue_script( 'pagelines-supersize', PL_JS . '/script.supersize.js', array( 'jquery' ), '3.1.3', false );
+		wp_enqueue_script('pagelines-supersize' );
 		add_action('wp_head', 'pagelines_runtime_supersize', 20);
 	}
 }
@@ -549,7 +549,7 @@ add_filter( 'wp_title', 'pagelines_filter_wp_title' );
  *
  *  Fix IE to the extent possible
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.3.3
  *
@@ -573,7 +573,7 @@ function pagelines_fix_ie( ){
  *
  *  Cufon Font Replacement
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.3.3
  *
@@ -636,7 +636,7 @@ function pagelines_font_replacement( $default_font = ''){
  *
  *  Pagination Function
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 2.0.b12 moved
  *
@@ -688,7 +688,7 @@ function pl_nav_fallback($class = '', $limit = 6){
  *
  *  Fallback for navigation, if it isn't set up
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.1.0
  *
@@ -719,7 +719,7 @@ function blank_nav_fallback() {
  *
  *  Returns child pages for subnav, setup in hierarchy
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.1.0
  *
@@ -808,7 +808,7 @@ function pl_js_wrap( $js ){
  *
  *  Adds PageLines to Admin Bar
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.3.0
  *
@@ -914,7 +914,7 @@ function pl_special_url( $t ){
  *
  *  PageLines Attribution
  *
- *  @package PageLines Framework
+ *  @package PageLines DMS
  *  @subpackage Functions Library
  *  @since 1.3.3
  *

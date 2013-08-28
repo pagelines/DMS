@@ -8,7 +8,7 @@
  * Install PageLines plugins and looks after them.
  *
  * @author PageLines
- * @package PageLines Framework
+ * @package PageLines DMS
  * @since 2.0
  */
 

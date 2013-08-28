@@ -14,7 +14,7 @@
 /**
  * Content Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class ScrollSpy extends PageLinesSection {

@@ -13,7 +13,7 @@
 /**
  * Posts Info Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PageLinesPostsInfo extends PageLinesSection {

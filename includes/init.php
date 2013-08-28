@@ -2,7 +2,7 @@
 /**
  * This file initializes the PageLines framework
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  *
 */
 

@@ -14,7 +14,7 @@
 /**
  * Comments Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PageLinesComments extends PageLinesSection {

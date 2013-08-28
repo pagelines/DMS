@@ -18,7 +18,7 @@ class EditorLessHandler{
 	 *
 	 *  Draft mode init.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	public function draft_init(){
@@ -35,7 +35,7 @@ class EditorLessHandler{
 	 *
 	 *  Dequeue the regular css.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	static function dequeue_live_css() {
@@ -46,7 +46,7 @@ class EditorLessHandler{
 	 *
 	 * Enqueue special draft css.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	static function enqueue_draft_css() {
@@ -65,7 +65,7 @@ class EditorLessHandler{
 	 *
 	 *  Get all less files as an array.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	public function get_core_lessfiles(){
@@ -119,7 +119,7 @@ class EditorLessHandler{
 	 *
 	 *  Build our 'data' for compile.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	public function draft_core_data() {
@@ -138,7 +138,7 @@ class EditorLessHandler{
 	 *  Main draft function.
 	 *  Fetches data from a cache and compiles befor returning to EditorLess.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	public function get_draft_core() {
@@ -159,7 +159,7 @@ class EditorLessHandler{
 	 *  Compare Less
 	 *  If PL_LESS_DEV is active compare cached draft with raw less, if different purge cache, this fires before the less is compiled.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	function compare_less() {
@@ -212,7 +212,7 @@ class EditorLessHandler{
 	 *
 	 *  Get all core less as uncompiled code.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 *  @uses  load_core_cssfiles
 	 */
@@ -225,7 +225,7 @@ class EditorLessHandler{
 	 *
 	 *  Load from .less files.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 *  @uses  load_less_file
 	 */
@@ -243,7 +243,7 @@ class EditorLessHandler{
 	 *
 	 *  Fetch less file from theme folders.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	private function load_less_file( $file ) {
@@ -264,7 +264,7 @@ class EditorLessHandler{
 	 *
 	 *  Fetch dynamic and typography css.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	private function get_dynamic_css(){
@@ -282,7 +282,7 @@ class EditorLessHandler{
 	 *
 	 *  Compile less into css.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	public function compile( $data ) {
@@ -294,7 +294,7 @@ class EditorLessHandler{
 	 *
 	 *  Simple minify.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	public function minify( $css ) {
@@ -335,7 +335,7 @@ class EditorLessHandler{
 	 *
 	 *  Get all active sections.
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
 	private function get_all_active_sections() {
@@ -411,7 +411,7 @@ class EditorLessHandler{
 	 *
 	 *  Are we in draft mode or not?
 	 *
-	 *  @package PageLines Framework
+	 *  @package PageLines DMS
 	 *  @since 3.0
 	 *  @uses  $pldraft
 	 */

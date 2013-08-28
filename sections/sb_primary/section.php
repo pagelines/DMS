@@ -14,7 +14,7 @@
 /**
  * Primary Sidebar Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
 */
 class PrimarySidebar extends PageLinesSection {

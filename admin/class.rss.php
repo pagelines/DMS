@@ -12,7 +12,7 @@ class PageLines_RSS {
 		/**
 		 * Store RSS worker
 		 *
-		 * @package PageLines Framework
+		 * @package PageLines DMS
 		 * @since   2.2
 		 */
 		function get_dash_rss( $args = array() ) {
