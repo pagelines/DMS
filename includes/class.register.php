@@ -403,10 +403,7 @@ class PageLinesRegister {
 
 function pl_get_section_dirs() {
 
-	$section_dirs = array(
-		'child'  => PL_EXTEND_DIR,
-		'parent' => PL_SECTIONS
-	);
+	$section_dirs = array();
 
 	$theme_sections_dir = PL_CHILD_DIR . '/sections';
 
@@ -425,6 +422,11 @@ function pl_get_section_dirs() {
 		if ( is_dir( $path ) )
 			$section_dirs[ $slug ] = $path;
 	}
+	if ( ! pl_deprecate_v2() ) {
+		$section_dirs['child'] = PL_EXTEND_DIR;
+	}
+
+	$section_dirs['parent'] = PL_SECTIONS;
 
 	return apply_filters( 'pagelines_sections_dirs', $section_dirs );
 }
