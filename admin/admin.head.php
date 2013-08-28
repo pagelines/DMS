@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 /**
  * AJAX Saving of framework settings
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @subpackage AJAX
  * @since 1.2.0
  */
