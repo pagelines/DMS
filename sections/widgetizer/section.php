@@ -12,7 +12,7 @@
 /**
  * Post Author Section
  *
- * @package PageLines Framework
+ * @package PageLines DMS
  * @author PageLines
  */
 class PageLinesWidgetizer extends PageLinesSection {
