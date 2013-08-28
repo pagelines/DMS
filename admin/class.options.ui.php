@@ -396,7 +396,7 @@ class PageLinesOptionsUI {
 					<div class="vpro_desc">
 						<strong style="font-size: 1.2em">You Are Using PageLines Lite Edition</strong><br/>
 						<strong>PageLines Lite</strong> is the <strong>free version</strong> of <?php echo VPRO_NAME;?>.<br/>
-						Upgrade to the Pro edition for more sections &amp; options, no credit link, enhanced social &amp; SEO, support and <a href="http://www.pagelines.com/tour?ref=le-admin">more...</a><br/>
+						Upgrade to the Pro edition for more sections &amp; options, no credit link, enhanced social &amp; SEO, support and <a href="http://www.pagelines.com/DMS?ref=le-admin">more...</a><br/>
 
 						<?php
 
@@ -424,7 +424,7 @@ class PageLinesOptionsUI {
 						When you upgrade you get 30+ pro drag &amp; drop sections, 200+ CMS options, SEO and social enhancements and way, way more.
 					</p>
 					<p>
-						The pro version way more control options. For advanced users, there is also a Developer version that supports "integrations" and WP "multisite"... To learn more see the <a href="http://www.pagelines.com/pricing?ref=le-admin">pricing page</a> or <a href="http://www.pagelines.com/tour?ref=le-admin">PageLines tour</a>...
+						The pro version way more control options. For advanced users, there is also a Developer version that supports "integrations" and WP "multisite"... To learn more see the <a href="http://www.pagelines.com/pricing?ref=le-admin">pricing page</a> or <a href="http://www.pagelines.com/DMS?ref=le-admin">PageLines tour</a>...
 					</p>
 					<p>
 						<strong>Some specifics:</strong>

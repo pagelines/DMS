@@ -8,7 +8,7 @@
  * @since       ...
  *
  * @link        http://www.pagelines.com/
- * @link        http://www.pagelines.com/tour
+ * @link        http://www.pagelines.com/DMS
  *
  * @author      PageLines   http://www.pagelines.com/
  * @copyright   Copyright (c) 2008-2012, PageLines  hello@pagelines.com

@@ -139,42 +139,18 @@ function pl_comment_form_js() {
 add_action( 'wp_enqueue_scripts', 'pagelines_register_js' );
 function pagelines_register_js() {
 
-	wp_register_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
+	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
+	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
 
-	wp_register_script( 'pagelines-supersize', PL_JS . '/script.supersize.js', array( 'jquery' ), '3.1.3', false );
-
-	wp_register_script( 'pagelines-blocks', PL_JS . '/script.blocks.js', array('jquery'), '1.0.1', true );
-
-
-	wp_register_script( 'pagelines-resizer', PL_JS . '/script.resize.js', array( 'jquery' ), PL_CORE_VERSION, true );
-
-	wp_register_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_register_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.js', array( 'jquery' ), PL_CORE_VERSION, true );
-
-	wp_register_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_register_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_register_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_register_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
-
-
+	// Load Supersize BG Script
+	pagelines_supersize_bg();
 }
-
-add_action( 'wp_print_scripts', 'pagelines_print_js' );
-function pagelines_print_js() {
-
-	wp_enqueue_script( 'pagelines-bootstrap-all' );
-	wp_enqueue_script( 'pagelines-easing' );
-	wp_enqueue_script( 'pagelines-resizer' );
-	wp_enqueue_script( 'pagelines-viewport' );
-	wp_enqueue_script( 'pagelines-waypoints' );
-	wp_enqueue_script( 'pagelines-fitvids' );
-	wp_enqueue_script( 'pagelines-parallax' );
-	wp_enqueue_script( 'pagelines-common' );
-}
-
-// Load Supersize BG Script
-add_action( 'wp_enqueue_scripts', 'pagelines_supersize_bg' );
-
 
 
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
