@@ -586,15 +586,15 @@ add_filter('get_the_excerpt', 'improved_trim_excerpt');
 function improved_trim_excerpt($text) {
 
 	// Group options at top :)
+	global $ex_length, $ex_tags;
 
 	if(pl_has_editor()){
-		$allowed_tags = (pl_setting('excerpt_tags')) ? pl_setting('excerpt_tags') : '';
-		$excerpt_len = (pl_setting('excerpt_len')) ? pl_setting('excerpt_len') : 55;
+		$allowed_tags = ( isset( $ex_tags ) && '' != $ex_tags ) ? $ex_tags : '';
+		$excerpt_len = ( isset( $ex_length ) && '' != $ex_length ) ? $ex_length : 55;
 	} else {
 		$allowed_tags = (ploption('excerpt_tags')) ? ploption('excerpt_tags') : '';
 		$excerpt_len = (ploption('excerpt_len')) ? ploption('excerpt_len') : 55;
 	}
-
 
 	$raw_excerpt = $text;
 	if ( '' == $text ) {

@@ -16,7 +16,9 @@ class PageLinesPosts {
 		global $pagelines_layout;
 		global $post;
 		global $wp_query;
-
+		global $ex_length;
+		global $ex_tags;
+		
 		$this->section = $section;
 
 		$this->count = 1;  // Used to get the number of the post as we loop through them.
@@ -29,6 +31,9 @@ class PageLinesPosts {
 
 		
 		$cr_link = $this->section->opt('continue_reading_text');
+		$ex_length = $this->section->opt('excerpt_len');
+		$ex_tags = $this->section->opt('excerpt_tags');
+	
 		$this->continue_reading = ($cr_link) ? $cr_link : __('Read More &raquo;', 'pagelines');
 
 		add_filter('pagelines_post_metabar', 'do_shortcode', 20);
