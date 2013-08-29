@@ -77,6 +77,7 @@ class PLICallout extends PageLinesSection {
 		$link = $this->opt('icallout_link');
 		$theme = ($this->opt('icallout_btn_theme')) ? $this->opt('icallout_btn_theme') : 'btn-primary';
 		$link_text = ( $this->opt('icallout_link_text') ) ? $this->opt('icallout_link_text') : 'Learn More <i class="icon-angle-right"></i>';
+		$link_text = do_shortcode($link_text);
 
 		if(!$text && !$link){
 			$text = __("Call to action!", 'pagelines');
