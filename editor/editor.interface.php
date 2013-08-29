@@ -532,23 +532,25 @@ class EditorInterface {
 	// example:
 	// define( 'PL_EDITOR_LOCK', 'admin' ); // only allow 'admin' to use editor.
 	// define( 'PL_EDITOR_LOCK', 'simon,stefan,andrew' ); // allow 3 users to use the editor.
+	// define('PL_EDITOR_LOCK','7,admin,11'); // allows User IDs 7 and 11 and username admin to use the editor.
 	// If not defined all users with edit_theme_options role have access to the editor.
 	function editor_user() {
-		
+
 		// defined (single user and multi user)
-		if( defined( 'PL_EDITOR_LOCK' ) && is_string( PL_EDITOR_LOCK ) && '' != PL_EDITOR_LOCK ) {
-			
+		if( defined( 'PL_EDITOR_LOCK' ) && '' != PL_EDITOR_LOCK ) {
+
 			// get current users info
 			$user_data = wp_get_current_user();
 			$user = $user_data->user_login;
-			
+			$userid = $user_data->ID;
+
 			// explode the alowed users, if its a single name explode still returns an array.
 			$users = explode( ',', PL_EDITOR_LOCK );
-			
+
 			// if current user is not in the array of allowed users return false.
-			if( ! in_array( $user, $users ) )
+			if( ! in_array( $user, $users ) && ! in_array( $userid, $users ) )
 				return false;
-		}	
+		}
 		//	If we get this far either PL_EDITOR_LOCK is not defined or is not a string or the user is allowed so we just return true.
 		return true;
 	}
