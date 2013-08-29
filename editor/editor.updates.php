@@ -60,7 +60,9 @@ class PageLinesEditorUpdates {
 
 			// If PageLines plugin has no API data pass on it.
 			if( ! isset( $mixed_array[$slug] ) ) {
-				unset( $updates->response[$path] );
+				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$path] ) )
+					unset( $updates->response[$path] );
+
 				continue;
 			}
 			
