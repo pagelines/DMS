@@ -682,7 +682,9 @@ class PLAccountPanel{
 		 	<strong>Hello! Welcome to DMS.</strong><br/> A drag <span class="spamp">&amp;</span> drop design management system for building, managing, and <em>evolving</em> your website.<br/> To get started please visit the links below &darr; 
 		</p>
 		<div class="alignleft well welcome-well">
+			<?php if( defined( 'DMS_DISABLE_ACCOUNT_PANEL' ) && DMS_DISABLE_ACCOUNT_PANEL && pl_is_pro() ){} else { ?>
 			<a href="#" class="dms-tab-link btn btn-primary" data-tab-link="account" data-stab-link="pl_account"><i class="icon-pagelines"></i> Setup PageLines Account <i class="icon-angle-right"></i></a>
+			<?php } ?>
 			<a href="#" class="dms-tab-link btn" data-tab-link="account" data-stab-link="getting_started"><i class="icon-youtube-play"></i> Getting Started Video <i class="icon-angle-right"></i></a>
 		</div>
 		
