@@ -1279,7 +1279,7 @@ class OptEngine {
 		* @TODO document
 		*
 		*/
-		function _background_image_array(){
+		static function _background_image_array(){
 			return array(
 				'_url' => array(		
 						'inputlabel' 	=> __( 'Background Image', 'pagelines' ),
