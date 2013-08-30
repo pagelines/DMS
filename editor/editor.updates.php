@@ -16,6 +16,15 @@ class PageLinesEditorUpdates {
 
 		add_filter( 'site_transient_update_plugins', array( $this, 'injectUpdatePlugins' ), 999 );		
 		add_filter( 'site_transient_update_themes', array( $this, 'injectUpdateThemes' ), 999 );
+		add_action( 'load-update-core.php', array( $this, 'del_store_data' ) );
+	}
+	
+	function del_store_data() {
+		global $storeapi;
+		if( ! is_object( $storeapi ) )
+			$storeapi = new EditorStoreFront;
+		
+		$storeapi->del( 'store_mixed' );
 	}
 	
 	function injectUpdateThemes( $updates ) {
@@ -65,10 +74,10 @@ class PageLinesEditorUpdates {
 
 				continue;
 			}
-			
+
 			// If PageLines plugin has API data and a version check it and build a response.
 			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] > $data['Version'] ) ) {
-					$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
+				$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
 			}
 		}		
 		return $updates;
