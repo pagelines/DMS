@@ -67,7 +67,7 @@ class PageLinesEditorUpdates {
 			}
 			
 			// If PageLines plugin has API data and a version check it and build a response.
-			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] >= $data['Version'] ) ) {
+			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] > $data['Version'] ) ) {
 					$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
 			}
 		}		
