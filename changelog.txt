@@ -6,7 +6,8 @@
 
 Version 1.0.3
 
-	- CORE - https://github.com/pagelines/DMS/compare/1.0.2...Dev
+	- CORE - https://github.com/pagelines/DMS/compare/1.0.2...1.0.3
+	- CORE - Refresh store meta data when core updates page is loaded.
 	- BUG - Fixed excerpt length and allowed tags settings not applying on posts.
 	- BUG - Fixed the load order for sections folders. This was preventing other section classes overriding core sections.
 	
