@@ -200,7 +200,7 @@ class PLProPricing extends PageLinesSection {
 			$output .= sprintf(
 				'<div class="span%1$s pp-plan pl-animation pl-appear fix">
 					<div class="pp-header">
-						<div class="pp-title" data-sync="propricing_title_%8$s"">
+						<div class="pp-title" data-sync="propricing_title_%8$s">
 							%2$s
 						</div>
 						<div class="pp-price">
