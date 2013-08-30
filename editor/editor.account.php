@@ -254,7 +254,7 @@ class PLAccountPanel{
 		
 		$data = wp_remote_get( $url );
 
-		$rsp = ( isset( $data['body'] ) ) ? (array) json_decode( $data['body'] ) : array();
+		$rsp = ( ! is_wp_error( $data ) && isset( $data['body'] ) ) ? (array) json_decode( $data['body'] ) : array();
 		
 		return $rsp;
 		
