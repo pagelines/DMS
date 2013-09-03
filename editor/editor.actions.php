@@ -328,6 +328,7 @@ function pl_up_image (){
 		$name = 'PageLines- ' . addslashes( $files_base['name'] );
 
 		$attachment = array(
+						'guid'				=> $uploaded_file['url'],
 						'post_mime_type'	=> $uploaded_file_type,
 						'post_title'		=> $name,
 						'post_content'		=> '',
