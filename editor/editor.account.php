@@ -107,8 +107,6 @@ class PLAccountPanel{
 
 	function activation_check_function() {
 
-		$check = false;
-
 		if( defined( 'DOING_AJAX' ) && true == DOING_AJAX )
 			return;
 
@@ -124,11 +122,10 @@ class PLAccountPanel{
 			$data['date'] = date( 'Y-m-d' );
 		}
 
-		if( $data['date'] <= date( 'Y-m-d' ) )
-			$check = true;
-
-		if( false == $check )
-			return;
+		if( isset( $data['date'] ) && $data['date'] > date( 'Y-m-d' ) && $data['date'] <= date('Y-m-d', strtotime('+7 days', strtotime( $data['date'] ) ) ) )
+			return false;
+		else
+			$data['date'] = date( 'Y-m-d' );
 
 		$key = (isset($data['key'])) ? $data['key'] : false;
 		$email = (isset($data['email'])) ? $data['email'] : false;
