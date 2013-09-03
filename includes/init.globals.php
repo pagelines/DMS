@@ -155,7 +155,7 @@ $GLOBALS['pagelines_user_pages'] = array();
  * Pro/Free Version Variables
  */
 define( 'VPRO_NAME','PageLines Framework' );
-define( 'VPRO_TOUR','http://www.pagelines.com/tour/' );
+define( 'VPRO_TOUR','http://www.pagelines.com/DMS/' );
 define( 'VPRO_PRICING','http://www.pagelines.com/pricing/' );
 define( 'ADD_PLUS_PRO', 'https://www.pagelines.com/launchpad/add_pro_plus' );
 define( 'ADD_PLUS_DEV', 'https://www.pagelines.com/launchpad/add_dev_plus' );
