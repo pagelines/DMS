@@ -1046,7 +1046,7 @@ class OptEngine {
 	 * @author Andrew Powers
 	 * 
 	 */
-	function get_horizontal_nav( $menu, $oids){ 
+	static function get_horizontal_nav( $menu, $oids){ 
 		$handle = 'htabs'.$menu; ?>
 	<script type="text/javascript"> 
 		jQuery(document).ready(function() {	
@@ -1576,7 +1576,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_hidden($id, $name, $value, $class = ''){
+	static function input_hidden($id, $name, $value, $class = ''){
 		return sprintf('<input type="hidden" id="%s" name="%s" value="%s" class="%s" />', $id, $name, $value, $class);
 	}
 
