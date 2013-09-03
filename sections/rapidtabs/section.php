@@ -50,10 +50,10 @@ class PLRapidTabs extends PageLinesSection {
 		<div class="widget-pad">
 	<div class="the-rapid-tabs">
 		<ul class="tabbed-list rapid-nav fix">
-			<li><a href="#rapid-popular"><?php _e( 'Popular', 'pagelines;' ); ?></a></li>
-			<li><a href="#rapid-recent"><?php _e( 'Recent', 'pagelines;' ); ?></a></li>
-			<li><a href="#rapid-comments"><?php _e( 'Comments', 'pagelines;' ); ?></a></li>
-			<li><a href="#rapid-tags"><?php _e( 'Tags', 'pagelines;' ); ?></a></li>
+			<li><a href="#rapid-popular"><?php _e( 'Popular', 'pagelines' ); ?></a></li>
+			<li><a href="#rapid-recent"><?php _e( 'Recent', 'pagelines' ); ?></a></li>
+			<li><a href="#rapid-comments"><?php _e( 'Comments', 'pagelines' ); ?></a></li>
+			<li><a href="#rapid-tags"><?php _e( 'Tags', 'pagelines' ); ?></a></li>
 		</ul>
 
 		<div id="rapid-popular">
