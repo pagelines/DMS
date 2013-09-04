@@ -728,7 +728,7 @@ class PageLinesOptionsArray {
 					'exp'			=> __( 'Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine Layout Mode</strong><br/> Magazine layout mode makes use of post <strong>clips</strong>. These are summarized excerpts shown at half the width of the main content column.<br/>  <strong>Note:</strong> There is an option for showing <strong>full-width</strong> posts on your main <strong>posts</strong> page.<br/><br/><strong>Blog Layout Mode</strong><br/> This is your classical blog layout. Posts span the entire width of the main content column.', 'pagelines' )
 				), 
 			'excerpt_mode_full' => array(
-				'default'		=> 'left',
+				'default'		=> 'top',
 				'type'			=> 'graphic_selector',
 				'inputlabel'	=> __( 'Select Excerpt Mode', 'pagelines' ),
 				'showname'		=> true,
