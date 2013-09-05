@@ -152,11 +152,9 @@ class PageLinesEditor {
 
 	function process_styles(){
 
-
-		pagelines_add_bodyclass('pl-editor');
-
-
-
+		if( pl_draft_mode() )
+			pagelines_add_bodyclass('pl-editor');
+			
 //		$this->editor_less->enqueue_styles();
 
 		$this->handler->process_styles();
