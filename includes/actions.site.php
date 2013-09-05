@@ -183,3 +183,7 @@ function pagelines_google_author_head() {
  */
 if ( VPRO )
 	add_action('login_head', 'pl_fix_login_image');
+
+
+// sanitize inline-scripts in widgets 
+add_filter( 'widget_text', 'pl_clean_scripts', 2 );
