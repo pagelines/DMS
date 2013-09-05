@@ -149,3 +149,11 @@ function pl_url_refresh(url,timeout){
 	  window.location.href = url;
 	}, timeout);
 }
+
+/**
+ * Sanitize <script> tags
+ * for use with data-sync real-time updating
+ */
+function pl_clean_scripts( string ) {
+  return string.replace(/<(\/)?script(?:[^>]+)?>/gi, "&lt;\$1script&gt;");;
+}

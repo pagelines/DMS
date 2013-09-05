@@ -265,6 +265,7 @@
 						} else if(syncMode == 'css') {
 							el.css( syncTarget, myValue + syncPost)
 						} else {
+							myValue = pl_clean_scripts( myValue )
 							el.html(myValue)
 						}
 

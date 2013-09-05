@@ -149,8 +149,6 @@ class PageLinesSection {
 		
 		// set to true before ajax load
 		$this->active_loading = false; 
-
-
 	}
 
 	function deprecated_setup(){
@@ -185,37 +183,40 @@ class PageLinesSection {
 		return ( isset( $this->meta['clone'] ) ) ? $this->meta['clone'] : '';
 	}
 
-	function opt( $key, $args = array() ){
+	function opt( $key, $args = array() ) {
 
 		$d = array(
 			'default'	=> false
 		);
 
-		$a = wp_parse_args($args, $d);
-				
-		if(
-			property_exists($this, 'meta')
-			&& isset($this->meta[ 'set' ])
-			&& isset($this->meta[ 'set' ])
-			&& isset($this->meta[ 'set' ][ $key ] )
-			&& $this->meta[ 'set' ][ $key ] != ''
-		){
-								
-			$val = $this->meta[ 'set' ][ $key ];
-			
-		} elseif( pl_setting( $key, $args) ){
-			
-			
-			$val = pl_setting( $key, $args);
-			 
-		} elseif(ploption( $key, $args) && !pl_deprecate_v2())
+		$a = wp_parse_args( $args, $d );
 		
-			$val = ploption( $key, $args); // LEGACY
-		else
-			$val = $a['default'];
+		$found = false;
 
-		return ($val == '') ? false : do_shortcode( $val );
+		if ( isset( $this->meta['set'][ $key ] ) && $val = $this->meta['set'][ $key ] )		
+			$found = 'meta';
+			
+		elseif ( !$found && $val = pl_setting( $key, $args ) )
+			$found = 'global';
+			 
+		elseif ( !$found && !pl_deprecate_v2() && $val = ploption( $key, $args ) )
+			$found = 'legacy';
 
+		else {
+			$val = $a['default']; // not found
+			$found = 'default';
+		}
+
+		// filter insight
+		$a['source'] = $found;
+
+		/**
+		 * 'pl_section_opt' filter
+		 * 2  - pl_clean_scripts
+		 * 11 - do_shortcode
+		 * @return string
+		 */
+		return apply_filters( 'pl_section_opt', $val, $key, $a );
 	}
 
 	function format_classes( $classes ) {
@@ -759,8 +760,14 @@ class PageLinesSection {
 		$this->tset['translate'] = true;
 	}
 
-}
-/********** END OF SECTION CLASS  **********/
+} // PageLinesSection
+
+
+/**
+ * default filters for $this->opt()
+ */
+add_filter( 'pl_section_opt', 'pl_clean_scripts',	2  );
+add_filter( 'pl_section_opt', 'do_shortcode',		11 );
 
 /**
  * PageLines Section Factory (class)
@@ -919,7 +926,7 @@ function setup_section_notify( $section, $text = '', $user_url = null, $ltext = 
 
 		$link_text = (isset($ltext)) ? $ltext : sprintf(__('Configure %s <i class="icon-arrow-right"></i>', 'pagelines'), $section->name);
 
-		$link = sprintf('</br><a href="%s" class="btn btn-mini %s" %s>%s</a>', $url, $class, $extra, $link_text);
+		$link = sprintf('<br /><a href="%s" class="btn btn-mini %s" %s>%s</a>', $url, $class, $extra, $link_text);
 
 		$text = ($text != '') ? $text : __( 'Configure this section', 'pagelines' );
 

@@ -1301,3 +1301,10 @@ function pl_get_plus_link() {
 	else
 		return ADD_PLUS_PRO;
 }
+
+/**
+ * Sanitize <script> tags
+ */
+function pl_clean_scripts( $string ) {
+	return preg_replace( '#<(/)?script(?:[^>]+)?>#', '&lt;$1script&gt;', $string );
+}
