@@ -1301,3 +1301,47 @@ function pl_get_plus_link() {
 	else
 		return ADD_PLUS_PRO;
 }
+
+
+function pl_get_image_data( $image_url, $logo = false ) {
+			
+	if( ! $logo ) {
+		$defaults = array( 
+			'url'	=>	$image_url,
+			'alt'	=> '',
+			'title'	=> ''
+			);
+	} else {
+		$defaults = array( 
+			'url'	=>	$image_url,
+			'alt'	=> esc_attr( get_bloginfo('description') ),
+			'title'	=> esc_attr( get_bloginfo('name') )
+			);
+	}
+	
+	$ID = _get_image_id_from_url( $image_url );
+
+	if( empty( $ID ) )
+		return $defaults;
+	
+	$data = array();
+		
+	$data['alt'] = get_post_meta( $ID, '_wp_attachment_image_alt', true );
+	if( '' === $data['alt'] )
+		unset( $data['alt'] );
+
+	$data['title'] = get_the_title( $ID );
+	if( false !== ( strpos( $data['title'], 'PageLines-' ) ) || '' === $data['title'] )
+		unset( $data['title'] );
+
+	return wp_parse_args( $data, $defaults );
+}
+
+function _get_image_id_from_url($image_url) {
+
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $image_url ));
+
+    return ( is_array( $attachment ) && isset( $attachment[0])) ? $attachment[0] : array(); 
+}
