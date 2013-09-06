@@ -260,7 +260,7 @@
 				$('[data-action="toggle-grid"]').addClass('active-tab')
 				$('body').removeClass('drag-drop-editing width-resize')
 				store.set('plPagePreview', true)
-				$('.ui-sortable').sortable( "disable" )
+				$('.ui-sortable:not(.toolbox-sortable)').sortable( "disable" )
 				
 			} else {
 				
@@ -329,6 +329,7 @@
 			
 
 			selectedPanel.tabs({
+				
 				active: activeTab
 				
 				, create: function(event, ui){
@@ -421,16 +422,8 @@
 						, sid: 'settings'
 						, settings: $.pl.config.settings
 					}
-
+					
 				$.optPanel.render( config )
-
-			} else if( key == 'live'){
-
-				var liveFrame = '<div class="live-wrap"><iframe class="live_chat_iframe" src="http://pagelines.campfirenow.com/6cd04"></iframe></div>'
-
-				selectedPanel
-					.find('.panel-tab-content')
-					.html(liveFrame)
 
 			} else if (key == 'section-options'){
 
