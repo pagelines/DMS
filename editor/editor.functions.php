@@ -94,6 +94,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		'taxonomy_id'	=> '',
 		'post_type'		=> '',
 		'span'			=> 1,
+		'col'			=> 1,
 		'default'		=> ''
 	);
 
@@ -122,6 +123,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		'help'			=> $exp,
 		'opts'			=> ( !isset($old['opts']) && isset($old['selectvalues'])) ? $old['selectvalues'] : $old['opts'],
 		'span'			=> $old['span'],
+		'col'			=> $old['col'],
 	);
 
 	if ( isset( $old['template'] ) )

@@ -12,6 +12,7 @@
 			, settings: {}
 			, objectID: ''
 			, scope: 'global'
+			
 		}
 
 		, cascade: ['local', 'type', 'global']
@@ -39,7 +40,7 @@
 			that.data = $.pl.data
 			that.scope = that.config.scope || 'global'
 
-			that.panel = $('.panel-'+panel)
+			that.panel = $( '.panel-' + panel )
 
 			// On tab load, the activation hasn't been fired yet
 			// so its hard to tell if panel is active. This is used as a workaround
@@ -51,6 +52,7 @@
 				that.settingsRender( that.config.settings )
 			else if ( mode == 'panel' )
 				that.panelRender( that.config.tab, that.config.settings.opts )
+
 
 			that.onceOffScripts()
 
@@ -298,25 +300,44 @@
 				if( $(this).is(":visible") || that.load == $(this).data('panel') ){
 					
 					that.activeForm = $(this).find('.opt-form')
-					
 					that.optScope = that.activeForm.data('scope')
 					that.optSID = that.activeForm.data('sid')
 
+					$(this).find('.opt-tabs').tabs()
+
+					that.accordionArea = $(this).find('.opt-col')
+					
 					that.activeForm.imagesLoaded( function(){
 						
-						that.activeForm.isotope({
-							itemSelector : '.opt'
-							, masonry: {
-								columnWidth: 315
-							  }
-							, layoutMode : 'masonry'
-							, sortBy: 'number'
-							, getSortData : {
-								number : function ( $elem ) {
-									return $elem.data('number');
-								}
-							}
-						})
+						
+						that.accordionArea
+							.accordion({
+						        header: "> .opt > .opt-name"
+								, heightStyle: "content"
+								, collapsible: true
+						      })
+					
+						that.accordionArea
+						      .sortable({
+						        axis: "y",
+								items: ".opt",
+						        handle: ".opt-name"
+						      })
+						
+						
+						// that.activeForm.isotope({
+						// 							itemSelector : '.opt'
+						// 							, masonry: {
+						// 								columnWidth: 315
+						// 							  }
+						// 							, layoutMode : 'masonry'
+						// 							, sortBy: 'number'
+						// 							, getSortData : {
+						// 								number : function ( $elem ) {
+						// 									return $elem.data('number');
+						// 								}
+						// 							}
+						// 						})
 					})
 
 				}
@@ -336,38 +357,56 @@
 		}
 
 		, runEngine: function( opts, tabKey ){
-
+			
 			var that = this
 			, 	optionHTML
-			, 	out = ''
-
+			, 	optsOut = ''
+			,	optCols = {}
+			,	colOut = ''
+			
 			$.each( opts , function(index, o) {
 
 				var specialClass = ''
-				, 	number = index
 				,	theTitle = o.title || o.label || 'Option'
+				, 	uniqueKey = ( o.key ) ? o.key : 'no-key-'+plUniqueID()
+				, 	colNum = ( o.col ) ? o.col : 1
 
-				if(!o.key)
-					o.key = 'no-key'
-
-				if(o.span)
+			//	console.log(o)
+				if( o.span )
 					specialClass += 'opt-span-'+o.span
 
 				optionHTML = that.optEngine( tabKey, o )
 
-				out += sprintf( '<div class="opt opt-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', o.key, specialClass, number, theTitle, optionHTML )
+				optsOut += sprintf( '<div id="%s" class="opt opt-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, specialClass, index, theTitle, optionHTML )
+				
+				if( typeof optCols[ colNum ] == 'undefined' )
+					optCols[ colNum ] = ''
+	
+				optCols[ colNum ] += sprintf( '<div id="%s" class="opt opt-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, specialClass, index, theTitle, optionHTML )
+				
 
 			})
 
 
-			return sprintf('<form class="form-%1$s-%2$s form-scope-%2$s opt-area opt-form" data-sid="%1$s" data-scope="%2$s">%3$s</form>', that.sid, tabKey, out)
+			var colSpan = 12 / ( Object.keys(optCols).length )
+			
+			$.each( optCols , function(index, o) {
+				
+				colOut += sprintf( '<div class="span%s">%s</div>', colSpan, o )
+				
+			} )
+
+		//	console.log(optCols)
+			
+			var optionInterface = sprintf( '<div class="opt-columns row fix"> %s </div>', colOut )
+
+			return sprintf( '<form class="form-%1$s-%2$s form-scope-%2$s opt-area opt-form" data-sid="%1$s" data-scope="%2$s">%3$s</form>', that.sid, tabKey, optionInterface )
 
 
 		}
 
 		, optValue: function( scope, key ){
-			var that = this
-
+			
 			var that = this
 			, 	pageData = $.pl.data
 
@@ -452,7 +491,8 @@
 
 			else if( o.type == 'image_upload' ){
 
-			  	var size = o.imgsize+'px' || '100%'
+			  	var imgSize = (o.imgsize) ? o.imgsize : 200
+				, 	size = imgSize+'px'
 				,	sizeMode = o.sizemode || 'width'
 				,	remove = '<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>'
 				,	thm = (o.value != '') ? sprintf('<div class="img-wrap"><img src="%s" style="max-%s: %s" /></div>', o.value, sizeMode, size) : ''
@@ -509,7 +549,7 @@
 				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
 				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; Select Menu &mdash;</option>%s</select>', o.key, o.name, select_opts)
 
-				oHTML += sprintf('<a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, 'Configure Menus' )
+				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, 'Configure Menus' )
 			}
 
 			else if( o.type == 'action_button' ){

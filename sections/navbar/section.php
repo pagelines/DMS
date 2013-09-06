@@ -157,9 +157,10 @@ class PLNavBar extends PageLinesSection {
 					'key'		=> 'navbar_logo',
 					'default'	=> PL_IMAGES.'/dms.png',
 					'version'	=> 'pro',
+					'col'		=> 2,
 					'type'		=> 'image_upload',
-					'label'		=> __( 'NavBar Image', 'pagelines' ),
-					'title'		=> __( 'NavBar Image', 'pagelines' ),
+					'label'		=> __( 'NavBar Logo', 'pagelines' ),
+					'title'		=> __( 'NavBar Logo', 'pagelines' ),
 					'ref'		=> __( 'Use this feature to add the NavBar section as a fixed navigation bar on the top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px.', 'pagelines' )
 				),
 
