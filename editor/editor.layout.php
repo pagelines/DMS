@@ -59,7 +59,7 @@ class EditorLayout {
 					'display-boxed' 	=> array('name' => 'Boxed Display')
 				),
 				'default'	=> 'display-full',
-				'help'	 	=> __( '"Full" display mode allows areas to be the full width of the window, with content width sections.<br/><br/> "Boxed" mode contains everything in a central content box. Boxed mode is ideal for use with backgtround images.', 'pagelines' )
+				'help'	 	=> __( '"Full" display mode allows areas to be the full width of the window, with content width sections.<br/><br/> "Boxed" mode contains everything in a central content box. Boxed mode is ideal for use with background images.', 'pagelines' )
 			),
 			
 			
