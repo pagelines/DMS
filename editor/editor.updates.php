@@ -56,6 +56,7 @@ class PageLinesEditorUpdates {
 		global $storeapi;
 		if( ! is_object( $storeapi ) )
 			$storeapi = new EditorStoreFront;
+
 		$mixed_array = $storeapi->get_latest();
 		
 		if( ! $pl_plugins )
@@ -69,17 +70,22 @@ class PageLinesEditorUpdates {
 
 			// If PageLines plugin has no API data pass on it.
 			if( ! isset( $mixed_array[$slug] ) ) {
-				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$path] ) )
+				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$path] ) ) {
 					unset( $updates->response[$path] );
-
-				continue;
+					continue;
+				}
 			}
 
 			// If PageLines plugin has API data and a version check it and build a response.
 			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] > $data['Version'] ) ) {
 				$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
+			} else {
+				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$path] ) ) {
+					unset( $updates->response[$path] );
+					continue;
+				}
 			}
-		}		
+		}	
 		return $updates;
 	}
 	
@@ -97,7 +103,7 @@ class PageLinesEditorUpdates {
 
 		$object = new stdClass;		
 		$object->id = rand();
-		$object->slug = $api_data['slug'];
+		$object->slug = rand();
 		$object->new_version = $api_data['version'];
 		$object->upgrade_notice = 'This is a PageLines Premium plugin.';
 		$object->url = $api_data['overview'];
