@@ -223,10 +223,12 @@ class EditorSettings {
 			array(
 				'key'		=> 'fb_multi',
 				'type'		=> 'multi', 
+				'col'		=> 2,
 				'title'		=> 'Facebook',
 				'opts'		=> array(
 					array(
 						'key'		=> 'facebook_name',
+						
 						'type' 		=> 'text',
 						'label' 	=> __( 'Your Facebook Page Name', 'pagelines' ),
 						'title' 	=> __( 'Facebook Page', 'pagelines' ),
@@ -244,6 +246,7 @@ class EditorSettings {
 			
 			array(
 				'key'		=> 'site-hashtag',
+				
 				'type' 		=> 'text',
 				'label' 	=> __( 'Your Website Hashtag', 'pagelines' ),
 				'title' 	=> __( 'Website Hashtag', 'pagelines' ),
@@ -252,6 +255,7 @@ class EditorSettings {
 			array(
 				'key'		=> 'sb_multi',
 				'type'		=> 'multi', 
+				'col'		=> 3,
 				'title'		=> 'Sharebar Options',
 				'opts'		=> array(
 					array(
