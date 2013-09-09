@@ -36,6 +36,15 @@ function pl_is_pro(){
 	
 }
 
+function pl_has_dms_plugin(){	
+	
+	if( class_exists( 'DMSPluginPro' ) )
+		return true;
+	else 
+		return false;
+	
+}
+
 function pl_pro_text(){
 	
 	return (!pl_is_pro()) ? __('(Pro Edition Only)', 'pagelines') : '';
