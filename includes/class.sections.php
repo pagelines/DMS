@@ -800,10 +800,10 @@ class PageLinesSectionFactory {
 			$this->sections[$section_class] = new $section_class( $args );
 
 		/** Unregisters version-controlled sections */
-		if(!VPRO && $this->sections[$section_class]->settings['version'] == 'pro') {
-			$this->unavailable_sections[] = $this->sections[$section_class];
-			$this->unregister($section_class);
-		}
+		// if(!VPRO && $this->sections[$section_class]->settings['version'] == 'pro') {
+		// 	$this->unavailable_sections[] = $this->sections[$section_class];
+		// 	$this->unregister($section_class);
+		// }
 	}
 
 
