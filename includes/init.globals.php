@@ -143,7 +143,13 @@ define( 'PL_API_CDN', 'http://cdn.pagelines.com/api/' );
 /**
  * Define language constants
  */
-$lang = ( is_dir( EXTEND_CHILD_DIR . '/language' ) ) ? EXTEND_CHILD_DIR . '/language' : get_template_directory() . '/language';
+if (is_dir( PL_CHILD_DIR . '/language' )) {
+	$lang = PL_CHILD_DIR . '/language';
+} elseif (is_dir( EXTEND_CHILD_DIR . '/language' )){
+	$lang = EXTEND_CHILD_DIR . '/language';
+} else {
+	$lang = PL_PARENT_DIR . '/language';
+}
 define( 'PAGELINES_LANGUAGE_DIR', $lang );
 
 /**
