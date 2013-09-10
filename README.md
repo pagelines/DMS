@@ -8,7 +8,7 @@ Adds respond.js to enable media queries in IE8.
 Adds option under Global>Advanced to enable IE8 compatibility.
 
 <h2>KNOWN ISSUES</h2>
-The .sortable-first class goes away in IE8 and this CSS: 
+The CSS: 
 <pre>
 .row > [class*="span"]:first-child, .row > section:first-of-type, .row .sortable-first, .row-fluid > [class*="span"]:first-child, .row-fluid > section:first-of-type, .row-fluid .sortable-first, .editor-row > [class*="span"]:first-child, .editor-row > section:first-of-type, .editor-row .sortable-first {
 margin-left: 0;
