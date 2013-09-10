@@ -346,11 +346,11 @@ class EditorSettings {
 										You will need to add the following CSS to your Custom CSS/Less field or in your child theme style.css: <br /><strong>
 										/*IE8 first section fix*/<br />
 										.ie8 .section-plcolumn:first-child {<br />
-											margin-left: 0px !important;<br />
+											margin-left: 0 !important;<br />
 											clear: both;<br />
 										}<br />
 										.ie8 section:first-child {<br />
-											margin-left: 0px !important;<br />
+											margin-left: 0 !important;<br />
 											clear: both;<br />
 										}<br />
 									</strong>', 'pagelines' ),
