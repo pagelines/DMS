@@ -352,8 +352,13 @@ class EditorSettings {
 										.ie8 section:first-child {<br />
 											margin-left: 0 !important;<br />
 											clear: both;<br />
-										}<br />
-									</strong>', 'pagelines' ),
+										}<br /></strong>
+										If you use sections with left offset, add the class "first" to the first column in a group of columns, then the CSS:<br /><strong>
+
+										.ie8 .first {<br />
+											margin-left: 0 !important;<br />
+											clear: both;<br />
+										}</strong>', 'pagelines' ),
 				),
 			array(
 					'key'	=> 'v2_upgrading', 
