@@ -33,12 +33,12 @@ clear: both;
 </pre>
 
 If you use sections with left offset, add the class "first" to the first column in a group of columns, then the CSS: 
-
+<pre>
 .ie8 .first {
 margin-left: 0 !important;
 clear: both;
 }
-
+</pre>
 <h3>Before</h3>
 ![before](https://f.cloud.github.com/assets/1617798/1113588/c9d7d66a-1a00-11e3-85ca-f32c5027a2ef.png)
 
