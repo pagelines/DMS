@@ -172,7 +172,7 @@ class EditorColor{
 			array(
 				'key'		=> 'background_image_settings',
 				'type' 		=> 'multi',
-
+				'col'		=> 2,
 				'title' 	=> __( 'Background Image Settings', 'pagelines' ),
 				'help' 		=> __( '', 'pagelines' ),
 				'opts'		=> array(

@@ -67,6 +67,7 @@ class EditorTypography{
 			
 			array(
 				'type' 	=> 	'multi',
+				'col'	=> 1,
 				'title' => __( 'Primary Text', 'pagelines' ),
 				'help' 		=> __( 'The base font size is a reference that will be scaled for text used throughout the site. ', 'pagelines' ),
 				'opts'	=> array(
@@ -106,7 +107,8 @@ class EditorTypography{
 			),
 			array(
 				'type' 	=> 	'multi',
-				'title' 		=> __( 'Text Headers <small>(h1-h6)</small>', 'pagelines' ),
+				'col'	=> 2,
+				'title' => __( 'Text Headers <small>(h1-h6)</small>', 'pagelines' ),
 				'help' 		=> __( 'Configure the typography for the text headers across your site.', 'pagelines' ),
 				'opts'	=> array(
 					array(
@@ -144,6 +146,7 @@ class EditorTypography{
 			),
 			array(
 				'type' 	=> 	'multi',
+				'col'	=> 3,
 				'title' => __( 'Extra Fonts', 'pagelines' ),
 				'help' 		=> __( '<p>Add additional <a href="http://www.google.com/fonts" target="_blank">Google fonts</a> to your sites using this option.</p><p>For example, to add "Yellowtail" and "Lato Bold" you would enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</p>', 'pagelines' ),
 				'opts'	=> array(

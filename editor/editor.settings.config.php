@@ -94,12 +94,20 @@ class EditorSettings {
 					'url'			=> admin_url( 'options-reading.php' ), 
 					'title' 		=> 	__( 'Site Homepage', 'pagelines' ),
 				),
-
+				array(
+					'key'			=> 'perm_management',
+					'label'			=> '<i class="icon-link"></i> Permalinks',
+					'type' 			=> 	'link',
+					'classes'		=> 'btn-primary btn-block',
+					'url'			=> admin_url( 'options-permalink.php' ), 
+					'title' 		=> 	__( 'Manage Permalinks', 'pagelines' ),
+				),
 
 				array(
 					'key'			=> 'manage_menus',
 					'label'			=> '<i class="icon-reorder"></i> Manage Menus',
 					'type' 			=> 	'link',
+					'col' 			=> 	2,
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'nav-menus.php' ), 
 					'title' 		=> 	__( 'Manage Menus', 'pagelines' ),
@@ -107,6 +115,7 @@ class EditorSettings {
 				
 				array(
 					'key'			=> 'edit_widgets',
+					'col' 			=> 	2,
 					'label'			=> '<i class="icon-retweet"></i> Manage Widgets',
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
@@ -115,15 +124,8 @@ class EditorSettings {
 				),
 				
 				array(
-					'key'			=> 'manage_profile',
-					'label'			=> '<i class="icon-user"></i> User Profile',
-					'type' 			=> 	'link',
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'profile.php' ), 
-					'title' 		=> 	__( 'Manage Your Profile', 'pagelines' ),
-				),
-				array(
 					'key'			=> 'site_settings_admin',
+					'col' 			=> 	3,
 					'label'			=> '<i class="icon-cog"></i> Site Settings',
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
@@ -132,6 +134,7 @@ class EditorSettings {
 				),
 				array(
 					'key'			=> 'plugins_management',
+					'col' 			=> 	3,
 					'label'			=> '<i class="icon-download"></i> Plugins Admin',
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
@@ -139,14 +142,7 @@ class EditorSettings {
 					'title' 		=> 	__( 'Manage Extensions', 'pagelines' ),
 				),
 				
-				array(
-					'key'			=> 'perm_management',
-					'label'			=> '<i class="icon-link"></i> Permalinks',
-					'type' 			=> 	'link',
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'options-permalink.php' ), 
-					'title' 		=> 	__( 'Manage Permalinks', 'pagelines' ),
-				)
+			
 			);
 
 			if( pl_setting( 'enable_debug' ) ) {
@@ -183,6 +179,7 @@ class EditorSettings {
 			array(
 				'key'			=> 'pl_login_image',
 				'type' 			=> 	'image_upload',
+				'col'			=> 2,
 				'label'			=> 'Upload Login Image (160px Height)',
 				'imgsize' 			=> 	'80',
 				'sizemode'		=> 'height',
@@ -193,6 +190,7 @@ class EditorSettings {
 
 			array(
 				'key'			=> 'pagelines_touchicon',
+				'col'			=> 3,
 				'label'			=> 'Upload Touch Image (144px by 144px)',
 				'type' 			=> 	'image_upload',
 				'imgsize' 			=> 	'72',

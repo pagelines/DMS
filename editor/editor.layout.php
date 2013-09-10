@@ -70,8 +70,9 @@ class EditorLayout {
 		$settings[] = array(
 
 			'key'			=> 'layout_navigations',
+			'col'			=> 2,
 			'type' 			=> 'multi',
-			'label' 	=> __( 'Standard Navigation', 'pagelines' ),
+			'label' 	=> __( 'Global Navigation Setup', 'pagelines' ),
 			'opts'	=> array(
 				array(
 					'key'		=> 'primary_navigation_menu',

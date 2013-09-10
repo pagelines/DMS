@@ -173,13 +173,13 @@ class PLImportExport{
 			array(
 				'type' 		=> 	'template',
 				'title' 	=> __( 'Export DMS Config', 'pagelines' ),
-				'span'		=> 2,
+		
 				'template'	=> $this->export_template()
 			),
 			array(
 				'type' 		=> 	'template',
 				'title' 	=> __( 'Import DMS Config', 'pagelines' ),
-				'span'		=> 1,
+				'col'		=> 2,
 				'template'	=> $this->import_template()
 			),
 		

@@ -23,7 +23,8 @@ class PLSectionArea extends PageLinesSection {
 
 			'key'			=> 'layout_areas',
 			'type' 			=> 'multi',
-			'label' 	=> __( 'Section Areas', 'pagelines' ),
+			'col'			=> 3,
+			'label' 	=> __( 'Section Area Layout', 'pagelines' ),
 			'opts'	=> array(
 				array(
 					'key'		=> 'section_area_default_pad',
