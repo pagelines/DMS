@@ -140,11 +140,14 @@ class PageLinesTemplateHandler {
 	function media_library_link(){
 		
 		
-		global $plpg;
+		global $post;
 
-		$the_post_id = $plpg->id;
+		if( empty($post->ID) )
+			$post_id = 0; 
+		else 
+			$post_id = $post->ID;
 
-		$image_library_url = add_query_arg( 'post_id', (int) $the_post_id, admin_url('media-upload.php') );
+		$image_library_url = add_query_arg( 'post_id', (int) $post_id, admin_url('media-upload.php') );
 		$image_library_url = add_query_arg( 'type', 'image', $image_library_url );
 		$image_library_url = add_query_arg( 'tab', 'library', $image_library_url);
 		
