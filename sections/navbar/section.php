@@ -293,7 +293,11 @@ class PLNavBar extends PageLinesSection {
 	  <div class="navbar-inner <?php echo $content_width_class;?>">
 	    <div class="navbar-content-pad fix">
 	    	<?php
-				if( current_user_can( 'edit_theme_options' ) && $passive )
+				global $pldraft;
+				$edit = false;
+				if( is_object( $pldraft ) && 'draft' == $pldraft->mode )
+					$edit = true;				
+				if( current_user_can( 'edit_theme_options' ) && $passive && true == $edit )
 					echo pl_dms_settings_link('settings', 'navbar', 'btn btn-edit btn-mini navbar-edit');
 		
 	   			if($navbartitle)
