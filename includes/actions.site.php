@@ -138,7 +138,25 @@ function pl_comment_form_js() {
 
 add_action( 'wp_enqueue_scripts', 'pagelines_register_js' );
 function pagelines_register_js() {
+	
+	if(pl_setting('fix_ie8')){
+		
+		preg_match('/MSIE (.*?);/', $_SERVER['HTTP_USER_AGENT'], $matches);
+        if (count($matches)>1){
+        //Then we're using IE
+          $version = $matches[1];
 
+      		switch(true){
+        		case ($version<=8): //if IE version is 8 or less
+          			wp_register_script( 'html5-js', PL_JS . '/html5.js', PL_CORE_VERSION, false);
+          			wp_enqueue_script( 'html5-js');
+          			wp_register_script( 'respond-js', PL_JS . '/respond.min.js', PL_CORE_VERSION, false);
+          			wp_enqueue_script( 'respond-js');
+
+          		break;
+    			}	
+  			} 
+	}
 	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
 	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.js', array( 'jquery' ), PL_CORE_VERSION, true );
 	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), PL_CORE_VERSION, true );

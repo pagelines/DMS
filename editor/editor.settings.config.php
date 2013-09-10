@@ -338,6 +338,24 @@ class EditorSettings {
 								   sprintf( '<br /><a href="%s">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
 			),
 			array(
+					'key'		=> 'fix_ie8',
+					'type'		=> 'check',
+					'label'		=> __('Enable IE8 compatibility?', 'pagelines'),
+					'title'		=> __('IE8 Compatibility'),
+					'help'		=> __( 'If you enable this option, PageLines DMS will use html5.js and respond.js to fix most of the layout issues in Internet Explorer 8.<br />
+										You will need to add the following CSS to your Custom CSS/Less field: <br /><strong>
+										/*IE8 first section fix*/<br />
+										.ie8 .section-plcolumn:first-child {<br />
+											margin-left: 0px !important;<br />
+											clear: both;<br />
+										}<br />
+										.ie8 section:first-child {<br />
+											margin-left: 0px !important;<br />
+											clear: both;<br />
+										}<br />
+									</strong>', 'pagelines' ),
+				),
+			array(
 					'key'	=> 'v2_upgrading', 
 					'type'	=> 'multi',
 					'title'	=> 'Framework V2 Upgrade (MUST PUBLISH)', 
