@@ -351,24 +351,64 @@ function pl_up_image (){
 		echo json_encode( array( 'url' => $url, 'success' => TRUE, 'attach_id' => $attach_id ) );
 
 	}
+	
 	die(); // don't forget this, always returns 0 w/o
+	
 }
 
 add_filter( 'pagelines_global_notification', 'pagelines_check_folders_dms');
 function pagelines_check_folders_dms( $note ) {
+	
+	
 	$folder = basename( get_template_directory() );
 
-	if( 'dms' == $folder )
-		return $note;
+	if( 'dms' != $folder ){
 		
-	ob_start(); ?>
+		ob_start(); ?>
 
-		<div class="alert alert-important">
+			<div class="alert alert-important">
+				<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
+			  	<strong><i class="icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
+
+			</div>
+
+			<?php 
+
+		$note .= ob_get_clean();
+		
+	} else if( pl_is_pro() && !pl_has_dms_plugin() ){
+		
+		ob_start(); ?>
+
+			<div class="alert">
+				<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
+			  	<strong><i class="icon-cogs"></i> Install DMS Utilities</strong><p>Your site is "Pro activated" but you haven't installed the DMS Pro tools plugin. Grab the plugin on your <a href="http://www.pagelines.com/my-account/">My Account > My Downloads</a> page.</p>
+
+			</div>
+
+			<?php 
+
+		$note .= ob_get_clean();
+		
+	} else if ( ! pl_is_pro() ){
+		
+		ob_start(); ?>
+		
+		<div class="alert alert-info">
 			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
-
+		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> ( <i class="icon-star-half-empty"></i> You're currently using DMS basic. ) <br/>Activate this site with Pro for additional sections, effects, capabilities and support.
+			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More</a>
+			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> Activate Site</a> 
 		</div>
 		
-		<?php return ob_get_clean();
-
+		<?php 
+		
+		$note .= ob_get_clean();
+	}
+		
+	
+	
+	return $note;
+		
 }
+
