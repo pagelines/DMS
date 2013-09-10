@@ -346,7 +346,7 @@ function pl_up_image (){
 		echo sprintf( __('Upload Error: %s', 'pagelines' ) , $uploaded_file['error'] );
 	else{
 		
-		$url = str_replace(home_url(), '[pl_site_url]', $uploaded_file['url']);
+		$url = pl_shortcodize_url( $uploaded_file['url'] );
 		 
 		echo json_encode( array( 'url' => $url, 'success' => TRUE, 'attach_id' => $attach_id ) );
 
