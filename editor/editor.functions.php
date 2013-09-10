@@ -701,3 +701,8 @@ function pl_blank_template(){
 }
 
 
+function pl_shortcodize_url( $full_url ){
+	$url = str_replace(home_url(), '[pl_site_url]', $full_url);
+	
+	return $url;
+}
