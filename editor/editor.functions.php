@@ -36,6 +36,15 @@ function pl_is_pro(){
 	
 }
 
+function pl_has_dms_plugin(){	
+	
+	if( class_exists( 'DMSPluginPro' ) )
+		return true;
+	else 
+		return false;
+	
+}
+
 function pl_pro_text(){
 	
 	return (!pl_is_pro()) ? __('(Pro Edition Only)', 'pagelines') : '';
@@ -694,3 +703,8 @@ function pl_blank_template(){
 }
 
 
+function pl_shortcodize_url( $full_url ){
+	$url = str_replace(home_url(), '[pl_site_url]', $full_url);
+	
+	return $url;
+}

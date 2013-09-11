@@ -65,8 +65,8 @@ class EditorColor{
 			$attach = pl_setting('page_background_image_attach');
 
 			$repeat = ($repeat) ? $repeat : 'no-repeat';
-			$pos_x = ($pos_x) ? $pos_x.'%' : '50%';
-			$pos_y = ($pos_y) ? $pos_y.'%' : '0%';
+			$pos_x = ( $pos_x !== false && $pos_x !== '' ) ? $pos_x.'%' : '50%';
+			$pos_y = ( $pos_y !== false && $pos_y !== '' ) ? $pos_y.'%' : '0%';
 			$attach = ($attach) ? $attach : 'fixed';
 
 			$background = sprintf('%s url("%s") %s %s %s %s', $bg_color, $image, $repeat, $pos_x, $pos_y, $attach);

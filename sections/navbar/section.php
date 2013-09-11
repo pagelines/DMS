@@ -284,7 +284,9 @@ class PLNavBar extends PageLinesSection {
 
 	$classes = join(' ', $class);
 
-	$brand = ( $this->opt( 'navbar_logo' ) || $this->opt( 'navbar_logo' ) != '') ? sprintf( '<img src="%s" alt="%s" />', $this->opt( 'navbar_logo' ), esc_attr( get_bloginfo('name') ) ) : sprintf( '<h2 class="plbrand-text">%s</h2>', get_bloginfo( 'name' ) );
+	$image_data = pl_get_image_data( $this->opt( 'navbar_logo' ), true );
+
+	$brand = ( $this->opt( 'navbar_logo' ) || $this->opt( 'navbar_logo' ) != '') ? sprintf( '<img src="%s" alt="%s" title="%s" />', $image_data['url'], $image_data['alt'], $image_data['title'] ) : sprintf( '<h2 class="plbrand-text">%s</h2>', get_bloginfo( 'name' ) );
     $navbartitle = $this->opt( 'navbar_title' );
 
 	?>
@@ -292,7 +294,11 @@ class PLNavBar extends PageLinesSection {
 	  <div class="navbar-inner <?php echo $content_width_class;?>">
 	    <div class="navbar-content-pad fix">
 	    	<?php
-				if( current_user_can( 'edit_theme_options' ) && $passive )
+				global $pldraft;
+				$edit = false;
+				if( is_object( $pldraft ) && 'draft' == $pldraft->mode )
+					$edit = true;				
+				if( current_user_can( 'edit_theme_options' ) && $passive && true == $edit )
 					echo pl_dms_settings_link('settings', 'navbar', 'btn btn-edit btn-mini navbar-edit');
 		
 	   			if($navbartitle)

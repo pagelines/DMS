@@ -526,17 +526,27 @@ class PLImageUploader{
 		<script type="text/javascript">
 		jQuery(document).ready(function(){
 			jQuery('.pl-frame-button').on('click', function(){
+			
+				var oSel = parent.jQuery.pl.iframeSelector
+				,	optID = '#' + oSel
+				,	previewSel = '.pre_' + oSel
+				,	editorPrevew = '.upload-thumb-' + oSel
+				,	imgURL = jQuery(this).data('imgurl')
+				,	imgURLShort = jQuery(this).data('short-img-url')
+				, 	theOption = '[id="'+oSel+'"]'
 
-				var optID = '#'+jQuery(this).data('selector')
-				var previewSel = '.pre_'+jQuery(this).data('selector')
-				var imgURL = jQuery(this).data('imgurl')
-
-				jQuery(optID, top.document).val(imgURL)
+				jQuery( theOption, top.document).val( imgURLShort )
+				
+				parent.jQuery( '.upload-input' ).trigger('change')
+				
 				jQuery(previewSel, top.document).attr('src', imgURL)
-				parent.eval('tb_remove()')
+				
+				jQuery( editorPrevew, top.document).html( '<div class="img-wrap"><img style="max-width:200px;" src="'+ imgURL +'" /></div>' )
+				
+				parent.eval('jQuery(".bootbox").modal("hide")')
+			
 			});
 		});
-		</script>
 		</script>
 
 		<?php
@@ -553,16 +563,19 @@ class PLImageUploader{
 
 		$attach_id = $post->ID;
 
-		$image_url = wp_get_attachment_url($attach_id);
+		
+		$image_url = wp_get_attachment_url( $attach_id );
+		$short_img_url = pl_shortcodize_url( $image_url );
 
 		$form_fields['buttons'] = array(
 			'tr' => sprintf(
 						'<tr class="submit"><td></td>
 							<td>
-							<span class="pl-frame-button  admin-blue button" title="3212" data-selector="%s" data-imgurl="%s">%s</span>
+							<span class="pl-frame-button admin-blue button" data-selector="%s" data-imgurl="%s" data-short-img-url="%s">%s</span>
 							</td></tr>',
 							$this->option_id,
 							$image_url,
+							$short_img_url,
 							__( 'Select This Image For Option', 'pagelines' )
 					)
 		);
@@ -570,8 +583,13 @@ class PLImageUploader{
 			'input' => 'hidden',
 			'value' => 'pl-custom-attach'
 		);
+		$form_fields['oid'] = array(
+			'input' => 'hidden',
+			'value' => $this->option_id
+		);
 
 		return $form_fields;
+		
 	}
 
 	/**

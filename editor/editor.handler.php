@@ -124,6 +124,7 @@ class PageLinesTemplateHandler {
 							, StyleSheetURL: '<?php echo get_stylesheet_directory_uri(); ?>'
 							, ParentStyleSheetURL: '<?php echo get_template_directory_uri(); ?>'
 							, siteURL: '<?php echo home_url(); ?>'
+							, mediaLibrary: '<?php echo $this->media_library_link(); ?>'
 						}
 					}
 
@@ -134,6 +135,25 @@ class PageLinesTemplateHandler {
 		</script>
 		<?php
 
+	}
+	
+	function media_library_link(){
+		
+		
+		global $post;
+
+		if( empty($post->ID) )
+			$post_id = 0; 
+		else 
+			$post_id = $post->ID;
+
+		$image_library_url = add_query_arg( 'post_id', (int) $post_id, admin_url('media-upload.php') );
+		$image_library_url = add_query_arg( 'type', 'image', $image_library_url );
+		$image_library_url = add_query_arg( 'tab', 'library', $image_library_url);
+		
+		$image_library_url = add_query_arg( array( 'context' => 'pl-custom-attach', 'TB_iframe' => 1), $image_library_url );
+		
+		return $image_library_url;
 	}
 	
 	function get_panels_settings(){
