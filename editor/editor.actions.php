@@ -412,3 +412,22 @@ function pagelines_check_folders_dms( $note ) {
 		
 }
 
+add_filter( 'pagelines_global_notification', 'pagelines_free_bootstrap' );
+function pagelines_free_bootstrap( $note ) {
+	if( class_exists( 'DMS_Bootstrap' ) )
+		return $note;
+	ob_start(); ?>
+
+		<div class="alert alert-important">
+			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
+		  	<strong><i class="icon-warning-sign"></i> Hey there!</strong><p>it looks like you have the WordPress.org release of DMS.<br />
+			To access all the shortcodes normally found in this framework you will have to install an extra plugin, sorry about that!<br />
+			The plugin can be found here: <a href="https://github.com/pagelines/dms-bootstrap/releases">Download now.</a></p>
+
+		</div>
+
+		<?php 
+
+	$note .= ob_get_clean();
+	return $note;
+}

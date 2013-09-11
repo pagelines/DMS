@@ -124,7 +124,7 @@ require_once( PL_INCLUDES . '/config.selectors.php' );
 /**
  * Load Custom Post Type Class
  */
-require_once( PL_INCLUDES . '/class.types.php' );
+// require_once( PL_INCLUDES . '/class.types.php' );
 
 /**
  * Posts Handling
