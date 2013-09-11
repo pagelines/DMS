@@ -465,7 +465,6 @@
 
 
 
-
 			if( o.type == 'multi' ){
 				if(o.opts){
 					$.each( o.opts , function(index, osub) {
@@ -491,15 +490,15 @@
 
 			else if( o.type == 'image_upload' ){
 
-			  	var imgSize = (o.imgsize) ? o.imgsize : 200
-				, 	size = imgSize+'px'
+			  	var imgSize = o.imgsize || 200
+				,	size = imgSize + 'px'
 				,	sizeMode = o.sizemode || 'width'
 				,	remove = '<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>'
 				,	thm = (o.value != '') ? sprintf('<div class="img-wrap"><img src="%s" style="max-%s: %s" /></div>', o.value, sizeMode, size) : ''
 
 				oHTML += '<div class="img-upload-box">'
 
-				oHTML += sprintf('<div class="upload-thumb-%s upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm));
+				oHTML += sprintf( '<div class="upload-thumb-%s upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm) );
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
 
@@ -509,7 +508,7 @@
 				,	attach_value =  that.optValue( tabIndex, attach_key )
 				,	attach_name = sprintf('%s[%s]', that.uniqueID, attach_key )
 				
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input upload-input" value="%3$s" />', attach_key, attach_name, attach_value)
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
 
 				oHTML += sprintf('<div id="upload-%1$s" class="fineupload upload-%1$s fileupload-new" data-provides="fileupload"></div>', o.key)
 
@@ -1024,6 +1023,40 @@
 
 			})
 
+			$('.pl-load-media-lib').on('click', function(){
+				
+				var mediaFrame = $.pl.config.urls.mediaLibrary
+			
+				var optionID = $(this).closest('.img-upload-box').find('.upload-input').attr('id')
+				,	mediaFrame = $.pl.config.urls.mediaLibrary + '&oid=' + optionID 
+				
+				$.pl.iframeSelector = optionID
+				
+				$.toolbox('hide')
+			
+				bootbox.dialog( 
+					sprintf('<iframe src="%s"></iframe>', mediaFrame)
+					, [ ]
+					, {
+						animate: false
+						, classes: 'modal-large'
+						, backdrop: true
+					}
+				)
+			
+				
+			
+				$('.bootbox').on('hidden.mediaDialog', function () {
+					
+					$.toolbox('show')
+					$('.bootbox').off('hidden.mediaDialog')
+						
+				})
+				
+				
+			
+			})
+			
 			$('.rmv-upload').on('click', function(){
 				$(this).closest('.opt').find('.upload-input').val('').trigger('change')
 				$(this).closest('.opt').find('.upload-thumb').fadeOut()
@@ -1195,7 +1228,7 @@
 					// , 	debug: true
 					,	template: '<div class="qq-uploader span12">' +
 					                      '<pre class="qq-upload-drop-area span12"><span>{dragZoneText}</span></pre>' +
-					                      '<div class="qq-upload-button btn btn-primary" style="width: auto;">{uploadButtonText}</div> <div class="btn rmv-upload"><i class="icon-remove"></i></div>' +
+					                      '<div class="qq-upload-button btn btn-primary btn-mini" style="width: auto;">{uploadButtonText}</div> <div class="pl-load-media-lib btn btn-mini" >Media Library</div>  <div class="btn  btn-mini rmv-upload"><i class="icon-remove"></i></div>' +
 					                      '<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="icon-spinner icon-spin spin-fast"></span></span>' +
 					                      '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
 					                    '</div>'

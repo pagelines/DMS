@@ -39,11 +39,8 @@ else:  ?>
 
 	<?php pagelines_register_hook('pagelines_before_page'); // Hook ?>
 	<div  class="boxed-wrap site-translate">
-		<div id="fixed-top" class="pl-fixed-top" data-region="fixed-top">
-			<?php pagelines_template_area('pagelines_fixed_top', 'fixed_top'); // Hook ?>
-		</div>
-		<div class="fixed-top-pusher"></div>
-		<script> jQuery('.fixed-top-pusher').height( jQuery('.pl-fixed-top').height() ) </script>
+		<?php pagelines_register_hook( 'pagelines_site_wrap' ); // Hook ?>
+		
 		
 		<div class="pl-region-wrap">
 			<div id="page" class="thepage page-wrap">

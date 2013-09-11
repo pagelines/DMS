@@ -40,6 +40,10 @@
 	font-family: @defaultFont;
 	font-weight: normal;
 	color:#777;
+	&.modal-large{
+		width: 700px;
+		margin-left: -350px
+	}
 	&.fade {
 		.transition(e('opacity .1s linear, top .1s ease-out'));
 		top: -25%;
@@ -50,6 +54,10 @@
 		font-weight: bold;
 		color:#000;
 		font-family: @defaultFont;
+	}
+	iframe{
+		width: 100%;
+		min-height: 400px;
 	}
 }
 .modal-header {

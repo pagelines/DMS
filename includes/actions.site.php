@@ -179,6 +179,22 @@ function pagelines_google_author_head() {
 
 
 /**
+ * Fixed element area at top of site page.
+ *
+ **/
+add_action('pagelines_site_wrap', 'pl_fixed_top_area');
+function pl_fixed_top_area(){
+	?>
+	<div id="fixed-top" class="pl-fixed-top" data-region="fixed-top">
+		<?php pagelines_template_area('pagelines_fixed_top', 'fixed_top'); // Hook ?>
+	</div>
+	<div class="fixed-top-pusher"></div>
+	<script> jQuery('.fixed-top-pusher').height( jQuery('.pl-fixed-top').height() ) </script>
+	
+	<?php 
+}
+
+/**
  *  Fix The WordPress Login Image Title
  */
 if ( VPRO )

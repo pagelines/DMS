@@ -427,7 +427,11 @@ class EditorInterface {
 
 				</ul>
 			</div>
+			<div class="panels-wrap">
 			<?php
+			
+				echo apply_filters( 'pagelines_global_notification', '' );
+				
 				foreach($panel as $tab_key => $t){
 
 					$t = wp_parse_args($t, $this->defaults());
@@ -452,14 +456,11 @@ class EditorInterface {
 
 					$tools = ( isset($t['tools']) ) ? sprintf('<span class="clip-tools">%s</span>', $t['tools']) : '';
 
-					
-
-					$notification = (!pl_is_pro()) ? $this->free_version_note() : '';
-
+				
 					printf(
 						'<div id="%s" class="tab-panel" data-panel="%s" data-type="%s" data-scope="%s">
 							<div class="tab-panel-inner">
-								%s
+								
 								<legend>%s %s %s</legend>
 								<div class="panel-tab-content"> %s</div>
 							</div>
@@ -468,7 +469,6 @@ class EditorInterface {
 						$tab_key,
 						$t['type'],
 						$t['scope'],
-						apply_filters( 'pagelines_global_notification', $notification ),
 						$t['name'],
 						$clip,
 						$tools,
@@ -477,24 +477,10 @@ class EditorInterface {
 					);
 				}
 			?>
-
+			</div>
 		</div>
 		<?php
 	}
-
-	function free_version_note(){
-		ob_start(); ?>
-		
-		<div class="alert alert-info">
-			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> ( <i class="icon-star-half-empty"></i> You're currently using DMS basic. ) <br/>Activate this site with Pro for additional sections, effects, capabilities and support.
-			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More</a>
-			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> Activate Site</a> 
-		</div>
-		
-		<?php return ob_get_clean();
-	}
-
 
 	function section_controls( $s ){
 
