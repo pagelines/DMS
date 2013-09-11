@@ -139,7 +139,7 @@ class pliBox extends PageLinesSection {
 			$text = ($this->opt('ibox_text_'.$i)) ? $this->opt('ibox_text_'.$i) : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id lectus sem. Cras consequat lorem.';
 
 			$text = sprintf('<div data-sync="ibox_text_%s">%s</div>', $i, $text );
-			$user_class = ($this->opt('ibox_class_'.$i)) ? $this->opt('ibox_class_	'.$i) : '';
+			$user_class = $this->opt('ibox_class_'.$i);
 
 			$title = ($this->opt('ibox_title_'.$i)) ? $this->opt('ibox_title_'.$i) : __('iBox '.$i, 'pagelines');
 			$title = sprintf('<h4 data-sync="ibox_title_%s">%s</h4>', $i, $title );
