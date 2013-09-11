@@ -901,20 +901,16 @@ function setup_section_notify( $section, $text = '', $user_url = null, $ltext = 
 
 		$banner_title = sprintf('<strong><i class="icon-pencil"></i> %s</strong>', $section->name);
 		$extra = '';
-		if(pl_has_editor()){
-			$url = (isset($user_url)) ? $user_url : '#';
-			
-			if($section->filter == 'full-width'){
-				$class = (isset($user_url)) ? '' : 'area-control';
-				$extra .= 'data-area-action="settings"';
-			} else {
-				$class = (isset($user_url)) ? '' : 's-control section-edit';
-			}
-			
+		
+		$url = (isset($user_url)) ? $user_url : '#';
+		
+		if($section->filter == 'full-width'){
+			$class = (isset($user_url)) ? '' : 'area-control';
+			$extra .= 'data-area-action="settings"';
 		} else {
-			$class = '';
-			$url = (isset($url)) ? $url : pl_meta_set_url( $tab );
+			$class = (isset($user_url)) ? '' : 's-control section-edit';
 		}
+
 
 
 		$link_text = (isset($ltext)) ? $ltext : sprintf(__('Configure %s <i class="icon-arrow-right"></i>', 'pagelines'), $section->name);

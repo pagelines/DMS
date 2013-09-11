@@ -53,10 +53,14 @@ require_once( PL_INCLUDES . '/init.globals.php');
  */
 require_once( PL_INCLUDES . '/library.I18n.php');
 
-/**
- * Load core functions
- */
-require_once( PL_INCLUDES . '/library.functions.php');
+// Core Functions MISC
+require_once( PL_INCLUDES . '/lib.functions.php' );
+
+// Templates and Functions applied in site head
+require_once( PL_INCLUDES . '/lib.head.php' );
+
+// Templates and Functions applied in site body
+require_once( PL_INCLUDES . '/lib.body.php' );
 
 /**
  * Editor

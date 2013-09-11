@@ -126,7 +126,7 @@ class EditorLessHandler{
 
 			build_pagelines_layout();
 
-			$data = $this->get_dynamic_css();
+			$data = array();
 			$data['sections'] = $this->get_all_active_sections();
 			$data['core'] = $this->get_core_lesscode();
 
@@ -194,9 +194,6 @@ class EditorLessHandler{
 				if( $raw_cached['core'] != $raw['core'] )
 					$flush = true;
 
-				if( $raw_cached['dynamic'] != $raw['dynamic'] )
-					$flush = true;
-
 				if( $raw_cached['sections'] != $raw['sections'] )
 					$flush = true;
 			}
@@ -258,24 +255,6 @@ class EditorLessHandler{
 			return pl_file_get_contents( $child );
 		else
 			return pl_file_get_contents( $parent );
-	}
-
-	/**
-	 *
-	 *  Fetch dynamic and typography css.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	private function get_dynamic_css(){
-
-		$pagelines_dynamic_css = new PageLinesCSS;
-		$pagelines_dynamic_css->layout();
-
-		$out = array(
-			'dynamic'	=>	apply_filters('pl-dynamic-css', $pagelines_dynamic_css->css)
-		);
-		return $out;
 	}
 
 	/**

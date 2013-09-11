@@ -166,26 +166,7 @@ class PageLinesAccount {
 					<?php if ( pagelines_check_credentials( 'plus' ) ) printf( '<div class="plus_chat_header">%s</div>', $this->pagelines_livechat_rules() ); ?>
 			</div>
 		</div>
-		<div class="live_chat_wrap fix">
-
-			<?php
-
-			if($iframe):
-				echo $iframe;
-			else:?>
-
-				<div class="live_chat_up_bill">
-					<h3><?php _e( 'Live Chat Requires an active PageLines Plus account', 'pagelines' ); ?></h3>
-					<?php
-					if ( !pagelines_check_credentials() )
-						printf( '<a class="button" href="%s">Login</a>', admin_url(PL_ACCOUNT_URL) );
-
-					else
-						if ( !VPLUS )
-							printf( '<a class="button" href="%s">%s</a>', pl_get_plus_link(), __( 'Upgrade to PageLines Plus', 'pagelines' ) );?>
-				</div>
-			<?php endif;	?>
-		</div>
+		
 		<?php
 
 		$bill = ob_get_clean();

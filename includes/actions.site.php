@@ -46,13 +46,6 @@ add_action('pagelines_before_html', 'pagelines_id_setup', 5);
 
 
 /**
- * Adds page templates from the child theme.
- *
- * @since 1.0.0
- */
-add_filter('the_sub_templates', 'pagelines_add_page_callback', 10, 2);
-
-/**
  * Adds link to admin bar
  *
  * @since 1.0.0
@@ -75,21 +68,25 @@ add_action('pagelines_head', 'pagelines_head_common');
  * @TODO document
  *
  */
+add_filter( 'user_contactmethods', 'pagelines_add_google_profile', 10, 1);
 function pagelines_add_google_profile( $contactmethods ) {
 	// Add Google Profiles
 	$contactmethods['google_profile'] = __( 'Google Profile URL', 'pagelines' );
 	return $contactmethods;
 }
-add_filter( 'user_contactmethods', 'pagelines_add_google_profile', 10, 1);
 
-/**
- * ng gallery fix.
- *
- * @return gallery template path
- *
- */
 
-add_filter( 'ngg_render_template', 'gallery_filter' , 10, 2);
+add_action( 'wp_head', 'pagelines_google_author_head' );
+function pagelines_google_author_head() {
+	global $post;
+	if( ! is_page() && ! is_single() && ! is_author() )
+		return;
+	$google_profile = get_the_author_meta( 'google_profile', $post->post_author );
+	if ( '' != $google_profile )
+		printf( '<link rel="author" href="%s" />%s', $google_profile, "\n" );
+}
+
+
 
 /**
  * Auto load child less file.
@@ -113,20 +110,6 @@ function pagelines_check_less_reset() {
 
 }
 
-/**
- *
- * @TODO document
- *
- */
-function gallery_filter( $a, $template_name) {
-
-	if ( $template_name == 'gallery-plcarousel')
-		return sprintf( '%s/carousel/gallery-plcarousel.php', PL_SECTIONS);
-	else
-		return $a;
-}
-
-
 
 // add_action( 'template_redirect', 'pl_check_integrations' ); // shouldnt be needed now
 
@@ -136,21 +119,7 @@ function pl_comment_form_js() {
 		wp_enqueue_script( 'comment-reply' );
 }
 
-add_action( 'wp_enqueue_scripts', 'pagelines_register_js' );
-function pagelines_register_js() {
 
-	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
-	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
-
-	// Load Supersize BG Script
-	pagelines_supersize_bg();
-}
 
 
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
@@ -165,17 +134,6 @@ function pagelines_check_lessdev(){
 }
 
 
-
-add_action( 'wp_head', 'pagelines_google_author_head' );
-
-function pagelines_google_author_head() {
-	global $post;
-	if( ! is_page() && ! is_single() && ! is_author() )
-		return;
-	$google_profile = get_the_author_meta( 'google_profile', $post->post_author );
-	if ( '' != $google_profile )
-		printf( '<link rel="author" href="%s" />%s', $google_profile, "\n" );
-}
 
 
 /**

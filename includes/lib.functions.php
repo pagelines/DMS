@@ -4,27 +4,8 @@
 // = PageLines Function Library =
 // ==============================
 
-/**
- *  Determines if on a foreign integration page
- *
- * @since 2.0.0
- */
-function pl_is_integration(){
-	global $pl_integration;
-
-	return (isset($pl_integration) && $pl_integration) ? true : false;
-}
-
-/**
- *  returns the integration slug if viewing an integration page
- *
- * @since 2.0.0
- */
-function pl_get_integration(){
-	global $pl_integration;
-
-	return (isset($pl_integration) && $pl_integration) ? sprintf('%s', $pl_integration) : false;
-}
+// Deprecated Functions
+require_once( PL_INCLUDES . '/lib.functions.dep.php' );
 
 /**
  *  Determines if this page is showing several posts.
@@ -50,146 +31,16 @@ function pagelines_non_meta_data_page(){
 
 /**
  * is_pagelines_special() REVISED
- *
- * A few conditional functions that were being used were unnecessary
- * (is_author, is_category, & is_tag) as these are all covered by is_archive
- *
- * $special_types should be a filterable array to allow ploption to be used for extended special option values,
- * or anytime the passed $args['type'] would be used/compared (in admin)
- *
- * Filterable return value - could be used for example to return false for the blog home,
- * letting the page meta values take precedence instead of the special.  Just a thought.
- *
  */
 function is_pagelines_special( $args = array() ) {
 
-	$special_types = apply_filters( 'pagelines_special_types', array('posts','archive','category','search','tag','author','404_page') );
-
 	if ( is_404() || is_home() || is_search() || is_archive() )
-		$special = true;
-
-	elseif ( isset( $args['type'] ) && in_array( $args['type'], $special_types ) )
-		$special = true;
-
-	elseif ( pl_is_integration() )
-		$special = true;
-
+		return true;
 	else
-		$special = false;
-
-	return apply_filters( 'is_pagelines_special', $special, $args );
+		return false;
 }
 
 
-
-/**
- *
- * @TODO document
- *
- */
-function pagelines_special_pages(){
-	return array('posts', 'search', 'archive', 'tag', 'category', '404');
-}
-
-
-/**
- *
- * @TODO document
- *
- */
-function pl_meta_set_url( $tab = null ){
-
-	global $post;
-
-	$tab = (isset($tab)) ? '#'.$tab : '';
-
-	$url = (is_pagelines_special()) ? admin_url(PL_SPECIAL_OPTS_URL) : get_edit_post_link( $post->ID );
-
-	return $url.$tab;
-}
-
-/**
- * PageLines Body Classes
- *
- * Sets up classes for controlling design and layout and is used on the body tag
- *
- * @package     PageLines Framework
- * @subpackage  Functions Library
- *
- * @since       1.1.0
- *
- * @link        http://www.pagelines.com/wiki/Pagelines_body_classes
- *
- * @uses        ploption
- * @uses        PL_CHILDTHEMENAME (constant)
- *
- * @return      string $body_classes - PageLines default body classes
- */
-function pagelines_body_classes(){
-
-	global $pagelines_template;
-	global $pagelines_addclasses;
-
-	$special_body_class = (ploption('special_body_class')) ? ploption('special_body_class') : '';
-
-	
-	$classes = array();
-	
-	$classes[] = $special_body_class;
-	// child theme name
-	$classes[] = sanitize_html_class( strtolower( PL_CHILDTHEMENAME ) );
-	// pro
-	$classes[] = (pl_is_pro()) ? 'pl-pro-version' : 'pl-basic-version';
-
-	
-	if ( !pl_deprecate_v2() ) {
-		// canvas shadow
-		$classes[] = (ploption('canvas_shadow')) ? 'content-shadow' : '';
-
-		// responsive
-		$classes[] = (ploption('layout_handling') == 'pixels' || ploption('layout_handling') == 'percent') ? 'responsive' : 'static';
-
-		// design mode
-		$classes[] = (ploption('site_design_mode') && !pl_is_disabled('color_control')) ? ploption('site_design_mode') : 'full_width';
-
-		// template type
-		$classes[] = $pagelines_template->template_type;
-	}
-	else {
-		// for backwards compatiblity, dms is:
-		$classes[] = 'responsive';
-		$classes[] = 'full_width';
-	}
-
-	// externally added via global variable (string)
-	if ( isset( $pagelines_addclasses ) && $pagelines_addclasses )
-		$classes = array_merge( $classes, (array) explode( ' ', $pagelines_addclasses ) );
-
-	// ensure no duplicates or empties
-	$classes = array_unique( array_filter( $classes ) );
-	// filter & convert to string
-	$body_classes = join(' ', (array) apply_filters('pagelines_body_classes', $classes) );
-
-	return $body_classes;
-}
-
-
-/**
- *
- * @TODO document
- *
- */
-function pagelines_add_bodyclass( $class ) {
-
-	global $pagelines_addclasses;
-
-	if ( !isset( $pagelines_addclasses ) )
-		$pagelines_addclasses = '';
-
-	if ( isset( $class ) )
-		$pagelines_addclasses .= sprintf( ' %s', $class );
-
-}
 
 /**
  *
@@ -260,151 +111,6 @@ function pagelines_template_area( $hook_name, $hook_area_id = null){
 
 }
 
-/**
- * Check Authority
- *
- * Check the authentication level for administrator status (security)
- *
- * @package     PageLines Framework
- * @subpackage  Functions Library
- * @since       1.x.x
- */
-function checkauthority(){
-	if (!current_user_can('edit_themes'))
-	wp_die( __( 'Sorry, but you don&#8217;t have the administrative privileges needed to do this.', 'pagelines' ) );
-}
-
-/**
- * IE Version
- *
- * Checks for IE and Returns Version
- *
- * @package     PageLines Framework
- * @subpackage  Functions Library
- * @since       1.0.0
- *
- * @return      bool|float
- */
-function ie_version() {
-  $match=preg_match('/MSIE ([0-9]\.[0-9])/',$_SERVER['HTTP_USER_AGENT'],$reg);
-  if($match==0)
-    return false;
-  else
-    return floatval($reg[1]);
-}
-
-/**
- * PageLines ShortURL
- *
- * Gets a 'tiny' url. Returns URL if response is not 200
- *
- * @package     PageLines Framework
- * @subpackage  Functions Library
- * @since       1.5.0
- *
- * @uses        pagelines_option
- * @uses        pagelines_format_tweet
- *
- * @internal    uses filter 'pagelines_shorturl_provider'
- * @internal    uses filter 'pagelines_shorturl_cachetimeout'
- *
- * @param       $url
- * @param       int $timeout
- *
- * @return      string
- */
-function pagelines_shorturl( $url, $timeout = 86400 ) {
-
-	global $post;
-	if ( !pagelines_option( 'share_twitter_cache' ) )
-		return pagelines_format_tweet( get_the_title(), $url );
-
-	$provider = 'http://pln.so/api.php?action=shorturl&format=json&url=';
-
-	// If cache exists send it back
-	$cache = get_transient( 'pagelines_shorturl_cache' );
-	if ( is_array( $cache) && array_key_exists( md5($url), $cache ) ) {
-		return pagelines_format_tweet ( get_the_title(), $cache[md5($url)] );
-	}
-
-	// Fetch the short url from the api
-	$response = wp_remote_get(  apply_filters( 'pagelines_shorturl_provider' , $provider ) . $url );
-
-	if( is_wp_error( $response ) ) return pagelines_format_tweet( get_the_title(), $url ); // return original url if there is an error
-
-	// Check the body from the api is actually a url and not a 400 error
-	// If its OK we will cache it and return it, othwise return original url
-
-	$out = ( $response['response']['code'] == 200 ) ? $response['body'] : false;
-	if ( !is_object( $out = json_decode( $out ) ) ) return pagelines_format_tweet( get_the_title(), $url );
-
-	if ( $cache == false ) {
-		unset( $cache );
-		$cache = array();
-	}
-	delete_transient( 'pagelines_shorturl_cache' );
-	$cache = array_merge( $cache, array( md5($url) => $out->shorturl ) );
-	set_transient( 'pagelines_shorturl_cache', $cache, apply_filters( 'pagelines_shorturl_cachetimeout', $timeout ) );
-	return pagelines_format_tweet( get_the_title(), $out->shorturl );
-}
-
-
-/**
- * PageLines Format Tweet
- *
- * @param   $title
- * @param   $url
- *
- * @return  string
- */
-function pagelines_format_tweet( $title, $url ) {
-
-	return sprintf( '%1$s - %2$s', $title, $url );
-}
-
-/**
- * PageLines Background Cascade
- *
- * Sets background cascade for use in color mixing - default: White
- *
- * @since       2.0.b6
- *
- * @uses        ploption
- * @internal    uses filter background_cascade
- *
- * @return      mixed|void
- */
-function pl_background_cascade(){
-
-	$cascade = array(
-		ploption('contentbg'),
-		ploption('pagebg'),
-		ploption('bodybg'),
-		'#ffffff'
-	);
-
-	return apply_filters('background_cascade', $cascade);
-}
-
-/**
- * PageLines Body Background
- *
- * Body Background - default: White
- *
- * @uses        ploption
- * @internal    uses filter body_bg
- *
- * @since       2.0.b6
- *
- * @return      mixed|void
- */
-function pl_body_bg(){
-
-	$cascade = array( ploption('bodybg'), '#ffffff' );
-
-	return apply_filters('body_bg', $cascade);
-}
-
 
 /**
  * PageLines Strip
@@ -438,23 +144,6 @@ function plstrip( $t ){
 function show_posts_nav() {
 	global $wp_query;
 	return ($wp_query->max_num_pages > 1);
-}
-
-
-/**
- * PageLines bbPress Forum
- *
- * Checks for a bbPress installation by pulling a global identifier from bbPress
- *
- * @since 3.x.x
- *
- * @return bool
- */
-function pagelines_bbpress_forum(){
-	global $bbpress_forum;
-	if($bbpress_forum ){
-		return true;
-	} else return false;
 }
 
 
@@ -496,9 +185,6 @@ function custom_trim_excerpt($text, $length) {
 }
 
 
-
-
-
 /**
  *
  * @TODO document
@@ -511,25 +197,12 @@ function pagelines_add_page($file, $name){
 
 }
 
-/**
- * Used for Callback calls, returns nothing
- *
- * @since 1.0.0
- */
-function pagelines_setup_menu() {
-	echo __( 'Add links using WordPress menus in your site admin.', 'pagelines' );
-}
 
 /**
  * Setup PageLines Template
  *
  * Includes the loading template that sets up all PageLines templates
  *
- * @since   1.1.0
- *
- * @link    http://www.pagelines.com/wiki/Setup_pagelines_template
- *
- * @uses    pagelines_template_area
  */
 function setup_pagelines_template() {
 
@@ -546,29 +219,6 @@ function setup_pagelines_template() {
 }
 
 
-/**
- * PageLines Add Page Callback
- *
- * Adds pages from the child theme.
- *
- * @since   1.1.0
- *
- * @param   $page_array
- * @param   $template_area
- *
- * @return  array
- */
-function pagelines_add_page_callback( $page_array, $template_area ){
-	global $pagelines_user_pages;
-
-	if( is_array($pagelines_user_pages) ){
-		foreach($pagelines_user_pages as $file => $pageinfo){
-			$page_array[$file] = array('name'=>$pageinfo['name']);
-		}
-	}
-
-	return $page_array;
-}
 
 /**
  * Overrides default excerpt handling so we have more control
@@ -577,12 +227,6 @@ function pagelines_add_page_callback( $page_array, $template_area ){
  */
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'improved_trim_excerpt');
-
-/**
- *
- * @TODO document
- *
- */
 function improved_trim_excerpt($text) {
 
 	// Group options at top :)
@@ -668,29 +312,7 @@ function pl_short_excerpt($post_or_id, $words = 10, $excerpt_more = ' [...]') {
 }
 
 
-/**
- * PageLines Nav Classes
- *
- * Returns nav menu class `sf-menu` which will allow the "superfish" JavaScript to work
- *
- * @package     PageLines Framework
- * @subpackage  Functions Library
- * @since       1.1.0
- *
- * @internal    see ..\sections\nav\script.superfish.js
- * @internal    see ..\sections\nav\style.superfish.css
- *
- * @return      string - CSS classes
- */
-function pagelines_nav_classes(){
 
-	$additional_menu_classes = '';
-
-	if(ploption('enable_drop_down'))
-		$additional_menu_classes .= ' sf-menu';
-
-	return $additional_menu_classes;
-}
 
 /**
  *
@@ -716,13 +338,8 @@ function pagelines_draw_css( $css_url, $id = '', $enqueue = false){
  */
 function pagelines_load_css( $css_url, $id, $hash = PL_CORE_VERSION, $enqueue = true){
 
-	if(pagelines_bbpress_forum()){
-		printf('<link rel="stylesheet" id="%s"  href="%s?ver=%s" type="text/css" />%s', $id, $css_url, $hash, "\n");
-	} else {
-		wp_register_style($id, $css_url, array(), $hash, 'all');
-	    wp_enqueue_style( $id );
-	}
-
+	wp_register_style($id, $css_url, array(), $hash, 'all');
+    wp_enqueue_style( $id );
 }
 
 /**
@@ -925,120 +542,6 @@ function pagelines_array_sort( $a, $subkey, $pre = null, $dec = null ) {
 function ui_key($key){
 
 	return ucwords( str_replace( '_', ' ', str_replace( 'pl_', ' ', $key) ) );
-}
-
-/**
- *
- * Return latest tweet as (array) or single tweet text.
- * Tweets are stored in the db
- *
- * @since 2.0b13
- * @return array
- */
-function pagelines_get_tweets( $username, $latest = null) {
-
-
-		// Fetch the tweets from the db
-		// Set the array into a transient for easy reuse
-		// If we get an error store it.
-
-		if ( false === ( $tweets = get_transient( 'section-twitter-' . $username ) ) ) {
-			$params = array(
-				'screen_name'=>$username, // Twitter account name
-				'trim_user'=>true, // only basic user data (slims the result)
-				'include_entities'=>false, // as of Sept 2010 entities were not included in all applicable Tweets. regex still better
-				'include_rts' => true
-			);
-
-			/**
-			 * The exclude_replies parameter filters out replies on the server. If combined with count it only filters that number of tweets (not all tweets up to the requested count)
-			 * If we are not filtering out replies then we should specify our requested tweet count
-			 */
-
-			$twitter_json_url = esc_url_raw( 'http://api.twitter.com/1/statuses/user_timeline.json?' . http_build_query( $params ), array( 'http', 'https' ) );
-			unset( $params );
-			$response = wp_remote_get( $twitter_json_url, array( 'User-Agent' => 'WordPress.com Twitter Widget' ) );
-			$response_code = wp_remote_retrieve_response_code( $response );
-			if ( 200 == $response_code ) {
-				$tweets = wp_remote_retrieve_body( $response );
-				$tweets = json_decode( $tweets, true );
-				$expire = 900;
-				if ( !is_array( $tweets ) || isset( $tweets['error'] ) ) {
-					$tweets = 'error';
-					$expire = 300;
-				}
-			} else {
-				$tweets = 'error';
-				$expire = 300;
-				set_transient( 'section-twitter-response-code-' . $username, $response_code, $expire );
-			}
-
-			set_transient( 'section-twitter-' . $username, $tweets, $expire );
-		}
-
-		// We should have a list of tweets for $username or an error code to return.
-
-		if ( 'error' != $tweets ) { // Tweets are good, return the array or a single if asked for ($latest)
-
-			if ( $latest && is_array( $tweets ) && isset( $tweets[0]['text'] ) )
-				return  $tweets[0];
-			elseif ( is_array( $latest ) )
-				return $latest;
-		} else {
-
-			// We couldnt get the tweets so lets cycle through the possible errors.
-
-			$error = get_transient( 'section-twitter-response-code-' . $username );
-			switch( $error ) {
-
-				case 401:
-					$text = wp_kses( sprintf( __( "Error: Please make sure the Twitter account is <a href='%s'>public</a>.", 'pagelines' ), 'http://support.twitter.com/forums/10711/entries/14016' ), array( 'a' => array( 'href' => true ) ) );
-				break;
-
-				case 403:
-					$text = __( 'Error 403: Your IP is being rate limited by Twitter.', 'pagelines' );
-				break;
-
-				case 404:
-					$text = __( 'Error 404: Your username was not found on Twitter.', 'pagelines' );
-				break;
-
-				case 420:
-					$text = __( 'Error 420: Your IP is being rate limited by Twitter.', 'pagelines' );
-				break;
-
-				case 502:
-					$text = __( 'Error 502: Twitter is being upgraded.', 'pagelines' );
-				break;
-
-				default:
-					$text = __( 'Unknown Twitter error.', 'pagelines' );
-				break;
-			}
-			return $text;
-		}
-}
-
-
-/**
- *
- * @TODO document
- *
- */
-function pagelines_tweet_clickable( $tweet ) {
-
-	$regex = '/http([s]?):\/\/([^\ \)$]*)/';
-	$link_pattern = '<a href="http$1://$2" rel="nofollow" title="$2">http$1://$2</a>';
-	$tweet = preg_replace($regex,$link_pattern,$tweet);
-	$regex = '/@([a-zA-Z0-9_]*)/';
-	$link_pattern = '<a href="http://twitter.com/$1" title="$1 profile on Twitter" rel="nofollow">@$1</a>';
-	$tweet = preg_replace($regex,$link_pattern,$tweet);
-	$regex = '/\#([a-zA-Z0-9_]*)/';
-	$link_pattern = '<a href="https://twitter.com/search?q=%23$1&src=hash" title="Search for $1 on Twitter" rel="nofollow">#$1</a>';
-	$tweet = preg_replace($regex,$link_pattern,$tweet);
-
-	return $tweet;
-
 }
 
 
@@ -1292,14 +795,6 @@ function inline_css_markup($id, $css, $echo = true){
 		echo $mark;
 	else
 		return $mark;
-}
-
-function pl_get_plus_link() {
-
-	if( VDEV )
-		return ADD_PLUS_DEV;
-	else
-		return ADD_PLUS_PRO;
 }
 
 

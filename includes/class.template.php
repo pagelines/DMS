@@ -118,9 +118,7 @@ class PageLinesTemplate {
 		if( isset( $post_type_breaker ) )
 			return apply_filters( 'pagelines_page_type', $post_type_breaker, $post );
 
-		if(pl_is_integration())
-			$type = pl_get_integration();
-		elseif(is_404())
+		if(is_404())
 			$type = '404_page';
 		elseif( pl_is_cpt('archive') )
 			$type = get_post_type_plural();

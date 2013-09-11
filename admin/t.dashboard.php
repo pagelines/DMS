@@ -208,12 +208,6 @@ class PageLinesDashboard {
 		if(!isset($args['format']) || $args['format'] != 'plus-extensions')
 			return;
 
-		if( pagelines_check_credentials() && ! pagelines_check_credentials( 'plus' ) ):
-
-			printf( '<a href="%s" class="extend_button">%s &rarr;</a>', pl_get_plus_link(), __( 'Get PageLines Plus', 'pagelines' ) );
-
-		endif;
-
 		if(!pagelines_check_credentials()):
 			printf( '<a href="%s" class="extend_button discrete">%s &rarr;</a>', admin_url( PL_ACCOUNT_URL ), __( 'Have Plus? Login', 'pagelines' ) );
 		endif;

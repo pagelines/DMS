@@ -133,16 +133,10 @@ class PageLinesRenderCSS {
 
 		$a = $this->get_compiled_core();
 		$b = $this->get_compiled_sections();
-		$gfonts = preg_match( '#(@import[^;]*;)#', $a['type'], $g );
 		$out = '';
-		if ( $gfonts ) {
-			$a['core'] = sprintf( "%s\n%s", $g[1], $a['core'] );
-			$a['type'] = str_replace( $g[1], '', $a['type'] );
-		}
 		$out .= $this->minify( $a['core'] );
 		$out .= $this->minify( $b['sections'] );
-		$out .= $this->minify( $a['type'] );
-		$out .= $this->minify( $a['dynamic'] );
+		
 		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
 		if ( is_multisite() )
 			$blog = sprintf( ' on blog [%s]', $blog_id );
@@ -288,49 +282,6 @@ class PageLinesRenderCSS {
 
 	/**
 	 *
-	 *  Draw dynamic CSS inline.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
-	 */
-	function draw_inline_dynamic_css() {
-
-		if( has_filter( 'disable_dynamic_css' ) )
-			return;
-
-		$css = $this->get_dynamic_css();
-		inline_css_markup('dynamic-css', $css['dynamic'] );
-	}
-
-	/**
-	 *
-	 *  Get Dynamic CSS
-	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
-	 *
-	 */
-	function get_dynamic_css(){
-
-		$pagelines_dynamic_css = new PageLinesCSS;
-
-		$pagelines_dynamic_css->typography();
-
-		$typography = $pagelines_dynamic_css->css;
-
-		unset( $pagelines_dynamic_css->css );
-		$pagelines_dynamic_css->layout();
-		$pagelines_dynamic_css->options();
-
-		$out = array(
-			'type'		=>	$typography,
-			'dynamic'	=>	apply_filters('pl-dynamic-css', $pagelines_dynamic_css->css)
-		);
-		return $out;
-	}
-
-	/**
-	 *
 	 *  Enqueue the dynamic css file.
 	 *
 	 *  @package PageLines DMS
@@ -435,7 +386,6 @@ class PageLinesRenderCSS {
 			$start_time = microtime(true);
 			build_pagelines_layout();
 
-			$dynamic = $this->get_dynamic_css();
 
 			$core_less = $this->get_core_lesscode();
 
@@ -445,8 +395,6 @@ class PageLinesRenderCSS {
 
 			$end_time = microtime(true);
 			$a = array(
-				'dynamic'	=> $dynamic['dynamic'],
-				'type'		=> $dynamic['type'],
 				'core'		=> $core_less,
 				'c_time'	=> round(($end_time - $start_time),5),
 				'time'		=> time()

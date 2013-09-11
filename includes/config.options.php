@@ -1112,6 +1112,10 @@ function default_less(){
  */
 function get_option_array( $load_unavailable = true ){
 	
+	_deprecated_function( __FUNCTION__, '1.1' );
+	
+	return array();
+	
 	global $disabled_settings; 
 	
 	$default = new PageLinesOptionsArray();

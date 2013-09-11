@@ -684,25 +684,6 @@ function pl_nav_fallback($class = '', $limit = 6){
 	printf('<ul class="%s">%s</ul>', $class, $pages_out);
 }
 
-/**
- *
- *  Fallback for navigation, if it isn't set up
- *
- *  @package PageLines DMS
- *  @subpackage Functions Library
- *  @since 1.1.0
- *
- */
-
-// DEPRECATED for pl_nav_fallback
-function pagelines_nav_fallback() {
-	global $post; ?>
-
-	<ul id="menu-nav" class="main-nav<?php echo pagelines_nav_classes();?>">
-		<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
-	</ul><?php
-}
-
 
 /**
  *
