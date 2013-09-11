@@ -11,7 +11,7 @@
  * @link        http://www.pagelines.com/DMS
  *
  * @author      PageLines   http://www.pagelines.com/
- * @copyright   Copyright (c) 2008-2012, PageLines  hello@pagelines.com
+ * @copyright   Copyright (c) 2008-2013, PageLines  hello@pagelines.com
  *
  * @usedby get_search_form
  * @internal $echo is passed from that function

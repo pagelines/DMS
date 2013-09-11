@@ -12,7 +12,7 @@
  * @link        http://www.pagelines.com/DMS
  *
  * @author      PageLines   http://www.pagelines.com/
- * @copyright   Copyright (c) 2008-2012, PageLines  hello@pagelines.com
+ * @copyright   Copyright (c) 2008-2013, PageLines  hello@pagelines.com
  *
  * @internal    This is used by BuddyPress as well and should play nice with child themes.
  *

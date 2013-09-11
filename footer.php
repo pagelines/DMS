@@ -13,7 +13,7 @@
  * @link        http://www.pagelines.com/DMS
  *
  * @author      PageLines   http://www.pagelines.com/
- * @copyright   Copyright (c) 2008-2012, PageLines  hello@pagelines.com
+ * @copyright   Copyright (c) 2008-2013, PageLines  hello@pagelines.com
  *
  * @internal    last revised February November 21, 2011
  * @version     ...
