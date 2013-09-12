@@ -48,11 +48,6 @@ class PageLinesLess {
 			'invert-light'			=> $this->invert( 'light' ),
 			'font-size'				=> $fontsize . 'px',
 			'line-height'			=> page_line_height( $fontsize, $content_width ) . 'px',
-			'pl-page-width'			=> pl_page_width() . 'px',
-			'pl-content-width'		=> pl_content_width() . 'px',
-			'pl-responsive-width'	=> round( pl_responsive_width(), 2 ) . '%',
-			'pl-sidebar-width'		=> pl_sidebar_width() . 'px',
-			'pl-secondary-width'	=> pl_secondary_sidebar_width() . 'px'
 		);
 
 		if(is_array($less_vars))

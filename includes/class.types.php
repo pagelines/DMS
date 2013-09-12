@@ -272,32 +272,4 @@ class PageLinesPostType {
 }
 /////// END OF PostType CLASS ////////
 
-/**
- * Checks to see if page is a CPT, or a CPT archive (type)
- *
- */
-function pl_is_cpt( $type = 'single' ){
 
-	if( false == ( $currenttype = get_post_type() ) )
-		return false;
-
-	$std_pt = ( 'post' == $currenttype || 'page' == $currenttype || 'attachment' == $currenttype ) ? true : false;
-
-	$is_type = ( ( $type == 'archive' && is_archive() ) || $type == 'single' ) ? true : false;
-
-	return ( $is_type && !$std_pt  ? true : false );
-
-}
-
-/**
-*
-* @TODO do
-*
-*/
-function get_post_type_plural( $id = null ){
-
-	if(isset($id))
-		return $id.'_archive';
-	else
-		return get_post_type().'_archive';
-}

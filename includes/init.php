@@ -44,54 +44,15 @@ require_once( PL_INCLUDES . '/lib.head.php' );
 // Applied in body
 require_once( PL_INCLUDES . '/lib.body.php' );
 
-/**
- * Editor
- */
+// Start the editor
 require_once( PL_EDITOR . '/editor.init.php' );
 
 // V3 Editor functions --- > always load
 require_once( PL_EDITOR . '/editor.functions.php' );
 
-/**
- * Load Options Functions
- */
-require_once( PL_INCLUDES . '/library.options.php' );
-
-
-/**
- * Load shortcode library
- */
+// Shortcodes
 require_once( PL_INCLUDES . '/class.shortcodes.php');
 
-/**
- * Load Extension library
- */
-require_once( PL_INCLUDES . '/library.extend.php');
-
-/**
- * Load Layouts library
- */
-require_once( PL_INCLUDES . '/library.layouts.php');
-
-
-/**
- * Load Custom Post Type Class
- */
-require_once( PL_INCLUDES . '/class.types.php' );
-
-/**
- * Posts Handling
- */
-require_once( PL_INCLUDES . '/class.posts.php' );
-
-
-/**
- * Load layout class and setup layout singleton
- * @global object $pagelines_layout
- */
-require_once( PL_INCLUDES . '/class.layout.php' );
-
-require_once( PL_INCLUDES . '/library.layout.php' );
 
 
 /**
@@ -121,11 +82,6 @@ require_once( PL_INCLUDES . '/class.objects.php' );
 require_once( PL_INCLUDES . '/class.typography.php' );
 
 /**
- * Load Colors
- */
-require_once( PL_INCLUDES . '/class.colors.php' );
-
-/**
  * Load dynamic CSS handling
  */
 require_once( PL_INCLUDES . '/class.css.php' );
@@ -145,10 +101,6 @@ require_once( PL_ADMIN . '/class.profiles.php' );
  */
 include( PL_INCLUDES . '/library.upgrades.php' );
 
-/**
- * Add Integration Functionality
- */
-require_once( PL_INCLUDES . '/class.integration.php' );
 
 /**
  * Add Multisite

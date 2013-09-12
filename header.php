@@ -35,8 +35,7 @@ if(has_action('override_pagelines_body_output')):
 	do_action('override_pagelines_body_output');
 
 else:  ?>
-<div id="site" class="site-wrap <?php echo pagelines_layout_mode();?>">
-
+<div id="site" class="site-wrap">
 	<?php pagelines_register_hook('pagelines_before_page'); // Hook ?>
 	<div  class="boxed-wrap site-translate">
 		<?php pagelines_register_hook( 'pagelines_site_wrap' ); // Hook ?>

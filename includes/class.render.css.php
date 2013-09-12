@@ -360,7 +360,6 @@ class PageLinesRenderCSS {
 		} else {
 
 			$start_time = microtime(true);
-			build_pagelines_layout();
 
 
 			$core_less = $this->get_core_lesscode();
@@ -399,7 +398,7 @@ class PageLinesRenderCSS {
 		} else {
 
 			$start_time = microtime(true);
-			build_pagelines_layout();
+			//build_pagelines_layout();
 
 			$sections = $this->get_all_active_sections();
 
@@ -436,7 +435,7 @@ class PageLinesRenderCSS {
 		} else {
 
 			$start_time = microtime(true);
-			build_pagelines_layout();
+			//build_pagelines_layout();
 
 			$custom = stripslashes( pl_setting( 'custom_less' ) );
 

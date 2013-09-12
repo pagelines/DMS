@@ -47,6 +47,36 @@ function is_pagelines_special( $args = array() ) {
 		return false;
 }
 
+/**
+ * Checks to see if page is a CPT, or a CPT archive (type)
+ *
+ */
+function pl_is_cpt( $type = 'single' ){
+
+	if( false == ( $currenttype = get_post_type() ) )
+		return false;
+
+	$std_pt = ( 'post' == $currenttype || 'page' == $currenttype || 'attachment' == $currenttype ) ? true : false;
+
+	$is_type = ( ( $type == 'archive' && is_archive() ) || $type == 'single' ) ? true : false;
+
+	return ( $is_type && !$std_pt  ? true : false );
+
+}
+
+/**
+*
+* @TODO do
+*
+*/
+function get_post_type_plural( $id = null ){
+
+	if(isset($id))
+		return $id.'_archive';
+	else
+		return get_post_type().'_archive';
+}
+
 
 // ------------------------------------------
 // HOOK/FILTER UTILITIES
@@ -634,6 +664,138 @@ function pagelines_register_plugins() {
 		}
 	}
 	return $pagelines_plugins;
+}
+
+/**
+ * Add pages to main settings area.
+ *
+ * @since 2.2
+ *
+ * @param $args Array as input.
+ * @param string $name Name of page.
+ * @param string $title Title of page.
+ * @param string $path Function use to get page contents.
+ * @param array $array Array containing page page of settings.
+ * @param string $type Type of page.
+ * @param string $raw Send raw HTML straight to the page.
+ * @param string $layout Layout type.
+ * @param string $icon URI for page icon.
+ * @param int $postion Position to insert into main menu.
+ * @return array $optionarray
+ */
+function pl_add_options_page( $args ) {
+
+	if( pl_has_editor() ){
+
+		global $pagelines_add_settings_panel;
+		
+		$d = array(
+			'name' 	=> 'No Name',
+			'icon'	=> 'icon-edit',
+			'pos'	=> 10,
+			'opts' 	=> array()
+		);
+		
+		
+		if( ! isset($args['opts']) && isset($args['array']) )
+			$args['opts'] = $args['array']; 
+
+
+		if( ! isset($args['pos']) && isset($args['position']) )
+			$args['pos'] = $args['position']; 
+
+		$a = wp_parse_args( $args, $d );
+
+		$id = pl_create_id($a['name']);
+
+		// make sure its not set elsewhere. Navbar was already set, and we were writing twice
+		if( !isset( $pagelines_add_settings_panel[ $id ]) )
+			$pagelines_add_settings_panel[ $id ] = $a;
+			
+	
+	}
+	
+	
+}
+
+/**
+ * Filter to add custom pages to core settings area
+ *
+ * @since 3.0
+ */
+add_filter( 'pl_settings_array', 'pl_add_settings_panel', 15 );
+function pl_add_settings_panel( $settings ){
+
+	global $pagelines_add_settings_panel;
+	
+	if ( !isset( $pagelines_add_settings_panel ) || !is_array( $pagelines_add_settings_panel ) )
+		return $settings;
+
+	foreach( $pagelines_add_settings_panel as $panel => $setup ) {
+
+		if(strpos($setup['icon'], "http://") !== false)
+			$setup['icon'] = 'icon-circle';
+			
+		$setup['opts'] = process_to_new_option_format( $setup['opts'] );
+		
+		if(!isset($settings[ $panel ]))
+			$settings[ $panel ] = $setup;
+
+
+	}
+	
+	return $settings;
+
+}
+
+
+add_action( 'wp_head', 'load_child_style', 20 );
+function load_child_style() {
+
+	if ( !defined( 'PL_CUSTOMIZE' ) )
+		return;
+
+	// check for MU styles
+	if ( VDEV && is_multisite() ) {
+
+		global $blog_id;
+		$mu_style = sprintf( '%s/blogs/%s/style.css', EXTEND_CHILD_DIR, $blog_id );
+		if ( is_file( $mu_style ) ) {
+			$mu_style_url = sprintf( '%s/blogs/%s/style.css', EXTEND_CHILD_URL, $blog_id );
+			$cache_ver = '?ver=' . pl_cache_version( $mu_style );
+			pagelines_draw_css( $mu_style_url . $cache_ver, 'pl-extend-style' );
+		}
+	} else {
+		if ( is_file( PL_EXTEND_STYLE_PATH ) ){
+
+			$cache_ver = '?ver=' . pl_cache_version( PL_EXTEND_STYLE_PATH );
+			pagelines_draw_css( PL_EXTEND_STYLE . $cache_ver, 'pl-extend-style' );
+		}
+	}
+}
+
+add_action( 'init', 'load_child_functions' );
+function load_child_functions() {
+	if ( !defined( 'PL_CUSTOMIZE' ) )
+		return;
+
+	// check for MU styles
+	if ( VDEV && is_multisite() ) {
+
+		global $blog_id;
+		$mu_functions = sprintf( '%s/blogs/%s/functions.php', EXTEND_CHILD_DIR, $blog_id );
+		$mu_less = sprintf( '%s/blogs/%s/style.less', EXTEND_CHILD_DIR, $blog_id );
+		if ( is_file( $mu_functions ) )
+			require_once( $mu_functions );
+		if ( is_file( $mu_less ) )
+			pagelines_insert_core_less( $mu_less );
+	} else {
+		$less = sprintf( '%s/style.less', EXTEND_CHILD_DIR );
+		if ( is_file( PL_EXTEND_FUNCTIONS ) )
+			require_once( PL_EXTEND_FUNCTIONS );
+		if ( is_file( $less ) )
+			pagelines_insert_core_less( $less );
+	}
 }
 
 

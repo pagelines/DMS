@@ -233,6 +233,8 @@ class PageLinesPostLoop extends PageLinesSection {
 			
 		} else {	
 		
+			require_once( $this->base_dir . '/class.posts.php' );
+			
 			//Included in theme root for easy editing.
 			$theposts = new PageLinesPosts( $this );
 			$theposts->load_loop();

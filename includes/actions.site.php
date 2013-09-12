@@ -23,8 +23,6 @@ add_action('pagelines_before_html', 'build_pagelines_template');
  */
 add_action('admin_head', 'build_pagelines_template', 5);
 
-add_action('pagelines_before_html', 'build_pagelines_layout', 5);
-add_action('admin_head', 'build_pagelines_layout');
 
 
 

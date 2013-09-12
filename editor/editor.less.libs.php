@@ -124,7 +124,7 @@ class EditorLessHandler{
 	 */
 	public function draft_core_data() {
 
-			build_pagelines_layout();
+		//	build_pagelines_layout();
 
 			$data = array();
 			$data['sections'] = $this->get_all_active_sections();
