@@ -148,7 +148,6 @@ class EditorLessHandler{
 		$compiled_sections	= pl_cache_get( 'draft_sections_compiled', array( &$this, 'compile' ), array( $raw['sections'] ) );
 
 		return array(
-			'dynamic'	=> $raw['dynamic'],
 			'compiled_core'	=> $compiled_core,
 			'compiled_sections'	=> $compiled_sections,
 			);

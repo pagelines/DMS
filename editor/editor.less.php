@@ -58,7 +58,6 @@ class EditorLess extends EditorLessHandler {
 				$css = $this->minify( $core['compiled_core'] );
 				$css .= $this->minify( $core['compiled_sections'] );
 				
-				$css .= $this->minify( $core['dynamic'] );
 				$this->write_draft_less_file( $css );
 				echo $css;
 			}
