@@ -309,13 +309,6 @@
 					
 					that.activeForm.imagesLoaded( function(){
 						
-						
-						that.accordionArea
-							.accordion({
-						        header: "> .opt > .opt-name"
-								, heightStyle: "content"
-								, collapsible: true
-						      })
 					
 						that.accordionArea
 						      .sortable({
