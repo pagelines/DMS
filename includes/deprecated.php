@@ -6,6 +6,40 @@
  * @copyright	2011 PageLines
  */
 
+
+
+/**
+*
+* @TODO do
+*
+*/
+function register_metatab($settings, $option_array, $section = '', $location = 'bottom'){
+
+
+
+	// Have to hack around this for version 3
+	if(has_action('override_metatab_register')){
+
+		do_action('override_metatab_register', $option_array);
+
+	} 
+
+}
+
+/**
+ *
+ *  Returns Options Array
+ *
+ */
+function get_option_array( $load_unavailable = true ){
+
+	// _deprecated_function( __FUNCTION__, '1.1' );
+
+	return array();
+
+
+}
+
 /**
  * pagelines_register_section()
  *

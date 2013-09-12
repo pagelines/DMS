@@ -73,19 +73,6 @@ require_once( PL_INCLUDES . '/library.extend.php');
  */
 require_once( PL_INCLUDES . '/library.layouts.php');
 
-/**
- * Theme configuration files
- */
-require_once( PL_INCLUDES . '/config.options.php' );
-
-
-
-
-/**
- * Dynamic CSS Selectors
- */
-require_once( PL_INCLUDES . '/config.selectors.php' );
-
 
 /**
  * Load Custom Post Type Class
@@ -106,11 +93,6 @@ require_once( PL_INCLUDES . '/class.layout.php' );
 
 require_once( PL_INCLUDES . '/library.layout.php' );
 
-
-/**
- * Users Handling
- */
-require_once( PL_INCLUDES . '/class.users.php' );
 
 /**
  * Load sections handling class
@@ -219,7 +201,7 @@ function pl_load_registers(){
 	/**
 	 * Load Singleton Globals
 	 */
-	require_once( PL_INCLUDES . '/init.singleton.php' );
+	$GLOBALS['pl_section_factory'] = new PageLinesSectionFactory();
 
 
 	/**

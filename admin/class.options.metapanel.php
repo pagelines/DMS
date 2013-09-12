@@ -646,28 +646,6 @@ function pagelines_metapanel_callback($post, $object){
 }
 
 
-/**
-*
-* @TODO do
-*
-*/
-function register_metatab($settings, $option_array, $section = '', $location = 'bottom'){
-
-	// Have to hack around this for version 3
-	if(has_action('override_metatab_register')){
-
-		do_action('override_metatab_register', $option_array);
-
-	} else {
- 		global $metapanel_options;
-
-		foreach($option_array as $key => $opt)
-			$option_array[$key]['section'] = $section;
-
-		$metapanel_options->register_tab($settings, $option_array, $location);
-	}
-
-}
 
 
 /**
