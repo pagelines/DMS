@@ -284,9 +284,7 @@ class PLNavBar extends PageLinesSection {
 
 	$classes = join(' ', $class);
 
-	$image_data = pl_get_image_data( $this->opt( 'navbar_logo' ), true );
-
-	$brand = ( $this->opt( 'navbar_logo' ) || $this->opt( 'navbar_logo' ) != '') ? sprintf( '<img src="%s" alt="%s" title="%s" />', $image_data['url'], $image_data['alt'], $image_data['title'] ) : sprintf( '<h2 class="plbrand-text">%s</h2>', get_bloginfo( 'name' ) );
+	$brand = ( $this->opt( 'navbar_logo' ) || $this->opt( 'navbar_logo' ) != '') ? sprintf( '<img src="%s" alt="%s" />', $this->opt( 'navbar_logo' ), get_bloginfo( 'name' ) ) : sprintf( '<h2 class="plbrand-text">%s</h2>', get_bloginfo( 'name' ) );
     $navbartitle = $this->opt( 'navbar_title' );
 
 	?>
