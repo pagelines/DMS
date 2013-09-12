@@ -34,7 +34,7 @@ add_filter( 'pagelines_options_array', 'pagelines_merge_addon_options' );
 
 add_action('wp_print_styles', 'workaround_pagelines_template_styles'); // Used as workaround on WP login page (and other pages with wp_print_styles and no wp_head/pagelines_before_html)
 
-add_action( 'wp_print_styles', 'pagelines_get_childcss', 99);
+
 
 
 /**
@@ -109,9 +109,6 @@ function pagelines_check_less_reset() {
 		do_action( 'extend_flush' );
 
 }
-
-
-// add_action( 'template_redirect', 'pl_check_integrations' ); // shouldnt be needed now
 
 add_action( 'comment_form_before', 'pl_comment_form_js' );
 function pl_comment_form_js() {

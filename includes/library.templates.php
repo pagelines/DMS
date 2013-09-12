@@ -928,10 +928,6 @@ function pagelines_cred(){
 * @TODO do
 *
 */
-function pagelines_get_childcss() {
-	if ( ! is_admin() && is_child_theme() )
-		pagelines_load_css(  get_bloginfo('stylesheet_url'), 'pagelines-child-stylesheet', pagelines_get_style_ver());
-}
 
 function pl_social_button( $type = 'facebook', $args) {
 

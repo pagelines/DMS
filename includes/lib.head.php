@@ -22,3 +22,10 @@ function pagelines_register_js() {
 	// Load Supersize BG Script
 	pagelines_supersize_bg();
 }
+
+add_action( 'wp_print_styles', 'pagelines_get_childcss', 99);
+function pagelines_get_childcss() {
+	if ( ! is_admin() && is_child_theme() ){
+		wp_enqueue_style( 'DMS-theme', get_bloginfo('stylesheet_url'), array(), pagelines_get_style_ver(), 'all');
+	}
+}

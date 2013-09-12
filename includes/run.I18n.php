@@ -1,10 +1,13 @@
 <?php
 /*
-	Localize this theme!
-*/
+ *	Setup DMS Localization
+ */
 load_theme_textdomain('pagelines', PAGELINES_LANGUAGE_DIR);
+
 $locale = get_locale();
+
 $locale_file = PAGELINES_LANGUAGE_DIR . "/$locale.php";
+
 if ( is_readable( $locale_file ) )
 	require_once( $locale_file );
 

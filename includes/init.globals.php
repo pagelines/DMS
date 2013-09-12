@@ -153,11 +153,6 @@ if (is_dir( PL_CHILD_DIR . '/language' )) {
 define( 'PAGELINES_LANGUAGE_DIR', $lang );
 
 /**
- * Functional Singletons - Used to work around hooks/filters
- */
-$GLOBALS['pagelines_user_pages'] = array();
-
-/**
  * Pro/Free Version Variables
  */
 define( 'VPRO_NAME','PageLines Framework' );

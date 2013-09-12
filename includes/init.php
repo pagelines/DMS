@@ -16,51 +16,29 @@ define('PL_INCLUDES', get_template_directory() . '/includes');
 if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
 	require_once( PL_INCLUDES . '/library.pagelines.php');
 
-/**
- * Load deprecated functions
- */
-require_once (PL_INCLUDES.'/deprecated.php');
 
-/**
- * Check if version has changed.
- */
-$installed = get_theme_mod( 'pagelines_version' );
-$actual = pl_get_theme_data( get_template_directory(), 'Version' );
+// Load deprecated functions
+require_once( PL_INCLUDES.'/deprecated.php' );
 
-// if new version do some housekeeping.
-if ( version_compare( $actual, $installed ) > 0 ) {
+// Run version checks and setup
+require_once( PL_INCLUDES . '/run.versioning.php');
 
-		delete_transient( 'pagelines_theme_update' );
-		delete_transient( 'pagelines_extend_themes' );
-		delete_transient( 'pagelines_extend_sections' );
-		delete_transient( 'pagelines_extend_plugins' );
-		delete_transient( 'pagelines_extend_integrations' );
-		delete_transient( 'pagelines_sections_cache' );
-		remove_theme_mod( 'available_updates' );
-		remove_theme_mod( 'pending_updates' );
-		define( 'PL_CSS_FLUSH', true );
-}
-set_theme_mod( 'pagelines_version', $actual );
-set_theme_mod( 'pagelines_child_version', pl_get_theme_data( get_stylesheet_directory(), 'Version' ) );
 
-/**
- * Setup all the globals for the framework
- */
+// Setup Globals
 require_once( PL_INCLUDES . '/init.globals.php');
 
-/**
- * Localization - Needs to come after config_theme and before localized config files
- */
-require_once( PL_INCLUDES . '/library.I18n.php');
+// LOCALIZATION - Needs to come after config_theme and before localized config files
+require_once( PL_INCLUDES . '/run.I18n.php');
 
-// Core Functions MISC
-require_once( PL_INCLUDES . '/lib.functions.php' );
+// Utility functions and hooks/filters
+require_once( PL_INCLUDES . '/lib.utils.php' );
 
 // Templates and Functions applied in site head
 require_once( PL_INCLUDES . '/lib.head.php' );
 
 // Templates and Functions applied in site body
 require_once( PL_INCLUDES . '/lib.body.php' );
+
 
 /**
  * Editor
@@ -276,7 +254,6 @@ function pl_load_registers(){
 	global $load_sections;
 	$load_sections = new PageLinesRegister();
 	$load_sections->pagelines_register_sections();
-	$load_sections->register_sidebars();
 
 	pagelines_register_hook('pagelines_setup'); // Hook
 
