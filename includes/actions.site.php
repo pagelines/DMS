@@ -149,8 +149,4 @@ function pl_fixed_top_area(){
 	<?php 
 }
 
-/**
- *  Fix The WordPress Login Image Title
- */
-if ( VPRO )
-	add_action('login_head', 'pl_fix_login_image');
+

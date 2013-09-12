@@ -23,7 +23,6 @@ require_once( PL_INCLUDES.'/deprecated.php' );
 // Run version checks and setup
 require_once( PL_INCLUDES . '/run.versioning.php');
 
-
 // Setup Globals
 require_once( PL_INCLUDES . '/init.globals.php');
 
@@ -33,12 +32,14 @@ require_once( PL_INCLUDES . '/run.I18n.php');
 // Utility functions and hooks/filters
 require_once( PL_INCLUDES . '/lib.utils.php' );
 
-// Templates and Functions applied in site head
+// Applied on load
+require_once( PL_INCLUDES . '/lib.load.php' );
+
+// Applied in head
 require_once( PL_INCLUDES . '/lib.head.php' );
 
-// Templates and Functions applied in site body
+// Applied in body
 require_once( PL_INCLUDES . '/lib.body.php' );
-
 
 /**
  * Editor
@@ -47,12 +48,6 @@ require_once( PL_EDITOR . '/editor.init.php' );
 
 // V3 Editor functions --- > always load
 require_once( PL_EDITOR . '/editor.functions.php' );
-
-/**
- * Load template related functions
- */
-require_once( PL_INCLUDES . '/library.wordpress.php');
-
 
 /**
  * Load Options Functions
@@ -81,19 +76,10 @@ require_once( PL_INCLUDES . '/library.extend.php');
 require_once( PL_INCLUDES . '/library.layouts.php');
 
 /**
- * Load Layouts library
- */
-require_once( PL_INCLUDES . '/library.theming.php');
-
-/**
  * Theme configuration files
  */
 require_once( PL_INCLUDES . '/config.options.php' );
 
-/**
- * Theme/Framework Welcome
- */
-require_once( PL_ADMIN . '/class.welcome.php' );
 
 
 
@@ -198,11 +184,6 @@ require_once( PL_INCLUDES . '/class.themesupport.php' );
  * Add Less Functions
  */
 require_once( PL_INCLUDES . '/less.functions.php' );
-
-/**
- * Add WordPress Plugin Support
- */
-require_once( PL_INCLUDES . '/library.plugins.php' );
 
 /**
  * Build Version

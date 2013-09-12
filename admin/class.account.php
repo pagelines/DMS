@@ -66,31 +66,6 @@ class PageLinesAccount {
 		$d['DMS_tools']	= $dms_tools->admin_interface();
 
 
-			
-			
-
-		if(!pl_deprecate_v2()){
-				
-				// $d['_plus_extensions'] = $this->pl_add_extensions_dash();
-				// 
-				// $d['_live_chat'] = $this->pl_add_live_chat_dash();
-				$d['_resources'] = $this->pl_add_support_dash();
-				
-				$d['_getting_started'] = $this->pl_add_welcome();
-
-				// $d['Import-Export']	= array(
-				// 	'icon'			=> PL_ADMIN_ICONS.'/extend-inout.png',
-				// 	'import_set'	=> array(
-				// 		'default'	=> '',
-				// 		'type'		=> 'import_export',
-				// 		'layout'	=> 'full',
-				// 		'title'		=> __( 'Import/Export PageLines Settings', 'pagelines' ),
-				// 		'shortexp'	=> __( 'Use this form to upload PageLines settings from another install.', 'pagelines' ),
-				// 	)
-				// );
-
-			}
-
 
 		return apply_filters( 'pagelines_account_array', $d );
 	}
@@ -250,24 +225,4 @@ class PageLinesAccount {
 		return $a;
 	}
 
-	/**
-	 * Welcome Message
-	 *
-	 * @since 2.0.0
-	 */
-	function pl_add_welcome(){
-
-		$welcome = new PageLinesWelcome();
-
-		$a = array(
-			'icon'			=> PL_ADMIN_ICONS.'/book.png',
-			'hide_pagelines_introduction'	=> array(
-				'type'			=> 'text_content',
-				'flag'			=> 'hide_option',
-				'exp'			=> $welcome->get_welcome()
-			),
-		);
-
-		return apply_filters('pagelines_options_welcome', $a);
-	}
 }
