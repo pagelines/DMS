@@ -152,6 +152,8 @@ function pagelines_register_js() {
           			wp_enqueue_script( 'html5-js');
           			wp_register_script( 'respond-js', PL_JS . '/respond.min.js', PL_CORE_VERSION, false);
           			wp_enqueue_script( 'respond-js');
+          			wp_register_script('selectivizr-min', PL_JS . '/selectivizr-min.js');
+    				wp_enqueue_script('selectivizr-min');
 
           		break;
     			}	

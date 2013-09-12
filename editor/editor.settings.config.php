@@ -342,23 +342,6 @@ class EditorSettings {
 					'type'		=> 'check',
 					'label'		=> __('Enable IE8 compatibility?', 'pagelines'),
 					'title'		=> __('IE8 Compatibility'),
-					'help'		=> __( 'If you enable this option, PageLines DMS will use html5.js and respond.js to fix most of the layout issues in Internet Explorer 8.<br />
-										You will need to add the following CSS to your Custom CSS/Less field or in your child theme style.css: <br /><strong>
-										/*IE8 first section fix*/<br />
-										.ie8 .section-plcolumn:first-child {<br />
-											margin-left: 0 !important;<br />
-											clear: both;<br />
-										}<br />
-										.ie8 section:first-child {<br />
-											margin-left: 0 !important;<br />
-											clear: both;<br />
-										}<br /></strong>
-										If you use sections with left offset, add the class "first" to the first column in a group of columns, then the CSS:<br /><strong>
-
-										.ie8 .first {<br />
-											margin-left: 0 !important;<br />
-											clear: both;<br />
-										}</strong>', 'pagelines' ),
 				),
 			array(
 					'key'	=> 'v2_upgrading', 
