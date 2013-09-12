@@ -35,6 +35,9 @@ require_once( PL_INCLUDES . '/lib.utils.php' );
 // Applied on load
 require_once( PL_INCLUDES . '/lib.load.php' );
 
+// Applied on load
+require_once( PL_INCLUDES . '/lib.elements.php' );
+
 // Applied in head
 require_once( PL_INCLUDES . '/lib.head.php' );
 
@@ -53,11 +56,6 @@ require_once( PL_EDITOR . '/editor.functions.php' );
  * Load Options Functions
  */
 require_once( PL_INCLUDES . '/library.options.php' );
-
-/**
- * Load template related functions
- */
-require_once( PL_INCLUDES . '/library.templates.php');
 
 
 /**

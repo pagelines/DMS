@@ -226,7 +226,6 @@ class PageLinesPostLoop extends PageLinesSection {
 	*/
    function section_template() {
 	
-		global $pagelines_render;
 		
 		if(do_special_content_wrap()){
 			 global $integration_out;

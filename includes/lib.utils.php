@@ -583,6 +583,36 @@ function pagelines_get_style_ver( $tpath = false ){
 }
 
 // ------------------------------------------
+// LESS UTILITIES
+// ------------------------------------------
+
+function get_pl_reset_less_url() {
+
+	$flush = array( 'pl_reset_less' => 1 );
+
+	$request = explode( '?', $_SERVER['REQUEST_URI'] );
+
+	$page = $request[0];
+
+	$query = array();
+
+	if ( isset( $request[1] ) )
+		wp_parse_str( $request[1], $query );
+
+	$query = wp_parse_args( $flush, $query );
+
+	$url = sprintf( '%s://%s%s?%s',
+		is_ssl() ? 'https' : 'http',
+		$_SERVER['HTTP_HOST'],
+		$page,
+		http_build_query( $query )
+		);
+
+	return $url;
+}
+
+
+// ------------------------------------------
 // EXTENSIONS UTILITIES
 // ------------------------------------------
 
@@ -678,6 +708,16 @@ function pl_debug( $text = '', $before = "\n/*", $after = '*/' ) {
 
 	$out = sprintf( 'echo "%s %s %s";', $before, $text, $after );
 	add_action( 'shutdown', create_function( '', $out ), 9999 );
+
+}
+
+function pl_source_comment( $text, $spacing = 1 ) {
+
+	$newline = ($spacing) ? "\n" : '';
+
+	$double = ($spacing == 2) ? "\n\n" : $newline;
+
+	return sprintf( '%s<!-- %s -->%s', $double, $text, $newline);
 
 }
 

@@ -2,6 +2,33 @@
 
 
 /**
+ * Special content wrap is for plugins that operate outside of pagelines
+ * We started doing things manually, so there are legacy extensions still using manual methodology
+ *
+ * @uses $pagelines_render // this is set in the main pagelines setup_pagelines_template(); function
+ **/
+function do_special_content_wrap(){
+	global $pagelines_render;
+	
+	if( isset($pagelines_render) )
+		return false;
+	else
+		return true;
+}
+
+function pagelines_special_content_wrap_top(){
+
+	if(do_special_content_wrap()){
+		
+		$integration = new PageLinesIntegrationHandler;
+		
+		$integration->start_new_integration();
+	}
+
+}
+
+
+/**
  * PageLines Body Classes
  *
  * Sets up classes for controlling design and layout and is used on the body tag

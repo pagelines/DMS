@@ -46,24 +46,6 @@ add_action('pagelines_before_html', 'pagelines_id_setup', 5);
 
 
 /**
- * Adds link to admin bar
- *
- * @since 1.0.0
- */
-add_action( 'admin_bar_menu', 'pagelines_settings_menu_link', 100 );
-
-// ================
-// = HEAD ACTIONS =
-// ================
-
-/**
- * Add Main PageLines Header Information
- *
- * @since 1.3.3
- */
-add_action('pagelines_head', 'pagelines_head_common');
-
-/**
  *
  * @TODO document
  *
