@@ -87,15 +87,12 @@ class PageLinesRenderCSS {
 		if( pl_has_editor() && EditorLessHandler::is_draft() )
 			return;
 
-		global $pagelines_template;
 
 		add_filter( 'query_vars', array( &$this, 'pagelines_add_trigger' ) );
 		add_action( 'template_redirect', array( &$this, 'pagelines_less_trigger' ) , 15);
 		add_action( 'template_redirect', array( &$this, 'less_file_mode' ) );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'load_less_css' ) );
 		add_action( 'pagelines_head_last', array( &$this, 'draw_inline_custom_css' ) , 25 );
-		add_action( 'wp_head', array( &$pagelines_template, 'print_template_section_head' ), 12 );
-		add_action( 'pl_scripts_on_ready', array( &$pagelines_template, 'print_on_ready_scripts' ), 12 );
 	
 		add_action( 'extend_flush', array( &$this, 'flush_version' ), 1 );
 		add_filter( 'pagelines_insert_core_less', array( &$this, 'pagelines_insert_core_less_callback' ) );

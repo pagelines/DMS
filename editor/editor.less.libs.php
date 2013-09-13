@@ -23,11 +23,10 @@ class EditorLessHandler{
 	 */
 	public function draft_init(){
 		// if we are in banana mode fire up the flux capacitors.
-			global $pagelines_template;
+		
 			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_draft_css' ) );
 			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
 			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
-			add_action( 'pl_scripts_on_ready', array( &$pagelines_template, 'print_on_ready_scripts' ), 12 );
 			add_action( 'wp_footer', array(&$this, 'print_core_less') );
 	}
 

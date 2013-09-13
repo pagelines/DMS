@@ -24,6 +24,85 @@ function setup_pagelines_template() {
 	get_footer();
 }
 
+
+// ------------------------------------------
+// SECTIONS FUNCTIONS 
+// ------------------------------------------
+
+/**
+ * Builds a sections for use outside of drag drop setup
+ */
+function build_passive_section( $args = array() ){
+
+	global $passive_sections;
+
+	if(!isset($passive_sections))
+		$passive_sections = array();
+
+	$defaults = array(
+		'sid'	=> ''
+	);
+
+	$s = wp_parse_args($args, $defaults);
+
+	$new = array($s['sid']);
+
+	$passive_sections = array_merge($new, $passive_sections);
+
+}
+
+
+
+/**
+ * Setup Section Notify
+ */
+function setup_section_notify( $section, $text = '', $user_url = null, $ltext = null){
+
+
+	if(current_user_can('edit_theme_options')){
+
+		$banner_title = sprintf('<strong><i class="icon-pencil"></i> %s</strong>', $section->name);
+		$extra = '';
+		
+		$url = (isset($user_url)) ? $user_url : '#';
+		
+		if($section->filter == 'full-width'){
+			$class = (isset($user_url)) ? '' : 'area-control';
+			$extra .= 'data-area-action="settings"';
+		} else {
+			$class = (isset($user_url)) ? '' : 's-control section-edit';
+		}
+
+
+
+		$link_text = (isset($ltext)) ? $ltext : sprintf(__('Configure %s <i class="icon-arrow-right"></i>', 'pagelines'), $section->name);
+
+		$link = sprintf('</br><a href="%s" class="btn btn-mini %s" %s>%s</a>', $url, $class, $extra, $link_text);
+
+		$text = ($text != '') ? $text : __( 'Configure this section', 'pagelines' );
+
+		return sprintf(
+			'<div class="setup-section pl-editor-only"><div class="setup-section-pad">%s <br/><small class="banner_text subhead">%s %s</small></div></div>',
+			$banner_title,
+			$text,
+			$link
+		);
+	}
+
+}
+
+/**
+ * Splice Section Slug
+ */
+function splice_section_slug( $slug ){
+
+	$pieces = explode('ID', $slug);
+	$section = (string) $pieces[0];
+	$clone_id = (isset($pieces[1])) ? $pieces[1] : 1;
+
+	return array('section' => $section, 'clone_id' => $clone_id);
+}
+
 // ------------------------------------------
 // PAGELINES CONDITIONALS
 // ------------------------------------------
@@ -218,6 +297,107 @@ function inline_css_markup($id, $css, $echo = true){
 		echo $mark;
 	else
 		return $mark;
+}
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_urlencode($text, $allowed = false) {
+	$whitelist_tags = '<span><em><strong><i><b><u><code><br><strike><sub><sup>';
+	return urlencode( trim( strip_tags( stripslashes($text), ($allowed) ? $whitelist_tags : false ) ) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_strip($text, $allowed = true) {
+	$whitelist_tags = '<span><em><strong><i><b><u><code><br><strike><sub><sup>';
+	return trim( strip_tags($text, ($allowed) ? $whitelist_tags : false) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_ehtml($text) {
+	echo pl_html($text);
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_html($text) {
+	return trim( htmlentities( stripslashes( $text ), ENT_QUOTES, 'UTF-8' ) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_texturize($text, $stripslashes = false, $decode = false) {
+	return trim( wptexturize(($decode) ? urldecode($text) : (($stripslashes) ? stripslashes($text) : $text ) ) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_htmlspecialchars($text, $stripslashes = false, $decode = false) {
+	return trim( htmlspecialchars(($decode) ? urldecode($text) : (($stripslashes) ? stripslashes($text) : $text ) ) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_noscripts($text) {
+	return trim( pl_strip_only(stripslashes($text), '<script>', true ) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_strip_js($text) {
+	return trim( pl_strip_only($text, '<script>', true) );
+}
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+function pl_strip_only($str, $tags, $stripContent = false) {
+
+	$content = '';
+	if (!is_array($tags)) {
+		$tags = (strpos($str, '>') !== false ? explode('>', str_replace('<', '', $tags)) : array($tags));
+		if (end($tags) == '') array_pop($tags);
+	}
+	foreach ($tags as $tag) {
+		if ($stripContent) $content = '(.+</'.$tag.'[^>]*>|)';
+		$str = preg_replace('#</?'.$tag.'[^>]*>'.$content.'#is', '', $str);
+	}
+	return $str;
 }
 
 // ------------------------------------------

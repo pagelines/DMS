@@ -586,24 +586,6 @@ class PageLinesFoundry {
 	* @TODO document
 	*
 	*/
-	function setup_google_loaders(){
-			foreach (get_option_array() as $menuitem):
-				foreach($menuitem as $oid => $o):
-					if( isset( $o['type'] ) && $o['type'] == 'typography' ):
-						$style_id = get_pagelines_option_id($oid, 'font_style');
-						$initial_style = $this->gfont_base_uri. $this->gfont_key(pagelines_sub_option($oid, 'font'));
-						echo '<link id="'.$style_id.'" rel="stylesheet" media="screen" type="text/css" href="'.$initial_style.'" />';
-					endif;
-				endforeach;
-			endforeach;
-	}
-
-
-	/**
-	*
-	* @TODO document
-	*
-	*/
 	function get_stack($font_id){
 		if( '' == $font_id || ! array_key_exists( $font_id, $this->foundry ) )
 			$font_id = 'helvetica';
@@ -612,134 +594,10 @@ class PageLinesFoundry {
 	}
 
 
-	/**
-	*
-	* @TODO document
-	*
-	*/
-	function get_type_css($typesettings){
-		$defaults = array(
-			'font' 		=> null,
-			'kern'		=> '0.00em',
-			'transform'	=> 'none',
-			'weight'	=> 'normal',
-			'variant'	=> 'normal',
-			'style'		=> 'normal',
-			'selectors'	=> null,
-			'prepend'	=> null
-		);
-		$type_css = '';
-		$t = wp_parse_args($typesettings, $defaults);
-
-		if(isset($t['font']) && !empty($t['font'])) {
-			$pre = (!empty($t['prepend'])) ? trim(trim($t['prepend']), ',') . ',' : '';
-			$type_css = 'font-family:' . $pre . $this->get_stack($t['font']) .';';
-		}
-
-		if( '0.00em' != (string) $t['kern'] )
-			$type_css .= 'letter-spacing:'. $t['kern'] .';';
-
-		if( $t['transform'] != 'none' )
-			$type_css .= 'text-transform:'. $t['transform'] .';';
-
-		if( $t['weight'] != 'normal' )
-			$type_css .= 'font-weight:'. $t['weight'] .';';
-
-		if( $t['variant'] != 'normal' )
-			$type_css .= 'font-variant:'. $t['variant'] .';';
-
-		if( $t['style'] != 'normal' )
-			$type_css .= 'font-style:'. $t['style'] .';';
-
-		return ( isset( $type_css ) ) ? $type_css : '';
-	}
 
 
-	/**
-	*
-	* @TODO document
-	*
-	*/
-	function render_css(){
-		$css = '';
-		foreach (get_option_array() as $mid){
-
-			foreach($mid as $oid => $o){
-
-				if( isset( $o['type'] ) && $o['type'] == 'typography'){
-
-					$type = ploption($oid);
-
-					$font_id = $type['font'];
-
-					// Don't render if font isn't set.
-					if(isset($font_id) && isset($this->foundry[$font_id]) ){
-
-						if($this->foundry[$font_id]['google'])
-							$google_fonts[] = $font_id;
-
-						$type_selectors = $o['selectors'];
-
-						if( isset($type['selectors']) && !empty($type['selectors']) ) $type_selectors .=  ',' . trim(trim($type['selectors']), ',');
-
-						$type_css = $this->get_type_css($type);
-
-
-						$type_css_keys[] = $type_selectors . '{'.$type_css.'}';
-					}
-
-				}
-
-			}
-		}
-
-		if(isset($google_fonts) && is_array($google_fonts )){
-
-			$css .= $this->google_import($google_fonts);
-
-		}
-
-
-
-		// Render the font CSS
-		if(isset($type_css_keys) && is_array($type_css_keys)){
-			foreach($type_css_keys as $typeface)
-				$css .= $typeface;
-
-		}
-
-		return $css;
-
-	}
 }
 
-
-function pl_type_el($type_key, $element){
-
-	$type = ploption($type_key);
-
-	if(!$type)
-		$type = array();
-
-	$defaults = array(
-		'font' 		=> 'helvetica',
-		'kern'		=> '0.00em',
-		'transform'	=> 'none',
-		'weight'	=> 'normal',
-		'variant'	=> 'normal',
-		'style'		=> 'normal'
-	);
-
-	$t = wp_parse_args($type, $defaults);
-
-	if( $element == 'stack' )
-		$value = get_font_stack($t['font']);
-	else
-		$value = $t[$element];
-
-	return $value;
-
-}
 
 /**
 *
@@ -782,22 +640,3 @@ function load_custom_font($font, $selectors){
 
 }
 
-/**
- * Page Line Height
- *
- * Follows the golder rectangle rule to create an aesthetic and dynamic line height.
- *
- * @param   $fontsize - default: 15px
- * @param   $line_width - default: 600px ($content_width)
- *
- * @return  float - calculated value; default: 24px
- */
-function page_line_height($fontsize, $line_width){
-
-	$golden = 1.618;
-
-	$lh = $golden - ( 1 / (2*$golden) ) * ( 1 - $line_width/pow(($fontsize*$golden), 2) );
-
-	return round($lh*$fontsize);
-
-}

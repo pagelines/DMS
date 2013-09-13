@@ -34,7 +34,7 @@ class EditorColor{
 
 	function add_less_vars( $vars ){
 		$bg = pl_setting('bodybg');
-		$base = ( $bg && $bg != '' ) ? $bg : $this->default_base;
+		$this->base = $base = ( $bg && $bg != '' ) ? $bg : $this->default_base;
 
 		$text = ( pl_setting('text_primary') ) ? pl_setting('text_primary') : $this->default_text;
 		$link = ( pl_setting('linkcolor') ) ? pl_setting('linkcolor') : $this->default_link;
@@ -43,8 +43,72 @@ class EditorColor{
 		$vars['pl-text']				= $this->hash( $text );
 		$vars['pl-link']				= $this->hash( $link );
 		$vars['pl-background']			= $this->background( $vars['pl-base'] );
+		$vars['invert-dark']			= $this->invert();
+		$vars['invert-light']			= $this->invert( 'light' );
 		
 		return $vars;
+	}
+	
+	private function invert( $mode = 'dark', $delta = 5 ){
+
+		if($mode == 'light'){
+
+			if($this->color_detect() == -2)
+				return 2*$delta;
+			elseif($this->color_detect() == -1)
+				return 1.5*$delta;
+			elseif($this->color_detect() == 1)
+				return -1.7*$delta;
+			else
+				return $delta;
+
+		}else{
+			if($this->color_detect() == -2)
+				return -(2*$delta);
+			elseif($this->color_detect() == -1)
+				return -$delta;
+			else
+				return $delta;
+		}
+	}
+	
+	/**
+     * Color Detect
+     *
+     * Takes the base color hex string and assigns a value to determine what "shade" the color is
+     *
+     * @return bool|int - a numeric value used in invert()
+     */
+	function color_detect(){
+
+		$hex = str_replace( '#', '', $this->base );
+
+		$r = hexdec(substr($hex,0,2));
+		$g = hexdec(substr($hex,2,2));
+		$b = hexdec(substr($hex,4,2));
+
+		if($r + $g + $b > 750){
+
+			// Light
+		    return 1;
+
+		}elseif($r + $g + $b < 120){
+
+			// Really Dark
+			return -2;
+
+		}
+		elseif($r + $g + $b < 300){
+
+			// Dark
+			return -1;
+
+		}else{
+
+			// Meh
+		    return false;
+
+		}
 	}
 
 	function background( $bg_color ){

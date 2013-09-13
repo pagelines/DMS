@@ -36,7 +36,6 @@ function pagelines_special_content_wrap_top(){
  */
 function pagelines_body_classes(){
 
-	global $pagelines_template;
 	global $pagelines_addclasses;
 
 	$special_body_class = (ploption('special_body_class')) ? ploption('special_body_class') : '';
@@ -81,3 +80,10 @@ function pagelines_add_bodyclass( $class ) {
 		$pagelines_addclasses .= sprintf( ' %s', $class );
 
 }
+
+add_action( 'comment_form_before', 'pl_comment_form_js' );
+function pl_comment_form_js() {
+	if ( get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+}
+

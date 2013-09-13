@@ -57,8 +57,6 @@ class PageLinesSection {
 
 		$this->hook_get_view();
 
-		$this->hook_get_post_type();
-
 		$this->class_name = get_class($this);
 
 		$this->set_section_info();
@@ -509,32 +507,6 @@ class PageLinesSection {
 
 
     /**
-     * Hook Get Post Type
-     *
-     * @since   ...
-     * @TODO document
-     */
-	function hook_get_post_type(){
-
-		add_action('wp_head', array(&$this, 'get_post_type'), 10);
-	}
-
-
-    /**
-     * Get Post Type
-     *
-     * @since   ...
-     * @TODO document
-     */
-	function get_post_type(){
-		global $pagelines_template;
-
-		$this->template_type = $pagelines_template->template_type;
-
-	}
-
-
-    /**
      * Runs before any html loads, but in the page.
      *
      * @package     PageLines Framework
@@ -575,24 +547,8 @@ class PageLinesSectionFactory {
 	var $sections  = array();
 	var $unavailable_sections  = array();
 
-
-	/**
-     * Constructor
-     *
-     * @TODO document
-     */
-	function __contruct() { }
-
-
     /**
      * Register
-     *
-     * @since   ...
-     *
-     * @param   $section_class
-     * @param   $args
-     *
-     * @TODO document
      */
 	function register($section_class, $args) {
 
@@ -604,11 +560,6 @@ class PageLinesSectionFactory {
 
     /**
      * Unregister
-     *
-     * @since   ...
-     *
-     * @param   $section_class
-     * @TODO document
      */
 	function unregister($section_class) {
 		if ( isset($this->sections[$section_class]) )
@@ -617,102 +568,3 @@ class PageLinesSectionFactory {
 
 }
 
-/**
- * Load Section Persistent
- *
- * Runs the persistent PHP for sections.
- *
- * @package     PageLines Framework
- * @subpackage  Sections
- * @since       1.0.0
- *
- * @uses        section_persistent
- */
-function load_section_persistent(){
-	global $pl_section_factory;
-
-	foreach($pl_section_factory->sections as $section)
-		$section->section_persistent();
-
-
-}
-
-
-/**
- * Get Unavailable Section Areas
- *
- * @since   ...
- *
- * @return array
- * @TODO document
- */
-function get_unavailable_section_areas(){
-
-	$unavailable_section_areas = array();
-
-	foreach(the_template_map() as $top_section_area){
-
-		if(isset($top_section_area['version']) && $top_section_area['version'] == 'pro') $unavailable_section_areas[] = $top_section_area['name'];
-
-		if(isset($top_section_area['templates'])){
-			foreach ($top_section_area['templates'] as $section_area_template){
-				if(isset($section_area_template['version']) && $section_area_template['version'] == 'pro') $unavailable_section_areas[] = $section_area_template['name'];
-			}
-		}
-
-	}
-
-	return $unavailable_section_areas;
-
-}
-
-
-/**
- * Setup Section Notify
- */
-function setup_section_notify( $section, $text = '', $user_url = null, $ltext = null){
-
-
-	if(current_user_can('edit_theme_options')){
-
-		$banner_title = sprintf('<strong><i class="icon-pencil"></i> %s</strong>', $section->name);
-		$extra = '';
-		
-		$url = (isset($user_url)) ? $user_url : '#';
-		
-		if($section->filter == 'full-width'){
-			$class = (isset($user_url)) ? '' : 'area-control';
-			$extra .= 'data-area-action="settings"';
-		} else {
-			$class = (isset($user_url)) ? '' : 's-control section-edit';
-		}
-
-
-
-		$link_text = (isset($ltext)) ? $ltext : sprintf(__('Configure %s <i class="icon-arrow-right"></i>', 'pagelines'), $section->name);
-
-		$link = sprintf('</br><a href="%s" class="btn btn-mini %s" %s>%s</a>', $url, $class, $extra, $link_text);
-
-		$text = ($text != '') ? $text : __( 'Configure this section', 'pagelines' );
-
-		return sprintf(
-			'<div class="setup-section pl-editor-only"><div class="setup-section-pad">%s <br/><small class="banner_text subhead">%s %s</small></div></div>',
-			$banner_title,
-			$text,
-			$link
-		);
-	}
-
-}
-
-/**
- * Splice Section Slug
- */
-function splice_section_slug( $slug ){
-
-	$pieces = explode('ID', $slug);
-	$section = (string) $pieces[0];
-	$clone_id = (isset($pieces[1])) ? $pieces[1] : 1;
-
-	return array('section' => $section, 'clone_id' => $clone_id);
-}

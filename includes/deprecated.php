@@ -377,26 +377,7 @@ function plmeta( $key, $args ){
 */
 function plspecial($key, $args){
 
-	global $pagelines_special_meta;
-
-	// Type of page is needed for special handling
-	// Use the argument 'type' if available because of settings panels, etc.
-	if(isset($args['type']) && $args['type'] != '')
-		$type = $args['type'];
-	else
-		$type = PageLinesTemplate::page_type_breaker();
-
-
-	if( isset($args['clone_id']) && $args['clone_id'] != 1 )
-		$id_key = $key.'_'.$args['clone_id'];
-	else
-		$id_key = $key;
-
-
-	if(isset($pagelines_special_meta[$type]) && is_array($pagelines_special_meta[$type]) && isset($pagelines_special_meta[$type][$id_key]))
-		return $pagelines_special_meta[$type][$id_key];
-	else
-		return false;
+	return false;
 }
 
 /**
@@ -408,21 +389,7 @@ function plspecial($key, $args){
 function pldefault( $key, $args = array(), $mode = '') {
 
 
-	global $pagelines_special_meta;
-
-	$sp = $pagelines_special_meta;
-	$slug = 'default';
-	$reverse_key = $key.'_reverse';
-
-	$default_value = ( isset( $sp[$slug] )	&& is_array( $sp[$slug] ) && isset( $sp[$slug][$key] ) ) ? $sp[$slug][$key] : false;
-
-	// check if on default option is reversed by meta
-	$reverse_value = ( $mode != 'val' && (plmeta($reverse_key, $args) || plspecial( $reverse_key, $args )) ) ? true : false;
-
-	if( !$reverse_value )
-		return $default_value;
-	else
-		return false;
+	return false;
 
 }
 
@@ -947,28 +914,6 @@ function get_pagelines_meta($option, $post){
 		}
 	}
 
-/**
- * Used as a filter on the master option array generated for settings
- *
- * @param $optionarray the master option array
- * @return rebuilt $optionsarray with addon options if plugin is active.
- * @since 2.0
- **/
-function pagelines_merge_addon_options( $optionarray ) {
-	$options = get_option( 'pagelines_addons_options' );
-	$plugins = pagelines_register_plugins();
-	if ( is_array( $options ) ) {
-
-		$build_options = array();
-
-		foreach( $options as $optionname => $option )
-			if ( in_array( $optionname, $plugins ) ) $build_options[$optionname] = $option;
-
-		return array_merge( $optionarray, $build_options );
-
-	} else
-		return $optionarray;
-}
 
 /**
  * Used to register and handle new plugin options

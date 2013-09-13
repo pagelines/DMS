@@ -1,6 +1,12 @@
 <?php
 
 
+/**
+ * Creates a global page ID for reference in editing and meta options (no unset warnings)
+ *
+ */
+add_action('pagelines_before_html', 'pagelines_id_setup', 5);
+
 function pl_scripts_on_ready(){
 
 echo pl_source_comment("On Ready"); ?>
@@ -28,6 +34,49 @@ function pl_js_wrap( $js ){
 	return sprintf('<script type="text/javascript">/*<![CDATA[*/ jQuery(document).ready(function(){ %s }); /*]]>*/</script>', $js);
 
 }
+
+/**
+ * Fixed element area at top of site page.
+ *
+ **/
+add_action('pagelines_site_wrap', 'pl_fixed_top_area');
+function pl_fixed_top_area(){
+	?>
+	<div id="fixed-top" class="pl-fixed-top" data-region="fixed-top">
+		<?php pagelines_template_area('pagelines_fixed_top', 'fixed_top'); // Hook ?>
+	</div>
+	<div class="fixed-top-pusher"></div>
+	<script> jQuery('.fixed-top-pusher').height( jQuery('.pl-fixed-top').height() ) </script>
+	
+	<?php 
+}
+
+
+
+
+/**
+ *
+ * @TODO document
+ *
+ */
+add_filter( 'user_contactmethods', 'pagelines_add_google_profile', 10, 1);
+function pagelines_add_google_profile( $contactmethods ) {
+	// Add Google Profiles
+	$contactmethods['google_profile'] = __( 'Google Profile URL', 'pagelines' );
+	return $contactmethods;
+}
+
+
+add_action( 'wp_head', 'pagelines_google_author_head' );
+function pagelines_google_author_head() {
+	global $post;
+	if( ! is_page() && ! is_single() && ! is_author() )
+		return;
+	$google_profile = get_the_author_meta( 'google_profile', $post->post_author );
+	if ( '' != $google_profile )
+		printf( '<link rel="author" href="%s" />%s', $google_profile, "\n" );
+}
+
 
 
 

@@ -53,144 +53,29 @@ require_once( PL_EDITOR . '/editor.functions.php' );
 // Shortcodes
 require_once( PL_INCLUDES . '/class.shortcodes.php');
 
-
-
-/**
- * Load sections handling class
- */
+// Base Section Class
 require_once( PL_INCLUDES . '/class.sections.php' );
 
-/**
- * Load template handling class
- */
-require_once( PL_INCLUDES . '/class.template.php' );
+// Typography Foundry / Fonts
+require_once( PL_INCLUDES . '/class.foundry.php' );
 
-/**
- * Load Data Handling
- */
-require_once( PL_ADMIN . '/library.data.php' );
-
-/**
- * Load HTML Objects
- */
-require_once( PL_INCLUDES . '/class.objects.php' );
-
-
-/**
- * Load Type Foundry Class
- */
-require_once( PL_INCLUDES . '/class.typography.php' );
-
-/**
- * Load dynamic CSS handling
- */
-require_once( PL_INCLUDES . '/class.css.php' );
-
-/**
- * Load metapanel option handling class
- */
-require_once( PL_ADMIN . '/class.options.metapanel.php' );
-
-/**
- * Load Profile Handling
- */
-require_once( PL_ADMIN . '/class.profiles.php' );
-
-/**
- * Deal with upgrading
- */
-include( PL_INCLUDES . '/library.upgrades.php' );
-
-
-/**
- * Add Multisite
- */
-if( is_multisite() )
-	require_once( PL_INCLUDES . '/library.multisite.php' );
-
-/**
- * Add Integration Functionality
- */
-require_once( PL_INCLUDES . '/class.themesupport.php' );
-/**
- * Add Less Functions
- */
+// LESS Setup
 require_once( PL_INCLUDES . '/less.functions.php' );
 
-/**
- * Build Version
- */
-require_once( PL_INCLUDES . '/version.php' );
-
+// LESS File rendering
 require_once( PL_INCLUDES . '/class.render.css.php' );
 
-
-/**
- * Load updater class
- */
-require_once (PL_ADMIN.'/class.updates.php');
-
-if ( is_admin() )
-	new PageLinesUpdateCheck( PL_CORE_VERSION );
+// BUILD Controller
+require_once( PL_INCLUDES . '/version.php' );
 
 
-/**
- * Load site actions
- */
-require_once (PL_INCLUDES.'/actions.site.php');
 	
 /**
  * Run the pagelines_init Hook
  */
 pagelines_register_hook('pagelines_hook_init'); // Hook
 
-// Always best to load most stuff after WP loads fully.
-// The "after_setup_theme" hook is the point at which it has... 
-// NOTE: pl_setting cannot be used BEFORE the 'after_setup_theme' hook
-add_action('after_setup_theme', 'pl_load_registers'); 
-function pl_load_registers(){
 
-	/**
-	 * Load Singleton Globals
-	 */
-	$GLOBALS['pl_section_factory'] = new PageLinesSectionFactory();
-
-
-	/**
-	 * Add Extension Handlers
-	 */
-	require_once( PL_INCLUDES . '/class.register.php' );
-
-	/**
-	 * Register and load all sections
-	 */
-	global $load_sections;
-	$load_sections = new PageLinesRegister();
-	$load_sections->pagelines_register_sections();
-
-	pagelines_register_hook('pagelines_setup'); // Hook
-
-	load_section_persistent(); // Load persistent section functions (e.g. custom post types)
-
-	if(is_admin())
-		load_section_admin(); // Load admin only functions from sections
-
-	do_global_meta_options(); // Load the global meta settings tab
-
-
-	$GLOBALS['render_css'] = new PageLinesRenderCSS;
-	
-
-	if ( pl_setting( 'enable_debug' ) )
-		require_once ( PL_ADMIN . '/class.debug.php');
-
-
-
-	if ( is_admin() )
-		include( PL_ADMIN . '/init.admin.php' );
-
-
-}
 
 
 
