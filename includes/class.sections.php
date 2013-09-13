@@ -293,7 +293,32 @@ class PageLinesSection {
 
 		$this->after_section_template();
 	}
+	
 
+	function before_section( $markup = 'content', $clone_id = null, $classes = ''){
+
+
+		pagelines_register_hook('pagelines_before_'.$this->id, $this->id); // hook
+
+	
+			$span = (isset($this->meta['span'])) ? 'span'.$this->meta['span'] : 'span12';
+			$offset = (isset($this->meta['offset'])) ? 'offset'.$this->meta['span'] : 'offset0';
+
+			$classes .= ' '.$span.' '.$offset;
+
+			printf('<section id="%s" data-sid="%s" data-clone="%s" class="pl-section fix %s">', $this->id.$clone_id, $this->id, $clone_id, trim($classes));
+
+			pagelines_register_hook('pagelines_outer_'.$this->id, $this->id); // hook
+		
+
+		pagelines_register_hook('pagelines_inside_top_'.$this->id, $this->id); // hook
+ 	}
+	
+	function after_section(){
+		echo '</section>';
+	}
+	
+	
     /**
      * Before Section Template
      *
@@ -340,119 +365,6 @@ class PageLinesSection {
 
 	}
 
-
-    /**
-     * Before Section
-     *
-     * Starts general section wrapper classes content and content-pad; adds class to uniquely identify clones
-     * Dynamically creates unique hooks for section: pagelines_before_, pagelines_outer_, and pagelines_inside_top_
-     *
-     * @since       ...
-     *
-     * @param       string $markup
-     * @param       null $clone_id
-     * @param       string $classes
-     *
-     * @internal    param string $conjugation
-     *
-     * @uses        pagelines_register_hook
-     */
-	function before_section( $markup = 'content', $clone_id = null, $classes = ''){
-
-		$classes .= ( isset($clone_id) ) ? sprintf( ' clone_%s%s', $clone_id, $this->classes ) : sprintf( ' no_clone%s', $this->classes );
-
-		if(isset($this->settings['markup']))
-			$set_markup = $this->settings['markup'];
-		else
-			$set_markup = $markup;
-
-		pagelines_register_hook('pagelines_before_'.$this->id, $this->id); // hook
-
-		// Rename to prevent conflicts
-		if ( 'comments' == $this->id )
-			$section_id = 'wp-comments';
-		elseif ( 'content' == $this->id )
-			$section_id = 'content-area';
-		else
-			$section_id = $this->id;
-
-		$classes .= sprintf(" section-%s %s", $section_id, $this->special_classes);
-
-		if( $set_markup == 'copy' )
-			printf('<section id="%s" class="copy %s"><div class="copy-pad">', $section_id, trim($classes));
-		elseif( $set_markup == 'content' ){
-
-			// Draw wrapper unless using 'raw' format
-			if($this->settings['format'] != 'raw')
-				printf('<section id="%s" class="container %s fix">', $this->id, trim($classes));
-
-			// Draw textured div for background texturing
-			if($this->settings['format'] == 'textured')
-				printf('<div class="texture">');
-
-			pagelines_register_hook('pagelines_outer_'.$this->id, $this->id); // hook
-
-			// Standard content width and padding divs
-			if($this->settings['format'] == 'textured' || $this->settings['format'] == 'standard')
-				printf('<div class="content"><div class="content-pad">');
-		} else {
-
-			$span = (isset($this->meta['span'])) ? 'span'.$this->meta['span'] : 'span12';
-			$offset = (isset($this->meta['offset'])) ? 'offset'.$this->meta['span'] : 'offset0';
-
-			$classes .= ' '.$span.' '.$offset;
-
-			printf('<section id="%s" data-sid="%s" data-clone="%s" class="pl-section fix %s">', $this->id.$clone_id, $this->id, $clone_id, trim($classes));
-
-			pagelines_register_hook('pagelines_outer_'.$this->id, $this->id); // hook
-		}
-
-		pagelines_register_hook('pagelines_inside_top_'.$this->id, $this->id); // hook
- 	}
-
-
-    /**
-     * After Section
-     *
-     * Closes CSS containers opened by before_section()
-     * Dynamically creates unique hooks: pagelines_inside_bottom_, and pagelines_after_ with matching ids to the dynamically created hooks made in before_section()
-     *
-     * @since   ...
-     *
-     * @param   string $markup
-     *
-     * @uses    pagelines_register_hook
-     */
-	function after_section( $markup = 'content' ){
-		if(isset($this->settings['markup']))
-			$set_markup = $this->settings['markup'];
-		else
-			$set_markup = $markup;
-
-		pagelines_register_hook('pagelines_inside_bottom_'.$this->id, $this->id);
-
-		if( $set_markup == 'copy' )
-			printf('<div class="clear"></div></div></section>');
-		elseif( $set_markup == 'content' ){
-
-			// Standard content width and padding divs
-			if($this->settings['format'] == 'textured' || $this->settings['format'] == 'standard')
-				printf('</div></div>');
-
-			// Draw textured div for background texturing
-			if($this->settings['format'] == 'textured')
-				printf('</div>');
-
-			// Draw wrapper unless using 'raw' format
-			if($this->settings['format'] != 'raw')
-				printf('</section>');
-
-		} else {
-			printf('</section>');
-		}
-
-		pagelines_register_hook('pagelines_after_'.$this->id, $this->id);
-	}
 
 
     /**
@@ -558,121 +470,6 @@ class PageLinesSection {
      * @TODO document
      */
     function section_scripts(){}
-
-
-    /**
-     * Getting Started
-     *
-     * @since   ...
-     * @TODO document
-     */
-	function getting_started(){}
-
-
-    /**
-     * Add Guide
-     *
-     * Use to add a user's guide for the section
-     *
-     * @since   ...
-     *
-     * @param   $options
-     *
-     * @uses    ploption
-     * @uses    plupop
-     * @uses    PAGELINES_SPECIAL
-     *
-     * @return  array
-     * @TODO document
-     */
-	function add_guide( $options ){
-
-
-		if( is_file( $this->base_dir . '/guide.php' ) ){
-
-			ob_start();
-				include( $this->base_dir . '/guide.php' );
-			$guide = ob_get_clean();
-
-			$key = sprintf('hide_guide_%s', $this->id);
-
-			$opt = array(
-				$key => array(
-					'type' 			=> 'text_content',
-					'title'	 		=> __( 'Getting Started', 'pagelines' ),
-					'shortexp' 		=> __( 'How to use this section', 'pagelines' ),
-					'exp'			=> $guide,
-					'inputlabel'	=> __( 'Hide This Overview', 'pagelines')
-				)
-			);
-
-
-			// Has this been hidden?
-
-
-				$special_oset = array('setting' => PAGELINES_SPECIAL);
-
-				$global_option = (bool) ploption( $key );
-				$special_option = (bool) ploption($key, $special_oset );
-
-			//	var_dump( $special_option );
-
-				if( $global_option && $special_option ){
-					$hide = true;
-
-				}elseif( $special_option && !$global_option){
-
-					plupop($key, true);
-
-					$hide = true;
-
-				}elseif( !$special_option && $global_option) {
-
-					plupop($key, false);
-
-					$hide = false;
-
-				}else
-					$hide = false;
-
-			if( !$hide )
-				$options = array_merge($opt, $options);
-			else {
-
-				$opt = array(
-					$key => array(
-						'type' 			=> 'text_content_reverse',
-						'inputlabel'	=> __( 'Hide Section Guide', 'pagelines' )
-					)
-				);
-
-				$options = array_merge( $options, $opt);
-			}
-
-		}
-
-		return $options;
-
-
-	}
-
-	// Deprecated
-
-    /**
-     * Add Getting Started
-     *
-     * @since   ...
-     *
-     * @param   $tab_array
-     *
-     * @return  array
-     * @TODO document
-     */
-	function add_getting_started( $tab_array ){
-
-		return $this->add_guide($tab_array);
-
-	}
 
 
     /**
@@ -799,11 +596,6 @@ class PageLinesSectionFactory {
 		if(class_exists($section_class))
 			$this->sections[$section_class] = new $section_class( $args );
 
-		/** Unregisters version-controlled sections */
-		// if(!VPRO && $this->sections[$section_class]->settings['version'] == 'pro') {
-		// 	$this->unavailable_sections[] = $this->sections[$section_class];
-		// 	$this->unregister($section_class);
-		// }
 	}
 
 
@@ -842,25 +634,6 @@ function load_section_persistent(){
 
 }
 
-/**
- * Load Section Admin
- *
- * Runs the admin PHP for sections.
- *
- * @package     PageLines Framework
- * @subpackage  Sections
- * @since       1.0.0
- *
- * @uses        section_admin
- */
-function load_section_admin(){
-
-	global $pl_section_factory;
-
-	foreach($pl_section_factory->sections as $section)
-		$section->section_admin();
-
-}
 
 /**
  * Get Unavailable Section Areas
