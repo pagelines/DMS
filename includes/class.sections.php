@@ -299,7 +299,10 @@ class PageLinesSection {
 
 
 		pagelines_register_hook('pagelines_before_'.$this->id, $this->id); // hook
-
+			
+			$section_id = $this->id;
+			
+			$classes .= sprintf(" section-%s %s", $section_id, $this->special_classes);
 	
 			$span = (isset($this->meta['span'])) ? 'span'.$this->meta['span'] : 'span12';
 			$offset = (isset($this->meta['offset'])) ? 'offset'.$this->meta['span'] : 'offset0';
