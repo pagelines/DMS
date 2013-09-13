@@ -1,19 +1,16 @@
 <?php
 
-add_action( 'pagelines_hook_init', 'load_pagelines_admin' ); 
+add_action( 'admin_init', 'load_pagelines_admin' ); 
 function load_pagelines_admin(){
 	
-	if ( is_admin() ){
-		
-	}
 	/**
 	 * Load updater class
 	 */
-	require_once ( PL_INCLUDES . '/class.updates.php' );
+	require_once( PL_INCLUDES . '/class.updates.php' );
 	new PageLinesUpdateCheck( PL_CORE_VERSION );
 		
 		
-	include( PL_ADMIN . '/init.admin.php' );
+	require_once( PL_ADMIN . '/init.admin.php' );
 }
 
 // Always best to load most stuff after WP loads fully.

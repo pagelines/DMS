@@ -67,12 +67,8 @@ require_once( PL_INCLUDES . '/class.render.css.php' );
 
 // BUILD Controller
 require_once( PL_INCLUDES . '/version.php' );
-
-
 	
-/**
- * Run the pagelines_init Hook
- */
+// Run the pagelines_init Hook
 pagelines_register_hook('pagelines_hook_init'); // Hook
 
 

@@ -207,12 +207,14 @@ function pagelines_page_subnav(){
  *
  * @uses    pagelines_default_widget
  */
-function pagelines_draw_sidebar($id, $name = '', $default = null, $element = 'ul'){
+function pagelines_draw_sidebar($id, $name = '', $default = false, $element = 'ul'){
 
 	printf('<%s id="%s" class="sidebar_widgets fix">', $element, 'list_'.$id);
 
-	if ( !dynamic_sidebar($id) )
+	if ( !dynamic_sidebar($id) && ! $default)
 		pagelines_default_widget( $id, $default);
+	else 
+		echo $default;
 
 	printf('</%s>', $element);
 
