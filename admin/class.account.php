@@ -51,17 +51,6 @@ class PageLinesAccount {
 
 		$d['dashboard']	= $this->pl_add_dashboard();
 				
-			// 
-			// if(!pl_deprecate_v2())
-			// 	$d['Your_Account']	= array(
-			// 		'icon'			=> PL_ADMIN_ICONS.'/user.png',
-			// 		'credentials' 	=> array(
-			// 			'type'		=> 'updates_setup',
-			// 			'title'		=> __( 'Configure PageLines Account &amp; Auto Updates', 'pagelines' ),
-			// 			'shortexp'	=> __( 'Get your latest updates automatically, direct from PageLines.', 'pagelines' ),
-			// 			'layout'	=> 'full',
-			// 		)
-			// 	);
 			
 		$d['DMS_tools']	= $dms_tools->admin_interface();
 
