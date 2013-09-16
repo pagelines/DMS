@@ -148,12 +148,6 @@ function pagelines_head_common(){
 	if ( ploption( 'facebook_headers' ) && ! has_action( 'disable_facebook_headers' ) && VPRO )
 		pagelines_facebook_header();
 
-	// Fix IE and special handling
-	if ( pl_detect_ie() )
-		pagelines_fix_ie();
-
-
-
 	if(ploption('load_prettify_libs')){
 		pagelines_add_bodyclass( 'prettify-on' );
 		wp_enqueue_script( 'prettify', PL_JS . '/prettify/prettify.js' );
@@ -361,29 +355,6 @@ function pagelines_filter_wp_title( $title ) {
     return apply_filters( 'pagelines_meta_title', $new_title );
 }
 
-/**
- *
- *  Fix IE to the extent possible
- *
- *  @package PageLines DMS
- *  @subpackage Functions Library
- *  @since 1.3.3
- *
- */
-function pagelines_fix_ie( ){
-
-	$ie_ver = pl_detect_ie();
-	if( ploption('google_ie') && ( $ie_ver < 9 ) ) {
-		$compat = sprintf( '//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE%1$s.js', $ie_ver +1 );
-		$shiv = '//html5shim.googlecode.com/svn/trunk/html5.js';
-		wp_enqueue_script( 'ie-compat', $compat );
-		wp_enqueue_script( 'html5shiv', $shiv );
-	}
-
-	// If IE7 add the Internet Explorer 7 specific stylesheet
-	if ( $ie_ver == 7 )
-		wp_enqueue_style('ie7-style', PL_CSS  . '/ie7.css', array(), PL_CORE_VERSION);
-}
 
 
 
