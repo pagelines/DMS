@@ -68,9 +68,7 @@ class PageLinesTemplateHandler {
 	}
 
 	function json_blob(){
-		?>
-		<script>
-
+		?><script>
 			!function ($) {
 
 				$.pl = {
@@ -106,6 +104,7 @@ class PageLinesTemplateHandler {
 						, pageTypeID: '<?php echo $this->page->type; ?>'
 						, pageTypeName: '<?php echo $this->page->type_name; ?>'
 						, devMode: <?php echo $this->get_dev_mode();?>
+						, CacheKey: '<?php echo pl_get_cache_key(); ?>'
 						, isSpecial: '<?php echo $this->page->is_special(); ?>'
 						, opts: <?php echo json_encode( pl_arrays_to_objects( $this->get_options_config() ) ); ?>
 						, settings: <?php echo json_encode( pl_arrays_to_objects( $this->siteset->get_set('site') ) ); ?>
