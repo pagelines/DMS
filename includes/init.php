@@ -35,7 +35,7 @@ require_once( PL_INCLUDES . '/lib.utils.php' );
 // Applied on load
 require_once( PL_INCLUDES . '/lib.load.php' );
 
-// Applied on load
+// Various elements and WP utilities
 require_once( PL_INCLUDES . '/lib.elements.php' );
 
 // Applied in head
