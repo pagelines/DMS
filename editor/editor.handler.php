@@ -718,27 +718,15 @@ class PageLinesTemplateHandler {
 							
 							$section_count++;
 							$this->render_section( $meta, $section_count, $sections_total );
-
 						}
-
 					}
-
 					$this->areas->area_end($a);
-
 				}
-
-
-
 			}
 		}
-
 	}
 
-
-
 	function render_section( $meta, $count = false, $total = false, $level = 1 ){
-
-		
 			
 		if( $this->in_factory( $meta['object'] ) ){
 			
@@ -749,11 +737,13 @@ class PageLinesTemplateHandler {
 
 			$s->setup_oset( $meta['clone'] ); // refactor
 
-			ob_start();
-
-				$this->section_template_load( $s ); // Check if in child theme, if not load section_template
-
-			$output =  ob_get_clean(); // Load in buffer, so we can check if empty
+			if( has_filter( 'pagelines_render_section' ) ) {
+				$output = apply_filters( 'pagelines_render_section', $s, $this );
+			} else {
+				ob_start();
+				$this->section_template_load( $s );
+				$output = ob_get_clean();	
+			}
 	
 			$render = (!isset($output) || $output == '') ? false : true;
 
