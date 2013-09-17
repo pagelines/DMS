@@ -88,11 +88,13 @@ class PageLinesUpdateCheck {
 
 		printf( '<p>%s v%s is available.', $this->theme, esc_html( $pagelines_update['new_version'] ) );
 
+		$account_set_url = add_query_arg( array( 'tablink' => 'account', 'tabsublink' => 'pl_account#pl_account' ), site_url() );
+
 		printf(
 			' %s',
 			( $pagelines_update['package'] != 'bad' )
 				? sprintf( 'You should <a href="%s">update now</a>.', admin_url('update-core.php') )
-				: sprintf( '<a href="%s">Click here</a> to setup your PageLines account.', PLAdminPaths::editor_account() )
+				: sprintf( '<a href="%s">Click here</a> to setup your PageLines account.', $account_set_url )
 		);
 
 		echo ( $pagelines_update['extra'] ) ? sprintf('<br />%s', $pagelines_update['extra'] ) : '';

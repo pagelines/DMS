@@ -9,7 +9,8 @@
 				$('body')
 					.addClass('area-controls')
 					.find('area-tag')
-					.effect('highlight')
+					
+				//.effect('highlight')
 
 				btn.addClass('active')
 

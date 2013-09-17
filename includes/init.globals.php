@@ -11,14 +11,11 @@ define( 'PL_CHILD_VERSION', get_theme_mod( 'pagelines_child_version' ) );
  */
 $theme = 'PageLines';
 
-define( 'PL_CORE_LIB', PL_INCLUDES); // Deprecated, but used in bbPress forum < 1.2.3
-
 define( 'PL_THEMENAME', $theme );
 define( 'PL_CHILDTHEMENAME', get_option('stylesheet') );
 
 define('PL_NICETHEMENAME', pl_get_theme_data( get_template_directory(), 'Name' ) );
 define('PL_NICECHILDTHEMENAME',  pl_get_theme_data( get_stylesheet_directory(), 'Name' ) );
-
 
 define('PL_PARENT_DIR', get_template_directory());
 define('PL_CHILD_DIR', get_stylesheet_directory());
@@ -30,9 +27,7 @@ define('PL_CHILD_IMAGES', PL_CHILD_URL . '/images' );
 if( ! defined( 'PL_LESS_DEV' ) )
 	define( 'PL_LESS_DEV', false );
 
-/**
- * Define Settings Constants for option DB storage
- */
+// Define Settings Constants for option DB storage
 define( 'PAGELINES_SETTINGS', apply_filters( 'pagelines_settings_field', 'pagelines-settings-two' ));
 define( 'PAGELINES_EXTENSION', apply_filters( 'pagelines_settings_extension', 'pagelines-extension' ));
 define( 'PAGELINES_ACCOUNT', apply_filters( 'pagelines_settings_account', 'pagelines-account' ));
@@ -40,27 +35,17 @@ define( 'PAGELINES_SPECIAL', apply_filters( 'pagelines_settings_special', 'pagel
 define( 'PAGELINES_TEMPLATES', apply_filters( 'pagelines_settings_templates', 'pagelines-templates' ));
 define( 'PAGELINES_TEMPLATE_MAP', apply_filters( 'pagelines_settings_map', 'pagelines-template-map-two' ));
 
-/**
- * Active Integrations (adds options in core)
- */
+// Active Integrations (adds options in core)
 define( 'PAGELINES_INTEGRATIONS', 'pagelines-integrations-handling' );
 
-
-/**
- * Legacy Settings Fields >> ALLOWS FOR REVERT
- */
+// Legacy Settings Fields >> ALLOWS FOR REVERT
 define( 'PAGELINES_SETTINGS_LEGACY', 'pagelines-settings' );
 define( 'PAGELINES_TEMPLATE_MAP_LEGACY', 'pagelines_template_map' );
 
-
-
-/**
- * Define PL Admin Paths
- */
+// Define PL Admin Paths
 define( 'PL_ADMIN', get_template_directory() . '/admin' );
 define( 'PL_ADMIN_URI', PL_PARENT_URL . '/admin' );
-define( 'PL_ADMIN_CSS', PL_ADMIN_URI . '/css' );
-define( 'PL_ADMIN_JS', PL_ADMIN_URI . '/js' );
+
 define( 'PL_ADMIN_IMAGES', PL_ADMIN_URI . '/images' );
 define( 'PL_ADMIN_ICONS', PL_ADMIN_IMAGES . '/icons' );
 
@@ -138,7 +123,7 @@ define( 'PL_API_FETCH', 'http://www.pagelines.com/api/' );
 define( 'PL_API_CDN', 'http://cdn.pagelines.com/api/' );
 
 
-
+define( 'PL_ACTIVATE_URL' , apply_filters('pl_activate_url', home_url().'?tablink=account&tabsublink=welcome'));
 
 /**
  * Define language constants

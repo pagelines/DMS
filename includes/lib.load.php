@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'admin_init', 'load_pagelines_admin' ); 
+add_action( 'pagelines_hook_init', 'load_pagelines_admin' ); 
 function load_pagelines_admin(){
 	
 	/**
@@ -10,7 +10,7 @@ function load_pagelines_admin(){
 	new PageLinesUpdateCheck( PL_CORE_VERSION );
 		
 		
-	require_once( PL_ADMIN . '/init.admin.php' );
+	require_once( PL_ADMIN . '/admin.init.php' );
 }
 
 // Always best to load most stuff after WP loads fully.

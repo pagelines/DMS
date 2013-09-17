@@ -1,6 +1,69 @@
 <?php 
 
 // ------------------------------------------
+// Javascript Utilities
+// ------------------------------------------
+
+/* 
+ * Enqueue CodeMirror, used in admin and front end
+ */ 
+function pl_enqueue_codemirror(){
+	
+	// Codemirror Styles
+	wp_enqueue_style( 'codemirror',			PL_JS . '/codemirror/codemirror.css' );
+
+	// CodeMirror Syntax Highlighting
+	wp_enqueue_script( 'codemirror',		PL_JS . '/codemirror/codemirror.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'codemirror-css',	PL_JS . '/codemirror/css/css.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'codemirror-less',	PL_JS . '/codemirror/less/less.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'codemirror-js',		PL_JS . '/codemirror/javascript/javascript.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'codemirror-xml',	PL_JS . '/codemirror/xml/xml.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'codemirror-html',	PL_JS . '/codemirror/htmlmixed/htmlmixed.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+
+	// Codebox defaults
+	$base_editor_config = array(
+		'lineNumbers'  => true,
+		'lineWrapping' => true,
+	);
+	wp_localize_script( 'codemirror', 'cm_base_config', apply_filters( 'pagelines_cm_config', $base_editor_config ) );
+}
+
+
+// ------------------------------------------
+// API FUNCTIONS
+// ------------------------------------------
+
+function pagelines_try_api( $url, $args ) {
+
+	$defaults = array(
+		'sslverify'	=>	false,
+		'timeout'	=>	5,
+		'body'		=> array(),
+		'method'	=> 'POST'
+	);
+
+	$options = wp_parse_args( $args, $defaults );
+	$prot = array( 'https://', 'http://' );
+	$command = sprintf( 'wp_remote_%s', $options['method'] );
+
+	$method = $options['method'];
+	
+	
+	
+	foreach( $prot as $type ) {
+		// sometimes wamp does not have curl!
+		if ( $type === 'https://' && !function_exists( 'curl_init' ) )
+			continue;
+		$r = $command( $type . $url, $options );
+		
+		if ( !is_wp_error($r) && is_array( $r ) ) {
+			return $r;
+		}
+	}
+	return false;
+}
+
+// ------------------------------------------
 // DMS HANDLING FUNCTIONS
 // ------------------------------------------
 

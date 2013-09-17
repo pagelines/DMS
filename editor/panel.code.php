@@ -16,17 +16,10 @@ class EditorCode{
 	
 	function scripts(){
 
-		// Codemirror Styles
-		wp_enqueue_style( 'codemirror',			PL_ADMIN_JS . '/codemirror/codemirror.css' );
+		
 		wp_enqueue_style( 'css3colorpicker',	$this->url . '/js/colorpicker/colorpicker.css');
 
-		// CodeMirror Syntax Highlighting
-		wp_enqueue_script( 'codemirror',		PL_ADMIN_JS . '/codemirror/codemirror.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-css',	PL_ADMIN_JS . '/codemirror/css/css.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-less',	PL_ADMIN_JS . '/codemirror/less/less.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-js',		PL_ADMIN_JS . '/codemirror/javascript/javascript.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-xml',	PL_ADMIN_JS . '/codemirror/xml/xml.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'codemirror-html',	PL_ADMIN_JS . '/codemirror/htmlmixed/htmlmixed.js', array( 'jquery', 'codemirror' ), PL_CORE_VERSION, true );
+		pl_enqueue_codemirror();
 
 		// PageLines Specific JS @Code Stuff
 		wp_enqueue_script( 'pl-less-parser',	$this->url . '/js/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
@@ -36,12 +29,7 @@ class EditorCode{
 		$lessjs_config = array('env' => is_pl_debug() ? 'development' : 'production');
 		wp_localize_script( 'pl-less-parser', 'less', $lessjs_config );
 
-		// Codebox defaults
-		$base_editor_config = array(
-			'lineNumbers'  => true,
-			'lineWrapping' => true,
-		);
-		wp_localize_script( 'codemirror', 'cm_base_config', apply_filters( 'pagelines_cm_config', $base_editor_config ) );
+		
 	}
 
 	function toolbar( $toolbar ){
