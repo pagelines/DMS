@@ -13,9 +13,9 @@ do_action('pagelines_hook_pre', 'core'); // Hook
 
 define('PL_INCLUDES', get_template_directory() . '/includes');
 
+// Removed in Free/WPORG Version
 if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
 	require_once( PL_INCLUDES . '/library.pagelines.php');
-
 
 // Load deprecated functions
 require_once( PL_INCLUDES.'/deprecated.php' );

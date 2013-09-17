@@ -1,6 +1,28 @@
 <?php 
 
 
+add_action( 'comment_form_before', 'pl_comment_form_js' );
+function pl_comment_form_js() {
+	if ( get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+}
+
+add_action( 'pagelines_after_footer', 'pagelines_after_footer_elements' );
+function pagelines_after_footer_elements() {
+	
+	if(!pl_is_pro()): ?>
+	<a class="pl-credit" href="http://www.pagelines.com/" title="Built with PageLines DMS [basic]" target="_blank" style="display: block !important; visibility: visible !important; opacity: 1 !important;">
+		<i class="icon-pagelines pl-transit"></i> <span class="fademein">DMS</span>
+	</a>
+	<?php endif; ?>
+	
+	<div id="supersized"></div>
+	
+	<?php 
+}
+
+
+
 /**
  * Special content wrap is for plugins that operate outside of pagelines
  * We started doing things manually, so there are legacy extensions still using manual methodology
@@ -79,11 +101,5 @@ function pagelines_add_bodyclass( $class ) {
 	if ( isset( $class ) )
 		$pagelines_addclasses .= sprintf( ' %s', $class );
 
-}
-
-add_action( 'comment_form_before', 'pl_comment_form_js' );
-function pl_comment_form_js() {
-	if ( get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
 }
 
