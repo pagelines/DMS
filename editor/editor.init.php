@@ -32,7 +32,6 @@ class PageLinesEditor {
 	}
 
 	function load_files(){
-		require_once( PL_EDITOR . '/editor.premium.php' );
 
 		require_once( PL_EDITOR . '/editor.settings.php' );
 		require_once( PL_EDITOR . '/editor.actions.php' );
@@ -52,7 +51,6 @@ class PageLinesEditor {
 		// Interfaces
 		require_once( PL_EDITOR . '/editor.xlist.php' );
 		require_once( PL_EDITOR . '/panel.code.php' );
-		//require_once( PL_EDITOR . '/panel.live.php' );
 		require_once( PL_EDITOR . '/editor.account.php' );
 		require_once( PL_EDITOR . '/editor.updates.php' );
 		require_once( PL_EDITOR . '/panel.sections.php' );
@@ -168,28 +166,17 @@ class PageLinesEditor {
 	}
 
 	function process_header(){
-		// DEPRECATE THIS CONDITIONAL > 3.1
-		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
-			return;
 
 		$this->handler->process_region('header');
 
 	}
 	function process_template(){
 
-		// DEPRECATE THIS CONDITIONAL > 3.1
-		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
-			return;
-
 		$this->handler->process_region('template');
 
 	}
 
 	function process_footer(){
-
-		// DEPRECATE THIS CONDITIONAL > 3.1
-		if( !pl_draft_mode() && pl_setting('v2_sections_live') && pl_setting('enable_v2') )
-			return;
 
 		$this->handler->process_region('footer');
 
