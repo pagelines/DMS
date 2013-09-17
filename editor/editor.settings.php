@@ -227,6 +227,8 @@ class PageLinesSettings extends PageLinesData {
 	function reset_caches() {
 		do_action( 'extend_flush' );
 		pl_flush_draft_caches( false );
+		$cache_key = substr(uniqid(), -6);
+		set_theme_mod( 'pl_cache_key', $cache_key );
 	}
 
 	/*
@@ -691,9 +693,14 @@ function pl_publish_settings( $pageID, $typeID ){
 
 	}
 
+	
+	set_theme_mod( 'pl_cache_key', substr(uniqid(), -6) );
+
 	pl_meta_update( $pageID, PL_SETTINGS, $settings['local'] );
 	pl_meta_update( $typeID, PL_SETTINGS, $settings['type'] );
 	pl_opt_update( PL_SETTINGS, $settings['global'] );
+
+
 
 	// Flush less
 	do_action( 'extend_flush' );

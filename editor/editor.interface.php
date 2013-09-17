@@ -107,8 +107,12 @@ class EditorInterface {
 	
 			wp_enqueue_script( 'jquery-mousewheel', $this->url . '/js/utils.mousewheel.js', array('jquery'), PL_CORE_VERSION, true );
 
-			// Global AjaxURL variable --> http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/
-			wp_localize_script( 'pl-editor-js', 'ajaxurl', array( admin_url( 'admin-ajax.php' ) ) );
+
+		// Global AjaxURL variable --> http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/
+			$ajax_url = admin_url( 'admin-ajax.php' );
+			if ( has_action( 'pl_force_ssl' ) )
+				$ajax_url = str_replace( 'http://', 'https://', $ajax_url );
+			wp_localize_script( 'pl-editor-js', 'ajaxurl', array( $ajax_url ) );
 	}
 
 

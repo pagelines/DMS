@@ -68,9 +68,7 @@ class PageLinesTemplateHandler {
 	}
 
 	function json_blob(){
-		?>
-		<script>
-
+		?><script>
 			!function ($) {
 
 				$.pl = {
@@ -106,6 +104,7 @@ class PageLinesTemplateHandler {
 						, pageTypeID: '<?php echo $this->page->type; ?>'
 						, pageTypeName: '<?php echo $this->page->type_name; ?>'
 						, devMode: <?php echo $this->get_dev_mode();?>
+						, CacheKey: '<?php echo pl_get_cache_key(); ?>'
 						, isSpecial: '<?php echo $this->page->is_special(); ?>'
 						, opts: <?php echo json_encode( pl_arrays_to_objects( $this->get_options_config() ) ); ?>
 						, settings: <?php echo json_encode( pl_arrays_to_objects( $this->siteset->get_set('site') ) ); ?>
@@ -719,27 +718,15 @@ class PageLinesTemplateHandler {
 							
 							$section_count++;
 							$this->render_section( $meta, $section_count, $sections_total );
-
 						}
-
 					}
-
 					$this->areas->area_end($a);
-
 				}
-
-
-
 			}
 		}
-
 	}
 
-
-
 	function render_section( $meta, $count = false, $total = false, $level = 1 ){
-
-		
 			
 		if( $this->in_factory( $meta['object'] ) ){
 			
@@ -750,11 +737,13 @@ class PageLinesTemplateHandler {
 
 			$s->setup_oset( $meta['clone'] ); // refactor
 
-			ob_start();
-
-				$this->section_template_load( $s ); // Check if in child theme, if not load section_template
-
-			$output =  ob_get_clean(); // Load in buffer, so we can check if empty
+			if( has_filter( 'pagelines_render_section' ) ) {
+				$output = apply_filters( 'pagelines_render_section', $s, $this );
+			} else {
+				ob_start();
+				$this->section_template_load( $s );
+				$output = ob_get_clean();	
+			}
 	
 			$render = (!isset($output) || $output == '') ? false : true;
 
