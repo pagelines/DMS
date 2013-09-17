@@ -135,9 +135,9 @@ class EditorExtensions {
 				'id'			=> 'pl_split_column',
 				'name'			=> '2 Columns - Split',
 				'filter'		=> 'layout',
-				'screenshot'	=>  PL_EDITOR_URL . '/images/thumb-2column.png',
-				'thumb'			=>  PL_EDITOR_URL . '/images/thumb-2column.png',
-				'splash'		=>  PL_EDITOR_URL . '/images/splash-2column.png',
+				'screenshot'	=>  PL_IMAGES . '/images/thumb-2column.png',
+				'thumb'			=>  PL_IMAGES . '/images/thumb-2column.png',
+				'splash'		=>  PL_IMAGES . '/images/splash-2column.png',
 				'map'			=> array(
 									array(
 										'object'	=> 'PLColumn',
@@ -155,9 +155,9 @@ class EditorExtensions {
 				'name'			=> '3 Columns',
 				'filter'		=> 'layout',
 				'description'	=> 'Loads three equal width columns for placing sections.',
-				'screenshot'	=>  PL_EDITOR_URL . '/images/thumb-3column.png',
-				'thumb'			=>  PL_EDITOR_URL . '/images/thumb-3column.png',
-				'splash'		=>  PL_EDITOR_URL . '/images/splash-3column.png',
+				'screenshot'	=>  PL_IMAGES . '/thumb-3column.png',
+				'thumb'			=>  PL_IMAGES . '/thumb-3column.png',
+				'splash'		=>  PL_IMAGES . '/splash-3column.png',
 				'map'			=> array(
 									array(
 										'object'	=> 'PLColumn',
