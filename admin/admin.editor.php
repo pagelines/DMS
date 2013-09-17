@@ -53,7 +53,7 @@ class EditorAdmin {
 		?>
 		<p>Editing with DMS is done completely on the front end of your site. This allows you to customize in a way that feels more direct and intuitive than when using the admin. </p>
 		<p>Just visit the front end of your site (as an admin) and get started!</p>
-		<p><a class="button button-primary">Edit Site Using DMS</a></p>
+		<p><a class="button button-primary" href="<?php echo site_url(); ?>">Edit Site Using DMS</a></p>
 		
 		<?php 
 		
