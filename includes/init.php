@@ -45,10 +45,10 @@ require_once( PL_INCLUDES . '/lib.head.php' );
 require_once( PL_INCLUDES . '/lib.body.php' );
 
 // Start the editor
-require_once( PL_EDITOR . '/editor.init.php' );
+require_once( PL_INCLUDES . '/init.editor.php' );
 
 // V3 Editor functions --- > always load
-require_once( PL_EDITOR . '/editor.functions.php' );
+require_once( PL_INCLUDES . '/lib.editor.php' );
 
 // Shortcodes
 require_once( PL_INCLUDES . '/class.shortcodes.php');

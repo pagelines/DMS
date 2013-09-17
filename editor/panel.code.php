@@ -17,12 +17,12 @@ class EditorCode{
 	function scripts(){
 
 		
-		wp_enqueue_style( 'css3colorpicker',	$this->url . '/js/colorpicker/colorpicker.css');
+		wp_enqueue_style( 'css3colorpicker',	PL_JS . '/colorpicker/colorpicker.css');
 
 		pl_enqueue_codemirror();
 
 		// PageLines Specific JS @Code Stuff
-		wp_enqueue_script( 'pl-less-parser',	$this->url . '/js/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-less-parser',	PL_JS . '/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
 		wp_enqueue_script( 'pl-js-code',		$this->url . '/js/pl.code.js', array( 'jquery', 'codemirror', 'pl-less-parser' ), PL_CORE_VERSION, true );
 		
 		// less.js

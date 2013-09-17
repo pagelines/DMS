@@ -57,20 +57,20 @@ class EditorInterface {
 		// --------------------------------------
 
 			// Sprintf
-			wp_enqueue_script( 'js-sprintf', $this->url . '/js/utils.sprintf.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			
 
 			// Forms handling
-			wp_enqueue_script( 'form-params', $this->url . '/js/form.params.js', array('jquery'), PL_CORE_VERSION, true );
-			wp_enqueue_script( 'form-store', $this->url . '/js/form.store.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-params', PL_JS . '/form.params.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-store', PL_JS . '/form.store.js', array('jquery'), PL_CORE_VERSION, true );
 
-			wp_enqueue_script( 'form-fileupload', $this->url . '/js/utils.fileupload.js', array('jquery', 'jquery-ui-widget'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-fileupload', PL_JS . '/utils.fileupload.js', array('jquery', 'jquery-ui-widget'), PL_CORE_VERSION, true );
 
 
 			// Bootbox Dialogs
-			wp_enqueue_script( 'bootbox', $this->url . '/js/utils.bootbox.js', array('jquery'), '3.0.0', true );
+			wp_enqueue_script( 'bootbox', PL_JS . '/utils.bootbox.js', array('jquery'), '3.0.0', true );
 			// Images Loaded
-			wp_enqueue_script( 'imagesloaded', $this->url . '/js/utils.imagesloaded.js', array('jquery'), PL_CORE_VERSION, true);
+			wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.js', array('jquery'), PL_CORE_VERSION, true);
 
 		// PAGELINES CODE -----------------------
 		// --------------------------------------
@@ -81,7 +81,7 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-library', $this->url . '/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			
-			wp_enqueue_script( 'js-hotkeys', $this->url . '/js/utils.hotkeys.js', array( 'jquery'), PL_CORE_VERSION );
+			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.js', array( 'jquery'), PL_CORE_VERSION );
 
 		// Action in to scripts here...
 		pagelines_register_hook('pagelines_editor_scripts'); // Hook
@@ -103,9 +103,9 @@ class EditorInterface {
 			// Older sortable needs to be used for now
 			// 	https://github.com/jquery/jquery-ui/commit/bae06d2b1ef6bbc946dce9fae91f68cc41abccda#commitcomment-2141597
 			//	http://bugs.jqueryui.com/ticket/8810
-			wp_enqueue_script( 'pl-new-ui-sortable', $this->url . '/js/new.jquery.sortable.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'pl-new-ui-sortable', PL_JS . '/new.jquery.sortable.js', array( 'jquery' ), PL_CORE_VERSION, true );
 	
-			wp_enqueue_script( 'jquery-mousewheel', $this->url . '/js/utils.mousewheel.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'jquery-mousewheel', PL_JS . '/utils.mousewheel.js', array('jquery'), PL_CORE_VERSION, true );
 
 
 		// Global AjaxURL variable --> http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/

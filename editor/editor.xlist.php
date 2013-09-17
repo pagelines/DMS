@@ -14,7 +14,7 @@ class EditorXList{
 	function scripts(){
 
 		// Isotope
-		wp_enqueue_script( 'isotope', $this->url . '/js/utils.isotope.js', array('jquery'), PL_CORE_VERSION, true);
+		wp_enqueue_script( 'isotope', PL_JS . '/utils.isotope.js', array('jquery'), PL_CORE_VERSION, true);
 
 		wp_enqueue_script( 'pl-js-xlist', $this->url . '/js/pl.xlist.js', array('jquery'), PL_CORE_VERSION, true);
 

@@ -124,7 +124,7 @@ class EditorExtensions {
 			'filter'		=> 'layout',
 			'description'	=> 'Layout section',
 			'screenshot'	=>  PL_IMAGES . '/thumb-missing.png',
-			'splash'		=> PL_IMAGES . '/splash-missing.png',
+			'splash'		=>  PL_IMAGES . '/splash-missing.png',
 			'class_name'	=> '',
 			'map'			=> ''
 
@@ -135,9 +135,9 @@ class EditorExtensions {
 				'id'			=> 'pl_split_column',
 				'name'			=> '2 Columns - Split',
 				'filter'		=> 'layout',
-				'screenshot'	=>  PL_IMAGES . '/images/thumb-2column.png',
-				'thumb'			=>  PL_IMAGES . '/images/thumb-2column.png',
-				'splash'		=>  PL_IMAGES . '/images/splash-2column.png',
+				'screenshot'	=>  PL_IMAGES . '/thumb-2column.png',
+				'thumb'			=>  PL_IMAGES . '/thumb-2column.png',
+				'splash'		=>  PL_IMAGES . '/splash-2column.png',
 				'map'			=> array(
 									array(
 										'object'	=> 'PLColumn',
