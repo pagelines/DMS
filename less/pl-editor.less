@@ -111,6 +111,7 @@
 			&:hover{
 				opacity: 1;
 				margin-left: 0;
+				z-index: @zindexTooltip;
 			}
 			&::after{
 							content: '';
@@ -575,7 +576,7 @@
 	font-size: 13px;
 	line-height: 21px;
 	width: 100%;
-	z-index: 10000;
+	z-index: @zindexEditor;
 	min-width: 760px;
 	font-family: @defaultFont;
 	h1, h2, h3, h4, h5, h6{
@@ -1241,9 +1242,10 @@
 				.pl-help-text{
 					
 					margin: 0 3px;
-					opacity: .4; 
+					opacity: .4;
+					z-index: @zindexTooltip; /* not working? */
 					&:hover{
-						opacity: 1;
+						opacity: 1;						
 					}
 				}
 				.checklist-label{
