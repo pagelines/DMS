@@ -69,7 +69,7 @@ define('PL_ADMIN_STORE_SLUG', 'pagelines_extend');
 define('PL_SPECIAL_OPTS_SLUG', 'pagelines_special');
 
 
-define('PL_SETTINGS_SLUG', 'pagelines');
+define('PL_SETTINGS_SLUG', 'PageLines-Admin');
 define('PL_SETTINGS_URL', 'admin.php?page='.PL_SETTINGS_SLUG);
 define('PL_IMPORT_EXPORT_URL', 'admin.php?page='.PL_MAIN_DASH);
 define('PL_DASH_URL', 'admin.php?page='.PL_MAIN_DASH);
