@@ -53,8 +53,9 @@ class plRevSlider extends PageLinesSection {
 				'opts' => array(
 					'revslider_bg_'.$i 	=> array(
 						'label' 	=> __( 'Slide Background Image', 'pagelines' ),
-						'type'			=> 'image_upload',
-						'help'		=> __( 'For high resolution, 2000px wide x 800px tall images.', 'pagelines' )
+						'type'		=> 'image_upload',
+						'sizelimit'	=> 2097152, // 2M
+						'help'		=> __( 'For high resolution, 2000px wide x 800px tall images. (2MB Limit)', 'pagelines' )
 					),
 
 					'revslider_text_'.$i 	=> array(
