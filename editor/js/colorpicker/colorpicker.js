@@ -476,7 +476,7 @@ $.extend(Colorpicker.prototype, {
 		
 		var margin = 10;
 		
-		var FirstOffset = $('.toolbox-content').offset().top
+		var FirstOffset = $('.pl-toolbox').offset().top
 		var secondOffset = $input.offset().top
 		var finalOff = secondOffset -FirstOffset - height/2
 		
