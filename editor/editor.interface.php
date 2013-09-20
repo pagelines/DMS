@@ -99,6 +99,7 @@ class EditorInterface {
 			wp_enqueue_script( 'jquery-ui-draggable' );
 			wp_enqueue_script( 'jquery-ui-droppable' );
 			wp_enqueue_script( 'jquery-ui-resizable' );
+			wp_enqueue_script( 'jquery-ui-accordion' );
 			
 			// Older sortable needs to be used for now
 			// 	https://github.com/jquery/jquery-ui/commit/bae06d2b1ef6bbc946dce9fae91f68cc41abccda#commitcomment-2141597

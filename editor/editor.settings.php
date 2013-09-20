@@ -17,7 +17,10 @@ function pl_setting( $key, $args = array() ){
 
 	$setting = $plopts->get_setting( $key, $args );
 
-	return do_shortcode( $setting );
+	if( is_array( $setting) )
+		return $setting; 
+	else 
+		return do_shortcode( $setting );
 
 }
 

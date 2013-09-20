@@ -125,7 +125,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		$type = $old['type'];
 
 	$new = array(
-		'key'			=> $key,
+		'key'			=> ( !isset($old['key']) ) ? $key : $old['key'],
 		'title'			=> $old['title'],
 		'label'			=> ( !isset($old['label']) && isset($old['inputlabel'])) ? $old['inputlabel'] : $old['label'],
 		'type'			=> $type,

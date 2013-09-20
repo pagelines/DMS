@@ -1150,6 +1150,8 @@
 			.opt-col{
 				padding-bottom: 30px;
 			}
+			
+			
 		
 			.opt{
 				margin-bottom: 5px;
@@ -1158,8 +1160,53 @@
 					font-size: 15px;
 					padding: 7px 0;
 					font-weight: bold;
+					
 					small{
 						color:#aaa;
+					}
+				}
+				&.opt-type-accordion > .opt-box{
+					padding: 15px 0;
+				}
+				.opt-accordion{
+					border: 1px solid #ccc; 
+					.opt-group:first-child .opt-name{
+						border-top: none;
+					}
+					.opt-name{
+						#gradient > .vertical(#eee, #ddd);
+						padding: 4px 10px;
+						font-size: 14px;
+						border-top: 1px solid #bbb; 
+						
+						text-shadow: 0 1px 0 #fff; 
+						box-shadow: inset 1px 1px 0 #fff; 
+						margin: 0;
+						
+						&:hover{
+							cursor: move;
+							#gradient > .vertical( #e1e1e1, #d1d1d1 );
+						}	
+						.ui-icon{
+							
+							border: 5px solid transparent;
+							border-left-color: #aaa;
+							line-height: 3px;
+							height: 4px;
+							font-size: 0;
+							vertical-align: middle;
+							
+						}
+						&.ui-state-active .ui-icon{
+							border-color: transparent;
+							border-top-color: #aaa;
+							margin: 0 5px 0 -5px;
+						}
+					}
+					.opt-accordion-opts{
+						border-top: 1px solid #bbb; 
+						background: #fff; 
+						padding: 15px;
 					}
 				}
 				&.opt-span-2{

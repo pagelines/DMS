@@ -240,6 +240,8 @@
 
 				}
 
+				//console.log( that.activeForm.formParams() )
+				
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], that.activeForm.formParams())
 		
 				if(uniqueID)
@@ -305,17 +307,50 @@
 
 					$(this).find('.opt-tabs').tabs()
 
-					that.accordionArea = $(this).find('.opt-col')
+					that.accordionArea = $(this).find('.opt-accordion')
 					
 					that.activeForm.imagesLoaded( function(){
 						
-					
 						that.accordionArea
-						      .sortable({
-						        axis: "y",
-								items: ".opt",
-						        handle: ".opt-name"
-						      })
+							.accordion({
+								header: ".opt-name"
+								,	collapsible: true
+								,	active: false
+							})
+							.sortable({
+								axis: "y"
+								,	handle: ".opt-name"
+								,	cursor: "move"
+								,	stop: function(){
+									
+										that.accordionArea.find('.opt-group').each( function(indx, el) {
+										
+											var $that = $( this )
+											,	itemNum = indx + 1
+											,	itemNumber = $that.attr('data-item-num')
+										
+											$that.find('.lstn').each( function(inputIndex, inputElement){
+											
+												var optName = $( this ).attr('name')
+											
+												if(optName)
+													optName = optName.replace('item'+itemNumber, 'item'+itemNum )
+											
+											
+												$( this ).attr('name', optName)
+											
+											})
+										
+											$that.attr('data-item-num', itemNum)
+										
+											
+										})
+									
+										$('.lstn').first().trigger('change')
+									}
+								})
+							
+						
 						
 						
 						// that.activeForm.isotope({
@@ -370,12 +405,12 @@
 
 				optionHTML = that.optEngine( tabKey, o )
 
-				optsOut += sprintf( '<div id="%s" class="opt opt-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, specialClass, index, theTitle, optionHTML )
+				optsOut += sprintf( '<div id="%s" class="opt opt-%s opt-type-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, o.type, specialClass, index, theTitle, optionHTML )
 				
 				if( typeof optCols[ colNum ] == 'undefined' )
 					optCols[ colNum ] = ''
 	
-				optCols[ colNum ] += sprintf( '<div id="%s" class="opt opt-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, specialClass, index, theTitle, optionHTML )
+				optCols[ colNum ] += sprintf( '<div id="%s" class="opt opt-%s opt-type-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, o.type, specialClass, index, theTitle, optionHTML )
 				
 
 			})
@@ -398,10 +433,13 @@
 
 		}
 
-		, optValue: function( scope, key ){
+		, optValue: function( scope, key, index, subkey ){
 			
 			var that = this
 			, 	pageData = $.pl.data
+			,	index = index || false
+			, 	subkey = subkey || false
+			, 	value = ''
 
 			// global settings are always related to 'global'
 			if (that.config.mode == 'settings' || that.config.mode == 'panel')
@@ -409,13 +447,19 @@
 
 			// Set option value
 			if( pageData[ scope ] && pageData[ scope ][ that.uniqueID ] && pageData[ scope ][ that.uniqueID ][ key ]){
+				value = pl_html_input( pageData[ scope ][ that.uniqueID ][ key ] )
+			}
 			
-			
-				return pl_html_input( pageData[ scope ][ that.uniqueID ][ key ] )
+			if( value != '' && index && subkey ){
+				
+				if( value[index] && value[index][subkey] ){
+					value = value[index][subkey]
+				} else 
+					value = ''
+				
 			}
 				
-			else
-				return ''
+			return value
 
 
 		}
@@ -430,7 +474,7 @@
 
 		}
 
-		, optEngine: function( tabIndex, o, optLevel ) {
+		, optEngine: function( tabIndex, o, optLevel, parent ) {
 
 			var that = this
 			, 	oHTML = ''
@@ -442,6 +486,7 @@
 			,	syncTooltip = (syncType == 'refresh') ? 'Refresh for preview.' : 'Syncs with element.'
 			,	syncIcon = (syncType == 'refresh') ? 'refresh' : 'exchange' 
 			,	optDefault = o.default || ''
+			,	parent = parent || {}
 
 
 			o.classes = o.classes || ''
@@ -453,8 +498,16 @@
 				
 				
 				
-			o.value =  that.optValue( tabIndex, o.key )
-			o.name = sprintf('%s[%s]', that.uniqueID, o.key )
+			
+			
+			if(optLevel == 3){
+				o.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
+				o.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
+			} else {
+				o.name = sprintf('%s[%s]', that.uniqueID, o.key )
+				o.value =  that.optValue( tabIndex, o.key )
+			}
+			
 
 
 
@@ -466,6 +519,39 @@
 
 					})
 				}
+				
+			}
+			
+			else if( o.type == 'accordion' ){
+				
+				// option value should be an array, so foreach 
+				
+				var optionArray = ( $.isArray( o.value ) ) ? o.value : [[], [], []]
+				,	itemType = o.post_type || 'Item'
+				
+				
+				oHTML += sprintf("<div class='opt-accordion toolbox-sortable'>")
+				
+				$.each( optionArray, function( ind, vals ){
+					var itemNumber = ind + 1
+					
+					o.itemNumber = 'item'+itemNumber
+					
+					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'>%s %s</h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber )
+					
+					if( o.opts ){
+						$.each( o.opts , function(index, osub) {
+							
+							
+							oHTML += that.optEngine(tabIndex, osub, 3, o) // recursive array
+
+						})
+					}
+					oHTML += sprintf("</div></div>")
+					
+				})
+				
+				oHTML += sprintf("</div>")
 
 			}
 
@@ -576,7 +662,7 @@
 				,	toggleValueFlip = (checkedFlip == 'checked') ? 1 : 0
 				, 	nameFlip = sprintf('%s[%s]', that.uniqueID, keyFlip)
 				,	labelFlip = (o.fliplabel) ? o.fliplabel : '( <i class="icon-undo"></i> reverse ) ' + optLabel
-				,	auxFlip = sprintf('<input name="%s" class="checkbox-toggle" type="hidden" value="%s" />', nameFlip, toggleValueFlip )
+				,	auxFlip = sprintf('<input name="%s" class="checkbox-toggle lstn" type="hidden" value="%s" />', nameFlip, toggleValueFlip )
 				, 	showFlip = false
 				, 	globalVal = (that.optValue( 'global', o.key ) == 1) ? true : false
 				, 	typeVal = (that.optValue( 'type', o.key ) == 1) ? true : false
