@@ -691,7 +691,7 @@
 				}
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option>&mdash; Select Font &mdash;</option>%s</select>', o.key, o.name, select_opts)
+				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option value="">&mdash; Select Font &mdash;</option>%s</select>', o.key, o.name, select_opts)
 
 				oHTML += sprintf('<label for="preview-%s">Font Preview</label>', o.key)
 				oHTML += sprintf('<textarea class="type-preview" id="preview-%s" style="">The quick brown fox jumps over the lazy dog.</textarea>', o.key)
