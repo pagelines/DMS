@@ -239,11 +239,25 @@
 					that.checkboxDisplay( checkGroup )
 
 				}
-
-				//console.log( that.activeForm.formParams() )
+				
+				
 				
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], that.activeForm.formParams())
 		
+				// for array option types, the extend is not allowing deletion, this corrects
+				$.each( that.activeForm.formParams(), function(i, o){
+					$.each( o, function(i2, o2){
+						if( typeof(o2) == 'object' ){
+							console.log(i)
+							console.log(i2)
+							console.log(o2)
+							$.pl.data[scope][i][i2] = o2
+						}
+					
+					})
+				})
+			console.log($.pl.data[scope])
+			
 				if(uniqueID)
 					var sel = sprintf('[data-clone="%s"] [data-sync="%s"]', uniqueID, theInput.attr('id'))
 				else 	
@@ -346,7 +360,7 @@
 											
 										})
 									
-										$('.lstn').first().trigger('change')
+										that.accordionArea.find('.lstn').first().trigger('change')
 									}
 								})
 							
@@ -526,18 +540,20 @@
 				
 				// option value should be an array, so foreach 
 				
-				var optionArray = ( $.isArray( o.value ) ) ? o.value : [[], [], []]
+				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : [[],[],[]]
 				,	itemType = o.post_type || 'Item'
+				, 	itemNumber = 1
 				
 				
 				oHTML += sprintf("<div class='opt-accordion toolbox-sortable'>")
-				
+				console.log(optionArray)
+				console.log(scope)
 				$.each( optionArray, function( ind, vals ){
-					var itemNumber = ind + 1
+				
 					
 					o.itemNumber = 'item'+itemNumber
 					
-					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'>%s %s</h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber )
+					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'>%s %s <span class='btn btn-mini remove-item'><i class='icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber )
 					
 					if( o.opts ){
 						$.each( o.opts , function(index, osub) {
@@ -549,9 +565,10 @@
 					}
 					oHTML += sprintf("</div></div>")
 					
+					itemNumber++
 				})
 				
-				oHTML += sprintf("</div>")
+				oHTML += sprintf("</div><div class='accordion-add'><span class='btn'><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
 
 			}
 
@@ -1004,6 +1021,11 @@
 				
 		    })
 
+
+			$('.opt-name .remove-item').on('click', function (e) {
+				$(this).closest('.opt-group').remove()
+				
+		    })
 
 		
 			

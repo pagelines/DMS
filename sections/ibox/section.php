@@ -64,6 +64,49 @@ class pliBox extends PageLinesSection {
 
 		);
 
+		$options[] = array(
+			'key'		=> 'ibox_array',
+	    	'type'		=> 'accordion', 
+			'col'		=> 2,
+			'title'		=> __('iBoxes Setup', 'pagelines'), 
+			'post_type'	=> __('iBox', 'pagelines'), 
+			'opts'	=> array(
+				array(
+					'key'		=> 'title',
+					'label'		=> __( 'iBox Title', 'pagelines' ),
+					'type'		=> 'text'
+				),
+				array(
+					'key'		=> 'text',
+					'label'	=> __( 'iBox Text', 'pagelines' ),
+					'type'	=> 'textarea'
+				),
+				array(
+					'key'		=> 'link',
+					'label'		=> __( 'iBox Link (Optional)', 'pagelines' ),
+					'type'		=> 'text'
+				),
+				array(
+					'key'		=> 'class',
+					'label'		=> __( 'iBox Class (Optional)', 'pagelines' ),
+					'type'		=> 'text'
+				),
+				array(
+					'key'		=> 'icon',
+					'label'		=> __( 'iBox Icon', 'pagelines' ),
+					'type'		=> 'text'
+				),
+				array(
+					'key'		=> 'image',
+					'label'		=> __( 'iBox Image', 'pagelines' ),
+					'type'		=> 'text'
+				),
+				
+
+			)
+	    );
+	
+
 		$slides = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
 		$media = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
 
