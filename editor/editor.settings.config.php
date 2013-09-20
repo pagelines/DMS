@@ -338,6 +338,12 @@ class EditorSettings {
 								   sprintf( '<br /><a href="%s">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
 			),
 			array(
+					'key'		=> 'fix_ie8',
+					'type'		=> 'check',
+					'label'		=> __('Enable IE8 compatibility?', 'pagelines'),
+					'title'		=> __('IE8 Compatibility'),
+				),
+			array(
 					'key'	=> 'v2_upgrading', 
 					'type'	=> 'multi',
 					'title'	=> 'Framework V2 Upgrade (MUST PUBLISH)', 

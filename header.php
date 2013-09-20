@@ -14,7 +14,10 @@
 
 pagelines_register_hook('pagelines_before_html'); // Hook
 ?><!DOCTYPE html>
-<html <?php language_attributes(); do_action('the_html_tag'); ?>>
+<!--[if IE 8]>     <html <?php language_attributes(); do_action('the_html_tag'); ?> class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html <?php language_attributes(); do_action('the_html_tag'); ?> class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html <?php language_attributes(); do_action('the_html_tag'); ?>> <![endif]-->
+<!--[if !IE]><!--> <html <?php language_attributes(); do_action('the_html_tag'); ?>>             <!--<![endif]-->
 <head>
 <?php
 		pagelines_register_hook('pagelines_head'); // Hook
