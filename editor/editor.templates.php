@@ -359,7 +359,7 @@ class EditorTemplates {
 			<fieldset>
 				<span class="help-block">
 					Fill out this form and the current template will be saved for use throughout your site.<br/>
-					<strong>Note:</strong> The current pages local settings as well as its section configuration will be saved as well
+					<strong>Note:</strong> Both the current page's local settings and section configurations will be saved.
 				</span>
 				<label for="template-name">Template Name (required)</label>
 				<input type="text" id="template-name" name="template-name" required />
