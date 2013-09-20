@@ -1057,8 +1057,9 @@
 				// relight UI stuff
 				
 				theAccordion.find('.lstn').each( function(inputIndex, inputElement){
-				
-					var optName = $( this ).attr('name')
+					var	itemNum = inputIndex + 1
+					,	itemNumber = theNew.attr('data-item-num')
+					,	optName = $( this ).attr('name')
 				
 					if(optName)
 						optName = optName.replace('item'+itemNumber, 'item'+itemNum )
@@ -1353,7 +1354,7 @@
 					allowedExtensions = extension.split(',')
 				}
 
-				$('.fineupload.upload-'+o.key).fineUploader({
+				$('.fineupload').fineUploader({
 					request: {
 						endpoint: ajaxurl
 						, 	params: {
@@ -1394,6 +1395,7 @@
 							
 							optBox.imagesLoaded( function(){
 								optBox.closest('.isotope').isotope( 'reLayout' )
+								optBox.closest('.opt-box').find('.opt-accordion').accordion('refresh')
 							})
 
 						}
