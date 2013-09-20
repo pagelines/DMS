@@ -248,15 +248,12 @@
 				$.each( that.activeForm.formParams(), function(i, o){
 					$.each( o, function(i2, o2){
 						if( typeof(o2) == 'object' ){
-							console.log(i)
-							console.log(i2)
-							console.log(o2)
+							
 							$.pl.data[scope][i][i2] = o2
 						}
 					
 					})
 				})
-			console.log($.pl.data[scope])
 			
 				if(uniqueID)
 					var sel = sprintf('[data-clone="%s"] [data-sync="%s"]', uniqueID, theInput.attr('id'))
@@ -546,14 +543,13 @@
 				
 				
 				oHTML += sprintf("<div class='opt-accordion toolbox-sortable'>")
-				console.log(optionArray)
-				console.log(scope)
+				
 				$.each( optionArray, function( ind, vals ){
 				
 					
 					o.itemNumber = 'item'+itemNumber
 					
-					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'>%s %s <span class='btn btn-mini remove-item'><i class='icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber )
+					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'><span class='bar-title'>%s %s</span> <span class='btn btn-mini remove-item'><i class='icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber )
 					
 					if( o.opts ){
 						$.each( o.opts , function(index, osub) {
@@ -568,7 +564,7 @@
 					itemNumber++
 				})
 				
-				oHTML += sprintf("</div><div class='accordion-add'><span class='btn'><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
+				oHTML += sprintf("</div><div class='add-accordion-item'><span class='btn' data-uid='' data-scope='' data-key=''><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
 
 			}
 
@@ -1023,7 +1019,54 @@
 
 
 			$('.opt-name .remove-item').on('click', function (e) {
+				
+				
+				
+				var accord = $(this).closest('.opt-accordion')
+				
+				if( accord.find('.opt-group').length <= 2){
+					accord.find('.remove-item').hide()
+				}
+				
 				$(this).closest('.opt-group').remove()
+				
+				accord.find('.lstn').first().trigger('change')
+				
+		    })
+		
+			$('.add-accordion-item').on('click', function (e) {
+				
+				var theOpt = $(this).closest('.opt-box')
+				, 	theAccordion = theOpt.find('.opt-accordion')
+				
+				theNew = theOpt.find('.opt-group').first().clone()
+				
+				theNew.find('.bar-title').html('New Item')
+				theNew.find('.ui-icon').remove()
+				
+				// add to accordion
+				theAccordion.append( theNew )
+				
+				theAccordion.accordion("destroy").accordion({
+					header: ".opt-name"
+					,	collapsible: true
+					,	active: false
+				})
+				
+				// change the name stuff
+				// relight UI stuff
+				
+				theAccordion.find('.lstn').each( function(inputIndex, inputElement){
+				
+					var optName = $( this ).attr('name')
+				
+					if(optName)
+						optName = optName.replace('item'+itemNumber, 'item'+itemNum )
+				
+				
+					$( this ).attr('name', optName)
+				
+				})
 				
 		    })
 

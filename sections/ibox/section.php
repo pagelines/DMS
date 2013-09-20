@@ -99,7 +99,7 @@ class pliBox extends PageLinesSection {
 				array(
 					'key'		=> 'image',
 					'label'		=> __( 'iBox Image', 'pagelines' ),
-					'type'		=> 'text'
+					'type'		=> 'image_upload'
 				),
 				
 
