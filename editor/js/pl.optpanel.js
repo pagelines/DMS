@@ -302,6 +302,33 @@
 
 			})
 		}
+		
+		, updateAccordion: function( theAccordion ){
+				theAccordion.find('.opt-group').each( function(indx, el) {
+				
+					var $that = $( this )
+					,	itemNum = indx + 1
+					,	itemNumber = $that.attr('data-item-num')
+				
+					$that.find('.lstn').each( function(inputIndex, inputElement){
+					
+						var optName = $( this ).attr('name')
+					
+						if(optName)
+							optName = optName.replace('item'+itemNumber, 'item'+itemNum )
+					
+					
+						$( this ).attr('name', optName)
+					
+					})
+				
+					$that.attr('data-item-num', itemNum)
+				
+					
+				})
+			
+				theAccordion.find('.lstn').first().trigger('change')
+		}
 
 		, setPanel: function(){
 			var that = this
@@ -327,6 +354,7 @@
 								header: ".opt-name"
 								,	collapsible: true
 								,	active: false
+								,	heightStyle: 'content'
 							})
 							.sortable({
 								axis: "y"
@@ -334,30 +362,7 @@
 								,	cursor: "move"
 								,	stop: function(){
 									
-										that.accordionArea.find('.opt-group').each( function(indx, el) {
-										
-											var $that = $( this )
-											,	itemNum = indx + 1
-											,	itemNumber = $that.attr('data-item-num')
-										
-											$that.find('.lstn').each( function(inputIndex, inputElement){
-											
-												var optName = $( this ).attr('name')
-											
-												if(optName)
-													optName = optName.replace('item'+itemNumber, 'item'+itemNum )
-											
-											
-												$( this ).attr('name', optName)
-											
-											})
-										
-											$that.attr('data-item-num', itemNum)
-										
-											
-										})
-									
-										that.accordionArea.find('.lstn').first().trigger('change')
+										that.updateAccordion( that.accordionArea )
 									}
 								})
 							
@@ -564,7 +569,7 @@
 					itemNumber++
 				})
 				
-				oHTML += sprintf("</div><div class='add-accordion-item'><span class='btn' data-uid='' data-scope='' data-key=''><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
+				oHTML += sprintf("</div><div class='accordion-tools'><span class='btn btn-mini add-accordion-item' data-uid='' data-scope='' data-key=''><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
 
 			}
 
@@ -1043,6 +1048,7 @@
 				
 				theNew.find('.bar-title').html('New Item')
 				theNew.find('.ui-icon').remove()
+				theNew.find('.lstn').val('')
 				
 				// add to accordion
 				theAccordion.append( theNew )
@@ -1051,23 +1057,14 @@
 					header: ".opt-name"
 					,	collapsible: true
 					,	active: false
+					,	heightStyle: 'content'
 				})
 				
 				// change the name stuff
 				// relight UI stuff
 				
-				theAccordion.find('.lstn').each( function(inputIndex, inputElement){
-					var	itemNum = inputIndex + 1
-					,	itemNumber = theNew.attr('data-item-num')
-					,	optName = $( this ).attr('name')
+				that.updateAccordion( theAccordion )
 				
-					if(optName)
-						optName = optName.replace('item'+itemNumber, 'item'+itemNum )
-				
-				
-					$( this ).attr('name', optName)
-				
-				})
 				
 		    })
 
