@@ -8,6 +8,12 @@
 
 
 
+class PageLinesMetaPanel{
+	function register_tab(){
+		
+	}
+}
+
 /**
 *
 * @TODO do
