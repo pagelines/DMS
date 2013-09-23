@@ -1,6 +1,19 @@
 <?php
 
 /*
+ *	Get index value in array, does shortcodes or default
+ */
+function pl_array_get( $key, $array, $default = false ){
+	
+	if( isset( $array[$key] ) && $array[$key] != '' )
+		$val = $array[$key];
+	else
+		$val = $default;
+	
+	return do_shortcode( $val );
+}
+
+/*
  *	Editor functions - Always loaded
  */
 

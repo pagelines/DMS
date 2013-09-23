@@ -212,7 +212,12 @@ class PageLinesSection {
 		else
 			$val = $a['default'];
 
-		return ($val == '') ? false : do_shortcode( $val );
+		if( $val == '' )
+			return false; 
+		elseif( is_array( $val) )
+			return $val;
+		else
+			return do_shortcode( $val );
 
 	}
 

@@ -354,7 +354,6 @@
 								header: ".opt-name"
 								,	collapsible: true
 								,	active: false
-								,	heightStyle: 'content'
 							})
 							.sortable({
 								axis: "y"
@@ -1057,7 +1056,6 @@
 					header: ".opt-name"
 					,	collapsible: true
 					,	active: false
-					,	heightStyle: 'content'
 				})
 				
 				// change the name stuff

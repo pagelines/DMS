@@ -172,105 +172,220 @@ class pliBox extends PageLinesSection {
 
 		$media_type = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
 		$media_format = ($this->opt('ibox_format')) ? $this->opt('ibox_format') : 'top';
+		
+		$ibox_array = ($this->opt('ibox_array')) ? $this->opt('ibox_array') : array();
 
 		$width = 0;
 		$output = '';
+		$count = 1; 
+		
+		if( is_array($ibox_array) ){
+			
+			foreach( $ibox_array as $ibox ){
+	
+				$text = pl_array_get( 'text', $ibox, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id lectus sem. Cras consequat lorem.'); 
+				$title = pl_array_get( 'title', $ibox, 'iBox '. $count); 
+				$link = pl_array_get( 'link', $ibox ); 
+				$user_class = pl_array_get( 'class', $ibox ); 
+				$image = pl_array_get( 'image', $ibox ); 
+				$icon = pl_array_get( 'icon', $ibox ); 
+				
+	
+				$text = sprintf('<div data-sync="ibox_text_%s">%s</div>', $count, $text );
+				$title = sprintf('<h4 data-sync="ibox_title_%s">%s</h4>', $count, $title );
+				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
-		for($i = 1; $i <= $boxes; $i++):
 
-			// TEXT
-			$text = ($this->opt('ibox_text_'.$i)) ? $this->opt('ibox_text_'.$i) : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id lectus sem. Cras consequat lorem.';
+				$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
+				$media_class = 'media-type-'.$media_type;
 
-			$text = sprintf('<div data-sync="ibox_text_%s">%s</div>', $i, $text );
-			$user_class = ($this->opt('ibox_class_'.$i)) ? $this->opt('ibox_class_	'.$i) : '';
-
-			$title = ($this->opt('ibox_title_'.$i)) ? $this->opt('ibox_title_'.$i) : __('iBox '.$i, 'pagelines');
-			$title = sprintf('<h4 data-sync="ibox_title_%s">%s</h4>', $i, $title );
-
-			// LINK
-			$link = $this->opt('ibox_link_'.$i);
-			$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
-
-
-			$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
-			$media_class = 'media-type-'.$media_type;
-
-			$media_bg = '';
-			$media_html = '';
-
-			if( $media_type == 'icon' ){
-				$media = ($this->opt('ibox_icon_'.$i)) ? $this->opt('ibox_icon_'.$i) : false;
-				if(!$media){
-					$icons = pl_icon_array();
-					$media = $icons[ array_rand($icons) ];
-				}
-				$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $media);
-
-			} elseif( $media_type == 'image' ){
-
-				$media = ($this->opt('ibox_image_'.$i)) ? $this->opt('ibox_image_'.$i) : false;
-
+				$media_bg = '';
 				$media_html = '';
 
-				$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : '';
+				if( $media_type == 'icon' ){
+				
+					if(!$icon){
+						$icons = pl_icon_array();
+						$media = $icons[ array_rand($icons) ];
+					}
+					$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $icon);
 
-			}
-			
-			$media_link = '';
-			$media_link_close = '';
-			
-			if( $link ){
-				$media_link = sprintf('<a href="%s">',$link);
-				$media_link_close = '</a>';
-			}
+				} elseif( $media_type == 'image' ){
+				
+					$media_html = '';
 
-			if($width == 0)
-				$output .= '<div class="row fix">';
+					$media_bg = ($image) ? sprintf('background-image: url(%s);', $image) : '';
+
+				}
+
+				$media_link = '';
+				$media_link_close = '';
+
+				if( $link ){
+					$media_link = sprintf('<a href="%s">',$link);
+					$media_link_close = '</a>';
+				}
+
+				if($width == 0)
+					$output .= '<div class="row fix">';
 
 
-			$output .= sprintf(
-				'<div class="span%s ibox %s %s fix">
-					<div class="ibox-media img">
-						%s
-						<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s">
+				$output .= sprintf(
+					'<div class="span%s ibox %s %s fix">
+						<div class="ibox-media img">
 							%s
-						</span>
-						%s
-					</div>
-					<div class="ibox-text bd">
-						%s
-						<div class="ibox-desc">
-							%s
+							<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s">
+								%s
+							</span>
 							%s
 						</div>
-					</div>
-				</div>',
-				$cols,
-				$format_class,
-				$user_class,
-				$media_link,
-				$media_class,
-				$media_bg,
-				$media_html,
-				$media_link_close,
-				$title,
-				$text,
-				$text_link
-			);
+						<div class="ibox-text bd">
+							%s
+							<div class="ibox-desc">
+								%s
+								%s
+							</div>
+						</div>
+					</div>',
+					$cols,
+					$format_class,
+					$user_class,
+					$media_link,
+					$media_class,
+					$media_bg,
+					$media_html,
+					$media_link_close,
+					$title,
+					$text,
+					$text_link
+				);
 
-			$width += $cols;
+				$width += $cols;
 
-			if($width >= 12 || $i == $boxes){
-				$width = 0;
-				$output .= '</div>';
+				if($width >= 12 || $count == $boxes){
+					$width = 0;
+					$output .= '</div>';
+				}
+				
+				
+				$count++;
 			}
 
+			
 
-		 endfor;
+		}
+		
 
 		printf('<div class="ibox-wrapper pl-animation-group">%s</div>', $output);
 
 	}
+	
+	function old_section_template( ) {
+
+			$boxes = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
+			$cols = ($this->opt('ibox_cols')) ? $this->opt('ibox_cols') : 3;
+
+			$media_type = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
+			$media_format = ($this->opt('ibox_format')) ? $this->opt('ibox_format') : 'top';
+
+			$width = 0;
+			$output = '';
+
+			for($i = 1; $i <= $boxes; $i++):
+
+				// TEXT
+				$text = ($this->opt('ibox_text_'.$i)) ? $this->opt('ibox_text_'.$i) : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id lectus sem. Cras consequat lorem.';
+
+				$text = sprintf('<div data-sync="ibox_text_%s">%s</div>', $i, $text );
+				$user_class = ($this->opt('ibox_class_'.$i)) ? $this->opt('ibox_class_	'.$i) : '';
+
+				$title = ($this->opt('ibox_title_'.$i)) ? $this->opt('ibox_title_'.$i) : __('iBox '.$i, 'pagelines');
+				$title = sprintf('<h4 data-sync="ibox_title_%s">%s</h4>', $i, $title );
+
+				// LINK
+				$link = $this->opt('ibox_link_'.$i);
+				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
+
+
+				$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
+				$media_class = 'media-type-'.$media_type;
+
+				$media_bg = '';
+				$media_html = '';
+
+				if( $media_type == 'icon' ){
+					$media = ($this->opt('ibox_icon_'.$i)) ? $this->opt('ibox_icon_'.$i) : false;
+					if(!$media){
+						$icons = pl_icon_array();
+						$media = $icons[ array_rand($icons) ];
+					}
+					$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $media);
+
+				} elseif( $media_type == 'image' ){
+
+					$media = ($this->opt('ibox_image_'.$i)) ? $this->opt('ibox_image_'.$i) : false;
+
+					$media_html = '';
+
+					$media_bg = ($media) ? sprintf('background-image: url(%s);', $media) : '';
+
+				}
+
+				$media_link = '';
+				$media_link_close = '';
+
+				if( $link ){
+					$media_link = sprintf('<a href="%s">',$link);
+					$media_link_close = '</a>';
+				}
+
+				if($width == 0)
+					$output .= '<div class="row fix">';
+
+
+				$output .= sprintf(
+					'<div class="span%s ibox %s %s fix">
+						<div class="ibox-media img">
+							%s
+							<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s">
+								%s
+							</span>
+							%s
+						</div>
+						<div class="ibox-text bd">
+							%s
+							<div class="ibox-desc">
+								%s
+								%s
+							</div>
+						</div>
+					</div>',
+					$cols,
+					$format_class,
+					$user_class,
+					$media_link,
+					$media_class,
+					$media_bg,
+					$media_html,
+					$media_link_close,
+					$title,
+					$text,
+					$text_link
+				);
+
+				$width += $cols;
+
+				if($width >= 12 || $i == $boxes){
+					$width = 0;
+					$output .= '</div>';
+				}
+
+
+			 endfor;
+
+			printf('<div class="ibox-wrapper pl-animation-group">%s</div>', $output);
+
+		}
 
 
 }
