@@ -217,7 +217,7 @@
 		, setBinding: function(){
 			var that = this
 
-			$('.lstn').on('keyup blur change paste', function( e ){
+			$('.lstn').on('keyup.optlstn blur.optlstn change.optlstn paste.optlstn', function( e ){
 
 				var theInput = $(this)
 				,	thePanel = theInput.closest('.tab-panel')
@@ -518,9 +518,11 @@
 			if(optLevel == 3){
 				o.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
 				o.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
+				o.inputID = sprintf('%s_%s', parent.key, parent.itemNumber, o.key )
 			} else {
 				o.name = sprintf('%s[%s]', that.uniqueID, o.key )
 				o.value =  that.optValue( tabIndex, o.key )
+				o.inputID = o.key
 			}
 			
 
@@ -544,7 +546,9 @@
 				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : [[],[],[]]
 				,	itemType = o.post_type || 'Item'
 				, 	itemNumber = 1
-				
+				, 	totalNum = optionArray.length || Object.keys(optionArray).length
+				, 	removeShow = ( totalNum <= 1 ) ? 'display: none;' : ''
+
 				
 				oHTML += sprintf("<div class='opt-accordion toolbox-sortable'>")
 				
@@ -553,7 +557,7 @@
 					
 					o.itemNumber = 'item'+itemNumber
 					
-					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'><span class='bar-title'>%s %s</span> <span class='btn btn-mini remove-item'><i class='icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber )
+					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'><span class='bar-title'>%s %s</span> <span class='btn btn-mini remove-item' style='%s'><i class='icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber, removeShow )
 					
 					if( o.opts ){
 						$.each( o.opts , function(index, osub) {
@@ -579,8 +583,8 @@
 				var prepend = '<span class="btn add-on trigger-color"> <i class="icon-tint"></i> </span>'
 				,	colorVal = (o.value != '') ? o.value : optDefault
 				
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<div class="input-prepend">%4$s<input type="text" id="%1$s" name="%3$s" class="lstn color-%1$s" value="%2$s" /></div>', o.key, o.value, o.name, prepend )
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				oHTML += sprintf('<div class="input-prepend">%4$s<input type="text" id="%1$s" name="%3$s" class="lstn color-%1$s" value="%2$s" /></div>', o.inputID, o.value, o.name, prepend )
 
 			}
 
@@ -596,9 +600,9 @@
 
 				oHTML += sprintf( '<div class="upload-thumb-%s upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm) );
 
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
 
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.key, o.name, o.value )
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.inputID, o.name, o.value )
 				
 				var attach_key = o.key + "_attach_id"
 				,	attach_value =  that.optValue( tabIndex, attach_key )
@@ -615,15 +619,15 @@
 			// Text Options
 			else if( o.type == 'text' ){
 
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="" value="%3$s" />', o.key, o.name, o.value, o.classes)
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="" value="%3$s" />', o.inputID, o.name, o.value, o.classes)
 
 			}
 
 			else if( o.type == 'textarea' ){
 
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<textarea id="%s" name="%s" class="%s type-textarea lstn" >%s</textarea>', o.key, o.name, o.classes, o.value )
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				oHTML += sprintf('<textarea id="%s" name="%s" class="%s type-textarea lstn" >%s</textarea>', o.inputID, o.name, o.classes, o.value )
 
 			}
 
@@ -641,8 +645,8 @@
 					})
 				}
 
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; Select Menu &mdash;</option>%s</select>', o.key, o.name, select_opts)
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; Select Menu &mdash;</option>%s</select>', o.inputID, o.name, select_opts)
 
 				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, 'Configure Menus' )
 			}
@@ -686,7 +690,7 @@
 				, 	typeFlipVal = (that.optValue( 'type', keyFlip ) == 1) ? true : false
 
 
-				var stdCheck =  sprintf('<label class="checkbox check-standard" >%s<input id="%s" class="checkbox-input lstn" type="checkbox" %s>%s</label>', aux, o.key, checked, optLabel )
+				var stdCheck =  sprintf('<label class="checkbox check-standard" >%s<input id="%s" class="checkbox-input lstn" type="checkbox" %s>%s</label>', aux, o.inputID, checked, optLabel )
 				,	flipCheck =  (scope != 'global') ? sprintf('<label class="checkbox check-flip" >%s<input id="%s" class="checkbox-input lstn" type="checkbox" %s>%s</label>', auxFlip, keyFlip , checkedFlip, labelFlip ) : ''
 
 
@@ -798,8 +802,8 @@
 				var multi = (o.type == 'select_multi') ? 'multiple' : ''
 					
 
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="%s lstn" data-type="%s" %s>%s</select>', o.key, o.name, o.classes, o.type, multi, select_opts)
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				oHTML += sprintf('<select id="%s" name="%s" class="%s lstn" data-type="%s" %s>%s</select>', o.inputID, o.name, o.classes, o.type, multi, select_opts)
 
 				if(o.type == 'select_taxonomy' && o.post_type)
 					oHTML += sprintf(
@@ -825,8 +829,8 @@
 					})
 				}
 
-				oHTML += sprintf('<label for="%s">%s</label>', o.key, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option>&mdash; Select Font &mdash;</option>%s</select>', o.key, o.name, select_opts)
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option>&mdash; Select Font &mdash;</option>%s</select>', o.inputID, o.name, select_opts)
 
 				oHTML += sprintf('<label for="preview-%s">Font Preview</label>', o.key)
 				oHTML += sprintf('<textarea class="type-preview" id="preview-%s" style="">The quick brown fox jumps over the lazy dog.</textarea>', o.key)
@@ -1048,6 +1052,7 @@
 				theNew.find('.bar-title').html('New Item')
 				theNew.find('.ui-icon').remove()
 				theNew.find('.lstn').val('')
+				theNew.find('.remove-item').show()
 				
 				// add to accordion
 				theAccordion.append( theNew )
@@ -1063,6 +1068,9 @@
 				
 				that.updateAccordion( theAccordion )
 				
+				$('.lstn').off('keyup.optlstn blur.optlstn change.optlstn paste.optlstn')
+				
+				that.setBinding()
 				
 		    })
 

@@ -155,6 +155,7 @@ class pliBox extends PageLinesSection {
 				'title' 	=> __( 'iBox ', 'pagelines' ) . $i,
 				'type' 		=> 'multi',
 				'opts' 		=> $opts,
+				'col'		=> 2
 
 			);
 
@@ -191,8 +192,8 @@ class pliBox extends PageLinesSection {
 				$icon = pl_array_get( 'icon', $ibox ); 
 				
 	
-				$text = sprintf('<div data-sync="ibox_text_%s">%s</div>', $count, $text );
-				$title = sprintf('<h4 data-sync="ibox_title_%s">%s</h4>', $count, $title );
+				$text = sprintf('<div data-sync="ibox_array_%s_text">%s</div>', $count, $text );
+				$title = sprintf('<h4 data-sync="ibox_array_%s_title">%s</h4>', $count, $title );
 				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
