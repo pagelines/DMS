@@ -18,13 +18,13 @@ class PageLinesExtendPanel{
 
 	function toolbar( $toolbar ){
 		$toolbar['pl-extend'] = array(
-			'name'	=> 'Store',
+			'name'	=> __( 'Store', 'pagelines' ),
 			'icon'	=> 'icon-gears',
 			'pos'	=> 80,
 			'panel'	=> array(
-				'heading'	=> "Extend PageLines",
+				'heading'	=> __( "Extend PageLines", 'pagelines' ),
 				'store'		=> array(
-					'name'	=> 'PageLines Store',
+					'name'	=> __( 'PageLines Store', 'pagelines' ),
 					'filter'=> '*',
 					'type'	=> 'call',
 					'call'	=> array($this, 'the_store_callback'),
@@ -38,38 +38,38 @@ class PageLinesExtendPanel{
 				// 	'icon'	=> 'icon-plus-sign'
 				// ),
 				'featured'		=> array(
-					'name'	=> 'Featured',
+					'name'	=> __( 'Featured', 'pagelines' ),
 					'href'	=> '#store',
 					'filter'=> '.featured',
 					'icon'	=> 'icon-star'
 				),
 				
 				'sections'		=> array(
-					'name'	=> 'Sections',
+					'name'	=> __( 'Sections', 'pagelines' ),
 					'href'	=> '#store',
 					'filter'=> '.sections',
 					'icon'	=> 'icon-random'
 				),
 				'plugins'		=> array(
-					'name'	=> 'Plugins',
+					'name'	=> __( 'Plugins', 'pagelines' ),
 					'href'	=> '#store',
 					'filter'=> '.plugins',
 					'icon'	=> 'icon-download-alt'
 				),
 				'themes'		=> array(
-					'name'	=> 'Themes',
+					'name'	=> __( 'Themes', 'pagelines' ),
 					'href'	=> '#store',
 					'filter'=> '.themes',
 					'icon'	=> 'icon-picture'
 				),
 				'free'		=> array(
-					'name'	=> 'Free',
+					'name'	=> __( 'Free', 'pagelines' ),
 					'href'	=> '#store',
 					'filter'=> '.free-item',
 					'icon'	=> 'icon-tag'
 				),
 				'premium'		=> array(
-					'name'	=> 'Premium',
+					'name'	=> __( 'Premium', 'pagelines' ),
 					'href'	=> '#store',
 					'filter'=> '.premium-item',
 					'icon'	=> 'icon-shopping-cart'
@@ -81,7 +81,7 @@ class PageLinesExtendPanel{
 		//			'call'	=> array($this, 'upload_callback'),
 		//		),
 				'search'	=> array(
-					'name'	=> 'Search',
+					'name'	=> __( 'Search', 'pagelines' ),
 					'icon'	=> 'icon-search',
 					'call'	=> array($this, 'search_callback'),
 				),
@@ -96,10 +96,13 @@ class PageLinesExtendPanel{
 
 			<form class="opt standard-form form-save-template">
 				<fieldset>
-					<span class="help-block">Upload a .zip extension into your PageLines install using this tool.</span>
-					<label for="template-name">Extension File (zip file - required)</label>
+					<span class="help-block"><?php _e( 'Upload a .zip extension into your PageLines install using this tool.', 'pagelines' ); ?>
+					</span>
+					<label for="template-name"><?php _e( 'Extension File (zip file - required)', 'pagelines' ); ?>
+					</label>
 					<input type="upload" id="template-name" name="template-name" required />
-					<button type="submit" class="btn btn-primary btn-save-template">Upload Extension</button>
+					<button type="submit" class="btn btn-primary btn-save-template"><?php _e( 'Upload Extension', 'pagelines' ); ?>
+					</button>
 				</fieldset>
 			</form>
 			<?php
@@ -110,11 +113,13 @@ class PageLinesExtendPanel{
 
 			<form class="opt standard-form form-store-search">
 				<fieldset>
-					<span class="help-block">Search the PageLines store for extensions.</span>
+					<span class="help-block"><?php _e( 'Search the PageLines store for extensions.', 'pagelines' ); ?>
+					</span>
 
 					<input class="" id="appendedInputButton" type="text">
 					
-					<button id="ssearch" class="btn btn-primary" type="submit">Search Store</button>
+					<button id="ssearch" class="btn btn-primary" type="submit"><?php _e( 'Search Store', 'pagelines' ); ?>
+					</button>
 
 				</fieldset>
 			</form>
@@ -135,19 +140,22 @@ class PageLinesExtendPanel{
 				jQuery.getJSON(url,function(result){
 					//plPrint(result)
 					
-					jQuery(".store-search-results").append("<li><strong>" + result.results + " results</strong> found for <strong>" + s + "</strong></li>");
+					jQuery(".store-search-results").append("<li><strong>" + result.results + " results</strong><?php _e( ' found for ', 'pagelines' ); ?>
+					<strong>" + s + "</strong></li>");
 					
 					jQuery.each(result.data, function(i, field){
 						
 						var demo = field.demo || false
 						
 						if(demo) {
-							demo = sprintf( ' <a href="%s" class="btn btn-mini">Demo <i class="icon-picture" target="_blank"></i></a>', demo)
+							demo = sprintf( ' <a href="%s" class="btn btn-mini"><?php _e( 'Demo ', 'pagelines' ); ?>
+							<i class="icon-picture" target="_blank"></i></a>', demo)
 						} else {
 							demo = ''
 						}
 						
-						var btns = sprintf('<br/><a href="%s" class="btn btn-mini">Overview <i class="icon-external-link" target="_blank"></i></a>%s', field.overview, demo)
+						var btns = sprintf('<br/><a href="%s" class="btn btn-mini"><?php _e( 'Overview ', 'pagelines' ); ?>
+						<i class="icon-external-link" target="_blank"></i></a>%s', field.overview, demo)
 						
 						var output = sprintf('<div class="img" style="max-width: 130px;"><img src="%s" /></div><div class="bd"><h4>%s</h4><p>%s %s</p></div>', field.thumb, field.name, field.description, btns)
 						

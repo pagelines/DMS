@@ -197,36 +197,36 @@ class PLAccountPanel{
 
 	function toolbar( $toolbar ){
 		$toolbar['account'] = array(
-			'name'	=> 'Account',
+			'name'	=> __( 'Account', 'pagelines' ),
 			'icon'	=> 'icon-pagelines',
 			'pos'	=> 110,
 		//	'type'	=> 'btn',
 			'panel'	=> array(
 				'heading'	=> "<i class='icon-pagelines'></i> PageLines",
 				'welcome'	=> array(
-					'name'	=> 'Welcome!',
+					'name'	=> __( 'Welcome!', 'pagelines' ),
 					'icon'	=> 'icon-thumbs-up',
 					'call'	=> array(&$this, 'pagelines_welcome'),
 				),
 				'pl_account'	=> array(
-					'name'	=> 'Your Account',
+					'name'	=> __( 'Your Account', 'pagelines' ),
 					'icon'	=> 'icon-pagelines',
 					'call'	=> array(&$this, 'pagelines_account'),
 				),
 				'get_karma'	=> array(
-					'name'	=> 'Get Karma',
+					'name'	=> __( 'Get Karma', 'pagelines' ),
 					'icon'	=> 'icon-sun',
 					'call'	=> array($this, 'pagelines_karma'),
 				),
 				'getting_started'	=> array(
-					'name'	=> 'Getting Started',
+					'name'	=> __( 'Getting Started', 'pagelines' ),
 					'icon'	=> 'icon-youtube-play',
 					'call'	=> array($this, 'getting_started'),
 				),
 				
 				
 				'support'	=> array(
-					'name'	=> 'Support',
+					'name'	=> __( 'Support', 'pagelines' ),
 					'icon'	=> 'icon-comments',
 					'call'	=> array(&$this, 'pagelines_support'),
 				),
@@ -448,25 +448,34 @@ class PLAccountPanel{
 		$name = (isset($data['name']) && $data['name'] != '') ? $data['name'] : '';
 		
 		?>
-		<h2><i class="icon-sun"></i> Get PRO stuff free with Karma.</h2>
-		<p>For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.</p>
+		<h2><i class="icon-sun"></i> <?php _e( 'Get PRO stuff free with Karma.', 'pagelines' ); ?>
+		</h2>
+		<p><?php _e( "For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.", 'pagelines' ); ?>
+		</p>
 		<div class="row">
 			<div class="span4">
-				<h4>Invite Friends by Email</h4>
+				<h4><?php _e( 'Invite Friends by Email', 'pagelines' ); ?>
+				</h4>
 				<?php if($url != '' && $name != ''): ?>
-					<textarea class="karma-email-invites pl-textarea-input" placeholder="Add emails (Comma separated)"></textarea>
-					<button class="btn btn-primary submit-invites" data-link="<?php echo $url; ?>" data-name="<?php echo $name;?>"><i class="icon-share"></i> Invite</button>
+					<textarea class="karma-email-invites pl-textarea-input" placeholder="<?php _e( 'Add emails (Comma separated)', 'pagelines' ); ?>
+					"></textarea>
+					<button class="btn btn-primary submit-invites" data-link="<?php echo $url; ?>" data-name="<?php echo $name;?>"><i class="icon-share"></i> <?php _e( 'Invite', 'pagelines' ); ?>
+					</button>
 				<?php else: ?>
-					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i> Add/Update Account Info</a>
-					<p><small>Name and invite link needed.</small></p>
+					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i><?php _e( ' Add/Update Account Info', 'pagelines' ); ?>
+					</a>
+					<p><small><?php _e( 'Name and invite link needed.', 'pagelines' ); ?>
+					</small></p>
 				<?php endif; ?>
 			</div>
 			<div class="span4">
-				<h4>Your Invite Link</h4>
+				<h4><?php _e( 'Your Invite Link', 'pagelines' ); ?>
+				</h4>
 				<?php if($url != '' ): ?>
 					<input type="text" class="pl-text-input" value="<?php echo $url; ?>" />
 				<?php else: ?>
-					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i> Add/Update Account Info</a>
+					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i><?php _e( ' Add/Update Account Info', 'pagelines' ); ?>
+					</a>
 				<?php endif; ?>
 				
 				
@@ -481,18 +490,21 @@ class PLAccountPanel{
 	function karma_counter(){
 		$data = $this->get_account_data();
 		?>
-		<h4><i class="icon-sun"></i> Your Karma</h4>
+		<h4><i class="icon-sun"></i><?php _e( ' Your Karma', 'pagelines' ); ?>
+		</h4>
 		
 		<div class="row karma-row">
 		
 			<div class="span6 kcol">
-				<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> Current</strong></div>
+				<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i><?php _e( ' Current', 'pagelines' ); ?>
+				</strong></div>
 			
 			</div>
 			<div class="span6 kcol">
 				<div class="big-karma">
 					<?php echo $data['lifetime_karma'];?>
-					<strong><i class="icon-sun"></i> Lifetime</strong>
+					<strong><i class="icon-sun"></i><?php _e( ' Lifetime', 'pagelines' ); ?>
+					</strong>
 				</div>
 				
 			</div>
@@ -500,9 +512,12 @@ class PLAccountPanel{
 			
 		</div>
 		<div class="karma-nav">
-			<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
-			<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
-			<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
+			<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> <?php _e( 'Get karma', 'pagelines' ); ?>
+			 </a>
+			<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> <?php _e( 'Use karma', 'pagelines' ); ?>
+			 </a>
+			<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini"><?php _e( 'Learn more about karma', 'pagelines' ); ?>
+			 <i class="icon-external-link"></i></a>
 		</div>
 		
 		<?php 
@@ -553,11 +568,13 @@ class PLAccountPanel{
 		?>
 		<div class="account-creds">
 			<div class="account-saving alert">
-				<i class="icon-spin icon-refresh"></i> Saving
+				<i class="icon-spin icon-refresh"></i> <?php _e( 'Saving', 'pagelines' ); ?>
+				
 			</div>
 			<div class="account-details alert alert-warning" style="<?php if(! $active) echo 'display: block;';?>">
 				<?php if( ! $active || $active == ''):  ?>
-					<strong><i class="icon-star-half-empty"></i> Site Not Activated</strong>
+					<strong><i class="icon-star-half-empty"></i> <?php _e( 'Site Not Activated', 'pagelines' ); ?>
+					</strong>
 				<?php endif; ?>
 			</div>
 			<?php if( $active ):  ?>
@@ -565,11 +582,14 @@ class PLAccountPanel{
 				<div class="account-field alert">
 			
 					<label for="pl_activation">
-						<i class="icon-star"></i> Pro Activated! 
+						<i class="icon-star"></i> <?php _e( 'Pro Activated!', 'pagelines' ); ?>
+						 
 						<small><?php printf($activation_message);  ?></small>
 					</label>
-					<button class="btn settings-action refresh-user btn-primary" data-action="pagelines_account"><i class="icon-refresh" ></i> Update Info</button>
-					<button class="btn settings-action deactivate-key" data-action="pagelines_account"><i class="icon-remove" style="color: #ff0000;"></i> Deactivate</button>
+					<button class="btn settings-action refresh-user btn-primary" data-action="pagelines_account"><i class="icon-refresh" ></i> <?php _e( 'Update Info', 'pagelines' ); ?>
+					</button>
+					<button class="btn settings-action deactivate-key" data-action="pagelines_account"><i class="icon-remove" style="color: #ff0000;"></i> <?php _e( 'Deactivate', 'pagelines' ); ?>
+					</button>
 			
 				</div>
 			
@@ -578,21 +598,25 @@ class PLAccountPanel{
 			
 			
 			<div class="account-field">
-				<label for="pl_activation"><i class="icon-pagelines"></i> PageLines Account</label>
+				<label for="pl_activation"><i class="icon-pagelines"></i> <?php _e( 'PageLines Account', 'pagelines' ); ?>
+				</label>
 		
 				<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?> />
 				
 			</div>
 		
 			<div class="account-field">
-				<label for="pl_activation"><i class="icon-key"></i> Pro Activation Key <span class="sbtl">(optional)</span></label>
+				<label for="pl_activation"><i class="icon-key"></i> <?php _e( 'Pro Activation Key', 'pagelines' ); ?>
+				 <span class="sbtl">(<?php _e( 'optional', 'pagelines' ); ?>)</span></label>
 		
-				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="Enter Pro Key" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
+				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>
+				" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> />
 			
 			</div>
 			<?php if( ! $active ): ?>
 			<div class="submit-area account-field">
-				<button class="btn btn-primary settings-action" data-action="pagelines_account">Update <i class="icon-chevron-sign-right"></i></button>
+				<button class="btn btn-primary settings-action" data-action="pagelines_account"><?php _e( 'Update', 'pagelines' ); ?>
+				 <i class="icon-chevron-sign-right"></i></button>
 				
 			</div>
 			<?php endif; ?>
@@ -600,18 +624,22 @@ class PLAccountPanel{
 		</div>
 		<div class="account-overview">
 			<div class="account-overview-pad">
-				<label>PageLines Account Info</label>
+				<label><?php _e( 'PageLines Account Info', 'pagelines' ); ?>
+				</label>
 				<div class="account-info">
 					<?php ?>
 					
  					<?php if( !$data[ 'real_user' ] ): ?>
 					<div class="alert alert-info">
-						<i class="icon-hand-left"></i> <strong>PageLines account not added or incorrect.</strong><br/> <em>Add account to configure PageLines APIs, karma system and store access.</em>
+						<i class="icon-hand-left"></i> <strong><?php _e( 'PageLines account not added or incorrect.', 'pagelines' ); ?>
+						</strong><br/> <em><?php _e( 'Add account to configure PageLines APIs, karma system and store access.', 'pagelines' ); ?>
+						</em>
 					</div>
 					<?php else: ?>
 					<div class="row">
 						<div class="span6 ">
-							<h4>Profile</h4>
+							<h4><?php _e( 'Profile', 'pagelines' ); ?>
+							</h4>
 							<div class="account-profile media">
 								<div class="img">
 									<?php echo $data['avatar'];?>
@@ -620,25 +648,30 @@ class PLAccountPanel{
 									<h5><?php echo $data['name'];?></h5>
 									<p><?php echo $data['description'];?></p>
 									<p>
-										<a class="btn btn-mini" href="http://www.pagelines.com/my-account/">My Account</a>
-										<a class="btn btn-mini" href="http://www.pagelines.com/wp-admin/">Edit Profile</a>
+										<a class="btn btn-mini" href="http://www.pagelines.com/my-account/"><?php _e( 'My Account', 'pagelines' ); ?>
+										</a>
+										<a class="btn btn-mini" href="http://www.pagelines.com/wp-admin/"><?php _e( 'Edit Profile', 'pagelines' ); ?>
+										</a>
 									</p>
 								</div>
 							</div>
 						</div>
 						<div class="span6 ">
-							<h4><i class="icon-sun"></i> Karma</h4>
+							<h4><i class="icon-sun"></i> <?php _e( 'Karma', 'pagelines' ); ?>
+							</h4>
 							
 							<div class="row karma-row">
 							
 								<div class="span6 kcol">
-									<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> Current</strong></div>
+									<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> <?php _e( 'Current', 'pagelines' ); ?>
+									</strong></div>
 								
 								</div>
 								<div class="span6 kcol">
 									<div class="big-karma">
 										<?php echo $data['lifetime_karma'];?>
-										<strong><i class="icon-sun"></i> Lifetime</strong>
+										<strong><i class="icon-sun"></i> <?php _e( 'Lifetime', 'pagelines' ); ?>
+										</strong>
 									</div>
 									
 								</div>
@@ -646,9 +679,12 @@ class PLAccountPanel{
 								
 							</div>
 							<div class="karma-nav">
-								<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> Get karma </a>
-								<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> Use karma </a>
-								<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini">Learn more about karma <i class="icon-external-link"></i></a>
+								<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> <?php _e( 'Get karma', 'pagelines' ); ?>
+								 </a>
+								<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> <?php _e( 'Use karma', 'pagelines' ); ?>
+								 </a>
+								<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini"><?php _e( 'Learn more about karma', 'pagelines' ); ?>
+								 <i class="icon-external-link"></i></a>
 							</div>
 						</div>
 						
@@ -665,7 +701,8 @@ class PLAccountPanel{
 	function getting_started(){
 		?>
 		<p>
-			<h3><i class="icon-thumbs-up"></i> Getting Started</h3>
+			<h3><i class="icon-thumbs-up"></i> <?php _e( 'Getting Started', 'pagelines' ); ?>
+			</h3>
 			<iframe width="700" height="420" src="//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
 		</p>
 		<?php 
@@ -674,15 +711,18 @@ class PLAccountPanel{
 	function pagelines_welcome(){
 		?>
 
-		<h3><i class="icon-pagelines"></i> Congratulations!</h3>
+		<h3><i class="icon-pagelines"></i> <?php _e( 'Congratulations!', 'pagelines' ); ?>
+		</h3>
 		<p>
 		 	<strong>Hello! Welcome to DMS.</strong><br/> A drag <span class="spamp">&amp;</span> drop design management system for building, managing, and <em>evolving</em> your website.<br/> To get started please visit the links below &darr; 
 		</p>
 		<div class="alignleft well welcome-well">
 			<?php if( defined( 'DMS_DISABLE_ACCOUNT_PANEL' ) && DMS_DISABLE_ACCOUNT_PANEL && pl_is_pro() ){} else { ?>
-			<a href="#" class="dms-tab-link btn btn-primary" data-tab-link="account" data-stab-link="pl_account"><i class="icon-pagelines"></i> Setup PageLines Account <i class="icon-angle-right"></i></a>
+			<a href="#" class="dms-tab-link btn btn-primary" data-tab-link="account" data-stab-link="pl_account"><i class="icon-pagelines"></i> <?php _e( 'Setup PageLines Account', 'pagelines' ); ?>
+			 <i class="icon-angle-right"></i></a>
 			<?php } ?>
-			<a href="#" class="dms-tab-link btn" data-tab-link="account" data-stab-link="getting_started"><i class="icon-youtube-play"></i> Getting Started Video <i class="icon-angle-right"></i></a>
+			<a href="#" class="dms-tab-link btn" data-tab-link="account" data-stab-link="getting_started"><i class="icon-youtube-play"></i> <?php _e( 'Getting Started Video', 'pagelines' ); ?>
+			 <i class="icon-angle-right"></i></a>
 		</div>
 		
 
@@ -692,14 +732,19 @@ class PLAccountPanel{
 
 	function pagelines_support(){
 		?>
-		<h3><i class="icon-thumbs-up"></i> The PageLines Experience</h3>
+		<h3><i class="icon-thumbs-up"></i> <?php _e( 'The PageLines Experience', 'pagelines' ); ?>
+		</h3>
 		<p>
-			We want you to have a most amazing time as a PageLines customer. <br/>
-			That's why we have a ton of people standing by to make you happy.
+			<?php _e( 'We want you to have a most amazing time as a PageLines customer.', 'pagelines' ); ?>
+			 <br/>
+			<?php _e( "That's why we have a ton of people standing by to make you happy.", 'pagelines' ); ?>
+			
 		</p>
 		<p>
-			<a href="http://forum.pagelines.com" class="btn" target="_blank"><i class="icon-comments"></i> PageLines Forum</a>
-			<a href="http://docs.pagelines.com" class="btn" target="_blank"><i class="icon-file"></i> DMS Documentation</a>
+			<a href="http://forum.pagelines.com" class="btn" target="_blank"><i class="icon-comments"></i> <?php _e( 'PageLines Forum', 'pagelines' ); ?>
+			</a>
+			<a href="http://docs.pagelines.com" class="btn" target="_blank"><i class="icon-file"></i> <?php _e( 'DMS Documentation', 'pagelines' ); ?>
+			</a>
 		</p>
 
 		<?php

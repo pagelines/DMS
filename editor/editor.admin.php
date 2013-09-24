@@ -44,9 +44,9 @@ class EditorAdmin {
 			<div class="oinputs">
 				<div class='oinputs-pad'>
 					<form id="pl-dms-less-form" class="dms-update-setting" data-setting="custom_less">
-						<label class="lbl">LESS/CSS Fallback</label>
+						<label class="lbl"><?php _e( 'LESS/CSS Fallback', 'pagelines' ); ?></label>
 						<textarea id="pl-dms-less" name="pl-dms-less" class="html-textarea code_textarea input_custom_less"><?php echo pl_setting('custom_less');?></textarea>
-						<p><input class="button button-primary" type="submit" value="Save LESS" /></p>
+						<p><input class="button button-primary" type="submit" value="<?php _e( 'Save LESS', 'pagelines' ); ?>" /></p>
 					</form>
 				</div>
 			</div>
@@ -63,9 +63,9 @@ class EditorAdmin {
 				<div class="oinputs">
 					<div class='oinputs-pad'>
 						<form id="pl-dms-scripts-form" class="dms-update-setting" data-setting="custom_scripts">
-							<label class="lbl">Custom Scripts Fallback</label>
+							<label class="lbl"><?php _e( 'Custom Scripts Fallback', 'pagelines' ); ?></label>
 							<textarea id="pl-dms-scripts" name="pl-dms-scripts" class="html-textarea code_textarea input_custom_scripts"><?php echo stripslashes( pl_setting( 'custom_scripts' ) );?></textarea>
-							<p><input class="button button-primary" type="submit" value="Save Scripts" /></p>
+							<p><input class="button button-primary" type="submit" value="<?php _e( 'Save Scripts', 'pagelines' ); ?>" /></p>
 						</form>
 					</div>
 				</div>
