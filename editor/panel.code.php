@@ -46,20 +46,20 @@ class EditorCode{
 
 	function toolbar( $toolbar ){
 		$toolbar['pl-design'] = array(
-				'name'	=> 'Custom Code',
+				'name'	=> __( 'Custom Code', 'pagelines' ),
 				'icon'	=> 'icon-code',
 				'form'	=> true,
 				'pos'	=> 40,
 				'panel'	=> array(
-					'heading'	=> "Custom Design",
+					'heading'	=> __( 'Custom Design', 'pagelines' ),
 
 					'user_less'	=> array(
-						'name'	=> 'Custom LESS/CSS',
+						'name'	=> __( 'Custom LESS/CSS', 'pagelines' ),
 						'call'	=> array(&$this, 'custom_less'),
 						'icon'	=> 'icon-circle'
 					),
 					'user_scripts'	=> array(
-						'name'	=> 'Custom Scripts',
+						'name'	=> __( 'Custom Scripts', 'pagelines' ),
 						'call'	=> array(&$this, 'custom_scripts'),
 						'flag'	=> 'custom-scripts',
 						'icon'	=> 'icon-circle-blank'
@@ -79,17 +79,16 @@ class EditorCode{
 		?>
 		<div class="opt codetext">
 			<div class="opt-name">
-				Custom LESS/CSS
+				<?php _e( 'Custom LESS/CSS', 'pagelines' ); ?>
 			</div>
 			<div class="opt-box">
 				<div class="codetext-meta fix">
-					<label class="codetext-label">Custom LESS/CSS</label>
-					<span class="codetext-help help-block"><span class="label label-info">Tip</span> Hit [Cmd&#8984;+Return] or [Ctrl+Return] to Preview Live</span>
+					<label class="codetext-label"><?php _e( 'Custom LESS/CSS', 'pagelines' ); ?></label>
+					<span class="codetext-help help-block"><span class="label label-info"><?php _e( 'Tip', 'pagelines' ); ?></span> <?php _e( 'Hit [Cmd&#8984;+Return] or [Ctrl+Return] to Preview Live', 'pagelines' ); ?></span>
 				</div>
 				<form class="code-form"><textarea id="custom_less" class="custom-less" name="settings[custom_less]" placeholder=""><?php echo pl_setting('custom_less'); ?></textarea></form>
 			</div>
 		</div>
-
 		<?php
 	}
 
@@ -97,18 +96,15 @@ class EditorCode{
 		?>
 		<div class="opt codetext">
 			<div class="opt-name">
-				Custom Scripts
+				<?php _e( 'Custom Scripts', 'pagelines' ); ?>
 			</div>
 			<div class="opt-box">
 				<div class="codetext-meta fix">
-					<label class="codetext-label">Custom Javascript or Header HTML</label>
+					<label class="codetext-label"><?php _e( 'Custom Javascript or Header HTML', 'pagelines' ); ?></label>
 				</div>
 				<form class="code-form"><textarea id="custom_scripts" class="custom-scripts" name="settings[custom_scripts]" placeholder=""><?php echo stripslashes( pl_setting( 'custom_scripts' ) ); ?></textarea></form>
 			</div>
 		</div>
-
 		<?php
 	}
-
-
 }

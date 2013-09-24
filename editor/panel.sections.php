@@ -18,82 +18,82 @@ class PageLinesSectionsPanel{
 
 	function toolbar( $toolbar ){
 		$toolbar['add-new'] = array(
-			'name'	=> 'Add Sections',
+			'name'	=> __( 'Add Sections', 'pagelines' ),
 			'icon'	=> 'icon-random',
 			'pos'	=> 20,
 			'panel'	=> array(
-				'heading'	=> "<i class='icon-random'></i> Drag to Add",
+				'heading'	=> __( "<i class='icon-random'></i> Drag to Add", 'pagelines' ),
 				'add_section'	=> array(
-					'name'	=> 'Your Sections',
+					'name'	=> __( 'Your Sections', 'pagelines' ),
 					'icon'	=> 'icon-random',
-					'clip'	=> 'Drag on to page to add',
-					'tools'	=> '<button class="btn btn-mini btn-reload-sections"><i class="icon-repeat"></i> Reload Sections</button>',
+					'clip'	=> __( 'Drag on to page to add', 'pagelines' ),
+					'tools'	=> sprintf( '<button class="btn btn-mini btn-reload-sections"><i class="icon-repeat"></i> %s</button>', __( 'Reload Sections', 'pagelines' ) ),
 					'type'	=> 'call',
 					'call'	=> array(&$this, 'add_new_callback'),
 					'filter'=> '*'
 				),
 				'more_sections'	=> array(
-					'name'	=> 'Get More Sections',
+					'name'	=> __( 'Get More Sections', 'pagelines' ),
 					'icon'	=> 'icon-download',
 					'flag'	=> 'link-storefront'
 				),
-				'heading2'	=> "<i class='icon-filter'></i> Filters",
+				'heading2'	=> __( "<i class='icon-filter'></i> Filters", 'pagelines' ),
 				'components'		=> array(
-					'name'	=> 'Components',
+					'name'	=> __( 'Components', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.component',
 					'icon'	=> 'icon-circle-blank'
 				),
 				'layouts'		=> array(
-					'name'	=> 'Layouts',
+					'name'	=> __( 'Layouts', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.layout',
 					'icon'	=> 'icon-columns'
 				),
 				'full-width'	=> array(
-					'name'	=> 'Full Width',
+					'name'	=> __( 'Full Width', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.full-width',
 					'icon'	=> 'icon-resize-horizontal'
 				),
 				'formats'		=> array(
-					'name'	=> 'Post Layouts',
+					'name'	=> __( 'Post Layouts', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.format',
 					'icon'	=> 'icon-th'
 				),
 				'galleries'		=> array(
-					'name'	=> 'Galleries',
+					'name'	=> __( 'Galleries', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.gallery',
 					'icon'	=> 'icon-camera'
 				),
 				'navigation'	=> array(
-					'name'	=> 'Navigation',
+					'name'	=> __( 'Navigation', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.nav',
 					'icon'	=> 'icon-circle-arrow-right'
 				),
 				'sliders'		=> array(
-					'name'	=> 'Sliders',
+					'name'	=> __( 'Sliders', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.slider',
 					'icon'	=> 'icon-picture'
 				),
 				'social'	=> array(
-					'name'	=> 'Social',
+					'name'	=> __( 'Social', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.social',
 					'icon'	=> 'icon-comments'
 				),
 				'widgets'	=> array(
-					'name'	=> 'Widgetized',
+					'name'	=> __( 'Widgetized', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.widgetized',
 					'icon'	=> 'icon-retweet'
 				),
 				'misc'		=> array(
-					'name'	=> 'Miscellaneous',
+					'name'	=> __( 'Miscellaneous', 'pagelines' ),
 					'href'	=> '#add_section',
 					'filter'=> '.misc',
 					'icon'	=> 'icon-star'
