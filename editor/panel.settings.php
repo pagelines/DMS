@@ -24,14 +24,14 @@ class PageLinesSettingsPanel{
 	function toolbar( $toolbar ){
 
 		$toolbar[ 'settings' ] = array(
-			'name'	=> 'Global Options',
+			'name'	=> __( 'Global Options', 'pagelines' ),
 			'icon'	=> 'icon-globe',
 			'pos'	=> 35,
 			'panel'	=> $this->get_settings_tabs()
 		);
 
 		$toolbar[ 'section-options' ] = array(
-			'name'	=> 'Section Options',
+			'name'	=> __( 'Section Options', 'pagelines' ),
 			'icon'	=> 'icon-paste',
 			'type'	=> 'hidden',
 			'flag'	=> 'section-opts',
@@ -48,7 +48,7 @@ class PageLinesSettingsPanel{
 
 		$tabs = array();
 
-		$tabs['heading'] = 'Global Settings';
+		$tabs['heading'] = __( 'Global Settings', 'pagelines' );
 
 		foreach( $settings_object->get_set('site') as $tabkey => $tab ){
 
@@ -70,7 +70,7 @@ class PageLinesSettingsPanel{
 		$current_page = ($plpg->is_special()) ? $plpg->type_name : $plpg->id;
 
 		$tabs = array();
-		$tabs['heading'] = "Section Options";
+		$tabs['heading'] = __( "Section Options", 'pagelines' );
 
 		$basic_scope = (is_page() || $plpg->is_special()) ? 'local' : 'type';
 		
@@ -78,7 +78,7 @@ class PageLinesSettingsPanel{
 		
 		foreach($array as $scope){
 			$tabs[ $scope ] = array( 
-				'name'	=> 'Section Options <span class="label">'.$scope.'</span>', 
+				'name'	=> sprintf( '%s <span class="label">%s</span>', __( 'Section Options', 'pagelines' ), $scope ), 
 				'scope' => $scope
 			);
 		}

@@ -246,20 +246,20 @@ class EditorTemplates {
 		
 		
 		$toolbar['page-setup'] = array(
-			'name'	=> 'Templates',
+			'name'	=> __( 'Templates', 'pagelines' ),
 			'icon'	=> 'icon-file-text',
 			'pos'	=> 30,
 			'panel'	=> array(
 				
-				'heading2'	=> "Page Templates",
+				'heading2'	=> __( "Page Templates", 'pagelines' ),
 				'tmp_load'	=> array(
-					'name'	=> 'Your Templates',
+					'name'	=> __( 'Your Templates', 'pagelines' ),
 					'call'	=> array(&$this, 'user_templates'),
 					'icon'	=> 'icon-copy',
 					'filter' => '*'
 				),
 				'tmp_save'	=> array(
-					'name'	=> 'Save New Template',
+					'name'	=> __( 'Save New Template', 'pagelines' ),
 					'call'	=> array(&$this, 'save_templates'),
 					'icon'	=> 'icon-paste'
 				),
@@ -293,25 +293,31 @@ class EditorTemplates {
 			?>
 			<div class="<?php echo join(' ', $action_classes);?>">
 				
-				<button class="btn btn-mini btn-primary load-template">Load Template</button>
+				<button class="btn btn-mini btn-primary load-template"><?php _e( 'Load Template', 'pagelines' ); ?>
+				</button>
 				
-				<button class="btn btn-mini btn-inverse the-active-template">Active Template</button>
+				<button class="btn btn-mini btn-inverse the-active-template"><?php _e( 'Active Template', 'pagelines' ); ?>
+				</button>
 				
 				<div class="btn-group dropup">
 				  <a class="btn btn-mini dropdown-toggle actions-toggle" data-toggle="dropdown" href="#">
-				    Actions	<i class="icon-caret-down"></i>
+				    <?php _e( 'Actions', 'pagelines' ); ?>
+				    	<i class="icon-caret-down"></i>
 				  </a>
 					<ul class="dropdown-menu">
 						<li ><a class="update-template">
-						<i class="icon-edit"></i> Update Template with Current Configuration
+						<i class="icon-edit"></i> <?php _e( 'Update Template with Current Configuration', 'pagelines' ); ?>
+						
 						</a></li>
 						
 						<li><a class="set-tpl" data-run="global">
-						<i class="icon-globe"></i> Set as Page Global Default
+						<i class="icon-globe"></i> <?php _e( 'Set as Page Global Default', 'pagelines' ); ?>
+						
 						</a></li>
 						
 						<li><a class="delete-template">
-						<i class="icon-remove"></i> Delete This Template
+						<i class="icon-remove"></i> <?php _e( 'Delete This Template', 'pagelines' ); ?>
+						
 						</a></li>
 						
 					</ul>
@@ -358,16 +364,21 @@ class EditorTemplates {
 		<form class="opt standard-form form-save-template">
 			<fieldset>
 				<span class="help-block">
-					Fill out this form and the current template will be saved for use throughout your site.<br/>
-					<strong>Note:</strong> Both the current page's local settings and section configurations will be saved.
+					<?php _e( 'Fill out this form and the current template will be saved for use throughout your site.', 'pagelines' ); ?>
+					<br/>
+					<?php _e( "<strong>Note:</strong> Both the current page's local settings and section configurations will be saved.", 'pagelines' ); ?>
+					
 				</span>
-				<label for="template-name">Template Name (required)</label>
+				<label for="template-name"><?php _e( 'Template Name (required)', 'pagelines' ); ?>
+				</label>
 				<input type="text" id="template-name" name="template-name" required />
 
-				<label for="template-desc">Template Description</label>
+				<label for="template-desc"><?php _e( 'Template Description', 'pagelines' ); ?>
+				</label>
 				<textarea rows="4" id="template-desc" name="template-desc" ></textarea>
 				
-				<button type="submit" class="btn btn-primary btn-save-template">Save New Template</button>
+				<button type="submit" class="btn btn-primary btn-save-template"><?php _e( 'Save New Template', 'pagelines' ); ?>
+				</button>
 			</fieldset>
 		</form>
 
@@ -388,7 +399,7 @@ class EditorTemplates {
 	function get_template_data( $key ){
 		
 		$d = array(
-			'name'	=> 'No Name',
+			'name'	=> __( 'No Name', 'pagelines' ),
 			'desc'	=> '', 
 			'map'	=> array(),
 			'settings'	=> array()
@@ -542,16 +553,16 @@ class EditorTemplates {
 		$t = array();
 
 		$t[ 'default' ] = array(
-				'name'	=> 'Default',
-				'desc'	=> 'Standard page configuration. (Content and Primary Sidebar.)',
+				'name'	=> __( 'Default', 'pagelines' ),
+				'desc'	=> __( 'Standard page configuration. (Content and Primary Sidebar.)', 'pagelines' ),
 				'map'	=> array(
 					'template' => $this->default_template( true )
 				)
 			);
 
 		$t[ 'feature' ] = array(
-			'name'	=> 'Feature Template',
-			'desc'	=> 'A page template designed to quickly and concisely show off key features or points. (RevSlider, iBoxes, Flipper)',
+			'name'	=> __( 'Feature Template', 'pagelines' ),
+			'desc'	=> __( 'A page template designed to quickly and concisely show off key features or points. (RevSlider, iBoxes, Flipper)', 'pagelines' ),
 			'map'	=> array(
 				array(
 					'object'	=> 'plRevSlider',
@@ -572,8 +583,8 @@ class EditorTemplates {
 		);
 
 		$t[ 'landing' ] = array(
-				'name'	=> 'Landing Page',
-				'desc'	=> 'A simple page design with highlight section and postloop (content).',
+				'name'	=> __( 'Landing Page', 'pagelines' ),
+				'desc'	=> __( 'A simple page design with highlight section and postloop (content).', 'pagelines' ),
 				'map'	=> array(
 					'template' => array(
 						'area'	=> 'TemplateAreaID',
