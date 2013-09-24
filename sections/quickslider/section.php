@@ -161,7 +161,7 @@ jQuery(window).load(function() {
 				'inputlabel' 	=> __( 'Select Transition Type', 'pagelines' ),
 				'title' 		=> __( 'Slider Transition Type', 'pagelines' ),
 				'shortexp' 		=> __( 'Configure the way slides transfer to one another.', 'pagelines' ),
-				'exp' 			=> __( "", 'pagelines' ),
+				'exp' 			=> '',
 
 			);
 
@@ -176,7 +176,7 @@ jQuery(window).load(function() {
 				'inputlabel' 	=> __( 'Slider Navigation', 'pagelines' ),
 				'title' 		=> __( 'Slider Navigation mode', 'pagelines' ),
 				'shortexp' 		=> __( 'Configure the navigation for this slider.', 'pagelines' ),
-				'exp' 			=> __( "", 'pagelines' ),
+				'exp' 			=> '',
 
 			);
 
@@ -186,7 +186,7 @@ jQuery(window).load(function() {
 				'inputlabel' 	=> __( 'Animate Slideshow Automatically?', 'pagelines' ),
 				'title' 		=> __( 'Automatic Slideshow?', 'pagelines' ),
 				'shortexp' 		=> __( 'Autoplay the slides, transitioning every 7 seconds.', 'pagelines' ),
-				'exp' 			=> __( "", 'pagelines' ),
+				'exp' 			=> '',
 
 			);
 
