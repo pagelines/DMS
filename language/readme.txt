@@ -1,9 +1,7 @@
 ********************************************************
 
 	PageLines I18n
-
-	pagelines.pot is rendered by the api on the fly
-
-	You will find it
+	
+	Included is en_US.po
 
 ********************************************************
