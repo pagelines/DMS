@@ -557,12 +557,6 @@ add_filter( 'wp_title', 'pagelines_filter_wp_title' );
 function pagelines_fix_ie( ){
 
 	$ie_ver = pl_detect_ie();
-	if( ploption('google_ie') && ( $ie_ver < 9 ) ) {
-		$compat = sprintf( '//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE%1$s.js', $ie_ver +1 );
-		$shiv = '//html5shim.googlecode.com/svn/trunk/html5.js';
-		wp_enqueue_script( 'ie-compat', $compat );
-		wp_enqueue_script( 'html5shiv', $shiv );
-	}
 
 	// If IE7 add the Internet Explorer 7 specific stylesheet
 	if ( $ie_ver == 7 )
