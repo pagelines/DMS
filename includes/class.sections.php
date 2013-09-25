@@ -185,32 +185,40 @@ class PageLinesSection {
 
 	function opt( $key, $args = array() ){
 
+		global $plpg;
+		
 		$d = array(
-			'default'	=> false
+			'default'	=> false,
+			'scope'		=> 'cascade'
 		);
 
 		$a = wp_parse_args($args, $d);
-				
-		if(
-			property_exists($this, 'meta')
-			&& isset($this->meta[ 'set' ])
-			&& isset($this->meta[ 'set' ])
-			&& isset($this->meta[ 'set' ][ $key ] )
-			&& $this->meta[ 'set' ][ $key ] != ''
-		){
-								
-			$val = $this->meta[ 'set' ][ $key ];
-			
-		} elseif( pl_setting( $key, $args) ){
-			
-			
-			$val = pl_setting( $key, $args);
-			 
-		} elseif(ploption( $key, $args) && !pl_deprecate_v2())
 		
-			$val = ploption( $key, $args); // LEGACY
-		else
-			$val = $a['default'];
+		if( $a['scope'] == 'global' || $a['scope'] == 'type' || $a['scope'] == 'local' ){
+			
+			$val = pl_setting( $key, array( 'clone_id' => $this->meta[ 'clone' ], 'scope' => $a['scope'] ) );
+			
+		} else {
+							
+			if(
+				property_exists($this, 'meta')
+				&& isset($this->meta[ 'set' ])
+				&& isset($this->meta[ 'set' ])
+				&& isset($this->meta[ 'set' ][ $key ] )
+				&& $this->meta[ 'set' ][ $key ] != ''
+			){
+								
+				$val = $this->meta[ 'set' ][ $key ];
+			
+			} elseif( pl_setting( $key, $args) ){
+			
+			
+				$val = pl_setting( $key, $args);
+			 
+			} else
+				$val = $a['default'];
+			
+		}
 
 		if( $val == '' )
 			return false; 
@@ -219,6 +227,85 @@ class PageLinesSection {
 		else
 			return do_shortcode( $val );
 
+	}
+	
+	function opt_update( $key, $value, $scope = 'global' ){
+		
+		
+		global $plpg;
+		
+		if( is_array( $value ) ){
+			foreach( $value as $sxi => $setindex){
+				if( is_array( $setindex ) ){
+					foreach( $setindex as $sk => $setkey){
+						if( !$setkey || $setkey == 'false' ){
+							unset( $value[$sxi][$sk] );
+						}
+					}
+				}
+			
+			}
+		
+		}
+		
+		$args = array(
+			'key'	=> $key, 
+			'val'	=> $value, 
+			'scope'	=> $scope, 
+			'uid'	=> $this->meta[ 'clone' ]
+		);
+		
+		pl_setting_update( $args );
+		
+		
+	}
+	
+	/*
+	 * Upgrade options from old one off option format to a new array format
+	 * All parameters are required and care should be taken to make sure its non destructive
+	 */ 
+	function upgrade_to_array_format( $new_key, $array, $mapping, $number ){
+		
+		$scopes = array('local', 'type', 'global');
+		
+		if( ! $number )
+			return $array;
+		
+		// Maybe Upgrade
+		if( !$array || $array == 'false' || empty( $array ) ){
+			
+
+			for($i = 1; $i <= $number; $i++){
+				
+				// Set up new output for viewing
+				foreach( $mapping as $new_index_key => $old_option_key ){
+					$old_settings[ $i ][ $new_index_key ] = $this->opt( sprintf($old_option_key, $i) );
+				}
+				
+				// Load up old values using cascade
+				foreach( $scopes as $scope ){
+					
+					foreach( $mapping as $new_index_key => $old_option_key ){
+
+						$upgrade_array[$scope]['item'.$i][ $new_index_key ] = $this->opt( sprintf($old_option_key, $i), array('scope' => $scope) );
+					
+					}
+					
+				}
+
+			}
+
+			// Setup in new format & update
+			foreach($scopes as $scope){
+				$this->opt_update( $new_key, $upgrade_array[$scope], $scope ); 
+
+			}
+			
+			return $old_settings; 
+			
+		} else 
+			return $array;
+		
 	}
 
 	function format_classes( $classes ) {

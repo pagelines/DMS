@@ -94,7 +94,7 @@ class pliBox extends PageLinesSection {
 				array(
 					'key'		=> 'icon',
 					'label'		=> __( 'iBox Icon', 'pagelines' ),
-					'type'		=> 'text'
+					'type'		=> 'select_icon'
 				),
 				array(
 					'key'		=> 'image',
@@ -107,80 +107,99 @@ class pliBox extends PageLinesSection {
 	    );
 	
 
-		$slides = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
-		$media = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
-
-		for($i = 1; $i <= $slides; $i++){
-
-			$opts = array(
-
-				array(
-					'key'		=> 'ibox_title_'.$i,
-					'label'		=> __( 'iBox Title', 'pagelines' ),
-					'type'		=> 'text'
-				),
-				array(
-					'key'		=> 'ibox_text_'.$i,
-					'label'	=> __( 'iBox Text', 'pagelines' ),
-					'type'	=> 'textarea'
-				),
-				array(
-					'key'		=> 'ibox_link_'.$i,
-					'label'		=> __( 'iBox Link (Optional)', 'pagelines' ),
-					'type'		=> 'text'
-				),
-				array(
-					'key'		=> 'ibox_class_'.$i,
-					'label'		=> __( 'iBox Class (Optional)', 'pagelines' ),
-					'type'		=> 'text'
-				),
-			);
-
-			if($media == 'icon'){
-				$opts[] = array(
-					'key'		=> 'ibox_icon_'.$i,
-					'label'		=> __( 'iBox Icon', 'pagelines' ),
-					'type'		=> 'select_icon',
-				);
-			} elseif($media == 'image'){
-				$opts[] = array(
-					'key'		=> 'ibox_image_'.$i,
-					'label'		=> __( 'iBox Image', 'pagelines' ),
-					'type'		=> 'image_upload',
-				);
-			}
-
-
-			$options[] = array(
-				'title' 	=> __( 'iBox ', 'pagelines' ) . $i,
-				'type' 		=> 'multi',
-				'opts' 		=> $opts,
-				'col'		=> 2
-
-			);
-
-		}
+		// $slides = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
+		// 	$media = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
+		// 
+		// 	for($i = 1; $i <= $slides; $i++){
+		// 
+		// 		$opts = array(
+		// 
+		// 			array(
+		// 				'key'		=> 'ibox_title_'.$i,
+		// 				'label'		=> __( 'iBox Title', 'pagelines' ),
+		// 				'type'		=> 'text'
+		// 			),
+		// 			array(
+		// 				'key'		=> 'ibox_text_'.$i,
+		// 				'label'	=> __( 'iBox Text', 'pagelines' ),
+		// 				'type'	=> 'textarea'
+		// 			),
+		// 			array(
+		// 				'key'		=> 'ibox_link_'.$i,
+		// 				'label'		=> __( 'iBox Link (Optional)', 'pagelines' ),
+		// 				'type'		=> 'text'
+		// 			),
+		// 			array(
+		// 				'key'		=> 'ibox_class_'.$i,
+		// 				'label'		=> __( 'iBox Class (Optional)', 'pagelines' ),
+		// 				'type'		=> 'text'
+		// 			),
+		// 		);
+		// 
+		// 		if($media == 'icon'){
+		// 			$opts[] = array(
+		// 				'key'		=> 'ibox_icon_'.$i,
+		// 				'label'		=> __( 'iBox Icon', 'pagelines' ),
+		// 				'type'		=> 'select_icon',
+		// 			);
+		// 		} elseif($media == 'image'){
+		// 			$opts[] = array(
+		// 				'key'		=> 'ibox_image_'.$i,
+		// 				'label'		=> __( 'iBox Image', 'pagelines' ),
+		// 				'type'		=> 'image_upload',
+		// 			);
+		// 		}
+		// 
+		// 
+		// 		$options[] = array(
+		// 			'title' 	=> __( 'iBox ', 'pagelines' ) . $i,
+		// 			'type' 		=> 'multi',
+		// 			'opts' 		=> $opts,
+		// 			'col'		=> 2
+		// 
+		// 		);
+		// 
+		// 	}
 
 		return $options;
 	}
 
+	
 
 
    function section_template( ) {
-
-		$boxes = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
+	
+		// The boxes
+		$ibox_array = $this->opt('ibox_array');
+		
+		$format_upgrade_mapping = array(
+			'text'	=> 'ibox_text_%s',
+			'title'	=> 'ibox_title_%s',
+			'link'	=> 'ibox_link_%s',
+			'class'	=> 'ibox_class_%s',
+			'image'	=> 'ibox_image_%s',
+			'icon'	=> 'ibox_icon_%s'
+		); 
+		
+		$ibox_array = $this->upgrade_to_array_format( 'ibox_array', $ibox_array, $format_upgrade_mapping, $this->opt('ibox_count')); 
+		
+		// must come after upgrade
+		if( !$ibox_array || $ibox_array == 'false' || !is_array($ibox_array) ){
+			$ibox_array = array( array(), array(), array(), array() );
+		}
+		
+		// Keep
 		$cols = ($this->opt('ibox_cols')) ? $this->opt('ibox_cols') : 3;
-
 		$media_type = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
 		$media_format = ($this->opt('ibox_format')) ? $this->opt('ibox_format') : 'top';
 		
-		$ibox_array = ($this->opt('ibox_array')) ? $this->opt('ibox_array') : array();
-
 		$width = 0;
 		$output = '';
 		$count = 1; 
 		
 		if( is_array($ibox_array) ){
+			
+			$boxes = count( $ibox_array );
 			
 			foreach( $ibox_array as $ibox ){
 	
@@ -192,8 +211,8 @@ class pliBox extends PageLinesSection {
 				$icon = pl_array_get( 'icon', $ibox ); 
 				
 	
-				$text = sprintf('<div data-sync="ibox_array_%s_text">%s</div>', $count, $text );
-				$title = sprintf('<h4 data-sync="ibox_array_%s_title">%s</h4>', $count, $title );
+				$text = sprintf('<div data-sync="ibox_array_item%s_text">%s</div>', $count, $text );
+				$title = sprintf('<h4 data-sync="ibox_array_item%s_title">%s</h4>', $count, $title );
 				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
@@ -205,9 +224,9 @@ class pliBox extends PageLinesSection {
 
 				if( $media_type == 'icon' ){
 				
-					if(!$icon){
+					if(!$icon || $icon == ''){
 						$icons = pl_icon_array();
-						$media = $icons[ array_rand($icons) ];
+						$icon = $icons[ array_rand($icons) ];
 					}
 					$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $icon);
 
@@ -275,9 +294,12 @@ class pliBox extends PageLinesSection {
 			
 
 		}
-		
-
+//		plprint($this->opt('ibox_array'), $this->meta['clone']);
 		printf('<div class="ibox-wrapper pl-animation-group">%s</div>', $output);
+		
+		$scopes = array('local', 'type', 'global');
+	//	foreach($scopes as $scope)
+	//		$this->opt_update( 'ibox_array', false, $scope );
 
 	}
 	

@@ -24,7 +24,7 @@ function pl_setting( $key, $args = array() ){
 
 }
 
-function pl_setting_update( $args_or_key, $value = false, $mode = 'draft', $scope = 'global' ){
+function pl_setting_update( $args_or_key, $value = false, $scope = 'global', $mode = 'draft' ){
 	$settings_handler = new PageLinesSettings;
 
 	if( is_array($args_or_key) ){
@@ -308,7 +308,8 @@ class PageLinesSettings extends PageLinesData {
 			'key'	=> '',
 			'val'	=> '',
 			'mode'	=> 'draft',
-			'scope'	=> 'global'
+			'scope'	=> 'global', 
+			'uid'	=> 'settings'
 		);
 
 		$a = wp_parse_args( $args, $defaults );
@@ -317,23 +318,40 @@ class PageLinesSettings extends PageLinesData {
 		$mode = $a['mode'];
 		$key = $a['key'];
 		$val = $a['val'];
+		$uid = $a['uid'];
 
-		// Allow for an array of key/value pairs
-		$set = ( !is_array($val) && $key != '' ) ? array( $key => $val ) : $val;
+		$parse_value = array( $key => $val );
 
 		if( $scope == 'global'){
 
 			$settings = $this->opt( PL_SETTINGS, pl_settings_default() );
 			
-			$old_settings = (isset($settings[ $mode ]['settings'])) ? $settings[ $mode ]['settings'] : array();
-
+			$old_settings = (isset($settings[ $mode ][ $uid ])) ? $settings[ $mode ][ $uid ] : array();
 	
-			$settings[ $mode ]['settings'] = wp_parse_args($set, $old_settings);
+			$settings[ $mode ][ $uid ] = wp_parse_args(  $parse_value, $old_settings);
 
 			pl_opt_update( PL_SETTINGS, $settings );
 			
-			echo $set; 
+		} elseif ( $scope == 'local' || $scope == 'type' ){
+			global $plpg;
+			
+			$theID = ($scope == 'local') ? $plpg->id : $plpg->typeid;
+			
+			$settings = $this->meta( $theID, PL_SETTINGS, pl_settings_default() );
+			
+			$old_settings = (isset($settings[ $mode ][ $uid ])) ? $settings[ $mode ][ $uid ] : array();
+		
+			$settings[ $mode ][ $uid ] = wp_parse_args(  $parse_value, $old_settings);
 
+		//	plprint($settings[ $mode ][ $uid ], $uid.$scope);
+		//	plprint($settings[ $mode ][ $uid ], $uid);
+			
+			pl_meta_update( $theID, PL_SETTINGS, $settings );
+		}
+	
+		if($uid == '1441b8'){
+	//		plprint(get_option(PL_SETTINGS), $uid);
+			plprint( $parse_value, $uid.'value'.$key);
 		}
 	}
 
@@ -477,12 +495,28 @@ class PageLinesOpts extends PageLinesSettings {
 
 	function get_setting( $key, $args = array() ){
 
+		$scope = (isset($args['scope'])) ? $args['scope'] : 'cascade';
+		
+		if( $scope == 'local' ){
+		
+			$settings = $this->local; 
+		
+		} elseif( $scope == 'type' ){
+		
+			$settings = $this->type; 
+		
+		} elseif( $scope == 'global' ){
+		
+			$settings = $this->global; 
+		
+		}else 
+			$settings = $this->set; 
+		
 		$not_set = (isset($args['default'])) ? $args['default'] : false;
-
-
+		
 		$index = ( isset( $args['clone_id']) ) ? $args['clone_id'] : 'settings';
 
-		return ( isset( $this->set[ $index ][ $key ] ) ) ? $this->set[ $index ][ $key ] : $not_set;
+		return ( isset( $settings[ $index ][ $key ] ) ) ? $settings[ $index ][ $key ] : $not_set;
 
 	}
 

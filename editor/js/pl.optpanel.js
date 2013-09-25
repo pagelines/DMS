@@ -518,7 +518,7 @@
 			if(optLevel == 3){
 				o.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
 				o.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
-				o.inputID = sprintf('%s_%s', parent.key, parent.itemNumber, o.key )
+				o.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
 			} else {
 				o.name = sprintf('%s[%s]', that.uniqueID, o.key )
 				o.value =  that.optValue( tabIndex, o.key )
@@ -1303,7 +1303,7 @@
 
 
 			// Multiple Options
-			if( o.type == 'multi' ){
+			if( o.type == 'multi' || o.type == 'accordion' ){
 				if(o.opts){
 					$.each( o.opts , function(index, osub) {
 

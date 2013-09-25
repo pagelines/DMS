@@ -193,8 +193,8 @@ class EditorThemeHandler {
 			$response['error'] = 'Theme does not exist or is not allowed';
 			return $response;
 		} else {
-			echo 'here';
-			pl_update_setting($this->preview_slug, $new);
+			
+//			pl_update_setting($this->preview_slug, $new);
 
 			return $response;
 
