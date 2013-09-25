@@ -268,7 +268,7 @@ class PageLinesOptionsUI {
 				</ul>
 				<?php endif; ?>
 				<div id="thetabs" class="plpanel <?php echo $this->set['settings'];?>-panel fix">
-<?php 				if(!VPRO) $this->get_pro_call();
+<?php 
 
 					foreach($this->option_array as $menu => $oids){
 

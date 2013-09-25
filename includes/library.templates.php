@@ -366,10 +366,10 @@ function pagelines_meta_tags(){
 	$oset = array('post_id' => $pagelines_ID);
 
 	// Meta Images
-	if(ploption('pagelines_favicon') && VPRO)
+	if(pl_setting('pagelines_favicon') && VPRO)
 		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', ploption('pagelines_favicon'), "\n");
 
-	if(ploption('pagelines_touchicon'))
+	if(pl_setting('pagelines_touchicon') && VPRO)
 		printf('<link rel="apple-touch-icon" href="%s" />%s', ploption('pagelines_touchicon'), "\n");
 
 	// Meta Data Profiles
@@ -385,7 +385,7 @@ function pagelines_meta_tags(){
 function pagelines_source_attribution() {
 
 	echo "\n\n<!-- ";
-	printf ( "Site Crafted Using PageLines v%s - WordPress - HTML5 ( %s ) - www.PageLines.com ", PL_CORE_VERSION, get_pagelines_credentials( 'licence' ) );
+	printf ( "Site Crafted Using PageLines DMS [basic] v%s - WordPress - HTML5 - www.PageLines.com ", PL_CORE_VERSION );
 
 	echo "-->\n";
 }

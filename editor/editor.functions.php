@@ -47,13 +47,13 @@ function pl_has_dms_plugin(){
 
 function pl_pro_text(){
 	
-	return (!pl_is_pro()) ? __('(Pro Edition Only)', 'pagelines') : '';
+	return apply_filters( 'pl_wporg_hiddentext', '' );
 	
 }
 
 function pl_pro_disable_class(){
 	
-	return (!pl_is_pro()) ? 'pro-only-disabled' : ''; 
+	return apply_filters( 'pl_wporg_hiddenclass', 'hidden' ); 
 	
 }
 

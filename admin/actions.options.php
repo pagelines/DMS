@@ -225,8 +225,8 @@ function load_head(){
 
 
 
-	if( ploption( 'pagelines_favicon' ) )
-		printf( '<link rel="shortcut icon" href="%s" type="image/x-icon" />', ploption( 'pagelines_favicon' ) );
+	if( pl_setting( 'pagelines_favicon' ) )
+		printf( '<link rel="shortcut icon" href="%s" type="image/x-icon" />', pl_setting( 'pagelines_favicon' ) );
 
 	// Load on PageLines pages
 	if( isset( $_GET['page'] ) && ( $_GET['page'] == 'pagelines' ) )

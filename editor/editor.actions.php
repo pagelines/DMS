@@ -376,40 +376,22 @@ function pagelines_check_folders_dms( $note ) {
 
 		$note .= ob_get_clean();
 		
-	} else if( pl_is_pro() && !pl_has_dms_plugin() ){
+	}
+	if( !pl_has_dms_plugin() ){
 		
 		ob_start(); ?>
 
 			<div class="alert">
 				<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-			  	<strong><i class="icon-cogs"></i> Install DMS Utilities</strong><p>Your site is "Pro activated" but you haven't installed the DMS Pro tools plugin. Grab the plugin on your <a href="http://www.pagelines.com/my-account/">My Account > My Downloads</a> page.</p>
-
+			  	<strong><i class="icon-cogs"></i> Install DMS Utilities</strong><p>Looks like you haven't installed the DMS Pro tools plugin. Grab the plugin on your <a href="http://www.pagelines.com/my-account/">My Account > My Downloads</a> page. Its free and easy to register.<br />
+				This free plugin enables a lot of functionality we could not include in this WordPress.org version of DMS.</p>
 			</div>
-
 			<?php 
 
 		$note .= ob_get_clean();
-		
-	} else if ( ! pl_is_pro() ){
-		
-		ob_start(); ?>
-		
-		<div class="alert alert-info">
-			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> ( <i class="icon-star-half-empty"></i> You're currently using DMS basic. ) <br/>Activate this site with Pro for additional sections, effects, capabilities and support.
-			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More</a>
-			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> Activate Site</a> 
-		</div>
-		
-		<?php 
-		
-		$note .= ob_get_clean();
-	}
-		
 	
-	
-	return $note;
-		
+	} 
+	return $note;		
 }
 
 // clear draft css on plugin activate/deactivate

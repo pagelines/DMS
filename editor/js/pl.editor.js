@@ -185,10 +185,13 @@
 						
 						var theMessages = ''
 						
-						$.each(rsp.messages, function(i, val){ 
-							 theMessages += sprintf('<div>%s</div>', val)
-						})
-						
+						if( rsp.messages) {
+							$.each(rsp.messages, function(i, val){ 
+							 	theMessages += sprintf('<div>%s</div>', val)
+							})
+						} else {
+							theMessages += 'Error, no messages?'
+						}
 						accountDetails
 							.removeClass('alert-warning')
 							.addClass('alert-info')

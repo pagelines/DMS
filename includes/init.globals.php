@@ -167,3 +167,5 @@ define( 'ADD_PLUS_PRO', 'https://www.pagelines.com/launchpad/add_pro_plus' );
 define( 'ADD_PLUS_DEV', 'https://www.pagelines.com/launchpad/add_dev_plus' );
 define( 'ADD_PLUS', 'https://www.pagelines.com/launchpad/add_plus' );
 define( 'PL_SIGNUP', 'https://www.pagelines.com/launchpad/signup.php?price_group=-1000&hide_paysys=stripe' );
+
+define( 'PL_WPORG', true );

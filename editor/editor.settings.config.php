@@ -23,12 +23,12 @@ class EditorSettings {
 			'opts' 	=> $this->config()
 		);
 	
-		$this->settings['basic_settings'] = array(
-			'name' 	=> 'Site Images',
-			'icon'	=> 'icon-picture',
-			'pos'	=> 2,
-			'opts' 	=> $this->basic()
-		);
+		// $this->settings['basic_settings'] = array(
+		// 	'name' 	=> 'Site Images',
+		// 	'icon'	=> 'icon-picture',
+		// 	'pos'	=> 2,
+		// 	'opts' 	=> $this->basic()
+		// );
 
 		$this->settings['social_media'] = array(
 			'name' 	=> 'Social <span class="spamp">&amp;</span> Local',
