@@ -313,12 +313,15 @@
 					$that.find('.lstn').each( function(inputIndex, inputElement){
 					
 						var optName = $( this ).attr('name')
+						,	optID = $( this ).attr('id')
 					
 						if(optName)
 							optName = optName.replace('item'+itemNumber, 'item'+itemNum )
 					
+						if(optID)
+							optID = optID.replace('item'+itemNumber, 'item'+itemNum )
 					
-						$( this ).attr('name', optName)
+						$( this ).attr('name', optName).attr('id', optID)
 					
 					})
 				
