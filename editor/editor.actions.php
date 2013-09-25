@@ -412,3 +412,8 @@ function pagelines_check_folders_dms( $note ) {
 		
 }
 
+// clear draft css on plugin activate/deactivate
+if( is_admin() && isset( $_REQUEST['plugin'] ) ) {
+	add_action( 'activate_' . $_REQUEST['plugin'], 'pl_flush_draft_caches' );
+	add_action( 'deactivate_' . $_REQUEST['plugin'], 'pl_flush_draft_caches' );
+}
