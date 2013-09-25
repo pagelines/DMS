@@ -20,7 +20,7 @@ class EditorThemeHandler {
 	
 	function toolbar( $toolbar ){
 		$toolbar['theme'] = array(
-			'name'	=> 'Theme',
+			'name'	=> __( 'Theme', 'pagelines' ),
 			'icon'	=> 'icon-picture',
 			'pos'	=> 50,
 			'panel'	=> $this->pl_get_settings()
@@ -36,21 +36,21 @@ class EditorThemeHandler {
 			
 			'avail_themes'	=> array(
 				'pos'	=> 30,
-				'name'	=> 'Available Themes',
+				'name'	=> __( 'Available Themes', 'pagelines' ),
 				'call'	=> array(&$this, 'themes_dashboard'),
 				'icon'	=> 'icon-picture',
 				'filter'=> '*'
 			),
 			'export_themes'	=> array(
 				'pos'	=> 50,
-				'name'	=> 'Import Config',
+				'name'	=> __( 'Import Config', 'pagelines' ),
 				'tab'	=> 'settings',
 				'stab'	=> 'importexport',	
 				'icon'	=> 'icon-th-large'
 			),
 			'more_themes'	=> array(
 				'pos'	=> 120,
-				'name'	=> 'Get More Themes',
+				'name'	=> __( 'Get More Themes', 'pagelines' ),
 				'flag'	=> 'link-storefront',
 				'icon'	=> 'icon-download'
 			)
@@ -71,7 +71,7 @@ class EditorThemeHandler {
 
 		uasort($settings, array(&$this, "cmp_by_position") );
 	
-		$settings = array_merge( array( 'heading' => 'Theme Options' ), $settings );
+		$settings = array_merge( array( 'heading' => __( 'Theme Options', 'pagelines' ) ), $settings );
 	
 		return $settings;
 	}
@@ -170,7 +170,7 @@ class EditorThemeHandler {
 		$theme = wp_get_theme( $new );
 
 		if ( !$new || !$theme->exists() || !$theme->is_allowed() ){
-			$response['error'] = 'Theme does not exist or is not allowed';
+			$response['error'] = __( 'Theme does not exist or is not allowed', 'pagelines' );
 			return $response;
 		}
 
@@ -190,7 +190,7 @@ class EditorThemeHandler {
 		$theme = wp_get_theme( $new );
 
 		if ( !$new || !$theme->exists() || !$theme->is_allowed() ){
-			$response['error'] = 'Theme does not exist or is not allowed';
+			$response['error'] = __( 'Theme does not exist or is not allowed', 'pagelines' );
 			return $response;
 		} else {
 			
@@ -232,7 +232,7 @@ class EditorThemeHandler {
 
 	function add_preview_banner(){
 
-		echo ' this is the end of the world.... >> ';
+		echo __( ' this is the end of the world.... >> ', 'pagelines' );
 	}
 
 

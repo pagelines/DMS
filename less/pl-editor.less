@@ -111,6 +111,7 @@
 			&:hover{
 				opacity: 1;
 				margin-left: 0;
+				z-index: @zindexTooltip;
 			}
 			&::after{
 							content: '';
@@ -543,6 +544,9 @@
 	.border-top-left-radius(3px);
 	right: -33px; 
 	box-shadow: -1px -1px 0 rgba(255,255,255,.2);
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
 	&:hover{
 		right:0;
 	}
@@ -575,7 +579,7 @@
 	font-size: 13px;
 	line-height: 21px;
 	width: 100%;
-	z-index: 10000;
+	z-index: @zindexEditor;
 	min-width: 760px;
 	font-family: @defaultFont;
 	h1, h2, h3, h4, h5, h6{
@@ -1300,9 +1304,10 @@
 				.pl-help-text{
 					
 					margin: 0 3px;
-					opacity: .4; 
+					opacity: .4;
+					z-index: @zindexTooltip; /* not working? */
 					&:hover{
-						opacity: 1;
+						opacity: 1;						
 					}
 				}
 				.checklist-label{

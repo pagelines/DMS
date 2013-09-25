@@ -140,7 +140,7 @@ class EditorInterface {
 			),
 			'toggle-grid' => array(
 				'icon'	=> 'icon-screenshot',
-				'tip'	=> 'Preview (alt+a)',
+				'tip'	=> __( 'Preview (alt+a)', 'pagelines' ),
 				'type'	=> 'btn',
 				'pos'	=> 199
 			),
@@ -297,25 +297,35 @@ class EditorInterface {
 						<span id="update-state" class="state-draft state-tag">&nbsp;</span>
 					</span>
 					<ul class="dropdown-menu pull-right state-list">
-						<li class="li-state-multi"><a class="btn-revert" data-revert="all"><span class="update-state state-draft multi">&nbsp;</span>&nbsp; Undo All Unpublished Changes</a></li>
-						<li class="li-state-global"><a class="btn-revert" data-revert="global"><span class="update-state state-draft global">&nbsp;</span>&nbsp; Undo Unpublished Global Changes</a></li>
+						<li class="li-state-multi"><a class="btn-revert" data-revert="all"><span class="update-state state-draft multi">&nbsp;</span>&nbsp; <?php _e( 'Undo All Unpublished Changes', 'pagelines' ); ?>
+						</a></li>
+						<li class="li-state-global"><a class="btn-revert" data-revert="global"><span class="update-state state-draft global">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Global Changes', 'pagelines' ); ?>
+						</a></li>
 
-						<li class="li-state-type"><a class="btn-revert" data-revert="type"><span class="update-state state-draft type">&nbsp;</span>&nbsp; Undo Unpublished Post Type Changes</a></li>
-						<li class="li-state-local"><a class="btn-revert" data-revert="local"><span class="update-state state-draft local">&nbsp;</span>&nbsp; Undo Unpublished Local Changes</a></li>
-						<li class="li-state-clean disabled"><a class="txt"><span class="update-state state-draft clean">&nbsp;</span>&nbsp; No Unpublished Changes</a></li>
+						<li class="li-state-type"><a class="btn-revert" data-revert="type"><span class="update-state state-draft type">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Post Type Changes', 'pagelines' ); ?>
+						</a></li>
+						<li class="li-state-local"><a class="btn-revert" data-revert="local"><span class="update-state state-draft local">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Local Changes', 'pagelines' ); ?>
+						</a></li>
+						<li class="li-state-clean disabled"><a class="txt"><span class="update-state state-draft clean">&nbsp;</span>&nbsp; <?php _e( 'No Unpublished Changes', 'pagelines' ); ?>
+						</a></li>
 					</ul>
 				</li>
 			</ul>
 			<ul class="unstyled controls send-right">
 				
-				<li class="li-refresh type-btn"><span class="btn-toolbox btn-save btn-refresh" data-mode="pagerefresh" title="Refresh needed to view changes."><i class="icon-refresh"></i></li>
-				<li class="li-publish"><span class="btn-toolbox btn-save btn-publish" data-mode="publish" title="Publish Live (alt+s)"><i class="icon-ok"></i> <span class="txt">Publish</span></li>
+				<li class="li-refresh type-btn"><span class="btn-toolbox btn-save btn-refresh" data-mode="pagerefresh" title="<?php _e( 'Refresh needed to view changes.', 'pagelines' ); ?>
+				"><i class="icon-refresh"></i></li>
+				<li class="li-publish"><span class="btn-toolbox btn-save btn-publish" data-mode="publish" title="<?php _e( 'Publish Live', 'pagelines' ); ?>
+				 (alt+s)"><i class="icon-ok"></i> <span class="txt"><?php _e( 'Publish', 'pagelines' ); ?>
+				 </span></li>
 
 			</ul>
 			<ul class="unstyled controls not-btn send-right">
-				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon-spinner icon-spin"></i> <span class="txt">Saving</span></li>
+				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon-spinner icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
+				</span></li>
 				<li class="switch-btn btn-layout-resize"><span class="btn-toolbox  not-btn">
-					<i class="icon-fullscreen"></i> <span class="txt">Width: <span class="resize-px"></span> / <span class="resize-percent"></span></span>
+					<i class="icon-fullscreen"></i> <span class="txt"><?php _e( 'Width', 'pagelines' ); ?>
+					: <span class="resize-px"></span> / <span class="resize-percent"></span></span>
 				</li>
 			</ul>
 		</div>
