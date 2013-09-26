@@ -91,7 +91,7 @@ class PLSectionArea extends PageLinesSection {
 					'type' 			=> 'select',
 					'opts'	=> array(
 						'pl-trans'		=> array('name'=> 'Transparent Background and Default Text Color'),
-						'pl-contrast'	=> array('name'=> 'Contast Color and Default Text Color'),
+						'pl-contrast'	=> array('name'=> 'Contrast Color and Default Text Color'),
 						'pl-black'		=> array('name'=> 'Black Background &amp; White Text'),
 						'pl-grey'		=> array('name'=> 'Dark Grey Background &amp; White Text'),
 						'pl-dark-img'	=> array('name'=> 'Image-Dark: Embossed Light Text.'),
