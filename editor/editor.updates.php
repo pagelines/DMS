@@ -176,7 +176,7 @@ class PageLinesEditorUpdates {
 			$prefix = 'theme-';
 		}
 		
-		return sprintf( 'http://api.pagelines.com/store/%s%s.zip', $prefix, $api_data['slug'] );
+		return sprintf( 'http://api.pagelines.com/store/%s%s.zip?%s', $prefix, $api_data['slug'], rand() );
 	}
 	
 	
