@@ -97,7 +97,7 @@ function pagelines_register_js() {
 	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
 
 	// Load Supersize BG Script
-	pagelines_supersize_bg();
+
 }
 
 add_action( 'wp_print_styles', 'pagelines_get_childcss', 99);
@@ -242,23 +242,7 @@ function pagelines_facebook_header() {
 		printf( "\n<meta property='og:image' content='%s' />", $fb_img);
 }
 
-/**
-*
-* @TODO do
-*
-*/
-function pagelines_supersize_bg(){
 
-	global $pagelines_ID;
-	$oset = array('post_id' => $pagelines_ID);
-	$url = ploption('page_background_image_url', $oset);
-
-	if(ploption('supersize_bg') && $url && !pl_is_disabled('color_control') && !pl_deprecate_v2()){
-
-		wp_enqueue_script('pagelines-supersize' );
-		add_action('wp_head', 'pagelines_runtime_supersize', 20);
-	}
-}
 
 
 
