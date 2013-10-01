@@ -360,6 +360,7 @@
 							})
 							.sortable({
 								axis: "y"
+								,	containment: "parent" 
 								,	handle: ".opt-name"
 								,	cursor: "move"
 								,	stop: function(){
