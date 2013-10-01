@@ -70,44 +70,62 @@ jQuery(window).load(function() {
 
 			<?php
 
-			$slides = ($this->opt('quick_slides', $this->oset)) ? $this->opt('quick_slides', $this->oset) : $this->default_limit;
+			$item_array = $this->opt('quickslider_array');
+
+			$format_upgrade_mapping = array(
+				'image'			=> 'quick_image_%s',
+				'text'			=> 'quick_text_%s',
+				'link'			=> 'quick_link_%s',
+				'location'		=> 'quick_text_location_%s',
+			); 
+
+			$item_array = $this->upgrade_to_array_format( 'quickslider_array', $item_array, $format_upgrade_mapping, $this->opt('quick_slides'));
 
 			$output = '';
-			for($i = 1; $i <= $slides; $i++){
 
-				if($this->opt('quick_image_'.$i, $this->oset)){
+			$num = count( $item_array );
 
-					$the_text = $this->opt('quick_text_'.$i, $this->tset);
+			if( is_array($item_array) ){
+				
+				foreach( $item_array as $item ){
 
-					$img_alt = $this->opt('quick_img_alt_'.$i,$this->tset);
+					$the_image = pl_array_get( 'image', $item ); 
+					
+					if( $the_image ){
 
-					$tlocation = $this->opt('quick_text_location_'.$i, $this->oset);
+						$the_text =  pl_array_get( 'text', $item ); 
+						$the_link =  pl_array_get( 'link', $item ); 
 
-					if($tlocation == 'right_top')
-						$caption_style = 'right:0; bottom: auto; top:0;';
-					elseif($tlocation == 'left_bottom')
-						$caption_style = 'left:0; bottom:0; top: auto;';
-					elseif($tlocation == 'left_top')
-						$caption_style = 'left:0; bottom:auto; top: 0;';
-					else
-						$caption_style = 'right:0; bottom:0; top: auto;';
+						$tlocation = pl_array_get( 'location', $item ); 
+
+						if($tlocation == 'right_top')
+							$caption_style = 'right:0; bottom: auto; top:0;';
+						elseif($tlocation == 'left_bottom')
+							$caption_style = 'left:0; bottom:0; top: auto;';
+						elseif($tlocation == 'left_top')
+							$caption_style = 'left:0; bottom:auto; top: 0;';
+						else
+							$caption_style = 'right:0; bottom:0; top: auto;';
 
 
-					$text = ($the_text) ? sprintf('<p class="flex-caption" style="%s">%s</p>', $caption_style, $the_text) : '';
+						$text = ($the_text) ? sprintf('<p class="flex-caption" style="%s">%s</p>', $caption_style, $the_text) : '';
 
-					$img = sprintf('<img src="%s" alt="%s"/>', $this->opt( 'quick_image_'.$i, $this->tset ),$img_alt );
+						$img = sprintf('<img src="%s" alt="" />', $the_image );
 
-					$slide = ($this->opt('quick_link_'.$i, $this->oset)) ? sprintf('<a href="%s">%s</a>', $this->opt('quick_link_'.$i, $this->oset), $img ) : $img;
-					$output .= sprintf('<li>%s %s</li>',$slide, $text);
+						$slide = ( $the_link ) ? sprintf('<a href="%s">%s</a>', $the_link, $img ) : $img;
+						
+						$output .= sprintf('<li>%s %s</li>',$slide, $text);
+					}
+
 				}
+				
 			}
+		
 
-			if($output == ''){
+			if($output == '')
 				$this->do_defaults();
-			} else {
+			else 
 				echo $output;
-
-			}
 
 
 			?>
@@ -130,128 +148,92 @@ jQuery(window).load(function() {
 		);
 	}
 
-	/**
-	 *
-	 * Page-by-page options for PostPins
-	 *
-	 */
-	function section_optionator( $settings ){
-		$settings = wp_parse_args( $settings, $this->optionator_default );
+	function section_opts(){
+		
+			$options = array();
 
-			$array = array();
+			$options[] = array(
 
-			$array['quick_slides'] = array(
-				'type' 			=> 'count_select',
-				'count_start'	=> 1,
-				'count_number'	=> 10,
-				'default'		=> '3',
-				'inputlabel' 	=> __( 'Number of Slides to Configure', 'pagelines' ),
-				'title' 		=> __( 'Number of Slides', 'pagelines' ),
-				'shortexp' 		=> __( 'Enter the number of QuickSlider slides. <strong>Default is 3</strong>', 'pagelines' ),
-				'exp' 			=> __( "This number will be used to generate slides and option setup. <strong>(Page refresh is required to see the new options!)</strong>", 'pagelines' ),
-
-			);
-
-			$array['quick_transition'] = array(
-				'type' 			=> 'select',
-				'selectvalues' => array(
-					'fade' 			=> array('name' => __( 'Use Fading Transition', 'pagelines' ) ),
-					'slide_h' 		=> array('name' => __( 'Use Slide/Horizontal Transition', 'pagelines' ) ),
-				),
-				'inputlabel' 	=> __( 'Select Transition Type', 'pagelines' ),
-				'title' 		=> __( 'Slider Transition Type', 'pagelines' ),
-				'shortexp' 		=> __( 'Configure the way slides transfer to one another.', 'pagelines' ),
-				'exp' 			=> __( "", 'pagelines' ),
-
-			);
-
-			$array['quick_nav'] = array(
-				'type' 			=> 'select',
-				'selectvalues' => array(
-					'both' 			=> array('name' => __( 'Use Both Arrow and Slide Control Navigation', 'pagelines' ) ),
-					'none'			=> array('name' => __( 'No Navigation', 'pagelines' ) ),
-					'control_only'	=> array('name' => __( 'Slide Controls Only', 'pagelines' ) ),
-					'arrow_only'	=> array('name' => __( 'Arrow Navigation Only', 'pagelines' ) ),
-				),
-				'inputlabel' 	=> __( 'Slider Navigation', 'pagelines' ),
-				'title' 		=> __( 'Slider Navigation mode', 'pagelines' ),
-				'shortexp' 		=> __( 'Configure the navigation for this slider.', 'pagelines' ),
-				'exp' 			=> __( "", 'pagelines' ),
-
-			);
-
-			$array['quick_slideshow'] = array(
-				'type' 			=> 'check',
-
-				'inputlabel' 	=> __( 'Animate Slideshow Automatically?', 'pagelines' ),
-				'title' 		=> __( 'Automatic Slideshow?', 'pagelines' ),
-				'shortexp' 		=> __( 'Autoplay the slides, transitioning every 7 seconds.', 'pagelines' ),
-				'exp' 			=> __( "", 'pagelines' ),
-
-			);
-
-			global $post_ID;
-
-			$oset = array(
-				'post_id' => $post_ID,
-				'clone_id' => $settings['clone_id'],
-				'type' => $settings['type']
-			);
-
-			$slides = ($this->opt('quick_slides', $oset)) ? $this->opt('quick_slides', $oset) : $this->default_limit;
-
-			for($i = 1; $i <= $slides; $i++){
-
-
-				$array['quick_slide_'.$i] = array(
-					'type' 			=> 'multi_option',
-					'selectvalues' => array(
-						'quick_image_'.$i 	=> array(
-							'inputlabel' 	=> __( 'Slide Image', 'pagelines' ),
-							'type'			=> 'image_upload'
+				'title' => __( 'Slider Configuration', 'pagelines' ),
+				'type'	=> 'multi',
+				'opts'	=> array(
+					array(
+						'key'			=> 'quick_transition',
+						'type' 			=> 'select',
+						'default'		=> 'fade',
+						'label' 	=> __( 'Select Transition Type', 'pagelines' ),
+						'opts' => array(
+							'fade' 			=> array('name' => __( 'Use Fading Transition', 'pagelines' ) ),
+							'slide_h' 		=> array('name' => __( 'Use Slide/Horizontal Transition', 'pagelines' ) ),
 						),
-						'quick_img_alt_'.$i 	=> array(
-							'inputlabel' 	=> __( 'Image Alt', 'pagelines' ),
-							'type'			=> 'text'
+					), 
+					array(
+						'key'			=> 'quick_nav',
+						'type' 			=> 'select',
+						'opts' => array(
+							'both' 			=> array('name' => __( 'Use Both Arrow and Slide Control Navigation', 'pagelines' ) ),
+							'none'			=> array('name' => __( 'No Navigation', 'pagelines' ) ),
+							'control_only'	=> array('name' => __( 'Slide Controls Only', 'pagelines' ) ),
+							'arrow_only'	=> array('name' => __( 'Arrow Navigation Only', 'pagelines' ) ),
 						),
-						'quick_text_'.$i 	=> array(
-							'inputlabel'	=> __( 'Slide Text', 'pagelines' ),
-							'type'			=> 'textarea'
-						),
-						'quick_link_'.$i 	=> array(
-							'inputlabel'	=> __( 'Slide Link URL', 'pagelines' ),
-							'type'			=> 'text'
-						),
-						'quick_text_location_'.$i 	=> array(
-							'inputlabel'	=> __( 'Slide Text Location', 'pagelines' ),
-							'type'			=> 'select',
-							'selectvalues'	=> array(
-								'right_bottom'	=> array('name'=> 'Right/Bottom'),
-								'right_top'		=> array('name'=> 'Right/Top'),
-								'left_bottom'	=> array('name'=> 'Left/Bottom'),
-								'left_top'		=> array('name'=> 'Left/Top')
-							)
-						),
+						'label' 	=> __( 'Slider Navigation Mode', 'pagelines' ),
+					
 					),
-					'title' 		=> __( 'QuickSlider Slide ', 'pagelines' ) . $i,
-					'shortexp' 		=> __( 'Setup options for slide number ', 'pagelines' ) . $i,
-					'exp'			=> __( 'For best results all images in the slider should have the same dimensions.', 'pagelines')
-				);
+					array(
+						'key'			=> 'quick_slideshow',
+						'type' 			=> 'check',
+						'label' 	=> __( 'Animate Slideshow Automatically?', 'pagelines' ),
+					
+					)
+				)
 
-			}
+			);
 
 
+			$options[] = array(
+				'key'		=> 'quickslider_array',
+		    	'type'		=> 'accordion', 
+				'col'		=> 2,
+				'title'		=> __('Slides Setup', 'pagelines'), 
+				'post_type'	=> __('Slide', 'pagelines'), 
+				'opts'	=> array(
+					array(
+						'key'		=> 'image',
+						'label' 	=> __( 'Slide Background Image', 'pagelines' ),
+						'type'		=> 'image_upload',
+						'sizelimit'	=> 2097152, // 2M
+						'help'		=> __( 'For high resolution, 2000px wide x 800px tall images. (2MB Limit)', 'pagelines' )
 
-			$metatab_settings = array(
-					'id' 		=> 'quickslider_options',
-					'name' 		=> __( 'QuickSlider', 'pagelines' ),
-					'icon' 		=> $this->icon,
-					'clone_id'	=> $settings['clone_id'],
-					'active'	=> $settings['active']
-				);
+					),
 
-			register_metatab( $metatab_settings, $array );
+					array(
+						'key'	=> 'text',
+						'label'	=> __( 'Slide Text', 'pagelines' ),
+						'type'			=> 'text'
+					),
+					array(
+						'key'	=> 'link',
+						'label'	=> __( 'Slide Link URL', 'pagelines' ),
+						'type'			=> 'text'
+					),
+					array(
+						'key'	=> 'location',
+						'label'	=> __( 'Slide Text Location', 'pagelines' ),
+						'type'			=> 'select',
+						'opts'	=> array(
+							'right_bottom'	=> array('name'=> 'Right/Bottom'),
+							'right_top'		=> array('name'=> 'Right/Top'),
+							'left_bottom'	=> array('name'=> 'Left/Bottom'),
+							'left_top'		=> array('name'=> 'Left/Top')
+						)
+					),
 
+
+				)
+		    );
+		
+		return $options;
+		
 	}
-
+	
 }
