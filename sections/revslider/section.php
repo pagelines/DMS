@@ -232,8 +232,6 @@ class plRevSlider extends PageLinesSection {
 
 	function render_slides(){
 	
-
-		// The boxes
 		$slide_array = $this->opt('revslider_array');
 		
 		$format_upgrade_mapping = array(
