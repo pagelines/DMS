@@ -602,7 +602,7 @@
 
 				oHTML += '<div class="img-upload-box">'
 
-				oHTML += sprintf( '<div class="upload-thumb-%s upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm) );
+				oHTML += sprintf( '<div class="opt-upload-thumb-%s opt-upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm) );
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
 
@@ -1211,7 +1211,7 @@
 			
 			$('.rmv-upload').on('click', function(){
 				$(this).closest('.opt').find('.upload-input').val('').trigger('change')
-				$(this).closest('.opt').find('.upload-thumb').fadeOut()
+				$(this).closest('.opt').find('.opt-upload-thumb').fadeOut()
 			})
 			
 			// Tooltips inside of options
@@ -1391,7 +1391,7 @@
 					var optBox = $(this).closest('.img-upload-box')
 
 						if (response.success) {
-							var theThumb = optBox.find('.upload-thumb')
+							var theThumb = optBox.find('.opt-upload-thumb')
 							, 	imgStyle = theThumb.data('imgstyle')
 							, 	imgURL = pl_do_shortcode(response.url)
 							
