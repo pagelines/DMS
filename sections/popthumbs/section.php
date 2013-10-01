@@ -174,6 +174,10 @@ class PLPopThumbs extends PageLinesSection {
 
 				$full_img = pl_array_get( 'image', $item ); 
 
+			} elseif( pl_array_get( 'thumb', $item ) ){
+
+				$full_img = pl_array_get( 'thumb', $item );
+
 			} else 
 				$full_img = pl_default_image();
 
