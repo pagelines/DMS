@@ -150,7 +150,7 @@ class PLPopThumbs extends PageLinesSection {
 			'thumb'			=> 'popthumb_thumb_%s',
 		); 
 
-		$slide_array = $this->upgrade_to_array_format( 'popthumb_array', $item_array, $format_upgrade_mapping, $this->opt('popthumb_count'));
+		$item_array = $this->upgrade_to_array_format( 'popthumb_array', $item_array, $format_upgrade_mapping, $this->opt('popthumb_count'));
 		
 		$count = 1;
 		$width = 0;
