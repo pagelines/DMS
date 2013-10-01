@@ -30,6 +30,7 @@ class PageLinesWidgetizer extends PageLinesSection {
 				'title'	=> 'Select Widgetized Area',
 				'label'		=>	'Select widgetized area',
 				'help'		=> "Select the widgetized area you would like to use with this instance of Widgetizer.",
+				
 			),
 			array(
 				'key'	=> 'widgetizer_help',
@@ -38,6 +39,7 @@ class PageLinesWidgetizer extends PageLinesSection {
 				'title'	=> 'Widgetized Areas Help',
 				'label'		=>	'<i class="icon-retweet"></i> Edit Widgetized Areas',
 				'help'		=> "This section uses widgetized areas that are created and edited in inside your admin.",
+				'col'		=> 2
 			)
 		);
 
@@ -49,6 +51,7 @@ class PageLinesWidgetizer extends PageLinesSection {
 				'title'	=> 'Get Custom Sidebars',
 				'label'		=>	'<i class="icon-external-link"></i> Check out plugin',
 				'help'		=> "We have detected that you don't have the Custom Sidebars plugin installed. We recommend you install this plugin to create custom widgetized areas on demand.",
+				'col'		=> 2
 			);
 		}
 
