@@ -376,7 +376,8 @@ function pagelines_check_folders_dms( $note ) {
 
 		$note .= ob_get_clean();
 		
-	} else if( pl_is_pro() && !pl_has_dms_plugin() ){
+	} 
+	if( pl_is_pro() && !pl_has_dms_plugin() ){
 		
 		ob_start(); ?>
 
@@ -390,7 +391,8 @@ function pagelines_check_folders_dms( $note ) {
 
 		$note .= ob_get_clean();
 		
-	} else if ( ! pl_is_pro() ){
+	} 
+	if ( ! pl_is_pro() ){
 		
 		ob_start(); ?>
 		
@@ -412,3 +414,8 @@ function pagelines_check_folders_dms( $note ) {
 		
 }
 
+// clear draft css on plugin activate/deactivate
+if( is_admin() && isset( $_REQUEST['plugin'] ) ) {
+	add_action( 'activate_' . $_REQUEST['plugin'], 'pl_flush_draft_caches' );
+	add_action( 'deactivate_' . $_REQUEST['plugin'], 'pl_flush_draft_caches' );
+}

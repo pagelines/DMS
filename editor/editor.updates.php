@@ -133,8 +133,7 @@ class PageLinesEditorUpdates {
 			      $obj->last_updated = $data['last_mod'];
 			      $obj->sections = array(
 			        'description' => $this->build_desc( $data ),
-
-			        'changelog' => 'Not added yet!'
+			        'changelog' => $this->build_logs( $data )
 			      );
 
 			      $obj->homepage = $data['overview'];
@@ -143,6 +142,22 @@ class PageLinesEditorUpdates {
 		return false;
 	}
 	
+	function build_logs( $data ) {
+		
+		$logs = explode( '*', $data['changelog'] );
+		
+		if( ! is_array( $logs ) || empty( $logs ) )
+			return 'Nothing to see here!';
+		
+		$out = '<ul>';
+		
+		foreach( $logs as $k => $log ) {
+			if( '' != $log )
+				$out .= sprintf( '<li>%s</li>', $log );
+		}
+		
+		return $out . '</ul>'; 
+	}
 	
 	function build_desc( $data ) {
 		
@@ -161,7 +176,7 @@ class PageLinesEditorUpdates {
 			$prefix = 'theme-';
 		}
 		
-		return sprintf( 'http://api.pagelines.com/store/%s%s.zip', $prefix, $api_data['slug'] );
+		return sprintf( 'http://api.pagelines.com/store/%s%s.zip?%s', $prefix, $api_data['slug'], rand() );
 	}
 	
 	
