@@ -1267,6 +1267,7 @@
 				}
 
 				closestRef.closest('.isotope').isotope( 'reLayout' )
+				closestRef.closest('.opt-box').find('.opt-accordion').accordion('refresh')
 
 			})
 		}
