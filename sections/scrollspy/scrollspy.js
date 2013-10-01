@@ -40,7 +40,7 @@ jQuery(window).load(function() {
 
 	var $win = jQuery(window)
 			, $nav = jQuery('.spynav')
-			, navbarHeight = jQuery('.navbar-full-width').length && jQuery('.navbar-full-width').outerHeight()
+			, navbarHeight = jQuery('.pl-fixed-top').length && jQuery('.pl-fixed-top').outerHeight()
 			, navbarOffset = jQuery('#wpadminbar').length && jQuery('#wpadminbar').outerHeight()
 			, navOffset = navbarHeight + navbarOffset
 			, navTop = jQuery('.spynav').length && jQuery('.spynav').offset().top - navbarOffset
