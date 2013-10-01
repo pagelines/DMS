@@ -28,14 +28,7 @@ class PLProPricing extends PageLinesSection {
 			'title' => __( 'ProPricing Configuration', 'pagelines' ),
 			'type'	=> 'multi',
 			'opts'	=> array(
-				array(
-					'key'			=> 'propricing_count',
-					'type' 			=> 'count_select',
-					'count_start'	=> 1,
-					'count_number'	=> 12,
-					'default'		=> 3,
-					'label' 	=> __( 'Number of Plans to Configure', 'pagelines' ),
-				),
+				
 				array(
 					'key'			=> 'propricing_cols',
 					'type' 			=> 'count_select',
@@ -48,71 +41,64 @@ class PLProPricing extends PageLinesSection {
 
 		);
 
-		$slides = ($this->opt('propricing_count')) ? $this->opt('propricing_count') : $this->default_limit;
-	
-		for($i = 1; $i <= $slides; $i++){
-
-			$opts = array(
-
+		$options[] = array(
+			'key'		=> 'propricing_array',
+	    	'type'		=> 'accordion', 
+			'col'		=> 2,
+			'title'		=> __('Pricing Setup', 'pagelines'), 
+			'post_type'	=> __('Column', 'pagelines'), 
+			'opts'	=> array(
 				array(
-					'key'		=> 'propricing_title_'.$i,
-					'label'		=> __( 'ProPricing Title', 'pagelines' ),
-					'type'		=> 'text'
+					'key'	=> 'title',
+					'label'	=> __( 'Title', 'pagelines' ),
+					'type'			=> 'text'
 				),
 				array(
-					'key'		=> 'propricing_price_'.$i,
-					'label'	=> __( 'ProPricing Text', 'pagelines' ),
+					'key'	=> 'price',
+					'label'	=> __( 'Price', 'pagelines' ),
 					'type'	=> 'text'
 				),
 				array(
-					'key'		=> 'propricing_price_pre_'.$i,
-					'label'	=> __( 'ProPricing Before Price Text', 'pagelines' ),
+					'key'	=> 'price_pre',
+					'label'	=> __( 'Before Price Text', 'pagelines' ),
 					'type'	=> 'text',
 					'help'	=> __( 'Typically you will add the monetary unit here. E.g. "$"', 'pagelines' ),
 				),
 				array(
-					'key'		=> 'propricing_price_post_'.$i,
-					'label'	=> __( 'ProPricing After Price Text', 'pagelines' ),
+					'key'	=> 'price_post',
+					'label'	=> __( 'After Price Text', 'pagelines' ),
 					'type'	=> 'text',
 					'help'	=> __( 'Typically you will add the recurring amount here. E.g. "/ MO"', 'pagelines' ),
 				),
 				array(
-					'key'		=> 'propricing_sub_'.$i,
-					'label'	=> __( 'ProPricing Sub Text', 'pagelines' ),
+					'key'	=> 'sub_text',
+					'label'	=> __( 'Sub Text', 'pagelines' ),
 					'type'	=> 'text'
 				),
 				array(
-					'key'		=> 'propricing_link_'.$i,
-					'label'	=> __( 'ProPricing Link URL', 'pagelines' ),
+					'key'	=> 'link',
+					'label'	=> __( 'Link URL', 'pagelines' ),
 					'type'	=> 'text'
 				),
 				array(
-					'key'		=> 'propricing_link_text_'.$i,
-					'label'	=> __( 'ProPricing Link Text', 'pagelines' ),
+					'key'	=> 'link_text',
+					'label'	=> __( 'Link Text', 'pagelines' ),
 					'type'	=> 'text'
 				),
 				array(
-					'key'		=> 'propricing_btn_'.$i,
-					'label'	=> __( 'ProPricing Button Theme', 'pagelines' ),
+					'key'	=> 'btn_theme',
+					'label'	=> __( 'Button Theme', 'pagelines' ),
 					'type'	=> 'select_button'
 				),
 				array(
-					'key'		=> 'propricing_attributes_'.$i,
-					'label'	=> __( 'ProPricing Attributes', 'pagelines' ),
+					'key'	=> 'attributes',
+					'label'	=> __( 'Attributes', 'pagelines' ),
 					'type'	=> 'textarea',
 					'help'	=> __( 'Add each attribute on a new line. Add a "*" in front to add emphasis.', 'pagelines' ),
 				),
-			);
-
-
-			$options[] = array(
-				'title' 	=> __( 'ProPricing Plan ', 'pagelines' ) . $i,
-				'type' 		=> 'multi',
-				'opts' 		=> $opts,
-
-			);
-
-		}
+				
+			)
+	    );
 
 		return $options;
 	}
@@ -120,40 +106,44 @@ class PLProPricing extends PageLinesSection {
 
    function section_template( ) { 
 	
+		
+	
+		$item_array = $this->opt('propricing_array');
+
+		$format_upgrade_mapping = array(
+			'title'			=> 'propricing_title_%s',
+			'price'			=> 'propricing_price_%s',
+			'price_pre'		=> 'propricing_price_pre_%s',
+			'price_post'	=> 'propricing_price_post_%s',
+			'sub_text'		=> 'propricing_sub_%s',
+			'link'			=> 'propricing_link_%s',
+			'link_text'		=> 'propricing_link_text_%s',
+			'btn_theme'		=> 'propricing_btn_%s',
+			'attributes'	=> 'propricing_attributes_%s',
+		); 
+
+		$item_array = $this->upgrade_to_array_format( 'propricing_array', $item_array, $format_upgrade_mapping, $this->opt('propricing_count'));
+	
 		$cols = ($this->opt('propricing_cols')) ? $this->opt('propricing_cols') : 4;
-		$num = ($this->opt('propricing_count')) ? $this->opt('propricing_count') : $this->default_limit;
 		$width = 0;
 		$output = '';
-	
-		$master = array();
-		for($i = 1; $i <= $num; $i++){
-			
-			$master[$i]['title'] = ($this->opt('propricing_title_'.$i)) ? $this->opt('propricing_title_'.$i) : 'Plan'; 
-			$master[$i]['price'] = ($this->opt('propricing_price_'.$i)) ? $this->opt('propricing_price_'.$i) : $i*8; 
-			$master[$i]['price_pre'] = ($this->opt('propricing_price_pre_'.$i)) ? $this->opt('propricing_price_pre_'.$i) : '$'; 
-			$master[$i]['price_post'] = ($this->opt('propricing_price_post_'.$i)) ? $this->opt('propricing_price_post_'.$i) : '/ MO'; 
-			
-			$master[$i]['sub'] = ($this->opt('propricing_sub_'.$i)) ? $this->opt('propricing_sub_'.$i) : sprintf('Billed annually or $%s/MO billed monthly.', $i*10); 
-			$master[$i]['link'] = ($this->opt('propricing_link_'.$i)) ? $this->opt('propricing_link_'.$i) : 'http://www.pagelines.com/pricing'; 
-			$master[$i]['link_text'] = ($this->opt('propricing_link_text_'.$i)) ? $this->opt('propricing_link_text_'.$i) : ''; 
-			$master[$i]['btn_theme'] = ($this->opt('propricing_btn_'.$i)) ? $this->opt('propricing_btn_'.$i) : 'btn-important'; 
-			
-			$master[$i]['attr'] = ($this->opt('propricing_attributes_'.$i)) ? $this->opt('propricing_attributes_'.$i) : '';
-			
-		}
+		$count = 1;
+		$item_array = ( ! is_array($item_array) ) ? array( array(), array(), array() ) : $item_array;
+		$num = count( $item_array );
 
-		foreach($master as $i => $plan){
+		
+		foreach( $item_array as $item){
 			
 			
-			$title 		= $plan['title']; 
-			$price_pre 	= $plan['price_pre']; 
-			$price 		= $plan['price']; 
-			$price_post = $plan['price_post']; 
-			$sub 		= $plan['sub']; 
-			$link 		= $plan['link']; 
-			$link_text 	= $plan['link_text']; 
-			$btn_theme 	= $plan['btn_theme']; 
-			$attr 		= $plan['attr']; 
+			$title 		= pl_array_get( 'title', $item, 'Plan');
+			$price_pre 	= pl_array_get( 'price_pre', $item, '$');
+			$price 		= pl_array_get( 'price', $item, $count*8);
+			$price_post = pl_array_get( 'price_post', $item, '/ MO');
+			$sub 		= pl_array_get( 'sub', $item, sprintf('Billed annually or $%s/MO billed monthly.', $count*10) );
+			$link 		= pl_array_get( 'link', $item, '#');
+			$link_text 	= pl_array_get( 'link_text', $item);
+			$btn_theme 	= pl_array_get( 'btn_theme', $item, 'btn-important');
+			$attr 		= pl_array_get( 'attributes', $item);
 		
 		
 			$attr_list = ''; 
@@ -178,7 +168,7 @@ class PLProPricing extends PageLinesSection {
 			if($link != ''){
 				
 				$link_text = ($link_text != '') ? $link_text : 'Sign Up';
-				$link_text = sprintf('<span class="btn-link-text" data-sync="propricing_link_text_%s">%s</span>', $i, $link_text);
+				$link_text = sprintf('<span class="btn-link-text" data-sync="propricing_link_text_%s">%s</span>', $count, $link_text);
 				
 				$formatted_link = sprintf('<li class="pp-link"><a href="%s" class="btn btn-large %s" >%s <i class="icon-chevron-sign-right"></i></a></li>', $link, $btn_theme, $link_text);
 				
@@ -192,7 +182,7 @@ class PLProPricing extends PageLinesSection {
 			$formatted_attr = ($attr_list != '') ? sprintf('<div class="pp-attributes"><ul>%s</ul></div>', $attr_list) : '';
 		
 		
-			$formatted_sub = ($sub != '') ? sprintf('<div class="price-sub" data-sync="propricing_sub_%s">%s</div>', $i, $sub) : ''; 
+			$formatted_sub = ($sub != '') ? sprintf('<div class="price-sub" data-sync="propricing_sub_%s">%s</div>', $count, $sub) : ''; 
 		
 			if($width == 0)
 				$output .= '<div class="row fix">';
@@ -219,17 +209,17 @@ class PLProPricing extends PageLinesSection {
 				$price_post,
 				$formatted_sub,
 				$formatted_attr, 
-				$i
+				$count
 			);
 
 			$width += $cols;
 
-			if($width >= 12 || $i == $num){
+			if($width >= 12 || $count == $num){
 				$width = 0;
 				$output .= '</div>';
 			}
 
-
+			$count++;
 		 }
 	
 	
