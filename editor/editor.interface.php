@@ -129,7 +129,7 @@ class EditorInterface {
 				'icon'	=> 'icon-off',
 				'type'	=> 'btn',
 				'pos'	=> 1, 
-				'tip'	=> __('Disable Editor', 'pagelines')
+				'tip'	=> __('Deactivate Editor (View Live)', 'pagelines')
 			),
 
 			'pl-actions' => array(
