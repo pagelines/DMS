@@ -23,14 +23,6 @@ class plRevSlider extends PageLinesSection {
 			'type'	=> 'multi',
 			'opts'	=> array(
 				array(
-					'key'			=> 'revslider_count',
-					'type' 			=> 'count_select',
-					'count_start'	=> 1,
-					'count_number'	=> 10,
-					'default'		=> '3',
-					'label' 	=> __( 'Number of Slides to Configure', 'pagelines' ),
-				),
-				array(
 					'key'			=> 'revslider_delay',
 					'type' 			=> 'text',
 					'default'		=> 9000,
