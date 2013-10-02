@@ -39,7 +39,7 @@ $.plSections = {
 			, 	cursor: "move"
 			, 	connectToSortable: ".pl-sortable-area"
 			,	zIndex: 10000
-			,	distance: 20
+		//	,	distance: 20
 			, 	start: function(event, ui){
 
 					that.switchOnAdd( ui.helper )
@@ -58,7 +58,7 @@ $.plSections = {
 			, 	cursor: "move"
 			, 	connectToSortable: ".pl-area-container"
 			,	zIndex: 10000
-			,	distance: 20
+		//	,	distance: 20
 			, 	start: function(event, ui){
 
 					that.switchOnAdd( ui.helper )
