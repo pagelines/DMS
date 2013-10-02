@@ -28,9 +28,6 @@ class PageLinesTemplates {
 
 	function get_region( $region ){
 		
-		// TO DEPRECATE for UPGRADE
-		$this->upgrade_old_map_data( $region ); 
-		
 		if($region == 'header' || $region == 'footer'){
 			
 			$map = $this->set->regions; 
@@ -54,11 +51,7 @@ class PageLinesTemplates {
 				$map = $this->get_map_from_template_key( $tpl ); 
 
 			}
-			
-							
-			// if( !$map && isset( $this->set->type['page-template']) )
-			// 	$map = $this->get_map_from_template_key( $this->set->type['page-template'] ); 
-				
+		
 			
 			if( is_page() && !$map && isset( $this->set->global['page-template']) )
 				$map = $this->get_map_from_template_key( $this->set->global['page-template'] ); 
@@ -70,46 +63,6 @@ class PageLinesTemplates {
 		
 	}
 	
-	// TO DEPRECATE for BETA UPGRADE
-	function upgrade_old_map_data( $region ){
-		
-		if( ($region == 'header' || $region == 'footer') && !isset( $this->set->regions[ $region ]) ){
-		
-			$map_global = pl_opt( $this->map_option_slug, pl_settings_default(), true );
-
-			if(isset($map_global['draft'][$region])){
-			
-				$this->set->regions[$region] = $map_global['draft'][$region]; 
-				
-				$set = pl_opt( PL_SETTINGS );
-				
-				$set['regions'] = $this->set->regions; 
-				
-				pl_opt_update( PL_SETTINGS, $set );
-				
-			}
-				
-				
-		} elseif ($region == 'template' && !isset($this->set->local['custom-map']) && !isset($this->set->local['page-template'])){
-			
-			
-			$map_local = pl_meta( $this->page->id, $this->map_option_slug, pl_settings_default() );
-		
-			if(isset($map_local['draft'][$region])){
-				
-				$this->set->local['custom-map'] = $map_local['draft'];
-				$this->set->local['page-template'] = 'custom';
-				
-				$set = pl_meta( $this->page->id, PL_SETTINGS );
-				
-				$set['custom-map'] = $this->set->local['custom-map']; 
-				
-				pl_meta_update( $this->page->id, PL_SETTINGS, $set );
-			}
-		}
-			
-		
-	}
 	
 	function get_map_from_template_key( $key ){
 
