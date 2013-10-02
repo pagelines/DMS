@@ -37,6 +37,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.actions.php' );
 		require_once( PL_EDITOR . '/editor.draft.php' );
 		require_once( PL_EDITOR . '/editor.layout.php' );
+		require_once( PL_EDITOR . '/editor.saving.php' );
 
 		require_once( PL_EDITOR . '/editor.settings.config.php' );
 		require_once( PL_EDITOR . '/editor.typography.php' );
@@ -96,6 +97,8 @@ class PageLinesEditor {
 
 		// Mapping
 		$this->map = new PageLinesTemplates( $this->templates ); // this needs to be rewritten and moved to mapping class
+
+		$this->saving_utility = new PageLinesSave;
 
 		// Must come before settings
 		$this->foundry = new PageLinesFoundry;

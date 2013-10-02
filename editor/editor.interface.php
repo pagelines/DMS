@@ -77,7 +77,13 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-editor-js', $this->url . '/js/pl.editor.js', array( 'jquery' ), PL_CORE_VERSION , true);
 			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		
+		
+			// Saving 
 			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'pl-saving', $this->url . '/js/pl.saving.js', array( 'pl-ajax' ), PL_CORE_VERSION , true);
+			
+			
 			wp_enqueue_script( 'pl-library', $this->url . '/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			

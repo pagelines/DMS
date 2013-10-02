@@ -668,8 +668,8 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 	// in case of empty, use live/draft default
 	$settings = wp_parse_args($settings, pl_settings_default());
 
-	$settings[ $mode ] = $new_settings;
-//	$settings[ $mode ] = wp_parse_args( $new_settings, $settings );
+	// forgot why we stripslashes, if you remember, comment!
+	$settings[ $mode ] = stripslashes_deep( $new_settings );
 
 	// lets do some clean up
 	// Gonna clear out all the empty values and arrays

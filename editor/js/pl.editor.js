@@ -819,37 +819,27 @@
 			
 			if( storeMap ){
 
-				if( refresh ){
+				var saveArgs = {
+					run: 'map'
+					, store: that.updatePage( obj )
+					, refresh: false
+					, postSuccess: function( rsp ){
 
-					$.plAJAX.saveData( {
-						  run: 'map'
-						, refresh: true
-						, refreshText: 'Saved! Page refresh required. Refreshing...'
-						, map: map
-						, templateMode: templateMode
-					} )
+						if(!rsp)
+							return
 
-				} else {
-
-					$.plAJAX.saveData( {
-						  run: 'map'
-						, map: map
-						, templateMode: templateMode
-						, postSuccess: function( rsp ){
-
-							if(!rsp)
-								return
-
-							if(rsp.changes && rsp.changes.local == 1){
-								$('.x-item-actions')
-								 	.removeClass('active-template')
-							}
-
-
+						if(rsp.changes && rsp.changes.local == 1){
+							$('.x-item-actions')
+							 	.removeClass('active-template')
 						}
-					} )
-				}
 
+					}
+				}
+				
+				if( refresh )
+					saveArgs.refresh = true
+				
+				$.plSave.save( saveArgs )
 
 			}
 
@@ -963,9 +953,6 @@
 			,	reloadSort = reloadSort || false
 			,	sortableArgs = {}
 
-			
-			that.preventNestedColumns()
-
 		    $( '.pl-sortable-area' ).sortable( that.sortableArguments( 'section' ) )
 
 
@@ -973,27 +960,7 @@
 			$( '.pl-area-container' ).sortable( that.sortableArguments( 'area' ) )
 
 		}
-		
-		, preventNestedColumns: function(){
-			
-			// if( $('.section-plcolumn .pl-sortable-area').hasClass('ui-sortable') ){
-			// 			
-			// 			$( '.section-plcolumn' )
-			// 					.off('mousedown.noNested')
-			// 					.off('mouseup.noNested')
-			// 			
-			// 			$('.section-plcolumn .pl-sortable-area').sortable( "enable" )
-			// 			$( '.section-plcolumn .pl-section' ).addClass('pl-sortable')
-			// 		}
-			// 		
-			// 		$( '.section-plcolumn' ).on('mousedown.noNested', function(e){
-			// 			$('.section-plcolumn .pl-sortable-area').sortable( "disable" )
-			// 			$( '.section-plcolumn .pl-section' ).removeClass('pl-sortable')
-			// 		}).on('mouseup.noNested', function(e){
-			// 			$('.section-plcolumn .pl-sortable-area').sortable( "enable" )
-			// 			$( '.section-plcolumn .pl-section' ).addClass('pl-sortable')
-			// 		})
-		}
+
 
 		, sortableArguments: function( type ){
 
@@ -1105,6 +1072,7 @@
 			, 	templateMode = $.pl.config.templateMode || 'local'
 			,	newScope = (element.parents(".template-region-wrap").length == 1) ? templateMode : 'global'
 			, 	oldScope = element.attr('data-start-scope')
+			,	store = {}
 				
 			
 			// if data wasn't set or scope wasn't changed
@@ -1120,7 +1088,16 @@
 			
 			delete $.pl.data[ oldScope ][ uniqueID ]
 			
+			store[ newScope ] = $.pl.data[ newScope ]
+			store[ oldScope ] = $.pl.data[ oldScope ]
 			
+			// $.plSave.save({
+			// 				run: 'data'
+			// 				, store: {
+			// 					
+			// 				}
+			// 				
+			// 			})
 			
 			$.plAJAX.saveData()
 			
