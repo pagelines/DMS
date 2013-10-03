@@ -58,6 +58,7 @@ class PLheroUnit extends PageLinesSection {
 			array(
 				'title'			=> __( 'Content Widths', 'pagelines' ),
 				'type'			=> 'multi',
+				'col'			=> 2,
 				'opts'			=> array(
 
 			array(
@@ -83,57 +84,60 @@ class PLheroUnit extends PageLinesSection {
 				'type'			=> 'select',
 				'opts'			=> array(
 
-				'span3'			=> array( 'name' => '25%' ),
-				'span4'			=> array( 'name' => '33%' ),
-				'span6'			=> array( 'name' => '50%' ),
-				'span8'			=> array( 'name' => '66%' ),
-				'span9'			=> array( 'name' => '75%' ),
-				'span7'			=> array( 'name' => '90%' )
-										)
-									)
-								)
-							),
+					'span3'			=> array( 'name' => '25%' ),
+					'span4'			=> array( 'name' => '33%' ),
+					'span6'			=> array( 'name' => '50%' ),
+					'span8'			=> array( 'name' => '66%' ),
+					'span9'			=> array( 'name' => '75%' ),
+					'span7'			=> array( 'name' => '90%' )
+				)
+			)
+		)
+	),
 
-			array(
+	array(
 				'title'			=> __( 'Hero Action Button', 'pagelines' ),
+				'col'			=> 2,
 				'type'			=> 'multi',
 				'opts'			=> array(
 
-			array(
-				'key'			=> 'herounit_button_link',
-				'type'			=> 'text',
-				'label'			=> __( 'Button link destination (URL - Required)', 'pagelines' ) ),
+					array(
+						'key'			=> 'herounit_button_link',
+						'type'			=> 'text',
+						'label'			=> __( 'Button link destination (URL - Required)', 'pagelines' ) ),
 
-			array(
-				'key'			=> 'herounit_button_text',
-				'type'			=> 'text',
-				'label'			=> __( 'Hero Button Text', 'pagelines' ) ),
+					array(
+						'key'			=> 'herounit_button_text',
+						'type'			=> 'text',
+						'label'			=> __( 'Hero Button Text', 'pagelines' ) ),
 
-			array(
-				'key'			=> 'herounit_button_target',
-				'type'			=> 'check',
-				'default'		=> false,
-				'label'			=> __( 'Open link in new window', 'pagelines' ) ),
+					array(
+						'key'			=> 'herounit_button_target',
+						'type'			=> 'check',
+						'default'		=> false,
+						'label'			=> __( 'Open link in new window', 'pagelines' ) ),
 
-			array(
-				'label'			=> __( 'Select Button Color', 'pagelines' ),
-				'key'			=> 'herounit_button_theme',
-				'default'		=> 'primary',
-				'type'			=> 'select',
-				'opts'			=> array(
+					array(
+						'label'			=> __( 'Select Button Color', 'pagelines' ),
+						'key'			=> 'herounit_button_theme',
+						'default'		=> 'primary',
+						'type'			=> 'select',
+						'opts'			=> array(
 
-				'primary'		=> array( 'name' => __( 'Blue', 'pagelines' ) ),
-				'warning'		=> array( 'name' => __( 'Orange', 'pagelines' ) ),
-				'important'		=> array( 'name' => __( 'Red', 'pagelines' ) ),
-				'success'		=> array( 'name' => __( 'Green', 'pagelines' ) ),
-				'info'			=> array( 'name' => __( 'Light Blue', 'pagelines' ) ),
-				'reverse'		=> array( 'name' => __( 'Grey', 'pagelines' ) )
-										)
-									)
-								)
-							)
-						);
-	return $opts;
+							'primary'		=> array( 'name' => __( 'Blue', 'pagelines' ) ),
+							'warning'		=> array( 'name' => __( 'Orange', 'pagelines' ) ),
+							'important'		=> array( 'name' => __( 'Red', 'pagelines' ) ),
+							'success'		=> array( 'name' => __( 'Green', 'pagelines' ) ),
+							'info'			=> array( 'name' => __( 'Light Blue', 'pagelines' ) ),
+							'reverse'		=> array( 'name' => __( 'Grey', 'pagelines' ) )
+						)
+					)
+				)
+			)
+		);
+	
+		return $opts;
+	
 	}
 
 
