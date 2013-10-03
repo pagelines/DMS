@@ -1091,13 +1091,7 @@
 			store[ newScope ] = $.pl.data[ newScope ]
 			store[ oldScope ] = $.pl.data[ oldScope ]
 			
-			// $.plSave.save({
-			// 				run: 'data'
-			// 				, store: {
-			// 					
-			// 				}
-			// 				
-			// 			})
+	
 			
 			$.plAJAX.saveData()
 			
