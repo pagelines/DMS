@@ -139,6 +139,8 @@ function pl_show_unload(){
 	}
 }
 
+
+
 /* Page refresh function with optional timeout.
  * =============================================
  */
@@ -149,3 +151,5 @@ function pl_url_refresh(url,timeout){
 	  window.location.href = url;
 	}, timeout);
 }
+
+jQuery.fn.getInputType = function(){ return this[0].tagName == "INPUT" ? jQuery(this[0]).attr("type").toLowerCase() : this[0].tagName.toLowerCase(); }

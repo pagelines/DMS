@@ -219,14 +219,8 @@
 
 			$('.lstn').on('keyup.optlstn blur.optlstn change.optlstn paste.optlstn', function( e ){
 
-				var theInput = $(this)
-				,	thePanel = theInput.closest('.tab-panel')
-				, 	panelScope = thePanel.data('scope')
-				,	scope = (panelScope) ? panelScope : that.scope
-				,	uniqueID = (thePanel.attr('data-clone')) ? thePanel.attr('data-clone') : false
-				,	formData = that.activeForm.formParams()
-
-			
+				// FORM PREP
+				// First do checkbox switching... 
 				if($(this).hasClass('checkbox-input')){
 
 					var checkToggle = $(this).prev()
@@ -241,7 +235,16 @@
 
 				}
 				
-				
+				// FORM SAVING
+				// Form is ready, set up saving vars
+				var theInput = $(this)
+				, 	iType = theInput.getInputType()
+				,	thePanel = theInput.closest('.tab-panel')
+				, 	panelScope = thePanel.data('scope')
+				,	scope = (panelScope) ? panelScope : that.scope
+				,	uniqueID = (thePanel.attr('data-clone')) ? thePanel.attr('data-clone') : false
+				,	formData = that.activeForm.formParams()
+
 				
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], formData)
 		
@@ -292,9 +295,9 @@
 					$('.li-refresh').show()
 				}
 
-				
+				console.log(e.type)
 
-				if( e.type == 'change' || e.type == 'blur' ){
+				if( e.type == 'blur' || ( e.type == 'change' && ( iType == 'checkbox' || iType == 'select') ) ){
 					
 					//	$.plAJAX.saveData( )
 					

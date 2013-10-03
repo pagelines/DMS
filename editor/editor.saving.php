@@ -103,6 +103,12 @@ class PageLinesSave {
 		if( $scope == 'global' ){
 			
 			$global_settings = pl_settings();
+			
+			// First parse sub settings field
+			if( isset($form['settings']) )
+				$form['settings']  = wp_parse_args( $form['settings'], $global_settings['settings'] );
+			
+			$response['form'] = $form;
 			$global_settings = wp_parse_args( $form, $global_settings );
 			pl_settings_update( $global_settings );
 			
