@@ -16,47 +16,33 @@ class EditorLessHandler{
 
 	var $pless_vars = array();
 	var $draft;
-
-	/**
-	 *
-	 *  Draft mode init.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	public function draft_init(){
-		// if we are in banana mode fire up the flux capacitors.
-		
-			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_draft_css' ) );
-			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
-			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
-			add_action( 'wp_footer', array(&$this, 'print_core_less') );
-	}
-
-	/**
-	 *
-	 *  Dequeue the regular css.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	static function dequeue_live_css() {
-		wp_deregister_style( 'pagelines-less' );
-	}
-	
 	var $pless;
 	var $lessfiles;
-
+	
 	function __construct( PageLinesLess $pless ) {
 
 		$this->pless = $pless;
 		$this->lessfiles = get_core_lessfiles();
 		$this->draft_less_file = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'path' ) );
 
-		if( pl_draft_mode() )
-			$this->draft_init();
+		if( pl_draft_mode() ){
+			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_draft_css' ) );
+			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
+			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
+			add_action( 'wp_footer', array(&$this, 'print_core_less') );
+		}
+
 	}
 
+	/**
+	 *
+	 *  Dequeue the regular css.
+	 *
+	 */
+	static function dequeue_live_css() {
+		wp_deregister_style( 'pagelines-less' );
+	}
+	
 	/**
 	 * Output raw core less into footer for use with less.js
 	 * Will output the same LESS that is used when compiling with PHP
@@ -140,7 +126,7 @@ class EditorLessHandler{
 
 			$data = array(
 				'sections'	=> get_all_active_sections(),
-				'core'		=> $this->get_core_lesscode()
+				'core'		=> get_core_lesscode( $this->lessfiles )
 			);
 		
 			return $data;
@@ -217,35 +203,8 @@ class EditorLessHandler{
 			pl_flush_draft_caches( $this->draft_less_file );
 	}
 
-	/**
-	 *
-	 *  Get all core less as uncompiled code.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 *  @uses  load_core_cssfiles
-	 */
-	private function get_core_lesscode() {
 
-		return $this->load_core_cssfiles( apply_filters( 'pagelines_core_less_files', $this->lessfiles ) );
-	}
-
-	/**
-	 *
-	 *  Load from .less files.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 *  @uses  load_less_file
-	 */
-	private function load_core_cssfiles( $files ) {
-
-		$code = '';
-		foreach( $files as $less ) {
-			$code .= load_less_file( $less );
-		}
-		return apply_filters( 'pagelines_insert_core_less', $code );
-	}
+	
 
 	
 
@@ -664,16 +623,7 @@ class PageLinesRenderCSS {
 		if ( ! $is_apache )
 			return true;
 	}
-	function check_draft() {
-		global $pldraft;
 
-		if( is_object($pldraft) )
-			$mode = $pldraft->mode;
-		else
-			$mode = false;
-
-		return( 'draft' == $mode ) ? true : false;
-	}
 	/**
 	 *
 	 *  Get compiled/cached CSS
@@ -683,14 +633,14 @@ class PageLinesRenderCSS {
 	 */
 	function get_compiled_core() {
 
-		if ( ! $this->check_draft() && is_array( $a = get_transient( 'pagelines_core_css' ) ) ) {
+		if ( ! pl_draft_mode() && is_array( $a = get_transient( 'pagelines_core_css' ) ) ) {
 			return $a;
 		} else {
 
 			$start_time = microtime(true);
 
 
-			$core_less = $this->get_core_lesscode();
+			$core_less = get_core_lesscode( $this->lessfiles );
 
 			$pless = new PagelinesLess();
 
@@ -721,7 +671,7 @@ class PageLinesRenderCSS {
 	 */
 	function get_compiled_sections() {
 
-		if ( ! $this->check_draft() && is_array( $a = get_transient( 'pagelines_sections_css' ) ) ) {
+		if ( ! pl_draft_mode() && is_array( $a = get_transient( 'pagelines_sections_css' ) ) ) {
 			return $a;
 		} else {
 
@@ -757,7 +707,7 @@ class PageLinesRenderCSS {
 	 */
 	function get_compiled_custom() {
 
-		if ( ! $this->check_draft() && is_array(  $a = get_transient( 'pagelines_custom_css' ) ) ) {
+		if ( ! pl_draft_mode() && is_array(  $a = get_transient( 'pagelines_custom_css' ) ) ) {
 			return $a;
 		} else {
 
@@ -783,34 +733,6 @@ class PageLinesRenderCSS {
 		}
 	}
 
-	/**
-	 *
-	 *  Get Core LESS code
-	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
-	 */
-	function get_core_lesscode() {
-
-			return $this->load_core_cssfiles( apply_filters( 'pagelines_core_less_files', $this->lessfiles ) );
-	}
-
-	/**
-	 *
-	 *  Helper for get_core_less_code()
-	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
-	 */
-	function load_core_cssfiles( $files ) {
-
-		$code = '';
-		foreach( $files as $less ) {
-
-			$code .= load_less_file( $less );
-		}
-		return apply_filters( 'pagelines_insert_core_less', $code );
-	}
 
 	function pagelines_add_trigger( $vars ) {
 	    $vars[] = 'pageless';
@@ -984,6 +906,36 @@ function pl_get_css_dir( $type = '' ) {
 		return trailingslashit( $folder['basedir'] ) . 'pagelines';
 	else
 		return trailingslashit( $folder['baseurl'] ) . 'pagelines';
+}
+
+/**
+ *
+ *  Get all core less as uncompiled code.
+ *
+ *  @package PageLines DMS
+ *  @since 3.0
+ *  @uses  load_core_cssfiles
+ */
+function get_core_lesscode( $lessfiles ) {
+
+	return load_core_cssfiles( apply_filters( 'pagelines_core_less_files', $lessfiles ) );
+}
+
+/**
+ *
+ *  Load from .less files.
+ *
+ *  @package PageLines DMS
+ *  @since 3.0
+ *  @uses  load_less_file
+ */
+function load_core_cssfiles( $files ) {
+
+	$code = '';
+	foreach( $files as $less ) {
+		$code .= load_less_file( $less );
+	}
+	return apply_filters( 'pagelines_insert_core_less', $code );
 }
 
 /**

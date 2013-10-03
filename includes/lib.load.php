@@ -88,7 +88,7 @@ function pagelines_check_lessdev(){
 	if ( ! isset( $_GET['pagedraft'] )
 		&& defined( 'PL_LESS_DEV' )
 		&& PL_LESS_DEV
-		&& false == EditorLessHandler::is_draft()
+		&& false == pl_draft_mode()
 		) {
 		PageLinesRenderCSS::flush_version( false );
 	}
