@@ -8,6 +8,13 @@
 
 
 
+function pagelines_layout_mode( ){
+
+	_deprecated_function( __FUNCTION__, '1.1' );
+
+}
+
+
 class PageLinesMetaPanel{
 	function register_tab(){
 		
