@@ -570,6 +570,7 @@
 				|| o.type == 'select_animation'
 				|| o.type == 'select_multi'
 				|| o.type == 'select_button'
+				|| o.type == 'select_imagesizes'
 			){
 
 			
@@ -626,7 +627,18 @@
 						o.opts[ key ] = {name: s}
 					})
 
-				}
+				} else if( o.type == 'select_imagesizes' ){
+
+						var sizes = $.pl.config.imgSizes
+
+						o.opts = {}
+						$.each(sizes, function(key, s){
+							o.opts[ s ] = {name: s}
+						})
+						
+						if ( ! o.ref )
+							oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> More Info</a><div class="help-block">%s</div></div>', 'Select which registered thumbnail size to use for the images. To add new sizes see: <a href="http://codex.wordpress.org/Function_Reference/add_image_size">The Codex</a>')
+					}
 
 				if(o.opts){
 
