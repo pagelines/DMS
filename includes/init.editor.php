@@ -67,8 +67,10 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.areas.php' );
 		require_once( PL_EDITOR . '/editor.page.php' );
 		require_once( PL_EDITOR . '/editor.handler.php' );
-		require_once( PL_EDITOR . '/editor.less.libs.php' );
+	//	require_once( PL_EDITOR . '/editor.less.libs.php' );
 		require_once( PL_EDITOR . '/editor.less.php' );
+		require_once( PL_EDITOR . '/editor.css.php' );
+		
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
 		require_once( PL_EDITOR . '/sections.register.php' );
@@ -110,6 +112,9 @@ class PageLinesEditor {
 		$pless = new PageLinesLess;
 		$fileOpts = new EditorFileOpts;
 		$this->editor_less = new EditorLess($pless);
+		
+		$this->css_editor = new PLCSSEditor;
+		
 		pagelines_register_hook('pl_after_settings_load'); // hook
 
 		$plopts = $this->opts = new PageLinesOpts;
