@@ -53,7 +53,7 @@ class EditorLessHandler{
 		$this->lessfiles = get_core_lessfiles();
 		$this->draft_less_file = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'path' ) );
 
-		if( $this->is_draft() )
+		if( pl_draft_mode() )
 			$this->draft_init();
 	}
 
@@ -134,17 +134,15 @@ class EditorLessHandler{
 	 *
 	 *  Build our 'data' for compile.
 	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
 	 */
 	public function draft_core_data() {
 
-		//	build_pagelines_layout();
 
-			$data = array();
-			$data['sections'] = $this->get_all_active_sections();
-			$data['core'] = $this->get_core_lesscode();
-
+			$data = array(
+				'sections'	=> get_all_active_sections(),
+				'core'		=> $this->get_core_lesscode()
+			);
+		
 			return $data;
 	}
 
@@ -196,7 +194,7 @@ class EditorLessHandler{
 			}
 		}
 
-		if( $this->is_draft() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
+		if( pl_draft_mode() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
 
 			$raw_cached = pl_cache_get( 'draft_core_raw', array( &$this, 'draft_core_data' ) );
 
@@ -264,91 +262,7 @@ class EditorLessHandler{
 	}
 
 	
-	/**
-	 *
-	 *  Get all active sections.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	private function get_all_active_sections() {
 
-		$out = '';
-		global $load_sections;
-		$available = $load_sections->pagelines_register_sections( true, true );
-
-		$disabled = pl_get_disabled_sections();
-
-		/*
-		* Filter out disabled sections
-		*/
-		foreach( $disabled as $type => $data )
-			if ( isset( $disabled[$type] ) )
-				foreach( $data as $class => $state )
-					unset( $available[$type][ $class ] );
-
-		/*
-		* We need to reorder the array so sections css is loaded in the right order.
-		* Core, then pagelines-sections, followed by anything else.
-		*/
-		$sections = array();
-		$sections['parent'] = $available['parent'];
-		$sections['child'] = array();
-		unset( $available['parent'] );
-		if( isset( $available['custom'] ) && is_array( $available['custom'] ) ) {
-			$sections['child'] = $available['custom']; // load child theme sections that override.
-			unset( $available['custom'] );	
-		}
-		
-		// remove core section less if child theme has a less file
-		foreach( $sections['child'] as $c => $cdata) {
-			if( isset( $sections['parent'][$c] ) && is_file( $cdata['base_dir'] . '/style.less' ) )
-				unset( $sections['parent'][$c] );
-		}
-
-		if ( is_array( $available ) ) {
-			foreach( $available as $type => $data ) {
-				if( ! empty( $data ) )
-					$sections[$type] = $data;
-			}
-		}
-		
-
-			
-
-		foreach( $sections as $t ) {
-			foreach( $t as $key => $data ) {
-				if ( $data['less'] && $data['loadme'] ) {
-					if ( is_file( $data['base_dir'] . '/style.less' ) )
-						$out .= pl_file_get_contents( $data['base_dir'] . '/style.less' );
-					elseif( is_file( $data['base_dir'] . '/color.less' ))
-						$out .= pl_file_get_contents( $data['base_dir'] . '/color.less' );
-				}
-			}
-		}
-		
-		return apply_filters('pagelines_lesscode', $out);
-	}
-
-
-	/**
-	 *
-	 *  Are we in draft mode or not?
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 *  @uses  $pldraft
-	 */
-	public static function is_draft() {
-		global $pldraft;
-
-		if( ! is_object( $pldraft ) )
-			return false;
-
-		$draft = $pldraft->mode;
-		return ( 'draft' == $draft ) ? true : false;
-	}
-	
 	function write_draft_less_file($css) {
 		$folder = pl_get_css_dir( 'path' );
 		$file = 'editor-draft.css';
@@ -510,7 +424,7 @@ class PageLinesRenderCSS {
 	private function actions() {
 
 
-		if( pl_has_editor() && EditorLessHandler::is_draft() )
+		if( pl_has_editor() && pl_draft_mode() )
 			return;
 
 
@@ -812,9 +726,8 @@ class PageLinesRenderCSS {
 		} else {
 
 			$start_time = microtime(true);
-			//build_pagelines_layout();
 
-			$sections = $this->get_all_active_sections();
+			$sections = get_all_active_sections();
 
 			$pless = new PagelinesLess();
 			$sections =  $pless->raw_less( $sections, 'sections' );
@@ -998,60 +911,64 @@ class PageLinesRenderCSS {
 		return $code;
 	}
 
-	function get_all_active_sections() {
-
-		$out = '';
-		global $load_sections;
-		$available = $load_sections->pagelines_register_sections( true, true );
-
-		$disabled = get_option( 'pagelines_sections_disabled', array() );
-
-		/*
-		* Filter out disabled sections
-		*/
-		foreach( $disabled as $type => $data )
-			if ( isset( $disabled[$type] ) )
-				foreach( $data as $class => $state )
-					unset( $available[$type][ $class ] );
-
-		/*
-		* We need to reorder the array so sections css is loaded in the right order.
-		* Core, then pagelines-sections, followed by anything else.
-		*/
-		$sections = array();
-		$sections['parent'] = $available['parent'];
-		$sections['child'] = array();
-		unset( $available['parent'] );
-		if( isset( $available['custom'] ) && is_array( $available['custom'] ) ) {
-			$sections['child'] = $available['custom']; // load child theme sections that override.
-			unset( $available['custom'] );	
-		}
-		// remove core section less if child theme has a less file
-		foreach( $sections['child'] as $c => $cdata) {
-			if( isset( $sections['parent'][$c] ) && is_file( $cdata['base_dir'] . '/style.less' ) )
-				unset( $sections['parent'][$c] );
-		}
-		
-		if ( is_array( $available ) ) {
-			foreach( $available as $type => $data ) {
-				if( ! empty( $data ) )
-					$sections[$type] = $data;
-			}
-		}
-		foreach( $sections as $t ) {
-			foreach( $t as $key => $data ) {
-				if ( $data['less'] && $data['loadme'] ) {
-					if ( is_file( $data['base_dir'] . '/style.less' ) )
-						$out .= pl_file_get_contents( $data['base_dir'] . '/style.less' );
-					elseif( is_file( $data['base_dir'] . '/color.less' ))
-						$out .= pl_file_get_contents( $data['base_dir'] . '/color.less' );
-				}
-			}
-		}
-		return apply_filters('pagelines_lesscode', $out);
-	}
+	
 
 } //end of PageLinesRenderCSS
+
+
+function get_all_active_sections() {
+
+	$out = '';
+	global $load_sections;
+	$available = $load_sections->pagelines_register_sections( true, true );
+
+	$disabled = get_option( 'pagelines_sections_disabled', array() );
+
+	/*
+	* Filter out disabled sections
+	*/
+	foreach( $disabled as $type => $data )
+		if ( isset( $disabled[$type] ) )
+			foreach( $data as $class => $state )
+				unset( $available[$type][ $class ] );
+
+	/*
+	* We need to reorder the array so sections css is loaded in the right order.
+	* Core, then pagelines-sections, followed by anything else.
+	*/
+	$sections = array();
+	$sections['parent'] = $available['parent'];
+	$sections['child'] = array();
+	unset( $available['parent'] );
+	if( isset( $available['custom'] ) && is_array( $available['custom'] ) ) {
+		$sections['child'] = $available['custom']; // load child theme sections that override.
+		unset( $available['custom'] );	
+	}
+	// remove core section less if child theme has a less file
+	foreach( $sections['child'] as $c => $cdata) {
+		if( isset( $sections['parent'][$c] ) && is_file( $cdata['base_dir'] . '/style.less' ) )
+			unset( $sections['parent'][$c] );
+	}
+	
+	if ( is_array( $available ) ) {
+		foreach( $available as $type => $data ) {
+			if( ! empty( $data ) )
+				$sections[$type] = $data;
+		}
+	}
+	foreach( $sections as $t ) {
+		foreach( $t as $key => $data ) {
+			if ( $data['less'] && $data['loadme'] ) {
+				if ( is_file( $data['base_dir'] . '/style.less' ) )
+					$out .= pl_file_get_contents( $data['base_dir'] . '/style.less' );
+				elseif( is_file( $data['base_dir'] . '/color.less' ))
+					$out .= pl_file_get_contents( $data['base_dir'] . '/color.less' );
+			}
+		}
+	}
+	return apply_filters('pagelines_lesscode', $out);
+}
+
 
 function pl_set_css_headers(){
 	header( 'Content-type: text/css' );
