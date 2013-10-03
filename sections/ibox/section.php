@@ -294,7 +294,7 @@ class pliBox extends PageLinesSection {
 			
 
 		}
-//		plprint($this->opt('ibox_array'), $this->meta['clone']);
+
 		printf('<div class="ibox-wrapper pl-animation-group">%s</div>', $output);
 		
 		$scopes = array('local', 'type', 'global');

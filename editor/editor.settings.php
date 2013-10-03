@@ -349,10 +349,7 @@ class PageLinesSettings extends PageLinesData {
 			pl_meta_update( $theID, PL_SETTINGS, $settings );
 		}
 	
-		if($uid == '1441b8'){
-	//		plprint(get_option(PL_SETTINGS), $uid);
-			plprint( $parse_value, $uid.'value'.$key);
-		}
+
 	}
 
 
