@@ -59,12 +59,6 @@ require_once( PL_INCLUDES . '/class.sections.php' );
 // Typography Foundry / Fonts
 require_once( PL_INCLUDES . '/class.foundry.php' );
 
-// LESS Setup
-//require_once( PL_INCLUDES . '/less.functions.php' );
-
-// LESS File rendering
-//require_once( PL_INCLUDES . '/class.render.css.php' );
-
 // BUILD Controller
 require_once( PL_INCLUDES . '/version.php' );
 	
