@@ -50,8 +50,8 @@ class EditorLessHandler{
 	function __construct( PageLinesLess $pless ) {
 
 		$this->pless = $pless;
-		$this->lessfiles = $this->get_core_lessfiles();
-		$this->draft_less_file = sprintf( '%s/editor-draft.css', PageLinesRenderCSS::get_css_dir( 'path' ) );
+		$this->lessfiles = get_core_lessfiles();
+		$this->draft_less_file = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'path' ) );
 
 		if( $this->is_draft() )
 			$this->draft_init();
@@ -67,7 +67,7 @@ class EditorLessHandler{
 		$core_less = $this->pless->add_constants('') . $this->pless->add_bootstrap();
 
 		printf('<div id="pl_core_less" style="display:none;">%s</div>', 
-			$this->minify( $core_less )
+			pl_css_minify( $core_less )
 		);
 	}
 
@@ -85,9 +85,7 @@ class EditorLessHandler{
 			global $post;
 			$this->compare_less();
 
-			header( 'Content-type: text/css' );
-			header( 'Expires: ' );
-			header( 'Cache-Control: max-age=604100, public' );
+			pl_set_css_headers();
 
 			// If you set a static home page in WordPress then delete it you get no CSS, this fixes it ( WhitchCraft! )
 			if( ! is_object( $post ) )
@@ -96,9 +94,10 @@ class EditorLessHandler{
 			if( is_file( $this->draft_less_file ) ) {
 				echo pl_file_get_contents( $this->draft_less_file );
 			} else {
-				$core = $this->googlefont_replace( $this->get_draft_core() );
-				$css = $this->minify( $core['compiled_core'] );
-				$css .= $this->minify( $core['compiled_sections'] );
+				$core = $this->get_draft_core();
+			
+				$css = pl_css_minify( $core['compiled_core'] );
+				$css .= pl_css_minify( $core['compiled_sections'] );
 				
 				$this->write_draft_less_file( $css );
 				echo $css;
@@ -127,54 +126,9 @@ class EditorLessHandler{
 	}
 
 	/**
-	 *
 	 *  Get all less files as an array.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
 	 */
-	public function get_core_lessfiles(){
-
-		$files[] = 'reset';
-
 	
-		$files[] = 'pl-structure';
-		$files[] = 'pl-editor';
-	
-
-
-		$bootstrap = array(
-			'pl-wordpress',
-			'pl-plugins',
-			'grid',
-			'alerts',
-			'labels-badges',
-			'tooltip-popover',
-			'buttons',
-			'typography',
-			'dropdowns',
-			'accordion',
-			'carousel',
-			'navs',
-			'modals',
-			'thumbnails',
-			'component-animations',
-			'utilities',
-			'pl-objects',
-			'pl-tables',
-			'wells',
-			'forms',
-			'breadcrumbs',
-			'close',
-			'pager',
-			'pagination',
-			'progress-bars',
-			'icons',
-			'responsive'
-		);
-
-		return array_merge($files, $bootstrap);
-	}
 
 	/**
 	 *
@@ -290,32 +244,12 @@ class EditorLessHandler{
 
 		$code = '';
 		foreach( $files as $less ) {
-
-			$code .= $this->load_less_file( $less );
+			$code .= load_less_file( $less );
 		}
 		return apply_filters( 'pagelines_insert_core_less', $code );
 	}
 
-	/**
-	 *
-	 *  Fetch less file from theme folders.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	private function load_less_file( $file ) {
-
-		$file 	= sprintf( '%s.less', $file );
-		$parent = sprintf( '%s/%s', PL_CORE_LESS, $file );
-		$child 	= sprintf( '%s/%s', PL_CHILD_LESS, $file );
-
-		// check for child 1st if not load the main file.
-
-		if ( is_file( $child ) )
-			return pl_file_get_contents( $child );
-		else
-			return pl_file_get_contents( $parent );
-	}
+	
 
 	/**
 	 *
@@ -329,47 +263,7 @@ class EditorLessHandler{
 		return $this->pless->raw_less( $data );
 	}
 
-	/**
-	 *
-	 *  Simple minify.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	public function minify( $css ) {
-		if( is_pl_debug() )
-			return $css;
-
-		if( ! ploption( 'pl_minify') )
-			return $css;
-
-		$data = $css;
-
-	    $data = preg_replace( '#/\*.*?\*/#s', '', $data );
-	    // remove new lines \\n, tabs and \\r
-	    $data = preg_replace('/(\t|\r|\n)/', '', $data);
-	    // replace multi spaces with singles
-	    $data = preg_replace('/(\s+)/', ' ', $data);
-	    //Remove empty rules
-	    $data = preg_replace('/[^}{]+{\s?}/', '', $data);
-	    // Remove whitespace around selectors and braces
-	    $data = preg_replace('/\s*{\s*/', '{', $data);
-	    // Remove whitespace at end of rule
-	    $data = preg_replace('/\s*}\s*/', '}', $data);
-	    // Just for clarity, make every rules 1 line tall
-	    $data = preg_replace('/}/', "}\n", $data);
-	    $data = str_replace( ';}', '}', $data );
-	    $data = str_replace( ', ', ',', $data );
-	    $data = str_replace( '; ', ';', $data );
-	    $data = str_replace( ': ', ':', $data );
-	    $data = preg_replace( '#\s+#', ' ', $data );
-
-		if ( ! preg_last_error() )
-			return $data;
-		else
-			return $css;
-	}
-
+	
 	/**
 	 *
 	 *  Get all active sections.
@@ -436,15 +330,6 @@ class EditorLessHandler{
 		return apply_filters('pagelines_lesscode', $out);
 	}
 
-	/**
-	 *
-	 *  DEPRECATED
-	 *
-	 */
-	public function googlefont_replace( $data ) {
-
-		return $data;
-	}
 
 	/**
 	 *
@@ -465,7 +350,7 @@ class EditorLessHandler{
 	}
 	
 	function write_draft_less_file($css) {
-		$folder = PageLinesRenderCSS::get_css_dir( 'path' );
+		$folder = pl_get_css_dir( 'path' );
 		$file = 'editor-draft.css';
 		if( !is_dir( $folder ) ) {
 			if( true !== wp_mkdir_p( $folder ) )
@@ -558,40 +443,6 @@ class PageLinesLess {
 		return $css;
 	}
 
-	function add_bootstrap( ) {
-		$less = '';
-
-		$less .= $this->load_less_file( 'variables' );
-		$less .= $this->load_less_file( 'colors' );
-		$less .= $this->load_less_file( 'mixins' );
-
-		return $less;
-	}
-
-	public static function load_less_file( $file ) {
-
-		$file 	= sprintf( '%s.less', $file );
-		$parent = sprintf( '%s/%s', PL_CORE_LESS, $file );
-		$child 	= sprintf( '%s/%s', PL_CHILD_LESS, $file );
-
-		// check for child 1st if not load the main file.
-
-		if ( is_file( $child ) )
-			return pl_file_get_contents( $child );
-		else
-			return pl_file_get_contents( $parent );
-	}
-
-
-	private function add_core_less($pless){
-
-		global $disabled_settings;
-
-		$add_color = (isset($disabled_settings['color_control'])) ? false : true;
-		$color = ($add_color) ? pl_get_core_less() : '';
-		return $pless . $color;
-	}
-
 	function add_constants( $pless ) {
 
 		$prepend = '';
@@ -601,6 +452,27 @@ class PageLinesLess {
 
 		return $prepend . $pless;
 	}
+
+	function add_bootstrap( ) {
+		$less = '';
+
+		$less .= load_less_file( 'variables' );
+		$less .= load_less_file( 'colors' );
+		$less .= load_less_file( 'mixins' );
+
+		return $less;
+	}
+
+	// private function add_core_less($pless){
+	// 
+	// 	global $disabled_settings;
+	// 
+	// 	$add_color = (isset($disabled_settings['color_control'])) ? false : true;
+	// 	$color = ($add_color) ? pl_get_core_less() : '';
+	// 	return $pless . $color;
+	// }
+
+
 
 }
 
@@ -626,70 +498,14 @@ class PageLinesRenderCSS {
 		$this->ctimeout = 86400;
 		$this->btimeout = 604800;
 		$this->types = array( 'sections', 'core', 'custom' );
-		$this->lessfiles = $this->get_core_lessfiles();
+		$this->lessfiles = get_core_lessfiles();
 		self::actions();
-	}
-
-	/**
-	 *
-	 *  Load LESS files
-	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
-	 */
-	function get_core_lessfiles(){
-
-		$files[] = 'reset';
-
-		if(pl_has_editor()){
-			$files[] = 'pl-structure';
-			$files[] = 'pl-editor';
-		} 
-
-		if(!pl_deprecate_v2()) {
-
-			$files[] = 'pl-v2';
-		}
-
-		$bootstrap = array(
-			'pl-wordpress',
-			'pl-plugins',
-			'grid',
-			'alerts',
-			'labels-badges',
-			'tooltip-popover',
-			'buttons',
-			'typography',
-			'dropdowns',
-			'accordion',
-			'carousel',
-			'navs',
-			'modals',
-			'thumbnails',
-			'component-animations',
-			'utilities',
-			'pl-objects',
-			'pl-tables',
-			'wells',
-			'forms',
-			'breadcrumbs',
-			'close',
-			'pager',
-			'pagination',
-			'progress-bars',
-			'icons',
-			'responsive'
-		);
-
-		return array_merge($files, $bootstrap);
 	}
 
 	/**
 	 *
 	 *  Dynamic mode, CSS is loaded to a file using wp_rewrite
 	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
 	 */
 	private function actions() {
 
@@ -725,8 +541,8 @@ class PageLinesRenderCSS {
 		if( defined( 'PL_NO_DYNAMIC_URL' ) && true == PL_NO_DYNAMIC_URL )
 			return;
 
-		$folder = $this->get_css_dir( 'path' );
-		$url = $this->get_css_dir( 'url' );
+		$folder = pl_get_css_dir( 'path' );
+		$url = pl_get_css_dir( 'url' );
 
 		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
 
@@ -741,8 +557,8 @@ class PageLinesRenderCSS {
 		$a = $this->get_compiled_core();
 		$b = $this->get_compiled_sections();
 		$out = '';
-		$out .= $this->minify( $a['core'] );
-		$out .= $this->minify( $b['sections'] );
+		$out .= pl_css_minify( $a['core'] );
+		$out .= pl_css_minify( $b['sections'] );
 		
 		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
 		if ( is_multisite() )
@@ -769,15 +585,6 @@ class PageLinesRenderCSS {
 		return true;
 	}
 
-	static function get_css_dir( $type = '' ) {
-
-		$folder = apply_filters( 'pagelines_css_upload_dir', wp_upload_dir() );
-
-		if( 'path' == $type )
-			return trailingslashit( $folder['basedir'] ) . 'pagelines';
-		else
-			return trailingslashit( $folder['baseurl'] ) . 'pagelines';
-	}
 
 	function write_css_file( $txt ){
 
@@ -788,7 +595,7 @@ class PageLinesRenderCSS {
 		$method = 'direct';
 		$url = 'themes.php?page=pagelines';
 
-		$folder = $this->get_css_dir( 'path' );
+		$folder = pl_get_css_dir( 'path' );
 		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
 
 		if( !is_dir( $folder ) ) {
@@ -809,7 +616,7 @@ class PageLinesRenderCSS {
 				$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $txt, FS_CHMOD_FILE);
 			else
 				return false;
-			$url = $this->get_css_dir( 'url' );
+			$url = pl_get_css_dir( 'url' );
 
 			define( 'DYNAMIC_FILE_URL', sprintf( '%s/%s', $url, $file ) );
 	}
@@ -860,7 +667,7 @@ class PageLinesRenderCSS {
 	function draw_inline_custom_css() {
 		// always output this, even if empty - container is needed for live compile
 		$a = $this->get_compiled_custom();
-		return inline_css_markup( 'pagelines-custom', rtrim( $this->minify( $a['custom'] ) ) );
+		return inline_css_markup( 'pagelines-custom', rtrim( pl_css_minify( $a['custom'] ) ) );
 	}
 
 	/**
@@ -1042,8 +849,7 @@ class PageLinesRenderCSS {
 		} else {
 
 			$start_time = microtime(true);
-			//build_pagelines_layout();
-
+			
 			$custom = stripslashes( pl_setting( 'custom_less' ) );
 
 			$pless = new PagelinesLess();
@@ -1088,7 +894,7 @@ class PageLinesRenderCSS {
 		$code = '';
 		foreach( $files as $less ) {
 
-			$code .= PageLinesLess::load_less_file( $less );
+			$code .= load_less_file( $less );
 		}
 		return apply_filters( 'pagelines_insert_core_less', $code );
 	}
@@ -1100,72 +906,34 @@ class PageLinesRenderCSS {
 
 	function pagelines_less_trigger() {
 		global $blog_id;
+		
 		if( intval( get_query_var( 'pageless' ) ) ) {
-			header( 'Content-type: text/css' );
-			header( 'Expires: ' );
-			header( 'Cache-Control: max-age=604100, public' );
+			
+			pl_set_css_headers();
 
 			$a = $this->get_compiled_core();
 			$b = $this->get_compiled_sections();
+			
 			$gfonts = preg_match( '#(@import[^;]*;)#', $a['type'], $g );
 
 			if ( $gfonts ) {
 				$a['core'] = sprintf( "%s\n%s", $g[1], $a['core'] );
 				$a['type'] = str_replace( $g[1], '', $a['type'] );
 			}
-			echo $this->minify( $a['core'] );
-			echo $this->minify( $b['sections'] );
-			echo $this->minify( $a['type'] );
-			echo $this->minify( $a['dynamic'] );
+			
+			echo pl_css_minify( $a['core'] );
+			echo pl_css_minify( $b['sections'] );
+			echo pl_css_minify( $a['type'] );
+			echo pl_css_minify( $a['dynamic'] );
+			
 			$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
-			if ( is_multisite() )
-				$blog = sprintf( ' on blog [%s]', $blog_id );
-			else
-				$blog = '';
+			
+			$blog = ( is_multisite() ) ? sprintf( ' on blog [%s]', $blog_id ) : '';
+				
 			echo sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'],  $mem, $blog );
+			
 			die();
 		}
-	}
-
-	/**
-	 *
-	 *  Minify
-	 *
-	 *  @package PageLines DMS
-	 *  @since 2.2
-	 */
-	function minify( $css ) {
-		if( is_pl_debug() )
-			return $css;
-
-		if( ! ploption( 'pl_minify') )
-			return $css;
-
-		$data = $css;
-
-	    $data = preg_replace( '#/\*.*?\*/#s', '', $data );
-	    // remove new lines \\n, tabs and \\r
-	    $data = preg_replace('/(\t|\r|\n)/', '', $data);
-	    // replace multi spaces with singles
-	    $data = preg_replace('/(\s+)/', ' ', $data);
-	    //Remove empty rules
-	    $data = preg_replace('/[^}{]+{\s?}/', '', $data);
-	    // Remove whitespace around selectors and braces
-	    $data = preg_replace('/\s*{\s*/', '{', $data);
-	    // Remove whitespace at end of rule
-	    $data = preg_replace('/\s*}\s*/', '}', $data);
-	    // Just for clarity, make every rules 1 line tall
-	    $data = preg_replace('/}/', "}\n", $data);
-	    $data = str_replace( ';}', '}', $data );
-	    $data = str_replace( ', ', ',', $data );
-	    $data = str_replace( '; ', ';', $data );
-	    $data = str_replace( ': ', ':', $data );
-	    $data = preg_replace( '#\s+#', ' ', $data );
-
-		if ( ! preg_last_error() )
-			return $data;
-		else
-			return $css;
 	}
 
 	/**
@@ -1179,7 +947,7 @@ class PageLinesRenderCSS {
 
 		$types = array( 'sections', 'core', 'custom' );
 
-		$folder = trailingslashit( self::get_css_dir( 'path' ) );
+		$folder = trailingslashit( pl_get_css_dir( 'path' ) );
 
 		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
 
@@ -1284,6 +1052,119 @@ class PageLinesRenderCSS {
 	}
 
 } //end of PageLinesRenderCSS
+
+function pl_set_css_headers(){
+	header( 'Content-type: text/css' );
+	header( 'Expires: ' );
+	header( 'Cache-Control: max-age=604100, public' );
+}
+
+function pl_get_css_dir( $type = '' ) {
+
+	$folder = apply_filters( 'pagelines_css_upload_dir', wp_upload_dir() );
+
+	if( 'path' == $type )
+		return trailingslashit( $folder['basedir'] ) . 'pagelines';
+	else
+		return trailingslashit( $folder['baseurl'] ) . 'pagelines';
+}
+
+/**
+ *
+ *  Fetch less file from theme folders.
+ *
+ */
+function load_less_file( $file ) {
+
+	$file 	= sprintf( '%s.less', $file );
+	$parent = sprintf( '%s/%s', PL_CORE_LESS, $file );
+	$child 	= sprintf( '%s/%s', PL_CHILD_LESS, $file );
+
+	// check for child 1st if not load the main file.
+
+	if ( is_file( $child ) )
+		return pl_file_get_contents( $child );
+	else
+		return pl_file_get_contents( $parent );
+}
+
+/**
+ *
+ *  Simple minify.
+ *
+ */
+function pl_css_minify( $css ) {
+	if( is_pl_debug() )
+		return $css;
+
+	if( ! ploption( 'pl_minify') )
+		return $css;
+
+	$data = $css;
+
+    $data = preg_replace( '#/\*.*?\*/#s', '', $data );
+    // remove new lines \\n, tabs and \\r
+    $data = preg_replace('/(\t|\r|\n)/', '', $data);
+    // replace multi spaces with singles
+    $data = preg_replace('/(\s+)/', ' ', $data);
+    //Remove empty rules
+    $data = preg_replace('/[^}{]+{\s?}/', '', $data);
+    // Remove whitespace around selectors and braces
+    $data = preg_replace('/\s*{\s*/', '{', $data);
+    // Remove whitespace at end of rule
+    $data = preg_replace('/\s*}\s*/', '}', $data);
+    // Just for clarity, make every rules 1 line tall
+    $data = preg_replace('/}/', "}\n", $data);
+    $data = str_replace( ';}', '}', $data );
+    $data = str_replace( ', ', ',', $data );
+    $data = str_replace( '; ', ';', $data );
+    $data = str_replace( ': ', ':', $data );
+    $data = preg_replace( '#\s+#', ' ', $data );
+
+	if ( ! preg_last_error() )
+		return $data;
+	else
+		return $css;
+}
+
+
+function get_core_lessfiles(){
+
+	$files = array(
+		'reset',
+		'pl-structure',
+		'pl-editor',
+		'pl-wordpress',
+		'pl-plugins',
+		'grid',
+		'alerts',
+		'labels-badges',
+		'tooltip-popover',
+		'buttons',
+		'typography',
+		'dropdowns',
+		'accordion',
+		'carousel',
+		'navs',
+		'modals',
+		'thumbnails',
+		'component-animations',
+		'utilities',
+		'pl-objects',
+		'pl-tables',
+		'wells',
+		'forms',
+		'breadcrumbs',
+		'close',
+		'pager',
+		'pagination',
+		'progress-bars',
+		'icons',
+		'responsive'
+	);
+
+	return $files;
+}
 
 function pagelines_insert_core_less( $file ) {
 
