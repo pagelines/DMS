@@ -732,3 +732,9 @@ function pl_get_cache_key() {
 		return $cache_key;
 	}
 }
+
+function pl_get_image_sizes() {
+	$sizes = get_intermediate_image_sizes();
+	$sizes[] = 'full';
+	return $sizes;
+}
