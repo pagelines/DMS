@@ -71,6 +71,15 @@ class PageLinesFlipper extends PageLinesSection {
 		);
 
 		$options[] = array(
+			'key'			=> 'flipper_sizes',
+			'type' 			=> 'select_imagesizes',
+			'default'		=> 'large',
+			'label' 		=> __( 'Select Image Size', 'pagelines' )
+		);
+
+
+
+		$options[] = array(
 
 			'title' => __( 'Flipper Title', 'pagelines' ),
 			'type'	=> 'multi',
@@ -155,7 +164,7 @@ class PageLinesFlipper extends PageLinesSection {
 
 		return $options;
 	}
-
+	
 	function section_template(  ) {
 
 		global $post;
@@ -173,7 +182,9 @@ class PageLinesFlipper extends PageLinesSection {
 
 		$meta = ($this->opt('flipper_meta')) ? $this->opt('flipper_meta') : '[post_date] [post_edit]';
 
+		$sizes = ($this->opt('flipper_sizes')) ? $this->opt('flipper_sizes') : 'full';
 
+plprint( $sizes );
 
 		$the_query = array(
 			'posts_per_page' 	=> $total,
@@ -229,6 +240,7 @@ class PageLinesFlipper extends PageLinesSection {
 		<?php } ?>
 
 			<?php
+
 			if(!empty($posts)):
 				 foreach( $posts as $post ): setup_postdata( $post ); ?>
 
@@ -238,7 +250,7 @@ class PageLinesFlipper extends PageLinesSection {
 				<div class="flipper-item fix">
 					<?php
 					if ( has_post_thumbnail() ) {
-						echo get_the_post_thumbnail( $post->ID, 'aspect-thumb', array('title' => ''));
+						echo get_the_post_thumbnail( $post->ID, $sizes, array('title' => ''));
 					} else {
 						echo '<img height="400" width="600" src="'.$this->base_url.'/missing-thumb.jpg" alt="no image added yet." />';
 						}
