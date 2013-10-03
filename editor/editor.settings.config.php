@@ -310,27 +310,6 @@ class EditorSettings {
 
 		$settings = array(
 			array(
-					'key'		=> 'load_prettify_libs',
-					'type'		=> 'check',
-					'label'		=> __( 'Enable Code Prettify?', 'pagelines' ),
-					'title'		=> __( 'Google Prettify Code', 'pagelines' ),
-					'help'		=> __( "Add a class of 'prettyprint' to code or pre tags, or optionally use the [pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if Wordpress inserts line breaks.", 'pagelines' )
-			),
-			array(
-					'key'		=> 'partner_link',
-					'type'		=> 'text',
-					'label'		=> __( 'Enter Partner Link', 'pagelines' ),
-					'title'		=> __( 'PageLines Affiliate/Partner Link', 'pagelines' ),
-					'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
-			),
-			array(
-					'key'		=> 'special_body_class',
-					'type'		=> 'text',
-					'label'		=> __( 'Install Class', 'pagelines' ),
-					'title'		=> __( 'Current Install Class', 'pagelines' ),
-					'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
-			),
-			array(
 					'key'		=> 'enable_debug',
 					'type'		=> 'check',
 					'label'		=> __( 'Enable debug?', 'pagelines' ),
@@ -340,33 +319,29 @@ class EditorSettings {
 								   sprintf( '<br /><a href="%s">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
 			),
 			array(
-					'key'	=> 'v2_upgrading', 
-					'type'	=> 'multi',
-					'title'	=> 'Framework V2 Upgrade (MUST PUBLISH)', 
-					'opts'	=> array(
-						array(
-								'key'		=> 'v2_upgrade_help',
-								'type'		=> 'help',
-								'help'		=> __( 'PL has added some settings that may help you upgrade from Framework (v2). To use these, select them and then publish. <br/><strong>Note</strong> that due to the substantial amount of changes in DMS, there may still be issues. These features will be removed with DMS v3.1.', 'pagelines' ),		  
-						),
-						array(
-								'key'		=> 'enable_v2',
-								'type'		=> 'check',
-								'label'		=> __( 'Enable v2 Compatibility Mode?<br/>(Refresh to see changes.)', 'pagelines' ),
-								'title'		=> __( 'v2 Compatibility Mode', 'pagelines' ),
-								'help'		=> __( 'Note: you must publish this setting.', 'pagelines' ),
-								'ref'		=> __( 'Use this option to enable v2 interfaces and options. Not all v2 options work in DMS due to specificity; but it allows you to reference your old settings as you are rebuilding your site using the DMS system.', 'pagelines' ),				  
-						), 
-						array(
-								'key'		=> 'v2_sections_live',
-								'type'		=> 'check',
-								'label'		=> __( 'Only Show v2 Sections "Live"<br/>(Compatibility Mode Req.)', 'pagelines' ),
-								'title'		=> __( 'Only Show v2 Sections "Live"', 'pagelines' ),
-								'help'		=> __( 'Note: you must publish this setting.', 'pagelines' ),
-								'ref'		=> __( 'Enabling this options keeps all DMS sections from showing on your "live" site. This allows you to go through every page in draft mode, and duplicate your layout using DMS sections. When you are ready, disable compatibility mode and your v2 sections disappear sitewide.', 'pagelines' ),				  
-						)
-					)
-			), 
+					'key'		=> 'load_prettify_libs',
+					'type'		=> 'check',
+					'label'		=> __( 'Enable Code Prettify?', 'pagelines' ),
+					'title'		=> __( 'Google Prettify Code', 'pagelines' ),
+					'help'		=> __( "Add a class of 'prettyprint' to code or pre tags, or optionally use the [pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if Wordpress inserts line breaks.", 'pagelines' )
+			),
+			array(
+					'col'		=> 2,
+					'key'		=> 'partner_link',
+					'type'		=> 'text',
+					'label'		=> __( 'Enter Partner Link', 'pagelines' ),
+					'title'		=> __( 'PageLines Affiliate/Partner Link', 'pagelines' ),
+					'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
+			),
+			array(
+					'col'		=> 2,
+					'key'		=> 'special_body_class',
+					'type'		=> 'text',
+					'label'		=> __( 'Install Class', 'pagelines' ),
+					'title'		=> __( 'Current Install Class', 'pagelines' ),
+					'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
+			),
+			
 			
 		);
 		return $settings;
@@ -393,6 +368,7 @@ class EditorSettings {
 			),
 			array(
 					'key'		=> 'reset_cache',
+					'col'		=> 2,
 					'type'		=> 'action_button',
 					'classes'	=> 'btn-info',
 					'label'		=> __( '<i class="icon-trash"></i> Flush Caches', 'pagelines' ),
