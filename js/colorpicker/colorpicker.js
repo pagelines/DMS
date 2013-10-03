@@ -481,7 +481,6 @@ $.extend(Colorpicker.prototype, {
 		var ThirdOffset = $('.toolbox-content').position().top
 		var finalOff = SecondOffset - ThirdOffset - FirstOffset  - height/2
 		
-		console.log(ThirdOffset)
 		height += margin;
 		offset.left += $input.outerWidth() + margin;
 		
