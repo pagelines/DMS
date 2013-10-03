@@ -224,6 +224,7 @@
 				, 	panelScope = thePanel.data('scope')
 				,	scope = (panelScope) ? panelScope : that.scope
 				,	uniqueID = (thePanel.attr('data-clone')) ? thePanel.attr('data-clone') : false
+				,	formData = that.activeForm.formParams()
 
 			
 				if($(this).hasClass('checkbox-input')){
@@ -242,10 +243,10 @@
 				
 				
 				
-				$.pl.data[scope] = $.extend(true, $.pl.data[scope], that.activeForm.formParams())
+				$.pl.data[scope] = $.extend(true, $.pl.data[scope], formData)
 		
 				// for array option types, the extend is not allowing deletion, this corrects
-				$.each( that.activeForm.formParams(), function(i, o){
+				$.each( formData, function(i, o){
 					$.each( o, function(i2, o2){
 						if( typeof(o2) == 'object' ){
 							
@@ -293,9 +294,15 @@
 
 				
 
-				if(e.type == 'change' || e.type == 'blur'){
+				if( e.type == 'change' || e.type == 'blur' ){
 					
-					$.plAJAX.saveData( )
+					//	$.plAJAX.saveData( )
+					
+					$.plSave.save({
+						run: 'form'
+						, store: formData
+						, scope: scope
+					})
 				}
 
 

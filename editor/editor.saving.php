@@ -17,11 +17,50 @@ class PageLinesSave {
 		
 		if( $data['run'] == 'map' ){
 			$response = $this->save_map( $response, $data );
-		}
-		
+		} elseif (  $data['run'] == 'form' )
+			$response = $this->save_form( $response, $data );
+		else 
+			$response['error'] = "No save operation set for ".$data['run'];
 
+		$response['state'] = $this->get_state( $data );
 		
 		return $response;
+		
+	}
+	
+	function get_state( $data ){
+		
+		$state = array();
+		$settings = array();
+		$default = array('live'=> array(), 'draft' => array());
+
+		$pageID = $data['pageID'];
+		$typeID = $data['typeID'];
+
+		// Local
+		$settings['local'] = pl_meta( $pageID, PL_SETTINGS );
+
+		if($typeID != $pageID)
+			$settings['type'] = pl_meta( $typeID, PL_SETTINGS );
+
+		$settings['global'] = pl_opt( PL_SETTINGS );
+
+		foreach( $settings as $scope => $set ){
+
+			$set = wp_parse_args($set, $default);
+
+			$scope = str_replace('map-', '', $scope);
+
+			if( $set['draft'] != $set['live'] ){
+				$state[$scope] = $scope;
+			}
+
+		}
+
+		if( count($state) > 1 )
+			$state[] = 'multi';
+
+		return $state;
 		
 	}
 	
@@ -54,5 +93,30 @@ class PageLinesSave {
 		
 	
 		return $response;
+	}
+	
+	function save_form( $response, $data ){
+		
+		$form = $data['store'];
+		$scope = $data['scope'];
+		
+		if( $scope == 'global' ){
+			
+			$global_settings = pl_settings();
+			$global_settings = wp_parse_args( $form, $global_settings );
+			pl_settings_update( $global_settings );
+			
+		} elseif( $scope == 'type' || $scope == 'local' ){
+			
+			$metaID = ( $scope == 'type' ) ? $data['typeID'] : $data['pageID'];
+			
+			$meta_settings = pl_settings( 'draft', $metaID );
+			$meta_settings = wp_parse_args( $form, $meta_settings );
+			pl_settings_update( $meta_settings, 'draft', $metaID );
+			
+		}
+		
+		return $response;
+		
 	}
 }
