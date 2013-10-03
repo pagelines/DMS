@@ -110,7 +110,7 @@ class PageLinesEditor {
 		$this->extensions = new EditorExtensions;
 		$pless = new PageLinesLess;
 		$fileOpts = new EditorFileOpts;
-		$this->editor_less = new EditorLess($pless);
+		$this->editor_less = new EditorLessHandler($pless);
 		
 		$this->css_editor = new PLCSSEditor;
 		

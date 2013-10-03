@@ -1,7 +1,49 @@
 <?php
 
-class EditorLess extends EditorLessHandler {
 
+
+
+/*
+ * Less handler needs to compile live on 'publish' and load in the header of the website
+ *
+ * It needs to grab variables (or create a filter) that can be added by settings, etc.. (typography)
+
+ * Inline LESS will be used to handle draft mode, and previewing of changes.
+
+ */
+
+class EditorLessHandler{
+
+	var $pless_vars = array();
+	var $draft;
+
+	/**
+	 *
+	 *  Draft mode init.
+	 *
+	 *  @package PageLines DMS
+	 *  @since 3.0
+	 */
+	public function draft_init(){
+		// if we are in banana mode fire up the flux capacitors.
+		
+			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_draft_css' ) );
+			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
+			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
+			add_action( 'wp_footer', array(&$this, 'print_core_less') );
+	}
+
+	/**
+	 *
+	 *  Dequeue the regular css.
+	 *
+	 *  @package PageLines DMS
+	 *  @since 3.0
+	 */
+	static function dequeue_live_css() {
+		wp_deregister_style( 'pagelines-less' );
+	}
+	
 	var $pless;
 	var $lessfiles;
 
@@ -63,59 +105,6 @@ class EditorLess extends EditorLessHandler {
 			}
 			die();
 		}
-	}
-
-} // EditorLess
-
-
-
-
-
-
-
-
-
-
-
-/*
- * Less handler needs to compile live on 'publish' and load in the header of the website
- *
- * It needs to grab variables (or create a filter) that can be added by settings, etc.. (typography)
-
- * Inline LESS will be used to handle draft mode, and previewing of changes.
-
- */
-
-class EditorLessHandler{
-
-	var $pless_vars = array();
-	var $draft;
-
-	/**
-	 *
-	 *  Draft mode init.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	public function draft_init(){
-		// if we are in banana mode fire up the flux capacitors.
-		
-			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_draft_css' ) );
-			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
-			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
-			add_action( 'wp_footer', array(&$this, 'print_core_less') );
-	}
-
-	/**
-	 *
-	 *  Dequeue the regular css.
-	 *
-	 *  @package PageLines DMS
-	 *  @since 3.0
-	 */
-	static function dequeue_live_css() {
-		wp_deregister_style( 'pagelines-less' );
 	}
 
 	/**
@@ -612,19 +601,6 @@ class PageLinesLess {
 
 		return $prepend . $pless;
 	}
-
-}
-
-/*
- * Add Less Variables
- *
- * Must be added before header.
- **************************/
-function pagelines_less_var( $name, $value ){
-
-	global $less_vars;
-
-	$less_vars[$name] = $value;
 
 }
 
@@ -1318,3 +1294,17 @@ function pagelines_insert_core_less( $file ) {
 
 	$pagelines_raw_lesscode_external[] = $file;
 }
+
+/*
+ * Add Less Variables
+ *
+ * Must be added before header.
+ **************************/
+function pagelines_less_var( $name, $value ){
+
+	global $less_vars;
+
+	$less_vars[$name] = $value;
+
+}
+
