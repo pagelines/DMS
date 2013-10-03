@@ -71,15 +71,11 @@ class EditorLessHandler{
 
 		$files[] = 'reset';
 
-		if(pl_has_editor()){
-			$files[] = 'pl-structure';
-			$files[] = 'pl-editor';
-		}
+	
+		$files[] = 'pl-structure';
+		$files[] = 'pl-editor';
+	
 
-		if(!pl_deprecate_v2()) {
-
-			$files[] = 'pl-v2';
-		}
 
 		$bootstrap = array(
 			'pl-wordpress',

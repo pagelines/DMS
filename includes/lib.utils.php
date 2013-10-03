@@ -221,6 +221,42 @@ function get_post_type_plural( $id = null ){
 
 
 // ------------------------------------------
+// COLOR HELPERS
+// ------------------------------------------
+function pl_hash_strip( $color ){
+
+	return str_replace('#', '', $color);
+}
+
+function pl_check_color_hash( $color ) {
+
+	if ( preg_match( '/^#?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $color ) )
+		return true;
+	else
+		return false;
+}
+
+/**
+ * PageLines Hashify
+ *
+ * Adds the # symbol to the hex value of the color being used
+ *
+ * @param $color
+ *
+ * @return string
+ */
+function pl_hashify( $color ){
+
+	if( is_int( $color ) )
+		$color = strval( $color );
+
+	$clean_hex = str_replace('#', '', $color);
+
+	return sprintf('#%s', $clean_hex);
+}
+
+
+// ------------------------------------------
 // HOOK/FILTER UTILITIES
 // ------------------------------------------
 
