@@ -184,8 +184,6 @@ class PageLinesFlipper extends PageLinesSection {
 
 		$sizes = ($this->opt('flipper_sizes')) ? $this->opt('flipper_sizes') : 'full';
 
-plprint( $sizes );
-
 		$the_query = array(
 			'posts_per_page' 	=> $total,
 			'post_type' 		=> $post_type
