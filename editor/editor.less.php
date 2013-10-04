@@ -103,18 +103,15 @@ class EditorLessHandler{
 		
 		// make url safe.		
 		global $post;
-		if( is_object( $post ) )
-			$url = untrailingslashit( get_permalink( $post->ID ) );
-		else
-			$url = trailingslashit( site_url() );
+		
+		$url = ( is_object( $post ) ) ? untrailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
+		
 		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
+		
 		wp_enqueue_style( 'pagelines-draft' );
+		
 	}
 
-	/**
-	 *  Get all less files as an array.
-	 */
-	
 
 	/**
 	 *
@@ -164,22 +161,20 @@ class EditorLessHandler{
 
 		$flush = false;
 
-		if(pl_has_editor()){
+		$cached_constants = (array) pl_cache_get('pagelines_less_vars' );
 
-			$cached_constants = (array) pl_cache_get('pagelines_less_vars' );
+		$diff = array_diff( $this->pless->constants, $cached_constants );
 
-			$diff = array_diff( $this->pless->constants, $cached_constants );
+		if( ! empty( $diff ) ){
 
-			if( ! empty( $diff ) ){
+			// cache new constants version
+			pl_cache_put( $this->pless->constants, 'pagelines_less_vars');
 
-				// cache new constants version
-				pl_cache_put( $this->pless->constants, 'pagelines_less_vars');
-
-				// force recompile
-				$flush = true;
-			}
+			// force recompile
+			$flush = true;
 		}
-
+		
+		
 		if( pl_draft_mode() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
 
 			$raw_cached = pl_cache_get( 'draft_core_raw', array( &$this, 'draft_core_data' ) );
