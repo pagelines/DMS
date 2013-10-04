@@ -343,8 +343,6 @@ class PageLinesSettings extends PageLinesData {
 		
 			$settings[ $mode ][ $uid ] = wp_parse_args(  $parse_value, $old_settings);
 
-		//	plprint($settings[ $mode ][ $uid ], $uid.$scope);
-		//	plprint($settings[ $mode ][ $uid ], $uid);
 			
 			pl_meta_update( $theID, PL_SETTINGS, $settings );
 		}
