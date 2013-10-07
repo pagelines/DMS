@@ -238,7 +238,7 @@ class EditorColor{
 				'type' 		=> 'multi',
 				'col'		=> 2,
 				'title' 	=> __( 'Background Image Settings', 'pagelines' ),
-				'help' 		=> __( '', 'pagelines' ),
+				'help' 		=> '',
 				'opts'		=> array(
 					array(
 						'key'			=> 'page_background_image_url',
