@@ -16,15 +16,15 @@
 
    */
 
-@iconFont = '@{plCrossRoot}/fonts/fontawesome-webfont';
+@iconFont: "@{plCrossRoot}/fonts/fontawesome-webfont";
 
 @font-face {
   font-family: 'PageLinesFont';
-  src: url('@{iconFont}.eot?v=4.0.0');
-  src: url('@{iconFont}.eot?#iefix&v=4.0.0') format('embedded-opentype'),
-    url('@{iconFont}.woff?v=4.0.0') format('woff'),
-    url('@{iconFont}.ttf?v=4.0.0') format('truetype'),
-	url('@{iconFont}.svg#fontawesomeregular?v=4.0.0') format('svg');
+  src: url("@{iconFont}.eot?v=4.0.0");
+  src: url("@{iconFont}.eot?#iefix&v=4.0.0") format('embedded-opentype'),
+    url("@{iconFont}.woff?v=4.0.0") format('woff'),
+    url("@{iconFont}.ttf?v=4.0.0") format('truetype'),
+	url("@{iconFont}.svg#fontawesomeregular?v=4.0.0") format('svg');
 
   font-weight: normal;
   font-style: normal;
@@ -135,15 +135,11 @@
 	  }
 	}
 
-	.icon-muted {
-	  color: @iconMuted;
-	}
 
 	// Icon Borders
 	// -------------------------
 
 	.icon-border {
-	  border: solid 1px @borderColor;
 	  padding: .2em .25em .15em;
 	  .border-radius(3px);
 	}

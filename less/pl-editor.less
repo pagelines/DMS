@@ -398,6 +398,8 @@
 
 }
 
+
+
 // Layout
 // --------------------------------------------------
 .width-resize{
@@ -484,7 +486,7 @@
 		margin: 0 auto;
 		.btn,
 		.banner-frame{
-			box-shadow: inset 1px 1px 0 rgba(255,255,255.2), 1px 1px 0 rgba(255,255,255.4);
+			box-shadow: inset 1px 1px 0 rgba(255,255,255,.2), 1px 1px 0 rgba(255,255,255,.4);
 			border:1px solid rgba(0,0,0,.3);
 		}
 		.banner-frame{
@@ -1194,7 +1196,6 @@
 							float: right; 
 							color:#888;
 							padding: 1px 5px;
-							marg
 						}
 						&:hover{
 							cursor: pointer;
@@ -1502,10 +1503,12 @@
 				&.x-item-larger{
 					width: 200px;
 				}
+				
 				.x-item-frame{
 					.border-radius(10px);
 					box-shadow: 0 1px 4px rgba(0,0,0,.6);
 					overflow: hidden;
+				
 					&:hover{
 						cursor: pointer;
 						box-shadow: 0 1px 6px rgba(0,0,0,.6);
@@ -1514,6 +1517,7 @@
 							box-shadow: inset -1px -1px rgba(255,255,255,.2);
 						}
 					}
+				
 					&:active{
 
 						box-shadow: none;
@@ -1521,15 +1525,18 @@
 							#gradient > .vertical(rgba(0,0,0,.2), rgba(0,0,0,.1));
 						}
 					}
+				
 					.pl-vignette{.border-radius( 10px ); overflow: hidden;}
+				
 					.pl-vignette:after{
 
 						.border-radius( 10px );
 						box-shadow: inset 1px 1px 0 rgba(255,255,255,.5), inset -1px -1px 0 rgba(255,255,255,.5);
-						#gradient > .vertical(transparent, rgba(0,0,0,.1));
+						#gradient > .vertical(rgba(0,0,0,0), rgba(0,0,0,.1));
 
 					}
 				}
+			
 				.x-item-text{
 					padding: 6px 0 2px 4px;
 					font-weight: bold;
