@@ -67,8 +67,8 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.areas.php' );
 		require_once( PL_EDITOR . '/editor.page.php' );
 		require_once( PL_EDITOR . '/editor.handler.php' );
-		require_once( PL_EDITOR . '/editor.less.php' );
-		require_once( PL_EDITOR . '/editor.css.php' );
+		
+		require_once( PL_EDITOR . '/editor.loader.php' );
 		
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
@@ -108,11 +108,15 @@ class PageLinesEditor {
 		$this->color = new EditorColor;
 		$this->siteset = new EditorSettings;
 		$this->extensions = new EditorExtensions;
+		
+		$less_engine = new PageLinesLESSEngine;
+		
 		$pless = new PageLinesLess;
 		$fileOpts = new EditorFileOpts;
 		$this->editor_less = new EditorLessHandler($pless);
 		
-		$this->css_editor = new PLCSSEditor;
+		$loader = new PageLinesPageLoader;
+		
 		
 		pagelines_register_hook('pl_after_settings_load'); // hook
 

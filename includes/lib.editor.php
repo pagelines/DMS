@@ -39,6 +39,15 @@ function pl_use_editor(){
 	return true;
 }
 
+function pl_less_dev(){	
+	if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV )
+		return false; 
+	else
+		return false;
+	
+}
+
+
 function pl_is_pro(){	
 	// AP stop putting return true here!!
 	$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );

@@ -50,6 +50,15 @@ require_once( PL_INCLUDES . '/init.editor.php' );
 // V3 Editor functions --- > always load
 require_once( PL_INCLUDES . '/lib.editor.php' );
 
+// LESS Functions
+require_once( PL_INCLUDES . '/less.functions.php' );
+
+// LESS Handling -> Legacy Approach
+require_once( PL_INCLUDES . '/less.legacy.php' );
+
+// LESS Handling -> DMS Approach
+require_once( PL_INCLUDES . '/less.engine.php' );
+
 // Shortcodes
 require_once( PL_INCLUDES . '/class.shortcodes.php');
 
