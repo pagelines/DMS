@@ -6,37 +6,71 @@
 		
 		this.core_less = $('#pl-less-inline')
 		
+		this.css_container = $('#pagelines-draft-css')
+		
 		this.setUIBindings()
 		
-		this.loadCSS()
+		if( $.trim(this.css_container.text()) == '' )
+			this.loadCSS()
 
 		$(document).trigger('pl-less-loaded')
 	}
 	PL_Lessify.prototype = {
 
-		loadCSS : function(){
+		loadCSS : function( newVars ){
 			
 			//var core = this.core_less.text()
 			
-
+			var that = this
+			,	newVars = newVars || ''
 			
-			   
-		
-			var code = $('#pl-less-vars').text()
+			code = $('#pl-less-vars').text()
+			
+			if(newVars != '')
+				$('#pl-less-tools').append( that.createVarLESS( newVars ) )
+					
 			code += $('#pl-less-tools').text()
 			
 			code += $('#pl-less-core').text()
+				
 			code += $('#pl-less-sections').text()
 			
 			var start = new Date();
 		
 			var CSS = this.compile( code )
 			
+			this.saveCSS( CSS )
+			
 			console.log(new Date() - start);
 			
 			$('#pagelines-draft-css').text( CSS )
 	
 		}
+		
+		,	createVarLESS : function( vars ){
+			
+			
+			var newVarsLESS = "";
+			
+		    $.each(vars, function(name, value) {
+				
+				newVarsLESS += sprintf('@%s:%s;', name, value)
+			
+		    })
+			console.log(newVarsLESS)
+		    return newVarsLESS
+		}
+		
+		,	saveCSS : function ( CSS ) {
+			
+			$.plSave.save({
+				mode: 'save_css'
+				, run: 'save'
+				, store: CSS
+				, log: true
+			})
+			
+		} 
 
 		, 	compile : function ( code ) {
 				
@@ -56,37 +90,14 @@
 		,	setUIBindings : function () {
 				that = this
 
+				$('.navbar').on('click', function(){
+					
+					$.plLessify.loadCSS({ })
+				
+	
+				})
+
 			}
-
-		,	setEditorBindings : function ( mode, $area ) {
-			that = this
-			editor = this.editors[ mode ]
-
-			// common bindings
-			editor.on('blur', that.triggerSave )
-			editor.on('change', function ( instance ) {
-				// Update the content of the textarea.
-				instance.save()
-				// get data object
-				dataobj = $area.parent().formParams();
-				// extend
-				$.pl.data.global = $.extend(true, $.pl.data.global, dataobj)
-			})
-
-			if ('less' === mode) {
-				editor.on('keydown', function (instance, e) {
-					if ( e.which == 13 && (e.metaKey || e.ctrlKey) ) {
-						var code = instance.getValue()
-						// update custom css
-						$('#pagelines-custom').text( that.compile( code ) )
-					}
-				} )
-			}
-		}
-
-		
-
-
 	}
 
 //	$.plLessify = new PL_Lessify

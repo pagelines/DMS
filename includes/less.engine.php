@@ -5,11 +5,12 @@
 
 class PageLinesLESSEngine {
 	
+	// Might need this later.
+	// $start_time = microtime(true);
+	// $end_time = microtime(true);
+	// $the_time = round( ($end_time - $start_time), 5 );
 	
 	function __construct(){
-		
-	
-			
 		
 		if( pl_less_dev() ){
 			
@@ -17,38 +18,38 @@ class PageLinesLESSEngine {
 			add_action( 'wp_footer', array(&$this, 'render_less_components' ) );
 			add_action( 'pagelines_head', array( $this, 'render_css_container' ) );
 			
-			$start_time = microtime(true);
-			
-			$end_time = microtime(true);
-			$the_time = round( ($end_time - $start_time), 5 ); 
-		
-			
+			add_action( 'pl_ajax_save_css', array( $this, 'save_site_css' ), 10, 2);
 			
 		}
 		
 	}
 	
+	function save_site_css( $response, $data ){
+		
+		$css = $data['store'];
+
+		$global_settings = pl_settings();
+		$global_settings['settings']['site_css'] = $css;
+		pl_settings_update( $global_settings );
+		
+		
+		return $response;
+	}
+	
 	function enqueue_scripts(){
-		wp_enqueue_script( 'pl-less-parser',	PL_JS . '/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'pl-less-handler',		PL_JS . '/pl.less.js', array( 'jquery', 'pl-less-parser' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-less-parser', PL_JS . '/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-less-handler', PL_JS . '/pl.less.js', array( 'jquery', 'pl-less-parser' ), PL_CORE_VERSION, true );
 	}
 	
 	function render_css_container(){
-		echo inline_css_markup( 'pagelines-draft-css', '');
+	
+		echo inline_css_markup( 'pagelines-draft-css', pl_setting('site_css') );
 	}
 	
 	function render_less_components( ){
 		
 		$components = $this->less_components();
-		
-		// $all_less = '';
-		// 		
-		// 		foreach( $components as $comp => $less ){
-		// 			$all_less .= $less;
-		// 		}
-		// 	
-		// 		printf('<div id="pl-less-inline" style="background:#f7f7f7; font-size: 8px;">%s</div>', $all_less); 
-		
+
 		foreach( $components as $comp => $less ){
 		 	printf('%s<script id="pl-less-%s" type="text/plain" style="display: none;" >%s</script>', "\n", $comp, $less ); 
 		}
