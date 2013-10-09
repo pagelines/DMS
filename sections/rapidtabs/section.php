@@ -109,6 +109,9 @@ class PLRapidTabs extends PageLinesSection {
 				if ( $comments ) {
 					foreach ( (array) $comments as $comment) {
 						
+						if( 'comment' != get_comment_type( $comment ) )
+							continue;
+
 						$post = get_post( $comment->comment_post_ID );
 						$link = get_comment_link( $comment->comment_ID ); 
 						
