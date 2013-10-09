@@ -45,7 +45,7 @@ if(!have_comments() && !comments_open()){
 			number_format_i18n( get_comments_number() ), '"' . get_the_title() . '"' );
 			?></h5>
 		<ol class="commentlist">
-			<?php wp_list_comments( array( 'type'=> 'comment', 'avatar_size' => '60' ) ); ?>
+			<?php wp_list_comments( apply_filters( 'pl_list_comments', array( 'type'=> 'comment', 'avatar_size' => '60' ) ) ); ?>
 		</ol>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 			<div class="navigation fix">
