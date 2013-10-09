@@ -10,9 +10,25 @@ class PageLinesPageLoader{
 		if( ! pl_draft_mode() )
 			return;
 		
+		if( pl_less_dev() ){
+			add_action('pagelines_head', array( $this, 'load_time_tracker_start')); 
+			add_action('wp_footer', array( $this, 'load_time_tracker_stop'));
+		}
+		
+		
+		
 		add_action('pagelines_head_last', array( $this, 'loader_inline_style') );
 		add_action('pagelines_before_site', array( $this, 'loader_html') );
 	}
+	
+	function load_time_tracker_start(){
+		echo '<script>var start = new Date();</script>';
+	}
+	
+	function load_time_tracker_stop(){
+		echo '<script>jQuery(window).load(function() { console.log("editor load time (ms)"); console.log(new Date() - start); })</script>';
+	}
+	
 	
 	function loader_inline_style(){
 		?>
@@ -67,7 +83,7 @@ class PageLinesPageLoader{
 		<div class="pl-loader">
 			<div class="loader-text" style="padding: 200px;font-family: helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
 				<div class="spinner"></div>
-				<span style=""><?php _e('Loading DMS', 'pagelines');?></span>
+				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
 			</div>
 		</div>
 		
