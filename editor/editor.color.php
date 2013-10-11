@@ -198,38 +198,30 @@ class EditorColor{
 			array(
 				'key'		=> 'canvas_colors',
 				'type' 		=> 'multi',
-				'title' 	=> __( 'Content Base Color', 'pagelines' ),
-				'help' 		=> __( 'The "base" color is used as your background and as a basis for calculating contrast values in elements (like hover effects, etc.. ) Use it as your default background color and refine using custom CSS/LESS or a theme.' ),
+				'title' 	=> __( 'Site Base Colors', 'pagelines' ),
+				'help' 		=> __( 'The "base" color are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.' ),
 				'opts'		=> array(
 					array(
 						'key'			=> 'bodybg',
 						'type'			=> 'color',
-						'label' 		=> __( 'Content Base Color', 'pagelines' ),
+						'label' 		=> __( 'Background Base Color', 'pagelines' ),
 						'default'		=> $this->default_base,
+						'compile'		=> 'pl-base',
 					),
-				)
-			),
-			array(
-				'key'		=> 'text_colors',
-				'type' 		=> 'multi',
-				'label' 	=> __( 'Site Text Colors', 'pagelines' ),
-				'title' 	=> __( 'Site Text Colors', 'pagelines' ),
-				'help' 		=> __( 'Configure the basic text colors for your site', 'pagelines' ),
-				'opts'		=> array(
 					array(
 						'key'			=> 'text_primary',
 						'type'			=> 'color',
-						'label' 		=> __( 'Main Text Color', 'pagelines' ),
+						'label' 		=> __( 'Text Base Color', 'pagelines' ),
 						'default'		=> $this->default_text,
-						'compile'		=> true,
+						'compile'		=> 'pl-text',
 
 					),
 					array(
 						'key'			=> 'linkcolor',
 						'type'			=> 'color',
-						'label' 		=> __( 'Link Color', 'pagelines' ),
+						'label' 		=> __( 'Link Base Color', 'pagelines' ),
 						'default'		=> $this->default_link,
-						'compile'		=> true,
+						'compile'		=> 'pl-link',
 					)
 				)
 			),
