@@ -295,11 +295,8 @@
 					$('.li-refresh').show()
 				}
 
-				console.log(e.type)
 
 				if( e.type == 'blur' || ( e.type == 'change' && ( iType == 'checkbox' || iType == 'select') ) ){
-					
-					//	$.plAJAX.saveData( )
 					
 					$.plSave.save({
 						run: 'form'
@@ -596,9 +593,11 @@
 				
 				var prepend = '<span class="btn add-on trigger-color"> <i class="icon-tint"></i> </span>'
 				,	colorVal = (o.value != '') ? o.value : optDefault
+				,	cssCompile = o.compile || ""
 				
+			
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<div class="input-prepend">%4$s<input type="text" id="%1$s" name="%3$s" class="lstn color-%1$s" value="%2$s" /></div>', o.inputID, o.value, o.name, prepend )
+				oHTML += sprintf('<div class="input-prepend">%4$s<input type="text" id="%1$s" name="%3$s" class="lstn lstn-css color-%1$s" data-var="%5$s" value="%2$s" /></div>', o.inputID, o.value, o.name, prepend, cssCompile )
 
 			}
 
