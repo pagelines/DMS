@@ -1231,8 +1231,9 @@
 			})
 			
 			$('.rmv-upload').on('click', function(){
-				$(this).closest('.opt').find('.upload-input').val('').trigger('change')
-				$(this).closest('.opt').find('.opt-upload-thumb').fadeOut()
+				$(this).closest('.img-upload-box').find('.upload-input').val('').trigger('change')
+				$(this).closest('.img-upload-box').find('.opt-upload-thumb').fadeOut()
+				that.reloadOptionLayout( $(this) )
 			})
 			
 			// Tooltips inside of options
@@ -1309,10 +1310,13 @@
 					closestHelp.show()
 				}
 
-				closestRef.closest('.isotope').isotope( 'reLayout' )
-				closestRef.closest('.opt-box').find('.opt-accordion').accordion('refresh')
-
+				that.reloadOptionLayout( closestRef )
 			})
+		}
+		
+		, reloadOptionLayout: function( element ){
+			element.closest('.isotope').isotope( 'reLayout' )
+			element.closest('.opt-box').find('.opt-accordion').accordion('refresh')
 		}
 
 		, loadFontPreview: function( selector ) {
