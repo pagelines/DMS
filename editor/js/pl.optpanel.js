@@ -337,7 +337,7 @@
 					
 				})
 			
-				theAccordion.find('.lstn').first().trigger('change')
+				theAccordion.find('.lstn').first().trigger('blur')
 		}
 
 		, setPanel: function(){
@@ -1063,7 +1063,7 @@
 				
 				$(this).closest('.opt-group').remove()
 				
-				accord.find('.lstn').first().trigger('change')
+				accord.find('.lstn').first().trigger('blur')
 				
 		    })
 		
@@ -1231,9 +1231,19 @@
 			})
 			
 			$('.rmv-upload').on('click', function(){
-				$(this).closest('.img-upload-box').find('.upload-input').val('').trigger('change')
-				$(this).closest('.img-upload-box').find('.opt-upload-thumb').fadeOut()
+				
+				$(this).closest('.img-upload-box')
+					.find('.upload-input')
+						.val('').trigger('blur')
+					.end()
+					.find('.opt-upload-thumb')
+						.fadeOut()
+					.end()
+					.find('.lstn')
+						.first().trigger('blur')
+					
 				that.reloadOptionLayout( $(this) )
+				
 			})
 			
 			// Tooltips inside of options
@@ -1446,6 +1456,8 @@
 							optBox.find('.text-input').val(response.url).change()
 							
 							optBox.find('.hidden-input').val(response.attach_id).change()
+							
+							optBox.find('.lstn').first().trigger('blur')
 							
 							optBox.imagesLoaded( function(){
 								optBox.closest('.isotope').isotope( 'reLayout' )
