@@ -73,6 +73,7 @@ class PageLinesColumnizer extends PageLinesSection {
 
 			array(
 				'key'	=> 'columnizer_help',
+				'col'	=> 2,
 				'type'	=> 'link',
 				'url'	=> admin_url( 'widgets.php' ),
 				'title'	=> __( 'Widgetized Areas Help', 'pagelines' ),
@@ -81,8 +82,9 @@ class PageLinesColumnizer extends PageLinesSection {
 			),
 			array(
 				'key'	=> 'columnizer_description',
+				'col'	=> 2,
 				'type'	=> 'textarea',
-
+				
 				'title'		=> __( 'Column Site Description', 'pagelines' ),
 				'label'		=>	__( 'Column Site Description', 'pagelines' ),
 				'help'		=> __( "If you use the default display of the columnizer, this field is used as a description of your company. You may want to add your address or links.", 'pagelines' ),
@@ -93,6 +95,7 @@ class PageLinesColumnizer extends PageLinesSection {
 			$opts[] = array(
 				'key'	=> 'widgetizer_custom_sidebars',
 				'type'	=> 'link',
+				'col'	=> 3,
 				'url'	=> 'http://wordpress.org/extend/plugins/custom-sidebars/',
 				'title'	=> __( 'Get Custom Sidebars', 'pagelines' ),
 				'label'		=>	'<i class="icon-external-link"></i> Check out plugin',

@@ -16,7 +16,6 @@ class PageLinesTextBox extends PageLinesSection {
 			array(
 				'type'		=> 'multi',
 				'key'		=> 'textbox_text', 
-				'span'		=> 2,
 				'opts'		=> array(
 					array(
 						'type' 			=> 'text',
@@ -34,6 +33,8 @@ class PageLinesTextBox extends PageLinesSection {
 			array(
 				'type'		=> 'multi',
 				'key'		=> 'textbox_config', 
+				'title'		=> 'Textbox Display',
+				'col'		=> 2,
 				'opts'		=> array(
 					array(
 						'key'			=> 'textbox_pad',
@@ -89,9 +90,9 @@ class PageLinesTextBox extends PageLinesSection {
 		
 		$title = $this->opt('textbox_title');
 		
-		$text = (!$text && !$title) ? '<p><strong>TextBox</strong> &raquo; Add Content!</p>' : sprintf('<div class="hentry">%s</div>', do_shortcode( wpautop($text) ) ); 
+		$text = (!$text && !$title) ? '<p><strong>TextBox</strong> &raquo; Add Content!</p>' : sprintf('<div class="hentry" data-sync="textbox_content">%s</div>', do_shortcode( wpautop($text) ) ); 
 		
-		$title = ($title) ? sprintf('<strong>%s</strong><br/>', $title) : '';
+		$title = ($title) ? sprintf('<strong data-sync="textbox_title">%s</strong><br/>', $title) : '';
 
 		$class = $this->opt('textbox_animation');
 			
