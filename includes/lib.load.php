@@ -85,12 +85,11 @@ function pl_theme_support(  ){
 
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
 function pagelines_check_lessdev(){
-	if ( ! isset( $_GET['pagedraft'] )
-		&& defined( 'PL_LESS_DEV' )
+	if (  defined( 'PL_LESS_DEV' )
 		&& PL_LESS_DEV
-		&& false == pl_draft_mode()
 		) {
 		PageLinesRenderCSS::flush_version( false );
+		pl_flush_draft_caches();
 	}
 }
 
