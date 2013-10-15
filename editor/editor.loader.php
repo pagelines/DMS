@@ -86,9 +86,12 @@ class PageLinesPageLoader{
 		
 		?>
 		<div class="pl-loader">
-			<div class="loader-text" style="padding: 200px;font-family: helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
+			<div class="loader-text" style="padding: 200px 0;font-family: helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
 				<div class="spinner"></div>
 				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
+			</div>
+			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .5; text-align: center;">
+				Issues loading? See the <a href="http://docs.pagelines.com/support-troubleshooting/diagnosing" target="_blank">troubleshooting guide</a>.
 			</div>
 		</div>
 		
