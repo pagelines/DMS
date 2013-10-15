@@ -83,7 +83,7 @@ class plRevSlider extends PageLinesSection {
 					'revslider_extra_'.$i 	=> array(
 						'label'		=> __( 'Slide Extra Elements', 'pagelines' ),
 						'type'		=> 'textarea',
-						'ref'		=> __( 'Add extra Revolution Slider markup here. Rev slider is based on Revolution Slider, a jQuery plugin. It supports a wide array of functionality including video embeds and additional transitions if you can handle HTML. Check out the <a href="http://www.orbis-ingenieria.com/code/documentation/documentation.html" target="_blank">docs here</a>.', 'pagelines' )
+						'ref'		=> __( 'Add extra Revolution Slider markup here. Rev slider is based on Revolution Slider, a jQuery plugin. It supports a wide array of functionality including video embeds and additional transitions if you can handle HTML.', 'pagelines' )
 					),
 				),
 
