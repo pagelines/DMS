@@ -16,7 +16,7 @@ class PageLinesPageLoader{
 		}
 		
 		
-		
+		add_action('pagelines_head_last', array( $this, 'loader_ready_script') );
 		add_action('pagelines_head_last', array( $this, 'loader_inline_style') );
 		add_action('pagelines_before_site', array( $this, 'loader_html') );
 	}
@@ -29,6 +29,15 @@ class PageLinesPageLoader{
 		echo '<script>jQuery(window).load(function() { console.log("editor load time (ms)"); console.log(new Date() - start); })</script>';
 	}
 	
+	function loader_ready_script(){
+		?>
+		<script>
+			jQuery(document).ready(function() {
+				jQuery(".pl-loader").fadeOut()
+			});
+		</script>
+		<?php
+	}
 	
 	function loader_inline_style(){
 		?>
@@ -68,11 +77,7 @@ class PageLinesPageLoader{
 				}
 				
 			</style>
-			<script>
-				jQuery(window).load(function() {
-					jQuery(".pl-loader").fadeOut()
-				});
-			</script>
+			
 		<?php
 	}
 
