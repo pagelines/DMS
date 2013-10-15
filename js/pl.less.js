@@ -10,8 +10,7 @@
 		
 		this.setUIBindings()
 		
-		if( $.trim(this.css_container.text()) == '' )
-			this.loadCSS()
+		this.loadCSS()
 
 		$(document).trigger('pl-less-loaded')
 	}
@@ -90,12 +89,23 @@
 		,	setUIBindings : function () {
 				that = this
 
-				$('.navbar').on('click', function(){
-					
-					$.plLessify.loadCSS({ })
-				
-	
-				})
+				// $('.lstn-css').on('blur', function(){
+				// 				
+				// 				var theVar = $(this).data('var')
+				// 				,	theVal = $(this).val()
+				// 				, 	theObj = {}
+				// 				
+				// 				
+				// 				
+				// 				if( theVar != '' ){
+				// 					
+				// 					theObj[theVar] = theVal
+				// 				
+				// 					$.plLessify.loadCSS( theObj )
+				// 					
+				// 				}
+				// 			
+				// 			})
 
 			}
 	}
