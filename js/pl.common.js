@@ -119,11 +119,17 @@
 					
 					$('.site-wrap, .mm-close').one('click touchstart', function(){
 						siteWrap.removeClass('show-mm')
+						setTimeout(function () {
+						    mobileMenu.hide()
+						}, 500)
 					})
 					
 					
 					$('.mm-holder').waypoint(function() {
 						siteWrap.removeClass('show-mm')
+						setTimeout(function () {
+						    mobileMenu.hide()
+						}, 500)
 					}, {
 						offset: function() {
 							return -$(this).height();
