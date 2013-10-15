@@ -1270,10 +1270,31 @@
 			$('.sync-btn-refresh').on('click', function(e){
 			
 				e.preventDefault()
+			
+				var $that = $(this)
+				
+				$that.find('i').addClass('icon-spin')
+				window.onbeforeunload = null	
+					
+				plCallWhenSet( 'saving', function(){
+					
+					location.reload()
+				
+				}, true )
+			
+				
+				
+			})
+			
+			$( '.btn-refresh' ).on('click.saveButton', function(){
+
 				$(this).find('i').addClass('icon-spin')
+
 				window.onbeforeunload = null
 				location.reload()
+
 			})
+		
 
 			// Reference Help Toggle
 			$('.btn-ref').on('click.ref', function(){

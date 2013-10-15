@@ -83,7 +83,8 @@
 					}
 				, 	error: function( jqXHR, status, error ){
 					$.pl.flags.saving = false
-					plPrint('AJAX Error')
+					plPrint('- AJAX Error -')
+					plPrint( jqXHR )
 					plPrint( status )
 					plPrint( error )
 				}
@@ -210,7 +211,13 @@
 				$(this).find('i').addClass('icon-spin')
 				
 				window.onbeforeunload = null
-				location.reload()
+
+				plCallWhenSet( 'saving', function(){
+					
+					location.reload()
+				
+				}, true )
+			
 
 			})
 

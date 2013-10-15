@@ -1,3 +1,23 @@
+function plCallWhenSet( flag, callback, flip ){
+	
+	var flip = flip || false
+	,	flagVal = (flip) ? !jQuery.pl.flags[flag] : jQuery.pl.flags[flag]
+
+	
+	plPrint(flag)
+	plPrint(flagVal)
+	
+	if( ! flagVal ){
+		setTimeout(function() {
+		    plCallWhenSet( flag, callback, flip )
+		}, 150)
+		
+	} else {
+		plPrint('call function')
+		callback.call( this )
+	}
+}
+
 function plUniqueID( length ) {
 	var length = length || 6
 	
