@@ -62,7 +62,6 @@ class EditorStoreFront extends PageLinesAPI {
  **/
 class PageLinesAPI {
 
-	var $prot = array( 'https://', 'http://' );
 	var $base_url = 'api.pagelines.com';
 
 	/**
@@ -130,6 +129,7 @@ class PageLinesAPI {
 		$options = array(
 			'timeout'	=>	15,
 			'method'	=> 'GET',
+			'prot'		=> array( 'http://' )
 		);
 		$f  = $this->try_api( $url, $options );
 		return wp_remote_retrieve_body( $f );
@@ -148,7 +148,8 @@ class PageLinesAPI {
 			'sslverify'	=>	false,
 			'timeout'	=>	5,
 			'body'		=> array(),
-			'method'	=> 'POST'
+			'method'	=> 'POST',
+			'prot'		=> array( 'https://', 'http://' )
 		);
 		$options = wp_parse_args( $args, $defaults );
 		$command = sprintf( 'wp_remote_%s', $options['method'] );
@@ -156,7 +157,7 @@ class PageLinesAPI {
 		if( 'get' == $options['method'] )
 			$options = array();
 
-		foreach( $this->prot as $type ) {
+		foreach( $options['prot'] as $type ) {
 			// sometimes wamp does not have curl!
 			if ( $type === 'https://' && ! function_exists( 'curl_init' ) )
 				continue;

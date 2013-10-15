@@ -39,18 +39,17 @@ function pagelines_try_api( $url, $args ) {
 		'sslverify'	=>	false,
 		'timeout'	=>	5,
 		'body'		=> array(),
-		'method'	=> 'POST'
+		'method'	=> 'POST',
+		'prot'		=> array( 'https://', 'http://' )
 	);
 
 	$options = wp_parse_args( $args, $defaults );
-	$prot = array( 'https://', 'http://' );
+
 	$command = sprintf( 'wp_remote_%s', $options['method'] );
 
 	$method = $options['method'];
-	
-	
-	
-	foreach( $prot as $type ) {
+		
+	foreach( $options['prot'] as $type ) {
 		// sometimes wamp does not have curl!
 		if ( $type === 'https://' && !function_exists( 'curl_init' ) )
 			continue;
