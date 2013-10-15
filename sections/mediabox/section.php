@@ -17,7 +17,7 @@ class PageLinesMediaBox extends PageLinesSection {
 			array(
 				'title'	=> __( 'MediaBox Media', 'pagelines' ), 
 				'type'	=> 'multi',
-				'span'	=> 2,
+			
 				'opts'	=> array(
 					array(
 						'type' 			=> 'image_upload',
@@ -42,6 +42,7 @@ class PageLinesMediaBox extends PageLinesSection {
 			array(
 				'title'	=> 'MediaBox Display', 
 				'type'	=> 'multi',
+				'col'	=> 2,
 				'opts'	=> array(
 					array(
 						'type' 			=> 'select',
@@ -65,12 +66,19 @@ class PageLinesMediaBox extends PageLinesSection {
 						'key'			=> 'disable_centering', 
 						'label'			=> __( 'Disable Media Vertical Centering?', 'pagelines' )
 					),
+					array(
+						'type' 			=> 'select_animation',
+						'key'			=> 'mediabox_animation',
+						'label' 		=> __( 'Viewport Animation', 'pagelines' ),
+						'help' 			=> __( 'Optionally animate the appearance of this section on view.', 'pagelines' ),
+					)
 				
 				)
 			),
 			array(
 				'title'	=> 'MediaBox Background (Optional)', 
 				'type'	=> 'multi',
+				'col'	=> 3,
 				'opts'	=> array(
 					array(
 						'type' 			=> 'image_upload',
@@ -79,13 +87,6 @@ class PageLinesMediaBox extends PageLinesSection {
 					),
 				)
 			),
-			array(
-				'type' 			=> 'select_animation',
-				'key'			=> 'mediabox_animation',
-				'label' 		=> __( 'Viewport Animation', 'pagelines' ),
-				'help' 			=> __( 'Optionally animate the appearance of this section on view.', 'pagelines' ),
-			),
-			
 		
 
 		);

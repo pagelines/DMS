@@ -183,7 +183,7 @@ class EditorColor{
 	function add_settings( $settings ){
 
 		$settings['color_control'] = array(
-			'name' 	=> 'Color <span class="spamp">&amp;</span> Style',
+			'name' 	=> 'Color <span class="spamp">&amp;</span> BG',
 			'icon'	=> 'icon-tint',
 			'pos'	=> 3,
 			'opts' 	=> $this->options()
@@ -226,10 +226,10 @@ class EditorColor{
 				)
 			),
 			array(
-				'key'		=> 'background_image_settings',
+				'key'		=> 'background_image_upload',
 				'type' 		=> 'multi',
 				'col'		=> 2,
-				'title' 	=> __( 'Background Image Settings', 'pagelines' ),
+				'title' 	=> __( 'Background Image', 'pagelines' ),
 				'help' 		=> '',
 				'opts'		=> array(
 					array(
@@ -243,6 +243,16 @@ class EditorColor{
 						'compile'		=> true,
 
 					),
+					
+				)
+			), 
+			array(
+				'key'		=> 'background_image_config',
+				'type' 		=> 'multi',
+				'col'		=> 3,
+				'title' 	=> __( 'Background Image Settings', 'pagelines' ),
+				'help' 		=> '',
+				'opts'		=> array(
 					array(
 						'key'			=> 'supersize_bg',
 						'type'			=> 'check',
@@ -250,7 +260,7 @@ class EditorColor{
 						'default'		=> true,
 						'compile'		=> true,
 						'help'			=> 'If you use this option the image will be fit "responsively" to the background of your page. This means the settings below will have no effect.'
-						),
+					),
 					array(
 						'key'			=> 'page_background_image_repeat',
 						'type'			=> 'select',
