@@ -16,7 +16,7 @@ class PageLinesPageLoader{
 		}
 		
 		
-		add_action('pagelines_head_last', array( $this, 'loader_ready_script') );
+		add_action('wp_footer', array( $this, 'loader_ready_script'), 20 );
 		add_action('pagelines_head_last', array( $this, 'loader_inline_style') );
 		add_action('pagelines_before_site', array( $this, 'loader_html') );
 	}
@@ -32,7 +32,7 @@ class PageLinesPageLoader{
 	function loader_ready_script(){
 		?>
 		<script>
-			jQuery(document).ready(function() {
+			jQuery( window ).load(function() {
 				jQuery(".pl-loader").fadeOut()
 			});
 		</script>
