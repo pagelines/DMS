@@ -21,6 +21,7 @@ class pliBox extends PageLinesSection {
 		$options[] = array(
 
 			'title' => __( 'iBox Configuration', 'pagelines' ),
+			'key'	=> 'ibox_config',
 			'type'	=> 'multi',
 			'opts'	=> array(
 				array(

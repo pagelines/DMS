@@ -499,7 +499,28 @@
 			}
 
 		}
+		
+		, addOptionObjectMeta: function( tabIndex, o, optLevel, parent ) {
 
+			var that = this
+			,	oNew = o
+			
+			oNew.classes = o.classes || ''
+
+			if( optLevel == 3 ){
+				oNew.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
+				oNew.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
+				oNew.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
+			} else {
+				oNew.name = sprintf('%s[%s]', that.uniqueID, o.key )
+				oNew.value =  that.optValue( tabIndex, o.key )
+				oNew.inputID = o.key
+			}
+
+			return oNew
+
+		}
+		
 		, optEngine: function( tabIndex, o, optLevel, parent ) {
 
 			var that = this
@@ -514,28 +535,31 @@
 			,	optDefault = o.default || ''
 			,	parent = parent || {}
 
+			o = that.addOptionObjectMeta( tabIndex, o, optLevel, parent )
 
-			o.classes = o.classes || ''
+		//	o.classes = o.classes || ''
 			//o.label = o.label || o.title
 			
 			if( o.type != 'edit_post' && o.type != 'link' && o.type != 'action_button' ){
 				optLabel += sprintf(' <span data-key="%s" class="pl-help-text btn btn-mini pl-tooltip sync-btn-%s" title="%s"><i class="icon-%s"></i></span>', o.key, syncType, syncTooltip, syncIcon)
 			}
-				
-				
-				
 			
 			
-			if(optLevel == 3){
-				o.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
-				o.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
-				o.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
-			} else {
-				o.name = sprintf('%s[%s]', that.uniqueID, o.key )
-				o.value =  that.optValue( tabIndex, o.key )
-				o.inputID = o.key
-			}
-			
+				
+						// 	
+						// 	
+						// 
+						// 
+						// if(optLevel == 3){
+						// 	o.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
+						// 	o.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
+						// 	o.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
+						// } else {
+						// 	o.name = sprintf('%s[%s]', that.uniqueID, o.key )
+						// 	o.value =  that.optValue( tabIndex, o.key )
+						// 	o.inputID = o.key
+						// }
+						// 
 
 
 
@@ -553,13 +577,12 @@
 			else if( o.type == 'accordion' ){
 				
 				// option value should be an array, so foreach 
-				
+			
 				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : [[],[],[]]
 				,	itemType = o.post_type || 'Item'
 				, 	itemNumber = 1
 				, 	totalNum = optionArray.length || Object.keys(optionArray).length
 				, 	removeShow = ( totalNum <= 1 ) ? 'display: none;' : ''
-
 				
 				oHTML += sprintf("<div class='opt-accordion toolbox-sortable'>")
 				
@@ -597,7 +620,7 @@
 				
 			
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<div class="input-prepend">%4$s<input type="text" id="%1$s" name="%3$s" class="lstn lstn-css color-%1$s" data-var="%5$s" value="%2$s" /></div>', o.inputID, o.value, o.name, prepend, cssCompile )
+				oHTML += sprintf('<div class="input-prepend">%4$s<input type="text" id="%1$s" name="%3$s" class="lstn lstn-css pl-colorpicker color-%1$s" data-var="%5$s" value="%2$s" /></div>', o.inputID, o.value, o.name, prepend, cssCompile )
 
 			}
 
@@ -892,9 +915,10 @@
 
 			var that = this
 			
-			
+		
 
 			$.each(opts, function(index, o){
+				
 				that.scriptEngine(tabIndex, o)
 			})
 
@@ -1358,20 +1382,55 @@
 				.css('font-weight', weight)
 		}
 
-		, scriptEngine: function( tabIndex, o ) {
+		, scriptEngine: function( tabIndex, o, optLevel, parent ) {
 
 			var that = this
+			,	optLevel = optLevel || 1
+			,	parent = parent || {}
 
-
+		//	o = that.addOptionObjectMeta( tabIndex, o, optLevel, parent )
+			//console.log(o)
+			
+			if( optLevel == 3 ){
+				o.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
+			} 
+			
 			// Multiple Options
-			if( o.type == 'multi' || o.type == 'accordion' ){
+			if( o.type == 'multi' ){
+					
 				if(o.opts){
 					$.each( o.opts , function(index, osub) {
 
-						that.scriptEngine(tabIndex, osub) // recursive
+						that.scriptEngine(tabIndex, osub, 2, o) // recursive
 
 					})
 				}
+
+			}
+			
+			else if( o.type == 'accordion' ){
+				
+				// option value should be an array, so foreach 
+				
+				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : [[],[],[]]
+				, 	itemNumber = 1
+
+				
+				$.each( optionArray, function( ind, vals ){
+				
+					o.itemNumber = 'item'+itemNumber
+				
+					if( o.opts ){
+						$.each( o.opts , function(index, osub) {
+							
+							
+							that.scriptEngine(tabIndex, osub, 3, o) // recursive array
+
+						})
+					}
+					itemNumber++
+				})
+				
 
 			}
 
@@ -1379,17 +1438,13 @@
 
 				var dflt = ( isset( o.default ) ) ? o.default : '#ffffff'
 				
-				dflt = dflt.replace('#', '');
-
-				$( '.color-'+o.key ).colorpicker({
+				dflt = dflt.replace('#', '')
+				
+				$( '.color-'+o.inputID ).colorpicker({
 					color: dflt
 					, allowNull: true
-					, beforeShow: function(input, inst){
-					
-					}
 					, onClose: function(color, inst){
-
-						$(this).change() // fire to set page data
+						$(this).trigger('blur') // fire to set page data
 					}
 				})
 
