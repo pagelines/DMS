@@ -161,16 +161,21 @@ class PageLinesPosts {
 			<div class="tmb"><?php echo get_avatar( $author_email, '120'); ?></div>
 			<p>[post_author_posts_link]</p>
 			<hr/>
+		<?php
+		if( has_action( 'pl_get_author_tag' ) ) {			
+			do_action( 'pl_get_author_tag' );
+		} else {	
+		?>
 			<p><strong>Published</strong><br/> [post_date][post_edit]</p>
 			 
 			<p class="hidden-sm hidden-phone">In [post_categories]</p>
 			<hr/>
 			<p class="tag-comments hidden-sm hidden-phone"><i class="icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
-		</div>
+		
 		<?php
-		
-		return do_shortcode( ob_get_clean() );
-		
+		}
+		echo '</div>';
+	return do_shortcode( ob_get_clean() );	
 	}
 
 
