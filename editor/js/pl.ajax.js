@@ -170,7 +170,7 @@
 					,	userID: $.pl.config.userID
 				}
 
-			confirmText = sprintf("<h3>Turn Off PageLines Editor?</h3><p>(Note: Draft mode is disabled when editor is off.)</p>")
+			confirmText = sprintf("<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is off.)</p>")
 			bootbox.confirm( confirmText, function( result ){
 				if(result == true){
 					$.ajax( {
