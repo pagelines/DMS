@@ -66,6 +66,10 @@ class plRevSlider extends PageLinesSection {
 						'label'	=> __( 'Slide Link URL', 'pagelines' ),
 						'type'			=> 'text'
 					),
+					'revslider_linktext_'.$i 	=> array(
+						'label'	=> __( 'Slide Link Text (Default: Read More)', 'pagelines' ),
+						'type'			=> 'text'
+					),
 					'revslider_text_location_'.$i 	=> array(
 						'label'	=> __( 'Slide Text Location', 'pagelines' ),
 						'type'			=> 'select',
@@ -191,14 +195,15 @@ class plRevSlider extends PageLinesSection {
 		for($i = 1; $i <= $slides; $i++){
 
 			$the_bg = $this->opt( 'revslider_bg_'.$i );
-			
+
 			$extra = $this->opt('revslider_extra_'.$i);
-			
+
 			if( $the_bg || $extra ){
 
 				$the_text = $this->opt('revslider_text_'.$i);
 				$the_link = $this->opt('revslider_link_'.$i);
-				
+				$the_linktext = $this->opt('revslider_linktext_'.$i) ? $this->opt('revslider_linktext_'.$i) : 'Read More';
+
 				$the_location = $this->opt('revslider_text_location_'.$i);
 				$transition = $this->opt('revslider_transition_'.$i, array('default' => 'fade'));
 
@@ -217,7 +222,7 @@ class plRevSlider extends PageLinesSection {
 
 				$content = sprintf('<h2><span class="slider-text">%s</span></h2>', $the_text);
 
-				$link = ($the_link) ? sprintf('<a href="%s" class="slider-btn">%s</a>', $the_link, __('Read More', 'pagelines')) : '';
+				$link = ($the_link) ? sprintf('<a href="%s" class="slider-btn">%s</a>', $the_link, __($the_linktext, 'pagelines')) : '';
 
 				if(!$extra){
 					$caption = sprintf(
@@ -229,7 +234,7 @@ class plRevSlider extends PageLinesSection {
 					);
 				} else
 					$caption = '';
-				
+
 
 				$output .= sprintf('<li data-transition="%s" data-slotamount="7">%s %s %s</li>', $transition, $bg, $caption, $extra);
 			}
