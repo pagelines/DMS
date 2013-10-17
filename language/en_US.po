@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-10-07 22:13-0000\n"
-"PO-Revision-Date: 2013-10-07 22:13-0000\n"
+"POT-Creation-Date: 2013-10-18 00:35-0000\n"
+"PO-Revision-Date: 2013-10-18 00:35-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: PageLines <hello@pagelines.com>\n"
 "Language: en_US\n"
@@ -13,34 +13,34 @@ msgstr ""
 "X-Poedit-KeywordsList: _;__;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: /Users/pross/Tower-repos/pagelines-framework-github\n"
+"X-Poedit-SearchPath-0: \n"
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/comments.php:23
+#: comments.php:23
 msgid "Comments are closed."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/comments.php:38
+#: comments.php:38
 msgid ""
 "This post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/comments.php:52
+#: comments.php:52
 msgid "<span class='meta-nav'>&larr;</span> Older Comments"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/comments.php:53
+#: comments.php:53
 msgid "Newer Comments <span class='meta-nav'>&rarr;</span>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.actions.php:18
+#: admin/admin.actions.php:18
 msgid "DMS Tools"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.actions.php:34
+#: admin/admin.actions.php:34
 msgid "PageLines DMS"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.actions.php:102
+#: admin/admin.actions.php:102
 #, php-format
 msgid ""
 "<div class='config-error'><h2>PHP Version Problem</h2>Looks like you are "
@@ -49,515 +49,509 @@ msgid ""
 "check with your host about a quick upgrade.</div>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:18
+#: admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:22
+#: admin/admin.editor.php:22
 msgid "Editing Your Site With DMS"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:26
+#: admin/admin.editor.php:26
 msgid "Welcome to DMS!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:31
+#: admin/admin.editor.php:31
 msgid "DMS Fallbacks"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:32
+#: admin/admin.editor.php:32
 msgid ""
 "Below are secondary fallbacks to the DMS code editors. You may need these if "
 "you create errors or issues on the front end."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:36
+#: admin/admin.editor.php:36
 msgid "DMS LESS Fallback"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:40
+#: admin/admin.editor.php:40
 msgid "DMS Header Scripts Fallback"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:54
+#: admin/admin.editor.php:54
 msgid ""
 "Editing with DMS is done completely on the front end of your site. This "
 "allows you to customize in a way that feels more direct and intuitive than "
 "when using the admin."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:55
+#: admin/admin.editor.php:55
 msgid "Just visit the front end of your site (as an admin) and get started!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:57
+#: admin/admin.editor.php:57
 msgid "Edit Site Using DMS"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:69
+#: admin/admin.editor.php:69
 msgid "Save LESS"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/admin/admin.editor.php:81
+#: admin/admin.editor.php:81
 msgid "Save Scripts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:200
+#: editor/editor.account.php:200
 msgid "Account"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:207
+#: editor/editor.account.php:207
 msgid "Welcome!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:212
+#: editor/editor.account.php:212
 msgid "Your Account"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:217
+#: editor/editor.account.php:217
 msgid "Get Karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:222
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:704
+#: editor/editor.account.php:222
+#: editor/editor.account.php:704
 msgid "Getting Started"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:229
+#: editor/editor.account.php:229
 msgid "Support"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:451
+#: editor/editor.account.php:451
 msgid "Get PRO stuff free with Karma."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:453
+#: editor/editor.account.php:453
 msgid ""
 "For every friend you invite who joins and installs PageLines, we'll give you "
 "and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:457
+#: editor/editor.account.php:457
 msgid "Invite Friends by Email"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:460
+#: editor/editor.account.php:460
 msgid "Add emails (Comma separated)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:462
+#: editor/editor.account.php:462
 msgid "Invite"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:465
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:477
+#: editor/editor.account.php:465
+#: editor/editor.account.php:477
 msgid " Add/Update Account Info"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:467
+#: editor/editor.account.php:467
 msgid "Name and invite link needed."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:472
+#: editor/editor.account.php:472
 msgid "Your Invite Link"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:493
+#: editor/editor.account.php:493
 msgid " Your Karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:499
+#: editor/editor.account.php:499
 msgid " Current"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:506
+#: editor/editor.account.php:506
 msgid " Lifetime"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:515
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:682
+#: editor/editor.account.php:515
+#: editor/editor.account.php:682
 msgid "Get karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:517
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:684
+#: editor/editor.account.php:517
+#: editor/editor.account.php:684
 msgid "Use karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:519
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:686
+#: editor/editor.account.php:519
+#: editor/editor.account.php:686
 msgid "Learn more about karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:571
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:330
+#: editor/editor.account.php:571
+#: editor/editor.interface.php:330
 msgid "Saving"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:576
+#: editor/editor.account.php:576
 msgid "Site Not Activated"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:585
+#: editor/editor.account.php:585
 msgid "Pro Activated!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:589
+#: editor/editor.account.php:589
 msgid "Update Info"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:591
+#: editor/editor.account.php:591
 msgid "Deactivate"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:601
+#: editor/editor.account.php:601
 msgid "PageLines Account"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:609
+#: editor/editor.account.php:609
 msgid "Pro Activation Key"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:610
+#: editor/editor.account.php:610
 msgid "optional"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:612
+#: editor/editor.account.php:612
 msgid "Enter Pro Key"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:618
+#: editor/editor.account.php:618
 msgid "Update"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:627
+#: editor/editor.account.php:627
 msgid "PageLines Account Info"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:634
+#: editor/editor.account.php:634
 msgid "PageLines account not added or incorrect."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:635
+#: editor/editor.account.php:635
 msgid "Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:641
+#: editor/editor.account.php:641
 msgid "Profile"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:651
+#: editor/editor.account.php:651
 msgid "My Account"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:653
+#: editor/editor.account.php:653
 msgid "Edit Profile"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:660
+#: editor/editor.account.php:660
 msgid "Karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:666
+#: editor/editor.account.php:666
 msgid "Current"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:673
+#: editor/editor.account.php:673
 msgid "Lifetime"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:714
+#: editor/editor.account.php:714
 msgid "Congratulations!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:721
+#: editor/editor.account.php:721
 msgid "Setup PageLines Account"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:724
+#: editor/editor.account.php:724
 msgid "Getting Started Video"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:735
+#: editor/editor.account.php:735
 msgid "The PageLines Experience"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:738
+#: editor/editor.account.php:738
 msgid "We want you to have a most amazing time as a PageLines customer."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:740
+#: editor/editor.account.php:740
 msgid "That's why we have a ton of people standing by to make you happy."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:744
+#: editor/editor.account.php:744
 msgid "PageLines Forum"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.account.php:746
+#: editor/editor.account.php:746
 msgid "DMS Documentation"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.actions.php:335
+#: editor/editor.actions.php:335
 msgid "Unsupported file type!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.actions.php:338
+#: editor/editor.actions.php:338
 #, php-format
 msgid "Upload Error: %s"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:201
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:207
-msgid "Content Base Color"
+#: editor/editor.actions.php:487
+msgid "Select This Image For Option"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:202
+#: editor/editor.actions.php:509
+msgid "Media Library"
+msgstr ""
+
+#: editor/editor.color.php:201
+msgid "Site Base Colors"
+msgstr ""
+
+#: editor/editor.color.php:202
 msgid ""
-"The \"base\" color is used as your background and as a basis for calculating "
-"contrast values in elements (like hover effects, etc.. ) Use it as your "
-"default background color and refine using custom CSS/LESS or a theme."
+"The \"base\" color are a few standard colors used throughout DMS that "
+"plugins may use to calculate contrast or other colors to make sure "
+"everything looks great."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:215
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:216
-msgid "Site Text Colors"
+#: editor/editor.color.php:207
+msgid "Background Base Color"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:217
-msgid "Configure the basic text colors for your site"
+#: editor/editor.color.php:214
+msgid "Text Base Color"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:222
-msgid "Main Text Color"
+#: editor/editor.color.php:222
+msgid "Link Base Color"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:230
-msgid "Link Color"
+#: editor/editor.color.php:232
+#: sections/pl_area/section.php:126
+msgid "Background Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:240
-msgid "Background Image Settings"
-msgstr ""
-
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:249
+#: editor/editor.color.php:241
 msgid "Page Background Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:257
+#: editor/editor.color.php:253
+msgid "Background Image Settings"
+msgstr ""
+
+#: editor/editor.color.php:259
 msgid "Fit image to page?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:265
+#: editor/editor.color.php:267
 msgid "Background Repeat"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:279
+#: editor/editor.color.php:281
 msgid "Vertical Background Position in Percent"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:290
+#: editor/editor.color.php:292
 msgid "Horizontal Background Position in Percent"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:301
+#: editor/editor.color.php:303
 msgid "Set Background Attachment"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:304
+#: editor/editor.color.php:306
 msgid "Scroll"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.color.php:305
+#: editor/editor.color.php:307
 msgid "Fixed"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.importexport.php:175
+#: editor/editor.importexport.php:175
 msgid "Export DMS Config"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.importexport.php:181
+#: editor/editor.importexport.php:181
 msgid "Import DMS Config"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:136
+#: editor/editor.interface.php:136
 msgid "Deactivate Editor (View Live)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:149
+#: editor/editor.interface.php:149
 msgid "Preview (alt+a)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:306
+#: editor/editor.interface.php:306
 msgid "Undo All Unpublished Changes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:308
+#: editor/editor.interface.php:308
 msgid "Undo Unpublished Global Changes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:311
+#: editor/editor.interface.php:311
 msgid "Undo Unpublished Post Type Changes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:313
+#: editor/editor.interface.php:313
 msgid "Undo Unpublished Local Changes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:315
+#: editor/editor.interface.php:315
 msgid "No Unpublished Changes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:322
+#: editor/editor.interface.php:322
 msgid "Refresh needed to view changes."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:324
+#: editor/editor.interface.php:324
 msgid "Publish Live"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:325
+#: editor/editor.interface.php:325
 msgid "Publish"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.interface.php:333
+#: editor/editor.interface.php:333
 msgid "Width"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:43
+#: editor/editor.layout.php:43
 msgid "Select Layout Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:44
+#: editor/editor.layout.php:44
 msgid "Layout Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:50
+#: editor/editor.layout.php:50
 msgid ""
 "Select pixel width mode and your site maximum width will be controlled by "
 "pixels.<br/><br/> If you select \"percent\" width the width of your content "
 "will be a percentage of window size."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:55
+#: editor/editor.layout.php:55
 msgid "Select Layout Display"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:56
+#: editor/editor.layout.php:56
 msgid "Display Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:62
+#: editor/editor.layout.php:62
 msgid ""
 "\"Full\" display mode allows areas to be the full width of the window, with "
 "content width sections.<br/><br/> \"Boxed\" mode contains everything in a "
 "central content box. Boxed mode is ideal for use with background images."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:75
+#: editor/editor.layout.php:75
 msgid "Global Navigation Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:80
+#: editor/editor.layout.php:80
 msgid "Select Primary Navigation Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:82
+#: editor/editor.layout.php:82
 msgid ""
 "This will be used in mobile menus and optionally other places throughout "
 "your site."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:87
+#: editor/editor.layout.php:87
 msgid "Select Secondary Navigation Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.layout.php:89
+#: editor/editor.layout.php:89
 msgid ""
 "This will be shown subtly in areas throughout the site and in your mobile "
 "menu."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.less.php:436
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.less.php:763
-#, php-format
-msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
+#: editor/editor.loader.php:91
+msgid "Loading DMS Editor"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.less.php:503
-msgid "LESS Compile error!"
-msgstr ""
-
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.less.php:510
-#, php-format
-msgid "Error in %s Less code: %s"
-msgstr ""
-
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.regions.php:20
+#: editor/editor.regions.php:20
 msgid "Global Scope Region"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.regions.php:24
+#: editor/editor.regions.php:24
 msgid "Local Scope Region"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:95
+#: editor/editor.settings.config.php:95
 msgid "Site Homepage"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:103
+#: editor/editor.settings.config.php:103
 msgid "Manage Permalinks"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:113
+#: editor/editor.settings.config.php:113
 msgid "Manage Menus"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:123
+#: editor/editor.settings.config.php:123
 msgid "Manage Widgetized Areas"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:133
+#: editor/editor.settings.config.php:133
 msgid "Site Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:142
+#: editor/editor.settings.config.php:142
 msgid "Manage Extensions"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:155
+#: editor/editor.settings.config.php:155
 msgid "Debug Enabled"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:173
+#: editor/editor.settings.config.php:173
 msgid "Favicon Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:174
+#: editor/editor.settings.config.php:174
 msgid ""
 "Enter the full URL location of your custom <strong>favicon</strong> which is "
 "visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:186
+#: editor/editor.settings.config.php:186
 msgid "Login Page Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:188
+#: editor/editor.settings.config.php:188
 msgid ""
 "This image will be used on the login page to your admin. Use an image that "
 "is approximately <strong>80px</strong> in height."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:197
+#: editor/editor.settings.config.php:197
 msgid "Mobile Touch Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:199
+#: editor/editor.settings.config.php:199
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
@@ -565,345 +559,345 @@ msgid ""
 "gif or .png format."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:217
+#: editor/editor.settings.config.php:217
 msgid "Your Twitter Username"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:218
+#: editor/editor.settings.config.php:218
 msgid "Twitter Integration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:219
+#: editor/editor.settings.config.php:219
 msgid ""
 "This places your Twitter feed on the site. Leave blank if you want to hide "
 "or not use."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:231
+#: editor/editor.settings.config.php:231
 msgid "Your Facebook Page Name"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:232
+#: editor/editor.settings.config.php:232
 msgid "Facebook Page"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:233
+#: editor/editor.settings.config.php:233
 msgid ""
 "Enter the name component of your Facebook page URL. (For example, what comes "
 "after the facebook url: www.facebook.com/[name])"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:238
+#: editor/editor.settings.config.php:238
 msgid "Your Facebook App ID"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:239
+#: editor/editor.settings.config.php:239
 msgid "Facebook App ID"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:240
+#: editor/editor.settings.config.php:240
 msgid "Add your Facebook Application ID here."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:249
+#: editor/editor.settings.config.php:249
 msgid "Your Website Hashtag"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:250
+#: editor/editor.settings.config.php:250
 msgid "Website Hashtag"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:251
+#: editor/editor.settings.config.php:251
 msgid ""
 "This hashtag will be used in social media (e.g. Twitter) and elsewhere to "
 "create feeds."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:262
+#: editor/editor.settings.config.php:262
 msgid "Enable Google+"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:268
+#: editor/editor.settings.config.php:268
 msgid "Enable Facebook"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:274
+#: editor/editor.settings.config.php:274
 msgid "Enable Twitter"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:280
+#: editor/editor.settings.config.php:280
 msgid "Enable LinkedIn"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:285
+#: editor/editor.settings.config.php:285
 msgid "Enable Pinterest"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:290
+#: editor/editor.settings.config.php:290
 msgid "Enable Buffer"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:295
+#: editor/editor.settings.config.php:295
 msgid "Enable Stumbleupon"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:315
+#: editor/editor.settings.config.php:315
 msgid "Enable debug?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:316
+#: editor/editor.settings.config.php:316
 msgid "PageLines debug"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:317
+#: editor/editor.settings.config.php:317
 #, php-format
 msgid "This information can be useful in the forums if you have a problem. %s"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:324
+#: editor/editor.settings.config.php:324
 msgid "Enable Code Prettify?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:325
+#: editor/editor.settings.config.php:325
 msgid "Google Prettify Code"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:326
+#: editor/editor.settings.config.php:326
 msgid ""
 "Add a class of 'prettyprint' to code or pre tags, or optionally use the "
 "[pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if "
 "Wordpress inserts line breaks."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:332
+#: editor/editor.settings.config.php:332
 msgid "Enter Partner Link"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:333
+#: editor/editor.settings.config.php:333
 msgid "PageLines Affiliate/Partner Link"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:334
+#: editor/editor.settings.config.php:334
 msgid ""
 "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines "
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:340
+#: editor/editor.settings.config.php:340
 msgid "Install Class"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:341
+#: editor/editor.settings.config.php:341
 msgid "Current Install Class"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:342
+#: editor/editor.settings.config.php:342
 msgid ""
 "Use this option to add a class to the &gt;body&lt; element of the website. "
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:357
+#: editor/editor.settings.config.php:357
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:358
+#: editor/editor.settings.config.php:358
 msgid "Reset Global Site Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:359
+#: editor/editor.settings.config.php:359
 msgid ""
 "Use this button to reset all global settings to their default state. <br/"
 "><strong>Note:</strong> Once you've completed this action, you may want to "
 "publish these changes to your live site."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:365
+#: editor/editor.settings.config.php:365
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:366
+#: editor/editor.settings.config.php:366
 msgid "Reset Current Page Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:367
+#: editor/editor.settings.config.php:367
 msgid ""
 "Use this button to reset all settings on the current page back to their "
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:374
+#: editor/editor.settings.config.php:374
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:375
+#: editor/editor.settings.config.php:375
 msgid "Clear all CSS/LESS cached data."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:376
+#: editor/editor.settings.config.php:376
 msgid ""
 "Use this button to purge the stored LESS/CSS data. This will also clear "
 "cached pages if wp-super-cache or w3-total-cache are detected."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:392
+#: editor/editor.settings.config.php:392
 msgid "Standard Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:398
+#: editor/editor.settings.config.php:398
 msgid "Styling Classes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.settings.config.php:399
+#: editor/editor.settings.config.php:399
 msgid "Separate with a space \" \""
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:202
+#: editor/editor.templates.php:202
 msgid "Templates"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:207
+#: editor/editor.templates.php:207
 msgid "Page Templates"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:209
+#: editor/editor.templates.php:209
 msgid "Your Templates"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:215
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:333
+#: editor/editor.templates.php:215
+#: editor/editor.templates.php:333
 msgid "Save New Template"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:249
+#: editor/editor.templates.php:249
 msgid "Load Template"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:252
+#: editor/editor.templates.php:252
 msgid "Active Template"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:257
+#: editor/editor.templates.php:257
 msgid "Actions"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:262
+#: editor/editor.templates.php:262
 msgid "Update Template with Current Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:267
+#: editor/editor.templates.php:267
 msgid "Set as Page Global Default"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:272
+#: editor/editor.templates.php:272
 msgid "Delete This Template"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:320
+#: editor/editor.templates.php:320
 msgid ""
 "Fill out this form and the current template will be saved for use throughout "
 "your site."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:322
+#: editor/editor.templates.php:322
 msgid ""
 "<strong>Note:</strong> Both the current page's local settings and section "
 "configurations will be saved."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:325
+#: editor/editor.templates.php:325
 msgid "Template Name (required)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:329
+#: editor/editor.templates.php:329
 msgid "Template Description"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:355
+#: editor/editor.templates.php:355
 msgid "No Name"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:509
+#: editor/editor.templates.php:509
 msgid "Default"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:510
+#: editor/editor.templates.php:510
 msgid "Standard page configuration. (Content and Primary Sidebar.)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:517
+#: editor/editor.templates.php:517
 msgid "Feature Template"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:518
+#: editor/editor.templates.php:518
 msgid ""
 "A page template designed to quickly and concisely show off key features or "
 "points. (RevSlider, iBoxes, Flipper)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:539
+#: editor/editor.templates.php:539
 msgid "Landing Page"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:540
+#: editor/editor.templates.php:540
 msgid "A simple page design with highlight section and postloop (content)."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:566
+#: editor/editor.templates.php:566
 msgid "DMS Page Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:618
+#: editor/editor.templates.php:618
 msgid "Load PageLines Template"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:631
+#: editor/editor.templates.php:631
 msgid "(no parent)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:639
+#: editor/editor.templates.php:639
 msgid "Parent Page"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.templates.php:644
+#: editor/editor.templates.php:644
 msgid "Page Order"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:71
+#: editor/editor.typography.php:71
 msgid "Primary Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:72
+#: editor/editor.typography.php:72
 msgid ""
 "The base font size is a reference that will be scaled for text used "
 "throughout the site. "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:87
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:128
+#: editor/editor.typography.php:87
+#: editor/editor.typography.php:128
 msgid "Base Font Size"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:102
+#: editor/editor.typography.php:102
 msgid "*These weights don't alwaye have an effect."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:111
+#: editor/editor.typography.php:111
 msgid "Text Headers <small>(h1-h6)</small>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:112
+#: editor/editor.typography.php:112
 msgid "Configure the typography for the text headers across your site."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:150
+#: editor/editor.typography.php:150
 msgid "Extra Fonts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/editor.typography.php:151
+#: editor/editor.typography.php:151
 msgid ""
 "<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
 "\">Google fonts</a> to your sites using this option.</p><p>For example, to "
@@ -912,475 +906,492 @@ msgid ""
 "p>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:37
+#: editor/panel.code.php:37
 msgid "Custom Code"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:42
+#: editor/panel.code.php:42
 msgid "Custom Design"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:45
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:70
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:74
+#: editor/panel.code.php:45
+#: editor/panel.code.php:70
+#: editor/panel.code.php:74
 msgid "Custom LESS/CSS"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:50
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:87
+#: editor/panel.code.php:50
+#: editor/panel.code.php:87
 msgid "Custom Scripts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:75
+#: editor/panel.code.php:75
 msgid "Tip"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:75
+#: editor/panel.code.php:75
 msgid "Hit [Cmd&#8984;+Return] or [Ctrl+Return] to Preview Live"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.code.php:91
+#: editor/panel.code.php:91
 msgid "Custom Javascript or Header HTML"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:21
+#: editor/panel.extend.php:21
 msgid "Store"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:25
+#: editor/panel.extend.php:25
 msgid "Extend PageLines"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:27
+#: editor/panel.extend.php:27
 msgid "PageLines Store"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:41
+#: editor/panel.extend.php:41
 msgid "Featured"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:48
+#: editor/panel.extend.php:48
 msgid "Sections"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:54
+#: editor/panel.extend.php:54
 msgid "Plugins"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:60
+#: editor/panel.extend.php:60
 msgid "Themes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:66
+#: editor/panel.extend.php:66
 msgid "Free"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:72
+#: editor/panel.extend.php:72
 msgid "Premium"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:84
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.elements.php:93
+#: editor/panel.extend.php:84
+#: includes/lib.elements.php:93
 msgid "Search"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:99
+#: editor/panel.extend.php:99
 msgid "Upload a .zip extension into your PageLines install using this tool."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:101
+#: editor/panel.extend.php:101
 msgid "Extension File (zip file - required)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:104
+#: editor/panel.extend.php:104
 msgid "Upload Extension"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:116
+#: editor/panel.extend.php:116
 msgid "Search the PageLines store for extensions."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:121
+#: editor/panel.extend.php:121
 msgid "Search Store"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:143
+#: editor/panel.extend.php:143
 msgid " found for "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:151
+#: editor/panel.extend.php:151
 msgid "Demo "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:157
+#: editor/panel.extend.php:157
 msgid "Overview "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:192
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:195
+#: editor/panel.extend.php:192
+#: editor/panel.extend.php:195
 msgid "Free!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.extend.php:197
+#: editor/panel.extend.php:197
 msgid "<i class=\"icon-sun\"></i> Karma"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:21
+#: editor/panel.sections.php:21
 msgid "Add Sections"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:25
+#: editor/panel.sections.php:25
 msgid "<i class='icon-random'></i> Drag to Add"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:27
+#: editor/panel.sections.php:27
 msgid "Your Sections"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:29
+#: editor/panel.sections.php:29
 msgid "Drag on to page to add"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:30
+#: editor/panel.sections.php:30
 msgid "Reload Sections"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:36
+#: editor/panel.sections.php:36
 msgid "Get More Sections"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:40
+#: editor/panel.sections.php:40
 msgid "<i class='icon-filter'></i> Filters"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:42
+#: editor/panel.sections.php:42
 msgid "Components"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:48
+#: editor/panel.sections.php:48
 msgid "Layouts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:54
+#: editor/panel.sections.php:54
 msgid "Full Width"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:60
+#: editor/panel.sections.php:60
 msgid "Post Layouts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:66
+#: editor/panel.sections.php:66
 msgid "Galleries"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:72
+#: editor/panel.sections.php:72
 msgid "Navigation"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:78
+#: editor/panel.sections.php:78
 msgid "Sliders"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:84
+#: editor/panel.sections.php:84
 msgid "Social"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:90
+#: editor/panel.sections.php:90
 msgid "Widgetized"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.sections.php:96
+#: editor/panel.sections.php:96
 msgid "Miscellaneous"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.settings.php:27
+#: editor/panel.settings.php:27
 msgid "Global Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.settings.php:34
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.settings.php:73
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.settings.php:81
+#: editor/panel.settings.php:34
+#: editor/panel.settings.php:73
+#: editor/panel.settings.php:81
 msgid "Section Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.settings.php:51
+#: editor/panel.settings.php:51
 msgid "Global Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:23
+#: editor/panel.themes.php:23
 msgid "Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:39
+#: editor/panel.themes.php:39
 msgid "Available Themes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:46
+#: editor/panel.themes.php:46
 msgid "Import Config"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:53
+#: editor/panel.themes.php:53
 msgid "Get More Themes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:74
+#: editor/panel.themes.php:74
 msgid "Theme Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:173
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:193
+#: editor/panel.themes.php:173
+#: editor/panel.themes.php:193
 msgid "Theme does not exist or is not allowed"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/editor/panel.themes.php:235
+#: editor/panel.themes.php:235
 msgid " this is the end of the world.... >> "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.objects.php:109
+#: includes/class.objects.php:109
 msgid "Edit"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.register.php:358
+#: includes/class.register.php:358
 msgid "<h2>Unable to fetch from API</h2>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:317
+#: includes/class.shortcodes.php:317
 msgid "<span class='editpage sc'>Edit</span>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:367
+#: includes/class.shortcodes.php:367
 msgid "Tagged With: "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:391
+#: includes/class.shortcodes.php:391
 msgid "Type: "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:422
+#: includes/class.shortcodes.php:422
 msgid "Add Comment"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:423
+#: includes/class.shortcodes.php:423
 msgid "<span class='num'>1</span> Comment"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:424
+#: includes/class.shortcodes.php:424
 msgid "<span class='num'>%</span> Comments"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:501
+#: includes/class.shortcodes.php:501
 #, php-format
 msgid "Visit %s&#8217;s website"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/class.shortcodes.php:1342
+#: includes/class.shortcodes.php:1342
 msgid "Close"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1312
+#: includes/deprecated.php:1312
 msgid "No Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1519
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1520
+#: includes/deprecated.php:1519
+#: includes/deprecated.php:1520
 msgid "Add New "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1521
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1522
+#: includes/deprecated.php:1521
+#: includes/deprecated.php:1522
 msgid "Edit "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1523
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/deprecated.php:1524
+#: includes/deprecated.php:1523
+#: includes/deprecated.php:1524
 msgid "View "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.editor.php:63
+#: includes/less.legacy.php:443
+#: includes/less.legacy.php:767
+#, php-format
+msgid ""
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
+"*/"
+msgstr ""
+
+#: includes/less.legacy.php:510
+msgid "LESS Compile error!"
+msgstr ""
+
+#: includes/less.legacy.php:517
+#, php-format
+msgid "Error in %s Less code: %s"
+msgstr ""
+
+#: includes/lib.editor.php:72
 msgid "(Pro Edition Only)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.elements.php:39
+#: includes/lib.elements.php:39
 msgid "Add Widgets &rarr;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.elements.php:126
+#: includes/lib.elements.php:126
 msgid "&larr; Previous Entries"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.elements.php:129
+#: includes/lib.elements.php:129
 msgid "Next Entries &rarr;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.elements.php:166
+#: includes/lib.elements.php:166
 #, php-format
 msgid ""
 "<ul class='inline-list'>Please select a nav menu for this area in the <a "
 "href='%s'>WordPress menu admin</a>.</ul>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.elements.php:269
+#: includes/lib.elements.php:269
 msgid "edit"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.head.php:65
+#: includes/lib.head.php:65
 msgid "Google Profile URL"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.head.php:299
+#: includes/lib.head.php:299
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.head.php:321
+#: includes/lib.head.php:321
 msgid "|"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.head.php:333
+#: includes/lib.head.php:333
 #, php-format
 msgid "Search Results: %s"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.head.php:337
+#: includes/lib.head.php:337
 #, php-format
 msgid "Page: %s"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.utils.php:141
+#: includes/lib.utils.php:140
 #, php-format
 msgid "Configure %s <i class=\"icon-arrow-right\"></i>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/lib.utils.php:145
+#: includes/lib.utils.php:144
 msgid "Configure this section"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/includes/library.pagelines.php:14
+#: includes/library.pagelines.php:14
 msgid "Dashboard"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:52
+#: sections/columnizer/section.php:52
 msgid "Columnizer Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:59
+#: sections/columnizer/section.php:59
 msgid "Select Widgetized Area"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:60
+#: sections/columnizer/section.php:60
 msgid "Select widgetized area"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:61
+#: sections/columnizer/section.php:61
 msgid "Select the widgetized area you would like to use with this instance."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:69
+#: sections/columnizer/section.php:69
 msgid "Number of Grid Columns for Each Widget (12 Col Grid)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:78
+#: sections/columnizer/section.php:79
 msgid "Widgetized Areas Help"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:79
+#: sections/columnizer/section.php:80
 msgid "Edit Widgetized Areas"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:80
+#: sections/columnizer/section.php:81
 msgid ""
 "This section uses widgetized areas that are created and edited in inside "
 "your admin."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:86
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:87
+#: sections/columnizer/section.php:88
+#: sections/columnizer/section.php:89
 msgid "Column Site Description"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:88
+#: sections/columnizer/section.php:90
 msgid ""
 "If you use the default display of the columnizer, this field is used as a "
 "description of your company. You may want to add your address or links."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:97
+#: sections/columnizer/section.php:100
 msgid "Get Custom Sidebars"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:144
+#: sections/columnizer/section.php:147
 msgid "Stay in Touch!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:170
+#: sections/columnizer/section.php:173
 msgid "The Latest"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:194
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:56
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:135
+#: sections/columnizer/section.php:197
+#: sections/rapidtabs/section.php:56
+#: sections/rapidtabs/section.php:138
 msgid "Tags"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:205
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sb_primary/section.php:42
+#: sections/columnizer/section.php:208
+#: sections/sb_primary/section.php:42
 msgid "Categories"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/columnizer/section.php:219
+#: sections/columnizer/section.php:222
 msgid "More Info"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:47
+#: sections/flipper/section.php:47
 msgid "Flipper Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:55
+#: sections/flipper/section.php:55
 msgid "Which post type should Flipper use?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:56
+#: sections/flipper/section.php:56
 msgid ""
 "<strong>Note</strong><br/> Post types for this section must have \"featured "
 "images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
 "to create custom post types for use with Flipper."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:69
+#: sections/flipper/section.php:69
 msgid "Max Number of Posts Shown"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:70
+#: sections/flipper/section.php:70
 msgid ""
 "This controls the maximum number of posts shown. A smaller amount may be "
 "shown based on layout width."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:77
+#: sections/flipper/section.php:77
 msgid "Select Image Size"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:84
+#: sections/flipper/section.php:84
 msgid "Flipper Title"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:86
+#: sections/flipper/section.php:86
 msgid "Options to control the text and link in the Flipper title."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:91
+#: sections/flipper/section.php:91
 msgid "Flipper Title Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:96
+#: sections/flipper/section.php:96
 msgid "Hide Title Link?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:108
+#: sections/flipper/section.php:108
 msgid "Flipper Meta"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:109
+#: sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
 "use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
@@ -1395,899 +1406,896 @@ msgid ""
 "Type of post</li></ul>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:117
+#: sections/flipper/section.php:117
 msgid "Total Posts Loaded"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:126
+#: sections/flipper/section.php:126
 msgid "Meta Key"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:127
+#: sections/flipper/section.php:127
 msgid ""
 "Select only posts which have a certain meta key and corresponding meta "
 "value. Useful for featured posts, or similar."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:133
+#: sections/flipper/section.php:133
 msgid "Meta Key Value"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:148
+#: sections/flipper/section.php:148
 msgid "Only applies for standard blog posts."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:157
+#: sections/flipper/section.php:157
 msgid "Additional Post Selection"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:219
+#: sections/flipper/section.php:219
 msgid " / View All"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:224
+#: sections/flipper/section.php:224
 msgid " / View Blog"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/flipper/section.php:266
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:500
+#: sections/flipper/section.php:266
+#: sections/postloop/class.posts.php:505
 msgid "View"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:27
+#: sections/hero/section.php:27
 msgid "Hero Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:34
+#: sections/hero/section.php:34
 msgid "Heading"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:39
+#: sections/hero/section.php:39
 msgid "Subtext"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:44
+#: sections/hero/section.php:44
 msgid "Hero Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:50
+#: sections/hero/section.php:50
 msgid "Upload Custom Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:55
+#: sections/hero/section.php:55
 msgid "Reverse the Hero unit (image on left)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:59
+#: sections/hero/section.php:59
 msgid "Content Widths"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:65
+#: sections/hero/section.php:65
 msgid "Text Area Width"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:81
+#: sections/hero/section.php:81
 msgid "Image Area Width"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:99
+#: sections/hero/section.php:99
 msgid "Hero Action Button"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:107
+#: sections/hero/section.php:107
 msgid "Button link destination (URL - Required)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:112
+#: sections/hero/section.php:112
 msgid "Hero Button Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:118
+#: sections/hero/section.php:118
+#: sections/icallout/section.php:57
 msgid "Open link in new window"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:121
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:118
+#: sections/hero/section.php:121
+#: sections/masthead/section.php:118
 msgid "Select Button Color"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:127
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:65
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:370
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:382
+#: sections/hero/section.php:127
+#: sections/navbar/section.php:65
+#: sections/navbar/section.php:370
+#: sections/navbar/section.php:382
 msgid "Blue"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:128
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:67
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:372
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:384
+#: sections/hero/section.php:128
+#: sections/navbar/section.php:67
+#: sections/navbar/section.php:372
+#: sections/navbar/section.php:384
 msgid "Orange"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:129
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:68
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:373
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:385
+#: sections/hero/section.php:129
+#: sections/navbar/section.php:68
+#: sections/navbar/section.php:373
+#: sections/navbar/section.php:385
 msgid "Red"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:130
+#: sections/hero/section.php:130
 msgid "Green"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:131
+#: sections/hero/section.php:131
 msgid "Light Blue"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:132
+#: sections/hero/section.php:132
 msgid "Grey"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:166
+#: sections/hero/section.php:166
 msgid "The Hero!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/hero/section.php:167
+#: sections/hero/section.php:167
 msgid "Now just set up your Hero section options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:29
+#: sections/highlight/section.php:29
 msgid "Select Format"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:31
+#: sections/highlight/section.php:31
 msgid "Highlight Format"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:33
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:121
+#: sections/highlight/section.php:33
+#: sections/highlight/section.php:121
 msgid "Image on top of text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:34
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:122
+#: sections/highlight/section.php:34
+#: sections/highlight/section.php:122
 msgid "Image on bottom of text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:35
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:123
+#: sections/highlight/section.php:35
+#: sections/highlight/section.php:123
 msgid "No text, just the image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:40
+#: sections/highlight/section.php:40
 msgid "Highlight Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:47
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:95
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:102
+#: sections/highlight/section.php:47
+#: sections/highlight/section.php:95
+#: sections/highlight/section.php:102
 msgid "Highlight Header Text (Optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:53
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:108
+#: sections/highlight/section.php:53
+#: sections/highlight/section.php:108
 msgid "Highlight Subheader Text (Optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:60
+#: sections/highlight/section.php:60
 msgid "Highlight Image and Format"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:66
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:114
+#: sections/highlight/section.php:66
+#: sections/highlight/section.php:114
 msgid "Upload Splash Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:71
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:128
+#: sections/highlight/section.php:71
+#: sections/highlight/section.php:128
 msgid "Add frame to image?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:96
+#: sections/highlight/section.php:96
 msgid "Add the main header text for the highlight section."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:119
+#: sections/highlight/section.php:119
 msgid "Highlight Image Style"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:165
+#: sections/highlight/section.php:165
 msgid "Here's to the crazy ones..."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/highlight/section.php:166
+#: sections/highlight/section.php:166
 msgid "This is your Highlight section. Set up the options to configure."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:23
+#: sections/ibox/section.php:23
 msgid "iBox Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:32
+#: sections/ibox/section.php:33
 msgid "Number of iBoxes to Configure"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:40
+#: sections/ibox/section.php:41
 msgid "Number of Columns for Each Box (12 Col Grid)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:46
+#: sections/ibox/section.php:47
 msgid "Icon Font"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:47
+#: sections/ibox/section.php:48
 msgid "Images"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:48
+#: sections/ibox/section.php:49
 msgid "Text Only, No Media"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:51
+#: sections/ibox/section.php:52
 msgid "Select iBox Media Type"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:57
+#: sections/ibox/section.php:58
 msgid "Media on Top"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:58
+#: sections/ibox/section.php:59
 msgid "Media at Left"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:61
+#: sections/ibox/section.php:62
 msgid "Select the iBox Media Location"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:71
+#: sections/ibox/section.php:72
 msgid "iBoxes Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:72
+#: sections/ibox/section.php:73
 msgid "iBox"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:76
+#: sections/ibox/section.php:77
 msgid "iBox Title"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:81
+#: sections/ibox/section.php:82
 msgid "iBox Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:86
+#: sections/ibox/section.php:87
 msgid "iBox Link (Optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:91
+#: sections/ibox/section.php:92
 msgid "iBox Class (Optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:96
+#: sections/ibox/section.php:97
 msgid "iBox Icon"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:101
+#: sections/ibox/section.php:102
 msgid "iBox Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:216
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:330
+#: sections/ibox/section.php:217
+#: sections/ibox/section.php:331
 msgid "More"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/ibox/section.php:325
+#: sections/ibox/section.php:326
 msgid "iBox "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:24
+#: sections/icallout/section.php:24
 msgid "Callout Format"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:26
+#: sections/icallout/section.php:26
 msgid "Text on top of button"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:27
+#: sections/icallout/section.php:27
 msgid "Text/Button Inline"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:32
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:38
+#: sections/icallout/section.php:32
+#: sections/icallout/section.php:38
 msgid "Callout Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:51
+#: sections/icallout/section.php:51
 msgid "URL"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:56
+#: sections/icallout/section.php:62
 msgid "Text on Button"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:61
+#: sections/icallout/section.php:67
 msgid "Button Color"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/icallout/section.php:82
+#: sections/icallout/section.php:89
 msgid "Call to action!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:47
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:246
+#: sections/masthead/section.php:47
+#: sections/masthead/section.php:246
 msgid "Masthead Splash Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:53
+#: sections/masthead/section.php:53
 msgid "Upload custom image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:58
+#: sections/masthead/section.php:58
 msgid "Masthead Video (optional, to be used instead of image)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:63
+#: sections/masthead/section.php:63
 msgid "Maximum width of splash in px (default is full width)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:66
+#: sections/masthead/section.php:66
 msgid ""
 "Upload an image to serve as a splash image, or use an embed code for full "
 "width video."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:71
+#: sections/masthead/section.php:71
 msgid "Masthead Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:72
+#: sections/masthead/section.php:72
 msgid " Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:77
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:30
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:69
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:53
+#: sections/masthead/section.php:77
+#: sections/mediabox/section.php:30
+#: sections/popthumbs/section.php:69
+#: sections/propricing/section.php:53
 msgid "Title"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:82
+#: sections/masthead/section.php:82
 msgid "Tagline"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:94
+#: sections/masthead/section.php:94
 msgid "Masthead Action Button "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:99
+#: sections/masthead/section.php:99
 msgid "Enter the link destination (URL - Required)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:105
+#: sections/masthead/section.php:105
 msgid "Masthead Button Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:112
+#: sections/masthead/section.php:112
 msgid "Open link in new window."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:130
+#: sections/masthead/section.php:130
 msgid "Masthead Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:131
+#: sections/masthead/section.php:131
 msgid "Select Masthead Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:136
+#: sections/masthead/section.php:136
 msgid "Masthead Meta"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:137
+#: sections/masthead/section.php:137
 msgid "Enter Masthead Meta Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:194
+#: sections/masthead/section.php:194
 msgid "Start Here"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:247
+#: sections/masthead/section.php:247
 msgid ""
 "Enter the options for the masthead splash image. If no options are "
 "specified, no image will be shown."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:279
+#: sections/masthead/section.php:279
 msgid "Masthead Action Button 1"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:280
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:315
+#: sections/masthead/section.php:280
+#: sections/masthead/section.php:315
 msgid ""
 "Enter the options for the masthead button. If no options are specified, no "
 "button will be shown."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:314
+#: sections/masthead/section.php:314
 msgid "Masthead Action Button 2"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:348
+#: sections/masthead/section.php:348
 msgid "Choose a Wordpress menu to display (optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/masthead/section.php:354
+#: sections/masthead/section.php:354
 msgid "Enter text to be shown on Masthead (optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:18
+#: sections/mediabox/section.php:18
 msgid "MediaBox Media"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:25
+#: sections/mediabox/section.php:25
 msgid "MediaBox Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:35
+#: sections/mediabox/section.php:35
 msgid "Text and Embed HTML"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:36
+#: sections/mediabox/section.php:36
 msgid ""
 "Enter rich media \"embed\" HTML in this field to add videos, etc.. instead "
 "of an image."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:49
+#: sections/mediabox/section.php:50
 msgid "Text/Media Alignment"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:51
+#: sections/mediabox/section.php:52
 msgid "Align Center (Default)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:52
+#: sections/mediabox/section.php:53
 msgid "Align Left"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:53
+#: sections/mediabox/section.php:54
 msgid "Align Right"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:60
+#: sections/mediabox/section.php:61
 msgid "MediaBox Min Height (px)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:61
+#: sections/mediabox/section.php:62
 msgid ""
 "Required for \"cover\" mode. Otherwise the mediabox will be drawn at the "
 "height of the media."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:66
+#: sections/mediabox/section.php:67
 msgid "Disable Media Vertical Centering?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:78
-msgid "MediaBox Background Image"
-msgstr ""
-
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:85
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:69
+#: sections/mediabox/section.php:72
+#: sections/textbox/section.php:70
 msgid "Viewport Animation"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/mediabox/section.php:86
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:70
+#: sections/mediabox/section.php:73
+#: sections/textbox/section.php:71
 msgid "Optionally animate the appearance of this section on view."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:61
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:379
+#: sections/mediabox/section.php:86
+msgid "MediaBox Background Image"
+msgstr ""
+
+#: sections/navbar/section.php:61
+#: sections/navbar/section.php:379
 msgid "Standard NavBar - Select Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:63
+#: sections/navbar/section.php:63
 msgid "Base Color"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:64
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:369
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:381
+#: sections/navbar/section.php:64
+#: sections/navbar/section.php:369
+#: sections/navbar/section.php:381
 msgid "Black (Default)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:66
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:371
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:383
+#: sections/navbar/section.php:66
+#: sections/navbar/section.php:371
+#: sections/navbar/section.php:383
 msgid "Light Grey"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:72
+#: sections/navbar/section.php:72
 msgid "NavBar Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:73
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:391
+#: sections/navbar/section.php:73
+#: sections/navbar/section.php:391
 msgid ""
 "The NavBar comes with several color options. Select one to automatically "
 "configure."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:79
+#: sections/navbar/section.php:79
 msgid "NavBar Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:80
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:412
+#: sections/navbar/section.php:80
+#: sections/navbar/section.php:412
 msgid "The NavBar uses WordPress menus. Select one for use."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:85
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/simple_nav/section.php:34
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/simple_nav/section.php:40
+#: sections/navbar/section.php:85
+#: sections/simple_nav/section.php:34
+#: sections/simple_nav/section.php:40
 msgid "Select Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:94
+#: sections/navbar/section.php:94
 msgid "NavBar Configuration Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:99
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:100
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:445
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:446
+#: sections/navbar/section.php:99
+#: sections/navbar/section.php:100
+#: sections/navbar/section.php:445
+#: sections/navbar/section.php:446
 msgid "NavBar Title"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:101
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:448
+#: sections/navbar/section.php:101
+#: sections/navbar/section.php:448
 msgid ""
 "Add text to the NavBar to serve as a title, but only displayed on small "
 "screens."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:106
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:422
+#: sections/navbar/section.php:106
+#: sections/navbar/section.php:422
 msgid "Activate dropdowns on hover."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:113
+#: sections/navbar/section.php:113
 msgid "Align Menu Right? (Defaults Left)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:118
+#: sections/navbar/section.php:118
 msgid "Hide Search?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:152
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:153
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:344
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:345
+#: sections/navbar/section.php:152
+#: sections/navbar/section.php:153
+#: sections/navbar/section.php:344
+#: sections/navbar/section.php:345
 msgid "Enable Fixed Navigation Bar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:154
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:347
+#: sections/navbar/section.php:154
+#: sections/navbar/section.php:347
 msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:162
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:163
+#: sections/navbar/section.php:162
+#: sections/navbar/section.php:163
 msgid "NavBar Logo"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:164
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:356
+#: sections/navbar/section.php:164
+#: sections/navbar/section.php:356
 msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:293
+#: sections/navbar/section.php:293
 msgid "MENU"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:346
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:355
+#: sections/navbar/section.php:346
+#: sections/navbar/section.php:355
 msgid "Applies a fixed navigation bar to the top of your site"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:353
+#: sections/navbar/section.php:353
 msgid "Fixed NavBar Logo"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:354
+#: sections/navbar/section.php:354
 msgid "Fixed NavBar - NavBar Logo"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:367
+#: sections/navbar/section.php:367
 msgid "Fixed NavBar - Select Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:389
+#: sections/navbar/section.php:389
 msgid "NavBar and Fixed NavBar Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:390
+#: sections/navbar/section.php:390
 msgid "Select the color and theme of the NavBar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:402
+#: sections/navbar/section.php:402
 msgid "Fixed NavBar - Select Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:407
+#: sections/navbar/section.php:407
 msgid "Standard NavBar - Select Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:410
+#: sections/navbar/section.php:410
 msgid "NavBar and Fixed NavBar Menu"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:411
+#: sections/navbar/section.php:411
 msgid "Select the WordPress Menu for the NavBar(s)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:426
+#: sections/navbar/section.php:426
 msgid "Fixed NavBar - Align Menu Right? (Defaults Left)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:429
+#: sections/navbar/section.php:429
 msgid "Fixed NavBar - Hide Searchform?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:432
+#: sections/navbar/section.php:432
 msgid "Standard NavBar - Align Menu Right? (Defaults Left)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:435
+#: sections/navbar/section.php:435
 msgid "Standard NavBar - Hide Searchform?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:438
+#: sections/navbar/section.php:438
 msgid "Configure Options for NavBars"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:439
+#: sections/navbar/section.php:439
 msgid "NavBar and Fixed NavBar Configuration Options"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:440
+#: sections/navbar/section.php:440
 msgid "Control various appearance options for the NavBars"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/navbar/section.php:447
+#: sections/navbar/section.php:447
 msgid "Applies text to NavBar on small screens. Not available on Fixed NavBar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:22
+#: sections/noposts/section.php:22
 msgid ""
 "Direct Previewing <em>of</em> &quot;Special Post Types&quot; Not "
 "Available... Yet"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:23
+#: sections/noposts/section.php:23
 msgid ""
 "Sorry, direct previewing of special post types such as <strong>features</"
 "strong> or <strong>boxes</strong> is unavailable. This WordPress "
 "functionality is new and rapidly developing, so it should be available soon."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:25
+#: sections/noposts/section.php:25
 msgid ""
 "To preview a &quot;custom post type&quot; just view a page with that &quot;"
 "section&quot; on it."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:30
+#: sections/noposts/section.php:30
 msgid "404!"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:31
+#: sections/noposts/section.php:31
 msgid "Sorry, This Page Does not exist."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:31
+#: sections/noposts/section.php:31
 msgid "Go"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:31
+#: sections/noposts/section.php:31
 msgid "home"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/noposts/section.php:31
+#: sections/noposts/section.php:31
 msgid "or try a search?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:27
+#: sections/pl_area/section.php:27
 msgid "Section Area Layout"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:32
+#: sections/pl_area/section.php:32
 msgid "Default Area Padding (px)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:36
+#: sections/pl_area/section.php:36
 msgid ""
 "If sections are added to full width areas, the area will be givin this "
 "default padding."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:53
+#: sections/pl_area/section.php:53
 msgid "Set Area Padding"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:61
+#: sections/pl_area/section.php:61
 msgid "Area Padding (px)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:69
+#: sections/pl_area/section.php:69
 msgid "Area Padding Bottom (if different)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:80
+#: sections/pl_area/section.php:80
 msgid "Area Styling"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:102
+#: sections/pl_area/section.php:102
 msgid "Area Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:108
+#: sections/pl_area/section.php:108
 msgid "Area Minimum Height (px)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:119
+#: sections/pl_area/section.php:119
 msgid "Area Background"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:126
-msgid "Background Image"
-msgstr ""
-
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:131
+#: sections/pl_area/section.php:131
 msgid "Repeat Background Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/pl_area/section.php:136
+#: sections/pl_area/section.php:136
 msgid "Enable Background Parallax"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:42
+#: sections/popthumbs/section.php:42
 msgid "PopThumb Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:51
+#: sections/popthumbs/section.php:51
 msgid "Number of Columns for Each Thumb (12 Col Grid)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:62
+#: sections/popthumbs/section.php:62
 msgid "PopThumbs Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:63
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:80
+#: sections/popthumbs/section.php:63
+#: sections/popthumbs/section.php:80
 msgid "Thumb"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:74
+#: sections/popthumbs/section.php:74
 msgid "Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/popthumbs/section.php:85
+#: sections/popthumbs/section.php:85
 msgid "Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postauthor/section.php:35
+#: sections/postauthor/section.php:35
 msgid "Author Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postauthor/section.php:37
+#: sections/postauthor/section.php:37
 msgid ""
 "This section uses the author's profile information. Set that in your admin."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postauthor/section.php:68
+#: sections/postauthor/section.php:68
 msgid "Author"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postauthor/section.php:77
+#: sections/postauthor/section.php:77
 msgid "Visit Authors Website &rarr;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postauthor/section.php:80
+#: sections/postauthor/section.php:80
 msgid "Authors Google Profile &rarr;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:37
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:182
+#: sections/postloop/class.posts.php:37
+#: sections/postloop/section.php:188
 msgid "Read More &raquo;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:235
+#: sections/postloop/class.posts.php:240
 msgid "<div class='pagination'><span class='desc'>pages:</span><ul>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:248
+#: sections/postloop/class.posts.php:253
 msgid "<span class='note'>Tagged with &rarr;</span> "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:400
+#: sections/postloop/class.posts.php:405
 msgid "Link To"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:425
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:430
+#: sections/postloop/class.posts.php:430
+#: sections/postloop/class.posts.php:435
 msgid "On"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:425
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:430
+#: sections/postloop/class.posts.php:430
+#: sections/postloop/class.posts.php:435
 msgid "By"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:430
+#: sections/postloop/class.posts.php:435
 msgid "In"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:691
+#: sections/postloop/class.posts.php:696
 #, php-format
 msgid "No results for &quot;%s&quot;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:691
+#: sections/postloop/class.posts.php:696
 msgid "Nothing Found"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:693
+#: sections/postloop/class.posts.php:698
 msgid "Try another search?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/class.posts.php:693
+#: sections/postloop/class.posts.php:698
 msgid "Sorry, what you are looking for isn't here."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:28
+#: sections/postloop/section.php:28
 msgid "Edit Post Content"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:29
+#: sections/postloop/section.php:29
 msgid "<i class=\"icon-edit\"></i> Edit Post Info"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:30
+#: sections/postloop/section.php:30
 msgid ""
 "This section uses WordPress posts. Edit post information using WordPress "
 "admin."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:37
+#: sections/postloop/section.php:37
 msgid "Page Title"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:43
+#: sections/postloop/section.php:43
 msgid "Layout <span class=\"spamp\">&amp;</span> Config"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:51
+#: sections/postloop/section.php:52
 msgid "Magazine Layout Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:52
+#: sections/postloop/section.php:53
 msgid "List Layout Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:54
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:55
+#: sections/postloop/section.php:55
+#: sections/postloop/section.php:56
 msgid "Posts Layout Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:56
+#: sections/postloop/section.php:57
 msgid ""
 "Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
 "Layout Mode</strong><br/> Magazine layout mode makes use of post "
@@ -2299,34 +2307,34 @@ msgid ""
 "main content column."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:65
+#: sections/postloop/section.php:66
 msgid "Number of Full Width Posts? (Mag. Mode)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:66
+#: sections/postloop/section.php:67
 msgid "Full Width Posts (Magazine Layout Mode Only)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:67
+#: sections/postloop/section.php:68
 msgid ""
 "Select the number of posts you would like shown at the full width of the "
 "main content column in magazine layout mode (the rest will be half-width "
 "post <strong>clips</strong>)."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:74
+#: sections/postloop/section.php:75
 msgid "Show Full Post Content"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:75
+#: sections/postloop/section.php:76
 msgid "Optionally show full post content on special post listing pages."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:83
+#: sections/postloop/section.php:85
 msgid "Meta Config"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:85
+#: sections/postloop/section.php:88
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
@@ -2341,142 +2349,142 @@ msgid ""
 "Type of post</li></ul>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:90
+#: sections/postloop/section.php:93
 msgid "Select Meta Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:91
+#: sections/postloop/section.php:94
 msgid "Meta Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:96
+#: sections/postloop/section.php:99
 msgid ""
 "Instead of the standard metabar (beneath post title), you can use author "
 "meta mode. This mode displays the author avatar and publish date on left."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:103
+#: sections/postloop/section.php:106
 msgid "Configure Full Width Post Metabar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:104
+#: sections/postloop/section.php:107
 msgid "Post Meta Information"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:112
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:113
+#: sections/postloop/section.php:115
+#: sections/postloop/section.php:116
 msgid "Configure Clip Metabar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:120
+#: sections/postloop/section.php:124
 msgid "Thumbs"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:130
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:146
+#: sections/postloop/section.php:135
+#: sections/postloop/section.php:151
 msgid "Left Justified"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:131
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:147
+#: sections/postloop/section.php:136
+#: sections/postloop/section.php:152
 msgid "On Top"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:132
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:148
+#: sections/postloop/section.php:137
+#: sections/postloop/section.php:153
 msgid "Left, In Excerpt"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:133
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:149
+#: sections/postloop/section.php:138
+#: sections/postloop/section.php:154
 msgid "Right, In Excerpt"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:135
+#: sections/postloop/section.php:140
 msgid "Full Width Thumbs Layout"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:136
+#: sections/postloop/section.php:141
 msgid ""
 "Use this option to configure how thumbs will be shown in full-width posts on "
 "your blog page."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:151
+#: sections/postloop/section.php:156
 msgid "Clip Thumbs Layout"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:152
+#: sections/postloop/section.php:157
 msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:158
+#: sections/postloop/section.php:163
 msgid "Hide thumbs?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:159
+#: sections/postloop/section.php:164
 msgid "Post Thumbnails"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:160
+#: sections/postloop/section.php:165
 msgid "Use this option to hide or show thumbs for posts on pages."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:168
+#: sections/postloop/section.php:174
 msgid "Excerpts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:175
+#: sections/postloop/section.php:181
 msgid "Hide excerpts?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:176
+#: sections/postloop/section.php:182
 msgid "Hide Post Excerpt"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:177
+#: sections/postloop/section.php:183
 msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:184
+#: sections/postloop/section.php:190
 msgid "Continue Reading Link Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:185
+#: sections/postloop/section.php:191
 msgid "Excerpts <strong>Continue Reading</strong> Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:186
+#: sections/postloop/section.php:192
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:193
+#: sections/postloop/section.php:199
 msgid "Number of words."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:194
+#: sections/postloop/section.php:200
 msgid "Excerpt Length"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:195
+#: sections/postloop/section.php:201
 msgid "Excerpts are set to 55 words by default."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:202
+#: sections/postloop/section.php:208
 msgid "Allowed Tags"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:203
+#: sections/postloop/section.php:209
 msgid "Allow Tags in Excerpt"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postloop/section.php:204
+#: sections/postloop/section.php:210
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
@@ -2485,208 +2493,208 @@ msgid ""
 "strong> to disallow all tags."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:29
+#: sections/postsinfo/section.php:29
 msgid "Search results for"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:31
+#: sections/postsinfo/section.php:31
 msgid "Currently viewing the category:"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:33
+#: sections/postsinfo/section.php:33
 msgid "Currently viewing the tag:"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:40
+#: sections/postsinfo/section.php:40
 msgid "Posts by:"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:42
+#: sections/postsinfo/section.php:42
 msgid "From the daily archives:"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:44
+#: sections/postsinfo/section.php:44
 msgid "From the monthly archives:"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:46
+#: sections/postsinfo/section.php:46
 msgid "From the yearly archives:"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/postsinfo/section.php:57
+#: sections/postsinfo/section.php:57
 msgid "Viewing archives for "
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:28
+#: sections/propricing/section.php:28
 msgid "ProPricing Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:38
+#: sections/propricing/section.php:38
 msgid "Number of Columns for Each Plan (12 Col Grid)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:48
+#: sections/propricing/section.php:48
 msgid "Pricing Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:49
+#: sections/propricing/section.php:49
 msgid "Column"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:58
+#: sections/propricing/section.php:58
 msgid "Price"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:63
+#: sections/propricing/section.php:63
 msgid "Before Price Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:65
+#: sections/propricing/section.php:65
 msgid "Typically you will add the monetary unit here. E.g. \"$\""
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:69
+#: sections/propricing/section.php:69
 msgid "After Price Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:71
+#: sections/propricing/section.php:71
 msgid "Typically you will add the recurring amount here. E.g. \"/ MO\""
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:75
+#: sections/propricing/section.php:75
 msgid "Sub Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:80
+#: sections/propricing/section.php:80
 msgid "Link URL"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:85
+#: sections/propricing/section.php:85
 msgid "Link Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:90
+#: sections/propricing/section.php:90
 msgid "Button Theme"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:95
+#: sections/propricing/section.php:95
 msgid "Attributes"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/propricing/section.php:97
+#: sections/propricing/section.php:97
 msgid "Add each attribute on a new line. Add a \"*\" in front to add emphasis."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:157
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:22
+#: sections/quickslider/section.php:157
+#: sections/revslider/section.php:22
 msgid "Slider Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:164
+#: sections/quickslider/section.php:164
 msgid "Select Transition Type"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:166
+#: sections/quickslider/section.php:166
 msgid "Use Fading Transition"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:167
+#: sections/quickslider/section.php:167
 msgid "Use Slide/Horizontal Transition"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:174
+#: sections/quickslider/section.php:174
 msgid "Use Both Arrow and Slide Control Navigation"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:175
+#: sections/quickslider/section.php:175
 msgid "No Navigation"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:176
+#: sections/quickslider/section.php:176
 msgid "Slide Controls Only"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:177
+#: sections/quickslider/section.php:177
 msgid "Arrow Navigation Only"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:179
+#: sections/quickslider/section.php:179
 msgid "Slider Navigation Mode"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:185
+#: sections/quickslider/section.php:185
 msgid "Animate Slideshow Automatically?"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:197
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:39
+#: sections/quickslider/section.php:197
+#: sections/revslider/section.php:39
 msgid "Slides Setup"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:198
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:40
+#: sections/quickslider/section.php:198
+#: sections/revslider/section.php:40
 msgid "Slide"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:202
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:44
+#: sections/quickslider/section.php:202
+#: sections/revslider/section.php:44
 msgid "Slide Background Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:205
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:47
+#: sections/quickslider/section.php:205
+#: sections/revslider/section.php:47
 msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:211
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:53
+#: sections/quickslider/section.php:211
+#: sections/revslider/section.php:53
 msgid "Slide Text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:216
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:58
+#: sections/quickslider/section.php:216
+#: sections/revslider/section.php:58
 msgid "Slide Link URL"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/quickslider/section.php:221
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:63
+#: sections/quickslider/section.php:221
+#: sections/revslider/section.php:63
 msgid "Slide Text Location"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:53
+#: sections/rapidtabs/section.php:53
 msgid "Popular"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:54
+#: sections/rapidtabs/section.php:54
 msgid "Recent"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:55
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:105
+#: sections/rapidtabs/section.php:55
+#: sections/rapidtabs/section.php:105
 msgid "Comments"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:61
+#: sections/rapidtabs/section.php:61
 msgid "Popular Posts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/rapidtabs/section.php:83
+#: sections/rapidtabs/section.php:83
 msgid "Recent Posts"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:29
+#: sections/revslider/section.php:29
 msgid "Time Per Slide (in Milliseconds)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:73
+#: sections/revslider/section.php:73
 msgid "Slide Transition"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:79
+#: sections/revslider/section.php:79
 msgid "Slide Extra Elements"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:81
+#: sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
 "Slider, a jQuery plugin. It supports a wide array of functionality including "
@@ -2695,188 +2703,188 @@ msgid ""
 "documentation.html\" target=\"_blank\">docs here</a>."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/revslider/section.php:284
+#: sections/revslider/section.php:284
 msgid "Read More"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sb_primary/section.php:51
+#: sections/sb_primary/section.php:51
 msgid "Archives"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sb_primary/section.php:60
+#: sections/sb_primary/section.php:60
 msgid "Calendar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sb_primary/section.php:69
+#: sections/sb_primary/section.php:69
 msgid "Meta"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sb_primary/section.php:74
+#: sections/sb_primary/section.php:74
 msgid "Entries (RSS)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sharebar/section.php:30
+#: sections/sharebar/section.php:30
 msgid ""
 "You have no shares setup, please look at Global Options > Social & Local; or "
 "deactivate the Sharebar from the Blog Post Template."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sharebar/section.php:30
+#: sections/sharebar/section.php:30
 msgid "Social Settings"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/sharebar/section.php:34
+#: sections/sharebar/section.php:34
 msgid "Share &rarr;"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/simple_nav/section.php:25
+#: sections/simple_nav/section.php:25
 msgid "Simple Nav Section"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/simple_nav/section.php:35
+#: sections/simple_nav/section.php:35
 msgid "The SimpleNav uses WordPress menus. Select one for use."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/simple_nav/section.php:50
+#: sections/simple_nav/section.php:50
 msgid "Select Alignment"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:29
+#: sections/starbars/section.php:29
 msgid "StarBar Configuration"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:38
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:210
+#: sections/starbars/section.php:38
+#: sections/starbars/section.php:210
 msgid "Number of StarBars to Configure"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:44
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:215
+#: sections/starbars/section.php:44
+#: sections/starbars/section.php:215
 msgid "Starbar Total Count (Number)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:45
+#: sections/starbars/section.php:45
 msgid ""
 "This number will be used to calculate the percent of the bar filled. The "
 "StarBar values will be shown as a percentage of this value. Default is 100."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:52
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:220
+#: sections/starbars/section.php:52
+#: sections/starbars/section.php:220
 msgid "Starbar Modifier (Text Added to Stats)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:53
+#: sections/starbars/section.php:53
 msgid "This will be added to the stat number."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:63
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:229
+#: sections/starbars/section.php:63
+#: sections/starbars/section.php:229
 msgid "Starbar Format"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:69
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:234
+#: sections/starbars/section.php:69
+#: sections/starbars/section.php:234
 msgid "StarBar Title (Optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:82
+#: sections/starbars/section.php:82
 msgid "Descriptor"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:86
+#: sections/starbars/section.php:86
 msgid "Value"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:88
+#: sections/starbars/section.php:88
 msgid "Shown as a percentage of the StarBar total in the config."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:94
+#: sections/starbars/section.php:94
 msgid "<i class=\"icon-star\"></i> StarBar #"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:251
+#: sections/starbars/section.php:251
 #, php-format
 msgid "Starbar #%s Description"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:255
+#: sections/starbars/section.php:255
 #, php-format
 msgid "Starbar #%s Value"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:261
+#: sections/starbars/section.php:261
 msgid "StarBar Values"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/starbars/section.php:268
+#: sections/starbars/section.php:268
 msgid "Starbar"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:24
+#: sections/textbox/section.php:23
 msgid "Title (Optional)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:29
+#: sections/textbox/section.php:28
 msgid "Text Content"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:41
+#: sections/textbox/section.php:42
 msgid "Padding <small>(CSS Shorthand)</small>"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:42
+#: sections/textbox/section.php:43
 msgid ""
 "This option uses CSS padding shorthand. For example, use \"15px 30px\" for "
 "15px padding top/bottom, and 30 left/right."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/textbox/section.php:51
+#: sections/textbox/section.php:52
 msgid "Textbox Font Size"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:22
+#: sections/watermark/section.php:22
 msgid "Website Watermark"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:23
+#: sections/watermark/section.php:23
 msgid ""
 "The website watermark is a small version of your logo for your footer. "
 "Recommended width/height is 90px."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:29
+#: sections/watermark/section.php:29
 msgid "Watermark Image"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:36
+#: sections/watermark/section.php:36
 msgid "Watermark Link (Blank for None)"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:42
+#: sections/watermark/section.php:42
 msgid "Watermark Link alt text"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:43
+#: sections/watermark/section.php:43
 msgid "Build a website with PageLines"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:48
+#: sections/watermark/section.php:48
 msgid "Hide Watermark"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:55
+#: sections/watermark/section.php:55
 msgid "Setting Up Social Shares"
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:56
+#: sections/watermark/section.php:56
 msgid ""
 "To set up social, you need to set your global social user names under "
 "\"options\" > \"social &amp; local\"<br/><br/> After you have done that, "
 "these values will fill automatically."
 msgstr ""
 
-#: /Users/pross/Tower-repos/pagelines-framework-github/sections/watermark/section.php:83
+#: sections/watermark/section.php:83
 msgid "was created with"
 msgstr ""
