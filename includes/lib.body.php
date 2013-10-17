@@ -58,9 +58,9 @@ function pagelines_special_content_wrap_top(){
  */
 function pagelines_body_classes(){
 
-	global $pagelines_addclasses;
+	global $pagelines_addclasses, $plpg;
 
-	$special_body_class = (ploption('special_body_class')) ? ploption('special_body_class') : '';
+	$special_body_class = (pl_setting('special_body_class')) ? pl_setting('special_body_class') : '';
 
 	
 	$classes = array();
@@ -78,6 +78,10 @@ function pagelines_body_classes(){
 	// externally added via global variable (string)
 	if ( isset( $pagelines_addclasses ) && $pagelines_addclasses )
 		$classes = array_merge( $classes, (array) explode( ' ', $pagelines_addclasses ) );
+
+	// Add last imported template for styling
+	if( is_object( $plpg ) && false != $plpg->template && '' != $plpg->template )
+		$classes[] = sprintf( 'last-imported-%s', $plpg->template );
 
 	// ensure no duplicates or empties
 	$classes = array_unique( array_filter( $classes ) );
