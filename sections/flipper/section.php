@@ -275,7 +275,7 @@ class PageLinesFlipper extends PageLinesSection {
 				</div><!--work-item-->
 
 				<div class="flipper-meta">
-					<h4 class="flipper-post-title"><?php the_title(); ?></h4>
+					<a href="<?php echo get_permalink();?>"><h4 class="flipper-post-title"><?php the_title(); ?></h4></a>
 					<div class="flipper-metabar"><?php echo do_shortcode( apply_filters('pl_flipper_meta', $meta, $post->ID, pl_type_slug() )); ?></div>
 				</div>
 
