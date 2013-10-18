@@ -56,9 +56,7 @@ class EditorLessHandler{
 		$core_less = $this->pless->add_constants(''); 
 		$core_less .= $this->pless->add_bootstrap();
 
-		printf('<div id="pl_core_less" style="display:none;">%s</div>', 
-			pl_css_minify( $core_less )
-		);
+		printf('<div id="pl_core_less" style="display:none;">%s</div>', $core_less );
 	}
 
 	/**
