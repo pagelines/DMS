@@ -265,14 +265,15 @@ class EditorInterface {
 
 						$class = array();
 
-						$class[] = ($tab['type'] == 'panel') ? 'btn-panel' : '';
+						$class[] = ($tab['type'] == 'panel' ) ? 'btn-panel' : '';
+						$class[] = ($tab['type'] == 'btn-panel' ) ? 'btn-panel' : '';
 						$class[] = ($tab['type'] == 'btn') ? 'btn-action' : '';
 
 						$class[] = 'btn-'.$key;
 
 						$classes = join(' ', $class);
 
-						$the_name = (isset($tab['name'])) ? $tab['name'] : '';
+						$the_name = (isset($tab['name']) && $tab['type'] != 'btn-panel') ? $tab['name'] : '';
 
 						$name = sprintf('<span class="txt">%s</span>', $the_name);
 						$icon = (isset($tab['icon'])) ? sprintf('<i class="uxi %s"></i> ', $tab['icon']) : '';
