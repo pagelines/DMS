@@ -21,6 +21,10 @@ class PageLinesMetaPanel{
 	}
 }
 
+function pl_link_color() {
+	_deprecated_function( __FUNCTION__, '1.0' );
+}
+
 /**
 *
 * @TODO do
