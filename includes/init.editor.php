@@ -128,7 +128,7 @@ class PageLinesEditor {
 		// Interfaces
 		$this->xlist = new EditorXList;
 		$this->add_sections = new PageLinesSectionsPanel;
-		$this->extend_panel = new PageLinesExtendPanel;
+		//$this->extend_panel = new PageLinesExtendPanel;
 		$this->settings_panel = new PageLinesSettingsPanel;
 	//	$this->live_panel = new PageLinesLivePanel;
 

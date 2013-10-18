@@ -19,7 +19,7 @@ class PageLinesExtendPanel{
 	function toolbar( $toolbar ){
 		$toolbar['pl-extend'] = array(
 			'name'	=> __( 'Store', 'pagelines' ),
-			'icon'	=> 'icon-gears',
+			'icon'	=> 'icon-download',
 			'pos'	=> 80,
 			'panel'	=> array(
 				'heading'	=> __( "Extend PageLines", 'pagelines' ),

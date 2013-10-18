@@ -1,8 +1,17 @@
 !function ($) {
 
-$.plExtend = {
+	$(document).ready(function() {
+		$.plExtend.init()
+	})
 
-	btnActions: function(){
+$.plExtend = {
+	
+	init: function(){
+	
+	}
+
+	 
+	, btnActions: function(){
 		var that = this
 
 		$('.btn-purchase-item').on('click', function(){
@@ -89,5 +98,7 @@ $.plExtend = {
 		return sprintf("<iframe style='width: 100%%; height: 100px;' src='https://www.pagelines.com/api/paypal/button.php?paypal=%s'></iframe>", payLink)
 	}
 }
+
+
 
 }(window.jQuery);
