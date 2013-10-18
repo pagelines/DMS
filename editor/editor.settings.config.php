@@ -16,12 +16,12 @@ class EditorSettings {
 
 
 	function __construct(){
-		$this->settings['configuration'] = array(
-			'name' 	=> 'Admin Shortcuts',
-			'icon'	=> 'icon-cog',
-			'pos'	=> 1,
-			'opts' 	=> $this->config()
-		);
+		// $this->settings['configuration'] = array(
+		// 			'name' 	=> 'Admin Shortcuts',
+		// 			'icon'	=> 'icon-cog',
+		// 			'pos'	=> 1,
+		// 			'opts' 	=> $this->config()
+		// 		);
 	
 		$this->settings['basic_settings'] = array(
 			'name' 	=> 'Site Images',
