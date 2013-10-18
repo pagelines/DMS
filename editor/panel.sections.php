@@ -18,8 +18,8 @@ class PageLinesSectionsPanel{
 
 	function toolbar( $toolbar ){
 		$toolbar['add-new'] = array(
-			'name'	=> __( 'Add Sections', 'pagelines' ),
-			'icon'	=> 'icon-random',
+			'name'	=> __( 'Add To Page', 'pagelines' ),
+			'icon'	=> 'icon-plus-sign',
 			'pos'	=> 20,
 			'panel'	=> array(
 				'heading'	=> __( "<i class='icon-random'></i> Drag to Add", 'pagelines' ),
