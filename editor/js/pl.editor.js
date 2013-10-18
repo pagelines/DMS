@@ -349,6 +349,25 @@
 					})
 					
 				}
+				
+				, beforeActivate: function(e, ui){
+					
+					var theTab = ui.newTab
+					,	tabFlag = theTab.attr('data-flag') || ''
+					
+					if ( tabFlag == 'link-storefront' ){
+
+						e.preventDefault()
+						
+						var storeURL = 'http://www.pagelines.com/shop'
+						
+						window.open( storeURL )
+						
+							
+						return false
+
+					}
+				}
 				, activate: function(e, ui){
 					
 					var theTab = ui.newTab
@@ -364,6 +383,8 @@
 						that.loadPanelOptions( selectedPanel, tabAction )
 					
 					}
+						
+					
 						
 				
 					if( tabLink != '' ){
@@ -381,16 +402,7 @@
 					}
 
 
-					if ( tabFlag == 'link-storefront' ){
-
-						e.preventDefault()
-
-						$('.btn-pl-extend')
-							.trigger('click')
-							
-						return
-
-					}
+					
 					
 					
 					var tabMemory = store.get( 'plTabMemory' )
