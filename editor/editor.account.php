@@ -17,7 +17,6 @@ class PLAccountPanel{
 	
 	function account_testing_function($response, $postdata){
 
-		$response['worked'] = 'yup!'; 
 		$run = $postdata['run']; 
 		
 		add_filter('wp_mail_content_type', array( $this, 'mail_content_type' ) );
@@ -197,10 +196,10 @@ class PLAccountPanel{
 
 	function toolbar( $toolbar ){
 		$toolbar['account'] = array(
-			'name'	=> __( 'Account', 'pagelines' ),
+			'name'	=> __( 'PageLines', 'pagelines' ),
 			'icon'	=> 'icon-pagelines',
 			'pos'	=> 110,
-		//	'type'	=> 'btn',
+			'type'	=> 'btn-panel',
 			'panel'	=> array(
 				'heading'	=> "<i class='icon-pagelines'></i> PageLines",
 				'welcome'	=> array(
