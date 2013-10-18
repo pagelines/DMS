@@ -77,6 +77,7 @@ class PLSectionArea extends PageLinesSection {
 
 			'key'			=> 'pl_area_styling',
 			'type' 			=> 'multi',
+			'col'			=> 2,
 			'label' 	=> __( 'Area Styling', 'pagelines' ),
 			'opts'	=> array(
 				// array(
@@ -193,7 +194,7 @@ class PLSectionArea extends PageLinesSection {
 			$pad_css = ''; 
 			$content_class = '';
 		}
-			
+		
 	?>
 	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
 		<div class="pl-content <?php echo $content_class;?>">
