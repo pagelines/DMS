@@ -87,7 +87,7 @@ body .input-prepend .trigger-color{
 	border-radius: 2px;
 }
 #css3colorpicker-div-swatches .swatch {
-	dispaly: inline-block;
+	display: inline-block;
 	vertical-align: middle;
 	float: left;
 	width: 20px;
