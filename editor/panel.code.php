@@ -34,10 +34,10 @@ class EditorCode{
 
 	function toolbar( $toolbar ){
 		$toolbar['pl-design'] = array(
-				'name'	=> __( 'Custom Code', 'pagelines' ),
+				'name'	=> __( 'Custom', 'pagelines' ),
 				'icon'	=> 'icon-code',
 				'form'	=> true,
-				'pos'	=> 40,
+				'pos'	=> 50,
 				'panel'	=> array(
 					'heading'	=> __( 'Custom Design', 'pagelines' ),
 
