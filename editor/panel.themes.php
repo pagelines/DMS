@@ -22,7 +22,7 @@ class EditorThemeHandler {
 		$toolbar['theme'] = array(
 			'name'	=> __( 'Theme', 'pagelines' ),
 			'icon'	=> 'icon-picture',
-			'pos'	=> 50,
+			'pos'	=> 40,
 			'panel'	=> $this->pl_get_settings()
 
 		);
@@ -36,7 +36,7 @@ class EditorThemeHandler {
 			
 			'avail_themes'	=> array(
 				'pos'	=> 30,
-				'name'	=> __( 'Available Themes', 'pagelines' ),
+				'name'	=> __( 'Your Themes', 'pagelines' ),
 				'call'	=> array(&$this, 'themes_dashboard'),
 				'icon'	=> 'icon-picture',
 				'filter'=> '*'
