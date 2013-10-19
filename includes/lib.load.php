@@ -139,7 +139,7 @@ function fix_wp_login_imagetitle( $url ){
 add_action('login_head', 'pl_fix_login_image');
 function pl_fix_login_image( ){
 
-	$image_url = (ploption('pl_login_image')) ? ploption('pl_login_image') : PL_ADMIN_IMAGES . '/login-pl.png';
+	$image_url = (pl_setting('pl_login_image')) ? pl_setting('pl_login_image') : PL_ADMIN_IMAGES . '/login-pl.png';
 
 	$css = sprintf('body #login h1 a{background: url(%s) no-repeat top center;height: 80px;background-size:auto; background-size: auto 80px;}', $image_url);
 

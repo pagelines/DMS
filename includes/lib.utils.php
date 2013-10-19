@@ -623,8 +623,8 @@ function improved_trim_excerpt($text) {
 		$allowed_tags = ( isset( $ex_tags ) && '' != $ex_tags ) ? $ex_tags : '';
 		$excerpt_len = ( isset( $ex_length ) && '' != $ex_length ) ? $ex_length : 55;
 	} else {
-		$allowed_tags = (ploption('excerpt_tags')) ? ploption('excerpt_tags') : '';
-		$excerpt_len = (ploption('excerpt_len')) ? ploption('excerpt_len') : 55;
+		$allowed_tags = (pl_setting('excerpt_tags')) ? pl_setting('excerpt_tags') : '';
+		$excerpt_len = (pl_setting('excerpt_len')) ? pl_setting('excerpt_len') : 55;
 	}
 
 	$raw_excerpt = $text;
