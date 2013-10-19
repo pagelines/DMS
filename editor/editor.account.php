@@ -202,27 +202,23 @@ class PLAccountPanel{
 			'type'	=> 'btn-panel',
 			'panel'	=> array(
 				'heading'	=> "<i class='icon-pagelines'></i> PageLines",
-				'welcome'	=> array(
-					'name'	=> __( 'Welcome!', 'pagelines' ),
-					'icon'	=> 'icon-thumbs-up',
-					'call'	=> array(&$this, 'pagelines_welcome'),
-				),
+				
 				'pl_account'	=> array(
 					'name'	=> __( 'Your Account', 'pagelines' ),
 					'icon'	=> 'icon-pagelines',
 					'call'	=> array(&$this, 'pagelines_account'),
+				),
+				
+				'getting_started'	=> array(
+					'name'	=> __( 'Getting Started', 'pagelines' ),
+					'icon'	=> 'icon-youtube-play',
+					'call'	=> array($this, 'getting_started'),
 				),
 				'get_karma'	=> array(
 					'name'	=> __( 'Get Karma', 'pagelines' ),
 					'icon'	=> 'icon-sun',
 					'call'	=> array($this, 'pagelines_karma'),
 				),
-				'getting_started'	=> array(
-					'name'	=> __( 'Getting Started', 'pagelines' ),
-					'icon'	=> 'icon-youtube-play',
-					'call'	=> array($this, 'getting_started'),
-				),
-				
 				
 				'support'	=> array(
 					'name'	=> __( 'Support', 'pagelines' ),
@@ -699,11 +695,7 @@ class PLAccountPanel{
 	
 	function getting_started(){
 		?>
-		<p>
-			<h3><i class="icon-thumbs-up"></i> <?php _e( 'Getting Started', 'pagelines' ); ?>
-			</h3>
-			<iframe width="700" height="420" src="//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
-		</p>
+		<div></div>
 		<?php 
 	}
 

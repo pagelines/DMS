@@ -123,7 +123,7 @@ define( 'PL_API_FETCH', 'http://www.pagelines.com/api/' );
 define( 'PL_API_CDN', 'http://cdn.pagelines.com/api/' );
 
 
-define( 'PL_ACTIVATE_URL' , apply_filters('pl_activate_url', home_url().'?tablink=account&tabsublink=welcome'));
+define( 'PL_ACTIVATE_URL' , apply_filters('pl_activate_url', home_url().'?tablink=account&tabsublink=getting_started'));
 
 /**
  * Define language constants

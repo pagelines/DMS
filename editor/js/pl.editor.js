@@ -337,9 +337,14 @@
 					var theTab = ui.tab
 					,	tabMeta = theTab.attr('data-tab-meta') || ''
 					, 	tabAction = theTab.attr('data-tab-action') || ''
+					,	tabPanel = $("[data-panel='"+tabAction+"']")
 					
-					if(tabMeta == 'options'){
+					if( tabMeta == 'options' ){
 						that.loadPanelOptions( selectedPanel, tabAction, tabAction )
+					}
+					
+					if( tabAction == 'getting_started' ){
+						that.loadGettingStarted( tabPanel )
 					}
 					
 					selectedPanel.find('.tabs-nav li').on('click.panelTab', function(){
@@ -381,7 +386,11 @@
 					
 					if(tabMeta == 'options'){
 						that.loadPanelOptions( selectedPanel, tabAction )
+					}
+				
 					
+					if(tabAction == 'getting_started'){
+						that.loadGettingStarted( tabPanel )
 					}
 						
 					
@@ -459,6 +468,14 @@
 			
 		
 
+		}
+		
+		, loadGettingStarted: function( tabPanel ){
+			
+			var theWelcomeHTML = '<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management system for your website. <br/>Watch the video below for help getting started.</p><iframe width="700" height="420" src="//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>'
+			
+			tabPanel.find('.panel-tab-content').html( theWelcomeHTML )
+			
 		}
 		
 		, loadPanelOptions: function( panel, key, load ){
