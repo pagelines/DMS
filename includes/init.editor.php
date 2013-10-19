@@ -17,18 +17,18 @@ class PageLinesEditor {
 		$this->load_files();
 
 		// TEMPLATE ACTIONS
-		add_action( 'wp', array(&$this, 'load_libs' ), 5); // !important - must load after $post variable
-		add_action( 'admin_init', array(&$this, 'load_libs' ), 5);
+		add_action( 'wp', array( $this, 'load_libs' ), 5); // !important - must load after $post variable
+		add_action( 'admin_init', array( $this, 'load_libs' ), 5);
 
-		add_action('wp_enqueue_scripts', array(&$this, 'process_styles' ));
-		add_action( 'wp_head', array(&$this, 'process_head' ) );
-		add_action( 'wp_footer', array(&$this, 'process_foot' ) );
+		add_action('wp_enqueue_scripts', array( $this, 'process_styles' ));
+		add_action( 'wp_head', array( $this, 'process_head' ) );
+		add_action( 'wp_footer', array( $this, 'process_foot' ) );
 
 
 		// RENDER SECTION TEMPLATES ACTIONS
-		add_action( 'pagelines_header', array(&$this, 'process_header' ) );
-		add_action( 'pagelines_template', array(&$this, 'process_template' ) );
-		add_action( 'pagelines_footer', array(&$this, 'process_footer' ) );
+		add_action( 'pagelines_header', array( $this, 'process_header' ) );
+		add_action( 'pagelines_template', array( $this, 'process_template' ) );
+		add_action( 'pagelines_footer', array( $this, 'process_footer' ) );
 	}
 
 	function load_files(){

@@ -12,13 +12,13 @@ class EditorColor{
 
 		$this->background = pl_setting('page_background_image_url');
 
- 		add_filter('pl_settings_array', array(&$this, 'add_settings'));
-		add_filter('pless_vars', array(&$this, 'add_less_vars'));
+ 		add_filter('pl_settings_array', array( $this, 'add_settings'));
+		add_filter('pless_vars', array( $this, 'add_less_vars'));
 		
 		if($this->background && $this->background != '')
-			add_filter('wp_enqueue_scripts', array(&$this, 'background_fit'));
+			add_filter('wp_enqueue_scripts', array( $this, 'background_fit'));
 		
-//		add_filter('pagelines_body_classes', array(&$this, 'add_body_classes'));
+//		add_filter('pagelines_body_classes', array( $this, 'add_body_classes'));
 		
 		
 	
@@ -148,7 +148,7 @@ class EditorColor{
 			
 		wp_enqueue_script( 'pagelines-supersize', PL_JS . '/script.supersize.js', array( 'jquery' ), '3.1.3', false );
 		
-		add_action('pl_scripts_on_ready', array(&$this, 'run_background_fit'), 20);
+		add_action('pl_scripts_on_ready', array( $this, 'run_background_fit'), 20);
 	}
 
 	function run_background_fit(){

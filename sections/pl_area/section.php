@@ -15,7 +15,7 @@ class PLSectionArea extends PageLinesSection {
 
 	function section_persistent(){
 	
-		add_filter('pl_layout_settings', array(&$this, 'add_global_options'));
+		add_filter('pl_layout_settings', array( $this, 'add_global_options'));
 	}
 	
 	function add_global_options( $settings ){

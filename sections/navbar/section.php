@@ -199,7 +199,7 @@ class PLNavBar extends PageLinesSection {
 	function section_persistent() {
 
 
-		add_filter('pl_settings_array', array(&$this, 'add_settings'));
+		add_filter('pl_settings_array', array( $this, 'add_settings'));
 
 		$option_args = array(
 
@@ -216,7 +216,7 @@ class PLNavBar extends PageLinesSection {
 			build_passive_section( array( 'sid' => $this->class_name ) );
 
 			pagelines_add_bodyclass( 'editor_navbar_fixed' );
-			add_action( 'pagelines_fixed_top', array( &$this,'passive_section_template' ), 11, 2);
+			add_action( 'pagelines_fixed_top', array( $this,'passive_section_template' ), 11, 2);
 
 		}
 

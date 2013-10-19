@@ -8,8 +8,8 @@ class EditorThemeHandler {
 
 	function __construct(  ){
 
-		add_action('pagelines_editor_scripts', array(&$this, 'scripts'));
-		add_filter('pl_toolbar_config', array(&$this, 'toolbar'));
+		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
+		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
@@ -37,7 +37,7 @@ class EditorThemeHandler {
 			'avail_themes'	=> array(
 				'pos'	=> 30,
 				'name'	=> __( 'Your Themes', 'pagelines' ),
-				'call'	=> array(&$this, 'themes_dashboard'),
+				'call'	=> array( $this, 'themes_dashboard'),
 				'icon'	=> 'icon-picture',
 				'filter'=> '*'
 			),
@@ -69,7 +69,7 @@ class EditorThemeHandler {
 		}
 		unset($info);
 
-		uasort($settings, array(&$this, "cmp_by_position") );
+		uasort($settings, array( $this, "cmp_by_position") );
 	
 		$settings = array_merge( array( 'heading' => __( 'Theme Options', 'pagelines' ) ), $settings );
 	
@@ -210,7 +210,7 @@ class EditorThemeHandler {
 
 			$preview_theme_object = wp_get_theme( $preview_theme );
 
-			add_action('before_toolbox_panel', array(&$this, 'add_preview_banner'));
+			add_action('before_toolbox_panel', array( $this, 'add_preview_banner'));
 
 			return $preview_theme_object->get_stylesheet();
 

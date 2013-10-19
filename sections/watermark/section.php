@@ -65,7 +65,7 @@ class PLWatermark extends PageLinesSection {
 
    function section_template() {
 	
-		add_action('wp_footer', array(&$this, 'socializer_scripts'));
+		add_action('wp_footer', array( $this, 'socializer_scripts'));
 	
 		$home = home_url();
 		$twitter = $this->opt('twittername'); 

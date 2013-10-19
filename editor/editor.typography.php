@@ -10,9 +10,9 @@ class EditorTypography{
 
 		$this->foundry = $foundry;
 
- 		add_filter('pl_settings_array', array(&$this, 'add_settings'));
-		add_filter('pless_vars', array(&$this, 'add_less_vars'));
-		add_action('wp_print_styles', array(&$this, 'add_google_imports'));
+ 		add_filter('pl_settings_array', array( $this, 'add_settings'));
+		add_filter('pless_vars', array( $this, 'add_less_vars'));
+		add_action('wp_print_styles', array( $this, 'add_google_imports'));
 	}
 
 	function add_less_vars( $vars ){

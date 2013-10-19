@@ -8,8 +8,8 @@ class PageLinesAreas {
 	function __construct(){
 
 
-		add_action('pagelines_editor_scripts', array(&$this, 'scripts'));
-		add_filter('pl_toolbar_config', array(&$this, 'toolbar'));
+		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
+		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}

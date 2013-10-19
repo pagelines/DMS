@@ -62,8 +62,8 @@ class PageLines_ShortCodes {
 
 		// Make widgets process shortcodes
 		add_filter( 'widget_text', 'do_shortcode' );
-//		add_action( 'template_redirect', array( &$this, 'filters' ) );
-		add_action('wp_footer',array( &$this, 'print_carousel_js' ), 21);
+//		add_action( 'template_redirect', array( $this, 'filters' ) );
+		add_action('wp_footer',array( $this, 'print_carousel_js' ), 21);
 
 	}
 
@@ -657,7 +657,7 @@ class PageLines_ShortCodes {
 		$defaults = array(
 			'type'      => '',
 			'permalink'	=> get_permalink(),
-			'handle'	=> ( ploption( 'twittername' ) ) ? ploption( 'twittername' ) : 'PageLines' ,
+			'handle'	=> ( pl_setting( 'twittername' ) ) ? pl_setting( 'twittername' ) : 'PageLines' ,
 			'title'		=> ''
 			);
 
@@ -1459,7 +1459,7 @@ class PageLines_ShortCodes {
 	private function register_shortcodes( $shortcodes ) {
 
 		foreach ( $shortcodes as $shortcode => $data ) {
-			add_shortcode( $shortcode, array( &$this, $data['function']) );
+			add_shortcode( $shortcode, array( $this, $data['function']) );
 		}
 	}
 //

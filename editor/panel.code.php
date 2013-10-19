@@ -6,10 +6,10 @@ class EditorCode{
 
 	function __construct( ){
 
-		add_filter( 'pl_toolbar_config',		array(&$this, 'toolbar'));
+		add_filter( 'pl_toolbar_config',		array( $this, 'toolbar'));
 		
-		add_action( 'pagelines_editor_scripts',	array(&$this, 'scripts'));
-		add_action( 'pagelines_head_last',		array(&$this, 'draw_custom_scripts' ) );
+		add_action( 'pagelines_editor_scripts',	array( $this, 'scripts'));
+		add_action( 'pagelines_head_last',		array( $this, 'draw_custom_scripts' ) );
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
@@ -43,12 +43,12 @@ class EditorCode{
 
 					'user_less'	=> array(
 						'name'	=> __( 'Custom LESS/CSS', 'pagelines' ),
-						'call'	=> array(&$this, 'custom_less'),
+						'call'	=> array( $this, 'custom_less'),
 						'icon'	=> 'icon-circle'
 					),
 					'user_scripts'	=> array(
 						'name'	=> __( 'Custom Scripts', 'pagelines' ),
-						'call'	=> array(&$this, 'custom_scripts'),
+						'call'	=> array( $this, 'custom_scripts'),
 						'flag'	=> 'custom-scripts',
 						'icon'	=> 'icon-circle-blank'
 					),

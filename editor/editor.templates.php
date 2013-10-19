@@ -181,11 +181,11 @@ class EditorTemplates {
 
 		$this->url = PL_PARENT_URL . '/editor';
 
-		add_filter('pl_toolbar_config', array(&$this, 'toolbar'));
-		add_filter('pagelines_editor_scripts', array(&$this, 'scripts'));
+		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
+		add_filter('pagelines_editor_scripts', array( $this, 'scripts'));
 
-		add_action( 'admin_init', array(&$this, 'admin_page_meta_box'));
-		add_action( 'post_updated', array(&$this, 'save_meta_options') );
+		add_action( 'admin_init', array( $this, 'admin_page_meta_box'));
+		add_action( 'post_updated', array( $this, 'save_meta_options') );
 
 	}
 
@@ -207,13 +207,13 @@ class EditorTemplates {
 				'heading2'	=> __( "Page Templates", 'pagelines' ),
 				'tmp_load'	=> array(
 					'name'	=> __( 'Your Templates', 'pagelines' ),
-					'call'	=> array(&$this, 'user_templates'),
+					'call'	=> array( $this, 'user_templates'),
 					'icon'	=> 'icon-copy',
 					'filter' => '*'
 				),
 				'tmp_save'	=> array(
 					'name'	=> __( 'Save New Template', 'pagelines' ),
-					'call'	=> array(&$this, 'save_templates'),
+					'call'	=> array( $this, 'save_templates'),
 					'icon'	=> 'icon-paste'
 				),
 			)
@@ -563,7 +563,7 @@ class EditorTemplates {
 		if(pl_deprecate_v2())
 			remove_meta_box( 'pageparentdiv', 'page', 'side' );
 			
-		add_meta_box('specialpagelines', __( 'DMS Page Setup', 'pagelines' ), array(&$this, 'page_attributes_meta_box'), 'page', 'side');
+		add_meta_box('specialpagelines', __( 'DMS Page Setup', 'pagelines' ), array( $this, 'page_attributes_meta_box'), 'page', 'side');
 
 	}
 

@@ -6,8 +6,8 @@ class PageLinesSectionsPanel{
 
 	function __construct(){
 
-		add_filter('pl_toolbar_config', array(&$this, 'toolbar'));
-		add_action('pagelines_editor_scripts', array(&$this, 'scripts'));
+		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
+		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
@@ -29,7 +29,7 @@ class PageLinesSectionsPanel{
 					'clip'	=> __( 'Drag on to page to add', 'pagelines' ),
 					'tools'	=> sprintf( '<button class="btn btn-mini btn-reload-sections"><i class="icon-repeat"></i> %s</button>', __( 'Reload Sections', 'pagelines' ) ),
 					'type'	=> 'call',
-					'call'	=> array(&$this, 'add_new_callback'),
+					'call'	=> array( $this, 'add_new_callback'),
 					'filter'=> '*'
 				),
 				'more_sections'	=> array(

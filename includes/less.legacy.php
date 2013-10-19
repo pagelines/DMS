@@ -29,10 +29,10 @@ class EditorLessHandler{
 		$this->draft_less_file = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'path' ) );
 
 		if( pl_draft_mode() ){
-			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_draft_css' ) );
-			add_action( 'wp_print_styles', array( &$this, 'dequeue_live_css' ), 12 );
-			add_action( 'template_redirect', array( &$this, 'pagelines_draft_render' ) , 15);
-			add_action( 'wp_footer', array(&$this, 'print_core_less') );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_draft_css' ) );
+			add_action( 'wp_print_styles', array( $this, 'dequeue_live_css' ), 12 );
+			add_action( 'template_redirect', array( $this, 'pagelines_draft_render' ) , 15);
+			add_action( 'wp_footer', array( $this, 'print_core_less') );
 		}
 
 	}
@@ -141,9 +141,9 @@ class EditorLessHandler{
 	 */
 	public function get_draft_core() {
 
-		$raw				= pl_cache_get( 'draft_core_raw', array( &$this, 'draft_core_data' ) );
-		$compiled_core		= pl_cache_get( 'draft_core_compiled', array( &$this, 'compile' ), array( $raw['core'] ) );
-		$compiled_sections	= pl_cache_get( 'draft_sections_compiled', array( &$this, 'compile' ), array( $raw['sections'] ) );
+		$raw				= pl_cache_get( 'draft_core_raw', array( $this, 'draft_core_data' ) );
+		$compiled_core		= pl_cache_get( 'draft_core_compiled', array( $this, 'compile' ), array( $raw['core'] ) );
+		$compiled_sections	= pl_cache_get( 'draft_sections_compiled', array( $this, 'compile' ), array( $raw['sections'] ) );
 
 		return array(
 			'compiled_core'	=> $compiled_core,
@@ -179,7 +179,7 @@ class EditorLessHandler{
 		
 		if( pl_draft_mode() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
 
-			$raw_cached = pl_cache_get( 'draft_core_raw', array( &$this, 'draft_core_data' ) );
+			$raw_cached = pl_cache_get( 'draft_core_raw', array( $this, 'draft_core_data' ) );
 
 			// check if a cache exists. If not dont bother carrying on.
 			if( isset( $raw_cached['core'] ) ){
@@ -385,16 +385,16 @@ class PageLinesRenderCSS {
 	 */
 	private function actions() {
 
-		add_filter( 'query_vars', array( &$this, 'pagelines_add_trigger' ) );
-		add_action( 'template_redirect', array( &$this, 'pagelines_less_trigger' ) , 15);
-		add_action( 'template_redirect', array( &$this, 'less_file_mode' ) );
-		add_action( 'wp_enqueue_scripts', array( &$this, 'load_less_css' ) );
-		add_action( 'pagelines_head_last', array( &$this, 'draw_inline_custom_css' ) , 25 );
+		add_filter( 'query_vars', array( $this, 'pagelines_add_trigger' ) );
+		add_action( 'template_redirect', array( $this, 'pagelines_less_trigger' ) , 15);
+		add_action( 'template_redirect', array( $this, 'less_file_mode' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_less_css' ) );
+		add_action( 'pagelines_head_last', array( $this, 'draw_inline_custom_css' ) , 25 );
 	
-		add_action( 'extend_flush', array( &$this, 'flush_version' ), 1 );
-		add_filter( 'pagelines_insert_core_less', array( &$this, 'pagelines_insert_core_less_callback' ) );
-		add_action( 'admin_notices', array(&$this,'less_error_report') );
-		add_action( 'wp_before_admin_bar_render', array( &$this, 'less_css_bar' ) );
+		add_action( 'extend_flush', array( $this, 'flush_version' ), 1 );
+		add_filter( 'pagelines_insert_core_less', array( $this, 'pagelines_insert_core_less_callback' ) );
+		add_action( 'admin_notices', array( $this,'less_error_report') );
+		add_action( 'wp_before_admin_bar_render', array( $this, 'less_css_bar' ) );
 		
 		if ( defined( 'PL_CSS_FLUSH' ) )
 			do_action( 'extend_flush' );
@@ -499,7 +499,7 @@ class PageLinesRenderCSS {
 
 	function less_css_bar() {
 		foreach ( $this->types as $t ) {
-			if ( ploption( "pl_less_error_{$t}" ) ) {
+			if ( pl_setting( "pl_less_error_{$t}" ) ) {
 
 				global $wp_admin_bar;
 				$wp_admin_bar->add_menu( array(
@@ -512,7 +512,7 @@ class PageLinesRenderCSS {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'less_error',
 					'id' => 'less_message',
-					'title' => sprintf( __( 'Error in %s Less code: %s', 'pagelines' ), $t, ploption( "pl_less_error_{$t}" ) ),
+					'title' => sprintf( __( 'Error in %s Less code: %s', 'pagelines' ), $t, pl_setting( "pl_less_error_{$t}" ) ),
 					'href' => admin_url( PL_SETTINGS_URL ),
 					'meta' => false
 				));
@@ -525,8 +525,8 @@ class PageLinesRenderCSS {
 		$default = '<div class="updated fade update-nag"><div style="text-align:left"><h4>PageLines %s LESS/CSS error.</h4>%s</div></div>';
 
 		foreach ( $this->types as $t ) {
-			if ( ploption( "pl_less_error_{$t}" ) )
-				printf( $default, ucfirst( $t ), ploption( "pl_less_error_{$t}" ) );
+			if ( pl_setting( "pl_less_error_{$t}" ) )
+				printf( $default, ucfirst( $t ), pl_setting( "pl_less_error_{$t}" ) );
 		}
 	}
 
