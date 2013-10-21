@@ -17,9 +17,11 @@ class PageLinesSave {
 		
 		if( $data['run'] == 'map' ){
 			$response = $this->save_map( $response, $data );
-		} elseif (  $data['run'] == 'form' )
+		} elseif (  $data['run'] == 'form' ){
 			$response = $this->save_form( $response, $data );
-		else 
+		} elseif (  $data['run'] == 'publish' ){
+			$response = $this->publish( $response, $data );
+		} else 
 			$response['error'] = "No save operation set for ".$data['run'];
 
 		$response['state'] = $this->get_state( $data );
@@ -62,6 +64,42 @@ class PageLinesSave {
 
 		return $state;
 		
+	}
+	
+	function publish( $response, $data ){
+		
+		$pageID = $data['pageID'];
+		$typeID = $data['typeID'];
+		
+		$settings = array();
+
+		$settings['local'] = pl_meta( $pageID, PL_SETTINGS );
+		$settings['type'] = pl_meta( $typeID, PL_SETTINGS );
+		$settings['global'] = pl_opt( PL_SETTINGS  );
+
+		foreach($settings as $scope => $set){
+
+			$set = wp_parse_args($set, array('live'=> array(), 'draft' => array()));
+
+			$set['live'] = $set['draft'];
+
+			$settings[ $scope ] = $set;
+
+		}
+
+
+		set_theme_mod( 'pl_cache_key', substr(uniqid(), -6) );
+
+		pl_meta_update( $pageID, PL_SETTINGS, $settings['local'] );
+		pl_meta_update( $typeID, PL_SETTINGS, $settings['type'] );
+		pl_opt_update( PL_SETTINGS, $settings['global'] );
+
+
+		// Flush less
+		do_action( 'extend_flush' );
+		
+		
+		return $response;
 	}
 	
 	/* 

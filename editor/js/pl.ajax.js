@@ -199,8 +199,11 @@
 
 			$( '.btn-publish' ).on('click.saveButton', function(){
 
-				$.plAJAX.saveData( { 
+
+				$.plSave.save( { 
 					run: 'publish'
+					, store: false
+					, log: true
 				} )
 
 

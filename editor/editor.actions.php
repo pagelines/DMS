@@ -27,9 +27,6 @@ function pl_editor_actions(){
 
 		}
 
-		if ( $run == 'publish' )
-			pl_publish_settings( $pageID, $typeID );
-
 		elseif ( $run == 'revert' )
 			$draft->revert( $postdata, $map );
 

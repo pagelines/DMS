@@ -707,43 +707,6 @@ function pl_revert_settings( $metaID = false ){
 
 }
 
-function pl_publish_settings( $pageID, $typeID ){
-
-	$settings = array();
-
-	$settings['local'] = pl_meta( $pageID, PL_SETTINGS );
-	$settings['type'] = pl_meta( $typeID, PL_SETTINGS );
-	$settings['global'] = pl_opt( PL_SETTINGS  );
-
-	foreach($settings as $scope => $set){
-
-		$set = wp_parse_args($set, array('live'=> array(), 'draft' => array()));
-
-		$set['live'] = $set['draft'];
-
-		$settings[ $scope ] = $set;
-
-	}
-
-	
-	set_theme_mod( 'pl_cache_key', substr(uniqid(), -6) );
-
-	pl_meta_update( $pageID, PL_SETTINGS, $settings['local'] );
-	pl_meta_update( $typeID, PL_SETTINGS, $settings['type'] );
-	pl_opt_update( PL_SETTINGS, $settings['global'] );
-
-
-
-	// Flush less
-	do_action( 'extend_flush' );
-
-}
-
-/*
- *
- * Type Option
- *
- */
 
 /*
  *
