@@ -328,7 +328,9 @@
 						if(optID)
 							optID = optID.replace('item'+itemNumber, 'item'+itemNum )
 					
-						$( this ).attr('name', optName).attr('id', optID)
+						$( this )
+							.attr('name', optName)
+							.attr('id', optID)
 					
 					})
 				
@@ -646,7 +648,7 @@
 				
 				oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
 
-				oHTML += sprintf('<div id="upload-%1$s" class="fineupload upload-%1$s fileupload-new" data-provides="fileupload"></div>', o.key)
+				oHTML += sprintf('<div id="upload-%1$s" class="fineupload upload-%1$s fileupload-new" data-provides="fileupload"></div>', o.inputID)
 
 				oHTML += '</div>'
 
@@ -1096,12 +1098,13 @@
 				var theOpt = $(this).closest('.opt-box')
 				, 	theAccordion = theOpt.find('.opt-accordion')
 				
-				theNew = theOpt.find('.opt-group').first().clone()
+				theNew = theOpt.find('.opt-group').first().clone( true )
 				
 				theNew.find('.bar-title').html('New Item')
 				theNew.find('.ui-icon').remove()
 				theNew.find('.lstn').val('')
 				theNew.find('.remove-item').show()
+				theNew.find('.img-wrap').remove()
 				
 				// add to accordion
 				theAccordion.append( theNew )
@@ -1128,9 +1131,7 @@
 			$('#fileupload').fileupload({
 				url: ajaxurl
 				, dataType: 'json'
-				, formData: {
-					
-				}
+				, formData: { }
 				, add: function(e, data){
 					var toolBoxOpen = $.toolbox('open')
 		
@@ -1464,16 +1465,23 @@
 			}
 
 			else if( o.type == 'image_upload' ){
-				var val = o.value
-				, 	sizeLimit = o.sizelimit || 512000 // 500 kB
-				,	extension = o.extension || null
+			
+				that.theImageUploader( '.fineupload', o.sizelimit, o.extension )
+			}
+
+		}
+		
+		, theImageUploader: function( inputSelector, sizeLimit, extension ){
+				var selector = inputSelector || '.fineupload'
+				, 	sizeLimit = sizeLimit || 512000 // 500 kB
+				,	extension = extension || null
 				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png']
 
 				if(extension) {
 					allowedExtensions = extension.split(',')
 				}
 
-				$('.fineupload').fineUploader({
+				$( selector ).fineUploader({
 					request: {
 						endpoint: ajaxurl
 						, 	params: {
@@ -1500,7 +1508,7 @@
 				}).on('complete', function(event, id, fileName, response) {
 				
 					var optBox = $(this).closest('.img-upload-box')
-
+					
 						if (response.success) {
 							var theThumb = optBox.find('.opt-upload-thumb')
 							, 	imgStyle = theThumb.data('imgstyle')
@@ -1521,9 +1529,6 @@
 
 						}
 				})
-
-			}
-
 		}
 
 	}
