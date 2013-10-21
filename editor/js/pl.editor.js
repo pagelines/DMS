@@ -75,7 +75,7 @@
 			// Show unload if state is changed from live, will be overridden if 
 			// the state changes or by other user actions.
 		//	if( $('#stateTool').data('show-unload') == 'yes' )
-				//pl_show_unload()
+
 			
 			// Click event listener
 			$(".btn-toolbox").on("click.toolboxHandle", function(e) {

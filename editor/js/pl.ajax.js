@@ -266,11 +266,7 @@
 					$('#stateTool').addClass(el)
 				})
 				
-				if( typeof state == 'object' && Object.keys(state).length > 0 ){
-					pl_show_unload( )
-				} else {
-					window.onbeforeunload = null
-				}
+			
 		}
 
 
