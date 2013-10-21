@@ -389,7 +389,7 @@ function pagelines_check_folders_dms( $note ) {
 			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
 		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> <br/>
 			You're currently the basic DMS version. Pro activate this site for tons more features and support.
-			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More</a>
+			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More About Pro</a>
 			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> Activate Site</a> 
 		</div>
 		
