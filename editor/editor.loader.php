@@ -46,6 +46,13 @@ class PageLinesPageLoader{
 				.no-js .pl-loader { display: none;  }
 				body{margin: 0;}
 				.pl-loader { display: block; position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100000; text-align: center;}
+				.pl-loader, .pl-loader p{
+					font-family: helvetica, arial, sans-serif; 
+					color: #CCC !important; 
+				}
+				.pl-loader a{
+					color: rgba(66, 133, 243,.8) !important;
+				}
 				.spinner {
 				   height:60px;
 				   width:60px;
@@ -76,6 +83,7 @@ class PageLinesPageLoader{
 				   to {-webkit-transform: rotate(359deg);}
 				}
 				
+				
 			</style>
 			
 		<?php
@@ -90,7 +98,7 @@ class PageLinesPageLoader{
 				<div class="spinner"></div>
 				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
 			</div>
-			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .5; text-align: center;">
+			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .7; text-align: center;">
 				Issues loading? See the <a href="http://docs.pagelines.com/support-troubleshooting/common-issues" target="_blank">troubleshooting guide</a>.
 			</div>
 		</div>
