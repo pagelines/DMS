@@ -106,61 +106,6 @@ class pliBox extends PageLinesSection {
 
 			)
 	    );
-	
-
-		// $slides = ($this->opt('ibox_count')) ? $this->opt('ibox_count') : $this->default_limit;
-		// 	$media = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
-		// 
-		// 	for($i = 1; $i <= $slides; $i++){
-		// 
-		// 		$opts = array(
-		// 
-		// 			array(
-		// 				'key'		=> 'ibox_title_'.$i,
-		// 				'label'		=> __( 'iBox Title', 'pagelines' ),
-		// 				'type'		=> 'text'
-		// 			),
-		// 			array(
-		// 				'key'		=> 'ibox_text_'.$i,
-		// 				'label'	=> __( 'iBox Text', 'pagelines' ),
-		// 				'type'	=> 'textarea'
-		// 			),
-		// 			array(
-		// 				'key'		=> 'ibox_link_'.$i,
-		// 				'label'		=> __( 'iBox Link (Optional)', 'pagelines' ),
-		// 				'type'		=> 'text'
-		// 			),
-		// 			array(
-		// 				'key'		=> 'ibox_class_'.$i,
-		// 				'label'		=> __( 'iBox Class (Optional)', 'pagelines' ),
-		// 				'type'		=> 'text'
-		// 			),
-		// 		);
-		// 
-		// 		if($media == 'icon'){
-		// 			$opts[] = array(
-		// 				'key'		=> 'ibox_icon_'.$i,
-		// 				'label'		=> __( 'iBox Icon', 'pagelines' ),
-		// 				'type'		=> 'select_icon',
-		// 			);
-		// 		} elseif($media == 'image'){
-		// 			$opts[] = array(
-		// 				'key'		=> 'ibox_image_'.$i,
-		// 				'label'		=> __( 'iBox Image', 'pagelines' ),
-		// 				'type'		=> 'image_upload',
-		// 			);
-		// 		}
-		// 
-		// 
-		// 		$options[] = array(
-		// 			'title' 	=> __( 'iBox ', 'pagelines' ) . $i,
-		// 			'type' 		=> 'multi',
-		// 			'opts' 		=> $opts,
-		// 			'col'		=> 2
-		// 
-		// 		);
-		// 
-		// 	}
 
 		return $options;
 	}
@@ -186,11 +131,11 @@ class pliBox extends PageLinesSection {
 		
 		// must come after upgrade
 		if( !$ibox_array || $ibox_array == 'false' || !is_array($ibox_array) ){
-			$ibox_array = array( array(), array(), array(), array() );
+			$ibox_array = array( array(), array(), array() );
 		}
 		
 		// Keep
-		$cols = ($this->opt('ibox_cols')) ? $this->opt('ibox_cols') : 3;
+		$cols = ($this->opt('ibox_cols')) ? $this->opt('ibox_cols') : 4;
 		$media_type = ($this->opt('ibox_media')) ? $this->opt('ibox_media') : 'icon';
 		$media_format = ($this->opt('ibox_format')) ? $this->opt('ibox_format') : 'top';
 		
