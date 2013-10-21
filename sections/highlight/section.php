@@ -37,6 +37,7 @@ class PageLinesHighlight extends PageLinesSection {
 			),
 			'hl_text' => array(
 				'type' 			=> 'multi',
+				'col'			=> 2,
 				'title' 		=> __( 'Highlight Text', 'pagelines' ),
 				'opts'	=> array(
 					array(
@@ -57,6 +58,7 @@ class PageLinesHighlight extends PageLinesSection {
 			),
 			'hl_image' => array(
 				'type' 			=> 'multi',
+				'col'			=> 3,
 				'title' 		=> __( 'Highlight Image and Format', 'pagelines' ),
 				'opts'	=> array(
 
