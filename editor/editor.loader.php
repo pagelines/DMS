@@ -53,17 +53,17 @@ class PageLinesPageLoader{
 				.pl-loader a{
 					color: rgba(66, 133, 243,.8) !important;
 				}
-				.spinner {
+				.pl-spinner {
 				   height:60px;
 				   width:60px;
 				   margin:0 auto;
 				   position:relative;
-				   -webkit-animation: rotation .6s infinite linear;
+				   -webkit-animation: pl-rotation .6s infinite linear;
 				   border:6px solid rgba(66, 133, 243,.15);
 				   border-radius:100%;
 				}
 
-				.spinner:before {
+				.pl-spinner:before {
 				   content:"";
 				   display:block;
 				   position:absolute;
@@ -78,7 +78,7 @@ class PageLinesPageLoader{
 				   border-radius:100%;
 				}
 
-				@-webkit-keyframes rotation {
+				@-webkit-keyframes pl-rotation {
 				   from {-webkit-transform: rotate(0deg);}
 				   to {-webkit-transform: rotate(359deg);}
 				}
@@ -95,7 +95,7 @@ class PageLinesPageLoader{
 		?>
 		<div class="pl-loader">
 			<div class="loader-text" style="padding: 200px 0;font-family: helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
-				<div class="spinner"></div>
+				<div class="pl-spinner"></div>
 				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
 			</div>
 			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .7; text-align: center;">

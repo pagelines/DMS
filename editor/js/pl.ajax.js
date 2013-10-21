@@ -276,8 +276,8 @@
 
 		, dialogText: function( text ){
 
-			var dynamo = '<div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>'
-			, 	theHTML = sprintf('<div class="spn"><div class="spn-txt">%s</div>%s</div>', text, dynamo)
+			var dynamo = '<div class="pl-spinner"></div>'
+			, 	theHTML = sprintf('<div class="spn">%s<div class="spn-txt">%s</div></div>', dynamo, text)
 			
 			
 			return theHTML
