@@ -294,30 +294,40 @@ class EditorSettings {
 						'type' 		=> 'check',
 						'label' 	=> __( 'Enable Stumbleupon', 'pagelines' ),
 					),
-					 )
-		));
-
-
+				 )
+			)
+		);
 		return $settings;
-
 	}
-
-
-
-
 
 	function advanced(){
 
 		$settings = array(
+			
 			array(
-					'key'		=> 'enable_debug',
-					'type'		=> 'check',
-					'label'		=> __( 'Enable debug?', 'pagelines' ),
-					'title'		=> __( 'PageLines debug', 'pagelines' ),
-					'help'		=> sprintf( __( 'This information can be useful in the forums if you have a problem. %s', 'pagelines' ),
-								   sprintf( '%s', ( pl_setting( 'enable_debug' ) ) ?
-								   sprintf( '<br /><a href="%s">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
-			),
+				'key'	=> 'debug_settings',
+				'type'	=> 'multi',
+				'title'	=> 'Debug Options',
+				'opts'	=> array(
+					array(
+							'key'		=> 'enable_debug',
+							'type'		=> 'check',
+							'label'		=> __( 'Enable debug?', 'pagelines' ),
+							'title'		=> __( 'PageLines debug', 'pagelines' ),
+							'help'		=> sprintf( __( 'This information can be useful in the forums if you have a problem. %s', 'pagelines' ),
+										   sprintf( '%s', ( pl_setting( 'enable_debug' ) ) ?
+										   sprintf( '<br /><a href="%s" target="_blank">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
+					),
+					array(
+							'key'		=> 'disable_less_errors',
+							'default'	=> false,
+							'type'		=> 'check',
+							'label'		=> __( 'Disable Error Notices?', 'pagelines' ),
+							'title'		=> __( 'Less Notices', 'pagelines' ),
+							'help'		=> __( 'Disable any error notices sent to wp-admin by the less system', 'pagelines' ),								  
+					)
+				)
+			),		
 			array(
 					'key'		=> 'load_prettify_libs',
 					'type'		=> 'check',

@@ -215,5 +215,15 @@ function pagelines_less_var( $name, $value ){
 	global $less_vars;
 
 	$less_vars[$name] = $value;
+}
 
+// Save last error to a theme option.
+function pl_less_save_last_error( $error_text, $return = false ) {
+	
+	if( '' == $error_text ) 
+		remove_theme_mod( 'less_last_error' );
+	else
+		set_theme_mod( 'less_last_error', $error_text );
+
+	return $return;
 }

@@ -33,8 +33,23 @@ class EditorLessHandler{
 			add_action( 'wp_print_styles', array( $this, 'dequeue_live_css' ), 12 );
 			add_action( 'template_redirect', array( $this, 'pagelines_draft_render' ) , 15);
 			add_action( 'wp_footer', array( $this, 'print_core_less') );
+			add_action( 'admin_notices', array( $this, 'check_last_error' ) );
 		}
 
+	}
+
+	function check_last_error() {
+		
+		if( ! current_user_can('manage_options' ) || false ===  get_theme_mod( 'less_last_error' ) || true == pl_setting( 'disable_less_errors' ) )
+			return;
+
+		ob_start();
+		?>
+		<div id="message" class="updated below-h2 fade">
+		  	<p>It appears your WordPress install can't write to your servers file system. This may adversely affect your sites performance. Check with your host about resolving this issue.<br />To hide these notices, visit PageLines options panel.</p>
+		</div>
+		<?php
+		echo ob_get_clean();
 	}
 
 	/**
@@ -406,13 +421,13 @@ class PageLinesRenderCSS {
 
 		global $blog_id;
 		if ( ! get_theme_mod( 'pl_save_version' ) )
-			return;
+			return pl_less_save_last_error( 'No save version set.', false );
 
 		if( defined( 'LESS_FILE_MODE' ) && false == LESS_FILE_MODE )
-			return;
+			return pl_less_save_last_error( 'LESS_FILE_MODE is set to false', false );
 
 		if( defined( 'PL_NO_DYNAMIC_URL' ) && true == PL_NO_DYNAMIC_URL )
-			return;
+			return pl_less_save_last_error( 'PL_NO_DYNAMIC_URL is set to true', false );
 
 		$folder = pl_get_css_dir( 'path' );
 		$url = pl_get_css_dir( 'url' );
@@ -425,7 +440,7 @@ class PageLinesRenderCSS {
 		}
 
 		if( false == $this->check_posix() )
-			return;
+			return pl_less_save_last_error( 'POSIX checks failed.', false );
 
 		$a = $this->get_compiled_core();
 		$b = $this->get_compiled_sections();
@@ -481,17 +496,19 @@ class PageLinesRenderCSS {
 		if ( is_writable( $folder ) ){
 			$creds = request_filesystem_credentials($url, $method, false, false, null);
 			if ( ! WP_Filesystem($creds) )
-				return false;
+				return pl_less_save_last_error( 'Unable to set filesystem credentials', false );
 		}
 
 			global $wp_filesystem;
 			if( is_object( $wp_filesystem ) )
 				$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $txt, FS_CHMOD_FILE);
 			else
-				return false;
+				return pl_less_save_last_error( 'Unable to access filesystem. Possible permission issue on ' . $folder, false );;
 			$url = pl_get_css_dir( 'url' );
 
 			define( 'DYNAMIC_FILE_URL', sprintf( '%s/%s', $url, $file ) );
+			
+			pl_less_save_last_error( '', true );
 	}
 
 
@@ -588,37 +605,6 @@ class PageLinesRenderCSS {
 		  }
 
 		return get_home_url();
-	}
-
-	function check_compat() {
-
-		if( defined( 'LESS_FILE_MODE' ) && false == LESS_FILE_MODE && is_multisite() )
-			return true;
-
-		if ( function_exists( 'icl_get_home_url' ) )
-			return true;
-
-		if ( defined( 'PLL_INC') )
-			return true;
-
-		if ( ! VPRO )
-			return true;
-
-		if ( defined( 'PL_NO_DYNAMIC_URL' ) )
-			return true;
-
-		if ( is_multisite() && in_array( $GLOBALS['pagenow'], array( 'wp-signup.php' ) ) )
-			return true;
-
-		if( site_url() !== get_home_url() )
-			return true;
-
-		if ( 'nginx' == substr($_SERVER['SERVER_SOFTWARE'], 0, 5) )
-			return false;
-
-		global $is_apache;
-		if ( ! $is_apache )
-			return true;
 	}
 
 	/**
