@@ -204,7 +204,7 @@ class PLAccountPanel{
 				'heading'	=> "<i class='icon-pagelines'></i> PageLines",
 				
 				'pl_account'	=> array(
-					'name'	=> __( 'Your Account', 'pagelines' ),
+					'name'	=> __( 'Your PageLines Account', 'pagelines' ),
 					'icon'	=> 'icon-pagelines',
 					'call'	=> array( $this, 'pagelines_account'),
 				),
