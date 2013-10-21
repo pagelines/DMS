@@ -6,7 +6,7 @@ class PLImportExport{
 
 	function __construct(){
 
-		add_filter('pl_settings_array', array(&$this, 'add_settings'));
+		add_filter('pl_settings_array', array( $this, 'add_settings'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 

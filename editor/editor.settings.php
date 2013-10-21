@@ -191,7 +191,7 @@ class PageLinesSettings extends PageLinesData {
 
 		// Have to move this to an action because ploption calls pl_setting before all settings are loaded
 		if( !$set || empty($set['draft']) || empty($set['live']) )
-			add_action('pl_after_settings_load', array(&$this, 'set_default_settings'));
+			add_action('pl_after_settings_load', array( $this, 'set_default_settings'));
 
 		return $this->get_by_mode($set);
 

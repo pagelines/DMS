@@ -11,7 +11,7 @@ class PageLinesIntegrationHandler {
 
 	function start_new_integration(){
 		
-		add_action( 'pagelines_start_footer', array(&$this, 'get_integration_output') );
+		add_action( 'pagelines_start_footer', array( $this, 'get_integration_output') );
 		ob_start( );
 		
 	}

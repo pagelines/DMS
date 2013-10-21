@@ -17,7 +17,7 @@ function pagelines_layout_mode( ){
 
 class PageLinesMetaPanel{
 	function register_tab(){
-		
+		_deprecated_function( __FUNCTION__, '1.1', 'an alternative as PageLinesMetaPanel has been removed from core DMS. See <a href="https://github.com/pagelines/DMS/issues/448#issuecomment-26383046">this issue</a> for more details and possible solutions.' );
 	}
 }
 
@@ -292,7 +292,7 @@ define( 'SECTION_ROOT', get_template_directory_uri() . '/sections');
  * @return  bool|mixed
  */
 function ploption( $key, $args = array() ){
-	//_deprecated_function( __FUNCTION__, '1.1', 'pl_setting' );
+	_deprecated_function( __FUNCTION__, '1.1', 'pl_setting()' );
 	$d = array(
 		'subkey'	=> null, 	// Used as option key in special handling
 		'post_id'	=> null, 	// Used for page/page/panel control
@@ -1503,7 +1503,7 @@ class PageLinesPostType {
 	 * The register_post_type() function is not to be used before the 'init'.
 	 */
 	function register_post_type(){
-		add_action( 'init', array(&$this,'init_register_post_type') );
+		add_action( 'init', array( $this,'init_register_post_type') );
 	}
 
 
@@ -1595,8 +1595,8 @@ class PageLinesPostType {
 	*/
 	function register_columns(){
 
-		add_filter( "manage_edit-{$this->id}_columns", array( &$this, 'set_columns' ) );
-		add_action( "manage_{$this->id}_posts_custom_column",  array( &$this, 'set_column_values' ) );
+		add_filter( "manage_edit-{$this->id}_columns", array( $this, 'set_columns' ) );
+		add_action( "manage_{$this->id}_posts_custom_column",  array( $this, 'set_column_values' ) );
 	}
 
 
@@ -1651,10 +1651,10 @@ class PageLinesPostType {
 	function section_loading(){
 
 		if( ! $this->settings['dragdrop'] )
-			add_filter('pl_cpt_dragdrop', array(&$this, 'remove_dragdrop'), 10, 2);
+			add_filter('pl_cpt_dragdrop', array( $this, 'remove_dragdrop'), 10, 2);
 
 		if ( true === $this->settings['load_sections'] || is_array( $this->settings['load_sections'] ) )
-			add_filter('pl_template_sections', array(&$this, 'load_sections_for_type'), 10, 3);
+			add_filter('pl_template_sections', array( $this, 'load_sections_for_type'), 10, 3);
 
 	}
 
@@ -1693,7 +1693,7 @@ class PageLinesPostType {
 	function featured_image(){
 
 		if( $this->settings['featured_image'] )
-			add_filter('pl_support_featured_image', array(&$this, 'add_featured_image'));
+			add_filter('pl_support_featured_image', array( $this, 'add_featured_image'));
 
 	}
 

@@ -574,7 +574,7 @@ class PageLinesSection {
      */
 	function hook_get_view(){
 
-		add_action('wp_head', array(&$this, 'get_view'), 10);
+		add_action('wp_head', array( $this, 'get_view'), 10);
 	}
 
 	/**

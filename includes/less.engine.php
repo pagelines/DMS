@@ -14,8 +14,8 @@ class PageLinesLESSEngine {
 		
 		if( pl_less_dev() ){
 			
-			add_action( 'wp_enqueue_scripts', array(&$this, 'enqueue_scripts' ) );
-			add_action( 'wp_footer', array(&$this, 'render_less_components' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_footer', array( $this, 'render_less_components' ) );
 			add_action( 'pagelines_head', array( $this, 'render_css_container' ) );
 			
 			add_action( 'pl_ajax_save_css', array( $this, 'save_site_css' ), 10, 2);

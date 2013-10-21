@@ -6,9 +6,9 @@ class PLAccountPanel{
 	function __construct(){
 
 		if( pl_use_editor() )
-			add_filter( 'pl_toolbar_config', array( &$this, 'toolbar' ) );
+			add_filter( 'pl_toolbar_config', array( $this, 'toolbar' ) );
 
-		add_action( 'wp_ajax_pl_account_actions', array( &$this, 'pl_account_actions' ) );
+		add_action( 'wp_ajax_pl_account_actions', array( $this, 'pl_account_actions' ) );
 		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
 		add_filter('pl_ajax_account', array($this, 'account_testing_function'), 10, 2); 
 		
@@ -206,7 +206,7 @@ class PLAccountPanel{
 				'pl_account'	=> array(
 					'name'	=> __( 'Your Account', 'pagelines' ),
 					'icon'	=> 'icon-pagelines',
-					'call'	=> array(&$this, 'pagelines_account'),
+					'call'	=> array( $this, 'pagelines_account'),
 				),
 				
 				'getting_started'	=> array(
@@ -223,7 +223,7 @@ class PLAccountPanel{
 				'support'	=> array(
 					'name'	=> __( 'Support', 'pagelines' ),
 					'icon'	=> 'icon-comments',
-					'call'	=> array(&$this, 'pagelines_support'),
+					'call'	=> array( $this, 'pagelines_support'),
 				),
 			)
 		);

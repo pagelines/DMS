@@ -241,7 +241,7 @@ class PageLinesStarBars extends PageLinesSection {
 
 		$oset = array('post_id' => $post_ID, 'clone_id' => $settings['clone_id'], 'type' => $settings['type']);
 
-		$slides = (ploption( 'starbar_count' , $oset )) ? ploption( 'starbar_count' , $oset ) : $this->default_limit;
+		$slides = (pl_setting( 'starbar_count' , $oset )) ? pl_setting( 'starbar_count' , $oset ) : $this->default_limit;
 
 		$opts = array();
 

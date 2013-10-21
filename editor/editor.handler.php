@@ -62,7 +62,7 @@ class PageLinesTemplateHandler {
 		$this->setup_processing();
 
 		if( $this->draft->show_editor() ){
-			add_action( 'wp_footer', array( &$this, 'json_blob' ) );
+			add_action( 'wp_footer', array( $this, 'json_blob' ) );
 		}
 
 	}
@@ -352,7 +352,7 @@ class PageLinesTemplateHandler {
 
 
 		// BACKWARDS COMPATIBILITY
-		add_action('override_metatab_register', array(&$this, 'get_opts_from_optionator'), 10, 2);
+		add_action('override_metatab_register', array( $this, 'get_opts_from_optionator'), 10, 2);
 
 		foreach($this->section_list as $key => $meta){
 
@@ -444,7 +444,7 @@ class PageLinesTemplateHandler {
 
 		}
 
-		remove_action('override_metatab_register', array(&$this, 'get_opts_from_optionator'), 10, 2);
+		remove_action('override_metatab_register', array( $this, 'get_opts_from_optionator'), 10, 2);
 
 
 		foreach($opts_config as $item => &$i){

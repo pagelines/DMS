@@ -5,9 +5,9 @@ class EditorLayout {
 
 	function __construct(  ){
 		
-		add_filter('pl_settings_array', array(&$this, 'add_settings'));
-		add_filter('pless_vars', array(&$this, 'add_less_vars'));
-		add_filter('pagelines_body_classes', array(&$this, 'add_body_classes'));
+		add_filter('pl_settings_array', array( $this, 'add_settings'));
+		add_filter('pless_vars', array( $this, 'add_less_vars'));
+		add_filter('pagelines_body_classes', array( $this, 'add_body_classes'));
 
 	}
 	

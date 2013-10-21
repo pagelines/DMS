@@ -5,9 +5,9 @@ class EditorAdmin {
 	
 	function __construct(){
 		
-		add_action( 'pagelines_options_dms_less', array(&$this, 'dms_tools_less') );
-		add_action( 'pagelines_options_dms_scripts', array(&$this, 'dms_scripts_template') );
-		add_action( 'pagelines_options_dms_intro', array(&$this, 'dms_intro') );
+		add_action( 'pagelines_options_dms_less', array( $this, 'dms_tools_less') );
+		add_action( 'pagelines_options_dms_scripts', array( $this, 'dms_scripts_template') );
+		add_action( 'pagelines_options_dms_intro', array( $this, 'dms_intro') );
 		
 	}
 	

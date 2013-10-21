@@ -8,7 +8,7 @@ class PageLinesMobileMenu {
 	
 	function __construct(){
 		
-		add_action('pagelines_before_site', array(&$this, 'menu_template'));
+		add_action('pagelines_before_site', array( $this, 'menu_template'));
 		
 	}
 	

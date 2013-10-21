@@ -122,9 +122,9 @@ class PageLinesColumnizer extends PageLinesSection {
 			$this->width = 0;
 			$this->count = 1;
 
-			add_filter('dynamic_sidebar_params', array(&$this, 'change_markup'));
+			add_filter('dynamic_sidebar_params', array( $this, 'change_markup'));
 			pagelines_draw_sidebar( $area );
-			remove_filter('dynamic_sidebar_params', array(&$this, 'change_markup'));
+			remove_filter('dynamic_sidebar_params', array( $this, 'change_markup'));
 
 		} else {
 			printf ('<ul class="columnizer row fix sidebar_widgets">%s</ul>', $this->get_default() );

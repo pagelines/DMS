@@ -31,11 +31,11 @@ class PageLinesUpdateCheck {
 		if( 'dms' != $folder )
 			return;
 		
-		add_action('admin_notices', array(&$this,'pagelines_theme_update_nag') );
-		add_filter('site_transient_update_themes', array(&$this,'pagelines_theme_update_push') );
-		add_filter('transient_update_themes', array(&$this,'pagelines_theme_update_push') );
-		add_action('load-update.php', array(&$this,'pagelines_theme_clear_update_transient') );
-		add_action('load-themes.php', array(&$this,'pagelines_theme_clear_update_transient') );
+		add_action('admin_notices', array( $this,'pagelines_theme_update_nag') );
+		add_filter('site_transient_update_themes', array( $this,'pagelines_theme_update_push') );
+		add_filter('transient_update_themes', array( $this,'pagelines_theme_update_push') );
+		add_action('load-update.php', array( $this,'pagelines_theme_clear_update_transient') );
+		add_action('load-themes.php', array( $this,'pagelines_theme_clear_update_transient') );
 	}
 
 		/**
@@ -61,7 +61,7 @@ class PageLinesUpdateCheck {
 	function pagelines_theme_clear_update_transient() {
 
 		delete_transient( EXTEND_UPDATE );
-		remove_action( 'admin_notices', array( &$this,'pagelines_theme_update_nag' ) );
+		remove_action( 'admin_notices', array( $this,'pagelines_theme_update_nag' ) );
 		delete_transient( 'pagelines_sections_cache' );
 		remove_theme_mod( 'pending_updates' );
 	}
@@ -80,7 +80,7 @@ class PageLinesUpdateCheck {
 
 		if ( $this->email == '' || $this->key == '' || $pagelines_update['package'] == 'bad' ) {
 
-			//	add_filter('pagelines_admin_notifications', array(&$this,'bad_creds') );
+			//	add_filter('pagelines_admin_notifications', array( $this,'bad_creds') );
 
 		}
 

@@ -6,7 +6,7 @@ class EditorXList{
 
 	function __construct(){
 
-		add_action('pagelines_editor_scripts', array(&$this, 'scripts'));
+		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}

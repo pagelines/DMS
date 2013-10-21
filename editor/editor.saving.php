@@ -8,7 +8,7 @@ class PageLinesSave {
 	function __construct(){
 		
 		
-		add_filter( 'pl_ajax_fast_save', array( &$this, 'fast_save' ), 10, 2 );
+		add_filter( 'pl_ajax_fast_save', array( $this, 'fast_save' ), 10, 2 );
 		
 	}
 	

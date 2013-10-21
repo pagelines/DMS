@@ -145,10 +145,10 @@ function pagelines_head_common(){
 			
 	}
 
-	if ( ploption( 'facebook_headers' ) && ! has_action( 'disable_facebook_headers' ) && VPRO )
+	if ( pl_setting( 'facebook_headers' ) && ! has_action( 'disable_facebook_headers' ) && VPRO )
 		pagelines_facebook_header();
 
-	if(ploption('load_prettify_libs')){
+	if(pl_setting('load_prettify_libs')){
 		pagelines_add_bodyclass( 'prettify-on' );
 		wp_enqueue_script( 'prettify', PL_JS . '/prettify/prettify.js' );
 		wp_enqueue_style( 'prettify', PL_JS . '/prettify/prettify.css' );
@@ -170,11 +170,11 @@ function pagelines_head_common(){
 	add_action( 'wp_head', 'pl_scripts_on_ready', 10 );
 
 	// Headerscripts option > custom code
-	if ( ploption( 'headerscripts' ) && ploption( 'headerscripts' ) != default_headerscript() )
+	if ( pl_setting( 'headerscripts' ) && pl_setting( 'headerscripts' ) != default_headerscript() )
 		add_action( 'wp_head', create_function( '',  'print_pagelines_option("headerscripts");' ), 25 );
 
-	if( ploption('asynch_analytics'))
-		add_action( 'pagelines_head_last', create_function( '',  'echo ploption("asynch_analytics");' ), 25 );
+	if( pl_setting('asynch_analytics'))
+		add_action( 'pagelines_head_last', create_function( '',  'echo pl_setting("asynch_analytics");' ), 25 );
 }
 
 
@@ -184,18 +184,18 @@ function pagelines_meta_tags(){
 	$oset = array('post_id' => $pagelines_ID);
 
 	// Meta Images
-	if(ploption('pagelines_favicon') && VPRO)
-		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', ploption('pagelines_favicon'), "\n");
+	if(pl_setting('pagelines_favicon') && VPRO)
+		printf('<link rel="shortcut icon" href="%s" type="image/x-icon" />%s', pl_setting('pagelines_favicon'), "\n");
 
-	if(ploption('pagelines_touchicon'))
-		printf('<link rel="apple-touch-icon" href="%s" />%s', ploption('pagelines_touchicon'), "\n");
+	if(pl_setting('pagelines_touchicon'))
+		printf('<link rel="apple-touch-icon" href="%s" />%s', pl_setting('pagelines_touchicon'), "\n");
 
 	// Meta Data Profiles
 	if(!apply_filters( 'pagelines_xfn', '' ))
 		echo '<link rel="profile" href="http://gmpg.org/xfn/11" />'."\n";
 
 	// Removes viewport scaling on Phones, Tablets, etc.
-	if(!ploption('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
+	if(!pl_setting('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
 
 }
@@ -258,7 +258,7 @@ function pagelines_runtime_supersize(){
 
 	global $pagelines_ID;
 	$oset = array('post_id' => $pagelines_ID);
-	$url = ploption('page_background_image_url', $oset);
+	$url = pl_setting('page_background_image_url', $oset);
 	?>
 
 	<script type="text/javascript"> /* <![CDATA[ */

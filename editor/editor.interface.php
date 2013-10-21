@@ -35,12 +35,12 @@ class EditorInterface {
 		global $is_chrome;
 		if ( $this->editor_user() && $this->draft->show_editor() && $is_chrome){
 
-			add_action( 'wp_footer', array( &$this, 'pagelines_toolbox' ) );
-			add_action( 'wp_enqueue_scripts', array(&$this, 'pl_editor_scripts' ) );
+			add_action( 'wp_footer', array( $this, 'pagelines_toolbox' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'pl_editor_scripts' ) );
 
 		} elseif(current_user_can('edit_theme_options')) {
 
-			add_action( 'wp_footer', array( &$this, 'pagelines_editor_activate' ) );
+			add_action( 'wp_footer', array( $this, 'pagelines_editor_activate' ) );
 
 		}
 
@@ -174,7 +174,7 @@ class EditorInterface {
 		}
 		unset($info); // set by reference ^^
 
-		uasort( $toolbar_config, array(&$this, "cmp_by_position") );
+		uasort( $toolbar_config, array( $this, "cmp_by_position") );
 
 		return apply_filters( 'pl_sorted_toolbar_config', $toolbar_config );
 	}

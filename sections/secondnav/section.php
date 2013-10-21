@@ -30,7 +30,7 @@ class PageLinesSecondNav extends PageLinesSection {
 	*/
    	function section_template() {
 
-		$second_menu = (ploption('_second_nav_menu', $this->oset)) ? ploption('_second_nav_menu', $this->oset) : null;
+		$second_menu = ( pl_setting('_second_nav_menu' ) ) ? pl_setting( '_second_nav_menu' ) : null;
 
 		if(isset($second_menu)){
 
@@ -45,7 +45,7 @@ class PageLinesSecondNav extends PageLinesSection {
 				)
 			);
 
-		}elseif(ploption('nav_use_hierarchy', $this->oset))
+		}elseif( pl_setting( 'nav_use_hierarchy' ) )
 			pagelines_page_subnav();
 	}
 }
