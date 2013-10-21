@@ -91,15 +91,15 @@ class PageLinesColumnizer extends PageLinesSection {
 			)
 		);
 
-		if(!class_exists('CustomSidebars')){
+		if( !class_exists('CustomSidebars') && !function_exists('otw_sml_plugin_init') ){
 			$opts[] = array(
 				'key'	=> 'widgetizer_custom_sidebars',
 				'type'	=> 'link',
 				'col'	=> 3,
-				'url'	=> 'http://wordpress.org/extend/plugins/custom-sidebars/',
-				'title'	=> __( 'Get Custom Sidebars', 'pagelines' ),
-				'label'		=>	'<i class="icon-external-link"></i> Check out plugin',
-				'help'		=> "We have detected that you don't have the Custom Sidebars plugin installed. We recommend you install this plugin to create custom widgetized areas on demand.",
+				'url'	=> 'http://wordpress.org/plugins/sidebar-manager-light/screenshots/',
+				'title'	=> __( 'Get A Sidebars Plugin', 'pagelines' ),
+				'label'		=>	'<i class="icon-external-link"></i> Check out Sidebar Manager plugin',
+				'help'		=> "We have detected that you don't either the Custom Sidebars or Sidebar Manager plugins installed. We recommend you install a plugin that allows you to create custom widgetized areas on demand.",
 			);
 		}
 
