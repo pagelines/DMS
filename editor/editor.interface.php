@@ -328,7 +328,7 @@ class EditorInterface {
 
 			</ul>
 			<ul class="unstyled controls not-btn send-right">
-				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon-spinner icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
+				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon-refresh icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
 				</span></li>
 				<li class="switch-btn btn-layout-resize"><span class="btn-toolbox  not-btn">
 					<i class="icon-fullscreen"></i> <span class="txt"><?php _e( 'Width', 'pagelines' ); ?>
