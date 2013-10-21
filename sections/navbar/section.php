@@ -155,7 +155,7 @@ class PLNavBar extends PageLinesSection {
 				),
 			array(
 					'key'		=> 'navbar_logo',
-					'default'	=> PL_IMAGES.'/dms.png',
+					'default'	=> '[pl_parent_url]/images/dms.png',
 					'version'	=> 'pro',
 					'col'		=> 2,
 					'type'		=> 'image_upload',
