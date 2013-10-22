@@ -32,9 +32,9 @@ class PageLinesPageLoader{
 	function loader_ready_script(){
 		?>
 		<script>
-			jQuery( window ).load(function() {
+			jQuery( document ).ready(function() {
 				jQuery(".pl-loader").fadeOut()
-			});
+			})
 		</script>
 		<?php
 	}
