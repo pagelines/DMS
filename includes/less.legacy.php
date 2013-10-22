@@ -417,6 +417,10 @@ class PageLinesRenderCSS {
 		
 	}
 
+	function minify( $css ){
+		return pl_css_minify( $css );
+	}
+
 	function less_file_mode() {
 
 		global $blog_id;

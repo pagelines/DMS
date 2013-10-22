@@ -14,6 +14,11 @@ function pagelines_layout_mode( ){
 
 }
 
+class PageLinesColor{
+	function c(){
+		_deprecated_function( __FUNCTION__, '1.1', 'an alternative as PageLinesColor has been removed from core DMS.' );
+	}
+}
 
 class PageLinesMetaPanel{
 	function register_tab(){
