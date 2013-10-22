@@ -39,7 +39,7 @@ class PageLinesPostLoop extends PageLinesSection {
 			),
 
 			array(
-				'case'		=> 'special',
+				
 				'title' 	=> __( 'Layout <span class="spamp">&amp;</span> Config', 'pagelines' ),
 				'type'		=> 'multi',
 				'col'		=> 2,
@@ -81,7 +81,6 @@ class PageLinesPostLoop extends PageLinesSection {
 
 
 			array(
-				'case'		=> 'special',
 				'title' 	=> __( 'Meta Config', 'pagelines' ),
 				'col'		=> 3,
 				'type'		=> 'multi',
@@ -120,7 +119,6 @@ class PageLinesPostLoop extends PageLinesSection {
 			),
 
 			array(
-				'case'		=> 'special',
 				'title' 	=> __( 'Thumbs', 'pagelines' ),
 				'type'		=> 'multi',
 				'col'		=> 2,
