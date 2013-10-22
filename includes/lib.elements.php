@@ -211,11 +211,14 @@ function pagelines_draw_sidebar($id, $name = '', $default = false, $element = 'u
 
 	printf('<%s id="%s" class="sidebar_widgets fix">', $element, 'list_'.$id);
 
-	if ( !dynamic_sidebar($id) && ! $default)
-		pagelines_default_widget( $id, $default);
-	else 
-		echo $default;
-
+	if ( !dynamic_sidebar($id) ){
+		
+		if( ! $default )
+			pagelines_default_widget( $id, $default);
+		else 
+			echo $default;
+	}
+	
 	printf('</%s>', $element);
 
 }
