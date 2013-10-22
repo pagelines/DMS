@@ -1367,15 +1367,18 @@
 			, 	style = selector.closest('.opt').find('.font-style').val()
 			, 	style = (style) ? style : ''
 
-			if(ggl){
-				if( $('#'+loader).length != 0 )
-					$('#'+loader).attr('href', uri)
-				else
-					$('head').append( sprintf('<link rel="stylesheet" id="%s" href="%s" />', loader, uri) )
+			if(uri) {
+				if(ggl){
+					if( $('#'+loader).length != 0 )
+						$('#'+loader).attr('href', uri)
+					else
+						$('head').append( sprintf('<link rel="stylesheet" id="%s" href="%s" />', loader, uri) )
+
+				}
 			} else {
 				$('#'+loader).remove()
 			}
-
+			
 			selector
 				.next()
 				.next()
