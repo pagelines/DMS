@@ -34,7 +34,7 @@ function pagelines_build_account_interface(){
 		'title'			=> __( 'PageLines DMS', 'pagelines' ),
 		'callback'		=> array( $dms_tools, 'admin_array' ),
 	);
-	$optionUI = new PageLinesOptionsUI( $args );
+	$optionUI = new DMSOptionsUI( $args );
 }
 
 // Admin CSS
