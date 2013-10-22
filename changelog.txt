@@ -4,6 +4,19 @@
 
 ********************************************************
 
+Version 1.1
+
+	This release has 227 commits with 387 file changes.
+	To help optimize your sites we have reduced the amount of code in this release by a massive 18427 lines!
+	A full changelog can be viewed on Github
+	https://github.com/pagelines/DMS/compare/1.0.4...1.1
+	
+	
+
+Version 1.0.4
+
+	- CORE - Full changelogs: https://github.com/pagelines/DMS/compare/1.0.3...1.0.4
+
 Version 1.0.3
 
 	- CORE - https://github.com/pagelines/DMS/compare/1.0.2...1.0.3
@@ -33,4 +46,3 @@ Version 0.9.7
 Version 0.9.6
 
 	- CORE - Hello DMS!
-
