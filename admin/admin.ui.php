@@ -11,7 +11,7 @@
  *
  */
 
-class PageLinesOptionsUI {
+class DMSOptionsUI {
 
 /*
 	Build The Layout
@@ -59,7 +59,7 @@ class PageLinesOptionsUI {
 		 * Option Interface Body, including vertical tabbed nav
 		 */
 		function build_body(){
-			$option_engine = new OptEngine();
+			$option_engine = new DMSOptEngine();
 
 ?>
 				<h2 class="nav-tab-wrapper">
@@ -123,7 +123,7 @@ class PageLinesOptionsUI {
  * Option array is loaded in config.option.php and through filters
  *
  */
-class OptEngine {
+class DMSOptEngine {
 
     /**
      * PHP5 Constructor
