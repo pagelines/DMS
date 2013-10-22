@@ -128,7 +128,7 @@ class PageLinesEditorUpdates {
 			      $obj->plugin_name = $data['name'];
 			      $obj->new_version = $data['version'];
 			      $obj->requires = '3.6';
-			      $obj->tested = '3.6';
+			      $obj->tested = '3.7';
 			      $obj->downloaded = 0; // needs API update....
 			      $obj->last_updated = $data['last_mod'];
 			      $obj->sections = array(
@@ -165,21 +165,10 @@ class PageLinesEditorUpdates {
 		return $desc;
 	}
 	
-	function build_url( $api_data, $data ) {
-		
-		if( $api_data['type'] == 'sections' && true == $data['v3'] ) {
-			$prefix = 'v3/';
-		} else {
-			$prefix = 'plugin-';
-		}
-		if( $api_data['type'] == 'themes' ) {
-			$prefix = 'theme-';
-		}
-		
-		return sprintf( 'http://api.pagelines.com/store/%s%s.zip?%s', $prefix, $api_data['slug'], rand() );
+	function build_url( $api_data, $data ) {				
+		return sprintf( 'http://www.pagelines.com/api/store/v3/%s.zip?%s', $api_data['slug'], rand() );
 	}
-	
-	
+		
 	function get_pl_plugins() {
 		
 		global $pl_plugins;
