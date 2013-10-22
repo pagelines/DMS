@@ -10,24 +10,24 @@
 
 function pagelines_layout_mode( ){
 
-	_deprecated_function( __FUNCTION__, '1.1' );
+	_pl_deprecated_function( __FUNCTION__, '1.1' );
 
 }
 
 class PageLinesColor{
 	function c(){
-		_deprecated_function( __FUNCTION__, '1.1', 'an alternative as PageLinesColor has been removed from core DMS.' );
+		_pl_deprecated_function( __FUNCTION__, '1.1', 'an alternative as PageLinesColor has been removed from core DMS.' );
 	}
 }
 
 class PageLinesMetaPanel{
 	function register_tab(){
-		_deprecated_function( __FUNCTION__, '1.1', 'an alternative as PageLinesMetaPanel has been removed from core DMS. See <a href="https://github.com/pagelines/DMS/issues/448#issuecomment-26383046">this issue</a> for more details and possible solutions.' );
+		_pl_deprecated_function( __FUNCTION__, '1.1', 'an alternative as PageLinesMetaPanel has been removed from core DMS. See <a href="https://github.com/pagelines/DMS/issues/448#issuecomment-26383046">this issue</a> for more details and possible solutions.' );
 	}
 }
 
 function pl_link_color() {
-	_deprecated_function( __FUNCTION__, '1.0' );
+	_pl_deprecated_function( __FUNCTION__, '1.0' );
 }
 
 /**
@@ -55,7 +55,7 @@ function register_metatab($settings, $option_array, $section = '', $location = '
  */
 function get_option_array( $load_unavailable = true ){
 
-	// _deprecated_function( __FUNCTION__, '1.1' );
+	// _pl_deprecated_function( __FUNCTION__, '1.1' );
 
 	return array();
 
@@ -70,7 +70,7 @@ function get_option_array( $load_unavailable = true ){
  * @deprecated Sections are now autoloaded and registered by the framework.
  */
 function pagelines_register_section() {
-	_deprecated_function( __FUNCTION__, '2.0', 'the CHILDTHEME/sections/ folder' );
+	_pl_deprecated_function( __FUNCTION__, '2.0', 'the CHILDTHEME/sections/ folder' );
 	return;
 }
 
@@ -82,7 +82,7 @@ function pagelines_register_section() {
  * @deprecated A more useful function name
  */
 function cmath( $color ) {
-	_deprecated_function( __FUNCTION__, '2.0', 'loadmath' );
+	_pl_deprecated_function( __FUNCTION__, '2.0', 'loadmath' );
 	return new PageLinesColor( $color );
 }
 
@@ -134,7 +134,7 @@ function pl_get_themes() {
  */
 function pl_is_integration(){
 	
-	_deprecated_function( __FUNCTION__, '1.1', 'integrations not supported' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'integrations not supported' );
 	
 	global $pl_integration;
 
@@ -148,7 +148,7 @@ function pl_is_integration(){
  * @since 2.0.0
  */
 function pl_get_integration(){
-	_deprecated_function( __FUNCTION__, '1.1', 'integrations not supported' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'integrations not supported' );
 	
 	global $pl_integration;
 
@@ -161,7 +161,7 @@ function pl_get_integration(){
  *
  */
 function pagelines_special_pages(){
-	_deprecated_function( __FUNCTION__, '1.1', 'was used with failswith parameter which was deprecated' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'was used with failswith parameter which was deprecated' );
 	return array('posts', 'search', 'archive', 'tag', 'category', '404');
 }
 
@@ -178,7 +178,7 @@ function pagelines_special_pages(){
  * @return      mixed|void
  */
 function pl_background_cascade(){
-	_deprecated_function( __FUNCTION__, '1.1', 'css method not supported' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'css method not supported' );
 	$cascade = array(
 		ploption('contentbg'),
 		ploption('pagebg'),
@@ -202,7 +202,7 @@ function pl_background_cascade(){
  * @return      mixed|void
  */
 function pl_body_bg(){
-_deprecated_function( __FUNCTION__, '1.1', 'css method not supported' );
+_pl_deprecated_function( __FUNCTION__, '1.1', 'css method not supported' );
 	$cascade = array( ploption('bodybg'), '#ffffff' );
 
 	return apply_filters('body_bg', $cascade);
@@ -224,7 +224,7 @@ _deprecated_function( __FUNCTION__, '1.1', 'css method not supported' );
  */
 function pagelines_nav_classes(){
 
-	_deprecated_function( __FUNCTION__, '1.1', 'old style navigation from PL Framework' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'old style navigation from PL Framework' );
 
 	$additional_menu_classes = '';
 
@@ -247,7 +247,7 @@ function pagelines_nav_classes(){
 // DEPRECATED for pl_nav_fallback
 function pagelines_nav_fallback() {
 	
-	_deprecated_function( __FUNCTION__, '1.1', 'old style navigation from PL Framework' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'old style navigation from PL Framework' );
 	
 	global $post; ?>
 
@@ -257,7 +257,25 @@ function pagelines_nav_fallback() {
 }
 
 
+function _pl_deprecated_function( $function, $version, $replacement = null ) {
 
+	do_action( 'deprecated_function_run', $function, $replacement, $version );
+
+	// Allow plugin to filter the output error trigger
+	if ( WP_DEBUG && apply_filters( 'deprecated_function_trigger_error', true ) ) {
+		if ( function_exists( '__' ) ) {
+			if ( ! is_null( $replacement ) )
+				trigger_error( sprintf( __('%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use %3$s instead.', 'pagelines' ), $function, $version, $replacement ) );
+			else
+				trigger_error( sprintf( __('%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with no alternative available.', 'pagelines' ), $function, $version ) );
+		} else {
+			if ( ! is_null( $replacement ) )
+				trigger_error( sprintf( '%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use %3$s instead.', $function, $version, $replacement ) );
+			else
+				trigger_error( sprintf( '%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with no alternative available.', $function, $version ) );
+		}
+	}
+}
 
 /**
  * Deprecated constants, removing after a couple of revision, this will ensure store products get time to update.
@@ -297,7 +315,7 @@ define( 'SECTION_ROOT', get_template_directory_uri() . '/sections');
  * @return  bool|mixed
  */
 function ploption( $key, $args = array() ){
-	_deprecated_function( __FUNCTION__, '1.1', 'pl_setting()' );
+	_pl_deprecated_function( __FUNCTION__, '1.1', 'pl_setting()' );
 	$d = array(
 		'subkey'	=> null, 	// Used as option key in special handling
 		'post_id'	=> null, 	// Used for page/page/panel control
