@@ -1115,6 +1115,12 @@
 					,	active: false
 				})
 				
+				// Work around til we get a better image uploader script.
+				// Can't figure out how to reinitialize so that it works 
+				theOpt
+					.find('.img-upload-box')
+					.html('<div class="help-block">Refresh Page for Image Uploader</div>')
+				
 				// change the name stuff
 				// relight UI stuff
 				
@@ -1456,14 +1462,14 @@
 
 			else if( o.type == 'check' ){
 
-				that.checkboxDisplay( o.key )
+				that.checkboxDisplay( o.inputID )
 
 			}
 
 			else if(  o.type == 'type' ||  o.type == 'fonts' ){
 
 
-				that.loadFontPreview( $( sprintf('#%s.font-selector', o.key) ) )
+				that.loadFontPreview( $( sprintf('#%s.font-selector', o.inputID) ) )
 
 			}
 
