@@ -77,7 +77,7 @@ class PageLinesStarBars extends PageLinesSection {
 		for($i = 1; $i <= $slides; $i++){
 
 			$opts = array(
-
+				
 				'starbar_descriptor_'.$i 	=> array(
 					'label'		=> __( 'Descriptor', 'pagelines' ),
 					'type'		=> 'text'
@@ -91,6 +91,7 @@ class PageLinesStarBars extends PageLinesSection {
 
 
 			$options[] = array(
+				'col'		=> 2,
 				'title' 	=> __( '<i class="icon-star"></i> StarBar #', 'pagelines' ) . $i,
 				'type' 		=> 'multi',
 				'opts' 		=> $opts,
