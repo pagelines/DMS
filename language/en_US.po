@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-10-18 00:35-0000\n"
-"PO-Revision-Date: 2013-10-18 00:35-0000\n"
+"POT-Creation-Date: 2013-10-22 21:09-0000\n"
+"PO-Revision-Date: 2013-10-22 21:09-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: PageLines <hello@pagelines.com>\n"
 "Language: en_US\n"
@@ -102,217 +102,212 @@ msgstr ""
 msgid "Save Scripts"
 msgstr ""
 
-#: editor/editor.account.php:200
-msgid "Account"
+#: editor/editor.account.php:199
+msgid "DMS"
 msgstr ""
 
 #: editor/editor.account.php:207
-msgid "Welcome!"
-msgstr ""
-
-#: editor/editor.account.php:212
 msgid "Your Account"
 msgstr ""
 
-#: editor/editor.account.php:217
-msgid "Get Karma"
-msgstr ""
-
-#: editor/editor.account.php:222
-#: editor/editor.account.php:704
+#: editor/editor.account.php:213
 msgid "Getting Started"
 msgstr ""
 
-#: editor/editor.account.php:229
+#: editor/editor.account.php:218
+msgid "Get Karma"
+msgstr ""
+
+#: editor/editor.account.php:224
 msgid "Support"
 msgstr ""
 
-#: editor/editor.account.php:451
+#: editor/editor.account.php:446
 msgid "Get PRO stuff free with Karma."
 msgstr ""
 
-#: editor/editor.account.php:453
+#: editor/editor.account.php:448
 msgid ""
 "For every friend you invite who joins and installs PageLines, we'll give you "
 "and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
 msgstr ""
 
-#: editor/editor.account.php:457
+#: editor/editor.account.php:452
 msgid "Invite Friends by Email"
 msgstr ""
 
-#: editor/editor.account.php:460
+#: editor/editor.account.php:455
 msgid "Add emails (Comma separated)"
 msgstr ""
 
-#: editor/editor.account.php:462
+#: editor/editor.account.php:457
 msgid "Invite"
 msgstr ""
 
-#: editor/editor.account.php:465
-#: editor/editor.account.php:477
+#: editor/editor.account.php:460
+#: editor/editor.account.php:472
 msgid " Add/Update Account Info"
 msgstr ""
 
-#: editor/editor.account.php:467
+#: editor/editor.account.php:462
 msgid "Name and invite link needed."
 msgstr ""
 
-#: editor/editor.account.php:472
+#: editor/editor.account.php:467
 msgid "Your Invite Link"
 msgstr ""
 
-#: editor/editor.account.php:493
+#: editor/editor.account.php:488
 msgid " Your Karma"
 msgstr ""
 
-#: editor/editor.account.php:499
+#: editor/editor.account.php:494
 msgid " Current"
 msgstr ""
 
-#: editor/editor.account.php:506
+#: editor/editor.account.php:501
 msgid " Lifetime"
 msgstr ""
 
-#: editor/editor.account.php:515
-#: editor/editor.account.php:682
+#: editor/editor.account.php:510
+#: editor/editor.account.php:677
 msgid "Get karma"
 msgstr ""
 
-#: editor/editor.account.php:517
-#: editor/editor.account.php:684
+#: editor/editor.account.php:512
+#: editor/editor.account.php:679
 msgid "Use karma"
 msgstr ""
 
-#: editor/editor.account.php:519
-#: editor/editor.account.php:686
+#: editor/editor.account.php:514
+#: editor/editor.account.php:681
 msgid "Learn more about karma"
 msgstr ""
 
-#: editor/editor.account.php:571
-#: editor/editor.interface.php:330
+#: editor/editor.account.php:566
+#: editor/editor.interface.php:331
 msgid "Saving"
 msgstr ""
 
-#: editor/editor.account.php:576
+#: editor/editor.account.php:571
 msgid "Site Not Activated"
 msgstr ""
 
-#: editor/editor.account.php:585
+#: editor/editor.account.php:580
 msgid "Pro Activated!"
 msgstr ""
 
-#: editor/editor.account.php:589
+#: editor/editor.account.php:584
 msgid "Update Info"
 msgstr ""
 
-#: editor/editor.account.php:591
+#: editor/editor.account.php:586
 msgid "Deactivate"
 msgstr ""
 
-#: editor/editor.account.php:601
+#: editor/editor.account.php:596
 msgid "PageLines Account"
 msgstr ""
 
-#: editor/editor.account.php:609
+#: editor/editor.account.php:604
 msgid "Pro Activation Key"
 msgstr ""
 
-#: editor/editor.account.php:610
+#: editor/editor.account.php:605
 msgid "optional"
 msgstr ""
 
-#: editor/editor.account.php:612
+#: editor/editor.account.php:607
 msgid "Enter Pro Key"
 msgstr ""
 
-#: editor/editor.account.php:618
+#: editor/editor.account.php:613
 msgid "Update"
 msgstr ""
 
-#: editor/editor.account.php:627
+#: editor/editor.account.php:622
 msgid "PageLines Account Info"
 msgstr ""
 
-#: editor/editor.account.php:634
+#: editor/editor.account.php:629
 msgid "PageLines account not added or incorrect."
 msgstr ""
 
-#: editor/editor.account.php:635
+#: editor/editor.account.php:630
 msgid "Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
 
-#: editor/editor.account.php:641
+#: editor/editor.account.php:636
 msgid "Profile"
 msgstr ""
 
-#: editor/editor.account.php:651
+#: editor/editor.account.php:646
 msgid "My Account"
 msgstr ""
 
-#: editor/editor.account.php:653
+#: editor/editor.account.php:648
 msgid "Edit Profile"
 msgstr ""
 
-#: editor/editor.account.php:660
+#: editor/editor.account.php:655
 msgid "Karma"
 msgstr ""
 
-#: editor/editor.account.php:666
+#: editor/editor.account.php:661
 msgid "Current"
 msgstr ""
 
-#: editor/editor.account.php:673
+#: editor/editor.account.php:668
 msgid "Lifetime"
 msgstr ""
 
-#: editor/editor.account.php:714
+#: editor/editor.account.php:705
 msgid "Congratulations!"
 msgstr ""
 
-#: editor/editor.account.php:721
+#: editor/editor.account.php:712
 msgid "Setup PageLines Account"
 msgstr ""
 
-#: editor/editor.account.php:724
+#: editor/editor.account.php:715
 msgid "Getting Started Video"
 msgstr ""
 
-#: editor/editor.account.php:735
+#: editor/editor.account.php:726
 msgid "The PageLines Experience"
 msgstr ""
 
-#: editor/editor.account.php:738
+#: editor/editor.account.php:729
 msgid "We want you to have a most amazing time as a PageLines customer."
 msgstr ""
 
-#: editor/editor.account.php:740
+#: editor/editor.account.php:731
 msgid "That's why we have a ton of people standing by to make you happy."
 msgstr ""
 
-#: editor/editor.account.php:744
+#: editor/editor.account.php:735
 msgid "PageLines Forum"
 msgstr ""
 
-#: editor/editor.account.php:746
+#: editor/editor.account.php:737
 msgid "DMS Documentation"
 msgstr ""
 
-#: editor/editor.actions.php:335
+#: editor/editor.actions.php:332
 msgid "Unsupported file type!"
 msgstr ""
 
-#: editor/editor.actions.php:338
+#: editor/editor.actions.php:335
 #, php-format
 msgid "Upload Error: %s"
 msgstr ""
 
-#: editor/editor.actions.php:487
+#: editor/editor.actions.php:485
 msgid "Select This Image For Option"
 msgstr ""
 
-#: editor/editor.actions.php:509
+#: editor/editor.actions.php:507
 msgid "Media Library"
 msgstr ""
 
@@ -340,7 +335,7 @@ msgid "Link Base Color"
 msgstr ""
 
 #: editor/editor.color.php:232
-#: sections/pl_area/section.php:126
+#: sections/pl_area/section.php:127
 msgid "Background Image"
 msgstr ""
 
@@ -396,39 +391,39 @@ msgstr ""
 msgid "Preview (alt+a)"
 msgstr ""
 
-#: editor/editor.interface.php:306
+#: editor/editor.interface.php:307
 msgid "Undo All Unpublished Changes"
 msgstr ""
 
-#: editor/editor.interface.php:308
+#: editor/editor.interface.php:309
 msgid "Undo Unpublished Global Changes"
 msgstr ""
 
-#: editor/editor.interface.php:311
+#: editor/editor.interface.php:312
 msgid "Undo Unpublished Post Type Changes"
 msgstr ""
 
-#: editor/editor.interface.php:313
+#: editor/editor.interface.php:314
 msgid "Undo Unpublished Local Changes"
 msgstr ""
 
-#: editor/editor.interface.php:315
+#: editor/editor.interface.php:316
 msgid "No Unpublished Changes"
 msgstr ""
 
-#: editor/editor.interface.php:322
+#: editor/editor.interface.php:323
 msgid "Refresh needed to view changes."
 msgstr ""
 
-#: editor/editor.interface.php:324
+#: editor/editor.interface.php:325
 msgid "Publish Live"
 msgstr ""
 
-#: editor/editor.interface.php:325
+#: editor/editor.interface.php:326
 msgid "Publish"
 msgstr ""
 
-#: editor/editor.interface.php:333
+#: editor/editor.interface.php:334
 msgid "Width"
 msgstr ""
 
@@ -486,7 +481,7 @@ msgid ""
 "menu."
 msgstr ""
 
-#: editor/editor.loader.php:91
+#: editor/editor.loader.php:99
 msgid "Loading DMS Editor"
 msgstr ""
 
@@ -654,104 +649,116 @@ msgstr ""
 msgid "This information can be useful in the forums if you have a problem. %s"
 msgstr ""
 
-#: editor/editor.settings.config.php:324
-msgid "Enable Code Prettify?"
-msgstr ""
-
 #: editor/editor.settings.config.php:325
-msgid "Google Prettify Code"
+msgid "Disable Error Notices?"
 msgstr ""
 
 #: editor/editor.settings.config.php:326
+msgid "Less Notices"
+msgstr ""
+
+#: editor/editor.settings.config.php:327
+msgid "Disable any error notices sent to wp-admin by the less system"
+msgstr ""
+
+#: editor/editor.settings.config.php:334
+msgid "Enable Code Prettify?"
+msgstr ""
+
+#: editor/editor.settings.config.php:335
+msgid "Google Prettify Code"
+msgstr ""
+
+#: editor/editor.settings.config.php:336
 msgid ""
 "Add a class of 'prettyprint' to code or pre tags, or optionally use the "
 "[pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if "
 "Wordpress inserts line breaks."
 msgstr ""
 
-#: editor/editor.settings.config.php:332
+#: editor/editor.settings.config.php:342
 msgid "Enter Partner Link"
 msgstr ""
 
-#: editor/editor.settings.config.php:333
+#: editor/editor.settings.config.php:343
 msgid "PageLines Affiliate/Partner Link"
 msgstr ""
 
-#: editor/editor.settings.config.php:334
+#: editor/editor.settings.config.php:344
 msgid ""
 "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines "
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
 msgstr ""
 
-#: editor/editor.settings.config.php:340
+#: editor/editor.settings.config.php:350
 msgid "Install Class"
 msgstr ""
 
-#: editor/editor.settings.config.php:341
+#: editor/editor.settings.config.php:351
 msgid "Current Install Class"
 msgstr ""
 
-#: editor/editor.settings.config.php:342
+#: editor/editor.settings.config.php:352
 msgid ""
 "Use this option to add a class to the &gt;body&lt; element of the website. "
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
 msgstr ""
 
-#: editor/editor.settings.config.php:357
+#: editor/editor.settings.config.php:367
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
 msgstr ""
 
-#: editor/editor.settings.config.php:358
+#: editor/editor.settings.config.php:368
 msgid "Reset Global Site Settings"
 msgstr ""
 
-#: editor/editor.settings.config.php:359
+#: editor/editor.settings.config.php:369
 msgid ""
 "Use this button to reset all global settings to their default state. <br/"
 "><strong>Note:</strong> Once you've completed this action, you may want to "
 "publish these changes to your live site."
 msgstr ""
 
-#: editor/editor.settings.config.php:365
+#: editor/editor.settings.config.php:375
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
 msgstr ""
 
-#: editor/editor.settings.config.php:366
+#: editor/editor.settings.config.php:376
 msgid "Reset Current Page Settings"
 msgstr ""
 
-#: editor/editor.settings.config.php:367
+#: editor/editor.settings.config.php:377
 msgid ""
 "Use this button to reset all settings on the current page back to their "
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
 msgstr ""
 
-#: editor/editor.settings.config.php:374
+#: editor/editor.settings.config.php:384
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
 msgstr ""
 
-#: editor/editor.settings.config.php:375
+#: editor/editor.settings.config.php:385
 msgid "Clear all CSS/LESS cached data."
 msgstr ""
 
-#: editor/editor.settings.config.php:376
+#: editor/editor.settings.config.php:386
 msgid ""
 "Use this button to purge the stored LESS/CSS data. This will also clear "
 "cached pages if wp-super-cache or w3-total-cache are detected."
 msgstr ""
 
-#: editor/editor.settings.config.php:392
+#: editor/editor.settings.config.php:402
 msgid "Standard Options"
 msgstr ""
 
-#: editor/editor.settings.config.php:398
+#: editor/editor.settings.config.php:408
 msgid "Styling Classes"
 msgstr ""
 
-#: editor/editor.settings.config.php:399
+#: editor/editor.settings.config.php:409
 msgid "Separate with a space \" \""
 msgstr ""
 
@@ -907,7 +914,7 @@ msgid ""
 msgstr ""
 
 #: editor/panel.code.php:37
-msgid "Custom Code"
+msgid "Custom"
 msgstr ""
 
 #: editor/panel.code.php:42
@@ -1020,7 +1027,7 @@ msgid "<i class=\"icon-sun\"></i> Karma"
 msgstr ""
 
 #: editor/panel.sections.php:21
-msgid "Add Sections"
+msgid "Add To Page"
 msgstr ""
 
 #: editor/panel.sections.php:25
@@ -1088,7 +1095,7 @@ msgid "Miscellaneous"
 msgstr ""
 
 #: editor/panel.settings.php:27
-msgid "Global Options"
+msgid "Settings"
 msgstr ""
 
 #: editor/panel.settings.php:34
@@ -1106,7 +1113,7 @@ msgid "Theme"
 msgstr ""
 
 #: editor/panel.themes.php:39
-msgid "Available Themes"
+msgid "Your Themes"
 msgstr ""
 
 #: editor/panel.themes.php:46
@@ -1171,38 +1178,52 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: includes/deprecated.php:1312
+#: includes/deprecated.php:268
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
+"%3$s instead."
+msgstr ""
+
+#: includes/deprecated.php:270
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
+"no alternative available."
+msgstr ""
+
+#: includes/deprecated.php:1339
 msgid "No Image"
 msgstr ""
 
-#: includes/deprecated.php:1519
-#: includes/deprecated.php:1520
+#: includes/deprecated.php:1546
+#: includes/deprecated.php:1547
 msgid "Add New "
 msgstr ""
 
-#: includes/deprecated.php:1521
-#: includes/deprecated.php:1522
+#: includes/deprecated.php:1548
+#: includes/deprecated.php:1549
 msgid "Edit "
 msgstr ""
 
-#: includes/deprecated.php:1523
-#: includes/deprecated.php:1524
+#: includes/deprecated.php:1550
+#: includes/deprecated.php:1551
 msgid "View "
 msgstr ""
 
-#: includes/less.legacy.php:443
-#: includes/less.legacy.php:767
+#: includes/less.legacy.php:460
+#: includes/less.legacy.php:755
 #, php-format
 msgid ""
 "%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
 "*/"
 msgstr ""
 
-#: includes/less.legacy.php:510
+#: includes/less.legacy.php:529
 msgid "LESS Compile error!"
 msgstr ""
 
-#: includes/less.legacy.php:517
+#: includes/less.legacy.php:536
 #, php-format
 msgid "Error in %s Less code: %s"
 msgstr ""
@@ -1230,7 +1251,7 @@ msgid ""
 "href='%s'>WordPress menu admin</a>.</ul>"
 msgstr ""
 
-#: includes/lib.elements.php:269
+#: includes/lib.elements.php:272
 msgid "edit"
 msgstr ""
 
@@ -1316,7 +1337,7 @@ msgid ""
 msgstr ""
 
 #: sections/columnizer/section.php:100
-msgid "Get Custom Sidebars"
+msgid "Get A Sidebars Plugin"
 msgstr ""
 
 #: sections/columnizer/section.php:147
@@ -1553,62 +1574,62 @@ msgid "Highlight Format"
 msgstr ""
 
 #: sections/highlight/section.php:33
-#: sections/highlight/section.php:121
+#: sections/highlight/section.php:123
 msgid "Image on top of text"
 msgstr ""
 
 #: sections/highlight/section.php:34
-#: sections/highlight/section.php:122
+#: sections/highlight/section.php:124
 msgid "Image on bottom of text"
 msgstr ""
 
 #: sections/highlight/section.php:35
-#: sections/highlight/section.php:123
+#: sections/highlight/section.php:125
 msgid "No text, just the image"
 msgstr ""
 
-#: sections/highlight/section.php:40
+#: sections/highlight/section.php:41
 msgid "Highlight Text"
 msgstr ""
 
-#: sections/highlight/section.php:47
-#: sections/highlight/section.php:95
-#: sections/highlight/section.php:102
+#: sections/highlight/section.php:48
+#: sections/highlight/section.php:97
+#: sections/highlight/section.php:104
 msgid "Highlight Header Text (Optional)"
 msgstr ""
 
-#: sections/highlight/section.php:53
-#: sections/highlight/section.php:108
+#: sections/highlight/section.php:54
+#: sections/highlight/section.php:110
 msgid "Highlight Subheader Text (Optional)"
 msgstr ""
 
-#: sections/highlight/section.php:60
+#: sections/highlight/section.php:62
 msgid "Highlight Image and Format"
 msgstr ""
 
-#: sections/highlight/section.php:66
-#: sections/highlight/section.php:114
+#: sections/highlight/section.php:68
+#: sections/highlight/section.php:116
 msgid "Upload Splash Image"
 msgstr ""
 
-#: sections/highlight/section.php:71
-#: sections/highlight/section.php:128
+#: sections/highlight/section.php:73
+#: sections/highlight/section.php:130
 msgid "Add frame to image?"
 msgstr ""
 
-#: sections/highlight/section.php:96
+#: sections/highlight/section.php:98
 msgid "Add the main header text for the highlight section."
 msgstr ""
 
-#: sections/highlight/section.php:119
+#: sections/highlight/section.php:121
 msgid "Highlight Image Style"
 msgstr ""
 
-#: sections/highlight/section.php:165
+#: sections/highlight/section.php:167
 msgid "Here's to the crazy ones..."
 msgstr ""
 
-#: sections/highlight/section.php:166
+#: sections/highlight/section.php:168
 msgid "This is your Highlight section. Set up the options to configure."
 msgstr ""
 
@@ -1684,12 +1705,12 @@ msgstr ""
 msgid "iBox Image"
 msgstr ""
 
-#: sections/ibox/section.php:217
-#: sections/ibox/section.php:331
+#: sections/ibox/section.php:162
+#: sections/ibox/section.php:276
 msgid "More"
 msgstr ""
 
-#: sections/ibox/section.php:326
+#: sections/ibox/section.php:271
 msgid "iBox "
 msgstr ""
 
@@ -2142,27 +2163,27 @@ msgstr ""
 msgid "Area Padding Bottom (if different)"
 msgstr ""
 
-#: sections/pl_area/section.php:80
+#: sections/pl_area/section.php:81
 msgid "Area Styling"
 msgstr ""
 
-#: sections/pl_area/section.php:102
+#: sections/pl_area/section.php:103
 msgid "Area Theme"
 msgstr ""
 
-#: sections/pl_area/section.php:108
+#: sections/pl_area/section.php:109
 msgid "Area Minimum Height (px)"
 msgstr ""
 
-#: sections/pl_area/section.php:119
+#: sections/pl_area/section.php:120
 msgid "Area Background"
 msgstr ""
 
-#: sections/pl_area/section.php:131
+#: sections/pl_area/section.php:132
 msgid "Repeat Background Image"
 msgstr ""
 
-#: sections/pl_area/section.php:136
+#: sections/pl_area/section.php:137
 msgid "Enable Background Parallax"
 msgstr ""
 
@@ -2213,7 +2234,7 @@ msgid "Authors Google Profile &rarr;"
 msgstr ""
 
 #: sections/postloop/class.posts.php:37
-#: sections/postloop/section.php:188
+#: sections/postloop/section.php:186
 msgid "Read More &raquo;"
 msgstr ""
 
@@ -2330,11 +2351,11 @@ msgstr ""
 msgid "Optionally show full post content on special post listing pages."
 msgstr ""
 
-#: sections/postloop/section.php:85
+#: sections/postloop/section.php:84
 msgid "Meta Config"
 msgstr ""
 
-#: sections/postloop/section.php:88
+#: sections/postloop/section.php:87
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
@@ -2349,142 +2370,142 @@ msgid ""
 "Type of post</li></ul>"
 msgstr ""
 
-#: sections/postloop/section.php:93
+#: sections/postloop/section.php:92
 msgid "Select Meta Mode"
 msgstr ""
 
-#: sections/postloop/section.php:94
+#: sections/postloop/section.php:93
 msgid "Meta Mode"
 msgstr ""
 
-#: sections/postloop/section.php:99
+#: sections/postloop/section.php:98
 msgid ""
 "Instead of the standard metabar (beneath post title), you can use author "
 "meta mode. This mode displays the author avatar and publish date on left."
 msgstr ""
 
-#: sections/postloop/section.php:106
+#: sections/postloop/section.php:105
 msgid "Configure Full Width Post Metabar"
 msgstr ""
 
-#: sections/postloop/section.php:107
+#: sections/postloop/section.php:106
 msgid "Post Meta Information"
 msgstr ""
 
+#: sections/postloop/section.php:114
 #: sections/postloop/section.php:115
-#: sections/postloop/section.php:116
 msgid "Configure Clip Metabar"
 msgstr ""
 
-#: sections/postloop/section.php:124
+#: sections/postloop/section.php:122
 msgid "Thumbs"
+msgstr ""
+
+#: sections/postloop/section.php:133
+#: sections/postloop/section.php:149
+msgid "Left Justified"
+msgstr ""
+
+#: sections/postloop/section.php:134
+#: sections/postloop/section.php:150
+msgid "On Top"
 msgstr ""
 
 #: sections/postloop/section.php:135
 #: sections/postloop/section.php:151
-msgid "Left Justified"
+msgid "Left, In Excerpt"
 msgstr ""
 
 #: sections/postloop/section.php:136
 #: sections/postloop/section.php:152
-msgid "On Top"
-msgstr ""
-
-#: sections/postloop/section.php:137
-#: sections/postloop/section.php:153
-msgid "Left, In Excerpt"
-msgstr ""
-
-#: sections/postloop/section.php:138
-#: sections/postloop/section.php:154
 msgid "Right, In Excerpt"
 msgstr ""
 
-#: sections/postloop/section.php:140
+#: sections/postloop/section.php:138
 msgid "Full Width Thumbs Layout"
 msgstr ""
 
-#: sections/postloop/section.php:141
+#: sections/postloop/section.php:139
 msgid ""
 "Use this option to configure how thumbs will be shown in full-width posts on "
 "your blog page."
 msgstr ""
 
-#: sections/postloop/section.php:156
+#: sections/postloop/section.php:154
 msgid "Clip Thumbs Layout"
 msgstr ""
 
-#: sections/postloop/section.php:157
+#: sections/postloop/section.php:155
 msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
 msgstr ""
 
-#: sections/postloop/section.php:163
+#: sections/postloop/section.php:161
 msgid "Hide thumbs?"
 msgstr ""
 
-#: sections/postloop/section.php:164
+#: sections/postloop/section.php:162
 msgid "Post Thumbnails"
 msgstr ""
 
-#: sections/postloop/section.php:165
+#: sections/postloop/section.php:163
 msgid "Use this option to hide or show thumbs for posts on pages."
 msgstr ""
 
-#: sections/postloop/section.php:174
+#: sections/postloop/section.php:172
 msgid "Excerpts"
 msgstr ""
 
-#: sections/postloop/section.php:181
+#: sections/postloop/section.php:179
 msgid "Hide excerpts?"
 msgstr ""
 
-#: sections/postloop/section.php:182
+#: sections/postloop/section.php:180
 msgid "Hide Post Excerpt"
 msgstr ""
 
-#: sections/postloop/section.php:183
+#: sections/postloop/section.php:181
 msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
 msgstr ""
 
-#: sections/postloop/section.php:190
+#: sections/postloop/section.php:188
 msgid "Continue Reading Link Text"
 msgstr ""
 
-#: sections/postloop/section.php:191
+#: sections/postloop/section.php:189
 msgid "Excerpts <strong>Continue Reading</strong> Text"
 msgstr ""
 
-#: sections/postloop/section.php:192
+#: sections/postloop/section.php:190
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
 msgstr ""
 
-#: sections/postloop/section.php:199
+#: sections/postloop/section.php:197
 msgid "Number of words."
 msgstr ""
 
-#: sections/postloop/section.php:200
+#: sections/postloop/section.php:198
 msgid "Excerpt Length"
 msgstr ""
 
-#: sections/postloop/section.php:201
+#: sections/postloop/section.php:199
 msgid "Excerpts are set to 55 words by default."
 msgstr ""
 
-#: sections/postloop/section.php:208
+#: sections/postloop/section.php:206
 msgid "Allowed Tags"
 msgstr ""
 
-#: sections/postloop/section.php:209
+#: sections/postloop/section.php:207
 msgid "Allow Tags in Excerpt"
 msgstr ""
 
-#: sections/postloop/section.php:210
+#: sections/postloop/section.php:208
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
