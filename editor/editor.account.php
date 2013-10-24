@@ -214,12 +214,7 @@ class PLAccountPanel{
 					'icon'	=> 'icon-youtube-play',
 					'call'	=> array($this, 'getting_started'),
 				),
-				'get_karma'	=> array(
-					'name'	=> __( 'Get Karma', 'pagelines' ),
-					'icon'	=> 'icon-sun',
-					'call'	=> array($this, 'pagelines_karma'),
-				),
-				
+			
 				'support'	=> array(
 					'name'	=> __( 'Support', 'pagelines' ),
 					'icon'	=> 'icon-comments',
@@ -651,38 +646,6 @@ class PLAccountPanel{
 								</div>
 							</div>
 						</div>
-						<div class="span6 ">
-							<h4><i class="icon-sun"></i> <?php _e( 'Karma', 'pagelines' ); ?>
-							</h4>
-							
-							<div class="row karma-row">
-							
-								<div class="span6 kcol">
-									<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i> <?php _e( 'Current', 'pagelines' ); ?>
-									</strong></div>
-								
-								</div>
-								<div class="span6 kcol">
-									<div class="big-karma">
-										<?php echo $data['lifetime_karma'];?>
-										<strong><i class="icon-sun"></i> <?php _e( 'Lifetime', 'pagelines' ); ?>
-										</strong>
-									</div>
-									
-								</div>
-								
-								
-							</div>
-							<div class="karma-nav">
-								<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> <?php _e( 'Get karma', 'pagelines' ); ?>
-								 </a>
-								<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> <?php _e( 'Use karma', 'pagelines' ); ?>
-								 </a>
-								<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini"><?php _e( 'Learn more about karma', 'pagelines' ); ?>
-								 <i class="icon-external-link"></i></a>
-							</div>
-						</div>
-						
 					</div>
 					<?php endif; ?>
 				</div>
