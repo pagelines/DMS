@@ -1,33 +1,41 @@
+#
+# Translators:
+# hermit <harmus@gmail.com>, 2013
+# hermit <harmus@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: DMS v1.1\n"
+"Project-Id-Version: PageLines DMS\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-24 16:39-0300\n"
-"PO-Revision-Date: 2013-10-24 16:39-0300\n"
+"PO-Revision-Date: 2013-10-24 16:59-0300\n"
 "Last-Translator: DJIO | Dionizio Bonfim Bach <wordpress@djio.com.br>\n"
-"Language-Team: PageLines <hello@pagelines.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/pagelines-dms/"
+"language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
-"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
 # @ pagelines
 #: comments.php:23
 msgid "Comments are closed."
-msgstr ""
+msgstr "Reageren is niet mogelijk."
 
 # @ pagelines
 #: comments.php:38
 msgid ""
 "This post is password protected. Enter the password to view any comments."
 msgstr ""
+"Dit bericht is beveiligd met een wachtwoord. Voer het wachtwoord om alle "
+"reacties weer te geven."
 
 # @ pagelines
 #: comments.php:44
@@ -40,12 +48,12 @@ msgstr[1] ""
 # @ pagelines
 #: comments.php:52
 msgid "<span class='meta-nav'>&larr;</span> Older Comments"
-msgstr ""
+msgstr "<span class='meta-nav'> &larr;</span> Oudere reacties"
 
 # @ pagelines
 #: comments.php:53
 msgid "Newer Comments <span class='meta-nav'>&rarr;</span>"
-msgstr ""
+msgstr "Nieuwere reacties <span class='meta-nav'> &rarr;</span>"
 
 # @ pagelines
 #: admin/admin.actions.php:18
@@ -66,6 +74,10 @@ msgid ""
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
 msgstr ""
+"<div class = 'config-fout'><h2>PHP-versie probleem</h2>Het lijkt er op dat u "
+"PHP-versie: <strong>%s</strong> gebruikt. Om dit framework te draaien heeft "
+"u PHP-versie <strong>5.0</strong> of hoger nodig... <br/> <br/> Neem contact "
+"op met uw webhost voor een upgrade.</div>"
 
 # @ pagelines
 #: admin/admin.editor.php:18
@@ -97,12 +109,12 @@ msgstr ""
 # @ pagelines
 #: admin/admin.editor.php:36
 msgid "DMS LESS Fallback"
-msgstr ""
+msgstr "DMS LESS terugvalmogelijkheid"
 
 # @ pagelines
 #: admin/admin.editor.php:40
 msgid "DMS Header Scripts Fallback"
-msgstr ""
+msgstr "DMS Header Scripts terugvalmogelijkheid"
 
 # @ pagelines
 #: admin/admin.editor.php:54
@@ -125,12 +137,12 @@ msgstr ""
 # @ pagelines
 #: admin/admin.editor.php:69
 msgid "Save LESS"
-msgstr ""
+msgstr "LESS opslaan"
 
 # @ pagelines
 #: admin/admin.editor.php:81
 msgid "Save Scripts"
-msgstr ""
+msgstr "Scripts opslaan"
 
 # @ pagelines
 #: editor/editor.account.php:199
@@ -140,27 +152,27 @@ msgstr ""
 # @ pagelines
 #: editor/editor.account.php:207
 msgid "Your Account"
-msgstr ""
+msgstr "Uw Account"
 
 # @ pagelines
 #: editor/editor.account.php:213
 msgid "Getting Started"
-msgstr ""
+msgstr "Aan de Slag"
 
 # @ pagelines
 #: editor/editor.account.php:218
 msgid "Get Karma"
-msgstr ""
+msgstr "Ontvang Karma"
 
 # @ pagelines
 #: editor/editor.account.php:224
 msgid "Support"
-msgstr ""
+msgstr "Ondersteuning"
 
 # @ pagelines
 #: editor/editor.account.php:446
 msgid "Get PRO stuff free with Karma."
-msgstr ""
+msgstr "Krijgen PRO dingen gratis met Karma."
 
 # @ pagelines
 #: editor/editor.account.php:448
@@ -169,222 +181,227 @@ msgid ""
 "and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
 msgstr ""
+"Voor iedere vriend die u uitnodigt om PageLines te gebruiken en die "
+"vervolgens PageLines installeert, geven wij u en uw vriend 50 karma punten! "
+"Karma punten kunnen als cash worden ingewisseld bij PageLines."
 
 # @ pagelines
 #: editor/editor.account.php:452
 msgid "Invite Friends by Email"
-msgstr ""
+msgstr "Vrienden uitnodigen via e-mail"
 
 # @ pagelines
 #: editor/editor.account.php:455
 msgid "Add emails (Comma separated)"
-msgstr ""
+msgstr "E-mailadressen toevoegen (gescheiden door komma's)"
 
 # @ pagelines
 #: editor/editor.account.php:457
 msgid "Invite"
-msgstr ""
+msgstr "Uitnodigen"
 
 # @ pagelines
 #: editor/editor.account.php:460 editor/editor.account.php:472
 msgid " Add/Update Account Info"
-msgstr ""
+msgstr "Account gegevens toevoegen/bijwerken"
 
 # @ pagelines
 #: editor/editor.account.php:462
 msgid "Name and invite link needed."
-msgstr ""
+msgstr "Naam en uitnodiging link zijn nodig."
 
 # @ pagelines
 #: editor/editor.account.php:467
 msgid "Your Invite Link"
-msgstr ""
+msgstr "Uw uitnodiging link"
 
 # @ pagelines
 #: editor/editor.account.php:488
 msgid " Your Karma"
-msgstr ""
+msgstr "Uw Karma"
 
 # @ pagelines
 #: editor/editor.account.php:494
 msgid " Current"
-msgstr ""
+msgstr "Huidig"
 
 # @ pagelines
 #: editor/editor.account.php:501
 msgid " Lifetime"
-msgstr ""
+msgstr "Levensduur"
 
 # @ pagelines
 #: editor/editor.account.php:510 editor/editor.account.php:677
 msgid "Get karma"
-msgstr ""
+msgstr "Krijg Karma"
 
 # @ pagelines
 #: editor/editor.account.php:512 editor/editor.account.php:679
 msgid "Use karma"
-msgstr ""
+msgstr "Karma gebruiken"
 
 # @ pagelines
 #: editor/editor.account.php:514 editor/editor.account.php:681
 msgid "Learn more about karma"
-msgstr ""
+msgstr "Meer te weten komen over Karma"
 
 # @ pagelines
 #: editor/editor.account.php:566 editor/editor.interface.php:331
 msgid "Saving"
-msgstr ""
+msgstr "Bezig met opslaan"
 
 # @ pagelines
 #: editor/editor.account.php:571
 msgid "Site Not Activated"
-msgstr ""
+msgstr "Website niet geactiveerd"
 
 # @ pagelines
 #: editor/editor.account.php:580
 msgid "Pro Activated!"
-msgstr ""
+msgstr "Pro geactiveerd!"
 
 # @ pagelines
 #: editor/editor.account.php:584
 msgid "Update Info"
-msgstr ""
+msgstr "Gegevens bijwerken"
 
 # @ pagelines
 #: editor/editor.account.php:586
 msgid "Deactivate"
-msgstr ""
+msgstr "Deactiveren"
 
 # @ pagelines
 #: editor/editor.account.php:596
 msgid "PageLines Account"
-msgstr ""
+msgstr "PageLines Account"
 
 # @ pagelines
 #: editor/editor.account.php:604
 msgid "Pro Activation Key"
-msgstr ""
+msgstr "Pro activeringssleutel"
 
 # @ pagelines
 #: editor/editor.account.php:605
 msgid "optional"
-msgstr ""
+msgstr "optioneel"
 
 # @ pagelines
 #: editor/editor.account.php:607
 msgid "Enter Pro Key"
-msgstr ""
+msgstr "Pro sleutel invoeren"
 
 # @ pagelines
 #: editor/editor.account.php:613
 msgid "Update"
-msgstr ""
+msgstr "Bijwerken"
 
 # @ pagelines
 #: editor/editor.account.php:622
 msgid "PageLines Account Info"
-msgstr ""
+msgstr "PageLines Accountgegevens"
 
 # @ pagelines
 #: editor/editor.account.php:629
 msgid "PageLines account not added or incorrect."
-msgstr ""
+msgstr "PageLines account niet toegevoegd of onjuist."
 
 # @ pagelines
 #: editor/editor.account.php:630
 msgid "Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
+"Voeg account toe om PageLines API's te configureren, karma systeem en winkel "
+"toegang."
 
 # @ pagelines
 #: editor/editor.account.php:636
 msgid "Profile"
-msgstr ""
+msgstr "Profiel"
 
 # @ pagelines
 #: editor/editor.account.php:646
 msgid "My Account"
-msgstr ""
+msgstr "Mijn Account"
 
 # @ pagelines
 #: editor/editor.account.php:648
 msgid "Edit Profile"
-msgstr ""
+msgstr "Profiel bewerken"
 
 # @ pagelines
 #: editor/editor.account.php:655
 msgid "Karma"
-msgstr ""
+msgstr "Karma"
 
 # @ pagelines
 #: editor/editor.account.php:661
 msgid "Current"
-msgstr ""
+msgstr "Huidig"
 
 # @ pagelines
 #: editor/editor.account.php:668
 msgid "Lifetime"
-msgstr ""
+msgstr "Levensduur"
 
 # @ pagelines
 #: editor/editor.account.php:705
 msgid "Congratulations!"
-msgstr ""
+msgstr "Gefeliciteerd!"
 
 # @ pagelines
 #: editor/editor.account.php:712
 msgid "Setup PageLines Account"
-msgstr ""
+msgstr "PageLines Account instellen"
 
 # @ pagelines
 #: editor/editor.account.php:715
 msgid "Getting Started Video"
-msgstr ""
+msgstr "'Aan de slag'-video"
 
 # @ pagelines
 #: editor/editor.account.php:726
 msgid "The PageLines Experience"
-msgstr ""
+msgstr "De PageLines ervaring"
 
 # @ pagelines
 #: editor/editor.account.php:729
 msgid "We want you to have a most amazing time as a PageLines customer."
-msgstr ""
+msgstr "Wij willen dat u een fantastische tijd heeft als PageLines klant."
 
 # @ pagelines
 #: editor/editor.account.php:731
 msgid "That's why we have a ton of people standing by to make you happy."
-msgstr ""
+msgstr "Daarom staan er een hoop mensen klaar om u blij te maken."
 
 # @ pagelines
 #: editor/editor.account.php:735
 msgid "PageLines Forum"
-msgstr ""
+msgstr "PageLines Forum"
 
 # @ pagelines
 #: editor/editor.account.php:737
 msgid "DMS Documentation"
-msgstr ""
+msgstr "DMS documentatie"
 
 # @ pagelines
 #: editor/editor.actions.php:332
 msgid "Unsupported file type!"
-msgstr ""
+msgstr "Bestandstype wordt niet ondersteund!"
 
 # @ pagelines
 #: editor/editor.actions.php:335
 #, php-format
 msgid "Upload Error: %s"
-msgstr ""
+msgstr "Probleem tijdens het uploaden: %s"
 
 # @ pagelines
 #: editor/editor.actions.php:485
 msgid "Select This Image For Option"
-msgstr ""
+msgstr "Selecteer de afbeelding voor de optie"
 
 # @ pagelines
 #: editor/editor.actions.php:507
 msgid "Media Library"
-msgstr ""
+msgstr "Mediabibliotheek"
 
 # @ pagelines
 #: editor/editor.color.php:201
@@ -417,62 +434,62 @@ msgstr ""
 # @ pagelines
 #: editor/editor.color.php:232 sections/pl_area/section.php:127
 msgid "Background Image"
-msgstr ""
+msgstr "Achtergrondafbeelding"
 
 # @ pagelines
 #: editor/editor.color.php:241
 msgid "Page Background Image"
-msgstr ""
+msgstr "Pagina achtergrond afbeelding"
 
 # @ pagelines
 #: editor/editor.color.php:253
 msgid "Background Image Settings"
-msgstr ""
+msgstr "Achtergrondafbeelding instellingen"
 
 # @ pagelines
 #: editor/editor.color.php:259
 msgid "Fit image to page?"
-msgstr ""
+msgstr "Afbeelding aanpassen aan paginagrootte?"
 
 # @ pagelines
 #: editor/editor.color.php:267
 msgid "Background Repeat"
-msgstr ""
+msgstr "Achtergrond herhaling"
 
 # @ pagelines
 #: editor/editor.color.php:281
 msgid "Vertical Background Position in Percent"
-msgstr ""
+msgstr "Verticale achtergrondpositie, in procenten"
 
 # @ pagelines
 #: editor/editor.color.php:292
 msgid "Horizontal Background Position in Percent"
-msgstr ""
+msgstr "Horizontale achtergrondpositie, in procenten"
 
 # @ pagelines
 #: editor/editor.color.php:303
 msgid "Set Background Attachment"
-msgstr ""
+msgstr "Achtergrond scrollgedrag"
 
 # @ pagelines
 #: editor/editor.color.php:306
 msgid "Scroll"
-msgstr ""
+msgstr "Meescrollen"
 
 # @ pagelines
 #: editor/editor.color.php:307
 msgid "Fixed"
-msgstr ""
+msgstr "Niet meescrollen"
 
 # @ pagelines
 #: editor/editor.importexport.php:175
 msgid "Export DMS Config"
-msgstr ""
+msgstr "DMS-configuratie exporteren"
 
 # @ pagelines
 #: editor/editor.importexport.php:181
 msgid "Import DMS Config"
-msgstr ""
+msgstr "DMS-configuratie importeren"
 
 # @ pagelines
 #: editor/editor.interface.php:136
@@ -482,62 +499,62 @@ msgstr ""
 # @ pagelines
 #: editor/editor.interface.php:149
 msgid "Preview (alt+a)"
-msgstr ""
+msgstr "Voorbeeld (alt + a)"
 
 # @ pagelines
 #: editor/editor.interface.php:307
 msgid "Undo All Unpublished Changes"
-msgstr ""
+msgstr "Alle niet-gepubliceerde wijzigingen ongedaan maken"
 
 # @ pagelines
 #: editor/editor.interface.php:309
 msgid "Undo Unpublished Global Changes"
-msgstr ""
+msgstr "Niet-gepubliceerde globale wijzigingen ongedaan maken"
 
 # @ pagelines
 #: editor/editor.interface.php:312
 msgid "Undo Unpublished Post Type Changes"
-msgstr ""
+msgstr "Niet-gepubliceerde Bericht Type wijzigingen ongedaan maken"
 
 # @ pagelines
 #: editor/editor.interface.php:314
 msgid "Undo Unpublished Local Changes"
-msgstr ""
+msgstr "Niet-gepubliceerde lokale wijzigingen ongedaan maken"
 
 # @ pagelines
 #: editor/editor.interface.php:316
 msgid "No Unpublished Changes"
-msgstr ""
+msgstr "Geen niet-gepubliceerde wijzigingen"
 
 # @ pagelines
 #: editor/editor.interface.php:323
 msgid "Refresh needed to view changes."
-msgstr ""
+msgstr "Pagina verversen nodig om de wijzigingen te zien."
 
 # @ pagelines
 #: editor/editor.interface.php:325
 msgid "Publish Live"
-msgstr ""
+msgstr "Live publiceren"
 
 # @ pagelines
 #: editor/editor.interface.php:326
 msgid "Publish"
-msgstr ""
+msgstr "Publiceren"
 
 # @ pagelines
 #: editor/editor.interface.php:334
 msgid "Width"
-msgstr ""
+msgstr "Breedte"
 
 # @ pagelines
 #: editor/editor.layout.php:43
 msgid "Select Layout Mode"
-msgstr ""
+msgstr "Selecteer lay-outmodus"
 
 # @ pagelines
 #: editor/editor.layout.php:44
 msgid "Layout Mode"
-msgstr ""
+msgstr "Lay-outmodus"
 
 # @ pagelines
 #: editor/editor.layout.php:50
@@ -546,16 +563,19 @@ msgid ""
 "pixels.<br/><br/> If you select \"percent\" width the width of your content "
 "will be a percentage of window size."
 msgstr ""
+"Selecteer pixel breedte modus en uw maximale site breedte wordt bepaald door "
+"pixels. <br/><br/> Als u \"percent\" breedte selecteert, wordt de breedte "
+"van uw content een percentage van de venstergrootte."
 
 # @ pagelines
 #: editor/editor.layout.php:55
 msgid "Select Layout Display"
-msgstr ""
+msgstr "Selecteer lay-out weergave"
 
 # @ pagelines
 #: editor/editor.layout.php:56
 msgid "Display Mode"
-msgstr ""
+msgstr "Weergavemodus"
 
 # @ pagelines
 #: editor/editor.layout.php:62
@@ -564,6 +584,10 @@ msgid ""
 "content width sections.<br/><br/> \"Boxed\" mode contains everything in a "
 "central content box. Boxed mode is ideal for use with background images."
 msgstr ""
+"\"Volledige\" display modus staat gebieden toe om de volledige breedte van "
+"het venster te gebruiken, met content breedte secties.<br/><br/> \"Boxed\" "
+"modus bevat alles in een centrale box. Boxed modus is ideaal om te gebruiken "
+"met achtergrond afbeeldingen."
 
 # @ pagelines
 #: editor/editor.layout.php:75
@@ -573,7 +597,7 @@ msgstr ""
 # @ pagelines
 #: editor/editor.layout.php:80
 msgid "Select Primary Navigation Menu"
-msgstr ""
+msgstr "Selecteer primair navigatiemenu"
 
 # @ pagelines
 #: editor/editor.layout.php:82
@@ -581,11 +605,12 @@ msgid ""
 "This will be used in mobile menus and optionally other places throughout "
 "your site."
 msgstr ""
+"Dit wordt gebruikt in mobiele menu's en optioneel andere plaatsen op uw site."
 
 # @ pagelines
 #: editor/editor.layout.php:87
 msgid "Select Secondary Navigation Menu"
-msgstr ""
+msgstr "Selecteer secundair navigatiemenu"
 
 # @ pagelines
 #: editor/editor.layout.php:89
@@ -593,6 +618,7 @@ msgid ""
 "This will be shown subtly in areas throughout the site and in your mobile "
 "menu."
 msgstr ""
+"Dit wordt subtiel getoond in gebieden op uw site en in uw mobiele menu."
 
 # @ pagelines
 #: editor/editor.loader.php:99
@@ -602,52 +628,52 @@ msgstr ""
 # @ pagelines
 #: editor/editor.regions.php:20
 msgid "Global Scope Region"
-msgstr ""
+msgstr "Globaal gebied"
 
 # @ pagelines
 #: editor/editor.regions.php:24
 msgid "Local Scope Region"
-msgstr ""
+msgstr "Lokaal gebied"
 
 # @ pagelines
 #: editor/editor.settings.config.php:95
 msgid "Site Homepage"
-msgstr ""
+msgstr "Homepage van de website"
 
 # @ pagelines
 #: editor/editor.settings.config.php:103
 msgid "Manage Permalinks"
-msgstr ""
+msgstr "Permanente Links beheren"
 
 # @ pagelines
 #: editor/editor.settings.config.php:113
 msgid "Manage Menus"
-msgstr ""
+msgstr "Menu's beheren"
 
 # @ pagelines
 #: editor/editor.settings.config.php:123
 msgid "Manage Widgetized Areas"
-msgstr ""
+msgstr "Gebieden met widgets beheren"
 
 # @ pagelines
 #: editor/editor.settings.config.php:133
 msgid "Site Settings"
-msgstr ""
+msgstr "Website instellingen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:142
 msgid "Manage Extensions"
-msgstr ""
+msgstr "Uitbreidingen beheren"
 
 # @ pagelines
 #: editor/editor.settings.config.php:155
 msgid "Debug Enabled"
-msgstr ""
+msgstr "Foutopsporing ingeschakeld"
 
 # @ pagelines
 #: editor/editor.settings.config.php:173
 msgid "Favicon Image"
-msgstr ""
+msgstr "Favicon afbeelding"
 
 # @ pagelines
 #: editor/editor.settings.config.php:174
@@ -656,11 +682,14 @@ msgid ""
 "visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
 msgstr ""
+"Voer de volledige URL locatie van uw eigen <strong>favicon</strong> die "
+"zichtbaar wordt in browser favorieten en tabbladen.<br/> <strong>Dit moet "
+"een .png of .ico bestand zijn - 32px bij 32px</strong>."
 
 # @ pagelines
 #: editor/editor.settings.config.php:186
 msgid "Login Page Image"
-msgstr ""
+msgstr "Login pagina afbeelding"
 
 # @ pagelines
 #: editor/editor.settings.config.php:188
@@ -668,11 +697,13 @@ msgid ""
 "This image will be used on the login page to your admin. Use an image that "
 "is approximately <strong>80px</strong> in height."
 msgstr ""
+"Deze afbeelding wordt gebruikt op de login pagina naar uw beheerdashboard. "
+"Gebruik een afbeelding die ongeveer <strong>80px</strong> hoog is."
 
 # @ pagelines
 #: editor/editor.settings.config.php:197
 msgid "Mobile Touch Image"
-msgstr ""
+msgstr "Mobile Touch afbeelding"
 
 # @ pagelines
 #: editor/editor.settings.config.php:199
@@ -682,16 +713,20 @@ msgid ""
 "Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
 "gif or .png format."
 msgstr ""
+"Voer de volledige URL locatie in van uw Apple Touch Icoon die zichtbaar "
+"wordt als gebruikers uw site als <strong>webclip</strong> in Apple Iphone en "
+"Touch Products gebruiken. Dit is een afbeelding van ongeveer 144px bij 144px "
+"in .jpg, .gif of .png formaat."
 
 # @ pagelines
 #: editor/editor.settings.config.php:217
 msgid "Your Twitter Username"
-msgstr ""
+msgstr "Uw Twitter gebruikersnaam"
 
 # @ pagelines
 #: editor/editor.settings.config.php:218
 msgid "Twitter Integration"
-msgstr ""
+msgstr "Twitter integratie"
 
 # @ pagelines
 #: editor/editor.settings.config.php:219
@@ -699,16 +734,18 @@ msgid ""
 "This places your Twitter feed on the site. Leave blank if you want to hide "
 "or not use."
 msgstr ""
+"Dit plaatst een Twitter feed op uw site. Laat leeg als u dit wilt verbergen "
+"of niet wilt gebruiken."
 
 # @ pagelines
 #: editor/editor.settings.config.php:231
 msgid "Your Facebook Page Name"
-msgstr ""
+msgstr "De naam van uw Facebook-pagina"
 
 # @ pagelines
 #: editor/editor.settings.config.php:232
 msgid "Facebook Page"
-msgstr ""
+msgstr "Facebook pagina"
 
 # @ pagelines
 #: editor/editor.settings.config.php:233
@@ -716,31 +753,33 @@ msgid ""
 "Enter the name component of your Facebook page URL. (For example, what comes "
 "after the facebook url: www.facebook.com/[name])"
 msgstr ""
+"Voer de naam component in van uw Facebook pagina URL. (Bijvoorbeeld, datgene "
+"wat achter de facebook url komt: www.facebook.com/[name])"
 
 # @ pagelines
 #: editor/editor.settings.config.php:238
 msgid "Your Facebook App ID"
-msgstr ""
+msgstr "Uw Facebook App ID"
 
 # @ pagelines
 #: editor/editor.settings.config.php:239
 msgid "Facebook App ID"
-msgstr ""
+msgstr "Facebook App ID"
 
 # @ pagelines
 #: editor/editor.settings.config.php:240
 msgid "Add your Facebook Application ID here."
-msgstr ""
+msgstr "Vul uw Facebook applicatie ID hier in."
 
 # @ pagelines
 #: editor/editor.settings.config.php:249
 msgid "Your Website Hashtag"
-msgstr ""
+msgstr "Uw Website Hashtag"
 
 # @ pagelines
 #: editor/editor.settings.config.php:250
 msgid "Website Hashtag"
-msgstr ""
+msgstr "Website Hashtag"
 
 # @ pagelines
 #: editor/editor.settings.config.php:251
@@ -748,57 +787,60 @@ msgid ""
 "This hashtag will be used in social media (e.g. Twitter) and elsewhere to "
 "create feeds."
 msgstr ""
+"Deze hashtag zal worden gebruikt in social media (bijv. Twitter) om feeds te "
+"creeeren."
 
 # @ pagelines
 #: editor/editor.settings.config.php:262
 msgid "Enable Google+"
-msgstr ""
+msgstr "Google+ inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:268
 msgid "Enable Facebook"
-msgstr ""
+msgstr "Facebook inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:274
 msgid "Enable Twitter"
-msgstr ""
+msgstr "Twitter inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:280
 msgid "Enable LinkedIn"
-msgstr ""
+msgstr "LinkedIn inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:285
 msgid "Enable Pinterest"
-msgstr ""
+msgstr "Pinterest inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:290
 msgid "Enable Buffer"
-msgstr ""
+msgstr "Buffer inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:295
 msgid "Enable Stumbleupon"
-msgstr ""
+msgstr "Stumbleupon inschakelen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:315
 msgid "Enable debug?"
-msgstr ""
+msgstr "Foutopsporing inschakelen?"
 
 # @ pagelines
 #: editor/editor.settings.config.php:316
 msgid "PageLines debug"
-msgstr ""
+msgstr "PageLines foutopsporing"
 
 # @ pagelines
 #: editor/editor.settings.config.php:317
 #, php-format
 msgid "This information can be useful in the forums if you have a problem. %s"
 msgstr ""
+"Deze informatie kan erg nuttig zijn in de forums als u een probleem heeft. %s"
 
 # @ pagelines
 #: editor/editor.settings.config.php:325
@@ -818,12 +860,12 @@ msgstr ""
 # @ pagelines
 #: editor/editor.settings.config.php:334
 msgid "Enable Code Prettify?"
-msgstr ""
+msgstr "Code Prettify inschakelen?"
 
 # @ pagelines
 #: editor/editor.settings.config.php:335
 msgid "Google Prettify Code"
-msgstr ""
+msgstr "Google Prettify Code"
 
 # @ pagelines
 #: editor/editor.settings.config.php:336
@@ -832,16 +874,19 @@ msgid ""
 "[pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if "
 "Wordpress inserts line breaks."
 msgstr ""
+"Voeg een 'prettyprint' klasse toe aan de code of <pre> tags, of gebruik "
+"eventueel de [pl_codebox] shortcode. Voeg de codebox in een shortcode, "
+"gebruik daarvoor [pl_raw], als Wordpress regeleinden invoegt."
 
 # @ pagelines
 #: editor/editor.settings.config.php:342
 msgid "Enter Partner Link"
-msgstr ""
+msgstr "Voer de Partner Link in"
 
 # @ pagelines
 #: editor/editor.settings.config.php:343
 msgid "PageLines Affiliate/Partner Link"
-msgstr ""
+msgstr "PageLines Affiliate/Partner Link"
 
 # @ pagelines
 #: editor/editor.settings.config.php:344
@@ -850,16 +895,19 @@ msgid ""
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
 msgstr ""
+"Als u een <a target='_blank' href='http://www.pagelines.com'>PageLines "
+"Partner</a> bent, voert u uw link hier in, zodat de footer link een partner- "
+"of affiliate link wordt."
 
 # @ pagelines
 #: editor/editor.settings.config.php:350
 msgid "Install Class"
-msgstr ""
+msgstr "Klasse installatie"
 
 # @ pagelines
 #: editor/editor.settings.config.php:351
 msgid "Current Install Class"
-msgstr ""
+msgstr "Klasse huidige installatie"
 
 # @ pagelines
 #: editor/editor.settings.config.php:352
@@ -868,16 +916,20 @@ msgid ""
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
 msgstr ""
+"Gebruik deze optie om een klasse toe te voegen aan het &gt;body&lt; element "
+"van de website. Dit kan nuttig zijn wanneer u hetzelfde child thema op "
+"meerdere installaties of subdomeinen gebruikt en kan worden gebruikt om CSS "
+"aanpassingen te beheren."
 
 # @ pagelines
 #: editor/editor.settings.config.php:367
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
-msgstr ""
+msgstr "<i class=\"icon-undo\"></i> Algemene Instellingen Resetten"
 
 # @ pagelines
 #: editor/editor.settings.config.php:368
 msgid "Reset Global Site Settings"
-msgstr ""
+msgstr "Globale website instellingen terugzetten"
 
 # @ pagelines
 #: editor/editor.settings.config.php:369
@@ -886,16 +938,20 @@ msgid ""
 "><strong>Note:</strong> Once you've completed this action, you may want to "
 "publish these changes to your live site."
 msgstr ""
+"Gebruik deze button om alle algemene instellingen terug te zetten naar de "
+"standaard instellingen. <br/><strong>Let op:</strong> Als u deze actie heeft "
+"ingezet, wilt u de wijzigingen wellicht publiceren om de wijzigingen op uw "
+"live site te krijgen."
 
 # @ pagelines
 #: editor/editor.settings.config.php:375
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
-msgstr ""
+msgstr "<i class=\"icon-undo\"></i> Huidige Pagina Instellingen Resetten"
 
 # @ pagelines
 #: editor/editor.settings.config.php:376
 msgid "Reset Current Page Settings"
-msgstr ""
+msgstr "Huidige pagina instellingen terugzetten"
 
 # @ pagelines
 #: editor/editor.settings.config.php:377
@@ -904,16 +960,20 @@ msgid ""
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
 msgstr ""
+"Gebruik deze button om alle instellingen op de huidige pagina terug te "
+"zetten naar de standaard instellingen. <br/><strong>Let op:</strong> Als u "
+"deze actie heeft ingezet, wilt u de wijzigingen wellicht publiceren om de "
+"wijzigingen op uw live site te krijgen."
 
 # @ pagelines
 #: editor/editor.settings.config.php:384
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
-msgstr ""
+msgstr "<i class=\"icon-trash\"></i> Cache leegmaken"
 
 # @ pagelines
 #: editor/editor.settings.config.php:385
 msgid "Clear all CSS/LESS cached data."
-msgstr ""
+msgstr "Alle CSS/LESS cache data opschonen."
 
 # @ pagelines
 #: editor/editor.settings.config.php:386
@@ -921,71 +981,74 @@ msgid ""
 "Use this button to purge the stored LESS/CSS data. This will also clear "
 "cached pages if wp-super-cache or w3-total-cache are detected."
 msgstr ""
+"Gebruik deze button om alle opgeslagen LESS/CSS data op te schonen. Dit zal "
+"ook de pagina cache opschonen, als wp-super-cache of w3-total-cache wordt "
+"gedetecteerd."
 
 # @ pagelines
 #: editor/editor.settings.config.php:402
 msgid "Standard Options"
-msgstr ""
+msgstr "Standaard opties"
 
 # @ pagelines
 #: editor/editor.settings.config.php:408
 msgid "Styling Classes"
-msgstr ""
+msgstr "Opmaak Klassen"
 
 # @ pagelines
 #: editor/editor.settings.config.php:409
 msgid "Separate with a space \" \""
-msgstr ""
+msgstr "Scheiden met een spatie \" \""
 
 # @ pagelines
 #: editor/editor.templates.php:202
 msgid "Templates"
-msgstr ""
+msgstr "Sjablonen"
 
 # @ pagelines
 #: editor/editor.templates.php:207
 msgid "Page Templates"
-msgstr ""
+msgstr "Pagina Sjablonen"
 
 # @ pagelines
 #: editor/editor.templates.php:209
 msgid "Your Templates"
-msgstr ""
+msgstr "Uw sjablonen"
 
 # @ pagelines
 #: editor/editor.templates.php:215 editor/editor.templates.php:333
 msgid "Save New Template"
-msgstr ""
+msgstr "Nieuw sjabloon opslaan"
 
 # @ pagelines
 #: editor/editor.templates.php:249
 msgid "Load Template"
-msgstr ""
+msgstr "Sjabloon laden"
 
 # @ pagelines
 #: editor/editor.templates.php:252
 msgid "Active Template"
-msgstr ""
+msgstr "Actief sjabloon"
 
 # @ pagelines
 #: editor/editor.templates.php:257
 msgid "Actions"
-msgstr ""
+msgstr "Acties"
 
 # @ pagelines
 #: editor/editor.templates.php:262
 msgid "Update Template with Current Configuration"
-msgstr ""
+msgstr "Sjabloon bijwerken op basis van de huidige configuratie"
 
 # @ pagelines
 #: editor/editor.templates.php:267
 msgid "Set as Page Global Default"
-msgstr ""
+msgstr "Als globale standaard instellen"
 
 # @ pagelines
 #: editor/editor.templates.php:272
 msgid "Delete This Template"
-msgstr ""
+msgstr "Dit sjabloon verwijderen"
 
 # @ pagelines
 #: editor/editor.templates.php:320
@@ -993,6 +1056,8 @@ msgid ""
 "Fill out this form and the current template will be saved for use throughout "
 "your site."
 msgstr ""
+"Vul dit formulier in en de huidige sjabloon zal worden opgeslagen voor "
+"gebruik doorheen de hele site."
 
 # @ pagelines
 #: editor/editor.templates.php:322
@@ -1000,36 +1065,38 @@ msgid ""
 "<strong>Note:</strong> Both the current page's local settings and section "
 "configurations will be saved."
 msgstr ""
+"<strong>Let op:</strong> Zowel de lokale instellingen van de huidige pagina "
+"als de sectie configuraties worden opgeslagen."
 
 # @ pagelines
 #: editor/editor.templates.php:325
 msgid "Template Name (required)"
-msgstr ""
+msgstr "De naam van de sjabloon (verplicht)"
 
 # @ pagelines
 #: editor/editor.templates.php:329
 msgid "Template Description"
-msgstr ""
+msgstr "Beschrijving van sjabloon"
 
 # @ pagelines
 #: editor/editor.templates.php:355
 msgid "No Name"
-msgstr ""
+msgstr "Geen naam"
 
 # @ pagelines
 #: editor/editor.templates.php:509
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 # @ pagelines
 #: editor/editor.templates.php:510
 msgid "Standard page configuration. (Content and Primary Sidebar.)"
-msgstr ""
+msgstr "Standaard pagina configuratie. (Content en Primaire Zijbalk.)"
 
 # @ pagelines
 #: editor/editor.templates.php:517
 msgid "Feature Template"
-msgstr ""
+msgstr "Functie Sjabloon"
 
 # @ pagelines
 #: editor/editor.templates.php:518
@@ -1037,46 +1104,48 @@ msgid ""
 "A page template designed to quickly and concisely show off key features or "
 "points. (RevSlider, iBoxes, Flipper)"
 msgstr ""
+"Een pagina sjabloon, ontworpen om snel en kort belangrijke functies of "
+"punten te laten zien. (RevSlider, iBoxes, Flipper)"
 
 # @ pagelines
 #: editor/editor.templates.php:539
 msgid "Landing Page"
-msgstr ""
+msgstr "Landingspagina"
 
 # @ pagelines
 #: editor/editor.templates.php:540
 msgid "A simple page design with highlight section and postloop (content)."
-msgstr ""
+msgstr "Een simpel pagina ontwerp met highlight sectie en postloop (content)."
 
 # @ pagelines
 #: editor/editor.templates.php:566
 msgid "DMS Page Setup"
-msgstr ""
+msgstr "DMS Pagina Set-up"
 
 # @ pagelines
 #: editor/editor.templates.php:618
 msgid "Load PageLines Template"
-msgstr ""
+msgstr "Laad PageLines Sjabloon"
 
 # @ pagelines
 #: editor/editor.templates.php:631
 msgid "(no parent)"
-msgstr ""
+msgstr "(geen bovenliggende)"
 
 # @ pagelines
 #: editor/editor.templates.php:639
 msgid "Parent Page"
-msgstr ""
+msgstr "Bovenliggende pagina"
 
 # @ pagelines
 #: editor/editor.templates.php:644
 msgid "Page Order"
-msgstr ""
+msgstr "Paginavolgorde"
 
 # @ pagelines
 #: editor/editor.typography.php:71
 msgid "Primary Text"
-msgstr ""
+msgstr "Primaire Tekst"
 
 # @ pagelines
 #: editor/editor.typography.php:72
@@ -1084,31 +1153,33 @@ msgid ""
 "The base font size is a reference that will be scaled for text used "
 "throughout the site. "
 msgstr ""
+"De basisgrootte van het lettertype is een beginpunt dat overal op de website "
+"gebruikt wordt om tekst te schalen."
 
 # @ pagelines
 #: editor/editor.typography.php:87 editor/editor.typography.php:128
 msgid "Base Font Size"
-msgstr ""
+msgstr "Base Lettertype Grootte"
 
 # @ pagelines
 #: editor/editor.typography.php:102
 msgid "*These weights don't alwaye have an effect."
-msgstr ""
+msgstr "*Deze gewichten hebben niet altijd effect."
 
 # @ pagelines
 #: editor/editor.typography.php:111
 msgid "Text Headers <small>(h1-h6)</small>"
-msgstr ""
+msgstr "Kopteksten <small>(h1-h6)</small>"
 
 # @ pagelines
 #: editor/editor.typography.php:112
 msgid "Configure the typography for the text headers across your site."
-msgstr ""
+msgstr "Configureer de typografie voor alle kopteksten van uw site."
 
 # @ pagelines
 #: editor/editor.typography.php:150
 msgid "Extra Fonts"
-msgstr ""
+msgstr "Extra Lettertypen"
 
 # @ pagelines
 #: editor/editor.typography.php:151
@@ -1119,6 +1190,11 @@ msgid ""
 "Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
 "p>"
 msgstr ""
+"<p>Voeg extra <a href=\"http://www.google.com/fonts\" target=\"_blank"
+"\">Google Lettertypes</a> aan uw site toe met deze optie.</"
+"p><p>Bijvoorbeeld, om \"Yellowtail\" en \"Lato Bold\" toe te voegen, voert u "
+"hier in: <strong>Yellowtail|Lato:700</strong>.</p><p> U kunt daarna "
+"refereren aan deze lettertypes in uw aangepaste CSS.</p>"
 
 # @ pagelines
 #: editor/panel.code.php:37
@@ -1128,132 +1204,134 @@ msgstr ""
 # @ pagelines
 #: editor/panel.code.php:42
 msgid "Custom Design"
-msgstr ""
+msgstr "Aangepast ontwerp"
 
 # @ pagelines
 #: editor/panel.code.php:45 editor/panel.code.php:70 editor/panel.code.php:74
 msgid "Custom LESS/CSS"
-msgstr ""
+msgstr "Eigen LESS/CSS"
 
 # @ pagelines
 #: editor/panel.code.php:50 editor/panel.code.php:87
 msgid "Custom Scripts"
-msgstr ""
+msgstr "Eigen scripts"
 
 # @ pagelines
 #: editor/panel.code.php:75
 msgid "Tip"
-msgstr ""
+msgstr "Tip"
 
 # @ pagelines
 #: editor/panel.code.php:75
 msgid "Hit [Cmd&#8984;+Return] or [Ctrl+Return] to Preview Live"
-msgstr ""
+msgstr "Gebruik [Cmd&#8984;+Return] of [Ctrl+Return] om live te Previewen"
 
 # @ pagelines
 #: editor/panel.code.php:91
 msgid "Custom Javascript or Header HTML"
-msgstr ""
+msgstr "Aangepaste JavaScript of Header HTML"
 
 # @ pagelines
 #: editor/panel.extend.php:21
 msgid "Store"
-msgstr ""
+msgstr "Winkel"
 
 # @ pagelines
 #: editor/panel.extend.php:25
 msgid "Extend PageLines"
-msgstr ""
+msgstr "PageLines uitbreiden"
 
 # @ pagelines
 #: editor/panel.extend.php:27
 msgid "PageLines Store"
-msgstr ""
+msgstr "PageLines Winkel"
 
 # @ pagelines
 #: editor/panel.extend.php:41
 msgid "Featured"
-msgstr ""
+msgstr "Uitgelicht"
 
 # @ pagelines
 #: editor/panel.extend.php:48
 msgid "Sections"
-msgstr ""
+msgstr "Secties"
 
 # @ pagelines
 #: editor/panel.extend.php:54
 msgid "Plugins"
-msgstr ""
+msgstr "Plug-ins"
 
 # @ pagelines
 #: editor/panel.extend.php:60
 msgid "Themes"
-msgstr ""
+msgstr "Thema 's"
 
 # @ pagelines
 #: editor/panel.extend.php:66
 msgid "Free"
-msgstr ""
+msgstr "Gratis"
 
 # @ pagelines
 #: editor/panel.extend.php:72
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 # @ pagelines
 #: editor/panel.extend.php:84 includes/lib.elements.php:93
 msgid "Search"
-msgstr ""
+msgstr "Zoeken"
 
 # @ pagelines
 #: editor/panel.extend.php:99
 msgid "Upload a .zip extension into your PageLines install using this tool."
 msgstr ""
+"Load een .zip bestand up naar uw PageLines installatie door dit instrument "
+"te gebruiken."
 
 # @ pagelines
 #: editor/panel.extend.php:101
 msgid "Extension File (zip file - required)"
-msgstr ""
+msgstr "Extensie Bestand (zip bestandsformaat benodigd)"
 
 # @ pagelines
 #: editor/panel.extend.php:104
 msgid "Upload Extension"
-msgstr ""
+msgstr "Upload Extensie"
 
 # @ pagelines
 #: editor/panel.extend.php:116
 msgid "Search the PageLines store for extensions."
-msgstr ""
+msgstr "Doorzoek de PageLines winkel voor extensies."
 
 # @ pagelines
 #: editor/panel.extend.php:121
 msgid "Search Store"
-msgstr ""
+msgstr "Doorzoek Winkel"
 
 # @ pagelines
 #: editor/panel.extend.php:143
 msgid " found for "
-msgstr ""
+msgstr "gevonden voor"
 
 # @ pagelines
 #: editor/panel.extend.php:151
 msgid "Demo "
-msgstr ""
+msgstr "Demo"
 
 # @ pagelines
 #: editor/panel.extend.php:157
 msgid "Overview "
-msgstr ""
+msgstr "Overzicht"
 
 # @ pagelines
 #: editor/panel.extend.php:192 editor/panel.extend.php:195
 msgid "Free!"
-msgstr ""
+msgstr "Gratis!"
 
 # @ pagelines
 #: editor/panel.extend.php:197
 msgid "<i class=\"icon-sun\"></i> Karma"
-msgstr ""
+msgstr "<i class=\"icon-sun\"></i> Karma"
 
 # @ pagelines
 #: editor/panel.sections.php:21
@@ -1263,103 +1341,103 @@ msgstr ""
 # @ pagelines
 #: editor/panel.sections.php:25
 msgid "<i class='icon-random'></i> Drag to Add"
-msgstr ""
+msgstr "<i class='icon-random'></i> Sleep om toe te voegen"
 
 # @ pagelines
 #: editor/panel.sections.php:27
 msgid "Your Sections"
-msgstr ""
+msgstr "Uw Secties"
 
 # @ pagelines
 #: editor/panel.sections.php:29
 msgid "Drag on to page to add"
-msgstr ""
+msgstr "Sleep naar de pagina om toe te voegen"
 
 # @ pagelines
 #: editor/panel.sections.php:30
 msgid "Reload Sections"
-msgstr ""
+msgstr "Secties Herladen"
 
 # @ pagelines
 #: editor/panel.sections.php:36
 msgid "Get More Sections"
-msgstr ""
+msgstr "Verkrijg Meer Secties"
 
 # @ pagelines
 #: editor/panel.sections.php:40
 msgid "<i class='icon-filter'></i> Filters"
-msgstr ""
+msgstr "<i class='icon-filter'></i> Filters"
 
 # @ pagelines
 #: editor/panel.sections.php:42
 msgid "Components"
-msgstr ""
+msgstr "Componenten"
 
 # @ pagelines
 #: editor/panel.sections.php:48
 msgid "Layouts"
-msgstr ""
+msgstr "Layouts"
 
 # @ pagelines
 #: editor/panel.sections.php:54
 msgid "Full Width"
-msgstr ""
+msgstr "Volledige Breedte"
 
 # @ pagelines
 #: editor/panel.sections.php:60
 msgid "Post Layouts"
-msgstr ""
+msgstr "Bericht Layouts"
 
 # @ pagelines
 #: editor/panel.sections.php:66
 msgid "Galleries"
-msgstr ""
+msgstr "Galerijen"
 
 # @ pagelines
 #: editor/panel.sections.php:72
 msgid "Navigation"
-msgstr ""
+msgstr "Navigatie"
 
 # @ pagelines
 #: editor/panel.sections.php:78
 msgid "Sliders"
-msgstr ""
+msgstr "Sliders"
 
 # @ pagelines
 #: editor/panel.sections.php:84
 msgid "Social"
-msgstr ""
+msgstr "Sociaal"
 
 # @ pagelines
 #: editor/panel.sections.php:90
 msgid "Widgetized"
-msgstr ""
+msgstr "Met Widgets"
 
 # @ pagelines
 #: editor/panel.sections.php:96
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diversen"
 
 # @ pagelines
 #: editor/panel.settings.php:27
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 # @ pagelines
 #: editor/panel.settings.php:34 editor/panel.settings.php:73
 #: editor/panel.settings.php:81
 msgid "Section Options"
-msgstr ""
+msgstr "Sectie instellingen"
 
 # @ pagelines
 #: editor/panel.settings.php:51
 msgid "Global Settings"
-msgstr ""
+msgstr "Globale instellingen"
 
 # @ pagelines
 #: editor/panel.themes.php:23
 msgid "Theme"
-msgstr ""
+msgstr "Thema"
 
 # @ pagelines
 #: editor/panel.themes.php:39
@@ -1369,78 +1447,78 @@ msgstr ""
 # @ pagelines
 #: editor/panel.themes.php:46
 msgid "Import Config"
-msgstr ""
+msgstr "Configuratie importeren"
 
 # @ pagelines
 #: editor/panel.themes.php:53
 msgid "Get More Themes"
-msgstr ""
+msgstr "Meer thema's verkrijgen"
 
 # @ pagelines
 #: editor/panel.themes.php:74
 msgid "Theme Options"
-msgstr ""
+msgstr "Thema-opties"
 
 # @ pagelines
 #: editor/panel.themes.php:173 editor/panel.themes.php:193
 msgid "Theme does not exist or is not allowed"
-msgstr ""
+msgstr "Thema bestaat niet of is niet toegestaan"
 
 # @ pagelines
 #: editor/panel.themes.php:235
 msgid " this is the end of the world.... >> "
-msgstr ""
+msgstr "dit is het einde van de wereld.... >>"
 
 # @ pagelines
 #: includes/class.objects.php:109
 msgid "Edit"
-msgstr ""
+msgstr "Wijzig"
 
 # @ pagelines
 #: includes/class.register.php:358
 msgid "<h2>Unable to fetch from API</h2>"
-msgstr ""
+msgstr "<h2>Kan de informatie niet ophalen via de API</h2>"
 
 # @ pagelines
 #: includes/class.shortcodes.php:317
 msgid "<span class='editpage sc'>Edit</span>"
-msgstr ""
+msgstr "<span class='editpage sc'>Wijzig</span>"
 
 # @ pagelines
 #: includes/class.shortcodes.php:367
 msgid "Tagged With: "
-msgstr ""
+msgstr "Gelabeld met:"
 
 # @ pagelines
 #: includes/class.shortcodes.php:391
 msgid "Type: "
-msgstr ""
+msgstr "Type: "
 
 # @ pagelines
 #: includes/class.shortcodes.php:422
 msgid "Add Comment"
-msgstr ""
+msgstr "Reactie toevoegen"
 
 # @ pagelines
 #: includes/class.shortcodes.php:423
 msgid "<span class='num'>1</span> Comment"
-msgstr ""
+msgstr "<span class='num'>1</span> Reactie"
 
 # @ pagelines
 #: includes/class.shortcodes.php:424
 msgid "<span class='num'>%</span> Comments"
-msgstr ""
+msgstr "<span class='num'>%</span> Reacties"
 
 # @ pagelines
 #: includes/class.shortcodes.php:501
 #, php-format
 msgid "Visit %s&#8217;s website"
-msgstr ""
+msgstr "Bezoek de website van %s&#8217;"
 
 # @ pagelines
 #: includes/class.shortcodes.php:1342
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 # @ pagelines
 #: includes/deprecated.php:268
@@ -1461,22 +1539,22 @@ msgstr ""
 # @ pagelines
 #: includes/deprecated.php:1339
 msgid "No Image"
-msgstr ""
+msgstr "Geen Afbeelding"
 
 # @ pagelines
 #: includes/deprecated.php:1546 includes/deprecated.php:1547
 msgid "Add New "
-msgstr ""
+msgstr "Nieuwe Toevoegen"
 
 # @ pagelines
 #: includes/deprecated.php:1548 includes/deprecated.php:1549
 msgid "Edit "
-msgstr ""
+msgstr "Wijzig"
 
 # @ pagelines
 #: includes/deprecated.php:1550 includes/deprecated.php:1551
 msgid "View "
-msgstr ""
+msgstr "Bekijk"
 
 # @ pagelines
 #: includes/less.legacy.php:460 includes/less.legacy.php:755
@@ -1485,37 +1563,39 @@ msgid ""
 "%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
 "*/"
 msgstr ""
+"%s/* CSS werd samengesteld in %s en het duurde %s seconden en gebruikte %sMB "
+"'of unicorn dust'%s.*/"
 
 # @ pagelines
 #: includes/less.legacy.php:529
 msgid "LESS Compile error!"
-msgstr ""
+msgstr "LESS compilatie fout!"
 
 # @ pagelines
 #: includes/less.legacy.php:536
 #, php-format
 msgid "Error in %s Less code: %s"
-msgstr ""
+msgstr "Fout in %s Less code: %s"
 
 # @ pagelines
 #: includes/lib.editor.php:72
 msgid "(Pro Edition Only)"
-msgstr ""
+msgstr "(Alleen in de pro editie)"
 
 # @ pagelines
 #: includes/lib.elements.php:39
 msgid "Add Widgets &rarr;"
-msgstr ""
+msgstr "Widgets Toevoegen &rarr;"
 
 # @ pagelines
 #: includes/lib.elements.php:126
 msgid "&larr; Previous Entries"
-msgstr ""
+msgstr "&larr; Vorige Berichten"
 
 # @ pagelines
 #: includes/lib.elements.php:129
 msgid "Next Entries &rarr;"
-msgstr ""
+msgstr "Volgende Berichten &rarr;"
 
 # @ pagelines
 #: includes/lib.elements.php:166
@@ -1524,90 +1604,92 @@ msgid ""
 "<ul class='inline-list'>Please select a nav menu for this area in the <a "
 "href='%s'>WordPress menu admin</a>.</ul>"
 msgstr ""
+"<ul class='inline-list'>Selecteer alstublieft een nav menu voor dit gebied "
+"in de <a href='%s'>WordPress menu admin</a>.</ul>"
 
 # @ pagelines
 #: includes/lib.elements.php:272
 msgid "edit"
-msgstr ""
+msgstr "wijzig"
 
 # @ pagelines
 #: includes/lib.head.php:65
 msgid "Google Profile URL"
-msgstr ""
+msgstr "Google Profiel URL"
 
 # @ pagelines
 #: includes/lib.head.php:299
 #, php-format
 msgid "Page %s"
-msgstr ""
+msgstr "Pagina %s"
 
 # @ pagelines
 #: includes/lib.head.php:321
 msgid "|"
-msgstr ""
+msgstr "|"
 
 # @ pagelines
 #: includes/lib.head.php:333
 #, php-format
 msgid "Search Results: %s"
-msgstr ""
+msgstr "Zoekresultaten: %s"
 
 # @ pagelines
 #: includes/lib.head.php:337
 #, php-format
 msgid "Page: %s"
-msgstr ""
+msgstr "Pagina: %s"
 
 # @ pagelines
 #: includes/lib.utils.php:140
 #, php-format
 msgid "Configure %s <i class=\"icon-arrow-right\"></i>"
-msgstr ""
+msgstr "Configureer %s <i class=\"icon-arrow-right\"></i>"
 
 # @ pagelines
 #: includes/lib.utils.php:144
 msgid "Configure this section"
-msgstr ""
+msgstr "Deze sectie configureren"
 
 # @ pagelines
 #: includes/library.pagelines.php:14
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 # @ pagelines
 #: sections/columnizer/section.php:52
 msgid "Columnizer Configuration"
-msgstr ""
+msgstr "Columnizer Configuratie"
 
 # @ pagelines
 #: sections/columnizer/section.php:59
 msgid "Select Widgetized Area"
-msgstr ""
+msgstr "Selecteer Widget Gebied"
 
 # @ pagelines
 #: sections/columnizer/section.php:60
 msgid "Select widgetized area"
-msgstr ""
+msgstr "Selecteer widgets gebied"
 
 # @ pagelines
 #: sections/columnizer/section.php:61
 msgid "Select the widgetized area you would like to use with this instance."
-msgstr ""
+msgstr "Selecteer het widget gebied die u wilt gebruiken in dit geval."
 
 # @ pagelines
 #: sections/columnizer/section.php:69
 msgid "Number of Grid Columns for Each Widget (12 Col Grid)"
-msgstr ""
+msgstr "Aantal Grid Kolommen voor Elke Widget (12 Col Grid)"
 
 # @ pagelines
 #: sections/columnizer/section.php:79
 msgid "Widgetized Areas Help"
-msgstr ""
+msgstr "Widget Gebieden Help"
 
 # @ pagelines
 #: sections/columnizer/section.php:80
 msgid "Edit Widgetized Areas"
-msgstr ""
+msgstr "Bewerk Gebieden met Widgets"
 
 # @ pagelines
 #: sections/columnizer/section.php:81
@@ -1615,11 +1697,13 @@ msgid ""
 "This section uses widgetized areas that are created and edited in inside "
 "your admin."
 msgstr ""
+"Deze sectie gebruikt gebieden met widgets die zijn gemaakt en bewerkt in uw "
+"administratie."
 
 # @ pagelines
 #: sections/columnizer/section.php:88 sections/columnizer/section.php:89
 msgid "Column Site Description"
-msgstr ""
+msgstr "Kolom Site Omschrijving"
 
 # @ pagelines
 #: sections/columnizer/section.php:90
@@ -1627,6 +1711,9 @@ msgid ""
 "If you use the default display of the columnizer, this field is used as a "
 "description of your company. You may want to add your address or links."
 msgstr ""
+"Als u de standaard van de columnizer gebruikt, dan wordt dit veld gebruikt "
+"als een omschrijving van uw bedrijf. Misschien wilt u uw adres of links "
+"toevoegen."
 
 # @ pagelines
 #: sections/columnizer/section.php:100
@@ -1636,38 +1723,38 @@ msgstr ""
 # @ pagelines
 #: sections/columnizer/section.php:147
 msgid "Stay in Touch!"
-msgstr ""
+msgstr "Blijf in Contact!"
 
 # @ pagelines
 #: sections/columnizer/section.php:173
 msgid "The Latest"
-msgstr ""
+msgstr "De Nieuwste"
 
 # @ pagelines
 #: sections/columnizer/section.php:197 sections/rapidtabs/section.php:56
 #: sections/rapidtabs/section.php:138
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 # @ pagelines
 #: sections/columnizer/section.php:208 sections/sb_primary/section.php:42
 msgid "Categories"
-msgstr ""
+msgstr "Categorieen"
 
 # @ pagelines
 #: sections/columnizer/section.php:222
 msgid "More Info"
-msgstr ""
+msgstr "Meer Informatie"
 
 # @ pagelines
 #: sections/flipper/section.php:47
 msgid "Flipper Setup"
-msgstr ""
+msgstr "Flipper Instellingen"
 
 # @ pagelines
 #: sections/flipper/section.php:55
 msgid "Which post type should Flipper use?"
-msgstr ""
+msgstr "Welk Bericht Type moet Flipper gebruiken?"
 
 # @ pagelines
 #: sections/flipper/section.php:56
@@ -1676,11 +1763,15 @@ msgid ""
 "images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
 "to create custom post types for use with Flipper."
 msgstr ""
+"<strong>Let op</strong><br/> Bericht Typen voor deze sectie moeten "
+"uitgelichte afbeeldingen ingeschakeld hebben en publiek zijn.<br/"
+"><strong>Tip</strong><br/> Gebruik een plug-in om Bericht Typen te gebruiken "
+"in combinatie met Flipper."
 
 # @ pagelines
 #: sections/flipper/section.php:69
 msgid "Max Number of Posts Shown"
-msgstr ""
+msgstr "Maximum Aantal te Tonen Berichten"
 
 # @ pagelines
 #: sections/flipper/section.php:70
@@ -1688,36 +1779,38 @@ msgid ""
 "This controls the maximum number of posts shown. A smaller amount may be "
 "shown based on layout width."
 msgstr ""
+"Dit beheert het maximum aantal berichten dat wordt getoond. Een kleiner "
+"aantal wordt eventueel getoond, afhankelijk van de breedte van de layout."
 
 # @ pagelines
 #: sections/flipper/section.php:77
 msgid "Select Image Size"
-msgstr ""
+msgstr "Kies afbeeldingsgrootte"
 
 # @ pagelines
 #: sections/flipper/section.php:84
 msgid "Flipper Title"
-msgstr ""
+msgstr "Flipper Titel"
 
 # @ pagelines
 #: sections/flipper/section.php:86
 msgid "Options to control the text and link in the Flipper title."
-msgstr ""
+msgstr "Opties om de tekst en link in de Flipper titel te beheren."
 
 # @ pagelines
 #: sections/flipper/section.php:91
 msgid "Flipper Title Text"
-msgstr ""
+msgstr "Flipper Titel Tekst"
 
 # @ pagelines
 #: sections/flipper/section.php:96
 msgid "Hide Title Link?"
-msgstr ""
+msgstr "Verberg de Titel Link?"
 
 # @ pagelines
 #: sections/flipper/section.php:108
 msgid "Flipper Meta"
-msgstr ""
+msgstr "Flipper Meta"
 
 # @ pagelines
 #: sections/flipper/section.php:109
@@ -1734,16 +1827,28 @@ msgid ""
 "[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
 "Type of post</li></ul>"
 msgstr ""
+"Gebruik shortcodes im dynamische meta info te beheren. Voorbeelden van "
+"shortcodes die u kunt gebruiken zijn: <ul><li><strong>[post_categories]</"
+"strong> - Lijst van categorieen</li><li><strong>[post_edit]</strong> - Link "
+"voor beheerders om het bericht te wijzigen</li><li><strong>[post_tags]</"
+"strong> - Lijst van de bericht tags</li><li><strong>[post_comments]</strong> "
+"- Link naar de reacties op het bericht</li><li><strong>"
+"[post_author_posts_link]</strong> - Auteur en link naar archief</"
+"li><li><strong>[post_author_link]</strong> - Link naar de URL van de Auteur</"
+"li><li><strong>[post_author]</strong> - Auteur van het bericht zonder link</"
+"li><li><strong>[post_time]</strong> - Tijdstip van het bericht</"
+"li><li><strong>[post_date]</strong> - Datum van het bericht</li><li><strong>"
+"[post_type]</strong> - Bericht Type</li></ul>"
 
 # @ pagelines
 #: sections/flipper/section.php:117
 msgid "Total Posts Loaded"
-msgstr ""
+msgstr "Aantal Geladen Berichten"
 
 # @ pagelines
 #: sections/flipper/section.php:126
 msgid "Meta Key"
-msgstr ""
+msgstr "Meta Key"
 
 # @ pagelines
 #: sections/flipper/section.php:127
@@ -1751,275 +1856,277 @@ msgid ""
 "Select only posts which have a certain meta key and corresponding meta "
 "value. Useful for featured posts, or similar."
 msgstr ""
+"Selecteer alleen berichten die een bepaalde meta key en corresponderende "
+"meta waarde hebben. Nuttig voor aanbevolen berichten, of vergelijkbaar."
 
 # @ pagelines
 #: sections/flipper/section.php:133
 msgid "Meta Key Value"
-msgstr ""
+msgstr "Meta Key Waarde"
 
 # @ pagelines
 #: sections/flipper/section.php:148
 msgid "Only applies for standard blog posts."
-msgstr ""
+msgstr "Alleen van toepassing op standaard blog berichten."
 
 # @ pagelines
 #: sections/flipper/section.php:157
 msgid "Additional Post Selection"
-msgstr ""
+msgstr "Additionele Bericht Selectie"
 
 # @ pagelines
 #: sections/flipper/section.php:219
 msgid " / View All"
-msgstr ""
+msgstr "/ Bekijk Alles"
 
 # @ pagelines
 #: sections/flipper/section.php:224
 msgid " / View Blog"
-msgstr ""
+msgstr "/ Bekijk Blog"
 
 # @ pagelines
 #: sections/flipper/section.php:266 sections/postloop/class.posts.php:505
 msgid "View"
-msgstr ""
+msgstr "Bekijk"
 
 # @ pagelines
 #: sections/hero/section.php:27
 msgid "Hero Settings"
-msgstr ""
+msgstr "Hero Instellingen"
 
 # @ pagelines
 #: sections/hero/section.php:34
 msgid "Heading"
-msgstr ""
+msgstr "Kop"
 
 # @ pagelines
 #: sections/hero/section.php:39
 msgid "Subtext"
-msgstr ""
+msgstr "Subtekst"
 
 # @ pagelines
 #: sections/hero/section.php:44
 msgid "Hero Image"
-msgstr ""
+msgstr "Hero Afbeelding"
 
 # @ pagelines
 #: sections/hero/section.php:50
 msgid "Upload Custom Image"
-msgstr ""
+msgstr "Aangepaste Afbeelding Uploaden"
 
 # @ pagelines
 #: sections/hero/section.php:55
 msgid "Reverse the Hero unit (image on left)"
-msgstr ""
+msgstr "Keer de Hero unit om (afbeelding links)"
 
 # @ pagelines
 #: sections/hero/section.php:59
 msgid "Content Widths"
-msgstr ""
+msgstr "Content Breedtes"
 
 # @ pagelines
 #: sections/hero/section.php:65
 msgid "Text Area Width"
-msgstr ""
+msgstr "Breedte van het Tekstgebied"
 
 # @ pagelines
 #: sections/hero/section.php:81
 msgid "Image Area Width"
-msgstr ""
+msgstr "Breedte van het Afbeeldingsgebied"
 
 # @ pagelines
 #: sections/hero/section.php:99
 msgid "Hero Action Button"
-msgstr ""
+msgstr "Hero Actie Button"
 
 # @ pagelines
 #: sections/hero/section.php:107
 msgid "Button link destination (URL - Required)"
-msgstr ""
+msgstr "Button link bestemming (URL - Vereist)"
 
 # @ pagelines
 #: sections/hero/section.php:112
 msgid "Hero Button Text"
-msgstr ""
+msgstr "Hero Button Tekst"
 
 # @ pagelines
 #: sections/hero/section.php:118 sections/icallout/section.php:57
 msgid "Open link in new window"
-msgstr ""
+msgstr "Open de link in een nieuwe window"
 
 # @ pagelines
 #: sections/hero/section.php:121 sections/masthead/section.php:118
 msgid "Select Button Color"
-msgstr ""
+msgstr "Selecteer Button Kleur"
 
 # @ pagelines
 #: sections/hero/section.php:127 sections/navbar/section.php:65
 #: sections/navbar/section.php:370 sections/navbar/section.php:382
 msgid "Blue"
-msgstr ""
+msgstr "Blauw"
 
 # @ pagelines
 #: sections/hero/section.php:128 sections/navbar/section.php:67
 #: sections/navbar/section.php:372 sections/navbar/section.php:384
 msgid "Orange"
-msgstr ""
+msgstr "Oranje"
 
 # @ pagelines
 #: sections/hero/section.php:129 sections/navbar/section.php:68
 #: sections/navbar/section.php:373 sections/navbar/section.php:385
 msgid "Red"
-msgstr ""
+msgstr "Rood"
 
 # @ pagelines
 #: sections/hero/section.php:130
 msgid "Green"
-msgstr ""
+msgstr "Groen"
 
 # @ pagelines
 #: sections/hero/section.php:131
 msgid "Light Blue"
-msgstr ""
+msgstr "Licht Blauw"
 
 # @ pagelines
 #: sections/hero/section.php:132
 msgid "Grey"
-msgstr ""
+msgstr "Grijs"
 
 # @ pagelines
 #: sections/hero/section.php:166
 msgid "The Hero!"
-msgstr ""
+msgstr "De Held!"
 
 # @ pagelines
 #: sections/hero/section.php:167
 msgid "Now just set up your Hero section options"
-msgstr ""
+msgstr "Stel nu de Hero sectie opties in"
 
 # @ pagelines
 #: sections/highlight/section.php:29
 msgid "Select Format"
-msgstr ""
+msgstr "Selecteer Formaat"
 
 # @ pagelines
 #: sections/highlight/section.php:31
 msgid "Highlight Format"
-msgstr ""
+msgstr "Highlight Formaat"
 
 # @ pagelines
 #: sections/highlight/section.php:33 sections/highlight/section.php:123
 msgid "Image on top of text"
-msgstr ""
+msgstr "Afbeelding boven de tekst"
 
 # @ pagelines
 #: sections/highlight/section.php:34 sections/highlight/section.php:124
 msgid "Image on bottom of text"
-msgstr ""
+msgstr "Afbeelding onder de tekst"
 
 # @ pagelines
 #: sections/highlight/section.php:35 sections/highlight/section.php:125
 msgid "No text, just the image"
-msgstr ""
+msgstr "Geen tekst, alleen de afbeelding"
 
 # @ pagelines
 #: sections/highlight/section.php:41
 msgid "Highlight Text"
-msgstr ""
+msgstr "Highlight Tekst"
 
 # @ pagelines
 #: sections/highlight/section.php:48 sections/highlight/section.php:97
 #: sections/highlight/section.php:104
 msgid "Highlight Header Text (Optional)"
-msgstr ""
+msgstr "Highlight Header Tekst (Optioneel)"
 
 # @ pagelines
 #: sections/highlight/section.php:54 sections/highlight/section.php:110
 msgid "Highlight Subheader Text (Optional)"
-msgstr ""
+msgstr "Highlight Subheader Tekst (Optioneel)"
 
 # @ pagelines
 #: sections/highlight/section.php:62
 msgid "Highlight Image and Format"
-msgstr ""
+msgstr "Highlight Afbeelding en Formaat"
 
 # @ pagelines
 #: sections/highlight/section.php:68 sections/highlight/section.php:116
 msgid "Upload Splash Image"
-msgstr ""
+msgstr "Splash Afbeelding Uploaden"
 
 # @ pagelines
 #: sections/highlight/section.php:73 sections/highlight/section.php:130
 msgid "Add frame to image?"
-msgstr ""
+msgstr "Een frame aan de afbeelding toevoegen?"
 
 # @ pagelines
 #: sections/highlight/section.php:98
 msgid "Add the main header text for the highlight section."
-msgstr ""
+msgstr "Voeg de algemene header tekst toe voor de highlight sectie."
 
 # @ pagelines
 #: sections/highlight/section.php:121
 msgid "Highlight Image Style"
-msgstr ""
+msgstr "Highlight Afbeelding Stijl"
 
 # @ pagelines
 #: sections/highlight/section.php:167
 msgid "Here's to the crazy ones..."
-msgstr ""
+msgstr "Hier is voor de gekken..."
 
 # @ pagelines
 #: sections/highlight/section.php:168
 msgid "This is your Highlight section. Set up the options to configure."
-msgstr ""
+msgstr "Dit is uw Highlight sectie. Stel hier de opties in om te configureren."
 
 # @ pagelines
 #: sections/ibox/section.php:23
 msgid "iBox Configuration"
-msgstr ""
+msgstr "iBox Configuratie"
 
 # @ pagelines
 #: sections/ibox/section.php:33
 msgid "Number of iBoxes to Configure"
-msgstr ""
+msgstr "Aantal iBoxes om te Configureren"
 
 # @ pagelines
 #: sections/ibox/section.php:41
 msgid "Number of Columns for Each Box (12 Col Grid)"
-msgstr ""
+msgstr "Aantal Kolommen voor Elke Box (12 Col Grid)"
 
 # @ pagelines
 #: sections/ibox/section.php:47
 msgid "Icon Font"
-msgstr ""
+msgstr "Icoon Lettertype"
 
 # @ pagelines
 #: sections/ibox/section.php:48
 msgid "Images"
-msgstr ""
+msgstr "Afbeeldingen"
 
 # @ pagelines
 #: sections/ibox/section.php:49
 msgid "Text Only, No Media"
-msgstr ""
+msgstr "Alleen Tekst, Geen Media"
 
 # @ pagelines
 #: sections/ibox/section.php:52
 msgid "Select iBox Media Type"
-msgstr ""
+msgstr "Selecteer iBox Media Type"
 
 # @ pagelines
 #: sections/ibox/section.php:58
 msgid "Media on Top"
-msgstr ""
+msgstr "Media Bovenaan"
 
 # @ pagelines
 #: sections/ibox/section.php:59
 msgid "Media at Left"
-msgstr ""
+msgstr "Media Links"
 
 # @ pagelines
 #: sections/ibox/section.php:62
 msgid "Select the iBox Media Location"
-msgstr ""
+msgstr "Selecteer de iBox Media Locatie"
 
 # @ pagelines
 #: sections/ibox/section.php:72
@@ -2034,102 +2141,102 @@ msgstr ""
 # @ pagelines
 #: sections/ibox/section.php:77
 msgid "iBox Title"
-msgstr ""
+msgstr "iBox Titel"
 
 # @ pagelines
 #: sections/ibox/section.php:82
 msgid "iBox Text"
-msgstr ""
+msgstr "iBox Tekst"
 
 # @ pagelines
 #: sections/ibox/section.php:87
 msgid "iBox Link (Optional)"
-msgstr ""
+msgstr "iBox Link (Optioneel)"
 
 # @ pagelines
 #: sections/ibox/section.php:92
 msgid "iBox Class (Optional)"
-msgstr ""
+msgstr "iBox Klasse (Optioneel)"
 
 # @ pagelines
 #: sections/ibox/section.php:97
 msgid "iBox Icon"
-msgstr ""
+msgstr "iBox Icoon"
 
 # @ pagelines
 #: sections/ibox/section.php:102
 msgid "iBox Image"
-msgstr ""
+msgstr "iBox Afbeelding"
 
 # @ pagelines
 #: sections/ibox/section.php:162 sections/ibox/section.php:276
 msgid "More"
-msgstr ""
+msgstr "Meer"
 
 # @ pagelines
 #: sections/ibox/section.php:271
 msgid "iBox "
-msgstr ""
+msgstr "iBox"
 
 # @ pagelines
 #: sections/icallout/section.php:24
 msgid "Callout Format"
-msgstr ""
+msgstr "Callout Formaat"
 
 # @ pagelines
 #: sections/icallout/section.php:26
 msgid "Text on top of button"
-msgstr ""
+msgstr "Tekst boven de button"
 
 # @ pagelines
 #: sections/icallout/section.php:27
 msgid "Text/Button Inline"
-msgstr ""
+msgstr "Tekst/Button op dezelfde lijn"
 
 # @ pagelines
 #: sections/icallout/section.php:32 sections/icallout/section.php:38
 msgid "Callout Text"
-msgstr ""
+msgstr "Callout Tekst"
 
 # @ pagelines
 #: sections/icallout/section.php:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 # @ pagelines
 #: sections/icallout/section.php:62
 msgid "Text on Button"
-msgstr ""
+msgstr "Tekst op de Button"
 
 # @ pagelines
 #: sections/icallout/section.php:67
 msgid "Button Color"
-msgstr ""
+msgstr "Kleur van de Button"
 
 # @ pagelines
 #: sections/icallout/section.php:89
 msgid "Call to action!"
-msgstr ""
+msgstr "Call to action!"
 
 # @ pagelines
 #: sections/masthead/section.php:47 sections/masthead/section.php:246
 msgid "Masthead Splash Options"
-msgstr ""
+msgstr "Masthead Splash Opties"
 
 # @ pagelines
 #: sections/masthead/section.php:53
 msgid "Upload custom image"
-msgstr ""
+msgstr "Aangepaste Afbeelding uploaden"
 
 # @ pagelines
 #: sections/masthead/section.php:58
 msgid "Masthead Video (optional, to be used instead of image)"
-msgstr ""
+msgstr "Masthead Video (optioneel, te gebruiken in plaats van een afbeelding)"
 
 # @ pagelines
 #: sections/masthead/section.php:63
 msgid "Maximum width of splash in px (default is full width)"
-msgstr ""
+msgstr "Maximale breedte van splash in px (standaard is volledige breedte)"
 
 # @ pagelines
 #: sections/masthead/section.php:66
@@ -2137,72 +2244,74 @@ msgid ""
 "Upload an image to serve as a splash image, or use an embed code for full "
 "width video."
 msgstr ""
+"Een afbeelding uploaden om te dienen als splash afbeelding, of gebruik een "
+"embed code voor een video in volledige breedte."
 
 # @ pagelines
 #: sections/masthead/section.php:71
 msgid "Masthead Text"
-msgstr ""
+msgstr "Masthead Tekst"
 
 # @ pagelines
 #: sections/masthead/section.php:72
 msgid " Text"
-msgstr ""
+msgstr "Tekst"
 
 # @ pagelines
 #: sections/masthead/section.php:77 sections/mediabox/section.php:30
 #: sections/popthumbs/section.php:69 sections/propricing/section.php:53
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 # @ pagelines
 #: sections/masthead/section.php:82
 msgid "Tagline"
-msgstr ""
+msgstr "Tagline"
 
 # @ pagelines
 #: sections/masthead/section.php:94
 msgid "Masthead Action Button "
-msgstr ""
+msgstr "Masthead actieknop"
 
 # @ pagelines
 #: sections/masthead/section.php:99
 msgid "Enter the link destination (URL - Required)"
-msgstr ""
+msgstr "Voer de bestemming in van de link (URL - Vereist)"
 
 # @ pagelines
 #: sections/masthead/section.php:105
 msgid "Masthead Button Text"
-msgstr ""
+msgstr "Masthead Button Tekst"
 
 # @ pagelines
 #: sections/masthead/section.php:112
 msgid "Open link in new window."
-msgstr ""
+msgstr "Open link in een nieuwe window."
 
 # @ pagelines
 #: sections/masthead/section.php:130
 msgid "Masthead Menu"
-msgstr ""
+msgstr "Masthead Menu"
 
 # @ pagelines
 #: sections/masthead/section.php:131
 msgid "Select Masthead Menu"
-msgstr ""
+msgstr "Selecteer Masthead Menu"
 
 # @ pagelines
 #: sections/masthead/section.php:136
 msgid "Masthead Meta"
-msgstr ""
+msgstr "Masthead Meta"
 
 # @ pagelines
 #: sections/masthead/section.php:137
 msgid "Enter Masthead Meta Text"
-msgstr ""
+msgstr "Voer de Masthead Meta Tekst in"
 
 # @ pagelines
 #: sections/masthead/section.php:194
 msgid "Start Here"
-msgstr ""
+msgstr "Start Hier"
 
 # @ pagelines
 #: sections/masthead/section.php:247
@@ -2210,11 +2319,13 @@ msgid ""
 "Enter the options for the masthead splash image. If no options are "
 "specified, no image will be shown."
 msgstr ""
+"Voer de opties in voor de masthead splash image. Als u geen opties "
+"specificeert zal geen afbeelding worden getoond."
 
 # @ pagelines
 #: sections/masthead/section.php:279
 msgid "Masthead Action Button 1"
-msgstr ""
+msgstr "Masthead Actie Button 1"
 
 # @ pagelines
 #: sections/masthead/section.php:280 sections/masthead/section.php:315
@@ -2222,36 +2333,38 @@ msgid ""
 "Enter the options for the masthead button. If no options are specified, no "
 "button will be shown."
 msgstr ""
+"Voer de opties in voor de masthead button. Als u geen opties specificeert "
+"zal geen button worden getoond."
 
 # @ pagelines
 #: sections/masthead/section.php:314
 msgid "Masthead Action Button 2"
-msgstr ""
+msgstr "Masthead Actie Button 2"
 
 # @ pagelines
 #: sections/masthead/section.php:348
 msgid "Choose a Wordpress menu to display (optional)"
-msgstr ""
+msgstr "Kies een WordPress Menu om te laten zien (optioneel)"
 
 # @ pagelines
 #: sections/masthead/section.php:354
 msgid "Enter text to be shown on Masthead (optional)"
-msgstr ""
+msgstr "Voer de tekst in die verschijnt bij Masthead (optioneel)"
 
 # @ pagelines
 #: sections/mediabox/section.php:18
 msgid "MediaBox Media"
-msgstr ""
+msgstr "MediaBox Media"
 
 # @ pagelines
 #: sections/mediabox/section.php:25
 msgid "MediaBox Image"
-msgstr ""
+msgstr "MediaBox Afbeelding"
 
 # @ pagelines
 #: sections/mediabox/section.php:35
 msgid "Text and Embed HTML"
-msgstr ""
+msgstr "Tekst en Embed HTML"
 
 # @ pagelines
 #: sections/mediabox/section.php:36
@@ -2259,31 +2372,33 @@ msgid ""
 "Enter rich media \"embed\" HTML in this field to add videos, etc.. instead "
 "of an image."
 msgstr ""
+"Voeg rich media \"embed\" HTML in dit veld tie, om video's e.d. in te "
+"voegen, in plaats van een afbeelding."
 
 # @ pagelines
 #: sections/mediabox/section.php:50
 msgid "Text/Media Alignment"
-msgstr ""
+msgstr "Tekst/Media Uitlijning"
 
 # @ pagelines
 #: sections/mediabox/section.php:52
 msgid "Align Center (Default)"
-msgstr ""
+msgstr "Centreren (Standaard)"
 
 # @ pagelines
 #: sections/mediabox/section.php:53
 msgid "Align Left"
-msgstr ""
+msgstr "Links Uitlijnen"
 
 # @ pagelines
 #: sections/mediabox/section.php:54
 msgid "Align Right"
-msgstr ""
+msgstr "Rechts Uitlijnen"
 
 # @ pagelines
 #: sections/mediabox/section.php:61
 msgid "MediaBox Min Height (px)"
-msgstr ""
+msgstr "MediaBox Minimum Hoogte (px)"
 
 # @ pagelines
 #: sections/mediabox/section.php:62
@@ -2291,53 +2406,55 @@ msgid ""
 "Required for \"cover\" mode. Otherwise the mediabox will be drawn at the "
 "height of the media."
 msgstr ""
+"Vereist voor \"cover\" modus. Anders wordt de mediabox gelijk gemaakt met de "
+"hoogte van de media."
 
 # @ pagelines
 #: sections/mediabox/section.php:67
 msgid "Disable Media Vertical Centering?"
-msgstr ""
+msgstr "Verticale Centrering van Media Uitschakelen?"
 
 # @ pagelines
 #: sections/mediabox/section.php:72 sections/textbox/section.php:70
 msgid "Viewport Animation"
-msgstr ""
+msgstr "Viewport Animatie"
 
 # @ pagelines
 #: sections/mediabox/section.php:73 sections/textbox/section.php:71
 msgid "Optionally animate the appearance of this section on view."
-msgstr ""
+msgstr "Eventueel animatie van de verschijning van deze sectie aanpassen."
 
 # @ pagelines
 #: sections/mediabox/section.php:86
 msgid "MediaBox Background Image"
-msgstr ""
+msgstr "MediaBox Achtergrond Afbeelding"
 
 # @ pagelines
 #: sections/navbar/section.php:61 sections/navbar/section.php:379
 msgid "Standard NavBar - Select Theme"
-msgstr ""
+msgstr "Standaard NavBar - Selecteer Thema"
 
 # @ pagelines
 #: sections/navbar/section.php:63
 msgid "Base Color"
-msgstr ""
+msgstr "Base Kleur"
 
 # @ pagelines
 #: sections/navbar/section.php:64 sections/navbar/section.php:369
 #: sections/navbar/section.php:381
 msgid "Black (Default)"
-msgstr ""
+msgstr "Zwart (Standaard)"
 
 # @ pagelines
 #: sections/navbar/section.php:66 sections/navbar/section.php:371
 #: sections/navbar/section.php:383
 msgid "Light Grey"
-msgstr ""
+msgstr "Licht Grijs"
 
 # @ pagelines
 #: sections/navbar/section.php:72
 msgid "NavBar Theme"
-msgstr ""
+msgstr "NavBar Thema"
 
 # @ pagelines
 #: sections/navbar/section.php:73 sections/navbar/section.php:391
@@ -2345,33 +2462,35 @@ msgid ""
 "The NavBar comes with several color options. Select one to automatically "
 "configure."
 msgstr ""
+"De NavBar kent een aantal kleur opties. Selecteer een kleur zodat deze "
+"automatisch wordt geconfigureerd."
 
 # @ pagelines
 #: sections/navbar/section.php:79
 msgid "NavBar Menu"
-msgstr ""
+msgstr "NavBar Menu"
 
 # @ pagelines
 #: sections/navbar/section.php:80 sections/navbar/section.php:412
 msgid "The NavBar uses WordPress menus. Select one for use."
-msgstr ""
+msgstr "De NavBar gebruikt WordPress menu's. Selecteer er een om te gebruiken."
 
 # @ pagelines
 #: sections/navbar/section.php:85 sections/simple_nav/section.php:34
 #: sections/simple_nav/section.php:40
 msgid "Select Menu"
-msgstr ""
+msgstr "Selecteer Menu"
 
 # @ pagelines
 #: sections/navbar/section.php:94
 msgid "NavBar Configuration Options"
-msgstr ""
+msgstr "NavBar Configuratie Opties"
 
 # @ pagelines
 #: sections/navbar/section.php:99 sections/navbar/section.php:100
 #: sections/navbar/section.php:445 sections/navbar/section.php:446
 msgid "NavBar Title"
-msgstr ""
+msgstr "NavBar Titel"
 
 # @ pagelines
 #: sections/navbar/section.php:101 sections/navbar/section.php:448
@@ -2379,27 +2498,29 @@ msgid ""
 "Add text to the NavBar to serve as a title, but only displayed on small "
 "screens."
 msgstr ""
+"Voeg tekst als titel toe aan de NavBar. Deze wordt uitsluitend op kleine "
+"schermen getoond."
 
 # @ pagelines
 #: sections/navbar/section.php:106 sections/navbar/section.php:422
 msgid "Activate dropdowns on hover."
-msgstr ""
+msgstr "Activeer dropdowns bij hover."
 
 # @ pagelines
 #: sections/navbar/section.php:113
 msgid "Align Menu Right? (Defaults Left)"
-msgstr ""
+msgstr "Menu Rechts Uitlijnen? (Standaard is Links)"
 
 # @ pagelines
 #: sections/navbar/section.php:118
 msgid "Hide Search?"
-msgstr ""
+msgstr "Zoeken verbergen?"
 
 # @ pagelines
 #: sections/navbar/section.php:152 sections/navbar/section.php:153
 #: sections/navbar/section.php:344 sections/navbar/section.php:345
 msgid "Enable Fixed Navigation Bar"
-msgstr ""
+msgstr "Vaste Navigatie Bar Aanzetten"
 
 # @ pagelines
 #: sections/navbar/section.php:154 sections/navbar/section.php:347
@@ -2407,6 +2528,8 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site."
 msgstr ""
+"Gebruik deze mogelijkheid om de NavBar sectie als vaste navigatie bovenaan "
+"uw site te plaatsen."
 
 # @ pagelines
 #: sections/navbar/section.php:162 sections/navbar/section.php:163
@@ -2420,101 +2543,107 @@ msgid ""
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
 msgstr ""
+"Gebruik deze mogelijkheid om de NavBar sectie als vaste navigatie bovenaan "
+"uw site te plaatsen.<br/><br/><strong>Let op:</strong> <br/>1. Alleen "
+"zichtbaar in Vaste Modus.<br/>2. Afbeeldings Hoogte is gebouwd voor een "
+"maximum van 29px."
 
 # @ pagelines
 #: sections/navbar/section.php:293
 msgid "MENU"
-msgstr ""
+msgstr "MENU"
 
 # @ pagelines
 #: sections/navbar/section.php:346 sections/navbar/section.php:355
 msgid "Applies a fixed navigation bar to the top of your site"
-msgstr ""
+msgstr "Voegt een vaste navigatie bar bovenaan uw site toe"
 
 # @ pagelines
 #: sections/navbar/section.php:353
 msgid "Fixed NavBar Logo"
-msgstr ""
+msgstr "Vaste NavBar Logo"
 
 # @ pagelines
 #: sections/navbar/section.php:354
 msgid "Fixed NavBar - NavBar Logo"
-msgstr ""
+msgstr "Vaste NavBar - NavBar Logo"
 
 # @ pagelines
 #: sections/navbar/section.php:367
 msgid "Fixed NavBar - Select Theme"
-msgstr ""
+msgstr "Vaste NavBar - Selecteer Thema"
 
 # @ pagelines
 #: sections/navbar/section.php:389
 msgid "NavBar and Fixed NavBar Theme"
-msgstr ""
+msgstr "NavBar en Vaste NavBar Thema"
 
 # @ pagelines
 #: sections/navbar/section.php:390
 msgid "Select the color and theme of the NavBar"
-msgstr ""
+msgstr "Selecteer de kleur en het thema van de NavBar"
 
 # @ pagelines
 #: sections/navbar/section.php:402
 msgid "Fixed NavBar - Select Menu"
-msgstr ""
+msgstr "Vaste NavBar - Selecteer Menu"
 
 # @ pagelines
 #: sections/navbar/section.php:407
 msgid "Standard NavBar - Select Menu"
-msgstr ""
+msgstr "Standaard NavBar - Selecteer Menu"
 
 # @ pagelines
 #: sections/navbar/section.php:410
 msgid "NavBar and Fixed NavBar Menu"
-msgstr ""
+msgstr "NavBar en Vaste NavBar Menu"
 
 # @ pagelines
 #: sections/navbar/section.php:411
 msgid "Select the WordPress Menu for the NavBar(s)"
-msgstr ""
+msgstr "Selecteer het WordPress Menu voor de NavBar(s)"
 
 # @ pagelines
 #: sections/navbar/section.php:426
 msgid "Fixed NavBar - Align Menu Right? (Defaults Left)"
-msgstr ""
+msgstr "Vaste NavBar - Menu Rechts Uitlijnen? (Standaard Links)"
 
 # @ pagelines
 #: sections/navbar/section.php:429
 msgid "Fixed NavBar - Hide Searchform?"
-msgstr ""
+msgstr "Vaste Navbar - Verberg Zoekformulier?"
 
 # @ pagelines
 #: sections/navbar/section.php:432
 msgid "Standard NavBar - Align Menu Right? (Defaults Left)"
-msgstr ""
+msgstr "Standaard NavBar - Menu Rechts Uitlijnen? (Standaard Links)"
 
 # @ pagelines
 #: sections/navbar/section.php:435
 msgid "Standard NavBar - Hide Searchform?"
-msgstr ""
+msgstr "Standaard Navbar - Verberg Zoekformulier?"
 
 # @ pagelines
 #: sections/navbar/section.php:438
 msgid "Configure Options for NavBars"
-msgstr ""
+msgstr "Configureer Opties voor NavBars"
 
 # @ pagelines
 #: sections/navbar/section.php:439
 msgid "NavBar and Fixed NavBar Configuration Options"
-msgstr ""
+msgstr "NavBar en Vaste NavBar Configuratie Opties"
 
 # @ pagelines
 #: sections/navbar/section.php:440
 msgid "Control various appearance options for the NavBars"
-msgstr ""
+msgstr "Beheer verschillende mogelijkheden voor het uiterlijk van de NavBars"
 
 # @ pagelines
 #: sections/navbar/section.php:447
 msgid "Applies text to NavBar on small screens. Not available on Fixed NavBar"
 msgstr ""
+"Voegt tekst toe aan NavBar op kleine schermen. Niet beschikbaar voor Vaste "
+"NavBar"
 
 # @ pagelines
 #: sections/noposts/section.php:22
@@ -2522,6 +2651,8 @@ msgid ""
 "Direct Previewing <em>of</em> &quot;Special Post Types&quot; Not "
 "Available... Yet"
 msgstr ""
+"Direct Previewen <em>van</em> &quot;Speciale Bericht Typen&quot; Is nog niet "
+"beschikbaar..."
 
 # @ pagelines
 #: sections/noposts/section.php:23
@@ -2530,6 +2661,10 @@ msgid ""
 "strong> or <strong>boxes</strong> is unavailable. This WordPress "
 "functionality is new and rapidly developing, so it should be available soon."
 msgstr ""
+"Sorry, direct previewen van speciale Bericht Typen, zoals <strong>features</"
+"strong> of <strong>boxes</strong> is niet beschikbaar. Deze WordPress "
+"functionaliteit is nieuw en wordt snel ontwikkeld, dus het zal snel "
+"beschikbaar zijn."
 
 # @ pagelines
 #: sections/noposts/section.php:25
@@ -2537,31 +2672,33 @@ msgid ""
 "To preview a &quot;custom post type&quot; just view a page with that &quot;"
 "section&quot; on it."
 msgstr ""
+"Om een &quot;eigen Bericht Type&quot; te previewen, bekijkt u gewoon een "
+"pagina waarin deze &quot;sectie&quot; is opgenomen."
 
 # @ pagelines
 #: sections/noposts/section.php:30
 msgid "404!"
-msgstr ""
+msgstr "404!"
 
 # @ pagelines
 #: sections/noposts/section.php:31
 msgid "Sorry, This Page Does not exist."
-msgstr ""
+msgstr "Sorry, deze Pagina bestaat niet."
 
 # @ pagelines
 #: sections/noposts/section.php:31
 msgid "Go"
-msgstr ""
+msgstr "Ga"
 
 # @ pagelines
 #: sections/noposts/section.php:31
 msgid "home"
-msgstr ""
+msgstr "home"
 
 # @ pagelines
 #: sections/noposts/section.php:31
 msgid "or try a search?"
-msgstr ""
+msgstr "of probeer het op te zoeken?"
 
 # @ pagelines
 #: sections/pl_area/section.php:27
@@ -2571,7 +2708,7 @@ msgstr ""
 # @ pagelines
 #: sections/pl_area/section.php:32
 msgid "Default Area Padding (px)"
-msgstr ""
+msgstr "Standaard Gebied Padding (px)"
 
 # @ pagelines
 #: sections/pl_area/section.php:36
@@ -2579,61 +2716,63 @@ msgid ""
 "If sections are added to full width areas, the area will be givin this "
 "default padding."
 msgstr ""
+"Als secties worden toegevoegd aan volledige breedte gebieden, is dit de "
+"standaard padding die aan dit gebied wordt gegeven."
 
 # @ pagelines
 #: sections/pl_area/section.php:53
 msgid "Set Area Padding"
-msgstr ""
+msgstr "Stel Gebied Padding in"
 
 # @ pagelines
 #: sections/pl_area/section.php:61
 msgid "Area Padding (px)"
-msgstr ""
+msgstr "Gebied Padding (px)"
 
 # @ pagelines
 #: sections/pl_area/section.php:69
 msgid "Area Padding Bottom (if different)"
-msgstr ""
+msgstr "Gebied - Padding Bottom (indien afwijkend)"
 
 # @ pagelines
 #: sections/pl_area/section.php:81
 msgid "Area Styling"
-msgstr ""
+msgstr "Gebied - Styling"
 
 # @ pagelines
 #: sections/pl_area/section.php:103
 msgid "Area Theme"
-msgstr ""
+msgstr "Gebied - Thema"
 
 # @ pagelines
 #: sections/pl_area/section.php:109
 msgid "Area Minimum Height (px)"
-msgstr ""
+msgstr "Gebied - Minimum Hoogte (px)"
 
 # @ pagelines
 #: sections/pl_area/section.php:120
 msgid "Area Background"
-msgstr ""
+msgstr "Gebied - Achtergrond"
 
 # @ pagelines
 #: sections/pl_area/section.php:132
 msgid "Repeat Background Image"
-msgstr ""
+msgstr "Herhaal Achtergrond Afbeelding"
 
 # @ pagelines
 #: sections/pl_area/section.php:137
 msgid "Enable Background Parallax"
-msgstr ""
+msgstr "Achtergrond Parallax aanzetten"
 
 # @ pagelines
 #: sections/popthumbs/section.php:42
 msgid "PopThumb Configuration"
-msgstr ""
+msgstr "PopThumb Configuratie"
 
 # @ pagelines
 #: sections/popthumbs/section.php:51
 msgid "Number of Columns for Each Thumb (12 Col Grid)"
-msgstr ""
+msgstr "Aantal Kolommen voor Elke Thumb (12 Col Grid)"
 
 # @ pagelines
 #: sections/popthumbs/section.php:62
@@ -2658,94 +2797,96 @@ msgstr ""
 # @ pagelines
 #: sections/postauthor/section.php:35
 msgid "Author Setup"
-msgstr ""
+msgstr "Auteur Instellingen"
 
 # @ pagelines
 #: sections/postauthor/section.php:37
 msgid ""
 "This section uses the author's profile information. Set that in your admin."
 msgstr ""
+"Deze sectie gebruikt de informatie uit het profiel van de auteur. Dit kunt u "
+"in de WordPress admin instellen en aanpassen."
 
 # @ pagelines
 #: sections/postauthor/section.php:68
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 # @ pagelines
 #: sections/postauthor/section.php:77
 msgid "Visit Authors Website &rarr;"
-msgstr ""
+msgstr "Bezoek de website van de Auteur &rarr;"
 
 # @ pagelines
 #: sections/postauthor/section.php:80
 msgid "Authors Google Profile &rarr;"
-msgstr ""
+msgstr "Het Google Profiel van de Auteur &rarr;"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:37 sections/postloop/section.php:186
 msgid "Read More &raquo;"
-msgstr ""
+msgstr "Lees meer &raquo;"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:240
 msgid "<div class='pagination'><span class='desc'>pages:</span><ul>"
-msgstr ""
+msgstr "<div class='pagination'><span class='desc'>pagina's:</span><ul>"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:253
 msgid "<span class='note'>Tagged with &rarr;</span> "
-msgstr ""
+msgstr "<span class='note'>Getagged met &rarr;</span> "
 
 # @ pagelines
 #: sections/postloop/class.posts.php:405
 msgid "Link To"
-msgstr ""
+msgstr "Link naar"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:430 sections/postloop/class.posts.php:435
 msgid "On"
-msgstr ""
+msgstr "Op"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:430 sections/postloop/class.posts.php:435
 msgid "By"
-msgstr ""
+msgstr "Door"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:435
 msgid "In"
-msgstr ""
+msgstr "In"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:696
 #, php-format
 msgid "No results for &quot;%s&quot;"
-msgstr ""
+msgstr "Geen resultaten voor &quot;%s&quot;"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:696
 msgid "Nothing Found"
-msgstr ""
+msgstr "Niets gevonden"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:698
 msgid "Try another search?"
-msgstr ""
+msgstr "Een andere zoekopdracht proberen?"
 
 # @ pagelines
 #: sections/postloop/class.posts.php:698
 msgid "Sorry, what you are looking for isn't here."
-msgstr ""
+msgstr "Onze excuses, maar hetgeen u zoekt is hier niet (meer) te vinden."
 
 # @ pagelines
 #: sections/postloop/section.php:28
 msgid "Edit Post Content"
-msgstr ""
+msgstr "Wijzig de Content van het Bericht"
 
 # @ pagelines
 #: sections/postloop/section.php:29
 msgid "<i class=\"icon-edit\"></i> Edit Post Info"
-msgstr ""
+msgstr "<i class=\"icon-edit\"></i> Wijzig Bericht Info"
 
 # @ pagelines
 #: sections/postloop/section.php:30
@@ -2753,31 +2894,33 @@ msgid ""
 "This section uses WordPress posts. Edit post information using WordPress "
 "admin."
 msgstr ""
+"Deze sectie gebruikt WordPress berichten. Wijzig de bericht informatie in uw "
+"WordPress administratie."
 
 # @ pagelines
 #: sections/postloop/section.php:37
 msgid "Page Title"
-msgstr ""
+msgstr "Pagina Titel"
 
 # @ pagelines
 #: sections/postloop/section.php:43
 msgid "Layout <span class=\"spamp\">&amp;</span> Config"
-msgstr ""
+msgstr "Layout <span class=\"spamp\">&amp;</span> Configuratie"
 
 # @ pagelines
 #: sections/postloop/section.php:52
 msgid "Magazine Layout Mode"
-msgstr ""
+msgstr "Magazine Layout Modus"
 
 # @ pagelines
 #: sections/postloop/section.php:53
 msgid "List Layout Mode"
-msgstr ""
+msgstr "Lijst Layout Modus"
 
 # @ pagelines
 #: sections/postloop/section.php:55 sections/postloop/section.php:56
 msgid "Posts Layout Mode"
-msgstr ""
+msgstr "Berichten Layout Modus"
 
 # @ pagelines
 #: sections/postloop/section.php:57
@@ -2791,16 +2934,25 @@ msgid ""
 "This is your classical post list layout. Posts span the entire width of the "
 "main content column."
 msgstr ""
+"Kies tussen twee magazine of blog layout modus. <br/><br/> <strong>Magazine "
+"Layout Modus</strong><br/> Magazine layout modus maakt gebruik van bericht "
+"<strong>clips</strong>. Deze zijn samengevatte uittreksels die worden "
+"getoond op halve breedte van de hoofd content kolom.<br/>  <strong>Let op:</"
+"strong> Er is een optie om <strong>volledige-breedte</strong> berichten te "
+"laten zien op uw hoofd <strong>berichten</strong> pagina.<br/><br/"
+"><strong>Lijst Layout Modus</strong><br/> Dit is een klassieke berichten "
+"lijst layout. Berichten nemen de volledige breedte in van de hoofd content "
+"kolom."
 
 # @ pagelines
 #: sections/postloop/section.php:66
 msgid "Number of Full Width Posts? (Mag. Mode)"
-msgstr ""
+msgstr "Aantal Volledige Breedte Berichten (Mag. Modus)"
 
 # @ pagelines
 #: sections/postloop/section.php:67
 msgid "Full Width Posts (Magazine Layout Mode Only)"
-msgstr ""
+msgstr "Volledige Breedte Berichten (Alleen in Magazine Layout Modus)"
 
 # @ pagelines
 #: sections/postloop/section.php:68
@@ -2809,21 +2961,26 @@ msgid ""
 "main content column in magazine layout mode (the rest will be half-width "
 "post <strong>clips</strong>)."
 msgstr ""
+"Selecteer het aantal berichten dat u wilt laten zien op de volledige breedte "
+"van de basis content kolom in magazine layout modus (de rest zullen halve-"
+"breedte-bericht <strong>clips</strong> zijn)"
 
 # @ pagelines
 #: sections/postloop/section.php:75
 msgid "Show Full Post Content"
-msgstr ""
+msgstr "Laat de Volledige Bericht Content zien"
 
 # @ pagelines
 #: sections/postloop/section.php:76
 msgid "Optionally show full post content on special post listing pages."
 msgstr ""
+"Optioneel volledige bericht content laten zien op speciale berichten lijsten "
+"pagina's."
 
 # @ pagelines
 #: sections/postloop/section.php:84
 msgid "Meta Config"
-msgstr ""
+msgstr "Meta Instellingen"
 
 # @ pagelines
 #: sections/postloop/section.php:87
@@ -2840,16 +2997,28 @@ msgid ""
 "[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
 "Type of post</li></ul>"
 msgstr ""
+"Gebruik shortcodes om dynamische informatie in uw metabar te beheren. "
+"Voorbeelden van shortcodes die u kunt gebruiken zijn: <ul><li><strong>"
+"[post_categories]</strong> - Lijst van categorieen</li><li><strong>"
+"[post_edit]</strong> - Link voor beheerders om het bericht te bewerken</"
+"li><li><strong>[post_tags]</strong> - Lijst van tags van het bericht</"
+"li><li><strong>[post_comments]</strong> - Link naar de reacties op het "
+"bericht</li><li><strong>[post_author_posts_link]</strong> - Auteur en link "
+"naar het archief</li><li><strong>[post_author_link]</strong> - Link naar de "
+"URL van de Auteur</li><li><strong>[post_author]</strong> - Auteur naam "
+"zonder link</li><li><strong>[post_time]</strong> - Tijdstip van het bericht</"
+"li><li><strong>[post_date]</strong> - Datum van het bericht</li><li><strong>"
+"[post_type]</strong> - Type van het bericht</li></ul>"
 
 # @ pagelines
 #: sections/postloop/section.php:92
 msgid "Select Meta Mode"
-msgstr ""
+msgstr "Selecteer Meta Modus"
 
 # @ pagelines
 #: sections/postloop/section.php:93
 msgid "Meta Mode"
-msgstr ""
+msgstr "Meta Modus"
 
 # @ pagelines
 #: sections/postloop/section.php:98
@@ -2857,51 +3026,54 @@ msgid ""
 "Instead of the standard metabar (beneath post title), you can use author "
 "meta mode. This mode displays the author avatar and publish date on left."
 msgstr ""
+"In plaats van een standaard metabar (onder de titel van een bericht), kunt u "
+"kiezen voor de auteur meta modus. Deze modus laat de avatar van de auteur "
+"zien en publiceert de datum links."
 
 # @ pagelines
 #: sections/postloop/section.php:105
 msgid "Configure Full Width Post Metabar"
-msgstr ""
+msgstr "Configureer Volledige Breedte Bericht Metabar"
 
 # @ pagelines
 #: sections/postloop/section.php:106
 msgid "Post Meta Information"
-msgstr ""
+msgstr "Berichten Meta Informatie"
 
 # @ pagelines
 #: sections/postloop/section.php:114 sections/postloop/section.php:115
 msgid "Configure Clip Metabar"
-msgstr ""
+msgstr "Configureer Clip Metabar"
 
 # @ pagelines
 #: sections/postloop/section.php:122
 msgid "Thumbs"
-msgstr ""
+msgstr "Thumbs"
 
 # @ pagelines
 #: sections/postloop/section.php:133 sections/postloop/section.php:149
 msgid "Left Justified"
-msgstr ""
+msgstr "Links Uitgevuld"
 
 # @ pagelines
 #: sections/postloop/section.php:134 sections/postloop/section.php:150
 msgid "On Top"
-msgstr ""
+msgstr "Bovenaan"
 
 # @ pagelines
 #: sections/postloop/section.php:135 sections/postloop/section.php:151
 msgid "Left, In Excerpt"
-msgstr ""
+msgstr "Links, in het uittreksel"
 
 # @ pagelines
 #: sections/postloop/section.php:136 sections/postloop/section.php:152
 msgid "Right, In Excerpt"
-msgstr ""
+msgstr "Rechts, in het uittreksel"
 
 # @ pagelines
 #: sections/postloop/section.php:138
 msgid "Full Width Thumbs Layout"
-msgstr ""
+msgstr "Volledige Breedte Thumbs Layout"
 
 # @ pagelines
 #: sections/postloop/section.php:139
@@ -2909,11 +3081,13 @@ msgid ""
 "Use this option to configure how thumbs will be shown in full-width posts on "
 "your blog page."
 msgstr ""
+"Gebruik deze optie om te configureren hoe thumbs worden getoond in volledige-"
+"breedte berichten op uw blog pagina."
 
 # @ pagelines
 #: sections/postloop/section.php:154
 msgid "Clip Thumbs Layout"
-msgstr ""
+msgstr "Clip Thumbs Layout"
 
 # @ pagelines
 #: sections/postloop/section.php:155
@@ -2921,36 +3095,41 @@ msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
 msgstr ""
+"Gebruik deze optie om te configureren hoe thumbs worden getoond in clips. "
+"Dit zijn de kleinere <strong>magazine</strong> stijl uittreksels op uw blog "
+"pagina."
 
 # @ pagelines
 #: sections/postloop/section.php:161
 msgid "Hide thumbs?"
-msgstr ""
+msgstr "Thumbs verbergen?"
 
 # @ pagelines
 #: sections/postloop/section.php:162
 msgid "Post Thumbnails"
-msgstr ""
+msgstr "Berichten Miniaturen"
 
 # @ pagelines
 #: sections/postloop/section.php:163
 msgid "Use this option to hide or show thumbs for posts on pages."
 msgstr ""
+"Gebruik deze optie om thumbs voor berichten op pagina's te laten zien of te "
+"verbergen."
 
 # @ pagelines
 #: sections/postloop/section.php:172
 msgid "Excerpts"
-msgstr ""
+msgstr "Uittreksels"
 
 # @ pagelines
 #: sections/postloop/section.php:179
 msgid "Hide excerpts?"
-msgstr ""
+msgstr "Uittreksels verbergen?"
 
 # @ pagelines
 #: sections/postloop/section.php:180
 msgid "Hide Post Excerpt"
-msgstr ""
+msgstr "Verberg Bericht Uittreksel"
 
 # @ pagelines
 #: sections/postloop/section.php:181
@@ -2958,16 +3137,19 @@ msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
 msgstr ""
+"Uittreksels zijn korte stukjes content die aan gebruikers getoond worden, om "
+"een preview te geven van een bericht. Gebruik deze optie om deze te "
+"verbergen."
 
 # @ pagelines
 #: sections/postloop/section.php:188
 msgid "Continue Reading Link Text"
-msgstr ""
+msgstr "Lees Meer link tekst"
 
 # @ pagelines
 #: sections/postloop/section.php:189
 msgid "Excerpts <strong>Continue Reading</strong> Text"
-msgstr ""
+msgstr "Uittreksels <strong>Lees Door</strong> Tekst"
 
 # @ pagelines
 #: sections/postloop/section.php:190
@@ -2975,31 +3157,34 @@ msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
 msgstr ""
+"Deze tekst zal worden gebruikt als link naar uw volledige artikel, wanneer "
+"artikelen op uw Berichten Pagina's worden bekeken (wanneer uittreksels aan "
+"staan)."
 
 # @ pagelines
 #: sections/postloop/section.php:197
 msgid "Number of words."
-msgstr ""
+msgstr "Aantal woorden."
 
 # @ pagelines
 #: sections/postloop/section.php:198
 msgid "Excerpt Length"
-msgstr ""
+msgstr "Lengte van uittreksel"
 
 # @ pagelines
 #: sections/postloop/section.php:199
 msgid "Excerpts are set to 55 words by default."
-msgstr ""
+msgstr "Uittreksels zijn standaard ingesteld op 55 woorden."
 
 # @ pagelines
 #: sections/postloop/section.php:206
 msgid "Allowed Tags"
-msgstr ""
+msgstr "Toegestane Labels"
 
 # @ pagelines
 #: sections/postloop/section.php:207
 msgid "Allow Tags in Excerpt"
-msgstr ""
+msgstr "Sta Labels toe in uittreksel"
 
 # @ pagelines
 #: sections/postloop/section.php:208
@@ -3010,56 +3195,61 @@ msgid ""
 "a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
 "strong> to disallow all tags."
 msgstr ""
+"Standaard verwijdert WordPress alle HTML tags uit uittreksels. U kunt deze "
+"optie gebruiken om bepaalde tags toe te staan. Voer eenvoudigweg de "
+"toegestane tags in. <br/>Een voorbeeld van toegestane tags kan zijn: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> <strong>Let op:</"
+"strong> Voer een punt <strong>.</strong> in om alle tags tegen te houden."
 
 # @ pagelines
 #: sections/postsinfo/section.php:29
 msgid "Search results for"
-msgstr ""
+msgstr "Zoekresultaten voor"
 
 # @ pagelines
 #: sections/postsinfo/section.php:31
 msgid "Currently viewing the category:"
-msgstr ""
+msgstr "Momenteel bekijkt u de categorie:"
 
 # @ pagelines
 #: sections/postsinfo/section.php:33
 msgid "Currently viewing the tag:"
-msgstr ""
+msgstr "Momenteel bekijkt u de tag:"
 
 # @ pagelines
 #: sections/postsinfo/section.php:40
 msgid "Posts by:"
-msgstr ""
+msgstr "Berichten door:"
 
 # @ pagelines
 #: sections/postsinfo/section.php:42
 msgid "From the daily archives:"
-msgstr ""
+msgstr "Uit de dagelijkse archieven:"
 
 # @ pagelines
 #: sections/postsinfo/section.php:44
 msgid "From the monthly archives:"
-msgstr ""
+msgstr "Uit de maandelijkse archieven:"
 
 # @ pagelines
 #: sections/postsinfo/section.php:46
 msgid "From the yearly archives:"
-msgstr ""
+msgstr "Uit de jaarlijkse archieven:"
 
 # @ pagelines
 #: sections/postsinfo/section.php:57
 msgid "Viewing archives for "
-msgstr ""
+msgstr "Archieven bekijken van"
 
 # @ pagelines
 #: sections/propricing/section.php:28
 msgid "ProPricing Configuration"
-msgstr ""
+msgstr "ProPricing Configuratie"
 
 # @ pagelines
 #: sections/propricing/section.php:38
 msgid "Number of Columns for Each Plan (12 Col Grid)"
-msgstr ""
+msgstr "Aantal Kolommen voor Elk Plan (12 Col Grid)"
 
 # @ pagelines
 #: sections/propricing/section.php:48
@@ -3085,6 +3275,7 @@ msgstr ""
 #: sections/propricing/section.php:65
 msgid "Typically you will add the monetary unit here. E.g. \"$\""
 msgstr ""
+"Normaal gesproken voegt u hier het valuta symbool in. Bijvoorbeeld \"$\""
 
 # @ pagelines
 #: sections/propricing/section.php:69
@@ -3095,6 +3286,8 @@ msgstr ""
 #: sections/propricing/section.php:71
 msgid "Typically you will add the recurring amount here. E.g. \"/ MO\""
 msgstr ""
+"Normaal gesproken voegt u hier het terugkeerpatroon in. Bijvoorbeeld \"/ "
+"MAAND\""
 
 # @ pagelines
 #: sections/propricing/section.php:75
@@ -3125,46 +3318,48 @@ msgstr ""
 #: sections/propricing/section.php:97
 msgid "Add each attribute on a new line. Add a \"*\" in front to add emphasis."
 msgstr ""
+"Voeg elk attribuut in op een nieuwe regel. Voeg een \"*\" toe aan het begin "
+"om te benadrukken."
 
 # @ pagelines
 #: sections/quickslider/section.php:157 sections/revslider/section.php:22
 msgid "Slider Configuration"
-msgstr ""
+msgstr "Slider Configuratie"
 
 # @ pagelines
 #: sections/quickslider/section.php:164
 msgid "Select Transition Type"
-msgstr ""
+msgstr "Selecteer Slider Overgang Type"
 
 # @ pagelines
 #: sections/quickslider/section.php:166
 msgid "Use Fading Transition"
-msgstr ""
+msgstr "Gebruik Fading Overgang"
 
 # @ pagelines
 #: sections/quickslider/section.php:167
 msgid "Use Slide/Horizontal Transition"
-msgstr ""
+msgstr "Gebuik Slide/Horizontale Overgang"
 
 # @ pagelines
 #: sections/quickslider/section.php:174
 msgid "Use Both Arrow and Slide Control Navigation"
-msgstr ""
+msgstr "Gebruik zowel Pijl als Slide Control Navigatie"
 
 # @ pagelines
 #: sections/quickslider/section.php:175
 msgid "No Navigation"
-msgstr ""
+msgstr "Geen Navigatie"
 
 # @ pagelines
 #: sections/quickslider/section.php:176
 msgid "Slide Controls Only"
-msgstr ""
+msgstr "Alleen Slide Controls"
 
 # @ pagelines
 #: sections/quickslider/section.php:177
 msgid "Arrow Navigation Only"
-msgstr ""
+msgstr "Alleen Pijl Navigatie"
 
 # @ pagelines
 #: sections/quickslider/section.php:179
@@ -3174,7 +3369,7 @@ msgstr ""
 # @ pagelines
 #: sections/quickslider/section.php:185
 msgid "Animate Slideshow Automatically?"
-msgstr ""
+msgstr "Animeer Slideshow Automatisch?"
 
 # @ pagelines
 #: sections/quickslider/section.php:197 sections/revslider/section.php:39
@@ -3189,67 +3384,69 @@ msgstr ""
 # @ pagelines
 #: sections/quickslider/section.php:202 sections/revslider/section.php:44
 msgid "Slide Background Image"
-msgstr ""
+msgstr "Slide Achtergrond Afbeelding"
 
 # @ pagelines
 #: sections/quickslider/section.php:205 sections/revslider/section.php:47
 msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
 msgstr ""
+"Voor hoge resolutie, 2000px lange bij 800px brede afbeeldingen. (Limiet van "
+"2MB)"
 
 # @ pagelines
 #: sections/quickslider/section.php:211 sections/revslider/section.php:53
 msgid "Slide Text"
-msgstr ""
+msgstr "Slide Tekst"
 
 # @ pagelines
 #: sections/quickslider/section.php:216 sections/revslider/section.php:58
 msgid "Slide Link URL"
-msgstr ""
+msgstr "Slide Link URL"
 
 # @ pagelines
 #: sections/quickslider/section.php:221 sections/revslider/section.php:63
 msgid "Slide Text Location"
-msgstr ""
+msgstr "Slide Tekste Locatie"
 
 # @ pagelines
 #: sections/rapidtabs/section.php:53
 msgid "Popular"
-msgstr ""
+msgstr "Populair"
 
 # @ pagelines
 #: sections/rapidtabs/section.php:54
 msgid "Recent"
-msgstr ""
+msgstr "Recent"
 
 # @ pagelines
 #: sections/rapidtabs/section.php:55 sections/rapidtabs/section.php:105
 msgid "Comments"
-msgstr ""
+msgstr "Reacties"
 
 # @ pagelines
 #: sections/rapidtabs/section.php:61
 msgid "Popular Posts"
-msgstr ""
+msgstr "Populaire Berichten"
 
 # @ pagelines
 #: sections/rapidtabs/section.php:83
 msgid "Recent Posts"
-msgstr ""
+msgstr "Recente Berichten"
 
 # @ pagelines
 #: sections/revslider/section.php:29
 msgid "Time Per Slide (in Milliseconds)"
-msgstr ""
+msgstr "Tijd per Slider (in Milliseconden)"
 
 # @ pagelines
 #: sections/revslider/section.php:73
 msgid "Slide Transition"
-msgstr ""
+msgstr "Slide Overgang"
 
 # @ pagelines
 #: sections/revslider/section.php:79
 msgid "Slide Extra Elements"
-msgstr ""
+msgstr "Slider Extra Elementen"
 
 # @ pagelines
 #: sections/revslider/section.php:81
@@ -3260,31 +3457,36 @@ msgid ""
 "the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
 "documentation.html\" target=\"_blank\">docs here</a>."
 msgstr ""
+"Voeg hier extra Revolution Slider markup toe. Rev slider is gebaseerd op "
+"Revolution Slider, een jQuery plugin. Het ondersteunt een reeks van "
+"functionaliteit, inclusief video embedden en additionele overgangen als u "
+"HTML begrijpt. Bekijk de <a href=\"http://www.orbis-ingenieria.com/code/"
+"documentation/documentation.html\" target=\"_blank\">documentatie hier</a>."
 
 # @ pagelines
 #: sections/revslider/section.php:284
 msgid "Read More"
-msgstr ""
+msgstr "Lees Meer"
 
 # @ pagelines
 #: sections/sb_primary/section.php:51
 msgid "Archives"
-msgstr ""
+msgstr "Archieven"
 
 # @ pagelines
 #: sections/sb_primary/section.php:60
 msgid "Calendar"
-msgstr ""
+msgstr "Kalender"
 
 # @ pagelines
 #: sections/sb_primary/section.php:69
 msgid "Meta"
-msgstr ""
+msgstr "Meta"
 
 # @ pagelines
 #: sections/sb_primary/section.php:74
 msgid "Entries (RSS)"
-msgstr ""
+msgstr "Berichten (RSS)"
 
 # @ pagelines
 #: sections/sharebar/section.php:30
@@ -3292,48 +3494,51 @@ msgid ""
 "You have no shares setup, please look at Global Options > Social & Local; or "
 "deactivate the Sharebar from the Blog Post Template."
 msgstr ""
+"U heeft Delen niet ingesteld, kijk alstublieft naar de Algemene Opties > "
+"Sociaal & Lokaal; of deactiveer de Sharebar in het Blog Bericht Sjabloon."
 
 # @ pagelines
 #: sections/sharebar/section.php:30
 msgid "Social Settings"
-msgstr ""
+msgstr "Sociale Instellingen"
 
 # @ pagelines
 #: sections/sharebar/section.php:34
 msgid "Share &rarr;"
-msgstr ""
+msgstr "Delen &raar;"
 
 # @ pagelines
 #: sections/simple_nav/section.php:25
 msgid "Simple Nav Section"
-msgstr ""
+msgstr "Simple Nav Sectie"
 
 # @ pagelines
 #: sections/simple_nav/section.php:35
 msgid "The SimpleNav uses WordPress menus. Select one for use."
 msgstr ""
+"De SimpleNav gebruikt WordPress menu's. Selecteer er een om te gebruiken."
 
 # @ pagelines
 #: sections/simple_nav/section.php:50
 msgid "Select Alignment"
-msgstr ""
+msgstr "Selecteer Uitlijning"
 
 # @ pagelines
 #: sections/starbars/section.php:29
 msgid "StarBar Configuration"
-msgstr ""
+msgstr "StarBar Configuratie"
 
 # @ pagelines
 # @ starbar
 #: sections/starbars/section.php:38 sections/starbars/section.php:211
 msgid "Number of StarBars to Configure"
-msgstr ""
+msgstr "Aantal StarBarts om te Configureren"
 
 # @ pagelines
 # @ starbar
 #: sections/starbars/section.php:44 sections/starbars/section.php:216
 msgid "Starbar Total Count (Number)"
-msgstr ""
+msgstr "Starbar Totaal Opgeteld (Getal)"
 
 # @ pagelines
 #: sections/starbars/section.php:45
@@ -3341,85 +3546,88 @@ msgid ""
 "This number will be used to calculate the percent of the bar filled. The "
 "StarBar values will be shown as a percentage of this value. Default is 100."
 msgstr ""
+"Dit getal zal worden gebruikt om het percentage te calculeren waarmee de bar "
+"wordt gevuld. De StarBar waarden zullen worden getoond als een percentage "
+"van deze waarde. Standaard is 100."
 
 # @ pagelines
 # @ starbar
 #: sections/starbars/section.php:52 sections/starbars/section.php:221
 msgid "Starbar Modifier (Text Added to Stats)"
-msgstr ""
+msgstr "Starbar Aanpasser (Tekst Toevoegen aan Stats)"
 
 # @ pagelines
 #: sections/starbars/section.php:53
 msgid "This will be added to the stat number."
-msgstr ""
+msgstr "Dit zal worden toegevoegd aan het stat aantal."
 
 # @ pagelines
 #: sections/starbars/section.php:63 sections/starbars/section.php:230
 msgid "Starbar Format"
-msgstr ""
+msgstr "Starbar Formaat"
 
 # @ pagelines
 # @ starbar
 #: sections/starbars/section.php:69 sections/starbars/section.php:235
 msgid "StarBar Title (Optional)"
-msgstr ""
+msgstr "StarBar Titel (Optioneel)"
 
 # @ pagelines
 #: sections/starbars/section.php:82
 msgid "Descriptor"
-msgstr ""
+msgstr "Omschrijver"
 
 # @ pagelines
 #: sections/starbars/section.php:86
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 # @ pagelines
 #: sections/starbars/section.php:88
 msgid "Shown as a percentage of the StarBar total in the config."
-msgstr ""
+msgstr "Zichtbaar als een percentage van de totale StarBar in de configuratie."
 
 # @ pagelines
 #: sections/starbars/section.php:95
 msgid "<i class=\"icon-star\"></i> StarBar #"
-msgstr ""
+msgstr "<i class=\"icon-star\"></i> StarBar #"
 
 # @ starbar
 #: sections/starbars/section.php:252
 #, php-format
 msgid "Starbar #%s Description"
-msgstr ""
+msgstr "Starbar #%s Omschrijving"
 
 # @ starbar
 #: sections/starbars/section.php:256
 #, php-format
 msgid "Starbar #%s Value"
-msgstr ""
+msgstr "Starbar #%s Waarde"
 
 # @ starbar
 #: sections/starbars/section.php:262
 msgid "StarBar Values"
-msgstr ""
+msgstr "StarBar Waarden"
 
 # @ starbar
 #: sections/starbars/section.php:269
 msgid "Starbar"
-msgstr ""
+msgstr "Starbar"
 
 # @ pagelines
 #: sections/textbox/section.php:23
 msgid "Title (Optional)"
-msgstr ""
+msgstr "Titel (Optioneel)"
 
 # @ pagelines
 #: sections/textbox/section.php:28
 msgid "Text Content"
-msgstr ""
+msgstr "Tekst Inhoud"
 
 # @ pagelines
 #: sections/textbox/section.php:42
 msgid "Padding <small>(CSS Shorthand)</small>"
-msgstr ""
+msgstr "Padding <small>(korte CSS)</small>"
 
 # @ pagelines
 #: sections/textbox/section.php:43
@@ -3427,16 +3635,18 @@ msgid ""
 "This option uses CSS padding shorthand. For example, use \"15px 30px\" for "
 "15px padding top/bottom, and 30 left/right."
 msgstr ""
+"Deze optie gebruikt korte CSS padding. Bijvoorbeeld, gebruik \"15px 30px\" "
+"voor 15px padding top/bottom, en 30 links/rechts."
 
 # @ pagelines
 #: sections/textbox/section.php:52
 msgid "Textbox Font Size"
-msgstr ""
+msgstr "Tekstbox Lettertype Grootte"
 
 # @ pagelines
 #: sections/watermark/section.php:22
 msgid "Website Watermark"
-msgstr ""
+msgstr "Website Watermerk"
 
 # @ pagelines
 #: sections/watermark/section.php:23
@@ -3444,36 +3654,38 @@ msgid ""
 "The website watermark is a small version of your logo for your footer. "
 "Recommended width/height is 90px."
 msgstr ""
+"Het website watermerk is een kleine versie van uw logo in de footer. De "
+"aanbevolen breedte/hoogte is 90px."
 
 # @ pagelines
 #: sections/watermark/section.php:29
 msgid "Watermark Image"
-msgstr ""
+msgstr "Watermerk Afbeelding"
 
 # @ pagelines
 #: sections/watermark/section.php:36
 msgid "Watermark Link (Blank for None)"
-msgstr ""
+msgstr "Watermerk Link (Leeglaten voor Geen)"
 
 # @ pagelines
 #: sections/watermark/section.php:42
 msgid "Watermark Link alt text"
-msgstr ""
+msgstr "Watermerk Link alt tekst"
 
 # @ pagelines
 #: sections/watermark/section.php:43
 msgid "Build a website with PageLines"
-msgstr ""
+msgstr "Bouw een website met PageLines"
 
 # @ pagelines
 #: sections/watermark/section.php:48
 msgid "Hide Watermark"
-msgstr ""
+msgstr "Watermerk Verbergen"
 
 # @ pagelines
 #: sections/watermark/section.php:55
 msgid "Setting Up Social Shares"
-msgstr ""
+msgstr "Instellingen Delen via Social Media"
 
 # @ pagelines
 #: sections/watermark/section.php:56
@@ -3482,8 +3694,11 @@ msgid ""
 "\"options\" > \"social &amp; local\"<br/><br/> After you have done that, "
 "these values will fill automatically."
 msgstr ""
+"Om Social in te stellen, moet u uw algemene sociale gebruikersnamen ingeven "
+"onder \"opties\" > \"sociaal &amp; lokaal\"<br/><br/> Nadat u dit heeft "
+"gedaan, zullen deze waarden automatisch worden gevuld."
 
 # @ pagelines
 #: sections/watermark/section.php:83
 msgid "was created with"
-msgstr ""
+msgstr "is gemaakt met"
