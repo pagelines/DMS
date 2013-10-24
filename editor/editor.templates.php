@@ -199,7 +199,7 @@ class EditorTemplates {
 		
 		
 		$toolbar['page-setup'] = array(
-			'name'	=> __( 'Templates', 'pagelines' ),
+			'name'	=> __( 'Page Setup', 'pagelines' ),
 			'icon'	=> 'icon-file-text',
 			'pos'	=> 30,
 			'panel'	=> array(
