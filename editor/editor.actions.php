@@ -443,7 +443,7 @@ class PLImageUploader{
 
 				jQuery( theOption, top.document).val( imgURLShort )
 				
-				parent.jQuery( '.upload-input' ).trigger('change')
+				parent.jQuery( '.upload-input' ).trigger('blur')
 				
 				jQuery(previewSel, top.document).attr('src', imgURL)
 				
