@@ -436,14 +436,16 @@ class PLImageUploader{
 				var oSel = parent.jQuery.pl.iframeSelector
 				,	optID = '#' + oSel
 				,	previewSel = '.pre_' + oSel
-				,	editorPrevew = '.upload-thumb-' + oSel
+				,	editorPrevew = '.opt-upload-thumb-' + oSel
 				,	imgURL = jQuery(this).data('imgurl')
 				,	imgURLShort = jQuery(this).data('short-img-url')
 				, 	theOption = '[id="'+oSel+'"]'
+				
+				console.log(theOption)
 
 				jQuery( theOption, top.document).val( imgURLShort )
 				
-				parent.jQuery( '.upload-input' ).trigger('blur')
+				parent.jQuery( '.lstn' ).first().trigger('blur')
 				
 				jQuery(previewSel, top.document).attr('src', imgURL)
 				
