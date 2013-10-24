@@ -5,7 +5,7 @@ class EditorColor{
 
 	var $default_base = '#FFFFFF';
 	var $default_text = '#000000';
-	var $default_link = '#225E9B';
+	var $default_link = '#337EFF';
 	var $background = '';
 
 	function __construct( ){
