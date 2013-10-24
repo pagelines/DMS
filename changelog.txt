@@ -9,7 +9,7 @@ Version 1.1
 	This release has 227 commits with 387 file changes.
 	To help optimize your sites we have reduced the amount of code in this release by a massive 18427 lines!
 	A full changelog can be viewed on Github
-	https://github.com/pagelines/DMS/compare/1.0.4...1.1
+	https://github.com/pagelines/DMS/compare/1.0.4...a7e601390d9d6c893c4201e7c116d3968dc18b05
 	
 	
 

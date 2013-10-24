@@ -1537,7 +1537,7 @@ class PageLinesPostType {
 	*/
 	function init_register_post_type(){
 
-		$capability = (ploption('hide_controls_cpt')) ? ploption('hide_controls_cpt') : 'moderate_comments';
+		$capability = 'moderate_comments';
 
 		register_post_type( $this->id , array(
 				'labels' => array(
