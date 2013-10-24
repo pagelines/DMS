@@ -733,8 +733,16 @@ class PageLinesRenderCSS {
 			
 			pl_set_css_headers();
 
+			$defaults = array(
+				'type'	=> '',
+				'core'	=> '',
+				'dynamic' => ''
+			);
 			$a = $this->get_compiled_core();
+			$a = wp_parse_args( $a, $defaults );
 			$b = $this->get_compiled_sections();
+			
+			
 			
 			$gfonts = preg_match( '#(@import[^;]*;)#', $a['type'], $g );
 
@@ -752,7 +760,7 @@ class PageLinesRenderCSS {
 			
 			$blog = ( is_multisite() ) ? sprintf( ' on blog [%s]', $blog_id ) : '';
 				
-			echo sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'],  $mem, $blog );
+			echo sprintf( __( '%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'],  $mem, $blog );
 			
 			die();
 		}
