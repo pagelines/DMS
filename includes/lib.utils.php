@@ -349,8 +349,11 @@ function custom_trim_excerpt($text, $length) {
 	if ( count($words) > $length) {
 		array_pop($words);
 		$text = implode(' ', $words);
+		$hellip = '&nbsp;<span class="hellip">[&hellip;]</span>';
+	} else {
+		$hellip = '';
 	}
-	return ($text != '') ? $text.'&nbsp;<span class="hellip">[&hellip;]</span>' : '';
+	return ($text != '') ? $text.$hellip : '';
 }
 
 /**
