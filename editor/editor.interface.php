@@ -511,18 +511,18 @@ class EditorInterface {
 		?>
 		<div class="pl-section-controls fix" >
 			<div class="controls-left">
-				<a title="Decrease Width" href="#" class="s-control s-control-icon section-decrease"><i class="icon-caret-left"></i></a>
-				<span title="Column Width" class="s-control section-size"></span>
-				<a title="Increase Width" href="#" class="s-control s-control-icon section-increase"><i class="icon-caret-right"></i></a>
-				<a title="Offset Left <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-reduce <?php echo pl_pro_disable_class();?>"><i class="icon-angle-left"></i></a>
-				<span title="Offset Amount" class="s-control offset-size"></span>
-				<a title="Offset Right <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-increase <?php echo pl_pro_disable_class();?>"><i class="icon-angle-right"></i></a>
-				<a title="Force to New Row <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-start-row <?php echo pl_pro_disable_class();?>"><i class="icon-double-angle-left"></i></a>
+				<a title="<?php _e( 'Decrease Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-decrease"><i class="icon-caret-left"></i></a>
+				<span title="<?php _e( 'Column Width', 'pagelines' ) ?>" class="s-control section-size"></span>
+				<a title="<?php _e( 'Increase Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-increase"><i class="icon-caret-right"></i></a>
+				<a title="<?php _e( 'Offset Left', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-reduce <?php echo pl_pro_disable_class();?>"><i class="icon-angle-left"></i></a>
+				<span title="<?php _e( 'Offset Amount', 'pagelines' ) ?>" class="s-control offset-size"></span>
+				<a title="<?php _e( 'Offset Right', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-increase <?php echo pl_pro_disable_class();?>"><i class="icon-angle-right"></i></a>
+				<a title="<?php _e( 'Force to New Row', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-start-row <?php echo pl_pro_disable_class();?>"><i class="icon-double-angle-left"></i></a>
 			</div>
 			<div class="controls-right">
-				<a title="Edit" href="#" class="s-control s-control-icon section-edit s-loaded"><i class="icon-pencil"></i></a>
-				<a title="Clone <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-clone s-loaded <?php echo pl_pro_disable_class();?>"><i class="icon-copy"></i></a>
-				<a title="Delete" href="#" class="s-control s-control-icon section-delete"><i class="icon-remove"></i></a>
+				<a title="<?php _e( 'Edit', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-edit s-loaded"><i class="icon-pencil"></i></a>
+				<a title="<?php _e( 'Clone', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-clone s-loaded <?php echo pl_pro_disable_class();?>"><i class="icon-copy"></i></a>
+				<a title="<?php _e( 'Delete', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-delete"><i class="icon-remove"></i></a>
 			</div>
 			<div class="controls-title"><span class="ctitle"><?php echo $s->name;?></span></div>
 		</div>
