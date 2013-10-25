@@ -4,6 +4,12 @@
 
 ********************************************************
 
+Version 1.1.1
+	
+	33 commits to github including a lot of translation fixes.
+	https://github.com/pagelines/DMS/compare/a7e601390d9d6c893c4201e7c116d3968dc18b05...83b4d4dbdbd1fd9178b29f7ef37e45bcc15cbc5d
+
+
 Version 1.1
 
 	This release has 227 commits with 387 file changes.
