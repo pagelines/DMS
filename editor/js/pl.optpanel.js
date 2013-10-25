@@ -1089,7 +1089,9 @@
 				
 				$(this).closest('.opt-group').remove()
 				
-				accord.find('.lstn').first().trigger('blur')
+				that.updateAccordion( accord )
+				
+			//	accord.find('.lstn').first().trigger('blur')
 				
 		    })
 		
