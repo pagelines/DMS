@@ -1037,7 +1037,7 @@ function load_child_style() {
 		return;
 
 	// check for MU styles
-	if ( VDEV && is_multisite() ) {
+	if ( is_multisite() ) {
 
 		global $blog_id;
 		$mu_style = sprintf( '%s/blogs/%s/style.css', EXTEND_CHILD_DIR, $blog_id );
@@ -1061,7 +1061,7 @@ function load_child_functions() {
 		return;
 
 	// check for MU styles
-	if ( VDEV && is_multisite() ) {
+	if ( is_multisite() ) {
 
 		global $blog_id;
 		$mu_functions = sprintf( '%s/blogs/%s/functions.php', EXTEND_CHILD_DIR, $blog_id );
