@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-10-25 12:41-0000\n"
-"PO-Revision-Date: 2013-10-25 12:41-0000\n"
+"POT-Creation-Date: 2013-10-25 17:32-0000\n"
+"PO-Revision-Date: 2013-10-25 17:33-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: PageLines <hello@pagelines.com>\n"
 "Language: en_US\n"
@@ -333,6 +333,23 @@ msgstr ""
 msgid "Media Library"
 msgstr ""
 
+#: ../editor/editor.areas.php:57 ../editor/editor.interface.php:525
+msgid "Delete"
+msgstr ""
+
+#: ../editor/editor.areas.php:59 ../editor/editor.interface.php:524
+msgid "Clone"
+msgstr ""
+
+#: ../editor/editor.areas.php:61
+msgid "Move"
+msgstr ""
+
+#: ../editor/editor.areas.php:63 ../editor/editor.interface.php:523
+#: ../includes/class.objects.php:109
+msgid "Edit"
+msgstr ""
+
 #: ../editor/editor.color.php:201
 msgid "Site Base Colors"
 msgstr ""
@@ -458,11 +475,31 @@ msgstr ""
 msgid "Child Theme Config Import"
 msgstr ""
 
+#: ../editor/editor.importexport.php:88
+msgid "Load Child Theme Config"
+msgstr ""
+
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
 "\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
 "may want to publish these changes to your live site."
+msgstr ""
+
+#: ../editor/editor.importexport.php:108
+msgid "Select User Templates"
+msgstr ""
+
+#: ../editor/editor.importexport.php:116
+msgid "Select All"
+msgstr ""
+
+#: ../editor/editor.importexport.php:116
+msgid "Deselect All"
+msgstr ""
+
+#: ../editor/editor.importexport.php:137 ../editor/panel.settings.php:51
+msgid "Global Settings"
 msgstr ""
 
 #: ../editor/editor.importexport.php:141
@@ -491,6 +528,10 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:160
 msgid "Theme Config Publishing"
+msgstr ""
+
+#: ../editor/editor.importexport.php:170
+msgid "(Disabled! No child theme active)"
 msgstr ""
 
 #: ../editor/editor.importexport.php:170
@@ -559,6 +600,34 @@ msgstr ""
 
 #: ../editor/editor.interface.php:334
 msgid "Width"
+msgstr ""
+
+#: ../editor/editor.interface.php:514
+msgid "Decrease Width"
+msgstr ""
+
+#: ../editor/editor.interface.php:515
+msgid "Column Width"
+msgstr ""
+
+#: ../editor/editor.interface.php:516
+msgid "Increase Width"
+msgstr ""
+
+#: ../editor/editor.interface.php:517
+msgid "Offset Left"
+msgstr ""
+
+#: ../editor/editor.interface.php:518
+msgid "Offset Amount"
+msgstr ""
+
+#: ../editor/editor.interface.php:519
+msgid "Offset Right"
+msgstr ""
+
+#: ../editor/editor.interface.php:520
+msgid "Force to New Row"
 msgstr ""
 
 #: ../editor/editor.layout.php:25
@@ -637,6 +706,12 @@ msgstr ""
 
 #: ../editor/editor.loader.php:99
 msgid "Loading DMS Editor"
+msgstr ""
+
+#: ../editor/editor.loader.php:102
+msgid ""
+"Issues loading? See the <a href=\"http://docs.pagelines.com/support-"
+"troubleshooting/common-issues\" target=\"_blank\">troubleshooting guide</a>."
 msgstr ""
 
 #: ../editor/editor.regions.php:20
@@ -1086,6 +1161,10 @@ msgstr ""
 msgid "Page Order"
 msgstr ""
 
+#: ../editor/editor.typography.php:69
+msgid "Typography"
+msgstr ""
+
 #: ../editor/editor.typography.php:85
 msgid "Primary Text"
 msgstr ""
@@ -1096,8 +1175,16 @@ msgid ""
 "throughout the site. "
 msgstr ""
 
+#: ../editor/editor.typography.php:91
+msgid "Select Font Face"
+msgstr ""
+
 #: ../editor/editor.typography.php:101 ../editor/editor.typography.php:142
 msgid "Base Font Size"
+msgstr ""
+
+#: ../editor/editor.typography.php:108 ../editor/editor.typography.php:149
+msgid "Font Weight"
 msgstr ""
 
 #: ../editor/editor.typography.php:116
@@ -1112,6 +1199,10 @@ msgstr ""
 msgid "Configure the typography for the text headers across your site."
 msgstr ""
 
+#: ../editor/editor.typography.php:131
+msgid "Header Font"
+msgstr ""
+
 #: ../editor/editor.typography.php:164
 msgid "Extra Fonts"
 msgstr ""
@@ -1123,6 +1214,10 @@ msgid ""
 "add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
 "Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
 "p>"
+msgstr ""
+
+#: ../editor/editor.typography.php:170
+msgid "Extra Google Fonts"
 msgstr ""
 
 #: ../editor/panel.code.php:37
@@ -1311,10 +1406,6 @@ msgstr ""
 msgid "Section Options"
 msgstr ""
 
-#: ../editor/panel.settings.php:51
-msgid "Global Settings"
-msgstr ""
-
 #: ../editor/panel.themes.php:23
 msgid "Theme"
 msgstr ""
@@ -1341,10 +1432,6 @@ msgstr ""
 
 #: ../editor/panel.themes.php:235
 msgid " this is the end of the world.... >> "
-msgstr ""
-
-#: ../includes/class.objects.php:109
-msgid "Edit"
 msgstr ""
 
 #: ../includes/class.register.php:358
