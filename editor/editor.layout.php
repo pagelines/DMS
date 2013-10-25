@@ -22,7 +22,7 @@ class EditorLayout {
 	function add_settings( $settings ){
 
 		$settings['layout'] = array(
-			'name' 	=> 'Layout <span class="spamp">&amp;</span> Nav',
+			'name' 	=> __( 'Layout <span class="spamp">&amp;</span> Nav', 'pagelines' ),
 			'icon' 	=> 'icon-fullscreen',
 			'pos'	=> 2,
 			'opts' 	=> $this->options()
@@ -43,8 +43,8 @@ class EditorLayout {
 				'label' 	=> __( 'Select Layout Mode', 'pagelines' ),
 				'title' 	=> __( 'Layout Mode', 'pagelines' ),
 				'opts' 		=> array(
-					'pixel' 	=> array('name' => 'Pixel Width Based Layout'),
-					'percent' 	=> array('name' => 'Percentage Width Based Layout')
+					'pixel' 	=> array('name' => __( 'Pixel Width Based Layout', 'pagelines' )),
+					'percent' 	=> array('name' => __( 'Percentage Width Based Layout', 'pagelines' ))
 				),
 				'default'	=> 'pixel',
 				'help'	 	=> __( 'Select pixel width mode and your site maximum width will be controlled by pixels.<br/><br/> If you select "percent" width the width of your content will be a percentage of window size.', 'pagelines' )
@@ -55,8 +55,8 @@ class EditorLayout {
 				'label' 	=> __( 'Select Layout Display', 'pagelines' ),
 				'title' 	=> __( 'Display Mode', 'pagelines' ),
 				'opts' 		=> array(
-					'display-full' 		=> array('name' => 'Full Width Display'),
-					'display-boxed' 	=> array('name' => 'Boxed Display')
+					'display-full' 		=> array('name' => __( 'Full Width Display', 'pagelines' )),
+					'display-boxed' 	=> array('name' => __( 'Boxed Display', 'pagelines' ))
 				),
 				'default'	=> 'display-full',
 				'help'	 	=> __( '"Full" display mode allows areas to be the full width of the window, with content width sections.<br/><br/> "Boxed" mode contains everything in a central content box. Boxed mode is ideal for use with background images.', 'pagelines' )
