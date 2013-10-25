@@ -85,7 +85,7 @@ class PLImportExport{
 			</label>
 
 			<div class="child-import">
-				<a href="#" data-action="reset_global_child" class="btn settings-action btn-warning"><i class="icon-download"></i> Load Child Theme Config</a>
+				<a href="#" data-action="reset_global_child" class="btn settings-action btn-warning"><i class="icon-download"></i> <?php _e( 'Load Child Theme Config', 'pagelines' ); ?></a>
 
 				<div class="help-block">
 					<?php _e( 'Reset theme settings using custom config file from child theme.<br />
@@ -105,15 +105,15 @@ class PLImportExport{
 		
 		$tpls = new EditorTemplates;
 		?>
-		<label>Select User Templates</label>
+		<label><?php _e( 'Select User Templates', 'pagelines' ); ?></label>
 		
 		<?php
 		
 		$btns = sprintf(
 			'<div class="checklist-btns">
-				<button class="btn btn-mini checklist-tool" data-action="checkall"><i class="icon-ok"></i> Select All</button> 
-				<button class="btn btn-mini checklist-tool" data-action="uncheckall"><i class="icon-remove"></i> Deselect All</button>
-			</div>');
+				<button class="btn btn-mini checklist-tool" data-action="checkall"><i class="icon-ok"></i> %s</button> 
+				<button class="btn btn-mini checklist-tool" data-action="uncheckall"><i class="icon-remove"></i> %s</button>
+			</div>', __( 'Select All', 'pagelines' ), __( 'Deselect All', 'pagelines' ) );
 		
 		$tpl_selects = ''; 
 		foreach( $tpls->get_user_templates() as $index => $template){
@@ -134,7 +134,7 @@ class PLImportExport{
 		printf('<fieldset>%s%s</fieldset>', $btns, $tpl_selects );
 		
 		?>
-		<label>Global Settings</label>
+		<label><?php _e( 'Global Settings', 'pagelines' ); ?></label>
 		<label class="checklist-label media" for="export_global" name="export_global">
 			<div class="img"><input name="export_global" id="export_global" type="checkbox" checked /></div>
 			<div class="bd">
@@ -167,7 +167,7 @@ class PLImportExport{
 		<label class="checklist-label media <?php echo (!$publish_active) ? 'disabled': '';?>" for="publish_config">
 			<div class="img"><input id="publish_config" name="publish_config" type="checkbox" <?php echo (!$publish_active) ? 'disabled="disabled"': '';?> /></div>
 			<div class="bd">
-				<div class="ttl"><?php echo (!$publish_active) ? '(Disabled! No child theme active)': '';?> <?php _e( 'Publish Configuration to Child Theme (No Download File)', 'pagelines' ); ?>
+				<div class="ttl"><?php echo (!$publish_active) ? __( '(Disabled! No child theme active)', 'pagelines' ): '';?> <?php _e( 'Publish Configuration to Child Theme (No Download File)', 'pagelines' ); ?>
 				</div>
 				<p><?php _e( 'Check this to publish your site configuration as a theme configuration file in your themes root directory. When a user activates your theme it will ask if it can overwrite their settings to attain a desired initial experience to the theme.', 'pagelines' ); ?>
 				</p>
