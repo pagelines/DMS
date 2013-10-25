@@ -199,7 +199,7 @@ class EditorColor{
 				'key'		=> 'canvas_colors',
 				'type' 		=> 'multi',
 				'title' 	=> __( 'Site Base Colors', 'pagelines' ),
-				'help' 		=> __( 'The "base" color are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.' ),
+				'help' 		=> __( 'The "base" color are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.', 'pagelines' ),
 				'opts'		=> array(
 					array(
 						'key'			=> 'bodybg',
