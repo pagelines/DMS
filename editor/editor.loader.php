@@ -99,7 +99,7 @@ class PageLinesPageLoader{
 				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
 			</div>
 			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .7; text-align: center;">
-				Issues loading? See the <a href="http://docs.pagelines.com/support-troubleshooting/common-issues" target="_blank">troubleshooting guide</a>.
+				<?php _e('Issues loading? See the <a href="http://docs.pagelines.com/support-troubleshooting/common-issues" target="_blank">troubleshooting guide</a>.', 'pagelines');?>
 			</div>
 		</div>
 		
