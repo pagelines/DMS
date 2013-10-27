@@ -443,9 +443,6 @@ class PageLinesRenderCSS {
 			return;
 		}
 
-		if( false == $this->check_posix() )
-			return pl_less_save_last_error( 'POSIX checks failed.', false );
-
 		$a = $this->get_compiled_core();
 		$b = $this->get_compiled_sections();
 		$out = '';
@@ -460,23 +457,6 @@ class PageLinesRenderCSS {
 		$out .= sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'], $mem, $blog );
 		$this->write_css_file( $out );
 	}
-
-	function check_posix() {
-
-		if ( true == apply_filters( 'render_css_posix_', false ) )
-			return true;
-
-		if ( ! function_exists( 'posix_geteuid') || ! function_exists( 'posix_getpwuid' ) )
-			return false;
-
-		$User = posix_getpwuid( posix_geteuid() );
-		$File = posix_getpwuid( fileowner( __FILE__ ) );
-		if( $User['name'] !== $File['name'] )
-			return false;
-
-		return true;
-	}
-
 
 	function write_css_file( $txt ){
 
