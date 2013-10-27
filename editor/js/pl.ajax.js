@@ -196,7 +196,7 @@
 		, bindUIActions: function(){
 
 			var that = this
-
+			,	gt = new Gettext()
 			$( '.btn-publish' ).on('click.saveButton', function(){
 
 
@@ -233,7 +233,7 @@
 								mode: 'save'
 							,	run: 'revert'
 							,	confirm: true
-							,	confirmText: "<h3>Are you sure?</h3><p>This will revert <strong>"+revert+"</strong> changes to your last published configuration.</p>"
+							,	confirmText: sprintf( gt.gettext( "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to your last published configuration.</p>" ), revert )
 							,	savingText: 'Reverting Draft'
 							,	refreshText: 'Template successfully updated!'
 							,	refresh: true

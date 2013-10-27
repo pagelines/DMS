@@ -3151,3 +3151,16 @@ msgstr ""
 #: ../sections/watermark/section.php:83
 msgid "was created with"
 msgstr ""
+
+
+####
+# JS STUFF
+####
+
+# @ pagelines
+msgid "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"
+msgstr ""
+
+# @ pagelines
+msgid "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to your last published configuration.</p>"
+msgstr ""

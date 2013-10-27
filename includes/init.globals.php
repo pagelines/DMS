@@ -130,12 +130,16 @@ define( 'PL_ACTIVATE_URL' , apply_filters('pl_activate_url', home_url().'?tablin
  */
 if (is_dir( PL_CHILD_DIR . '/language' )) {
 	$lang = PL_CHILD_DIR . '/language';
+	$lang_url = PL_CHILD_URL . '/language';
 } elseif (is_dir( EXTEND_CHILD_DIR . '/language' )){
 	$lang = EXTEND_CHILD_DIR . '/language';
+	$lang_url = EXTEND_CHILD_URL . '/language';
 } else {
 	$lang = PL_PARENT_DIR . '/language';
+	$lang_url = PL_PARENT_URL . '/language';
 }
 define( 'PAGELINES_LANGUAGE_DIR', $lang );
+define( 'PAGELINES_LANGUAGE_URL', $lang_url );
 
 /**
  * Pro/Free Version Variables
