@@ -120,7 +120,7 @@ class PageLinesEditorUpdates {
 
 		$mixed_array = $storeapi->get_latest();
 		
-		if( isset( $mixed_array[$arg->slug] ) ) {
+		if( is_object( $arg ) && isset( $arg->slug ) && isset( $mixed_array[$arg->slug] ) ) {
 			$data = $mixed_array[$arg->slug];
 
 			$obj = new stdClass();
