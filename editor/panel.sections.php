@@ -171,7 +171,7 @@ class PageLinesSectionsPanel{
 			if( !pl_is_pro() && !empty($s->sinfo['edition']) && !empty($s->sinfo['edition']) == 'pro' ){
 				
 				$class[] = 'x-disable';
-				$desc = '<span class="badge badge-important">PRO ONLY</span>'; 
+				$desc = __( '<span class="badge badge-important">PRO ONLY</span>', 'pagelines' ); 
 			}
 
 			if( !empty($s->loading) ){
