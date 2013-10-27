@@ -248,7 +248,7 @@ class EditorSettings {
 				'key'		=> 'sb_multi',
 				'type'		=> 'multi', 
 				'col'		=> 3,
-				'title'		=> 'Sharebar Options',
+				'title'		=> __( 'Sharebar Options', 'pagelines' ),
 				'opts'		=> array(
 					array(
 						'key'		=> 'share_google',
