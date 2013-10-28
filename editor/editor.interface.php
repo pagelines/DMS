@@ -92,12 +92,9 @@ class EditorInterface {
 
 			// i18n test
 			wp_enqueue_script( 'js-i18n', $this->url . '/js/Gettext.js', PL_CORE_VERSION );
-			$locale = get_locale();
-			$langfile = sprintf( '%s/%s.po', PAGELINES_LANGUAGE_DIR, $locale );
+							
+			add_action( 'wp_head', array( $this, 'lang_head' ) );
 
-			if( is_file( $langfile ) ) {								
-				add_action( 'wp_head', array( $this, 'lang_head' ) );
-			}
 
 		// Action in to scripts here...
 		pagelines_register_hook('pagelines_editor_scripts'); // Hook
@@ -134,8 +131,13 @@ class EditorInterface {
 
 	function lang_head() {
 		$locale = get_locale();
+		$text = '';
 		$langurl = sprintf( '%s/%s.po', PAGELINES_LANGUAGE_URL, $locale );
-		$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />\n<script>var pl_i18n = new Gettext()</script>\n", $langurl );
+		$langfile = sprintf( '%s/%s.po', PAGELINES_LANGUAGE_DIR, $locale );
+		if( is_file( $langfile ) )
+			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $langurl );
+
+		$text .= "\n<script>var pl_i18n = new Gettext()</script>\n";
 		echo $text;
 	}
 	function toolbar_config(){
