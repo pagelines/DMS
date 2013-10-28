@@ -137,7 +137,6 @@ class EditorInterface {
 		if( is_file( $langfile ) )
 			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $langurl );
 
-		$text .= "\n<script>var pl_i18n = new Gettext()</script>\n";
 		echo $text;
 	}
 	function toolbar_config(){
