@@ -109,10 +109,10 @@
 			else{
 
 				opt_array = [{
-					help: "There are no options for this section."
+					help: $.pl.lang("There are no options for this section.")
 					, key: "no-opts"
-					, label: "No Options"
-					, title: "No Options"
+					, label: $.pl.lang("No Options")
+					, title: $.pl.lang("No Options")
 					, type: "help"
 
 				}]
@@ -814,7 +814,7 @@
 						})
 						
 						if ( ! o.ref )
-							oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> More Info</a><div class="help-block">%s</div></div>', 'Select which registered thumbnail size to use for the images. To add new sizes see: <a href="http://codex.wordpress.org/Function_Reference/add_image_size">The Codex</a>')
+							oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> More Info</a><div class="help-block">%s</div></div>', $.pl.lang("Select which registered thumbnail size to use for the images. To add new sizes see: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>The Codex</a>"))
 					}
 
 				if(o.opts){
@@ -880,7 +880,7 @@
 				}
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option value="">&mdash; Select Font &mdash;</option>%s</select>', o.inputID, o.name, select_opts)
+				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option value="">&mdash; %s &mdash;</option>%s</select>', o.inputID, o.name, $.pl.lang("Select Font"), select_opts)
 
 				oHTML += sprintf('<label for="preview-%s">Font Preview</label>', o.key)
 				oHTML += sprintf('<textarea class="type-preview" id="preview-%s" style="">The quick brown fox jumps over the lazy dog.</textarea>', o.key)
@@ -904,7 +904,7 @@
 
 			// Add help block
 			if ( o.ref )
-				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> More Info</a><div class="help-block">%s</div></div>', o.ref)
+				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"),o.ref)
 
 			if(level == 2)
 				return sprintf('<div class="input-wrap">%s</div>', oHTML)
@@ -940,24 +940,24 @@
 
 				if( theAction == 'reset_global' || theAction == 'reset_local' || theAction == 'reset_global_child' ){
 
-					var context = (theAction == 'reset_global') ? "global site options" : "local page options"
+					var context = (theAction == 'reset_global') ? $.pl.lang("global site options") : $.pl.lang("local page options")
 
 					,	confirmText = sprintf( $.pl.lang("<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"), context)
 
 					,	page_tpl_import = $('[data-scope="importexport"] #page_tpl_import').attr('checked') || 'undefined'
 					,	global_import = $('[data-scope="importexport"] #global_import').attr('checked') || 'undefined'
 					,	type_import = $('[data-scope="importexport"] #type_import').attr('checked') || 'undefined'
-					,	page_tpl_ = ('checked' == page_tpl_import ) ? '<span class="btn btn-mini btn-info">Page Templates</span>&nbsp;': ''
-					,	global_ = ('checked' == global_import ) ? '<span class="btn btn-mini btn-info">Global Options</span>&nbsp;': ''
-					,	type_ = ('checked' == type_import ) ? '<span class="btn btn-mini btn-info">Type Options</span>': ''
-					,	savingText = 'Resetting Options'
-					,	refreshText = 'Successfully Reset. Refreshing page'
+					,	page_tpl_ = ('checked' == page_tpl_import ) ? $.pl.lang("<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"): ''
+					,	global_ = ('checked' == global_import ) ? $.pl.lang("<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"): ''
+					,	type_ = ('checked' == type_import ) ? $.pl.lang("<span class='btn btn-mini btn-info'>Type Options</span>"): ''
+					,	savingText = $.pl.lang("Resetting Options")
+					,	refreshText = $.pl.lang("Successfully Reset. Refreshing page")
 					
 					if( theAction == 'reset_global_child' ) {
 						
-						var confirmText = sprintf( "<h3>Are you sure?</h3><p>Importing this file will replace the following settings.<br /><strong>%s%s%s</strong></p>", page_tpl_, global_,type_ )
-						,	savingText = 'Importing From Child Theme'
- 						,	refreshText = 'Successfully Imported. Refreshing page'
+						var confirmText = sprintf( $.pl.lang("<h3>Are you sure?</h3><p>Importing this file will replace the following settings.<br /><strong>%s%s%s</strong></p>"), page_tpl_, global_,type_ )
+						,	savingText = $.pl.lang("Importing From Child Theme")
+ 						,	refreshText = $.pl.lang("Successfully Imported. Refreshing page")
 					}
 
 					var args = {
@@ -988,9 +988,9 @@
 						,	run: theAction
 						,	confirm: false
 						,	confirmText: confirmText
-						,	savingText: 'Flushing Caches'
+						,	savingText: $.pl.lang("Flushing Caches")
 						,	refresh: false
-						,	refreshText: 'Success! Refreshing page'
+						,	refreshText: $.pl.lang("Success! Refreshing page")
 						, 	log: true
 					}
 					var response = $.plAJAX.run( args )
@@ -1001,7 +1001,7 @@
 				
 					var formDataObject = $('[data-scope="importexport"]').formParams()
 					var dump = formDataObject.publish_config || false
-					var confirmText = "<h3>Are you sure?</h3><p>This will write all settings to a config file in your child theme named pl-config.json</p>"
+					var confirmText = $.pl.lang("<h3>Are you sure?</h3><p>This will write all settings to a config file in your child theme named pl-config.json</p>")
 					
 					if(dump) {
 						
@@ -1010,7 +1010,7 @@
 							,	run: 'exporter'
 							,	confirm: dump
 							,	confirmText: confirmText
-							,	savingText: 'Exporting Options'
+							,	savingText: $.pl.lang("Exporting Options")
 							,	refresh: false
 							,	refreshText: ''
 							, 	log: true
@@ -1120,7 +1120,7 @@
 				// Can't figure out how to reinitialize so that it works 
 				theOpt
 					.find('.img-upload-box')
-					.html('<div class="help-block">Refresh Page for Image Uploader</div>')
+					.html(sprintf('<div class="help-block">%s</div>',$.pl.lang("Refresh Page for Image Uploader")))
 				
 				// change the name stuff
 				// relight UI stuff
@@ -1149,7 +1149,7 @@
 					, type_import = ('checked' == $('[data-scope="importexport"] #type_import').attr('checked') ) ? '<span class="btn btn-mini btn-info">Type Options</span>': ''
 
 					bootbox.confirm(
-						sprintf( "<h3>Are you sure?</h3><p>Importing this file will replace the following settings.<br /><strong>%s%s%s</strong></p>", page_tpl_import, global_import,type_import )
+						sprintf( $.pl.lang("<h3>Are you sure?</h3><p>Importing this file will replace the following settings.<br /><strong>%s%s%s</strong></p>"), page_tpl_import, global_import,type_import )
 						, function( result ){
 
 							if(result == true){
@@ -1167,7 +1167,7 @@
 				}
 				, complete: function (response) {
 					window.onbeforeunload = null
-					bootbox.dialog( "<h3>Settings Imported</h3>" )
+					bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
 					var url = $.pl.config.siteURL
 					pl_url_refresh(url, 2000)
 				}
@@ -1179,8 +1179,8 @@
 					action: 'upload_config_file'
 					, mode: 'fileupload'
 					, refresh: true
-					, refreshText: 'Imported Settings'
-					, savingText: 'Importing'
+					, refreshText: $.pl.lang("Imported Settings")
+					, savingText: $.pl.lang("Importing")
 					, run: 'upload_config'
 					, page_tpl_import: $('[data-scope="importexport"] #page_tpl_import').attr('checked')
 					, global_import: $('[data-scope="importexport"] #global_import').attr('checked')

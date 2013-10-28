@@ -172,7 +172,7 @@
 					, 	url: ajaxurl
 					, 	data: theData
 					, 	beforeSend: function(){
-							$('.account-saving').html('<i class="icon-spin icon-refresh"></i> Saving').slideDown()
+							$('.account-saving').html(sprintf('<i class="icon-spin icon-refresh"></i> %s', $.pl.lang("Saving"))).slideDown()
 						}
 					,	success: function( response ){
 					
@@ -201,7 +201,7 @@
 						if( true == rsp.refresh ){
 							
 							accountDetails
-								.append( '<br/><div><i class="icon-refresh icon-spin"></i> Refreshing Page</div>' )
+								.append( sprintf( '<br/><div><i class="icon-refresh icon-spin"></i> %s</div>', $.pl.lang("Refreshing Page") ) )
 								
 							pl_url_refresh( url, 500 )
 							
@@ -472,7 +472,7 @@
 		
 		, loadGettingStarted: function( tabPanel ){
 			
-			var theWelcomeHTML = '<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management system for your website. <br/>Watch the video below for help getting started.</p><iframe width="700" height="420" src="//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>'
+			var theWelcomeHTML = $.pl.lang("<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management system for your website. <br/>Watch the video below for help getting started.</p><iframe width='700' height='420' src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>")
 			
 			tabPanel.find('.panel-tab-content').html( theWelcomeHTML )
 			
@@ -682,12 +682,12 @@
 			, proBtn = '<br/> <a class="btn btn-primary" href="http://www.pagelines.com/DMS" target="_blank"><i class="icon-pagelines"></i> Learn more about being a PRO <i class="icon-external-link"></i></a>'
 			
 			$('.pro-only-disabled').on('click', function(e){
-				bootbox.alert('<h4>This capability is pro edition only.</h4>'+proBtn)
+				bootbox.alert($.pl.lang("<h4>This capability is pro edition only.</h4>")+proBtn)
 			})
 			
 			
-			$('.pro-section .section-edit').addClass('pro-only-disabled').attr('title', 'Edit (Pro Only)').on('click', function(e){
-				bootbox.alert('<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership.<br/>'+proBtn)
+			$('.pro-section .section-edit').addClass('pro-only-disabled').attr('title', $.pl.lang("Edit (Pro Only)")).on('click', function(e){
+				bootbox.alert($.pl.lang("<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership.<br/>")+proBtn)
 			})
 			
 			$('.s-control').tooltip({placement: 'top'})
@@ -741,7 +741,7 @@
 
 					storeData = false
 					
-					bootbox.confirm("<h3>Are you sure?</h3><p>This will remove this section and its settings from this page.</p>", function( result ){
+					bootbox.confirm($.pl.lang("<h3>Are you sure?</h3><p>This will remove this section and its settings from this page.</p>"), function( result ){
 
 						if(result == true){
 							$.pageBuilder.setElementDelete( section ) // recursive function
@@ -1119,23 +1119,7 @@
 			
 			store[ newScope ] = $.pl.data[ newScope ]
 			store[ oldScope ] = $.pl.data[ oldScope ]
-			
-	
-			
 			$.plAJAX.saveData()
-			
-		
 		}
-
-
-
-
-
     }
-
-
-
-
-
 }(window.jQuery);
-
