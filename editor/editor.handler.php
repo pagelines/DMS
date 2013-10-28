@@ -70,7 +70,8 @@ class PageLinesTemplateHandler {
 	function json_blob(){
 		?><script>
 			!function ($) {
-
+				
+				var gt = new Gettext()
 				$.pl = {
 					data: {
 						local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
@@ -91,7 +92,9 @@ class PageLinesTemplateHandler {
 						,	layoutMode: '<?php echo $this->layout->get_layout_mode();?>'
 						,	saving: false
 					}
-					
+					, lang: function( args ){
+					return gt.gettext( args )
+					}
 					, config: {
 						userID: '<?php echo $this->get_user_id();?>'
 						, currentURL: '<?php echo $this->current_url();?>'
