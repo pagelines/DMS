@@ -18,10 +18,10 @@
 					,	typeID: $.pl.config.typeID
 					,	log: false
 					,	confirm: false
-					, 	confirmText: 'Are you sure?'
+					, 	confirmText: pl_i18n.gettext( "Are you sure?" )
 					,	savingText: 'Saving'
 					,	refresh: 	false
-					,	refreshText: 'Refreshing page...'
+					,	refreshText: pl_i18n.gettext( "Refreshing page..." )
 					, 	toolboxOpen: $.toolbox('open')
 					,	beforeSend: ''
 					, 	postSuccess: ''
@@ -144,9 +144,9 @@
 			
 			var args = {
 					mode: 'save'
-				,	savingText: 'Saving Settings'
+				,	savingText: pl_i18n.gettext("Saving Settings")
 				,	refresh: false
-				,	refreshText: 'Settings successfully saved! Refreshing page...'
+				,	refreshText: pl_i18n.gettext("Settings successfully saved! Refreshing page...")
 				, 	log: true
 				,	pageData: $.pl.data
 				,	run: 'draft'
@@ -170,7 +170,7 @@
 					,	userID: $.pl.config.userID
 				}
 
-			confirmText = sprintf("<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is off.)</p>")
+			confirmText = pl_i18n.gettext( "<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is off.)</p>" )
 			bootbox.confirm( confirmText, function( result ){
 				if(result == true){
 					$.ajax( {
@@ -178,12 +178,12 @@
 						, url: ajaxurl
 						, data: theData
 						, beforeSend: function(){
-							bootbox.dialog( that.dialogText('Deactivating...'), [], {animate: false})
+							bootbox.dialog( that.dialogText(pl_i18n.gettext( "Deactivating...") ), [], {animate: false})
 						}
 						, success: function( response ){
 
 
-							bootbox.dialog( that.dialogText('Editor deactivated! Reloading page.'), [], {animate: false})
+							bootbox.dialog( that.dialogText(pl_i18n.gettext( "Editor deactivated! Reloading page.") ), [], {animate: false})
 							
 							window.location = $.pl.config.currentURL
 						}
@@ -196,7 +196,7 @@
 		, bindUIActions: function(){
 
 			var that = this
-			,	gt = new Gettext()
+
 			$( '.btn-publish' ).on('click.saveButton', function(){
 
 
@@ -233,9 +233,9 @@
 								mode: 'save'
 							,	run: 'revert'
 							,	confirm: true
-							,	confirmText: sprintf( gt.gettext( "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to your last published configuration.</p>" ), revert )
-							,	savingText: 'Reverting Draft'
-							,	refreshText: 'Template successfully updated!'
+							,	confirmText: sprintf( pl_i18n.gettext( "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to your last published configuration.</p>" ), revert )
+							,	savingText: pl_i18n.gettext( "Reverting Draft" )
+							,	refreshText: pl_i18n.gettext( "Template successfully updated!" )
 							,	refresh: true
 							, 	log: true
 							,	revert: revert

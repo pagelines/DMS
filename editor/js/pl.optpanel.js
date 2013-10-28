@@ -929,7 +929,6 @@
 		, onceOffScripts: function() {
 
 			var that = this
-			,	gt = new Gettext()
 
 			// Settings Actions
 			$(".settings-action").on("click.settingsAction", function(e) {
@@ -943,7 +942,7 @@
 
 					var context = (theAction == 'reset_global') ? "global site options" : "local page options"
 
-					,	confirmText = sprintf( gt.gettext("<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"), context)
+					,	confirmText = sprintf( pl_i18n.gettext("<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"), context)
 
 					,	page_tpl_import = $('[data-scope="importexport"] #page_tpl_import').attr('checked') || 'undefined'
 					,	global_import = $('[data-scope="importexport"] #global_import').attr('checked') || 'undefined'

@@ -135,7 +135,7 @@ class EditorInterface {
 	function lang_head() {
 		$locale = get_locale();
 		$langurl = sprintf( '%s/%s.po', PAGELINES_LANGUAGE_URL, $locale );
-		$text = sprintf( "<link rel='gettext' type='application/x-po' href='%s' />", $langurl );
+		$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />\n<script>var pl_i18n = new Gettext()</script>\n", $langurl );
 		echo $text;
 	}
 	function toolbar_config(){

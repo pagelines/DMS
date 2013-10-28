@@ -1,18 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-10-25 17:32-0000\n"
-"PO-Revision-Date: 2013-10-25 17:33-0000\n"
+"POT-Creation-Date: 2013-10-28 18:40-0000\n"
+"PO-Revision-Date: 2013-10-28 18:40-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: PageLines <hello@pagelines.com>\n"
-"Language: en_US\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"gettext\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Learn more about karma"
 msgstr ""
 
-#: ../editor/editor.account.php:561 ../editor/editor.interface.php:331
+#: ../editor/editor.account.php:561 ../editor/editor.interface.php:346
 msgid "Saving"
 msgstr ""
 
@@ -333,11 +333,11 @@ msgstr ""
 msgid "Media Library"
 msgstr ""
 
-#: ../editor/editor.areas.php:57 ../editor/editor.interface.php:525
+#: ../editor/editor.areas.php:57 ../editor/editor.interface.php:540
 msgid "Delete"
 msgstr ""
 
-#: ../editor/editor.areas.php:59 ../editor/editor.interface.php:524
+#: ../editor/editor.areas.php:59 ../editor/editor.interface.php:539
 msgid "Clone"
 msgstr ""
 
@@ -345,9 +345,13 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: ../editor/editor.areas.php:63 ../editor/editor.interface.php:523
+#: ../editor/editor.areas.php:63 ../editor/editor.interface.php:538
 #: ../includes/class.objects.php:109
 msgid "Edit"
+msgstr ""
+
+#: ../editor/editor.color.php:186
+msgid "Color <span class=\"spamp\">&amp;</span> BG"
 msgstr ""
 
 #: ../editor/editor.color.php:201
@@ -546,7 +550,7 @@ msgid ""
 "the theme."
 msgstr ""
 
-#: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:326
+#: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:341
 msgid "Publish"
 msgstr ""
 
@@ -562,71 +566,71 @@ msgstr ""
 msgid "Import DMS Config"
 msgstr ""
 
-#: ../editor/editor.interface.php:136
+#: ../editor/editor.interface.php:151
 msgid "Deactivate Editor (View Live)"
 msgstr ""
 
-#: ../editor/editor.interface.php:149
+#: ../editor/editor.interface.php:164
 msgid "Preview (alt+a)"
 msgstr ""
 
-#: ../editor/editor.interface.php:307
+#: ../editor/editor.interface.php:322
 msgid "Undo All Unpublished Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:309
+#: ../editor/editor.interface.php:324
 msgid "Undo Unpublished Global Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:312
+#: ../editor/editor.interface.php:327
 msgid "Undo Unpublished Post Type Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:314
+#: ../editor/editor.interface.php:329
 msgid "Undo Unpublished Local Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:316
+#: ../editor/editor.interface.php:331
 msgid "No Unpublished Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:323
+#: ../editor/editor.interface.php:338
 msgid "Refresh needed to view changes."
 msgstr ""
 
-#: ../editor/editor.interface.php:325
+#: ../editor/editor.interface.php:340
 msgid "Publish Live"
 msgstr ""
 
-#: ../editor/editor.interface.php:334
+#: ../editor/editor.interface.php:349
 msgid "Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:514
+#: ../editor/editor.interface.php:529
 msgid "Decrease Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:515
+#: ../editor/editor.interface.php:530
 msgid "Column Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:516
+#: ../editor/editor.interface.php:531
 msgid "Increase Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:517
+#: ../editor/editor.interface.php:532
 msgid "Offset Left"
 msgstr ""
 
-#: ../editor/editor.interface.php:518
+#: ../editor/editor.interface.php:533
 msgid "Offset Amount"
 msgstr ""
 
-#: ../editor/editor.interface.php:519
+#: ../editor/editor.interface.php:534
 msgid "Offset Right"
 msgstr ""
 
-#: ../editor/editor.interface.php:520
+#: ../editor/editor.interface.php:535
 msgid "Force to New Row"
 msgstr ""
 
@@ -891,6 +895,10 @@ msgstr ""
 msgid ""
 "This hashtag will be used in social media (e.g. Twitter) and elsewhere to "
 "create feeds."
+msgstr ""
+
+#: ../editor/editor.settings.config.php:251
+msgid "Sharebar Options"
 msgstr ""
 
 #: ../editor/editor.settings.config.php:256
@@ -1188,7 +1196,7 @@ msgid "Font Weight"
 msgstr ""
 
 #: ../editor/editor.typography.php:116
-msgid "*These weights don't alwaye have an effect."
+msgid "*These weights don't always have an effect."
 msgstr ""
 
 #: ../editor/editor.typography.php:125
@@ -1397,6 +1405,10 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
+#: ../editor/panel.sections.php:174
+msgid "<span class=\"badge badge-important\">PRO ONLY</span>"
+msgstr ""
+
 #: ../editor/panel.settings.php:27
 msgid "Settings"
 msgstr ""
@@ -1424,6 +1436,11 @@ msgstr ""
 
 #: ../editor/panel.themes.php:74
 msgid "Theme Options"
+msgstr ""
+
+#: ../editor/panel.themes.php:127
+msgid ""
+" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
 msgstr ""
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
@@ -1501,23 +1518,23 @@ msgstr ""
 msgid "View "
 msgstr ""
 
-#: ../includes/less.legacy.php:460
+#: ../includes/less.legacy.php:457
 #, php-format
 msgid ""
 "%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
 "*/"
 msgstr ""
 
-#: ../includes/less.legacy.php:529
+#: ../includes/less.legacy.php:509
 msgid "LESS Compile error!"
 msgstr ""
 
-#: ../includes/less.legacy.php:536
+#: ../includes/less.legacy.php:516
 #, php-format
 msgid "Error in %s Less code: %s"
 msgstr ""
 
-#: ../includes/less.legacy.php:763
+#: ../includes/less.legacy.php:743
 #, php-format
 msgid ""
 "%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
@@ -1633,6 +1650,17 @@ msgstr ""
 
 #: ../sections/columnizer/section.php:100
 msgid "Get A Sidebars Plugin"
+msgstr ""
+
+#: ../sections/columnizer/section.php:101
+msgid "<i class=\"icon-external-link\"></i> Check out Sidebar Manager plugin"
+msgstr ""
+
+#: ../sections/columnizer/section.php:102
+msgid ""
+"We have detected that you don't either the Custom Sidebars or Sidebar "
+"Manager plugins installed. We recommend you install a plugin that allows you "
+"to create custom widgetized areas on demand."
 msgstr ""
 
 #: ../sections/columnizer/section.php:147
@@ -1813,33 +1841,40 @@ msgid "Open link in new window"
 msgstr ""
 
 #: ../sections/hero/section.php:121 ../sections/masthead/section.php:118
+#: ../sections/masthead/section.php:300 ../sections/masthead/section.php:335
 msgid "Select Button Color"
 msgstr ""
 
-#: ../sections/hero/section.php:127 ../sections/navbar/section.php:65
+#: ../sections/hero/section.php:127 ../sections/masthead/section.php:302
+#: ../sections/masthead/section.php:337 ../sections/navbar/section.php:65
 #: ../sections/navbar/section.php:370 ../sections/navbar/section.php:382
 msgid "Blue"
 msgstr ""
 
-#: ../sections/hero/section.php:128 ../sections/navbar/section.php:67
+#: ../sections/hero/section.php:128 ../sections/masthead/section.php:303
+#: ../sections/masthead/section.php:338 ../sections/navbar/section.php:67
 #: ../sections/navbar/section.php:372 ../sections/navbar/section.php:384
 msgid "Orange"
 msgstr ""
 
-#: ../sections/hero/section.php:129 ../sections/navbar/section.php:68
+#: ../sections/hero/section.php:129 ../sections/masthead/section.php:304
+#: ../sections/masthead/section.php:339 ../sections/navbar/section.php:68
 #: ../sections/navbar/section.php:373 ../sections/navbar/section.php:385
 msgid "Red"
 msgstr ""
 
-#: ../sections/hero/section.php:130
+#: ../sections/hero/section.php:130 ../sections/masthead/section.php:305
+#: ../sections/masthead/section.php:340
 msgid "Green"
 msgstr ""
 
-#: ../sections/hero/section.php:131
+#: ../sections/hero/section.php:131 ../sections/masthead/section.php:306
+#: ../sections/masthead/section.php:341
 msgid "Light Blue"
 msgstr ""
 
-#: ../sections/hero/section.php:132
+#: ../sections/hero/section.php:132 ../sections/masthead/section.php:307
+#: ../sections/masthead/section.php:342
 msgid "Grey"
 msgstr ""
 
@@ -2028,19 +2063,19 @@ msgstr ""
 msgid "Masthead Splash Options"
 msgstr ""
 
-#: ../sections/masthead/section.php:53
+#: ../sections/masthead/section.php:53 ../sections/masthead/section.php:252
 msgid "Upload custom image"
 msgstr ""
 
-#: ../sections/masthead/section.php:58
+#: ../sections/masthead/section.php:58 ../sections/masthead/section.php:256
 msgid "Masthead Video (optional, to be used instead of image)"
 msgstr ""
 
-#: ../sections/masthead/section.php:63
+#: ../sections/masthead/section.php:63 ../sections/masthead/section.php:260
 msgid "Maximum width of splash in px (default is full width)"
 msgstr ""
 
-#: ../sections/masthead/section.php:66
+#: ../sections/masthead/section.php:66 ../sections/masthead/section.php:263
 msgid ""
 "Upload an image to serve as a splash image, or use an embed code for full "
 "width video."
@@ -2050,16 +2085,17 @@ msgstr ""
 msgid "Masthead Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:72
+#: ../sections/masthead/section.php:72 ../sections/masthead/section.php:269
 msgid " Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:77 ../sections/mediabox/section.php:30
-#: ../sections/popthumbs/section.php:69 ../sections/propricing/section.php:53
+#: ../sections/masthead/section.php:77 ../sections/masthead/section.php:271
+#: ../sections/mediabox/section.php:30 ../sections/popthumbs/section.php:69
+#: ../sections/propricing/section.php:53
 msgid "Title"
 msgstr ""
 
-#: ../sections/masthead/section.php:82
+#: ../sections/masthead/section.php:82 ../sections/masthead/section.php:272
 msgid "Tagline"
 msgstr ""
 
@@ -2067,31 +2103,34 @@ msgstr ""
 msgid "Masthead Action Button "
 msgstr ""
 
-#: ../sections/masthead/section.php:99
+#: ../sections/masthead/section.php:99 ../sections/masthead/section.php:284
+#: ../sections/masthead/section.php:319
 msgid "Enter the link destination (URL - Required)"
 msgstr ""
 
-#: ../sections/masthead/section.php:105
+#: ../sections/masthead/section.php:105 ../sections/masthead/section.php:289
+#: ../sections/masthead/section.php:324
 msgid "Masthead Button Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:112
+#: ../sections/masthead/section.php:112 ../sections/masthead/section.php:295
+#: ../sections/masthead/section.php:330
 msgid "Open link in new window."
 msgstr ""
 
-#: ../sections/masthead/section.php:130
+#: ../sections/masthead/section.php:130 ../sections/masthead/section.php:350
 msgid "Masthead Menu"
 msgstr ""
 
-#: ../sections/masthead/section.php:131
+#: ../sections/masthead/section.php:131 ../sections/masthead/section.php:351
 msgid "Select Masthead Menu"
 msgstr ""
 
-#: ../sections/masthead/section.php:136
+#: ../sections/masthead/section.php:136 ../sections/masthead/section.php:356
 msgid "Masthead Meta"
 msgstr ""
 
-#: ../sections/masthead/section.php:137
+#: ../sections/masthead/section.php:137 ../sections/masthead/section.php:357
 msgid "Enter Masthead Meta Text"
 msgstr ""
 
@@ -2103,6 +2142,14 @@ msgstr ""
 msgid ""
 "Enter the options for the masthead splash image. If no options are "
 "specified, no image will be shown."
+msgstr ""
+
+#: ../sections/masthead/section.php:268
+msgid "Enter text for your masthead banner section"
+msgstr ""
+
+#: ../sections/masthead/section.php:274
+msgid "The text for the masthead section"
 msgstr ""
 
 #: ../sections/masthead/section.php:279
@@ -2275,6 +2322,10 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
+msgstr ""
+
+#: ../sections/navbar/section.php:206
+msgid "NavBar"
 msgstr ""
 
 #: ../sections/navbar/section.php:293
@@ -3152,15 +3203,22 @@ msgstr ""
 msgid "was created with"
 msgstr ""
 
-
-####
-# JS STUFF
-####
-
-# @ pagelines
-msgid "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"
+#: ../editor/js/pl.ajax.js:173
+msgid ""
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
+"off.)</p>"
 msgstr ""
 
-# @ pagelines
-msgid "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to your last published configuration.</p>"
+#: ../editor/js/pl.ajax.js:236
+#, c-format
+msgid ""
+"<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to "
+"your last published configuration.</p>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:945
+#, c-format
+msgid ""
+"<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
+"defaults.<br/>(Once reset, this will still need to be published live.)</p>"
 msgstr ""
