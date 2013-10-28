@@ -218,12 +218,12 @@ class EditorInterface {
 		} else {
 			$target = "target='_blank'";
 			$activate_url = 'http://www.google.com/chrome';
-			$text = 'Chrome is required to use PageLines Editor';
+			$text = 'Please use Google Chrome to edit with DMS';
 
 		}
 		?>
 			<span id="toolbox-activate" data-href="<?php echo $activate_url;?>" class="toolbox-activate pl-make-link" <?php echo $target;?>>
-				<i class="icon-off transit"></i> <span class="txt"><?php echo $text; ?></span></span>
+				<i class="icon-pagelines"></i> <span class="txt"><?php echo $text; ?></span></span>
 			</span>
 
 		<?php
