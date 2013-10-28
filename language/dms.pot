@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-10-28 18:40-0000\n"
-"PO-Revision-Date: 2013-10-28 18:40-0000\n"
+"POT-Creation-Date: 2013-10-28 21:27-0000\n"
+"PO-Revision-Date: 2013-10-28 21:27-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
 "esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"gettext\n"
+"lang\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -187,7 +187,8 @@ msgstr ""
 msgid "Learn more about karma"
 msgstr ""
 
-#: ../editor/editor.account.php:561 ../editor/editor.interface.php:346
+#: ../editor/editor.account.php:561 ../editor/editor.interface.php:347
+#: ../editor/js/pl.editor.js:175
 msgid "Saving"
 msgstr ""
 
@@ -333,11 +334,11 @@ msgstr ""
 msgid "Media Library"
 msgstr ""
 
-#: ../editor/editor.areas.php:57 ../editor/editor.interface.php:540
+#: ../editor/editor.areas.php:57 ../editor/editor.interface.php:541
 msgid "Delete"
 msgstr ""
 
-#: ../editor/editor.areas.php:59 ../editor/editor.interface.php:539
+#: ../editor/editor.areas.php:59 ../editor/editor.interface.php:540
 msgid "Clone"
 msgstr ""
 
@@ -345,7 +346,7 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: ../editor/editor.areas.php:63 ../editor/editor.interface.php:538
+#: ../editor/editor.areas.php:63 ../editor/editor.interface.php:539
 #: ../includes/class.objects.php:109
 msgid "Edit"
 msgstr ""
@@ -550,7 +551,7 @@ msgid ""
 "the theme."
 msgstr ""
 
-#: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:341
+#: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
 msgid "Publish"
 msgstr ""
 
@@ -566,71 +567,71 @@ msgstr ""
 msgid "Import DMS Config"
 msgstr ""
 
-#: ../editor/editor.interface.php:151
+#: ../editor/editor.interface.php:152
 msgid "Deactivate Editor (View Live)"
 msgstr ""
 
-#: ../editor/editor.interface.php:164
+#: ../editor/editor.interface.php:165
 msgid "Preview (alt+a)"
 msgstr ""
 
-#: ../editor/editor.interface.php:322
+#: ../editor/editor.interface.php:323
 msgid "Undo All Unpublished Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:324
+#: ../editor/editor.interface.php:325
 msgid "Undo Unpublished Global Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:327
+#: ../editor/editor.interface.php:328
 msgid "Undo Unpublished Post Type Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:329
+#: ../editor/editor.interface.php:330
 msgid "Undo Unpublished Local Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:331
+#: ../editor/editor.interface.php:332
 msgid "No Unpublished Changes"
 msgstr ""
 
-#: ../editor/editor.interface.php:338
+#: ../editor/editor.interface.php:339
 msgid "Refresh needed to view changes."
 msgstr ""
 
-#: ../editor/editor.interface.php:340
+#: ../editor/editor.interface.php:341
 msgid "Publish Live"
 msgstr ""
 
-#: ../editor/editor.interface.php:349
+#: ../editor/editor.interface.php:350
 msgid "Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:529
+#: ../editor/editor.interface.php:530
 msgid "Decrease Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:530
+#: ../editor/editor.interface.php:531
 msgid "Column Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:531
+#: ../editor/editor.interface.php:532
 msgid "Increase Width"
 msgstr ""
 
-#: ../editor/editor.interface.php:532
+#: ../editor/editor.interface.php:533
 msgid "Offset Left"
 msgstr ""
 
-#: ../editor/editor.interface.php:533
+#: ../editor/editor.interface.php:534
 msgid "Offset Amount"
 msgstr ""
 
-#: ../editor/editor.interface.php:534
+#: ../editor/editor.interface.php:535
 msgid "Offset Right"
 msgstr ""
 
-#: ../editor/editor.interface.php:535
+#: ../editor/editor.interface.php:536
 msgid "Force to New Row"
 msgstr ""
 
@@ -1681,7 +1682,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: ../sections/columnizer/section.php:222
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
 msgid "More Info"
 msgstr ""
 
@@ -3203,10 +3204,34 @@ msgstr ""
 msgid "was created with"
 msgstr ""
 
+#: ../editor/js/pl.ajax.js:21
+msgid "Are you sure?"
+msgstr ""
+
+#: ../editor/js/pl.ajax.js:24
+msgid "Refreshing page..."
+msgstr ""
+
+#: ../editor/js/pl.ajax.js:147
+msgid "Saving Settings"
+msgstr ""
+
+#: ../editor/js/pl.ajax.js:149
+msgid "Settings successfully saved! Refreshing page..."
+msgstr ""
+
 #: ../editor/js/pl.ajax.js:173
 msgid ""
 "<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
 "off.)</p>"
+msgstr ""
+
+#: ../editor/js/pl.ajax.js:181
+msgid "Deactivating..."
+msgstr ""
+
+#: ../editor/js/pl.ajax.js:186
+msgid "Editor deactivated! Reloading page."
 msgstr ""
 
 #: ../editor/js/pl.ajax.js:236
@@ -3216,9 +3241,247 @@ msgid ""
 "your last published configuration.</p>"
 msgstr ""
 
+#: ../editor/js/pl.ajax.js:237
+msgid "Reverting Draft"
+msgstr ""
+
+#: ../editor/js/pl.ajax.js:238 ../editor/js/pl.templates.js:113
+msgid "Template successfully updated!"
+msgstr ""
+
+#: ../editor/js/pl.areas.js:123
+msgid ""
+"<h3>Are you sure?</h3><p>This action will delete this area and all its "
+"elements from this page.</p>"
+msgstr ""
+
+#: ../editor/js/pl.editor.js:204
+msgid "Refreshing Page"
+msgstr ""
+
+#: ../editor/js/pl.editor.js:475
+msgid ""
+"<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
+"system for your website. <br/>Watch the video below for help getting started."
+"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
+"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+msgstr ""
+
+#: ../editor/js/pl.editor.js:685
+msgid "<h4>This capability is pro edition only.</h4>"
+msgstr ""
+
+#: ../editor/js/pl.editor.js:689
+msgid "Edit (Pro Only)"
+msgstr ""
+
+#: ../editor/js/pl.editor.js:690
+msgid ""
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
+"<br/>"
+msgstr ""
+
+#: ../editor/js/pl.editor.js:744
+msgid ""
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
+"this page.</p>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:112
+msgid "There are no options for this section."
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:114 ../editor/js/pl.optpanel.js:115
+msgid "No Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:817
+msgid ""
+"Select which registered thumbnail size to use for the images. To add new "
+"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
+"add_image_size'>The Codex</a>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:883
+msgid "Select Font"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:943
+msgid "global site options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:943
+msgid "local page options"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:945
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:950
+msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:951
+msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:952
+msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:953
+msgid "Resetting Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:954
+msgid "Successfully Reset. Refreshing page"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#, c-format
+msgid ""
+"<h3>Are you sure?</h3><p>Importing this file will replace the following "
+"settings.<br /><strong>%s%s%s</strong></p>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:959
+msgid "Importing From Child Theme"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:960
+msgid "Successfully Imported. Refreshing page"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:991
+msgid "Flushing Caches"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:993
+msgid "Success! Refreshing page"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1004
+msgid ""
+"<h3>Are you sure?</h3><p>This will write all settings to a config file in "
+"your child theme named pl-config.json</p>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1013
+msgid "Exporting Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1123
+msgid "Refresh Page for Image Uploader"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1170
+msgid "<h3>Settings Imported</h3>"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1182
+msgid "Imported Settings"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1183
+msgid "Importing"
+msgstr ""
+
+#: ../editor/js/pl.saving.js:15
+msgid "Saving."
+msgstr ""
+
+#: ../editor/js/pl.saving.js:17
+msgid "Successfully saved! Refreshing page..."
+msgstr ""
+
+#: ../editor/js/pl.sections.js:20
+msgid "Reloading and Registering Sections"
+msgstr ""
+
+#: ../editor/js/pl.sections.js:21
+msgid "Sections reloaded. Refreshing page!"
+msgstr ""
+
+#: ../editor/js/pl.sections.js:148
+msgid ""
+"<div class='loaded-notice'><div class='the-notice'>Loaded! Note: For this "
+"section, page refresh may be needed for complete functionality (Javascript "
+"Loading).</div></div>"
+msgstr ""
+
+#: ../editor/js/pl.sections.js:172
+msgid "Loading"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:29
+msgid ""
+"<h3>Are you sure?</h3><p>Loading a new template will overwrite the current "
+"page's configuration.</p>"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:30
+msgid "Loading Template"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:32 ../editor/js/pl.themes.js:32
+msgid "Successfully Loaded. Refreshing page"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:53
+msgid ""
+"<h3>Are you sure?</h3><p>This will delete this template. All pages using "
+"this template will be reverted to their default page configuration.</p>"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:54
+msgid "Deleting Template"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:84
+msgid "Saving Template"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:85
+msgid "Successfully Saved. Refreshing page"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:110
+msgid ""
+"<h3>Are you sure?</h3><p>This action will overwrite this template and its "
+"configuration. All pages using this template will be updated with the new "
+"config as well.</p>"
+msgstr ""
+
+#: ../editor/js/pl.templates.js:111
+msgid "Updating Template"
+msgstr ""
+
+#: ../editor/js/pl.themes.js:13
+msgid "<h3>Are you sure?</h3> <p>This will activate this theme sitewide.</p>"
+msgstr ""
+
+#: ../editor/js/pl.themes.js:14
+msgid "Activating Theme"
+msgstr ""
+
+#: ../editor/js/pl.themes.js:16
+msgid "Successfully Activated. Refreshing page"
+msgstr ""
+
+#: ../editor/js/pl.themes.js:29
+msgid ""
+"<h3>Activate Theme Preview?</h3> <p>This will activate a theme preview "
+"sitewide.<br/>(while in draft mode)</p>"
+msgstr ""
+
+#: ../editor/js/pl.themes.js:30
+msgid "Loading Theme Preview"
+msgstr ""
+
+#: ../editor/js/pl.themes.js:45
+msgid "Activate"
 msgstr ""
