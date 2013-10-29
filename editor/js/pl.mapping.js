@@ -14,38 +14,9 @@
 
 				$(this).find('.pl-area').each( function(areaIndex, o2) {
 
-					var area = $(this)
-					,	areaContent	= []
-					, 	areaSet = {}
+					areaSet = that.getAreaMapping( $(this) )
 
-					$(this).find('.pl-section.level1').each( function(sectionIndex, o3) {
-
-						var section = $(this)
-						,	sectionsTemplate = section.data('template') || ''
-
-						if( sectionsTemplate != "" ){
-
-							$.merge( areaContent, sectionsTemplate )
-
-						} else {
-							set = that.sectionConfig( section )
-							areaContent.push( set )
-
-						}
-
-					})
-
-					areaSet = {
-							name: area.data('name') || ''
-						,	class: area.data('class') || ''
-						,	id: area.attr('id') || ''
-						, 	object: area.data('object') || ''
-						, 	sid: area.data('sid') || ''
-						,  	clone: area.data('clone') || 0
-						,	content: areaContent
-					}
-
-					areaConfig.push( areaSet )
+					areaConfig.push( areaSet.map )
 
 				})
 
@@ -57,28 +28,92 @@
 			return map
 
 		}
+		
+		, getAreaMapping: function( area ){
+			
+			var that = this
+			,	areaContent	= []
+			,	settings = {}
+			,	scope = ( area.parents(".template-region-wrap").length == 1 ) ? 'local' : 'global'
+			,	UID = area.data('clone')
 
-		, sectionConfig: function( section ){
+			area.find('.pl-section.level1').each( function(sectionIndex, o3) {
+
+				var section = $(this)
+				,	sectionsTemplate = section.data('template') || ''
+
+				if( sectionsTemplate != "" ){
+
+					$.merge( areaContent, sectionsTemplate )
+
+				} else {
+					sectionSet = that.sectionConfig( section, scope )
+					
+					settings = $.extend( {}, settings, sectionSet.settings )
+					
+					areaContent.push( sectionSet.map )
+
+				}
+
+			})
+
+			if( plIsset( $.pl.data[ scope ][ UID ] ) )
+				settings[ UID ] = $.pl.data[ scope ][ UID ]
+
+			var UID = area.data('clone')
+			,	map = {
+					name: area.data('name') || ''
+					,	class: area.data('class') || ''
+					,	id: area.attr('id') || ''
+					, 	object: area.data('object') || ''
+					, 	sid: area.data('sid') || ''
+					,  	clone: UID || 0
+					,	content: areaContent
+				}
+			,	set = {
+					map: map
+					, settings: settings
+				}
+			
+			return set
+			
+		}
+
+		, sectionConfig: function( section, scope ){
 
 			var that = this
-			,	set = {}
+			,	map = {}
+			,	settings = {}
+			, 	UID = section.data('clone')
 
-			set.object 	= section.data('object')
-			set.clone 	= section.data('clone')
-			set.sid 	= section.data('sid')
+			map.object 	= section.data('object')
+			map.clone 	= UID
+			map.sid 	= section.data('sid')
 
-			set.span 	= that.getColumnSize( section )[ 4 ]
-			set.offset 	= $.plMapping.getOffsetSize( section )[ 3 ]
-			set.newrow 	= (section.hasClass('force-start-row')) ? 'true' : 'false'
-			set.content = []
+			map.span 	= that.getColumnSize( section )[ 4 ]
+			map.offset 	= $.plMapping.getOffsetSize( section )[ 3 ]
+			map.newrow 	= (section.hasClass('force-start-row')) ? 'true' : 'false'
+			map.content = []
 
 
 			// Recursion
 			section.find( '.pl-section.level2' ).each( function() {
 
-				set.content.push( that.sectionConfig( $(this) ) )
+				var recur = that.sectionConfig( $(this), scope )
+				
+				settings = $.extend( {}, settings, recur.settings )
+				
+				map.content.push( recur.map )
 
 			})
+
+			if( plIsset( $.pl.data[ scope ][ UID ] ) )
+				settings[ UID ] = $.pl.data[ scope ][ UID ]
+			
+			var set = {
+				map: map
+				, settings: settings
+			}
 
 			return set
 
