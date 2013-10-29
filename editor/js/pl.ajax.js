@@ -273,7 +273,7 @@
 		, dialogText: function( text ){
 
 			var dynamo = '<div class="pl-spinner"></div>'
-			, 	theHTML = sprintf('<div class="spn">%s<div class="spn-txt">%s</div></div>', dynamo, text)
+			, 	theHTML = sprintf('<div class="spn">%s<div class="ttl">%s</div></div>', dynamo, text)
 			
 			
 			return theHTML

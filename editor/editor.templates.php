@@ -288,7 +288,7 @@ class EditorTemplates {
 					'filter' => '*'
 				),
 				'tmp_save'	=> array(
-					'name'	=> __( 'Controls', 'pagelines' ),
+					'name'	=> __( 'Page Controls', 'pagelines' ),
 					'call'	=> array( $this, 'save_templates'),
 					'icon'	=> 'icon-wrench'
 				),

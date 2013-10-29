@@ -58,7 +58,11 @@ class PageLinesAreas {
 				<i class="icon-remove"></i>
 			</span><span class="area-control area-clone area-hide <?php echo pl_pro_disable_class();?>" data-area-action="clone" title="Clone <?php echo pl_pro_text();?>">
 				<i class="icon-copy"></i>
-			</span><span class="area-control area-reorder area-hide" data-area-action="reorder" title="Move">
+			</span>
+			<span class="area-control area-save area-hide <?php echo pl_pro_disable_class();?>" data-area-action="save" title="Save As Section <?php echo pl_pro_text();?>">
+				<i class="icon-save"></i>
+			</span>
+			<span class="area-control area-reorder area-hide" data-area-action="reorder" title="Move">
 				<i class="icon-reorder"></i>
 			</span><span class="area-control area-edit section-edit" data-area-action="settings" title="Edit">
 				<i class="icon-pencil"></i>
