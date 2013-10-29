@@ -23,7 +23,7 @@ $.plTemplates = {
 			e.preventDefault()
 
 			var args = {
-					mode: 'templates'
+					mode: 'set_template'
 				,	run: 'load'
 				,	confirm: true
 				,	confirmText: "<h3>Are you sure?</h3><p>Loading a new template will overwrite the current page's configuration.</p>"
@@ -31,7 +31,7 @@ $.plTemplates = {
 				,	refresh: true
 				,	refreshText: 'Successfully Loaded. Refreshing page'
 				, 	log: true
-				,	key: $(this).closest('.x-item').data('key')
+				,	key: $(this).closest('.pl-template-row').data('key')
 				,	templateMode: $.pl.config.templateMode
 			}
 
@@ -44,10 +44,10 @@ $.plTemplates = {
 
 			e.preventDefault()
 
-			var key = $(this).closest('.x-item').data('key')
+			var key = $(this).closest('.pl-template-row').data('key')
 			,	theIsotope = $(this).closest('.isotope')
 			,	args = {
-						mode: 'templates'
+						mode: 'set_template'
 					,	run: 'delete'
 					,	confirm: true
 					,	confirmText: '<h3>Are you sure?</h3><p>This will delete this template. All pages using this template will be reverted to their default page configuration.</p>'
@@ -78,7 +78,7 @@ $.plTemplates = {
 
 			var form = $(this).formParams()
 			,	args = {
-						mode: 'templates'
+						mode: 'set_template'
 					,	run: 'save'
 					,	confirm: false
 					,	savingText: 'Saving Template'
@@ -102,9 +102,9 @@ $.plTemplates = {
 			e.preventDefault()
 
 			var that = this
-			,	key = $(this).closest('.x-item').data('key')
+			,	key = $(this).closest('.pl-template-row').data('key')
 			,	args = {
-						mode: 'templates'
+						mode: 'set_template'
 					,	run: 'update'
 					,	confirm: true
 					,	confirmText: '<h3>Are you sure?</h3><p>This action will overwrite this template and its configuration. All pages using this template will be updated with the new config as well.</p>'
@@ -130,10 +130,10 @@ $.plTemplates = {
 			e.preventDefault()
 
 			var that = this
-			,	value = $(this).closest('.x-item').data('key')
+			,	value = $(this).closest('.pl-template-row').data('key')
 			,	run = $(this).data('run')
 			,	args = {
-						mode: 'templates'
+						mode: 'set_template'
 					,	run: 'set_'+run
 					,	confirm: false
 					,	refresh: false
@@ -149,7 +149,7 @@ $.plTemplates = {
 							if(!response)
 								return
 
-							var theList = $(that).closest('.x-list')
+							var theList = $(that).closest('.pl-list-contain')
 
 								theList
 									.find('.set-tpl[data-run="'+run+'"]')

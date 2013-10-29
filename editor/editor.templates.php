@@ -186,9 +186,85 @@ class EditorTemplates {
 
 		add_action( 'admin_init', array( $this, 'admin_page_meta_box'));
 		add_action( 'post_updated', array( $this, 'save_meta_options') );
+		
+		add_filter( 'pl_ajax_set_template', array( $this, 'set_template' ), 10, 2 );
 
 	}
 
+	function set_template( $response, $data ){
+		$pageID = $data['pageID'];
+		$typeID = $data['typeID'];
+		$run = $data['run'];
+		
+		$response['run_me'] = 'go';
+		
+		if ( $run == 'load' ){
+
+			$metaID = (isset($data['templateMode']) && $data['templateMode'] == 'type') ? $typeID : $pageID;
+
+			$response['loaded'] = $this->load_template( $metaID, $data['key'] );
+
+		} elseif ( $run == 'update'){
+
+			$key = ( isset($data['key']) ) ? $data['key'] : false;
+
+			$template_map = $data['map']['template'];
+
+			$response['tpl'] = $this->update_template( $key, $template_map, $postdata['settings'], $pageID );
+
+		} elseif ( $run == 'delete'){
+
+			$key = ( isset($data['key']) ) ? $data['key'] : false;
+
+			$tpl->delete_template( $key );
+
+		} elseif ( $run == 'save' ){
+
+			$template_map = $data['map']['template'];
+			$settings = $data['settings'];
+
+			$name = (isset($data['template-name'])) ? $data['template-name'] : false;
+			$desc = (isset($data['template-desc'])) ? $data['template-desc'] : '';
+
+			if( $name )
+				$this->create_template($name, $desc, $template_map, $settings, $pageID);
+
+		} elseif( $run == 'set_type' ){
+
+			$field = 'page-template';
+			$value = $data['value'];
+
+			$previous_val = pl_local( $typeID, $field );
+
+			if( $previous_val == $value )
+				pl_local_update( $typeID, $field, false );
+			else
+				pl_local_update( $typeID, $field, $value );
+
+			$response['result'] = pl_local( $typeID, $field );
+
+
+		} elseif( $run == 'set_global' ){
+
+			$field = 'page-template';
+			$value = $data['value'];
+
+			$previous_val = pl_global( $field );
+
+			if($previous_val == $value)
+				pl_global_update( $field, false );
+			else
+				pl_global_update( $field, $value );
+
+
+			$response['result'] = pl_global( $field );
+
+		}
+		
+		
+		
+		return $response;
+	}
 
 	function scripts(){
 		wp_enqueue_script( 'pl-js-mapping', $this->url . '/js/pl.mapping.js', array('jquery'), PL_CORE_VERSION, true);
@@ -204,17 +280,17 @@ class EditorTemplates {
 			'pos'	=> 30,
 			'panel'	=> array(
 				
-				'heading2'	=> __( "Page Templates", 'pagelines' ),
+				'heading2'	=> __( "Page Setup", 'pagelines' ),
 				'tmp_load'	=> array(
-					'name'	=> __( 'Your Templates', 'pagelines' ),
+					'name'	=> __( 'Templates', 'pagelines' ),
 					'call'	=> array( $this, 'user_templates'),
 					'icon'	=> 'icon-copy',
 					'filter' => '*'
 				),
 				'tmp_save'	=> array(
-					'name'	=> __( 'Save New Template', 'pagelines' ),
+					'name'	=> __( 'Controls', 'pagelines' ),
 					'call'	=> array( $this, 'save_templates'),
-					'icon'	=> 'icon-paste'
+					'icon'	=> 'icon-wrench'
 				),
 			)
 
@@ -233,8 +309,7 @@ class EditorTemplates {
 		foreach( $this->get_user_templates() as $index => $template){
 
 
-			$classes = array('x-templates');
-			$classes[] = sprintf('template_key_%s', $index);
+			$classes = array( sprintf('template_key_%s', $index) );
 
 			$action_classes = array('x-item-actions'); 
 			//$action_classes[] = ($index === $this->page->template) ? 'active-template' : '';
@@ -244,70 +319,91 @@ class EditorTemplates {
 
 			ob_start();
 			?>
-			<div class="<?php echo join(' ', $action_classes);?>">
+			
+			<div class="pl-list-row row pl-template-row <?php echo join(' ', $classes); ?>" data-key="<?php echo $index;?>">
 				
-				<button class="btn btn-mini btn-primary load-template"><?php _e( 'Load Template', 'pagelines' ); ?>
-				</button>
-				
-				<button class="btn btn-mini btn-inverse the-active-template"><?php _e( 'Active Template', 'pagelines' ); ?>
-				</button>
-				
-				<div class="btn-group dropup">
-				  <a class="btn btn-mini dropdown-toggle actions-toggle" data-toggle="dropdown" href="#">
-				    <?php _e( 'Actions', 'pagelines' ); ?>
-				    	<i class="icon-caret-down"></i>
-				  </a>
-					<ul class="dropdown-menu">
-						<li ><a class="update-template">
-						<i class="icon-edit"></i> <?php _e( 'Update Template with Current Configuration', 'pagelines' ); ?>
-						
-						</a></li>
-						
-						<li><a class="set-tpl" data-run="global">
-						<i class="icon-globe"></i> <?php _e( 'Set as Page Global Default', 'pagelines' ); ?>
-						
-						</a></li>
-						
-						<li><a class="delete-template">
-						<i class="icon-remove"></i> <?php _e( 'Delete This Template', 'pagelines' ); ?>
-						
-						</a></li>
-						
-					</ul>
+				<div class="span3 list-head">
+					<div class="list-title"><?php echo $template['name']; ?></div>
+					
 				</div>
-				<button class="btn btn-mini tpl-tag global-tag" title="Current Sitewide Default"><i class="icon-globe"></i></button>
-				<button class="btn btn-mini tpl-tag posttype-tag" title="Current Post Type Default"><i class="icon-pushpin"></i></button>
-			</div>
+				<div class="span3 list-actions">
+					<div class="<?php echo join(' ', $action_classes);?>">
 
+						<button class="btn btn-mini btn-primary load-template"><?php _e( 'Load', 'pagelines' ); ?>
+						</button>
+
+						<button class="btn btn-mini the-active-template"><?php _e( 'Active', 'pagelines' ); ?>
+						</button>
+
+						<div class="btn-group dropup">
+						  <a class="btn btn-mini dropdown-toggle actions-toggle" data-toggle="dropdown" href="#">
+						    <?php _e( 'Actions', 'pagelines' ); ?>
+						    	<i class="icon-caret-down"></i>
+						  </a>
+							<ul class="dropdown-menu">
+								<li ><a class="update-template">
+								<i class="icon-edit"></i> <?php _e( 'Update Template with Current Configuration', 'pagelines' ); ?>
+
+								</a></li>
+
+								<li><a class="set-tpl" data-run="global">
+								<i class="icon-globe"></i> <?php _e( 'Set as Page Global Default', 'pagelines' ); ?>
+
+								</a></li>
+
+								<li><a class="delete-template">
+								<i class="icon-remove"></i> <?php _e( 'Delete This Template', 'pagelines' ); ?>
+
+								</a></li>
+
+							</ul>
+						</div>
+						<button class="btn btn-mini tpl-tag global-tag" title="Current Sitewide Default"><i class="icon-globe"></i></button>
+						<button class="btn btn-mini tpl-tag posttype-tag" title="Current Post Type Default"><i class="icon-pushpin"></i></button>
+					</div>
+				</div>
+				<div class="span6 list-desc">
+					<?php echo $template['desc']; ?>
+				</div>
+			</div>
 
 			<?php
 
-			$actions = ob_get_clean();
+			$list .= ob_get_clean();
 
-
-			$name = $template['name'];
-
-
-
-
-			$args = array(
-				'class_array' 	=> $classes,
-				'data_array'	=> array(
-					'key' 	=> $index
-				),
-				'name'			=> $name,
-				'sub'			=> $template['desc'],
-				'actions'		=> $actions,
-			);
-
-			$list .= $this->xlist->get_x_list_item( $args );
 
 
 
 		}
 
-		printf('<div class="x-list">%s</div>', $list);
+		
 
+
+		ob_start(); 
+		?>
+
+		<form class="opt standard-form form-save-template">
+			<fieldset>
+				<h4>Save New Template</h4>
+				</span>
+				<label for="template-name"><?php _e( 'Template Name (required)', 'pagelines' ); ?>
+				</label>
+				<input type="text" id="template-name" name="template-name" required />
+
+				<label for="template-desc"><?php _e( 'Template Description', 'pagelines' ); ?>
+				</label>
+				<textarea rows="4" id="template-desc" name="template-desc" ></textarea>
+				
+				<button type="submit" class="btn btn-primary btn-save-template"><?php _e( 'Save New Template', 'pagelines' ); ?>
+				</button>
+			</fieldset>
+		</form>
+
+		<?php
+		
+		$form = ob_get_clean();
+		
+		printf('<div class="row"><div class="span7"><div class="pl-list-contain">%s</div></div><div class="span5">%s</div></div>', $list, $form);
 	}
 
 	function save_templates(){
