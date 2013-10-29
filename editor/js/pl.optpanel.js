@@ -109,7 +109,7 @@
 			else{
 
 				opt_array = [{
-					help: "There are no options for this section."
+					help: "There are no options available."
 					, key: "no-opts"
 					, label: "No Options"
 					, title: "No Options"
