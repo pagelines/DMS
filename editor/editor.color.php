@@ -183,7 +183,7 @@ class EditorColor{
 	function add_settings( $settings ){
 
 		$settings['color_control'] = array(
-			'name' 	=> 'Color <span class="spamp">&amp;</span> BG',
+			'name' 	=> __( 'Color <span class="spamp">&amp;</span> BG', 'pagelines' ),
 			'icon'	=> 'icon-tint',
 			'pos'	=> 3,
 			'opts' 	=> $this->options()
@@ -199,7 +199,7 @@ class EditorColor{
 				'key'		=> 'canvas_colors',
 				'type' 		=> 'multi',
 				'title' 	=> __( 'Site Base Colors', 'pagelines' ),
-				'help' 		=> __( 'The "base" color are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.' ),
+				'help' 		=> __( 'The "base" color are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.', 'pagelines' ),
 				'opts'		=> array(
 					array(
 						'key'			=> 'bodybg',
@@ -259,7 +259,7 @@ class EditorColor{
 						'label' 		=> __( 'Fit image to page?', 'pagelines' ),
 						'default'		=> true,
 						'compile'		=> true,
-						'help'			=> 'If you use this option the image will be fit "responsively" to the background of your page. This means the settings below will have no effect.'
+						'help'			=> __( 'If you use this option the image will be fit "responsively" to the background of your page. This means the settings below will have no effect.', 'pagelines' )
 					),
 					array(
 						'key'			=> 'page_background_image_repeat',
@@ -267,10 +267,10 @@ class EditorColor{
 						'label' 		=> __( 'Background Repeat', 'pagelines' ),
 						'default'		=> 'no-repeat',
 						'opts'	=> array(
-							'no-repeat' => array('name' => 'No Repeat'),
-							'repeat'	=> array('name' => 'Repeat'),
-							'repeat-x'	=> array('name' => 'Repeat Horizontally'),
-							'repeat-y'	=> array('name' => 'Repeat Vertically')
+							'no-repeat' => array('name' => __( 'No Repeat', 'pagelines' )),
+							'repeat'	=> array('name' => __( 'Repeat', 'pagelines' )),
+							'repeat-x'	=> array('name' => __( 'Repeat Horizontally', 'pagelines' )),
+							'repeat-y'	=> array('name' => __( 'Repeat Vertically', 'pagelines' ))
 						),
 						'compile'		=> true,
 

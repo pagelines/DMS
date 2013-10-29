@@ -139,7 +139,7 @@ class PLProPricing extends PageLinesSection {
 			$price_pre 	= pl_array_get( 'price_pre', $item, '$');
 			$price 		= pl_array_get( 'price', $item, $count*8);
 			$price_post = pl_array_get( 'price_post', $item, '/ MO');
-			$sub 		= pl_array_get( 'sub', $item, sprintf('Billed annually or $%s/MO billed monthly.', $count*10) );
+			$sub 		= pl_array_get( 'sub_text', $item, sprintf('Billed annually or $%s/MO billed monthly.', $count*10) );
 			$link 		= pl_array_get( 'link', $item, '#');
 			$link_text 	= pl_array_get( 'link_text', $item);
 			$btn_theme 	= pl_array_get( 'btn_theme', $item, 'btn-important');

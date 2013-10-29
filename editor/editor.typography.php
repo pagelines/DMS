@@ -13,6 +13,8 @@ class EditorTypography{
  		add_filter('pl_settings_array', array( $this, 'add_settings'));
 		add_filter('pless_vars', array( $this, 'add_less_vars'));
 		add_action('wp_print_styles', array( $this, 'add_google_imports'));
+		add_action('wp_enqueue_scripts', array( $this, 'enqueue_styles'));
+		
 	}
 
 	function add_less_vars( $vars ){
@@ -34,6 +36,16 @@ class EditorTypography{
 		return $vars;
 	}
 
+	function enqueue_styles(){
+		wp_enqueue_style(
+			'open-sans',
+			'//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin',
+			false,
+			'20130605'
+		);
+		
+	}
+	
 	function add_google_imports(){
 
 		$gcss = $this->foundry->google_import( $this->import_fonts, 'link' );
@@ -47,12 +59,14 @@ class EditorTypography{
 			
 		if($gcss != '' )
 			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", $gcss );
+			
+		
 	}
 
 	function add_settings( $settings ){
 
 		$settings['typography'] = array(
-				'name' 	=> 'Typography',
+				'name' 	=> __( 'Typography', 'pagelines' ),
 				'icon'	=> 'icon-font',
 				'pos'	=> 3,
 				'opts' 	=> $this->options()
@@ -74,7 +88,7 @@ class EditorTypography{
 					array(
 						'key'			=> 'font_primary',
 						'type' 			=> 'type',
-						'label' 		=> 'Select Font Face',
+						'label' 		=> __( 'Select Font Face', 'pagelines' ),
 						'default'		=> 'open_sans',
 						
 					),
@@ -91,7 +105,7 @@ class EditorTypography{
 						'key'			=> 'font_primary_weight',
 						'type' 			=> 'select',
 						'classes'		=> 'font-weight',
-						'label'			=> 'Font Weight',
+						'label'			=> __( 'Font Weight', 'pagelines' ),
 						'opts'			=> array(
 							'300'	=> array('name' => 'Light (300)*'),
 							'400'	=> array('name' => 'Normal (400)'),
@@ -99,7 +113,7 @@ class EditorTypography{
 							'800'	=> array('name' => 'Bold (800)')
 						),
 						'default' 		=> '300',
-						'help'			=> __( '*These weights don\'t alwaye have an effect.', 'pagelines' ),
+						'help'			=> __( '*These weights don\'t always have an effect.', 'pagelines' ),
 					),
 					
 				),
@@ -114,7 +128,7 @@ class EditorTypography{
 					array(
 						'key'			=> 'font_headers',
 						'type' 			=> 'type',
-						'label' 		=> 'Header Font',
+						'label' 		=> __( 'Header Font', 'pagelines' ),
 						'default'		=> 'source_sans_pro',
 						
 
@@ -132,7 +146,7 @@ class EditorTypography{
 						'key'			=> 'font_headers_weight',
 						'type' 			=> 'select',
 						'classes'			=> 'font-weight',
-						'label'			=> 'Font Weight',
+						'label'			=> __( 'Font Weight', 'pagelines' ),
 						'opts'			=> array(
 							'300'	=> array('name' => 'Light (300)'),
 							'400'	=> array('name' => 'Normal (400)'),
@@ -153,7 +167,7 @@ class EditorTypography{
 					array(
 						'key'			=> 'font_extra',
 						'type' 			=> 'text',
-						'label' 		=> 'Extra Google Fonts',
+						'label' 		=> __( 'Extra Google Fonts', 'pagelines' ),
 						
 					),
 					

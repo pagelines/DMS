@@ -203,7 +203,7 @@ class PLNavBar extends PageLinesSection {
 
 		$option_args = array(
 
-			'name'		=> 'NavBar',
+			'name'		=> __( 'NavBar', 'pagelines' ),
 			'array'		=> $this->old_options(),
 			'icon'		=> $this->icon,
 			'position'	=> 6

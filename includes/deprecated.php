@@ -288,7 +288,13 @@ define( 'CHILD_IMAGES', CHILD_URL . '/images' );
 define( 'CHILD_DIR', get_stylesheet_directory() );
 define( 'SECTION_ROOT', get_template_directory_uri() . '/sections');
 
-
+class PageLinesOptionsUI {
+	function __construct( $args ) {
+		_pl_deprecated_function( 'PageLinesOptionsUI', '1.1', 'DMSOptionsUI' );
+		
+		return new DMSOptionsUI($args);
+	}
+}
 
 
 /**

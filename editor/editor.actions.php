@@ -305,7 +305,9 @@ function pagelines_check_folders_dms( $note ) {
 
 			<div class="editor-alert alert">
 				
-			  	<strong><i class="icon-cogs"></i> Install DMS Utilities</strong><p>Your site is "Pro activated" but you haven't installed the DMS Pro tools plugin. Grab the plugin on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.</p>
+			  	<strong><i class="icon-cogs"></i> <?php _e( 'Install DMS Utilities', 'pagelines' ); ?>
+			  	</strong><p><?php _e( 'Your site is "Pro activated" but you have not installed the DMS Pro tools plugin. Grab the plugin on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
+			  	</p>
 
 			</div>
 
@@ -320,10 +322,15 @@ function pagelines_check_folders_dms( $note ) {
 		
 		<div class="alert editor-alert">
 			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-star"></i> Upgrade to Pro!</strong> <br/>
-			You're currently the basic DMS version. Pro activate this site for tons more features and support.
-			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> Learn More About Pro</a>
-			&mdash; <em>Already a Pro?</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> Activate Site</a> 
+		  	<strong><i class="icon-star"></i> <?php _e( 'Upgrade to Pro!', 'pagelines' ); ?>
+		  	</strong> <br/>
+			<?php _e( 'You are currently using the basic DMS version. Pro activate this site for tons more features and support.', 'pagelines' ); ?>
+			
+			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> <?php _e( 'Learn More About Pro', 'pagelines' ); ?>
+			</a>
+			&mdash; <em><?php _e( 'Already a Pro?', 'pagelines' ); ?>
+			</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> <?php _e( 'Activate Site', 'pagelines' ); ?>
+			</a> 
 		</div>
 		
 		<?php 
@@ -369,14 +376,16 @@ class PLImageUploader{
 				var oSel = parent.jQuery.pl.iframeSelector
 				,	optID = '#' + oSel
 				,	previewSel = '.pre_' + oSel
-				,	editorPrevew = '.upload-thumb-' + oSel
+				,	editorPrevew = '.opt-upload-thumb-' + oSel
 				,	imgURL = jQuery(this).data('imgurl')
 				,	imgURLShort = jQuery(this).data('short-img-url')
 				, 	theOption = '[id="'+oSel+'"]'
+				
+				console.log(theOption)
 
 				jQuery( theOption, top.document).val( imgURLShort )
 				
-				parent.jQuery( '.upload-input' ).trigger('change')
+				parent.jQuery( '.lstn' ).first().trigger('blur')
 				
 				jQuery(previewSel, top.document).attr('src', imgURL)
 				

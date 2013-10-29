@@ -77,7 +77,7 @@ class PLSectionArea extends PageLinesSection {
 
 			'key'			=> 'pl_area_styling',
 			'type' 			=> 'multi',
-			'col'			=> 2,
+			'col'			=> 3,
 			'label' 	=> __( 'Area Styling', 'pagelines' ),
 			'opts'	=> array(
 				// array(
@@ -116,6 +116,7 @@ class PLSectionArea extends PageLinesSection {
 		$options[] = array(
 
 			'key'			=> 'pl_area_bg',
+			'col'			=> 2,
 			'type' 			=> 'multi',
 			'label' 	=> __( 'Area Background', 'pagelines' ),
 			'opts'	=> array(

@@ -16,36 +16,30 @@ class EditorSettings {
 
 
 	function __construct(){
-		// $this->settings['configuration'] = array(
-		// 			'name' 	=> 'Admin Shortcuts',
-		// 			'icon'	=> 'icon-cog',
-		// 			'pos'	=> 1,
-		// 			'opts' 	=> $this->config()
-		// 		);
-	
+
 		$this->settings['basic_settings'] = array(
-			'name' 	=> 'Site Images',
+			'name' 	=> __( 'Site Images', 'pagelines' ),
 			'icon'	=> 'icon-picture',
 			'pos'	=> 2,
 			'opts' 	=> $this->basic()
 		);
 
 		$this->settings['social_media'] = array(
-			'name' 	=> 'Social <span class="spamp">&amp;</span> Local',
+			'name' 	=> __( 'Social <span class="spamp">&amp;</span> Local', 'pagelines' ),
 			'icon'	=> 'icon-comments',
 			'pos'	=> 5,
 			'opts' 	=> $this->social()
 		);
 		
 		$this->settings['advanced'] = array(
-			'name' 	=> 'Advanced',
+			'name' 	=> __( 'Advanced', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
 			'pos'	=> 50,
 			'opts' 	=> $this->advanced()
 		);
 
 		$this->settings['resets'] = array(
-			'name' 	=> 'Resets',
+			'name' 	=> __( 'Resets', 'pagelines' ),
 			'icon'	=> 'icon-undo',
 			'pos'	=> 55,
 			'opts' 	=> $this->resets()
@@ -88,7 +82,7 @@ class EditorSettings {
 
 				array(
 					'key'			=> 'set_homepage',
-					'label'			=> '<i class="icon-home"></i> Set Site Homepage',
+					'label'			=> __( '<i class="icon-home"></i> Set Site Homepage', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'options-reading.php' ), 
@@ -96,7 +90,7 @@ class EditorSettings {
 				),
 				array(
 					'key'			=> 'perm_management',
-					'label'			=> '<i class="icon-link"></i> Permalinks',
+					'label'			=> __( '<i class="icon-link"></i> Permalinks', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'options-permalink.php' ), 
@@ -105,7 +99,7 @@ class EditorSettings {
 
 				array(
 					'key'			=> 'manage_menus',
-					'label'			=> '<i class="icon-reorder"></i> Manage Menus',
+					'label'			=> __( '<i class="icon-reorder"></i> Manage Menus', 'pagelines' ),
 					'type' 			=> 	'link',
 					'col' 			=> 	2,
 					'classes'		=> 'btn-primary btn-block',
@@ -116,7 +110,7 @@ class EditorSettings {
 				array(
 					'key'			=> 'edit_widgets',
 					'col' 			=> 	2,
-					'label'			=> '<i class="icon-retweet"></i> Manage Widgets',
+					'label'			=> __( '<i class="icon-retweet"></i> Manage Widgets', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'widgets.php' ), 
@@ -126,7 +120,7 @@ class EditorSettings {
 				array(
 					'key'			=> 'site_settings_admin',
 					'col' 			=> 	3,
-					'label'			=> '<i class="icon-cog"></i> Site Settings',
+					'label'			=> __( '<i class="icon-cog"></i> Site Settings', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'options-general.php' ), 
@@ -135,7 +129,7 @@ class EditorSettings {
 				array(
 					'key'			=> 'plugins_management',
 					'col' 			=> 	3,
-					'label'			=> '<i class="icon-download"></i> Plugins Admin',
+					'label'			=> __( '<i class="icon-download"></i> Plugins Admin', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'plugins.php' ), 
@@ -148,7 +142,7 @@ class EditorSettings {
 			if( pl_setting( 'enable_debug' ) ) {
 				$settings[] = array(
 						'key'			=> 'debug_info',
-						'label'			=> '<i class="icon-ambulance"></i> View Debug Info',
+						'label'			=> __( '<i class="icon-ambulance"></i> View Debug Info', 'pagelines' ),
 						'type' 			=> 	'link',
 						'classes'		=> 'btn-important btn-block',
 						'url'			=> site_url( '?pldebug=1' ), 
@@ -166,7 +160,7 @@ class EditorSettings {
 
 			array(
 				'key'			=> 'pagelines_favicon',
-				'label'			=> 'Upload Favicon (32px by 32px)',
+				'label'			=> __( 'Upload Favicon (32px by 32px)', 'pagelines' ),
 				'type' 			=> 	'image_upload',
 				'imgsize' 			=> 	'16',
 				'extension'		=> 'ico,png', // ico support
@@ -180,7 +174,7 @@ class EditorSettings {
 				'key'			=> 'pl_login_image',
 				'type' 			=> 	'image_upload',
 				'col'			=> 2,
-				'label'			=> 'Upload Login Image (160px Height)',
+				'label'			=> __( 'Upload Login Image (160px Height)', 'pagelines' ),
 				'imgsize' 			=> 	'80',
 				'sizemode'		=> 'height',
 				'title' 		=> __( 'Login Page Image', 'pagelines' ),
@@ -191,7 +185,7 @@ class EditorSettings {
 			array(
 				'key'			=> 'pagelines_touchicon',
 				'col'			=> 3,
-				'label'			=> 'Upload Touch Image (144px by 144px)',
+				'label'			=> __( 'Upload Touch Image (144px by 144px)', 'pagelines' ),
 				'type' 			=> 	'image_upload',
 				'imgsize' 			=> 	'72',
 				'title' 		=> __( 'Mobile Touch Image', 'pagelines' ),
@@ -254,7 +248,7 @@ class EditorSettings {
 				'key'		=> 'sb_multi',
 				'type'		=> 'multi', 
 				'col'		=> 3,
-				'title'		=> 'Sharebar Options',
+				'title'		=> __( 'Sharebar Options', 'pagelines' ),
 				'opts'		=> array(
 					array(
 						'key'		=> 'share_google',
@@ -307,7 +301,7 @@ class EditorSettings {
 			array(
 				'key'	=> 'debug_settings',
 				'type'	=> 'multi',
-				'title'	=> 'Debug Options',
+				'title'	=> __( 'Debug Options', 'pagelines' ),
 				'opts'	=> array(
 					array(
 							'key'		=> 'enable_debug',
