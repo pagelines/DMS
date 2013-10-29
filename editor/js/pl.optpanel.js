@@ -109,7 +109,7 @@
 			else{
 
 				opt_array = [{
-					help: $.pl.lang("There are no options for this section.")
+					help: $.pl.lang("There are no options available.")
 					, key: "no-opts"
 					, label: $.pl.lang("No Options")
 					, title: $.pl.lang("No Options")
