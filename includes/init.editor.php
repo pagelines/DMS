@@ -54,7 +54,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/panel.code.php' );
 		require_once( PL_EDITOR . '/editor.account.php' );
 		require_once( PL_EDITOR . '/editor.updates.php' );
-		require_once( PL_EDITOR . '/panel.sections.php' );
+		require_once( PL_EDITOR . '/editor.sections.php' );
 		require_once( PL_EDITOR . '/panel.extend.php' );
 		require_once( PL_EDITOR . '/panel.themes.php' );
 
@@ -127,10 +127,11 @@ class PageLinesEditor {
 
 		// Interfaces
 		$this->xlist = new EditorXList;
-		$this->add_sections = new PageLinesSectionsPanel;
-		//$this->extend_panel = new PageLinesExtendPanel;
+		
+		$this->add_sections = new PageLinesSectionsHandler;
+		$this->add_sections->load_ui_actions();
+		
 		$this->settings_panel = new PageLinesSettingsPanel;
-	//	$this->live_panel = new PageLinesLivePanel;
 
 		$this->themer = new EditorThemeHandler;
 		$this->code = new EditorCode( $this->draft );
