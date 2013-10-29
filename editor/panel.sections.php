@@ -108,6 +108,19 @@ class PageLinesSectionsPanel{
 		$this->xlist = new EditorXList;
 		$this->extensions = new EditorExtensions;
 		$this->page = new PageLinesPage;
+		
+		$filter_local = array(
+		    'component' => __( 'Components', 'pagelines' ),
+			'layout'    => __( 'Layouts', 'pagelines' ),
+			'full-width' => __( 'Full Width', 'pagelines' ),
+			'format'    => __( 'Post Layouts', 'pagelines' ),
+			'gallery'  => __( 'Galleries', 'pagelines' ),
+			'navigation' => __( 'Navigation', 'pagelines' ),
+			'slider'    => __( 'Sliders', 'pagelines' ),
+			'social'     => __( 'Social', 'pagelines' ),
+			'widgetized'    => __( 'Widgetized', 'pagelines' ),
+			'misc'       => __( 'Miscellaneous', 'pagelines' ),
+		);
 
 		$sections = $this->extensions->get_available_sections();
 
@@ -135,7 +148,8 @@ class PageLinesSectionsPanel{
 			}
 
 			$name = $s->name; 
-			$desc = ucwords($s->filter); 
+			//$desc = ucwords($s->filter);
+			$desc = array();
 			
 			
 
@@ -145,7 +159,10 @@ class PageLinesSectionsPanel{
 			
 			foreach($filters as $f){
 				$class[] = $f;
+				$desc[] = ( isset($filter_local[trim($f)]) ) ? $filter_local[trim($f)] : ucwords(trim($f));
 			}
+			
+			$desc = join( ',', $desc );
 
 			$number = $count++;
 
