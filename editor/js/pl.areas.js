@@ -43,13 +43,62 @@
 				} else if (action == 'settings' ){
 					$.areaControl.areaSettings($(this))
 
-				}else if (action == 'delete' ){
+				} else if (action == 'delete' ){
 					$.areaControl.deleteArea($(this))
+
+				} else if (action == 'save' ){
+					$.areaControl.saveArea($(this))
 
 				}
 			})
 
 
+		}
+		
+		, saveArea: function( btn ){
+			
+			var that = this
+			,	theArea = btn.closest('.pl-area')
+			,	theID = theArea.attr('id')
+			,	object = theArea.data('object') || false
+
+			var config	= {
+					sid: theArea.data('sid')
+					, sobj: theArea.data('object')
+					, clone: theArea.data('clone')
+					, uniqueID: theArea.data('clone')
+					, scope: ( theArea.parents(".template-region-wrap").length == 1 ) ? 'local' : 'global'
+				}
+			
+			
+			var message = sprintf('<div class="ttl">Save New User Section</div><form class="modal-form" data-area="%s"><input name="user-section-name" placeholder="Enter Section Name..." type="text" val="" /></form>', theID)
+		
+		
+			bootbox.confirm(
+				message
+				, '<i class="icon-remove"></i> Cancel'
+				, '<i class="icon-save"></i> Save Section'
+				, function( result ){
+					if( result == true ){
+
+						var areaID = $('.modal-form').data('area')
+						,	theArea = $('#'+areaID)
+						, 	settings = {}
+						,	form = $('.modal-form').formParams()
+						,	args = {
+									mode: 'set_user_section'
+								,	run: 'save'
+								, 	log: true
+								,	config: $.plMapping.getAreaMapping( theArea )
+							
+							}
+						,	args = $.extend({}, args, form) // add form fields to post
+
+					
+						var response = $.plAJAX.run( args )
+					
+					}
+				})
 		}
 		
 		, areaTools: function( action, btn ){
