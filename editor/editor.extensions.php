@@ -43,7 +43,7 @@ class EditorExtensions {
 					'splash'	=> $splash,
 					'purchase'	=> '',
 					'overview'	=> '',
-					'status'	=> $this->theme_status( $key )
+					'status'	=> $this->theme_status( $t->get_template() )
 				);
 			}
 		}
