@@ -679,7 +679,7 @@
 		, sectionControls: function() {
 		
 			var that = this
-			, proBtn = '<br/> <a class="btn btn-primary" href="http://www.pagelines.com/DMS" target="_blank"><i class="icon-pagelines"></i> Learn more about being a PRO <i class="icon-external-link"></i></a>'
+			, proBtn = sprintf( '<br/> <a class="btn btn-primary" href="http://www.pagelines.com/DMS" target="_blank"><i class="icon-pagelines"></i> %s <i class="icon-external-link"></i></a>', $.pl.lang( "Learn more about being a PRO" ) )
 			
 			$('.pro-only-disabled').on('click', function(e){
 				bootbox.alert($.pl.lang("<h4>This capability is pro edition only.</h4>")+proBtn)

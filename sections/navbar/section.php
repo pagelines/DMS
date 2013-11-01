@@ -132,7 +132,7 @@ class PLNavBar extends PageLinesSection {
 	function add_settings( $settings ){
 
 		$settings[ $this->id ] = array(
-				'name' 	=> 'NavBar',
+				'name' 	=> __( 'NavBar', 'pagelines' ),
 				'icon'	=> 'icon-list-alt',
 				'pos'	=> 5,
 				'opts' 	=> $this->fixed_options()

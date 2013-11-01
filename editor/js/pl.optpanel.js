@@ -121,7 +121,7 @@
 			$.each(cascade, function( i, scope ){
 		
 				var sel = sprintf("[data-panel='%s']", scope)
-				, 	clone_text = sprintf('<i class="icon-screenshot"></i> %s <i class="icon-map-marker"></i> %s scope', uniqueID, scope)
+				, 	clone_text = sprintf('<i class="icon-screenshot"></i> %s <i class="icon-map-marker"></i> %s %s', uniqueID, scope, $.pl.lang( "scope" ) )
 				, 	clone_desc = sprintf(' <span class="clip-desc"> &rarr; %s</span>', clone_text)
 				
 				tab = $(sel)
@@ -423,7 +423,7 @@
 			$.each( opts , function(index, o) {
 
 				var specialClass = ''
-				,	theTitle = o.title || o.label || 'Option'
+				,	theTitle = o.title || o.label || $.pl.lang("Option")
 				, 	uniqueKey = ( o.key ) ? o.key : 'no-key-'+plUniqueID()
 				, 	colNum = ( o.col ) ? o.col : 1
 
@@ -532,7 +532,7 @@
 			,	optLabel = o.label || o.title
 			,	sel = sprintf('[data-clone="%s"] [data-sync="%s"]', that.uniqueID, o.key)
 			,	syncType = (o.type != 'multi' && $(sel).length > 0) ? 'exchange' : 'refresh'
-			,	syncTooltip = (syncType == 'refresh') ? 'Refresh for preview.' : 'Syncs with element.'
+			,	syncTooltip = (syncType == 'refresh') ? $.pl.lang("Refresh for preview.") : $.pl.lang("Syncs with element.")
 			,	syncIcon = (syncType == 'refresh') ? 'refresh' : 'exchange' 
 			,	optDefault = o.default || ''
 			,	parent = parent || {}
@@ -684,9 +684,9 @@
 				}
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; Select Menu &mdash;</option>%s</select>', o.inputID, o.name, select_opts)
+				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; %s &mdash;</option>%s</select>', o.inputID, o.name, $.pl.lang("Select Menu"), select_opts)
 
-				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, 'Configure Menus' )
+				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, $.pl.lang( "Configure Menus") )
 			}
 
 			else if( o.type == 'action_button' ){
@@ -751,7 +751,7 @@
 			){
 
 			
-				var select_opts = (o.type != 'select_multi') ? '<option value="" >&mdash; SELECT &mdash;</option>' : ''
+				var select_opts = (o.type != 'select_multi') ? sprintf( '<option value="" >&mdash; %s &mdash;</option>', $.pl.lang( "SELECT" ))  : ''
 				
 				if(o.type == 'count_select' || o.type == 'count_select_same'){
 
@@ -883,7 +883,7 @@
 				oHTML += sprintf('<select id="%s" name="%s" class="font-selector lstn"><option value="">&mdash; %s &mdash;</option>%s</select>', o.inputID, o.name, $.pl.lang("Select Font"), select_opts)
 
 				oHTML += sprintf('<label for="preview-%s">Font Preview</label>', o.key)
-				oHTML += sprintf('<textarea class="type-preview" id="preview-%s" style="">The quick brown fox jumps over the lazy dog.</textarea>', o.key)
+				oHTML += sprintf('<textarea class="type-preview" id="preview-%s" style="">%s.</textarea>', o.key, $.pl.lang( "The quick brown fox jumps over the lazy dog" ) )
 			}
 
 			else if( o.type == 'template' ){
@@ -894,7 +894,7 @@
 
 			} else {
 				
-				oHTML += sprintf('<div class="needed">%s Type Still Needed</div>', o.type)
+				oHTML += sprintf('<div class="needed">%s %s</div>', o.type, $.pl.lang( "Type Still Needed" ) )
 			
 			}
 
