@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-10-28 21:27-0000\n"
-"PO-Revision-Date: 2013-10-28 21:27-0000\n"
+"POT-Creation-Date: 2013-11-01 20:56-0000\n"
+"PO-Revision-Date: 2013-11-01 20:56-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1366,47 +1366,47 @@ msgstr ""
 msgid "<i class='icon-filter'></i> Filters"
 msgstr ""
 
-#: ../editor/panel.sections.php:42
+#: ../editor/panel.sections.php:42 ../editor/panel.sections.php:113
 msgid "Components"
 msgstr ""
 
-#: ../editor/panel.sections.php:48
+#: ../editor/panel.sections.php:48 ../editor/panel.sections.php:114
 msgid "Layouts"
 msgstr ""
 
-#: ../editor/panel.sections.php:54
+#: ../editor/panel.sections.php:54 ../editor/panel.sections.php:115
 msgid "Full Width"
 msgstr ""
 
-#: ../editor/panel.sections.php:60
+#: ../editor/panel.sections.php:60 ../editor/panel.sections.php:116
 msgid "Post Layouts"
 msgstr ""
 
-#: ../editor/panel.sections.php:66
+#: ../editor/panel.sections.php:66 ../editor/panel.sections.php:117
 msgid "Galleries"
 msgstr ""
 
-#: ../editor/panel.sections.php:72
+#: ../editor/panel.sections.php:72 ../editor/panel.sections.php:118
 msgid "Navigation"
 msgstr ""
 
-#: ../editor/panel.sections.php:78
+#: ../editor/panel.sections.php:78 ../editor/panel.sections.php:119
 msgid "Sliders"
 msgstr ""
 
-#: ../editor/panel.sections.php:84
+#: ../editor/panel.sections.php:84 ../editor/panel.sections.php:120
 msgid "Social"
 msgstr ""
 
-#: ../editor/panel.sections.php:90
+#: ../editor/panel.sections.php:90 ../editor/panel.sections.php:121
 msgid "Widgetized"
 msgstr ""
 
-#: ../editor/panel.sections.php:96
+#: ../editor/panel.sections.php:96 ../editor/panel.sections.php:122
 msgid "Miscellaneous"
 msgstr ""
 
-#: ../editor/panel.sections.php:174
+#: ../editor/panel.sections.php:191
 msgid "<span class=\"badge badge-important\">PRO ONLY</span>"
 msgstr ""
 
@@ -1485,7 +1485,7 @@ msgstr ""
 msgid "Visit %s&#8217;s website"
 msgstr ""
 
-#: ../includes/class.shortcodes.php:1342
+#: ../includes/class.shortcodes.php:1342 ../editor/js/pl.xlist.js:119
 msgid "Close"
 msgstr ""
 
@@ -1519,23 +1519,23 @@ msgstr ""
 msgid "View "
 msgstr ""
 
-#: ../includes/less.legacy.php:457
+#: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
 "%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
 "*/"
 msgstr ""
 
-#: ../includes/less.legacy.php:509
+#: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
 msgstr ""
 
-#: ../includes/less.legacy.php:516
+#: ../includes/less.legacy.php:512
 #, php-format
 msgid "Error in %s Less code: %s"
 msgstr ""
 
-#: ../includes/less.legacy.php:743
+#: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
 "%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
@@ -2272,7 +2272,7 @@ msgid "The NavBar uses WordPress menus. Select one for use."
 msgstr ""
 
 #: ../sections/navbar/section.php:85 ../sections/simple_nav/section.php:34
-#: ../sections/simple_nav/section.php:40
+#: ../sections/simple_nav/section.php:40 ../editor/js/pl.optpanel.js:687
 msgid "Select Menu"
 msgstr ""
 
@@ -2303,6 +2303,10 @@ msgstr ""
 msgid "Hide Search?"
 msgstr ""
 
+#: ../sections/navbar/section.php:135 ../sections/navbar/section.php:206
+msgid "NavBar"
+msgstr ""
+
 #: ../sections/navbar/section.php:152 ../sections/navbar/section.php:153
 #: ../sections/navbar/section.php:344 ../sections/navbar/section.php:345
 msgid "Enable Fixed Navigation Bar"
@@ -2323,10 +2327,6 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
-msgstr ""
-
-#: ../sections/navbar/section.php:206
-msgid "NavBar"
 msgstr ""
 
 #: ../sections/navbar/section.php:293
@@ -3267,6 +3267,10 @@ msgid ""
 "BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
 msgstr ""
 
+#: ../editor/js/pl.editor.js:682
+msgid "Learn more about being a PRO"
+msgstr ""
+
 #: ../editor/js/pl.editor.js:685
 msgid "<h4>This capability is pro edition only.</h4>"
 msgstr ""
@@ -3295,6 +3299,30 @@ msgstr ""
 msgid "No Options"
 msgstr ""
 
+#: ../editor/js/pl.optpanel.js:124
+msgid "scope"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:426
+msgid "Option"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:535
+msgid "Refresh for preview."
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:535
+msgid "Syncs with element."
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:689
+msgid "Configure Menus"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:754
+msgid "SELECT"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
@@ -3304,6 +3332,14 @@ msgstr ""
 
 #: ../editor/js/pl.optpanel.js:883
 msgid "Select Font"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:886
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:897
+msgid "Type Still Needed"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:943
@@ -3484,4 +3520,16 @@ msgstr ""
 
 #: ../editor/js/pl.themes.js:45
 msgid "Activate"
+msgstr ""
+
+#: ../editor/js/pl.xlist.js:67
+msgid "Drag Thumb to Page"
+msgstr ""
+
+#: ../editor/js/pl.xlist.js:121
+msgid "Description"
+msgstr ""
+
+#: ../editor/js/pl.xlist.js:125
+msgid "Drag This"
 msgstr ""
