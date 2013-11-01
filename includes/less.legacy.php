@@ -90,10 +90,6 @@ class EditorLessHandler{
 
 			pl_set_css_headers();
 
-			// If you set a static home page in WordPress then delete it you get no CSS, this fixes it ( WhitchCraft! )
-			if( ! is_object( $post ) )
-				header( 'Stefans Got No Pages', true, 200 );
-
 			if( is_file( $this->draft_less_file ) ) {
 				echo pl_file_get_contents( $this->draft_less_file );
 			} else {
@@ -243,7 +239,7 @@ class EditorLessHandler{
 		}
 		include_once( ABSPATH . 'wp-admin/includes/file.php' );
 		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials('', 'direct', false, false, null);
+			$creds = request_filesystem_credentials( site_url() );
 			if ( ! WP_Filesystem($creds) )
 				return false;
 		}
@@ -478,7 +474,7 @@ class PageLinesRenderCSS {
 		include_once( ABSPATH . 'wp-admin/includes/file.php' );
 
 		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials($url, $method, false, false, null);
+			$creds = request_filesystem_credentials($url);
 			if ( ! WP_Filesystem($creds) )
 				return pl_less_save_last_error( 'Unable to set filesystem credentials', false );
 		}
