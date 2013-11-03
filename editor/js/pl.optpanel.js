@@ -1476,7 +1476,7 @@
 
 			else if( o.type == 'image_upload' ){
 			
-				that.theImageUploader( '.fineupload', o.sizelimit, o.extension )
+				that.theImageUploader( '.fineupload.upload-'+o.key, o.sizelimit, o.extension )
 			}
 
 		}
