@@ -1476,7 +1476,7 @@
 
 			else if( o.type == 'image_upload' ){
 			
-				that.theImageUploader( '.fineupload.upload-'+o.key, o.sizelimit, o.extension )
+				that.theImageUploader( '.fineupload', o.sizelimit, o.extension )
 			}
 
 		}
@@ -1485,7 +1485,7 @@
 				var selector = inputSelector || '.fineupload'
 				, 	sizeLimit = sizeLimit || 512000 // 500 kB
 				,	extension = extension || null
-				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png']
+				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png', 'ico']
 
 				if(extension) {
 					allowedExtensions = extension.split(',')
