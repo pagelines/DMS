@@ -88,7 +88,8 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			
 			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.js', array( 'jquery'), PL_CORE_VERSION );
-
+			wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			
 
 			// i18n test
 			wp_enqueue_script( 'js-i18n', $this->url . '/js/Gettext.js', PL_CORE_VERSION );
