@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-01 20:56-0000\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-05 18:33-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Select This Image For Option"
 msgstr ""
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
 msgstr ""
 
@@ -1064,7 +1064,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
 msgstr ""
 
@@ -1489,33 +1489,33 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../includes/deprecated.php:268
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
 "%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
 "%3$s instead."
 msgstr ""
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:274
 #, php-format
 msgid ""
 "%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
 "no alternative available."
 msgstr ""
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr ""
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
 msgstr ""
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
 msgstr ""
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
 msgstr ""
 
@@ -1682,7 +1682,8 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr ""
 
@@ -3315,8 +3316,16 @@ msgstr ""
 msgid "Syncs with element."
 msgstr ""
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
@@ -3330,100 +3339,120 @@ msgid ""
 "add_image_size'>The Codex</a>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:950
+#: ../editor/js/pl.optpanel.js:951
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:951
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:953
+#: ../editor/js/pl.optpanel.js:954
 msgid "Resetting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:954
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
 msgstr ""
 
 #: ../editor/js/pl.saving.js:15
