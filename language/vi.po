@@ -1,19 +1,17 @@
 # 
 # Translators:
-# infoplum <infomintservices@gmail.com>, 2013
-# butcher, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
 "POT-Creation-Date: 2013-11-05 18:32-0000\n"
-"PO-Revision-Date: 2013-11-06 09:20+0000\n"
+"PO-Revision-Date: 2013-11-06 09:09+0000\n"
 "Last-Translator: Dionizio Bonfim Bach <translations@djio.com.br>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/pagelines-dms/language/pl/)\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/pagelines-dms/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
@@ -22,28 +20,26 @@ msgstr ""
 
 #: ../comments.php:23
 msgid "Comments are closed."
-msgstr "Komentarze są zamknięte."
+msgstr ""
 
 #: ../comments.php:38
 msgid ""
 "This post is password protected. Enter the password to view any comments."
-msgstr "Ten wpis jest zabezpieczony hasłem. Wprowadź hasło, aby zobaczyć komentarze."
+msgstr ""
 
 #: ../comments.php:44
 #, php-format
 msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
 msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
 
 #: ../comments.php:52
 msgid "<span class='meta-nav'>&larr;</span> Older Comments"
-msgstr "<span class='meta-nav'>&larr;</span> Starsze komentarze"
+msgstr ""
 
 #: ../comments.php:53
 msgid "Newer Comments <span class='meta-nav'>&rarr;</span>"
-msgstr "Nowsze komentarze <span class='meta-nav'>&rarr;</span>"
+msgstr ""
 
 #: ../admin/admin.actions.php:18
 msgid "DMS Tools"
@@ -60,7 +56,7 @@ msgid ""
 "using PHP version: <strong>%s</strong>. To run this framework you will need "
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
-msgstr "<div class='config-error'><h2>Problem z wersją PHP</h2>Wygląda na to, że używasz wersji PHP: <strong>%s</strong>. Aby uruchomić tą platformę potrzeba PHP <strong>5.0</strong> lub lepiej...<br/><br/> Nie martw się jednak! Wystarczy skontaktować się z Twoim dostawcą hostingu co do szybkiej modernizacji.</div>"
+msgstr ""
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -121,11 +117,11 @@ msgstr ""
 
 #: ../editor/editor.account.php:207
 msgid "Your Account"
-msgstr "Twoje konto"
+msgstr ""
 
 #: ../editor/editor.account.php:213
 msgid "Getting Started"
-msgstr "Pierwsze kroki"
+msgstr ""
 
 #: ../editor/editor.account.php:219
 msgid "Support"
@@ -209,7 +205,7 @@ msgstr ""
 
 #: ../editor/editor.account.php:581
 msgid "Deactivate"
-msgstr "Deaktywuj"
+msgstr ""
 
 #: ../editor/editor.account.php:591
 msgid "PageLines Account"
@@ -282,7 +278,7 @@ msgstr ""
 
 #: ../editor/editor.account.php:698
 msgid "PageLines Forum"
-msgstr "Forum PageLines"
+msgstr ""
 
 #: ../editor/editor.account.php:700
 msgid "DMS Documentation"
@@ -290,12 +286,12 @@ msgstr ""
 
 #: ../editor/editor.actions.php:332
 msgid "Unsupported file type!"
-msgstr "Nieobsługiwany typ pliku!"
+msgstr ""
 
 #: ../editor/editor.actions.php:335
 #, php-format
 msgid "Upload Error: %s"
-msgstr "Błąd podczas przesyłania: %s"
+msgstr ""
 
 #: ../editor/editor.actions.php:375
 msgid "Install DMS Utilities"
@@ -332,19 +328,19 @@ msgstr ""
 
 #: ../editor/editor.actions.php:494
 msgid "Select This Image For Option"
-msgstr "Wybierz ten obrazek dla opcji"
+msgstr ""
 
 #: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
-msgstr "Mediateka"
+msgstr ""
 
 #: ../editor/editor.areas.php:57 ../editor/editor.interface.php:541
 msgid "Delete"
-msgstr "Usuń"
+msgstr ""
 
 #: ../editor/editor.areas.php:59 ../editor/editor.interface.php:540
 msgid "Clone"
-msgstr "Klonuj"
+msgstr ""
 
 #: ../editor/editor.areas.php:61
 msgid "Move"
@@ -353,7 +349,7 @@ msgstr ""
 #: ../editor/editor.areas.php:63 ../editor/editor.interface.php:539
 #: ../includes/class.objects.php:109
 msgid "Edit"
-msgstr "Edytuj"
+msgstr ""
 
 #: ../editor/editor.color.php:186
 msgid "Color <span class=\"spamp\">&amp;</span> BG"
@@ -384,19 +380,19 @@ msgstr ""
 
 #: ../editor/editor.color.php:232 ../sections/pl_area/section.php:128
 msgid "Background Image"
-msgstr "Obrazek tła"
+msgstr ""
 
 #: ../editor/editor.color.php:241
 msgid "Page Background Image"
-msgstr "Obrazek tła strony"
+msgstr ""
 
 #: ../editor/editor.color.php:253
 msgid "Background Image Settings"
-msgstr "Ustawienia obrazka tła"
+msgstr ""
 
 #: ../editor/editor.color.php:259
 msgid "Fit image to page?"
-msgstr "Dopasować obrazek do strony?"
+msgstr ""
 
 #: ../editor/editor.color.php:262
 msgid ""
@@ -406,7 +402,7 @@ msgstr ""
 
 #: ../editor/editor.color.php:267
 msgid "Background Repeat"
-msgstr "Powtarzanie tła"
+msgstr ""
 
 #: ../editor/editor.color.php:270
 msgid "No Repeat"
@@ -418,31 +414,31 @@ msgstr ""
 
 #: ../editor/editor.color.php:272
 msgid "Repeat Horizontally"
-msgstr "Powtórz poziomo"
+msgstr ""
 
 #: ../editor/editor.color.php:273
 msgid "Repeat Vertically"
-msgstr "Powtórz pionowo"
+msgstr ""
 
 #: ../editor/editor.color.php:281
 msgid "Vertical Background Position in Percent"
-msgstr "Pionowa pozycja tła w procentach"
+msgstr ""
 
 #: ../editor/editor.color.php:292
 msgid "Horizontal Background Position in Percent"
-msgstr "Pozioma pozycja tła w procentach"
+msgstr ""
 
 #: ../editor/editor.color.php:303
 msgid "Set Background Attachment"
-msgstr "Ustaw załącznik tła"
+msgstr ""
 
 #: ../editor/editor.color.php:306
 msgid "Scroll"
-msgstr "Przewiń"
+msgstr ""
 
 #: ../editor/editor.color.php:307
 msgid "Fixed"
-msgstr "Naprawiono"
+msgstr ""
 
 #: ../editor/editor.importexport.php:18
 msgid "Import + Export"
@@ -508,7 +504,7 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:137 ../editor/panel.settings.php:51
 msgid "Global Settings"
-msgstr "Ustawienia globalne"
+msgstr ""
 
 #: ../editor/editor.importexport.php:141
 msgid "Export Site Global Settings"
@@ -564,11 +560,11 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:195
 msgid "Export DMS Config"
-msgstr "Eksportuj konfigurację DMS"
+msgstr ""
 
 #: ../editor/editor.importexport.php:201
 msgid "Import DMS Config"
-msgstr "Importuj konfigurację DMS"
+msgstr ""
 
 #: ../editor/editor.interface.php:152
 msgid "Deactivate Editor (View Live)"
@@ -644,11 +640,11 @@ msgstr ""
 
 #: ../editor/editor.layout.php:43
 msgid "Select Layout Mode"
-msgstr "Wybierz tryb układu"
+msgstr ""
 
 #: ../editor/editor.layout.php:44
 msgid "Layout Mode"
-msgstr "Tryb układu"
+msgstr ""
 
 #: ../editor/editor.layout.php:46
 msgid "Pixel Width Based Layout"
@@ -667,11 +663,11 @@ msgstr ""
 
 #: ../editor/editor.layout.php:55
 msgid "Select Layout Display"
-msgstr "Wybierz układ strony"
+msgstr ""
 
 #: ../editor/editor.layout.php:56
 msgid "Display Mode"
-msgstr "Tryb wyświetlania"
+msgstr ""
 
 #: ../editor/editor.layout.php:58
 msgid "Full Width Display"
@@ -694,7 +690,7 @@ msgstr ""
 
 #: ../editor/editor.layout.php:80
 msgid "Select Primary Navigation Menu"
-msgstr "Wybierz główne menu nawigacji"
+msgstr ""
 
 #: ../editor/editor.layout.php:82
 msgid ""
@@ -704,13 +700,13 @@ msgstr ""
 
 #: ../editor/editor.layout.php:87
 msgid "Select Secondary Navigation Menu"
-msgstr "Wybierz drugorzędne menu nawigacji"
+msgstr ""
 
 #: ../editor/editor.layout.php:89
 msgid ""
 "This will be shown subtly in areas throughout the site and in your mobile "
 "menu."
-msgstr "To pojawi się subtelnie w miejscach w całej witrynie i w menu w Twoim telefonie komórkowym."
+msgstr ""
 
 #: ../editor/editor.loader.php:99
 msgid "Loading DMS Editor"
@@ -740,7 +736,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:35
 msgid "Advanced"
-msgstr "Zaawansowane"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:42
 msgid "Resets"
@@ -752,7 +748,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:89
 msgid "Site Homepage"
-msgstr "Strona domowa witryny"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:93
 msgid "<i class=\"icon-link\"></i> Permalinks"
@@ -760,7 +756,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:97
 msgid "Manage Permalinks"
-msgstr "Zarządzaj odnośnikami bezpośrednimi - permalinkami"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:102
 msgid "<i class=\"icon-reorder\"></i> Manage Menus"
@@ -768,7 +764,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:107
 msgid "Manage Menus"
-msgstr "Zarządzaj menu"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:113
 msgid "<i class=\"icon-retweet\"></i> Manage Widgets"
@@ -776,7 +772,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:117
 msgid "Manage Widgetized Areas"
-msgstr "Zarządzaj polami Widgetów"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:123
 msgid "<i class=\"icon-cog\"></i> Site Settings"
@@ -784,7 +780,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:127
 msgid "Site Settings"
-msgstr "Ustawienia witryny"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:132
 msgid "<i class=\"icon-download\"></i> Plugins Admin"
@@ -792,7 +788,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:136
 msgid "Manage Extensions"
-msgstr "Zarządzaj rozszerzeniami"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:145
 msgid "<i class=\"icon-ambulance\"></i> View Debug Info"
@@ -800,7 +796,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:149
 msgid "Debug Enabled"
-msgstr "Tryb Debug włączony"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:163
 msgid "Upload Favicon (32px by 32px)"
@@ -808,7 +804,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:167
 msgid "Favicon Image"
-msgstr "Obrazek Favicona"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
@@ -823,7 +819,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:180
 msgid "Login Page Image"
-msgstr "Zdjęcie strony logowania"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:182
 msgid ""
@@ -849,11 +845,11 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:211
 msgid "Your Twitter Username"
-msgstr "Twoja nazwa użytkownika na mikroblogu Twitter"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:212
 msgid "Twitter Integration"
-msgstr "Integracja Twittera"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:213
 msgid ""
@@ -863,11 +859,11 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:225
 msgid "Your Facebook Page Name"
-msgstr "Twoja nazwa strony na Facebook"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:226
 msgid "Facebook Page"
-msgstr "Strona Facebook"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
@@ -877,15 +873,15 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:232
 msgid "Your Facebook App ID"
-msgstr "Twój Facebook App ID"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:233
 msgid "Facebook App ID"
-msgstr "Facebook App ID"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:234
 msgid "Add your Facebook Application ID here."
-msgstr "Dodaj Twój Facebook Application ID tutaj."
+msgstr ""
 
 #: ../editor/editor.settings.config.php:243
 msgid "Your Website Hashtag"
@@ -893,7 +889,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:244
 msgid "Website Hashtag"
-msgstr "Hashtag witryny"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:245
 msgid ""
@@ -939,7 +935,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:309
 msgid "Enable debug?"
-msgstr "Włączyć tryb 'debug' ?"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:310
 msgid "PageLines debug"
@@ -948,7 +944,7 @@ msgstr ""
 #: ../editor/editor.settings.config.php:311
 #, php-format
 msgid "This information can be useful in the forums if you have a problem. %s"
-msgstr " Jeśli masz problem, informacje te mogą być przydatne na forum. %s"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:319
 msgid "Disable Error Notices?"
@@ -979,7 +975,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:336
 msgid "Enter Partner Link"
-msgstr "Podaj link partnerski"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:337
 msgid "PageLines Affiliate/Partner Link"
@@ -1013,7 +1009,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:362
 msgid "Reset Global Site Settings"
-msgstr "Zresetuj globalne ustawienia witryny"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
@@ -1024,11 +1020,11 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:369
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
-msgstr "<i class=\"icon-undo\"></i> Zresetuj bieżące ustawienia strony"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:370
 msgid "Reset Current Page Settings"
-msgstr "Zresetuj bieżące ustawienia strony"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:371
 msgid ""
@@ -1053,7 +1049,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:396
 msgid "Standard Options"
-msgstr "Opcje standardowe"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:402
 msgid "Styling Classes"
@@ -1069,7 +1065,7 @@ msgstr ""
 
 #: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
-msgstr "Szablony strony"
+msgstr ""
 
 #: ../editor/editor.templates.php:209
 msgid "Your Templates"
@@ -1129,7 +1125,7 @@ msgstr ""
 
 #: ../editor/editor.templates.php:509
 msgid "Default"
-msgstr "Domyślnie"
+msgstr ""
 
 #: ../editor/editor.templates.php:510
 msgid "Standard page configuration. (Content and Primary Sidebar.)"
@@ -1159,27 +1155,27 @@ msgstr ""
 
 #: ../editor/editor.templates.php:618
 msgid "Load PageLines Template"
-msgstr "Załaduj szablon PageLines"
+msgstr ""
 
 #: ../editor/editor.templates.php:631
 msgid "(no parent)"
-msgstr "(brak elementu nadrzędnego)"
+msgstr ""
 
 #: ../editor/editor.templates.php:639
 msgid "Parent Page"
-msgstr "Strona nadrzędna"
+msgstr ""
 
 #: ../editor/editor.templates.php:644
 msgid "Page Order"
-msgstr "Kolejność stron"
+msgstr ""
 
 #: ../editor/editor.typography.php:69
 msgid "Typography"
-msgstr "Typografia"
+msgstr ""
 
 #: ../editor/editor.typography.php:85
 msgid "Primary Text"
-msgstr "Główny tekst"
+msgstr ""
 
 #: ../editor/editor.typography.php:86
 msgid ""
@@ -1271,11 +1267,11 @@ msgstr ""
 
 #: ../editor/panel.extend.php:27
 msgid "PageLines Store"
-msgstr "Sklep PageLines"
+msgstr ""
 
 #: ../editor/panel.extend.php:41
 msgid "Featured"
-msgstr "Wyróżnione"
+msgstr ""
 
 #: ../editor/panel.extend.php:48
 msgid "Sections"
@@ -1299,7 +1295,7 @@ msgstr ""
 
 #: ../editor/panel.extend.php:84 ../includes/lib.elements.php:93
 msgid "Search"
-msgstr "Poszukaj"
+msgstr ""
 
 #: ../editor/panel.extend.php:99
 msgid "Upload a .zip extension into your PageLines install using this tool."
@@ -1335,7 +1331,7 @@ msgstr ""
 
 #: ../editor/panel.extend.php:192 ../editor/panel.extend.php:195
 msgid "Free!"
-msgstr "Za darmo!"
+msgstr ""
 
 #: ../editor/panel.extend.php:197
 msgid "<i class=\"icon-sun\"></i> Karma"
@@ -1415,7 +1411,7 @@ msgstr ""
 
 #: ../editor/panel.settings.php:27
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr "thiết lập"
 
 #: ../editor/panel.settings.php:34 ../editor/panel.settings.php:73
 #: ../editor/panel.settings.php:81
@@ -1456,40 +1452,40 @@ msgstr ""
 
 #: ../includes/class.register.php:358
 msgid "<h2>Unable to fetch from API</h2>"
-msgstr "<h2>Nie można pobrać z API</h2>"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:317
 msgid "<span class='editpage sc'>Edit</span>"
-msgstr "<span class='editpage sc'>Edytuj</span>"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:367
 msgid "Tagged With: "
-msgstr "Otagowane za pomocą:"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:391
 msgid "Type: "
-msgstr "Typ:"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:422
 msgid "Add Comment"
-msgstr "Dodaj komentarz"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:423
 msgid "<span class='num'>1</span> Comment"
-msgstr "<span class='num'>1</span> Odpowiedź"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:424
 msgid "<span class='num'>%</span> Comments"
-msgstr "<span class='num'>%</span> Odpowiedzi"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:501
 #, php-format
 msgid "Visit %s&#8217;s website"
-msgstr "Odwiedź %s&#8217;s witrynę"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:1342 ../editor/js/pl.xlist.js:119
 msgid "Close"
-msgstr "Zamknij"
+msgstr ""
 
 #: ../includes/deprecated.php:272
 #, php-format
@@ -1511,15 +1507,15 @@ msgstr ""
 
 #: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
-msgstr "Dodaj nową"
+msgstr ""
 
 #: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
-msgstr "Edytuj"
+msgstr ""
 
 #: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
-msgstr "Podgląd"
+msgstr ""
 
 #: ../includes/less.legacy.php:453
 #, php-format
@@ -1530,7 +1526,7 @@ msgstr ""
 
 #: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
-msgstr "LESS Błąd kompilowania!"
+msgstr ""
 
 #: ../includes/less.legacy.php:512
 #, php-format
@@ -1546,7 +1542,7 @@ msgstr ""
 
 #: ../includes/lib.editor.php:72
 msgid "(Pro Edition Only)"
-msgstr "(Jedynie edycja Pro)"
+msgstr ""
 
 #: ../includes/lib.elements.php:39
 msgid "Add Widgets &rarr;"
@@ -1569,11 +1565,11 @@ msgstr ""
 
 #: ../includes/lib.elements.php:272
 msgid "edit"
-msgstr "edytuj"
+msgstr ""
 
 #: ../includes/lib.head.php:65
 msgid "Google Profile URL"
-msgstr "URL profilu Google"
+msgstr ""
 
 #: ../includes/lib.head.php:299
 #, php-format
@@ -1597,15 +1593,15 @@ msgstr ""
 #: ../includes/lib.utils.php:140
 #, php-format
 msgid "Configure %s <i class=\"icon-arrow-right\"></i>"
-msgstr "Skonfiguruj %s <i class=\"icon-arrow-right\"></i>"
+msgstr ""
 
 #: ../includes/lib.utils.php:144
 msgid "Configure this section"
-msgstr "Skonfiguruj tą sekcję"
+msgstr ""
 
 #: ../includes/library.pagelines.php:14
 msgid "Dashboard"
-msgstr "Kokpit"
+msgstr ""
 
 #: ../sections/columnizer/section.php:52
 msgid "Columnizer Configuration"
@@ -1677,7 +1673,7 @@ msgstr ""
 #: ../sections/columnizer/section.php:197 ../sections/rapidtabs/section.php:56
 #: ../sections/rapidtabs/section.php:138
 msgid "Tags"
-msgstr "Tagi"
+msgstr ""
 
 #: ../sections/columnizer/section.php:208
 #: ../sections/sb_primary/section.php:42
@@ -1687,7 +1683,7 @@ msgstr ""
 #: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
 #: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
-msgstr "Więcej informacji"
+msgstr ""
 
 #: ../sections/flipper/section.php:47
 msgid "Flipper Setup"
@@ -1706,7 +1702,7 @@ msgstr ""
 
 #: ../sections/flipper/section.php:69
 msgid "Max Number of Posts Shown"
-msgstr "Maksymalna ilość pokazanych postów"
+msgstr ""
 
 #: ../sections/flipper/section.php:70
 msgid ""
@@ -1720,23 +1716,23 @@ msgstr ""
 
 #: ../sections/flipper/section.php:84
 msgid "Flipper Title"
-msgstr "Tytuł Flippera"
+msgstr ""
 
 #: ../sections/flipper/section.php:86
 msgid "Options to control the text and link in the Flipper title."
-msgstr "Opcji, aby kontrolować tekst i link w tytule Flippera."
+msgstr ""
 
 #: ../sections/flipper/section.php:91
 msgid "Flipper Title Text"
-msgstr "Tekst tytułu Flippera"
+msgstr ""
 
 #: ../sections/flipper/section.php:96
 msgid "Hide Title Link?"
-msgstr "Ukryj link tytułu?"
+msgstr ""
 
 #: ../sections/flipper/section.php:108
 msgid "Flipper Meta"
-msgstr "Meta Flippera"
+msgstr ""
 
 #: ../sections/flipper/section.php:109
 msgid ""
@@ -1755,11 +1751,11 @@ msgstr ""
 
 #: ../sections/flipper/section.php:117
 msgid "Total Posts Loaded"
-msgstr "Liczba postów załadowanych"
+msgstr ""
 
 #: ../sections/flipper/section.php:126
 msgid "Meta Key"
-msgstr "Klucz meta"
+msgstr ""
 
 #: ../sections/flipper/section.php:127
 msgid ""
@@ -1769,32 +1765,32 @@ msgstr ""
 
 #: ../sections/flipper/section.php:133
 msgid "Meta Key Value"
-msgstr "Wartość klucza meta"
+msgstr ""
 
 #: ../sections/flipper/section.php:148
 msgid "Only applies for standard blog posts."
-msgstr "Odnosi się tylko do standardowych postów bloga."
+msgstr ""
 
 #: ../sections/flipper/section.php:157
 msgid "Additional Post Selection"
-msgstr "Dodatkowy wybór posta"
+msgstr ""
 
 #: ../sections/flipper/section.php:219
 msgid " / View All"
-msgstr " / Zobacz wszystkie"
+msgstr ""
 
 #: ../sections/flipper/section.php:224
 msgid " / View Blog"
-msgstr " / Zobacz Blog"
+msgstr ""
 
 #: ../sections/flipper/section.php:266
 #: ../sections/postloop/class.posts.php:505
 msgid "View"
-msgstr "Podgląd"
+msgstr ""
 
 #: ../sections/hero/section.php:27
 msgid "Hero Settings"
-msgstr "Ustawienia Hero"
+msgstr ""
 
 #: ../sections/hero/section.php:34
 msgid "Heading"
@@ -1802,15 +1798,15 @@ msgstr ""
 
 #: ../sections/hero/section.php:39
 msgid "Subtext"
-msgstr "Podtekst"
+msgstr ""
 
 #: ../sections/hero/section.php:44
 msgid "Hero Image"
-msgstr "Obrazek Hero"
+msgstr ""
 
 #: ../sections/hero/section.php:50
 msgid "Upload Custom Image"
-msgstr "Prześlij niestandardowy obrazek"
+msgstr ""
 
 #: ../sections/hero/section.php:55
 msgid "Reverse the Hero unit (image on left)"
@@ -1818,15 +1814,15 @@ msgstr ""
 
 #: ../sections/hero/section.php:59
 msgid "Content Widths"
-msgstr "Szerokości zawartości"
+msgstr ""
 
 #: ../sections/hero/section.php:65
 msgid "Text Area Width"
-msgstr "Szerokość obszaru tekstu"
+msgstr ""
 
 #: ../sections/hero/section.php:81
 msgid "Image Area Width"
-msgstr "Szerokość obszaru obrazka"
+msgstr ""
 
 #: ../sections/hero/section.php:99
 msgid "Hero Action Button"
@@ -1842,49 +1838,49 @@ msgstr ""
 
 #: ../sections/hero/section.php:118 ../sections/icallout/section.php:57
 msgid "Open link in new window"
-msgstr "Otwórz link w nowym oknie"
+msgstr ""
 
 #: ../sections/hero/section.php:121 ../sections/masthead/section.php:118
 #: ../sections/masthead/section.php:300 ../sections/masthead/section.php:335
 msgid "Select Button Color"
-msgstr "Wybierz kolor przycisku"
+msgstr ""
 
 #: ../sections/hero/section.php:127 ../sections/masthead/section.php:302
 #: ../sections/masthead/section.php:337 ../sections/navbar/section.php:65
 #: ../sections/navbar/section.php:370 ../sections/navbar/section.php:382
 msgid "Blue"
-msgstr "Niebieski"
+msgstr ""
 
 #: ../sections/hero/section.php:128 ../sections/masthead/section.php:303
 #: ../sections/masthead/section.php:338 ../sections/navbar/section.php:67
 #: ../sections/navbar/section.php:372 ../sections/navbar/section.php:384
 msgid "Orange"
-msgstr "Pomarańczowy"
+msgstr ""
 
 #: ../sections/hero/section.php:129 ../sections/masthead/section.php:304
 #: ../sections/masthead/section.php:339 ../sections/navbar/section.php:68
 #: ../sections/navbar/section.php:373 ../sections/navbar/section.php:385
 msgid "Red"
-msgstr "Czerwony"
+msgstr ""
 
 #: ../sections/hero/section.php:130 ../sections/masthead/section.php:305
 #: ../sections/masthead/section.php:340
 msgid "Green"
-msgstr "Zielony"
+msgstr ""
 
 #: ../sections/hero/section.php:131 ../sections/masthead/section.php:306
 #: ../sections/masthead/section.php:341
 msgid "Light Blue"
-msgstr "Jasnoniebieski"
+msgstr ""
 
 #: ../sections/hero/section.php:132 ../sections/masthead/section.php:307
 #: ../sections/masthead/section.php:342
 msgid "Grey"
-msgstr "Szary"
+msgstr ""
 
 #: ../sections/hero/section.php:166
 msgid "The Hero!"
-msgstr "Bohater!"
+msgstr ""
 
 #: ../sections/hero/section.php:167
 msgid "Now just set up your Hero section options"
@@ -1892,48 +1888,48 @@ msgstr ""
 
 #: ../sections/highlight/section.php:29
 msgid "Select Format"
-msgstr "Wybierz format"
+msgstr ""
 
 #: ../sections/highlight/section.php:31
 msgid "Highlight Format"
-msgstr "Format wyróżniania"
+msgstr ""
 
 #: ../sections/highlight/section.php:33 ../sections/highlight/section.php:123
 msgid "Image on top of text"
-msgstr "Obrazu na górze tekstu"
+msgstr ""
 
 #: ../sections/highlight/section.php:34 ../sections/highlight/section.php:124
 msgid "Image on bottom of text"
-msgstr "Obrazek na dole tekstu"
+msgstr ""
 
 #: ../sections/highlight/section.php:35 ../sections/highlight/section.php:125
 msgid "No text, just the image"
-msgstr "Żadnego tekstu, tylko obrazek"
+msgstr ""
 
 #: ../sections/highlight/section.php:41
 msgid "Highlight Text"
-msgstr "Uwypuklij tekst"
+msgstr ""
 
 #: ../sections/highlight/section.php:48 ../sections/highlight/section.php:97
 #: ../sections/highlight/section.php:104
 msgid "Highlight Header Text (Optional)"
-msgstr "Podświetl tekst nagłówka (opcjonalne)"
+msgstr ""
 
 #: ../sections/highlight/section.php:54 ../sections/highlight/section.php:110
 msgid "Highlight Subheader Text (Optional)"
-msgstr "Podświetl tekst podnagłówka (Opcjonalne)"
+msgstr ""
 
 #: ../sections/highlight/section.php:62
 msgid "Highlight Image and Format"
-msgstr "Uwypuklij obrazek i format"
+msgstr ""
 
 #: ../sections/highlight/section.php:68 ../sections/highlight/section.php:116
 msgid "Upload Splash Image"
-msgstr "Prześlij obrazek Splash"
+msgstr ""
 
 #: ../sections/highlight/section.php:73 ../sections/highlight/section.php:130
 msgid "Add frame to image?"
-msgstr "Dodać ramkę do obrazka?"
+msgstr ""
 
 #: ../sections/highlight/section.php:98
 msgid "Add the main header text for the highlight section."
@@ -1953,11 +1949,11 @@ msgstr ""
 
 #: ../sections/ibox/section.php:23
 msgid "iBox Configuration"
-msgstr "Konfiguracja iBox"
+msgstr ""
 
 #: ../sections/ibox/section.php:33
 msgid "Number of iBoxes to Configure"
-msgstr "Liczba iBoxów do konfiguracji"
+msgstr ""
 
 #: ../sections/ibox/section.php:41
 msgid "Number of Columns for Each Box (12 Col Grid)"
@@ -1969,11 +1965,11 @@ msgstr ""
 
 #: ../sections/ibox/section.php:48
 msgid "Images"
-msgstr "Zdjęcia"
+msgstr ""
 
 #: ../sections/ibox/section.php:49
 msgid "Text Only, No Media"
-msgstr "Tekst tylko, żadnych mediów"
+msgstr ""
 
 #: ../sections/ibox/section.php:52
 msgid "Select iBox Media Type"
@@ -1981,11 +1977,11 @@ msgstr ""
 
 #: ../sections/ibox/section.php:58
 msgid "Media on Top"
-msgstr "Media na górze"
+msgstr ""
 
 #: ../sections/ibox/section.php:59
 msgid "Media at Left"
-msgstr "Media na lewo"
+msgstr ""
 
 #: ../sections/ibox/section.php:62
 msgid "Select the iBox Media Location"
@@ -2001,11 +1997,11 @@ msgstr ""
 
 #: ../sections/ibox/section.php:77
 msgid "iBox Title"
-msgstr "Tytuł iBox"
+msgstr ""
 
 #: ../sections/ibox/section.php:82
 msgid "iBox Text"
-msgstr "Tekst iBox"
+msgstr ""
 
 #: ../sections/ibox/section.php:87
 msgid "iBox Link (Optional)"
@@ -2025,7 +2021,7 @@ msgstr ""
 
 #: ../sections/ibox/section.php:162 ../sections/ibox/section.php:276
 msgid "More"
-msgstr "Więcej"
+msgstr ""
 
 #: ../sections/ibox/section.php:271
 msgid "iBox "
@@ -2037,7 +2033,7 @@ msgstr ""
 
 #: ../sections/icallout/section.php:26
 msgid "Text on top of button"
-msgstr "Tekst na przycisku"
+msgstr ""
 
 #: ../sections/icallout/section.php:27
 msgid "Text/Button Inline"
@@ -2049,19 +2045,19 @@ msgstr ""
 
 #: ../sections/icallout/section.php:51
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 #: ../sections/icallout/section.php:62
 msgid "Text on Button"
-msgstr "Tekst na przycisku"
+msgstr ""
 
 #: ../sections/icallout/section.php:67
 msgid "Button Color"
-msgstr "Kolor przycisku"
+msgstr ""
 
 #: ../sections/icallout/section.php:89
 msgid "Call to action!"
-msgstr "Wezwij do działania!"
+msgstr ""
 
 #: ../sections/masthead/section.php:47 ../sections/masthead/section.php:246
 msgid "Masthead Splash Options"
@@ -2069,7 +2065,7 @@ msgstr ""
 
 #: ../sections/masthead/section.php:53 ../sections/masthead/section.php:252
 msgid "Upload custom image"
-msgstr "Prześlij obrazek niestandardowy"
+msgstr ""
 
 #: ../sections/masthead/section.php:58 ../sections/masthead/section.php:256
 msgid "Masthead Video (optional, to be used instead of image)"
@@ -2308,7 +2304,7 @@ msgstr ""
 
 #: ../sections/navbar/section.php:135 ../sections/navbar/section.php:206
 msgid "NavBar"
-msgstr "NavBar"
+msgstr ""
 
 #: ../sections/navbar/section.php:152 ../sections/navbar/section.php:153
 #: ../sections/navbar/section.php:344 ../sections/navbar/section.php:345
@@ -2533,7 +2529,7 @@ msgstr ""
 
 #: ../sections/postauthor/section.php:68
 msgid "Author"
-msgstr "Autor"
+msgstr ""
 
 #: ../sections/postauthor/section.php:77
 msgid "Visit Authors Website &rarr;"
@@ -2546,11 +2542,11 @@ msgstr ""
 #: ../sections/postloop/class.posts.php:37
 #: ../sections/postloop/section.php:186
 msgid "Read More &raquo;"
-msgstr "Przeczytaj więcej &raquo;"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:240
 msgid "<div class='pagination'><span class='desc'>pages:</span><ul>"
-msgstr "<div class='pagination'><span class='desc'>strony:</span><ul>"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:253
 msgid "<span class='note'>Tagged with &rarr;</span> "
@@ -2577,19 +2573,19 @@ msgstr ""
 #: ../sections/postloop/class.posts.php:696
 #, php-format
 msgid "No results for &quot;%s&quot;"
-msgstr "Brak wyników dla &quot;%s&quot;"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:696
 msgid "Nothing Found"
-msgstr "Nic nie znaleziono"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:698
 msgid "Try another search?"
-msgstr "Spróbować wyszukać jeszcze raz?"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:698
 msgid "Sorry, what you are looking for isn't here."
-msgstr "Wybacz, nie ma tutaj tego, czego szukasz."
+msgstr ""
 
 #: ../sections/postloop/section.php:28
 msgid "Edit Post Content"
@@ -2711,7 +2707,7 @@ msgstr ""
 
 #: ../sections/postloop/section.php:133 ../sections/postloop/section.php:149
 msgid "Left Justified"
-msgstr "Wyrównanie do lewej"
+msgstr ""
 
 #: ../sections/postloop/section.php:134 ../sections/postloop/section.php:150
 msgid "On Top"
@@ -2787,7 +2783,7 @@ msgstr ""
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
-msgstr "Ten tekst będzie służyć jako odnośnik do pełnego artykułu podczas przeglądania artykułów na Twojej stronie z postami (gdy fragmenty są włączone)."
+msgstr ""
 
 #: ../sections/postloop/section.php:197
 msgid "Number of words."
@@ -3035,7 +3031,7 @@ msgstr ""
 
 #: ../sections/sb_primary/section.php:51
 msgid "Archives"
-msgstr "Archiwum"
+msgstr ""
 
 #: ../sections/sb_primary/section.php:60
 msgid "Calendar"
@@ -3167,7 +3163,7 @@ msgstr ""
 
 #: ../sections/watermark/section.php:22
 msgid "Website Watermark"
-msgstr "Znak wodny strony"
+msgstr ""
 
 #: ../sections/watermark/section.php:23
 msgid ""
@@ -3212,7 +3208,7 @@ msgstr ""
 
 #: ../editor/js/pl.ajax.js:21
 msgid "Are you sure?"
-msgstr "Masz pewność?"
+msgstr ""
 
 #: ../editor/js/pl.ajax.js:24
 msgid "Refreshing page..."
@@ -3352,7 +3348,7 @@ msgstr ""
 
 #: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
-msgstr "Wybierz czcionkę"
+msgstr ""
 
 #: ../editor/js/pl.optpanel.js:886
 msgid "Font Preview"
@@ -3460,7 +3456,7 @@ msgstr ""
 
 #: ../editor/js/pl.optpanel.js:1509
 msgid "Upload Image"
-msgstr "Załaduj zdjęcie"
+msgstr ""
 
 #: ../editor/js/pl.saving.js:15
 msgid "Saving."
@@ -3556,7 +3552,7 @@ msgstr ""
 
 #: ../editor/js/pl.themes.js:45
 msgid "Activate"
-msgstr "Aktywuj"
+msgstr ""
 
 #: ../editor/js/pl.xlist.js:67
 msgid "Drag Thumb to Page"

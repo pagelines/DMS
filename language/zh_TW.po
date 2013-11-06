@@ -1,14 +1,13 @@
-#
+# 
 # Translators:
 # Banncan Lueng <banncan@qq.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-03 19:59-0000\n"
-"Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/"
-"pagelines-dms/language/zh_TW/)\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-06 09:20+0000\n"
+"Last-Translator: Dionizio Bonfim Bach <translations@djio.com.br>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/pagelines-dms/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,10 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"lang\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -61,10 +57,7 @@ msgid ""
 "using PHP version: <strong>%s</strong>. To run this framework you will need "
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
-msgstr ""
-"<div class='config-error'><h2>PHP版本問題</h2>看起來你正在使用的PHP版本："
-"<strong> %s </strong>。要運行這個框架，您將需要PHP  <strong>5.0</strong>或更"
-"高的......<br/><br/>請不要擔心！只是檢查你的主機快速升級。</div>"
+msgstr "<div class='config-error'><h2>PHP版本問題</h2>看起來你正在使用的PHP版本：<strong> %s </strong>。要運行這個框架，您將需要PHP  <strong>5.0</strong>或更高的......<br/><br/>請不要擔心！只是檢查你的主機快速升級。</div>"
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -84,8 +77,8 @@ msgstr ""
 
 #: ../admin/admin.editor.php:32
 msgid ""
-"Below are secondary fallbacks to the DMS code editors. You may need these if "
-"you create errors or issues on the front end."
+"Below are secondary fallbacks to the DMS code editors. You may need these if"
+" you create errors or issues on the front end."
 msgstr ""
 
 #: ../admin/admin.editor.php:36
@@ -141,8 +134,8 @@ msgstr ""
 
 #: ../editor/editor.account.php:443
 msgid ""
-"For every friend you invite who joins and installs PageLines, we'll give you "
-"and your friend 50 karma points! Karma points can be redeemed as cash with "
+"For every friend you invite who joins and installs PageLines, we'll give you"
+" and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
 msgstr ""
 
@@ -244,7 +237,8 @@ msgid "PageLines account not added or incorrect."
 msgstr ""
 
 #: ../editor/editor.account.php:625
-msgid "Add account to configure PageLines APIs, karma system and store access."
+msgid ""
+"Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
 
 #: ../editor/editor.account.php:631
@@ -337,7 +331,7 @@ msgstr ""
 msgid "Select This Image For Option"
 msgstr "選擇此選項圖像"
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
 msgstr "媒體庫"
 
@@ -494,8 +488,7 @@ msgstr ""
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
-"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
-"may want to publish these changes to your live site."
+"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you may want to publish these changes to your live site."
 msgstr ""
 
 #: ../editor/editor.importexport.php:108
@@ -520,8 +513,8 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:143
 msgid ""
-"This will export your sites global settings. This includes everything in the "
-"options panel, as well as settings directed at sections in your \"global\" "
+"This will export your sites global settings. This includes everything in the"
+" options panel, as well as settings directed at sections in your \"global\" "
 "regions like your header and footer."
 msgstr ""
 
@@ -554,8 +547,8 @@ msgstr ""
 msgid ""
 "Check this to publish your site configuration as a theme configuration file "
 "in your themes root directory. When a user activates your theme it will ask "
-"if it can overwrite their settings to attain a desired initial experience to "
-"the theme."
+"if it can overwrite their settings to attain a desired initial experience to"
+" the theme."
 msgstr ""
 
 #: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
@@ -667,9 +660,7 @@ msgid ""
 "Select pixel width mode and your site maximum width will be controlled by "
 "pixels.<br/><br/> If you select \"percent\" width the width of your content "
 "will be a percentage of window size."
-msgstr ""
-"選擇像素寬度模式，您的網站的最大像素的寬度將被控制。<br/><br/>如果你選擇 \"百"
-"分比\"寬度寬你的內容將是一個窗口大小的百分比。"
+msgstr "選擇像素寬度模式，您的網站的最大像素的寬度將被控制。<br/><br/>如果你選擇 \"百分比\"寬度寬你的內容將是一個窗口大小的百分比。"
 
 #: ../editor/editor.layout.php:55
 msgid "Select Layout Display"
@@ -818,12 +809,10 @@ msgstr "網站圖標圖片"
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
-"Enter the full URL location of your custom <strong>favicon</strong> which is "
-"visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
+"Enter the full URL location of your custom <strong>favicon</strong> which is"
+" visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
-msgstr ""
-"輸入完整的URL位置定制你的<strong>網站圖標</strong>，顯示在瀏覽器的收藏夾和標"
-"籤。<br/> <strong>必須是png或ico文件 - 32px X 32px</strong>。"
+msgstr "輸入完整的URL位置定制你的<strong>網站圖標</strong>，顯示在瀏覽器的收藏夾和標籤。<br/> <strong>必須是png或ico文件 - 32px X 32px</strong>。"
 
 #: ../editor/editor.settings.config.php:177
 msgid "Upload Login Image (160px Height)"
@@ -837,8 +826,7 @@ msgstr "登錄頁面圖片"
 msgid ""
 "This image will be used on the login page to your admin. Use an image that "
 "is approximately <strong>80px</strong> in height."
-msgstr ""
-"此圖片將用於您的管理員在登錄頁面上。使用圖像高度約<strong>80px</strong>。"
+msgstr "此圖片將用於您的管理員在登錄頁面上。使用圖像高度約<strong>80px</strong>。"
 
 #: ../editor/editor.settings.config.php:188
 msgid "Upload Touch Image (144px by 144px)"
@@ -852,12 +840,9 @@ msgstr "手機觸摸圖片"
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
-"Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
-"gif or .png format."
-msgstr ""
-"輸入完整的蘋果觸摸圖標的URL位置，當你的用戶設置您的網站作為的"
-"<strong>webclip</strong>蘋果iPhone和觸控產品時可見。它是一種形象約 144px X "
-"144px 無論是JPG，GIF或PNG格式。"
+"Touch Products. It is an image approximately 144px by 144px in either .jpg, "
+".gif or .png format."
+msgstr "輸入完整的蘋果觸摸圖標的URL位置，當你的用戶設置您的網站作為的<strong>webclip</strong>蘋果iPhone和觸控產品時可見。它是一種形象約 144px X 144px 無論是JPG，GIF或PNG格式。"
 
 #: ../editor/editor.settings.config.php:211
 msgid "Your Twitter Username"
@@ -883,11 +868,9 @@ msgstr "Facebook專頁"
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
-"Enter the name component of your Facebook page URL. (For example, what comes "
-"after the facebook url: www.facebook.com/[name])"
-msgstr ""
-"輸入你的Facebook頁面的URL的名稱組件。 （例如，隨之而來的facebook的網址：www."
-"facebook.com/[名稱]）"
+"Enter the name component of your Facebook page URL. (For example, what comes"
+" after the facebook url: www.facebook.com/[name])"
+msgstr "輸入你的Facebook頁面的URL的名稱組件。 （例如，隨之而來的facebook的網址：www.facebook.com/[名稱]）"
 
 #: ../editor/editor.settings.config.php:232
 msgid "Your Facebook App ID"
@@ -989,9 +972,7 @@ msgid ""
 "Add a class of 'prettyprint' to code or pre tags, or optionally use the "
 "[pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if "
 "Wordpress inserts line breaks."
-msgstr ""
-"添加一類美觀列印代碼或預標籤，或選擇性地使用 [pl_codebox] 簡碼。包裹CodeBox對"
-"簡碼使用 [pl_raw] 如果WordPress插入換行符。"
+msgstr "添加一類美觀列印代碼或預標籤，或選擇性地使用 [pl_codebox] 簡碼。包裹CodeBox對簡碼使用 [pl_raw] 如果WordPress插入換行符。"
 
 #: ../editor/editor.settings.config.php:336
 msgid "Enter Partner Link"
@@ -1006,9 +987,7 @@ msgid ""
 "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines "
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
-msgstr ""
-"如果你是一個<a target='_blank' href='http://www.pagelines.com'>PageLines合作"
-"夥伴</ a>的進入你的鏈接在這裡和頁腳鏈接將成為合作夥伴或分支機構鏈接。"
+msgstr "如果你是一個<a target='_blank' href='http://www.pagelines.com'>PageLines合作夥伴</ a>的進入你的鏈接在這裡和頁腳鏈接將成為合作夥伴或分支機構鏈接。"
 
 #: ../editor/editor.settings.config.php:344
 msgid "Install Class"
@@ -1023,9 +1002,7 @@ msgid ""
 "Use this option to add a class to the &gt;body&lt; element of the website. "
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
-msgstr ""
-"使用此選項可添加式樣到網站&gt;body&lt;標籤。 這可有助於當使用相同的子主題幾個"
-"安裝或子域，並可以用來控制CSS自定義。"
+msgstr "使用此選項可添加式樣到網站&gt;body&lt;標籤。 這可有助於當使用相同的子主題幾個安裝或子域，並可以用來控制CSS自定義。"
 
 #: ../editor/editor.settings.config.php:361
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
@@ -1037,12 +1014,10 @@ msgstr "重置全球網站設置"
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
-"Use this button to reset all global settings to their default state. <br/"
-"><strong>Note:</strong> Once you've completed this action, you may want to "
-"publish these changes to your live site."
-msgstr ""
-"使用此按鈕來重置全局所有設置為默認狀態。 <br/><strong>注意：</strong>一旦你完"
-"成了這個動作，你可能要發布這些變化給你實時站點。"
+"Use this button to reset all global settings to their default state. "
+"<br/><strong>Note:</strong> Once you've completed this action, you may want "
+"to publish these changes to your live site."
+msgstr "使用此按鈕來重置全局所有設置為默認狀態。 <br/><strong>注意：</strong>一旦你完成了這個動作，你可能要發布這些變化給你實時站點。"
 
 #: ../editor/editor.settings.config.php:369
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
@@ -1057,9 +1032,7 @@ msgid ""
 "Use this button to reset all settings on the current page back to their "
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
-msgstr ""
-"使用此按鈕將當前頁面上的所有設置重置為默認狀態。<br/><strong>注意：</strong>"
-"一旦你完成了這個動作，你可能要發布這些變化給你實時站點。"
+msgstr "使用此按鈕將當前頁面上的所有設置重置為默認狀態。<br/><strong>注意：</strong>一旦你完成了這個動作，你可能要發布這些變化給你實時站點。"
 
 #: ../editor/editor.settings.config.php:378
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
@@ -1073,9 +1046,7 @@ msgstr "清除所有的CSS/LESS緩存數據。"
 msgid ""
 "Use this button to purge the stored LESS/CSS data. This will also clear "
 "cached pages if wp-super-cache or w3-total-cache are detected."
-msgstr ""
-"使用此按鈕來清除存儲的LESS/CSS數據。這也將清除緩存頁面，如果 wp-super-cache "
-"或 w3-total-cache 已刪除。"
+msgstr "使用此按鈕來清除存儲的LESS/CSS數據。這也將清除緩存頁面，如果 wp-super-cache 或 w3-total-cache 已刪除。"
 
 #: ../editor/editor.settings.config.php:396
 msgid "Standard Options"
@@ -1093,7 +1064,7 @@ msgstr "分離空間 \" \""
 msgid "Templates"
 msgstr "模板"
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
 msgstr "頁面模板"
 
@@ -1131,8 +1102,8 @@ msgstr ""
 
 #: ../editor/editor.templates.php:320
 msgid ""
-"Fill out this form and the current template will be saved for use throughout "
-"your site."
+"Fill out this form and the current template will be saved for use throughout"
+" your site."
 msgstr ""
 
 #: ../editor/editor.templates.php:322
@@ -1247,16 +1218,12 @@ msgstr "額外的字體"
 
 #: ../editor/editor.typography.php:165
 msgid ""
-"<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">Google fonts</a> to your sites using this option.</p><p>For example, to "
-"add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
-"Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
-"p>"
-msgstr ""
-"<p>添加額外的<a href=\"http://www.google.com/fonts\" target=\"_blank\">谷歌字"
-"體</a>在您的網站使用此選項，。</p><p>例如，添加 \"Yellowtail\" 和 \"Lato Bold"
-"\"，請輸入：<strong>Yellowtail|Lato:700</strong>。</p><p>然後，您可以參考這些"
-"字體自定義CSS。</p>"
+"<p>Add additional <a href=\"http://www.google.com/fonts\" "
+"target=\"_blank\">Google fonts</a> to your sites using this "
+"option.</p><p>For example, to add \"Yellowtail\" and \"Lato Bold\" you would"
+" enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference "
+"these fonts in custom CSS.</p>"
+msgstr "<p>添加額外的<a href=\"http://www.google.com/fonts\" target=\"_blank\">谷歌字體</a>在您的網站使用此選項，。</p><p>例如，添加 \"Yellowtail\" 和 \"Lato Bold\"，請輸入：<strong>Yellowtail|Lato:700</strong>。</p><p>然後，您可以參考這些字體自定義CSS。</p>"
 
 #: ../editor/editor.typography.php:170
 msgid "Extra Google Fonts"
@@ -1473,8 +1440,7 @@ msgid "Theme Options"
 msgstr "主題選項"
 
 #: ../editor/panel.themes.php:127
-msgid ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
+msgid " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
 msgstr ""
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
@@ -1522,44 +1488,42 @@ msgstr "訪問%s的網站"
 msgid "Close"
 msgstr "關閉"
 
-#: ../includes/deprecated.php:268
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
-"%3$s instead."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use"
+" %3$s instead."
 msgstr ""
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:274
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
-"no alternative available."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with"
+" no alternative available."
 msgstr ""
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr "沒有圖片"
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
 msgstr "添加新"
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
 msgstr "編輯"
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
 msgstr "視圖"
 
 #: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
-msgstr ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn "
+"dust%s.*/"
+msgstr "%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/"
 
 #: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
@@ -1573,8 +1537,8 @@ msgstr "錯誤在 %s LESS代碼：%s"
 #: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
-"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
-"unicorn dust%s.*/"
+"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of"
+" unicorn dust%s.*/"
 msgstr ""
 
 #: ../includes/lib.editor.php:72
@@ -1598,9 +1562,7 @@ msgstr "下一個條目&rarr;"
 msgid ""
 "<ul class='inline-list'>Please select a nav menu for this area in the <a "
 "href='%s'>WordPress menu admin</a>.</ul>"
-msgstr ""
-"<ul class='inline-list'>請選擇此區域的導航菜單<a href='%s'>WordPress的菜單管"
-"理</a>。</ul>"
+msgstr "<ul class='inline-list'>請選擇此區域的導航菜單<a href='%s'>WordPress的菜單管理</a>。</ul>"
 
 #: ../includes/lib.elements.php:272
 msgid "edit"
@@ -1684,9 +1646,7 @@ msgstr "列網站描述"
 msgid ""
 "If you use the default display of the columnizer, this field is used as a "
 "description of your company. You may want to add your address or links."
-msgstr ""
-"如果您使用的默認顯示Columnizer，作為這這一字段描述你的公司。您可能要添加您的"
-"地址或鏈接。"
+msgstr "如果您使用的默認顯示Columnizer，作為這這一字段描述你的公司。您可能要添加您的地址或鏈接。"
 
 #: ../sections/columnizer/section.php:100
 msgid "Get A Sidebars Plugin"
@@ -1699,8 +1659,8 @@ msgstr ""
 #: ../sections/columnizer/section.php:102
 msgid ""
 "We have detected that you don't either the Custom Sidebars or Sidebar "
-"Manager plugins installed. We recommend you install a plugin that allows you "
-"to create custom widgetized areas on demand."
+"Manager plugins installed. We recommend you install a plugin that allows you"
+" to create custom widgetized areas on demand."
 msgstr ""
 
 #: ../sections/columnizer/section.php:147
@@ -1721,7 +1681,8 @@ msgstr "標籤"
 msgid "Categories"
 msgstr "分類"
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr "更多信息"
 
@@ -1738,9 +1699,7 @@ msgid ""
 "<strong>Note</strong><br/> Post types for this section must have \"featured "
 "images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
 "to create custom post types for use with Flipper."
-msgstr ""
-"<strong>注意</strong><br/>文章類型對於本Section必須有\"特色圖片\"啟用並發佈。"
-"<br/><strong>提示</strong><br/>使用一個插件創建自定義文章類型Flipper使用。"
+msgstr "<strong>注意</strong><br/>文章類型對於本Section必須有\"特色圖片\"啟用並發佈。<br/><strong>提示</strong><br/>使用一個插件創建自定義文章類型Flipper使用。"
 
 #: ../sections/flipper/section.php:69
 msgid "Max Number of Posts Shown"
@@ -1779,26 +1738,17 @@ msgstr "Flipper Meta"
 #: ../sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>"
-"[post_comments]</strong> - Link to post comments</li><li><strong>"
-"[post_author_posts_link]</strong> - Author and link to archive</"
-"li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
-msgstr ""
-"使用簡碼，控制在你Meta的動態信息。例如您可以使用簡：<ul><li><strong> "
-"[post_categories] </strong>  - 分類列表</li><li><strong>[post_edit]</"
-"strong>  - 管理員文章編輯鏈接</li><li><strong>[post_tags]</strong>  - 文章標"
-"籤列表</li><li><strong>[post_comments]</strong>  - 鏈接發表評論</"
-"li><li><strong>[post_author_posts_link]</strong>  - 作者和鏈接到存檔</"
-"li><li><strong>[post_author_link]</strong>  - 作者網址鏈接</li><li><strong>"
-"[post_author]</strong>  - 文章作者沒有鏈接</li><li><strong>[post_time]</"
-"strong>  - 文章時間</li><li><strong>[post_date]</strong>  - 文章日期</"
-"li><li><strong>[post_type]</strong>  - 文章類型</li></ul>"
+"use are: <ul><li><strong>[post_categories]</strong> - List of "
+"categories</li><li><strong>[post_edit]</strong> - Link for admins to edit "
+"the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
+msgstr "使用簡碼，控制在你Meta的動態信息。例如您可以使用簡：<ul><li><strong> [post_categories] </strong>  - 分類列表</li><li><strong>[post_edit]</strong>  - 管理員文章編輯鏈接</li><li><strong>[post_tags]</strong>  - 文章標籤列表</li><li><strong>[post_comments]</strong>  - 鏈接發表評論</li><li><strong>[post_author_posts_link]</strong>  - 作者和鏈接到存檔</li><li><strong>[post_author_link]</strong>  - 作者網址鏈接</li><li><strong>[post_author]</strong>  - 文章作者沒有鏈接</li><li><strong>[post_time]</strong>  - 文章時間</li><li><strong>[post_date]</strong>  - 文章日期</li><li><strong>[post_type]</strong>  - 文章類型</li></ul>"
 
 #: ../sections/flipper/section.php:117
 msgid "Total Posts Loaded"
@@ -1812,8 +1762,7 @@ msgstr "Meta關鍵字"
 msgid ""
 "Select only posts which have a certain meta key and corresponding meta "
 "value. Useful for featured posts, or similar."
-msgstr ""
-"只選擇文章具有一定的meta關鍵字和相應的meta值。有用的特色文章，或相似的。"
+msgstr "只選擇文章具有一定的meta關鍵字和相應的meta值。有用的特色文章，或相似的。"
 
 #: ../sections/flipper/section.php:133
 msgid "Meta Key Value"
@@ -2378,10 +2327,7 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
-msgstr ""
-"作為一個固定在您的網站頂部的導航欄，使用該功能可以添加導航欄Section。<br/"
-"><br/><strong>注：</strong> <br/> 1.唯一可見：固定模式。<br/>2.圖片高度收縮的"
-"最大29px。"
+msgstr "作為一個固定在您的網站頂部的導航欄，使用該功能可以添加導航欄Section。<br/><br/><strong>注：</strong> <br/> 1.唯一可見：固定模式。<br/>2.圖片高度收縮的最大29px。"
 
 #: ../sections/navbar/section.php:293
 msgid "MENU"
@@ -2467,18 +2413,16 @@ msgstr "直接預覽 <em>對於</em> &quot;特殊文章類型&quot; 但不可用
 
 #: ../sections/noposts/section.php:23
 msgid ""
-"Sorry, direct previewing of special post types such as <strong>features</"
-"strong> or <strong>boxes</strong> is unavailable. This WordPress "
-"functionality is new and rapidly developing, so it should be available soon."
-msgstr ""
-"對不起，直接預覽的功能，如特殊文章類型如<strong>特色圖片</strong>或<strong>盒"
-"子</strong>是不可用的。這WordPress的功能是新的，快速發展的，所以它應該是很快"
-"面市。"
+"Sorry, direct previewing of special post types such as "
+"<strong>features</strong> or <strong>boxes</strong> is unavailable. This "
+"WordPress functionality is new and rapidly developing, so it should be "
+"available soon."
+msgstr "對不起，直接預覽的功能，如特殊文章類型如<strong>特色圖片</strong>或<strong>盒子</strong>是不可用的。這WordPress的功能是新的，快速發展的，所以它應該是很快面市。"
 
 #: ../sections/noposts/section.php:25
 msgid ""
-"To preview a &quot;custom post type&quot; just view a page with that &quot;"
-"section&quot; on it."
+"To preview a &quot;custom post type&quot; just view a page with that "
+"&quot;section&quot; on it."
 msgstr "預覽 &quot;自定義文章類型&quot; 與查看頁面在 &quot;Section&quot; 上。"
 
 #: ../sections/noposts/section.php:30
@@ -2680,21 +2624,15 @@ msgstr "文章佈局模式"
 
 #: ../sections/postloop/section.php:57
 msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine"
+" Layout Mode</strong><br/> Magazine layout mode makes use of post "
 "<strong>clips</strong>. These are summarized excerpts shown at half the "
 "width of the main content column.<br/>  <strong>Note:</strong> There is an "
 "option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
-msgstr ""
-"兩個雜誌或博客的佈局模式之間選擇。<br/><br/> <strong>雜誌佈局模式</"
-"strong><br/>雜誌佈局模式使用文章<strong>剪輯</strong>。在這些概述的主要內容列"
-"的寬度的一半顯示摘錄。<br/>  <strong>注意：</strong>有一個選項用於顯示"
-"<strong>全寬</strong>文章在您的主<strong>文章</strong>頁面。<br/><br/"
-"><strong>博客佈局模式</strong><br/>這是您的經典博客佈局。文章跨越的主要內容列"
-"的整個寬度上。"
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/>"
+" This is your classical post list layout. Posts span the entire width of the"
+" main content column."
+msgstr "兩個雜誌或博客的佈局模式之間選擇。<br/><br/> <strong>雜誌佈局模式</strong><br/>雜誌佈局模式使用文章<strong>剪輯</strong>。在這些概述的主要內容列的寬度的一半顯示摘錄。<br/>  <strong>注意：</strong>有一個選項用於顯示<strong>全寬</strong>文章在您的主<strong>文章</strong>頁面。<br/><br/><strong>博客佈局模式</strong><br/>這是您的經典博客佈局。文章跨越的主要內容列的整個寬度上。"
 
 #: ../sections/postloop/section.php:66
 msgid "Number of Full Width Posts? (Mag. Mode)"
@@ -2709,9 +2647,7 @@ msgid ""
 "Select the number of posts you would like shown at the full width of the "
 "main content column in magazine layout mode (the rest will be half-width "
 "post <strong>clips</strong>)."
-msgstr ""
-"選擇您想在全寬度的主要內容列在雜誌版面模式（其餘的將一半寬度文章<strong>剪輯"
-"</strong>）所示的文章數量。"
+msgstr "選擇您想在全寬度的主要內容列在雜誌版面模式（其餘的將一半寬度文章<strong>剪輯</strong>）所示的文章數量。"
 
 #: ../sections/postloop/section.php:75
 msgid "Show Full Post Content"
@@ -2729,25 +2665,16 @@ msgstr "Meta配置"
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
-"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to "
-"edit the post</li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
-msgstr ""
-"使用簡碼，控制在你Metabar的動態信息。例如您可以使用簡：<ul><li><strong> "
-"[post_categories] </strong>  - 分類列表</li><li><strong>[post_edit]</"
-"strong>  - 管理員文章編輯鏈接</li><li><strong>[post_tags]</strong>  - 文章標"
-"籤列表</li><li><strong>[post_comments]</strong>  - 鏈接發表評論</"
-"li><li><strong>[post_author_posts_link]</strong>  - 作者和鏈接到存檔</"
-"li><li><strong>[post_author_link]</strong>  - 作者網址鏈接</li><li><strong>"
-"[post_author]</strong>  - 文章作者沒有鏈接</li><li><strong>[post_time]</"
-"strong>  - 文章時間</li><li><strong>[post_date]</strong>  - 文章日期</"
-"li><li><strong>[post_type]</strong>  - 文章類型</li></ul>"
+"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to"
+" edit the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
+msgstr "使用簡碼，控制在你Metabar的動態信息。例如您可以使用簡：<ul><li><strong> [post_categories] </strong>  - 分類列表</li><li><strong>[post_edit]</strong>  - 管理員文章編輯鏈接</li><li><strong>[post_tags]</strong>  - 文章標籤列表</li><li><strong>[post_comments]</strong>  - 鏈接發表評論</li><li><strong>[post_author_posts_link]</strong>  - 作者和鏈接到存檔</li><li><strong>[post_author_link]</strong>  - 作者網址鏈接</li><li><strong>[post_author]</strong>  - 文章作者沒有鏈接</li><li><strong>[post_time]</strong>  - 文章時間</li><li><strong>[post_date]</strong>  - 文章日期</li><li><strong>[post_type]</strong>  - 文章類型</li></ul>"
 
 #: ../sections/postloop/section.php:92
 msgid "Select Meta Mode"
@@ -2801,8 +2728,8 @@ msgstr "全寬縮略圖佈局"
 
 #: ../sections/postloop/section.php:139
 msgid ""
-"Use this option to configure how thumbs will be shown in full-width posts on "
-"your blog page."
+"Use this option to configure how thumbs will be shown in full-width posts on"
+" your blog page."
 msgstr "使用此選項來配置將如何顯示縮略圖在你的博客頁面上的全寬文章。"
 
 #: ../sections/postloop/section.php:154
@@ -2813,9 +2740,7 @@ msgstr "剪輯縮略圖佈局的"
 msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
-msgstr ""
-"使用此選項來配置將如何顯示縮略圖在剪輯。這些較小的的<strong>雜誌</strong>在你"
-"的博客頁面的風格摘錄。"
+msgstr "使用此選項來配置將如何顯示縮略圖在剪輯。這些較小的的<strong>雜誌</strong>在你的博客頁面的風格摘錄。"
 
 #: ../sections/postloop/section.php:161
 msgid "Hide thumbs?"
@@ -2859,8 +2784,7 @@ msgstr "摘錄<strong>繼續閱讀</strong>文本"
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
-msgstr ""
-"該文本將作為您的全篇文章的鏈接查看文章時在您的文章頁面（當摘錄開啟時）。"
+msgstr "該文本將作為您的全篇文章的鏈接查看文章時在您的文章頁面（當摘錄開啟時）。"
 
 #: ../sections/postloop/section.php:197
 msgid "Number of words."
@@ -2886,14 +2810,11 @@ msgstr "允許標籤在摘錄"
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
-"<br/>An example of allowed tags could be: <strong>&lt;p&gt;&lt;br&gt;&lt;"
-"a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
-"strong> to disallow all tags."
-msgstr ""
-"默認情況下，WordPress的剝離所有HTML標籤摘錄。您可以使用此選項，允許特定的標"
-"籤。只需輸入允許標籤在這一字段。 <br/>允許標籤的一個例子可能是: <strong>&lt;"
-"p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> <strong>注意：</strong> 輸入一"
-"個點號<strong>.</strong>禁止所有標籤."
+"<br/>An example of allowed tags could be: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> "
+"<strong>Note:</strong> Enter a period <strong>.</strong> to disallow all "
+"tags."
+msgstr "默認情況下，WordPress的剝離所有HTML標籤摘錄。您可以使用此選項，允許特定的標籤。只需輸入允許標籤在這一字段。 <br/>允許標籤的一個例子可能是: <strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> <strong>注意：</strong> 輸入一個點號<strong>.</strong>禁止所有標籤."
 
 #: ../sections/postsinfo/section.php:29
 msgid "Search results for"
@@ -3098,15 +3019,12 @@ msgstr "滑動額外的元素"
 #: ../sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
-msgstr ""
-"添加額外的Revolution Slider標記這裡。Rev滑塊基於Revolution Slider，一個jQuery"
-"插件。它支持廣泛的功能，包括視頻嵌入和額外的轉換，如果你能處理HTML。點擊<a "
-"href=\"http://www.orbis-ingenieria.com/code/documentation/documentation.html"
-"\" target=\"_blank\">文檔這裡</ a>。"
+"Slider, a jQuery plugin. It supports a wide array of functionality including"
+" video embeds and additional transitions if you can handle HTML. Check out "
+"the <a href=\"http://www.orbis-"
+"ingenieria.com/code/documentation/documentation.html\" "
+"target=\"_blank\">docs here</a>."
+msgstr "添加額外的Revolution Slider標記這裡。Rev滑塊基於Revolution Slider，一個jQuery插件。它支持廣泛的功能，包括視頻嵌入和額外的轉換，如果你能處理HTML。點擊<a href=\"http://www.orbis-ingenieria.com/code/documentation/documentation.html\" target=\"_blank\">文檔這裡</ a>。"
 
 #: ../sections/revslider/section.php:284
 msgid "Read More"
@@ -3130,8 +3048,8 @@ msgstr "文章（RSS）"
 
 #: ../sections/sharebar/section.php:30
 msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
+"You have no shares setup, please look at Global Options > Social & Local; or"
+" deactivate the Sharebar from the Blog Post Template."
 msgstr ""
 
 #: ../sections/sharebar/section.php:30
@@ -3170,9 +3088,7 @@ msgstr "Starbar總數（數字）"
 msgid ""
 "This number will be used to calculate the percent of the bar filled. The "
 "StarBar values will be shown as a percentage of this value. Default is 100."
-msgstr ""
-"該數字將被用於計算百分數的填充欄。StarBar值會顯示這個值的百分比。默認值是"
-"100。"
+msgstr "該數字將被用於計算百分數的填充欄。StarBar值會顯示這個值的百分比。默認值是100。"
 
 #: ../sections/starbars/section.php:52 ../sections/starbars/section.php:221
 msgid "Starbar Modifier (Text Added to Stats)"
@@ -3240,9 +3156,7 @@ msgstr "內邊距<small>(CSS簡寫)</small>"
 msgid ""
 "This option uses CSS padding shorthand. For example, use \"15px 30px\" for "
 "15px padding top/bottom, and 30 left/right."
-msgstr ""
-"此選項使用CSS填充簡寫。例如，可以使用 \"15px 30px\"，15px的填充頂部/底部，左/"
-"右30。"
+msgstr "此選項使用CSS填充簡寫。例如，可以使用 \"15px 30px\"，15px的填充頂部/底部，左/右30。"
 
 #: ../sections/textbox/section.php:52
 msgid "Textbox Font Size"
@@ -3287,9 +3201,7 @@ msgid ""
 "To set up social, you need to set your global social user names under "
 "\"options\" > \"social &amp; local\"<br/><br/> After you have done that, "
 "these values will fill automatically."
-msgstr ""
-"要設置社交，你需要設置你的全局社交下的用戶名 \"選項\" > \"社交 &amp; 本地"
-"\"<br/><br/> 當你這樣做，這些值會自動填寫。"
+msgstr "要設置社交，你需要設置你的全局社交下的用戶名 \"選項\" > \"社交 &amp; 本地\"<br/><br/> 當你這樣做，這些值會自動填寫。"
 
 #: ../sections/watermark/section.php:83
 msgid "was created with"
@@ -3313,8 +3225,8 @@ msgstr ""
 
 #: ../editor/js/pl.ajax.js:173
 msgid ""
-"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
-"off.)</p>"
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is"
+" off.)</p>"
 msgstr ""
 
 #: ../editor/js/pl.ajax.js:181
@@ -3353,9 +3265,10 @@ msgstr ""
 #: ../editor/js/pl.editor.js:475
 msgid ""
 "<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
-"system for your website. <br/>Watch the video below for help getting started."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+"system for your website. <br/>Watch the video below for help getting "
+"started.</p><iframe width='700' height='420' "
+"src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' "
+"allowfullscreen></iframe>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:682
@@ -3372,14 +3285,14 @@ msgstr ""
 
 #: ../editor/js/pl.editor.js:690
 msgid ""
-"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
-"<br/>"
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro "
+"Membership.<br/>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:744
 msgid ""
-"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
-"this page.</p>"
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from"
+" this page.</p>"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:112
@@ -3406,8 +3319,16 @@ msgstr ""
 msgid "Syncs with element."
 msgstr ""
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
@@ -3417,105 +3338,126 @@ msgstr ""
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
-"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
-"add_image_size'>The Codex</a>"
+"sizes see: <a "
+"href='http://codex.wordpress.org/Function_Reference/add_image_size'>The "
+"Codex</a>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
 msgstr "選擇字體"
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:950
+#: ../editor/js/pl.optpanel.js:951
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:951
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:953
+#: ../editor/js/pl.optpanel.js:954
 msgid "Resetting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:954
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr "全局選項"
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
 msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
+msgstr "上傳圖片"
 
 #: ../editor/js/pl.saving.js:15
 msgid "Saving."
