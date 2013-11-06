@@ -1,37 +1,31 @@
-#
+# 
 # Translators:
-# JureStusek <jure.stusek@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-03 19:59-0000\n"
-"Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/"
-"pagelines-dms/language/sl_SI/)\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-06 09:09+0000\n"
+"Last-Translator: Dionizio Bonfim Bach <translations@djio.com.br>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/pagelines-dms/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl_SI\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"lang\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
 #: ../comments.php:23
 msgid "Comments are closed."
-msgstr "Komentiranje je onemogočeno."
+msgstr ""
 
 #: ../comments.php:38
 msgid ""
 "This post is password protected. Enter the password to view any comments."
-msgstr "Ta objava je zaščitena. Vnesite geslo, da bi videli komentarje."
+msgstr ""
 
 #: ../comments.php:44
 #, php-format
@@ -39,16 +33,14 @@ msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: ../comments.php:52
 msgid "<span class='meta-nav'>&larr;</span> Older Comments"
-msgstr "<span class='meta-nav'>&larr;</span> Starejši komentarji"
+msgstr ""
 
 #: ../comments.php:53
 msgid "Newer Comments <span class='meta-nav'>&rarr;</span>"
-msgstr "Novejši komentarji <span class='meta-nav'>&rarr;</span>"
+msgstr ""
 
 #: ../admin/admin.actions.php:18
 msgid "DMS Tools"
@@ -66,10 +58,6 @@ msgid ""
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
 msgstr ""
-"<div class='config-error'><h2>Napaka verzije PHP</h2>Kot kaže uporabljate "
-"PHP verzije: <strong>%s</strong>. Da bi uporabljali ta sistem potrebujete "
-"PHP verzije <strong>5.0</strong> ali boljše...<br/><br/> A ne skrbite! "
-"Naročite svojemu gostitelju hitro posodobitev.</div>"
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -89,8 +77,8 @@ msgstr ""
 
 #: ../admin/admin.editor.php:32
 msgid ""
-"Below are secondary fallbacks to the DMS code editors. You may need these if "
-"you create errors or issues on the front end."
+"Below are secondary fallbacks to the DMS code editors. You may need these if"
+" you create errors or issues on the front end."
 msgstr ""
 
 #: ../admin/admin.editor.php:36
@@ -130,11 +118,11 @@ msgstr ""
 
 #: ../editor/editor.account.php:207
 msgid "Your Account"
-msgstr "Vaš račun"
+msgstr ""
 
 #: ../editor/editor.account.php:213
 msgid "Getting Started"
-msgstr "Začetki"
+msgstr ""
 
 #: ../editor/editor.account.php:219
 msgid "Support"
@@ -146,8 +134,8 @@ msgstr ""
 
 #: ../editor/editor.account.php:443
 msgid ""
-"For every friend you invite who joins and installs PageLines, we'll give you "
-"and your friend 50 karma points! Karma points can be redeemed as cash with "
+"For every friend you invite who joins and installs PageLines, we'll give you"
+" and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
 msgstr ""
 
@@ -218,7 +206,7 @@ msgstr ""
 
 #: ../editor/editor.account.php:581
 msgid "Deactivate"
-msgstr "Deaktiviraj"
+msgstr ""
 
 #: ../editor/editor.account.php:591
 msgid "PageLines Account"
@@ -249,7 +237,8 @@ msgid "PageLines account not added or incorrect."
 msgstr ""
 
 #: ../editor/editor.account.php:625
-msgid "Add account to configure PageLines APIs, karma system and store access."
+msgid ""
+"Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
 
 #: ../editor/editor.account.php:631
@@ -298,12 +287,12 @@ msgstr ""
 
 #: ../editor/editor.actions.php:332
 msgid "Unsupported file type!"
-msgstr "Nepodprt tip datoteke!"
+msgstr ""
 
 #: ../editor/editor.actions.php:335
 #, php-format
 msgid "Upload Error: %s"
-msgstr "Napaka med nalaganjem: %s"
+msgstr ""
 
 #: ../editor/editor.actions.php:375
 msgid "Install DMS Utilities"
@@ -340,19 +329,19 @@ msgstr ""
 
 #: ../editor/editor.actions.php:494
 msgid "Select This Image For Option"
-msgstr "Izberi to sliko za opcijo"
+msgstr ""
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
-msgstr "Medijska knjižnica"
+msgstr ""
 
 #: ../editor/editor.areas.php:57 ../editor/editor.interface.php:541
 msgid "Delete"
-msgstr "Izbriši"
+msgstr ""
 
 #: ../editor/editor.areas.php:59 ../editor/editor.interface.php:540
 msgid "Clone"
-msgstr "Kloniraj"
+msgstr ""
 
 #: ../editor/editor.areas.php:61
 msgid "Move"
@@ -361,7 +350,7 @@ msgstr ""
 #: ../editor/editor.areas.php:63 ../editor/editor.interface.php:539
 #: ../includes/class.objects.php:109
 msgid "Edit"
-msgstr "Uredi"
+msgstr ""
 
 #: ../editor/editor.color.php:186
 msgid "Color <span class=\"spamp\">&amp;</span> BG"
@@ -392,7 +381,7 @@ msgstr ""
 
 #: ../editor/editor.color.php:232 ../sections/pl_area/section.php:128
 msgid "Background Image"
-msgstr "Slika ozadja"
+msgstr ""
 
 #: ../editor/editor.color.php:241
 msgid "Page Background Image"
@@ -426,11 +415,11 @@ msgstr ""
 
 #: ../editor/editor.color.php:272
 msgid "Repeat Horizontally"
-msgstr "Ponovi horizontalno"
+msgstr ""
 
 #: ../editor/editor.color.php:273
 msgid "Repeat Vertically"
-msgstr "Ponovi vertikalno"
+msgstr ""
 
 #: ../editor/editor.color.php:281
 msgid "Vertical Background Position in Percent"
@@ -442,15 +431,15 @@ msgstr ""
 
 #: ../editor/editor.color.php:303
 msgid "Set Background Attachment"
-msgstr "Nastavi prilogo ozadja"
+msgstr ""
 
 #: ../editor/editor.color.php:306
 msgid "Scroll"
-msgstr "Premik"
+msgstr ""
 
 #: ../editor/editor.color.php:307
 msgid "Fixed"
-msgstr "Fiksn"
+msgstr ""
 
 #: ../editor/editor.importexport.php:18
 msgid "Import + Export"
@@ -499,8 +488,7 @@ msgstr ""
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
-"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
-"may want to publish these changes to your live site."
+"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you may want to publish these changes to your live site."
 msgstr ""
 
 #: ../editor/editor.importexport.php:108
@@ -517,7 +505,7 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:137 ../editor/panel.settings.php:51
 msgid "Global Settings"
-msgstr "Splošne nastavitve"
+msgstr ""
 
 #: ../editor/editor.importexport.php:141
 msgid "Export Site Global Settings"
@@ -525,8 +513,8 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:143
 msgid ""
-"This will export your sites global settings. This includes everything in the "
-"options panel, as well as settings directed at sections in your \"global\" "
+"This will export your sites global settings. This includes everything in the"
+" options panel, as well as settings directed at sections in your \"global\" "
 "regions like your header and footer."
 msgstr ""
 
@@ -559,8 +547,8 @@ msgstr ""
 msgid ""
 "Check this to publish your site configuration as a theme configuration file "
 "in your themes root directory. When a user activates your theme it will ask "
-"if it can overwrite their settings to attain a desired initial experience to "
-"the theme."
+"if it can overwrite their settings to attain a desired initial experience to"
+" the theme."
 msgstr ""
 
 #: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
@@ -749,7 +737,7 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:35
 msgid "Advanced"
-msgstr "Napredno"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:42
 msgid "Resets"
@@ -821,8 +809,8 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
-"Enter the full URL location of your custom <strong>favicon</strong> which is "
-"visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
+"Enter the full URL location of your custom <strong>favicon</strong> which is"
+" visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
 msgstr ""
 
@@ -852,40 +840,37 @@ msgstr ""
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
-"Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
-"gif or .png format."
+"Touch Products. It is an image approximately 144px by 144px in either .jpg, "
+".gif or .png format."
 msgstr ""
 
 #: ../editor/editor.settings.config.php:211
 msgid "Your Twitter Username"
-msgstr "Twitter uporabniško ime"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:212
 msgid "Twitter Integration"
-msgstr "Vgradnja Twitterja"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:213
 msgid ""
 "This places your Twitter feed on the site. Leave blank if you want to hide "
 "or not use."
 msgstr ""
-"To postavi Twitter feed na vašo stran. Pustite prazno če tega ne želite."
 
 #: ../editor/editor.settings.config.php:225
 msgid "Your Facebook Page Name"
-msgstr "Ime Facebook strani"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:226
 msgid "Facebook Page"
-msgstr "Facebook stran"
+msgstr ""
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
-"Enter the name component of your Facebook page URL. (For example, what comes "
-"after the facebook url: www.facebook.com/[name])"
+"Enter the name component of your Facebook page URL. (For example, what comes"
+" after the facebook url: www.facebook.com/[name])"
 msgstr ""
-"Vnesite ime vaše Facebook strani (Na primer, kar stoji za facebook URLjem: "
-"www.facebook.com/[ime])"
 
 #: ../editor/editor.settings.config.php:232
 msgid "Your Facebook App ID"
@@ -1029,9 +1014,9 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
-"Use this button to reset all global settings to their default state. <br/"
-"><strong>Note:</strong> Once you've completed this action, you may want to "
-"publish these changes to your live site."
+"Use this button to reset all global settings to their default state. "
+"<br/><strong>Note:</strong> Once you've completed this action, you may want "
+"to publish these changes to your live site."
 msgstr ""
 
 #: ../editor/editor.settings.config.php:369
@@ -1079,9 +1064,9 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
-msgstr "Predloge strani"
+msgstr ""
 
 #: ../editor/editor.templates.php:209
 msgid "Your Templates"
@@ -1117,8 +1102,8 @@ msgstr ""
 
 #: ../editor/editor.templates.php:320
 msgid ""
-"Fill out this form and the current template will be saved for use throughout "
-"your site."
+"Fill out this form and the current template will be saved for use throughout"
+" your site."
 msgstr ""
 
 #: ../editor/editor.templates.php:322
@@ -1141,7 +1126,7 @@ msgstr ""
 
 #: ../editor/editor.templates.php:509
 msgid "Default"
-msgstr "Privzeto"
+msgstr ""
 
 #: ../editor/editor.templates.php:510
 msgid "Standard page configuration. (Content and Primary Sidebar.)"
@@ -1187,7 +1172,7 @@ msgstr ""
 
 #: ../editor/editor.typography.php:69
 msgid "Typography"
-msgstr "Tipografija"
+msgstr ""
 
 #: ../editor/editor.typography.php:85
 msgid "Primary Text"
@@ -1229,15 +1214,15 @@ msgstr ""
 
 #: ../editor/editor.typography.php:164
 msgid "Extra Fonts"
-msgstr "Dodatni fonti"
+msgstr ""
 
 #: ../editor/editor.typography.php:165
 msgid ""
-"<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">Google fonts</a> to your sites using this option.</p><p>For example, to "
-"add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
-"Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
-"p>"
+"<p>Add additional <a href=\"http://www.google.com/fonts\" "
+"target=\"_blank\">Google fonts</a> to your sites using this "
+"option.</p><p>For example, to add \"Yellowtail\" and \"Lato Bold\" you would"
+" enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference "
+"these fonts in custom CSS.</p>"
 msgstr ""
 
 #: ../editor/editor.typography.php:170
@@ -1287,7 +1272,7 @@ msgstr ""
 
 #: ../editor/panel.extend.php:41
 msgid "Featured"
-msgstr "Aktualno"
+msgstr ""
 
 #: ../editor/panel.extend.php:48
 msgid "Sections"
@@ -1311,7 +1296,7 @@ msgstr ""
 
 #: ../editor/panel.extend.php:84 ../includes/lib.elements.php:93
 msgid "Search"
-msgstr "Iskanje"
+msgstr ""
 
 #: ../editor/panel.extend.php:99
 msgid "Upload a .zip extension into your PageLines install using this tool."
@@ -1347,7 +1332,7 @@ msgstr ""
 
 #: ../editor/panel.extend.php:192 ../editor/panel.extend.php:195
 msgid "Free!"
-msgstr "Brezplačno!"
+msgstr ""
 
 #: ../editor/panel.extend.php:197
 msgid "<i class=\"icon-sun\"></i> Karma"
@@ -1427,7 +1412,7 @@ msgstr ""
 
 #: ../editor/panel.settings.php:27
 msgid "Settings"
-msgstr "Nastavitve"
+msgstr ""
 
 #: ../editor/panel.settings.php:34 ../editor/panel.settings.php:73
 #: ../editor/panel.settings.php:81
@@ -1455,8 +1440,7 @@ msgid "Theme Options"
 msgstr ""
 
 #: ../editor/panel.themes.php:127
-msgid ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
+msgid " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
 msgstr ""
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
@@ -1469,94 +1453,92 @@ msgstr ""
 
 #: ../includes/class.register.php:358
 msgid "<h2>Unable to fetch from API</h2>"
-msgstr "<h2>Ni bilo mogoče pridobiti iz API</h2>"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:317
 msgid "<span class='editpage sc'>Edit</span>"
-msgstr "<span class='editpage sc'>Uredi</span>"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:367
 msgid "Tagged With: "
-msgstr "Označeno z:"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:391
 msgid "Type: "
-msgstr "Tip:"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:422
 msgid "Add Comment"
-msgstr "Dodaj komentar"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:423
 msgid "<span class='num'>1</span> Comment"
-msgstr "<span class='num'>1</span> komentar"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:424
 msgid "<span class='num'>%</span> Comments"
-msgstr "<span class='num'>%</span> komentarjev"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:501
 #, php-format
 msgid "Visit %s&#8217;s website"
-msgstr "Obišči spletno stran osebe %s&#8217;"
+msgstr ""
 
 #: ../includes/class.shortcodes.php:1342 ../editor/js/pl.xlist.js:119
 msgid "Close"
-msgstr "Zapri"
-
-#: ../includes/deprecated.php:268
-#, php-format
-msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
-"%3$s instead."
 msgstr ""
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
-"no alternative available."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use"
+" %3$s instead."
 msgstr ""
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:274
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with"
+" no alternative available."
+msgstr ""
+
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr ""
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
-msgstr "Dodaj novo"
+msgstr ""
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
-msgstr "Uredi"
+msgstr ""
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
-msgstr "Poglej"
+msgstr ""
 
 #: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn "
+"dust%s.*/"
 msgstr ""
-"%s/* CSS je bil zbran ob %s in je rabil %s sekund ter %sMB samorogovega prahu"
-"%s.*/"
 
 #: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
-msgstr "Napaka pri zbiranju LESS!"
+msgstr ""
 
 #: ../includes/less.legacy.php:512
 #, php-format
 msgid "Error in %s Less code: %s"
-msgstr "Napaka v %s Less koda: %s"
+msgstr ""
 
 #: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
-"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
-"unicorn dust%s.*/"
+"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of"
+" unicorn dust%s.*/"
 msgstr ""
 
 #: ../includes/lib.editor.php:72
@@ -1584,11 +1566,11 @@ msgstr ""
 
 #: ../includes/lib.elements.php:272
 msgid "edit"
-msgstr "uredi"
+msgstr ""
 
 #: ../includes/lib.head.php:65
 msgid "Google Profile URL"
-msgstr "URL Google profila"
+msgstr ""
 
 #: ../includes/lib.head.php:299
 #, php-format
@@ -1612,15 +1594,15 @@ msgstr ""
 #: ../includes/lib.utils.php:140
 #, php-format
 msgid "Configure %s <i class=\"icon-arrow-right\"></i>"
-msgstr "Nastavi %s <i class=\"icon-arrow-right\"></i>"
+msgstr ""
 
 #: ../includes/lib.utils.php:144
 msgid "Configure this section"
-msgstr "Nastavi ta oddelek"
+msgstr ""
 
 #: ../includes/library.pagelines.php:14
 msgid "Dashboard"
-msgstr "Nadzorna plošča"
+msgstr ""
 
 #: ../sections/columnizer/section.php:52
 msgid "Columnizer Configuration"
@@ -1677,8 +1659,8 @@ msgstr ""
 #: ../sections/columnizer/section.php:102
 msgid ""
 "We have detected that you don't either the Custom Sidebars or Sidebar "
-"Manager plugins installed. We recommend you install a plugin that allows you "
-"to create custom widgetized areas on demand."
+"Manager plugins installed. We recommend you install a plugin that allows you"
+" to create custom widgetized areas on demand."
 msgstr ""
 
 #: ../sections/columnizer/section.php:147
@@ -1692,14 +1674,15 @@ msgstr ""
 #: ../sections/columnizer/section.php:197 ../sections/rapidtabs/section.php:56
 #: ../sections/rapidtabs/section.php:138
 msgid "Tags"
-msgstr "Oznake"
+msgstr ""
 
 #: ../sections/columnizer/section.php:208
 #: ../sections/sb_primary/section.php:42
 msgid "Categories"
 msgstr ""
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr ""
 
@@ -1755,16 +1738,16 @@ msgstr ""
 #: ../sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>"
-"[post_comments]</strong> - Link to post comments</li><li><strong>"
-"[post_author_posts_link]</strong> - Author and link to archive</"
-"li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
+"use are: <ul><li><strong>[post_categories]</strong> - List of "
+"categories</li><li><strong>[post_edit]</strong> - Link for admins to edit "
+"the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
 #: ../sections/flipper/section.php:117
@@ -1795,16 +1778,16 @@ msgstr ""
 
 #: ../sections/flipper/section.php:219
 msgid " / View All"
-msgstr "/ Poglej vse"
+msgstr ""
 
 #: ../sections/flipper/section.php:224
 msgid " / View Blog"
-msgstr "/ Poglej blog"
+msgstr ""
 
 #: ../sections/flipper/section.php:266
 #: ../sections/postloop/class.posts.php:505
 msgid "View"
-msgstr "Poglej"
+msgstr ""
 
 #: ../sections/hero/section.php:27
 msgid "Hero Settings"
@@ -1861,48 +1844,48 @@ msgstr ""
 #: ../sections/hero/section.php:121 ../sections/masthead/section.php:118
 #: ../sections/masthead/section.php:300 ../sections/masthead/section.php:335
 msgid "Select Button Color"
-msgstr "Izberi barvo gumba"
+msgstr ""
 
 #: ../sections/hero/section.php:127 ../sections/masthead/section.php:302
 #: ../sections/masthead/section.php:337 ../sections/navbar/section.php:65
 #: ../sections/navbar/section.php:370 ../sections/navbar/section.php:382
 msgid "Blue"
-msgstr "Modra"
+msgstr ""
 
 #: ../sections/hero/section.php:128 ../sections/masthead/section.php:303
 #: ../sections/masthead/section.php:338 ../sections/navbar/section.php:67
 #: ../sections/navbar/section.php:372 ../sections/navbar/section.php:384
 msgid "Orange"
-msgstr "Oranžna"
+msgstr ""
 
 #: ../sections/hero/section.php:129 ../sections/masthead/section.php:304
 #: ../sections/masthead/section.php:339 ../sections/navbar/section.php:68
 #: ../sections/navbar/section.php:373 ../sections/navbar/section.php:385
 msgid "Red"
-msgstr "Rdeča"
+msgstr ""
 
 #: ../sections/hero/section.php:130 ../sections/masthead/section.php:305
 #: ../sections/masthead/section.php:340
 msgid "Green"
-msgstr "Zelena"
+msgstr ""
 
 #: ../sections/hero/section.php:131 ../sections/masthead/section.php:306
 #: ../sections/masthead/section.php:341
 msgid "Light Blue"
-msgstr "Svetlo modra"
+msgstr ""
 
 #: ../sections/hero/section.php:132 ../sections/masthead/section.php:307
 #: ../sections/masthead/section.php:342
 msgid "Grey"
-msgstr "Siva"
+msgstr ""
 
 #: ../sections/hero/section.php:166
 msgid "The Hero!"
-msgstr "Hero!"
+msgstr ""
 
 #: ../sections/hero/section.php:167
 msgid "Now just set up your Hero section options"
-msgstr "Zdaj nastavite še možnosti Hero oddelka"
+msgstr ""
 
 #: ../sections/highlight/section.php:29
 msgid "Select Format"
@@ -2039,7 +2022,7 @@ msgstr ""
 
 #: ../sections/ibox/section.php:162 ../sections/ibox/section.php:276
 msgid "More"
-msgstr "Več"
+msgstr ""
 
 #: ../sections/ibox/section.php:271
 msgid "iBox "
@@ -2322,7 +2305,7 @@ msgstr ""
 
 #: ../sections/navbar/section.php:135 ../sections/navbar/section.php:206
 msgid "NavBar"
-msgstr "Navigacija"
+msgstr ""
 
 #: ../sections/navbar/section.php:152 ../sections/navbar/section.php:153
 #: ../sections/navbar/section.php:344 ../sections/navbar/section.php:345
@@ -2348,7 +2331,7 @@ msgstr ""
 
 #: ../sections/navbar/section.php:293
 msgid "MENU"
-msgstr "MENU"
+msgstr ""
 
 #: ../sections/navbar/section.php:346 ../sections/navbar/section.php:355
 msgid "Applies a fixed navigation bar to the top of your site"
@@ -2430,36 +2413,37 @@ msgstr ""
 
 #: ../sections/noposts/section.php:23
 msgid ""
-"Sorry, direct previewing of special post types such as <strong>features</"
-"strong> or <strong>boxes</strong> is unavailable. This WordPress "
-"functionality is new and rapidly developing, so it should be available soon."
+"Sorry, direct previewing of special post types such as "
+"<strong>features</strong> or <strong>boxes</strong> is unavailable. This "
+"WordPress functionality is new and rapidly developing, so it should be "
+"available soon."
 msgstr ""
 
 #: ../sections/noposts/section.php:25
 msgid ""
-"To preview a &quot;custom post type&quot; just view a page with that &quot;"
-"section&quot; on it."
+"To preview a &quot;custom post type&quot; just view a page with that "
+"&quot;section&quot; on it."
 msgstr ""
 
 #: ../sections/noposts/section.php:30
 msgid "404!"
-msgstr "404!"
+msgstr ""
 
 #: ../sections/noposts/section.php:31
 msgid "Sorry, This Page Does not exist."
-msgstr "Ta stran ne obstaja"
+msgstr ""
 
 #: ../sections/noposts/section.php:31
 msgid "Go"
-msgstr "Pojdi"
+msgstr ""
 
 #: ../sections/noposts/section.php:31
 msgid "home"
-msgstr "domov"
+msgstr ""
 
 #: ../sections/noposts/section.php:31
 msgid "or try a search?"
-msgstr "ali pa poskusi z iskanjem"
+msgstr ""
 
 #: ../sections/pl_area/section.php:27
 msgid "Section Area Layout"
@@ -2546,83 +2530,81 @@ msgstr ""
 
 #: ../sections/postauthor/section.php:68
 msgid "Author"
-msgstr "Avtor"
+msgstr ""
 
 #: ../sections/postauthor/section.php:77
 msgid "Visit Authors Website &rarr;"
-msgstr "Obišči avtorjevo spletno stran"
+msgstr ""
 
 #: ../sections/postauthor/section.php:80
 msgid "Authors Google Profile &rarr;"
-msgstr "Avtorjev Google profil &rarr;"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:37
 #: ../sections/postloop/section.php:186
 msgid "Read More &raquo;"
-msgstr "Beri dalje &raquo;"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:240
 msgid "<div class='pagination'><span class='desc'>pages:</span><ul>"
-msgstr "<div class='pagination'><span class='desc'>strani:</span><ul>"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:253
 msgid "<span class='note'>Tagged with &rarr;</span> "
-msgstr "<span class='note'>Označeno z &rarr;</span>"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:405
 msgid "Link To"
-msgstr "Povezava na"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:430
 #: ../sections/postloop/class.posts.php:435
 msgid "On"
-msgstr "Dne"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:430
 #: ../sections/postloop/class.posts.php:435
 msgid "By"
-msgstr "Objavil"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:435
 msgid "In"
-msgstr "v kategorije"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:696
 #, php-format
 msgid "No results for &quot;%s&quot;"
-msgstr "Ni rezultatov za &quot;%s&quot;"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:696
 msgid "Nothing Found"
-msgstr "Ni rezultatov"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:698
 msgid "Try another search?"
-msgstr "Poskusi z drugim iskanjem?"
+msgstr ""
 
 #: ../sections/postloop/class.posts.php:698
 msgid "Sorry, what you are looking for isn't here."
-msgstr "Nisem našel željenega"
+msgstr ""
 
 #: ../sections/postloop/section.php:28
 msgid "Edit Post Content"
-msgstr "Uredi vsebino prispevka"
+msgstr ""
 
 #: ../sections/postloop/section.php:29
 msgid "<i class=\"icon-edit\"></i> Edit Post Info"
-msgstr "<i class=\"icon-edit\"></i> Uredi informacije prispevka"
+msgstr ""
 
 #: ../sections/postloop/section.php:30
 msgid ""
 "This section uses WordPress posts. Edit post information using WordPress "
 "admin."
 msgstr ""
-"Ta oddeleke uporablja WordPress objave. Uredi informacije o prispevku prek "
-"nadzorne plošče."
 
 #: ../sections/postloop/section.php:37
 msgid "Page Title"
-msgstr "Ime strani"
+msgstr ""
 
 #: ../sections/postloop/section.php:43
 msgid "Layout <span class=\"spamp\">&amp;</span> Config"
@@ -2642,14 +2624,14 @@ msgstr ""
 
 #: ../sections/postloop/section.php:57
 msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine"
+" Layout Mode</strong><br/> Magazine layout mode makes use of post "
 "<strong>clips</strong>. These are summarized excerpts shown at half the "
 "width of the main content column.<br/>  <strong>Note:</strong> There is an "
 "option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/>"
+" This is your classical post list layout. Posts span the entire width of the"
+" main content column."
 msgstr ""
 
 #: ../sections/postloop/section.php:66
@@ -2683,15 +2665,15 @@ msgstr ""
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
-"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to "
-"edit the post</li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
+"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to"
+" edit the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
 #: ../sections/postloop/section.php:92
@@ -2746,8 +2728,8 @@ msgstr ""
 
 #: ../sections/postloop/section.php:139
 msgid ""
-"Use this option to configure how thumbs will be shown in full-width posts on "
-"your blog page."
+"Use this option to configure how thumbs will be shown in full-width posts on"
+" your blog page."
 msgstr ""
 
 #: ../sections/postloop/section.php:154
@@ -2828,46 +2810,47 @@ msgstr ""
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
-"<br/>An example of allowed tags could be: <strong>&lt;p&gt;&lt;br&gt;&lt;"
-"a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
-"strong> to disallow all tags."
+"<br/>An example of allowed tags could be: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> "
+"<strong>Note:</strong> Enter a period <strong>.</strong> to disallow all "
+"tags."
 msgstr ""
 
 #: ../sections/postsinfo/section.php:29
 msgid "Search results for"
-msgstr "Rezultati iskanja za"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:31
 msgid "Currently viewing the category:"
-msgstr "Trenutno iščem v kategoriji:"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:33
 msgid "Currently viewing the tag:"
-msgstr "Trenutno iščem po oznaki:"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:40
 msgid "Posts by:"
-msgstr "Objave avtorja:"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:42
 msgid "From the daily archives:"
-msgstr "Iz arhiva za dan:"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:44
 msgid "From the monthly archives:"
-msgstr "Iz arhiva za mesec:"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:46
 msgid "From the yearly archives:"
-msgstr "Iz arhiva za leto:"
+msgstr ""
 
 #: ../sections/postsinfo/section.php:57
 msgid "Viewing archives for "
-msgstr "Ogled arhivov za"
+msgstr ""
 
 #: ../sections/propricing/section.php:28
 msgid "ProPricing Configuration"
-msgstr "Konfiguracija ProPricing"
+msgstr ""
 
 #: ../sections/propricing/section.php:38
 msgid "Number of Columns for Each Plan (12 Col Grid)"
@@ -2928,7 +2911,7 @@ msgstr ""
 #: ../sections/quickslider/section.php:157
 #: ../sections/revslider/section.php:22
 msgid "Slider Configuration"
-msgstr "Konfiguracija drsnikov"
+msgstr ""
 
 #: ../sections/quickslider/section.php:164
 msgid "Select Transition Type"
@@ -3003,27 +2986,27 @@ msgstr ""
 
 #: ../sections/rapidtabs/section.php:53
 msgid "Popular"
-msgstr "Priljubljeno"
+msgstr ""
 
 #: ../sections/rapidtabs/section.php:54
 msgid "Recent"
-msgstr "Nedavno"
+msgstr ""
 
 #: ../sections/rapidtabs/section.php:55 ../sections/rapidtabs/section.php:105
 msgid "Comments"
-msgstr "Komentarji"
+msgstr ""
 
 #: ../sections/rapidtabs/section.php:61
 msgid "Popular Posts"
-msgstr "Priljubljeni prispevki"
+msgstr ""
 
 #: ../sections/rapidtabs/section.php:83
 msgid "Recent Posts"
-msgstr "Nedavni prispevki"
+msgstr ""
 
 #: ../sections/revslider/section.php:29
 msgid "Time Per Slide (in Milliseconds)"
-msgstr "Čas drsnika (v milisekundah)"
+msgstr ""
 
 #: ../sections/revslider/section.php:73
 msgid "Slide Transition"
@@ -3036,19 +3019,20 @@ msgstr ""
 #: ../sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
+"Slider, a jQuery plugin. It supports a wide array of functionality including"
+" video embeds and additional transitions if you can handle HTML. Check out "
+"the <a href=\"http://www.orbis-"
+"ingenieria.com/code/documentation/documentation.html\" "
+"target=\"_blank\">docs here</a>."
 msgstr ""
 
 #: ../sections/revslider/section.php:284
 msgid "Read More"
-msgstr "Beri dalje"
+msgstr ""
 
 #: ../sections/sb_primary/section.php:51
 msgid "Archives"
-msgstr "Arhiv"
+msgstr ""
 
 #: ../sections/sb_primary/section.php:60
 msgid "Calendar"
@@ -3064,8 +3048,8 @@ msgstr ""
 
 #: ../sections/sharebar/section.php:30
 msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
+"You have no shares setup, please look at Global Options > Social & Local; or"
+" deactivate the Sharebar from the Blog Post Template."
 msgstr ""
 
 #: ../sections/sharebar/section.php:30
@@ -3074,7 +3058,7 @@ msgstr ""
 
 #: ../sections/sharebar/section.php:34
 msgid "Share &rarr;"
-msgstr "Deli &rarr;"
+msgstr ""
 
 #: ../sections/simple_nav/section.php:25
 msgid "Simple Nav Section"
@@ -3180,7 +3164,7 @@ msgstr ""
 
 #: ../sections/watermark/section.php:22
 msgid "Website Watermark"
-msgstr "Vodni žig spletišča"
+msgstr ""
 
 #: ../sections/watermark/section.php:23
 msgid ""
@@ -3190,27 +3174,27 @@ msgstr ""
 
 #: ../sections/watermark/section.php:29
 msgid "Watermark Image"
-msgstr "Slika za vodni žig"
+msgstr ""
 
 #: ../sections/watermark/section.php:36
 msgid "Watermark Link (Blank for None)"
-msgstr "Povezava vodnega žiga (pusti prazno, če tega ne želiš)"
+msgstr ""
 
 #: ../sections/watermark/section.php:42
 msgid "Watermark Link alt text"
-msgstr "Nadomestno besedilo za vodni žig"
+msgstr ""
 
 #: ../sections/watermark/section.php:43
 msgid "Build a website with PageLines"
-msgstr "Zgradi spletno stran z PageLines"
+msgstr ""
 
 #: ../sections/watermark/section.php:48
 msgid "Hide Watermark"
-msgstr "Skrij vodni žig"
+msgstr ""
 
 #: ../sections/watermark/section.php:55
 msgid "Setting Up Social Shares"
-msgstr "Nastavitev družabnega deljenja"
+msgstr ""
 
 #: ../sections/watermark/section.php:56
 msgid ""
@@ -3218,17 +3202,14 @@ msgid ""
 "\"options\" > \"social &amp; local\"<br/><br/> After you have done that, "
 "these values will fill automatically."
 msgstr ""
-"Za nastavitev družabnih omrežij morate nastaviti globalna uporabniška imena "
-"za socialna omrežja pod \"Nastavitve\" > \"Družabno & lokalno\" <br/><br/> "
-"Vse bo nastavljeno avtomatsko."
 
 #: ../sections/watermark/section.php:83
 msgid "was created with"
-msgstr "je bila ustvarjena z"
+msgstr ""
 
 #: ../editor/js/pl.ajax.js:21
 msgid "Are you sure?"
-msgstr "Si prepričan?"
+msgstr ""
 
 #: ../editor/js/pl.ajax.js:24
 msgid "Refreshing page..."
@@ -3244,8 +3225,8 @@ msgstr ""
 
 #: ../editor/js/pl.ajax.js:173
 msgid ""
-"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
-"off.)</p>"
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is"
+" off.)</p>"
 msgstr ""
 
 #: ../editor/js/pl.ajax.js:181
@@ -3284,9 +3265,10 @@ msgstr ""
 #: ../editor/js/pl.editor.js:475
 msgid ""
 "<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
-"system for your website. <br/>Watch the video below for help getting started."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+"system for your website. <br/>Watch the video below for help getting "
+"started.</p><iframe width='700' height='420' "
+"src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' "
+"allowfullscreen></iframe>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:682
@@ -3303,14 +3285,14 @@ msgstr ""
 
 #: ../editor/js/pl.editor.js:690
 msgid ""
-"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
-"<br/>"
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro "
+"Membership.<br/>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:744
 msgid ""
-"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
-"this page.</p>"
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from"
+" this page.</p>"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:112
@@ -3337,8 +3319,16 @@ msgstr ""
 msgid "Syncs with element."
 msgstr ""
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
@@ -3348,104 +3338,125 @@ msgstr ""
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
-"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
-"add_image_size'>The Codex</a>"
+"sizes see: <a "
+"href='http://codex.wordpress.org/Function_Reference/add_image_size'>The "
+"Codex</a>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
-msgstr "Izberi font"
+msgstr ""
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:950
+#: ../editor/js/pl.optpanel.js:951
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:951
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:953
+#: ../editor/js/pl.optpanel.js:954
 msgid "Resetting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:954
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
 msgstr ""
 
 #: ../editor/js/pl.saving.js:15
@@ -3542,7 +3553,7 @@ msgstr ""
 
 #: ../editor/js/pl.themes.js:45
 msgid "Activate"
-msgstr "Aktiviraj"
+msgstr ""
 
 #: ../editor/js/pl.xlist.js:67
 msgid "Drag Thumb to Page"

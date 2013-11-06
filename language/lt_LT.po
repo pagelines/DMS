@@ -1,26 +1,21 @@
-#
+# 
 # Translators:
 # zemas_nc <edvinas.zemaitis@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-03 19:58-0000\n"
-"Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/"
-"pagelines-dms/language/lt_LT/)\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-06 09:20+0000\n"
+"Last-Translator: Dionizio Bonfim Bach <translations@djio.com.br>\n"
+"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/pagelines-dms/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt_LT\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"lang\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -64,12 +59,7 @@ msgid ""
 "using PHP version: <strong>%s</strong>. To run this framework you will need "
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
-msgstr ""
-"<div class='config-error'><h2>PHP versijos problema</h2>Panašu, kad "
-"naudojate šią PHP versiją: <strong>%s</strong>. Jeigu norite naudoti šią "
-"platformą Jums reikia naudoti PHP <strong>5.0</strong> ar aukštesnę...<br/"
-"><br/> Nesijaudinkite taip! Jums tereikia kreiptis į savo ISP dėl "
-"atnaujinimo į aukštesnę versiją.</div>"
+msgstr "<div class='config-error'><h2>PHP versijos problema</h2>Panašu, kad naudojate šią PHP versiją: <strong>%s</strong>. Jeigu norite naudoti šią platformą Jums reikia naudoti PHP <strong>5.0</strong> ar aukštesnę...<br/><br/> Nesijaudinkite taip! Jums tereikia kreiptis į savo ISP dėl atnaujinimo į aukštesnę versiją.</div>"
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -89,8 +79,8 @@ msgstr ""
 
 #: ../admin/admin.editor.php:32
 msgid ""
-"Below are secondary fallbacks to the DMS code editors. You may need these if "
-"you create errors or issues on the front end."
+"Below are secondary fallbacks to the DMS code editors. You may need these if"
+" you create errors or issues on the front end."
 msgstr ""
 
 #: ../admin/admin.editor.php:36
@@ -146,8 +136,8 @@ msgstr ""
 
 #: ../editor/editor.account.php:443
 msgid ""
-"For every friend you invite who joins and installs PageLines, we'll give you "
-"and your friend 50 karma points! Karma points can be redeemed as cash with "
+"For every friend you invite who joins and installs PageLines, we'll give you"
+" and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
 msgstr ""
 
@@ -249,7 +239,8 @@ msgid "PageLines account not added or incorrect."
 msgstr ""
 
 #: ../editor/editor.account.php:625
-msgid "Add account to configure PageLines APIs, karma system and store access."
+msgid ""
+"Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
 
 #: ../editor/editor.account.php:631
@@ -342,7 +333,7 @@ msgstr ""
 msgid "Select This Image For Option"
 msgstr "Pasirinkite šį paveikslėlį kaip pasirinkimą"
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
 msgstr "Media biblioteka"
 
@@ -499,8 +490,7 @@ msgstr ""
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
-"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
-"may want to publish these changes to your live site."
+"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you may want to publish these changes to your live site."
 msgstr ""
 
 #: ../editor/editor.importexport.php:108
@@ -525,8 +515,8 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:143
 msgid ""
-"This will export your sites global settings. This includes everything in the "
-"options panel, as well as settings directed at sections in your \"global\" "
+"This will export your sites global settings. This includes everything in the"
+" options panel, as well as settings directed at sections in your \"global\" "
 "regions like your header and footer."
 msgstr ""
 
@@ -559,8 +549,8 @@ msgstr ""
 msgid ""
 "Check this to publish your site configuration as a theme configuration file "
 "in your themes root directory. When a user activates your theme it will ask "
-"if it can overwrite their settings to attain a desired initial experience to "
-"the theme."
+"if it can overwrite their settings to attain a desired initial experience to"
+" the theme."
 msgstr ""
 
 #: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
@@ -821,8 +811,8 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
-"Enter the full URL location of your custom <strong>favicon</strong> which is "
-"visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
+"Enter the full URL location of your custom <strong>favicon</strong> which is"
+" visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
 msgstr ""
 
@@ -852,8 +842,8 @@ msgstr ""
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
-"Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
-"gif or .png format."
+"Touch Products. It is an image approximately 144px by 144px in either .jpg, "
+".gif or .png format."
 msgstr ""
 
 #: ../editor/editor.settings.config.php:211
@@ -880,8 +870,8 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
-"Enter the name component of your Facebook page URL. (For example, what comes "
-"after the facebook url: www.facebook.com/[name])"
+"Enter the name component of your Facebook page URL. (For example, what comes"
+" after the facebook url: www.facebook.com/[name])"
 msgstr ""
 
 #: ../editor/editor.settings.config.php:232
@@ -1026,9 +1016,9 @@ msgstr ""
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
-"Use this button to reset all global settings to their default state. <br/"
-"><strong>Note:</strong> Once you've completed this action, you may want to "
-"publish these changes to your live site."
+"Use this button to reset all global settings to their default state. "
+"<br/><strong>Note:</strong> Once you've completed this action, you may want "
+"to publish these changes to your live site."
 msgstr ""
 
 #: ../editor/editor.settings.config.php:369
@@ -1076,7 +1066,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
 msgstr ""
 
@@ -1114,8 +1104,8 @@ msgstr ""
 
 #: ../editor/editor.templates.php:320
 msgid ""
-"Fill out this form and the current template will be saved for use throughout "
-"your site."
+"Fill out this form and the current template will be saved for use throughout"
+" your site."
 msgstr ""
 
 #: ../editor/editor.templates.php:322
@@ -1230,11 +1220,11 @@ msgstr ""
 
 #: ../editor/editor.typography.php:165
 msgid ""
-"<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">Google fonts</a> to your sites using this option.</p><p>For example, to "
-"add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
-"Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
-"p>"
+"<p>Add additional <a href=\"http://www.google.com/fonts\" "
+"target=\"_blank\">Google fonts</a> to your sites using this "
+"option.</p><p>For example, to add \"Yellowtail\" and \"Lato Bold\" you would"
+" enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference "
+"these fonts in custom CSS.</p>"
 msgstr ""
 
 #: ../editor/editor.typography.php:170
@@ -1452,8 +1442,7 @@ msgid "Theme Options"
 msgstr ""
 
 #: ../editor/panel.themes.php:127
-msgid ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
+msgid " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
 msgstr ""
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
@@ -1501,41 +1490,41 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../includes/deprecated.php:268
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
-"%3$s instead."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use"
+" %3$s instead."
 msgstr ""
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:274
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
-"no alternative available."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with"
+" no alternative available."
 msgstr ""
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr ""
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
 msgstr ""
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
 msgstr ""
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
 msgstr ""
 
 #: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn "
+"dust%s.*/"
 msgstr ""
 
 #: ../includes/less.legacy.php:505
@@ -1550,8 +1539,8 @@ msgstr ""
 #: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
-"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
-"unicorn dust%s.*/"
+"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of"
+" unicorn dust%s.*/"
 msgstr ""
 
 #: ../includes/lib.editor.php:72
@@ -1672,8 +1661,8 @@ msgstr ""
 #: ../sections/columnizer/section.php:102
 msgid ""
 "We have detected that you don't either the Custom Sidebars or Sidebar "
-"Manager plugins installed. We recommend you install a plugin that allows you "
-"to create custom widgetized areas on demand."
+"Manager plugins installed. We recommend you install a plugin that allows you"
+" to create custom widgetized areas on demand."
 msgstr ""
 
 #: ../sections/columnizer/section.php:147
@@ -1694,7 +1683,8 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr ""
 
@@ -1750,16 +1740,16 @@ msgstr ""
 #: ../sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>"
-"[post_comments]</strong> - Link to post comments</li><li><strong>"
-"[post_author_posts_link]</strong> - Author and link to archive</"
-"li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
+"use are: <ul><li><strong>[post_categories]</strong> - List of "
+"categories</li><li><strong>[post_edit]</strong> - Link for admins to edit "
+"the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
 #: ../sections/flipper/section.php:117
@@ -2425,15 +2415,16 @@ msgstr ""
 
 #: ../sections/noposts/section.php:23
 msgid ""
-"Sorry, direct previewing of special post types such as <strong>features</"
-"strong> or <strong>boxes</strong> is unavailable. This WordPress "
-"functionality is new and rapidly developing, so it should be available soon."
+"Sorry, direct previewing of special post types such as "
+"<strong>features</strong> or <strong>boxes</strong> is unavailable. This "
+"WordPress functionality is new and rapidly developing, so it should be "
+"available soon."
 msgstr ""
 
 #: ../sections/noposts/section.php:25
 msgid ""
-"To preview a &quot;custom post type&quot; just view a page with that &quot;"
-"section&quot; on it."
+"To preview a &quot;custom post type&quot; just view a page with that "
+"&quot;section&quot; on it."
 msgstr ""
 
 #: ../sections/noposts/section.php:30
@@ -2635,14 +2626,14 @@ msgstr ""
 
 #: ../sections/postloop/section.php:57
 msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine"
+" Layout Mode</strong><br/> Magazine layout mode makes use of post "
 "<strong>clips</strong>. These are summarized excerpts shown at half the "
 "width of the main content column.<br/>  <strong>Note:</strong> There is an "
 "option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/>"
+" This is your classical post list layout. Posts span the entire width of the"
+" main content column."
 msgstr ""
 
 #: ../sections/postloop/section.php:66
@@ -2676,15 +2667,15 @@ msgstr ""
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
-"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to "
-"edit the post</li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
+"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to"
+" edit the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
 #: ../sections/postloop/section.php:92
@@ -2739,8 +2730,8 @@ msgstr ""
 
 #: ../sections/postloop/section.php:139
 msgid ""
-"Use this option to configure how thumbs will be shown in full-width posts on "
-"your blog page."
+"Use this option to configure how thumbs will be shown in full-width posts on"
+" your blog page."
 msgstr ""
 
 #: ../sections/postloop/section.php:154
@@ -2821,9 +2812,10 @@ msgstr ""
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
-"<br/>An example of allowed tags could be: <strong>&lt;p&gt;&lt;br&gt;&lt;"
-"a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
-"strong> to disallow all tags."
+"<br/>An example of allowed tags could be: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> "
+"<strong>Note:</strong> Enter a period <strong>.</strong> to disallow all "
+"tags."
 msgstr ""
 
 #: ../sections/postsinfo/section.php:29
@@ -3029,10 +3021,11 @@ msgstr ""
 #: ../sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
+"Slider, a jQuery plugin. It supports a wide array of functionality including"
+" video embeds and additional transitions if you can handle HTML. Check out "
+"the <a href=\"http://www.orbis-"
+"ingenieria.com/code/documentation/documentation.html\" "
+"target=\"_blank\">docs here</a>."
 msgstr ""
 
 #: ../sections/revslider/section.php:284
@@ -3057,8 +3050,8 @@ msgstr ""
 
 #: ../sections/sharebar/section.php:30
 msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
+"You have no shares setup, please look at Global Options > Social & Local; or"
+" deactivate the Sharebar from the Blog Post Template."
 msgstr ""
 
 #: ../sections/sharebar/section.php:30
@@ -3234,8 +3227,8 @@ msgstr ""
 
 #: ../editor/js/pl.ajax.js:173
 msgid ""
-"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
-"off.)</p>"
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is"
+" off.)</p>"
 msgstr ""
 
 #: ../editor/js/pl.ajax.js:181
@@ -3274,9 +3267,10 @@ msgstr ""
 #: ../editor/js/pl.editor.js:475
 msgid ""
 "<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
-"system for your website. <br/>Watch the video below for help getting started."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+"system for your website. <br/>Watch the video below for help getting "
+"started.</p><iframe width='700' height='420' "
+"src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' "
+"allowfullscreen></iframe>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:682
@@ -3293,14 +3287,14 @@ msgstr ""
 
 #: ../editor/js/pl.editor.js:690
 msgid ""
-"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
-"<br/>"
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro "
+"Membership.<br/>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:744
 msgid ""
-"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
-"this page.</p>"
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from"
+" this page.</p>"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:112
@@ -3327,8 +3321,16 @@ msgstr ""
 msgid "Syncs with element."
 msgstr ""
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
@@ -3338,105 +3340,126 @@ msgstr ""
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
-"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
-"add_image_size'>The Codex</a>"
+"sizes see: <a "
+"href='http://codex.wordpress.org/Function_Reference/add_image_size'>The "
+"Codex</a>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
 msgstr "Pasirinkti šriftą"
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:950
+#: ../editor/js/pl.optpanel.js:951
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:951
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:953
+#: ../editor/js/pl.optpanel.js:954
 msgid "Resetting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:954
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
 msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
+msgstr "Įkelti paveikslėlį"
 
 #: ../editor/js/pl.saving.js:15
 msgid "Saving."

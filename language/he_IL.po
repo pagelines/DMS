@@ -1,4 +1,4 @@
-#
+# 
 # Translators:
 # keddy, 2013
 # keddy, 2013
@@ -6,11 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-03 19:57-0000\n"
-"Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: Hebrew (Israel) (http://www.transifex.com/projects/p/"
-"pagelines-dms/language/he_IL/)\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-06 09:20+0000\n"
+"Last-Translator: Dionizio Bonfim Bach <translations@djio.com.br>\n"
+"Language-Team: Hebrew (Israel) (http://www.transifex.com/projects/p/pagelines-dms/language/he_IL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,10 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"lang\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -64,11 +60,7 @@ msgid ""
 "using PHP version: <strong>%s</strong>. To run this framework you will need "
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
-msgstr ""
-"<div class'config-error'><h2>בעיה בגרסת ה-PHP</h2> נראה שאתה משתמש בגרסת "
-"PHP: <strong>%s</strong>. להרצת התשתית יש להתקין PHP בגרסא <strong>5.0</"
-"strong> ומעלה...<br/><br/> אין מה לדאוג, פנה למארח האתר שלך לעדכון מהיר.</"
-"div>"
+msgstr "<div class'config-error'><h2>בעיה בגרסת ה-PHP</h2> נראה שאתה משתמש בגרסת PHP: <strong>%s</strong>. להרצת התשתית יש להתקין PHP בגרסא <strong>5.0</strong> ומעלה...<br/><br/> אין מה לדאוג, פנה למארח האתר שלך לעדכון מהיר.</div>"
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -88,11 +80,9 @@ msgstr "נסיגות DMS"
 
 #: ../admin/admin.editor.php:32
 msgid ""
-"Below are secondary fallbacks to the DMS code editors. You may need these if "
-"you create errors or issues on the front end."
-msgstr ""
-"מתחת מופיעים אפשרויות נסיגה משניות לעורכי הקוד של DMS. אתה עלול להצטרך אותם "
-"במקרה של שגיאות באתר."
+"Below are secondary fallbacks to the DMS code editors. You may need these if"
+" you create errors or issues on the front end."
+msgstr "מתחת מופיעים אפשרויות נסיגה משניות לעורכי הקוד של DMS. אתה עלול להצטרך אותם במקרה של שגיאות באתר."
 
 #: ../admin/admin.editor.php:36
 msgid "DMS LESS Fallback"
@@ -147,12 +137,10 @@ msgstr "קבל דברים של Pro בחינם עם קארמה"
 
 #: ../editor/editor.account.php:443
 msgid ""
-"For every friend you invite who joins and installs PageLines, we'll give you "
-"and your friend 50 karma points! Karma points can be redeemed as cash with "
+"For every friend you invite who joins and installs PageLines, we'll give you"
+" and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
-msgstr ""
-"בעבור כל חבר שתזמין שירשם ויתקין את PageLines אנו ניתן לך ולחבר שלך 50 "
-"נקודות קארמה! ניתן להשתמש בנקודות קארמה ככסף עם PageLines."
+msgstr "בעבור כל חבר שתזמין שירשם ויתקין את PageLines אנו ניתן לך ולחבר שלך 50 נקודות קארמה! ניתן להשתמש בנקודות קארמה ככסף עם PageLines."
 
 #: ../editor/editor.account.php:447
 msgid "Invite Friends by Email"
@@ -252,7 +240,8 @@ msgid "PageLines account not added or incorrect."
 msgstr "חשבון PageLines לא הוסף או שגוי."
 
 #: ../editor/editor.account.php:625
-msgid "Add account to configure PageLines APIs, karma system and store access."
+msgid ""
+"Add account to configure PageLines APIs, karma system and store access."
 msgstr ""
 
 #: ../editor/editor.account.php:631
@@ -281,7 +270,7 @@ msgstr "וידאו למתחילים"
 
 #: ../editor/editor.account.php:689
 msgid "The PageLines Experience"
-msgstr ""
+msgstr "The PageLines Experience"
 
 #: ../editor/editor.account.php:692
 msgid "We want you to have a most amazing time as a PageLines customer."
@@ -345,7 +334,7 @@ msgstr "הפעל אתר"
 msgid "Select This Image For Option"
 msgstr "בחר תמונה עבור אפשרות זו."
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
 msgstr "ספריית מדיה"
 
@@ -461,7 +450,7 @@ msgstr "ייבוא + ייצוא"
 
 #: ../editor/editor.importexport.php:42
 msgid "Import Page Templates"
-msgstr ""
+msgstr "ייבוא תבניות דפים"
 
 #: ../editor/editor.importexport.php:44
 msgid "Add new templates and overwrite ones with the same name."
@@ -469,7 +458,7 @@ msgstr "הוסף תבניות עיצוב חדשות ודרוס תבניות עי
 
 #: ../editor/editor.importexport.php:51
 msgid "Import New Global Settings"
-msgstr ""
+msgstr "ייבוא הגדרות כלליות חדשות"
 
 #: ../editor/editor.importexport.php:53
 msgid "Overwrite global settings with ones from this import."
@@ -502,8 +491,7 @@ msgstr ""
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
-"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
-"may want to publish these changes to your live site."
+"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you may want to publish these changes to your live site."
 msgstr ""
 
 #: ../editor/editor.importexport.php:108
@@ -524,12 +512,12 @@ msgstr "הגדרות כלליות"
 
 #: ../editor/editor.importexport.php:141
 msgid "Export Site Global Settings"
-msgstr ""
+msgstr "ייצוא הגדרות כלליות של האתר"
 
 #: ../editor/editor.importexport.php:143
 msgid ""
-"This will export your sites global settings. This includes everything in the "
-"options panel, as well as settings directed at sections in your \"global\" "
+"This will export your sites global settings. This includes everything in the"
+" options panel, as well as settings directed at sections in your \"global\" "
 "regions like your header and footer."
 msgstr ""
 
@@ -562,8 +550,8 @@ msgstr ""
 msgid ""
 "Check this to publish your site configuration as a theme configuration file "
 "in your themes root directory. When a user activates your theme it will ask "
-"if it can overwrite their settings to attain a desired initial experience to "
-"the theme."
+"if it can overwrite their settings to attain a desired initial experience to"
+" the theme."
 msgstr ""
 
 #: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
@@ -660,25 +648,22 @@ msgstr "בחר מצב פריסה"
 
 #: ../editor/editor.layout.php:44
 msgid "Layout Mode"
-msgstr "סגנון עיצוב"
+msgstr "מצב פריסה"
 
 #: ../editor/editor.layout.php:46
 msgid "Pixel Width Based Layout"
-msgstr ""
+msgstr "רוחב העיצוב בפיקסלים"
 
 #: ../editor/editor.layout.php:47
 msgid "Percentage Width Based Layout"
-msgstr ""
+msgstr "רוחב העיצוב באחוזים"
 
 #: ../editor/editor.layout.php:50
 msgid ""
 "Select pixel width mode and your site maximum width will be controlled by "
 "pixels.<br/><br/> If you select \"percent\" width the width of your content "
 "will be a percentage of window size."
-msgstr ""
-"בחר באפשרות \"רוחב בפיקסלים\" והרוחב המקסימלי של האתר שלך יהיה מוגבל לפי "
-"פיקסלים.<br/><br/> אם תבחר באפשרות \"רוחב באחוזים\", רוחב האתר שלך יהיה "
-"מוגבל באחוזים ביחס לגודל החלון."
+msgstr "בחר באפשרות \"רוחב בפיקסלים\" והרוחב המקסימלי של האתר שלך יהיה מוגבל לפי פיקסלים.<br/><br/> אם תבחר באפשרות \"רוחב באחוזים\", רוחב האתר שלך יהיה מוגבל באחוזים ביחס לגודל החלון."
 
 #: ../editor/editor.layout.php:55
 msgid "Select Layout Display"
@@ -735,9 +720,7 @@ msgstr "טעינת עורך DMS"
 msgid ""
 "Issues loading? See the <a href=\"http://docs.pagelines.com/support-"
 "troubleshooting/common-issues\" target=\"_blank\">troubleshooting guide</a>."
-msgstr ""
-"בעיות טעינה? צפה ב-<a href=\"http://docs.pagelines.com/support-"
-"troubleshooting/common-issues\" target=\"_blank\"> מדריך לפתרון בעיות</a>."
+msgstr "בעיות טעינה? צפה ב-<a href=\"http://docs.pagelines.com/support-troubleshooting/common-issues\" target=\"_blank\"> מדריך לפתרון בעיות</a>."
 
 #: ../editor/editor.regions.php:20
 msgid "Global Scope Region"
@@ -753,7 +736,7 @@ msgstr "תמונות האתר"
 
 #: ../editor/editor.settings.config.php:28
 msgid "Social <span class=\"spamp\">&amp;</span> Local"
-msgstr ""
+msgstr "חברתי <span class=\"spamp\"> &amp;</span> מקומי"
 
 #: ../editor/editor.settings.config.php:35
 msgid "Advanced"
@@ -805,7 +788,7 @@ msgstr "הגדרות אתר"
 
 #: ../editor/editor.settings.config.php:132
 msgid "<i class=\"icon-download\"></i> Plugins Admin"
-msgstr ""
+msgstr "<i class=\"icon-download\"></i> ניהול תוספים"
 
 #: ../editor/editor.settings.config.php:136
 msgid "Manage Extensions"
@@ -829,13 +812,10 @@ msgstr "תמונת אייקון מועדפים (favicon)"
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
-"Enter the full URL location of your custom <strong>favicon</strong> which is "
-"visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
+"Enter the full URL location of your custom <strong>favicon</strong> which is"
+" visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
-msgstr ""
-"הזן את הכתובת המלאה לתמונת אייקון מועדפים מותאמת <strong>favicon</strong> "
-"שמוצגת בטאבים ובמועדפים שבדפדפן.<br/><strong>הקובץ חייב להיות .png או .ico "
-"בגודל 32 פיקסלים על 32 פיקסלים</strong>."
+msgstr "הזן את הכתובת המלאה לתמונת אייקון מועדפים מותאמת <strong>favicon</strong> שמוצגת בטאבים ובמועדפים שבדפדפן.<br/><strong>הקובץ חייב להיות .png או .ico בגודל 32 פיקסלים על 32 פיקסלים</strong>."
 
 #: ../editor/editor.settings.config.php:177
 msgid "Upload Login Image (160px Height)"
@@ -849,8 +829,7 @@ msgstr "תמונה בעמוד ההתחברות"
 msgid ""
 "This image will be used on the login page to your admin. Use an image that "
 "is approximately <strong>80px</strong> in height."
-msgstr ""
-"תמונה זו תופיע בעמוד ההתחברות למערכת הניהול. בחר תמונה בגובה 80 פיקסלים בערך."
+msgstr "תמונה זו תופיע בעמוד ההתחברות למערכת הניהול. בחר תמונה בגובה 80 פיקסלים בערך."
 
 #: ../editor/editor.settings.config.php:188
 msgid "Upload Touch Image (144px by 144px)"
@@ -864,13 +843,9 @@ msgstr "תמונת Touch מובייל"
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
-"Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
-"gif or .png format."
-msgstr ""
-"הזן את הכתובת המלאה לתמונת Apple Touch <strong>favicon</strong> שמוצגת כאשר "
-"משתמשים מגדירים את האתר שלך כ-<strong>webclip</strong> בטלפונים החכמים של "
-"אפל.<br/><strong>הקובץ חייב להיות .png, .jpg או .gif בגודל 144 פיקסלים על "
-"144 פיקסלים</strong>."
+"Touch Products. It is an image approximately 144px by 144px in either .jpg, "
+".gif or .png format."
+msgstr "הזן את הכתובת המלאה לתמונת Apple Touch <strong>favicon</strong> שמוצגת כאשר משתמשים מגדירים את האתר שלך כ-<strong>webclip</strong> בטלפונים החכמים של אפל.<br/><strong>הקובץ חייב להיות .png, .jpg או .gif בגודל 144 פיקסלים על 144 פיקסלים</strong>."
 
 #: ../editor/editor.settings.config.php:211
 msgid "Your Twitter Username"
@@ -884,8 +859,7 @@ msgstr "ממשק לטוויטר"
 msgid ""
 "This places your Twitter feed on the site. Leave blank if you want to hide "
 "or not use."
-msgstr ""
-"זה ממקם את ההזנה שלך מטוויטר באתר. השאר ריק אם ברצונך להסתיר או לא להשתמש."
+msgstr "זה ממקם את ההזנה שלך מטוויטר באתר. השאר ריק אם ברצונך להסתיר או לא להשתמש."
 
 #: ../editor/editor.settings.config.php:225
 msgid "Your Facebook Page Name"
@@ -897,11 +871,9 @@ msgstr "עמוד פייסבוק"
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
-"Enter the name component of your Facebook page URL. (For example, what comes "
-"after the facebook url: www.facebook.com/[name])"
-msgstr ""
-"הזן את שם הרכיב של כתובת עמוד הפייסבוק שלך. (לדוגמה, מה שמופיע אחרי הכתובת "
-"בפייסבוק: www.facebook.com/[name])"
+"Enter the name component of your Facebook page URL. (For example, what comes"
+" after the facebook url: www.facebook.com/[name])"
+msgstr "הזן את שם הרכיב של כתובת עמוד הפייסבוק שלך. (לדוגמה, מה שמופיע אחרי הכתובת בפייסבוק: www.facebook.com/[name])"
 
 #: ../editor/editor.settings.config.php:232
 msgid "Your Facebook App ID"
@@ -927,8 +899,7 @@ msgstr "האשטאג של האתר"
 msgid ""
 "This hashtag will be used in social media (e.g. Twitter) and elsewhere to "
 "create feeds."
-msgstr ""
-"ההאשטאג הזה ישמש במדיה החברתית (למשל ב-Twitter) ובמקומות אחרים ליצירת הזנות."
+msgstr "ההאשטאג הזה ישמש במדיה החברתית (למשל ב-Twitter) ובמקומות אחרים ליצירת הזנות."
 
 #: ../editor/editor.settings.config.php:251
 msgid "Sharebar Options"
@@ -1004,10 +975,7 @@ msgid ""
 "Add a class of 'prettyprint' to code or pre tags, or optionally use the "
 "[pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if "
 "Wordpress inserts line breaks."
-msgstr ""
-"הוסף את המחלקה 'prettyprint' לתגיות code או pre, או השתמש בקוד המקוצר "
-"[pl_codebox]. עטוף את הקוד המקוצר של ה-codebox ב-[pl_raw] אם וורדפרס מכניס "
-"מעברי שורה."
+msgstr "הוסף את המחלקה 'prettyprint' לתגיות code או pre, או השתמש בקוד המקוצר [pl_codebox]. עטוף את הקוד המקוצר של ה-codebox ב-[pl_raw] אם וורדפרס מכניס מעברי שורה."
 
 #: ../editor/editor.settings.config.php:336
 msgid "Enter Partner Link"
@@ -1022,9 +990,7 @@ msgid ""
 "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines "
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
-msgstr ""
-"אם אתה שותף של <a target='_blank' href='http://www.pagelines.com'>PageLines</"
-"a> הזן את הקישור שלך כאן והלינק במקטע התחתון יהפוך להיות לינק שותף."
+msgstr "אם אתה שותף של <a target='_blank' href='http://www.pagelines.com'>PageLines</a> הזן את הקישור שלך כאן והלינק במקטע התחתון יהפוך להיות לינק שותף."
 
 #: ../editor/editor.settings.config.php:344
 msgid "Install Class"
@@ -1039,10 +1005,7 @@ msgid ""
 "Use this option to add a class to the &gt;body&lt; element of the website. "
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
-msgstr ""
-"השתמש בזה על-מנת להוסיף מחלקה לאלמנט &gt;body&lt; של האתר. אפשרות זו יכולה "
-"להיות שימושית כשעושים שימוש באותה תבנית עיצוב בת בכמה מקומות שונים ורוצים "
-"לבצע שינויים ב-CSS באחת או יותר מן המקומות."
+msgstr "השתמש בזה על-מנת להוסיף מחלקה לאלמנט &gt;body&lt; של האתר. אפשרות זו יכולה להיות שימושית כשעושים שימוש באותה תבנית עיצוב בת בכמה מקומות שונים ורוצים לבצע שינויים ב-CSS באחת או יותר מן המקומות."
 
 #: ../editor/editor.settings.config.php:361
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
@@ -1054,12 +1017,10 @@ msgstr "אפס הגדרות אתר כלליות"
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
-"Use this button to reset all global settings to their default state. <br/"
-"><strong>Note:</strong> Once you've completed this action, you may want to "
-"publish these changes to your live site."
-msgstr ""
-"השתמש באפשרות זו על-מנת לשחזר את כל ההגדרות לברירת המחדל.<br/><strong>שים לב:"
-"</strong> אם ברצונך שהפעולה תשוקף באתר שלך, יש לפרסם את השינויים."
+"Use this button to reset all global settings to their default state. "
+"<br/><strong>Note:</strong> Once you've completed this action, you may want "
+"to publish these changes to your live site."
+msgstr "השתמש באפשרות זו על-מנת לשחזר את כל ההגדרות לברירת המחדל.<br/><strong>שים לב:</strong> אם ברצונך שהפעולה תשוקף באתר שלך, יש לפרסם את השינויים."
 
 #: ../editor/editor.settings.config.php:369
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
@@ -1074,10 +1035,7 @@ msgid ""
 "Use this button to reset all settings on the current page back to their "
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
-msgstr ""
-"השתמש בכפתור זה על-מנת לשחזר הגדרות של העמוד הנוכחי לערכי ברירת המחדל שלו."
-"<br/><strong>שים לב:</strong> אם ברצונך שהפעולה תשוקף באתר שלך, יש לפרסם את "
-"השינויים."
+msgstr "השתמש בכפתור זה על-מנת לשחזר הגדרות של העמוד הנוכחי לערכי ברירת המחדל שלו.<br/><strong>שים לב:</strong> אם ברצונך שהפעולה תשוקף באתר שלך, יש לפרסם את השינויים."
 
 #: ../editor/editor.settings.config.php:378
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
@@ -1091,9 +1049,7 @@ msgstr "נקה את ה-CSS/LESS שבזכרון."
 msgid ""
 "Use this button to purge the stored LESS/CSS data. This will also clear "
 "cached pages if wp-super-cache or w3-total-cache are detected."
-msgstr ""
-"השתמש בלחצן זה כדי לנקות את הנתונים המאוחסנים ב-LESS/CSS. פעולה זו תנקה גם "
-"עמודים המאוחסנים בזכרון אם wp-super-cache או w3-total-cache מזוהים."
+msgstr "השתמש בלחצן זה כדי לנקות את הנתונים המאוחסנים ב-LESS/CSS. פעולה זו תנקה גם עמודים המאוחסנים בזכרון אם wp-super-cache או w3-total-cache מזוהים."
 
 #: ../editor/editor.settings.config.php:396
 msgid "Standard Options"
@@ -1111,7 +1067,7 @@ msgstr "הפרד ברווח \" \""
 msgid "Templates"
 msgstr "תבניות עיצוב"
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
 msgstr "תבניות עמוד"
 
@@ -1149,8 +1105,8 @@ msgstr "מחק תבנית עיצוב זו"
 
 #: ../editor/editor.templates.php:320
 msgid ""
-"Fill out this form and the current template will be saved for use throughout "
-"your site."
+"Fill out this form and the current template will be saved for use throughout"
+" your site."
 msgstr "מלא את הטופס ותבנית העיצוב תשמר לשימוש חוזר באתר שלך"
 
 #: ../editor/editor.templates.php:322
@@ -1265,16 +1221,12 @@ msgstr "גופנים נוספים"
 
 #: ../editor/editor.typography.php:165
 msgid ""
-"<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">Google fonts</a> to your sites using this option.</p><p>For example, to "
-"add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
-"Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
-"p>"
-msgstr ""
-"<p>הוסף גופנים נוספים מ-<a href=\"http://www.google.com/fonts\" target="
-"\"_blank\">Google fonts</a> לאתר שלך באמצעות אפשרות זו.</p><p>לדוגמא, להוספת "
-"\"Yellowtail\" ו-\"Lato Bold\" עליך להזין: <strong>Yellowtail|Lato:700</"
-"strong>.</p><p>אתה יכול להשתמש בגופנים אלה ב-CSS."
+"<p>Add additional <a href=\"http://www.google.com/fonts\" "
+"target=\"_blank\">Google fonts</a> to your sites using this "
+"option.</p><p>For example, to add \"Yellowtail\" and \"Lato Bold\" you would"
+" enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference "
+"these fonts in custom CSS.</p>"
+msgstr "<p>הוסף גופנים נוספים מ-<a href=\"http://www.google.com/fonts\" target=\"_blank\">Google fonts</a> לאתר שלך באמצעות אפשרות זו.</p><p>לדוגמא, להוספת \"Yellowtail\" ו-\"Lato Bold\" עליך להזין: <strong>Yellowtail|Lato:700</strong>.</p><p>אתה יכול להשתמש בגופנים אלה ב-CSS."
 
 #: ../editor/editor.typography.php:170
 msgid "Extra Google Fonts"
@@ -1491,10 +1443,8 @@ msgid "Theme Options"
 msgstr "אפשרויות ערכת נושא"
 
 #: ../editor/panel.themes.php:127
-msgid ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
-msgstr ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> פעיל</span>"
+msgid " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
+msgstr " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> פעיל</span>"
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
 msgid "Theme does not exist or is not allowed"
@@ -1541,44 +1491,42 @@ msgstr "בקר %s&#8217;s אתר"
 msgid "Close"
 msgstr "סגור"
 
-#: ../includes/deprecated.php:268
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
-"%3$s instead."
-msgstr ""
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use"
+" %3$s instead."
+msgstr "%1$s <strong>לא בשימוש</strong> מאז גירסה %2$s של PageLines DMS! במקום זאת, השתמש ב- %3$s."
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:274
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
-"no alternative available."
-msgstr ""
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with"
+" no alternative available."
+msgstr "%1$s  <strong>לא בשימוש</strong> מאז גירסה %2$s של PageLines DMS ללא אלטרנטיבה זמינה."
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr "אין תמונה"
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
 msgstr "הוסף חדש"
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
 msgstr "ערוך"
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
 msgstr "צפה"
 
 #: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
-msgstr ""
-"%s /* ה-CSS עבר הידור ב-%s ולקח %s שניות תוך כדי שימוש ב-%sMB של אבק כוכבים"
-"%s */"
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn "
+"dust%s.*/"
+msgstr "%s /* ה-CSS עבר הידור ב-%s ולקח %s שניות תוך כדי שימוש ב-%sMB של אבק כוכבים%s */"
 
 #: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
@@ -1592,8 +1540,8 @@ msgstr "שגיאה ב-%s ב-LESS: %s"
 #: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
-"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
-"unicorn dust%s.*/"
+"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of"
+" unicorn dust%s.*/"
 msgstr ""
 
 #: ../includes/lib.editor.php:72
@@ -1617,9 +1565,7 @@ msgstr "רשומות הבאות &rarr;"
 msgid ""
 "<ul class='inline-list'>Please select a nav menu for this area in the <a "
 "href='%s'>WordPress menu admin</a>.</ul>"
-msgstr ""
-"<ul class='inline-list'>אנא בחר תפריט לאזור זה ב-<a href='%s'>לוח הבקרה של "
-"תפריטים בוורדפרס</a>.</ul>"
+msgstr "<ul class='inline-list'>אנא בחר תפריט לאזור זה ב-<a href='%s'>לוח הבקרה של תפריטים בוורדפרס</a>.</ul>"
 
 #: ../includes/lib.elements.php:272
 msgid "edit"
@@ -1693,8 +1639,7 @@ msgstr "ערוך אזורי וידג'טייזד"
 msgid ""
 "This section uses widgetized areas that are created and edited in inside "
 "your admin."
-msgstr ""
-"אזור זה עושה שימוש באזורי וידג'טייזד שנוצרים ומנוהלים בלוח הבקרה של וורדפרס."
+msgstr "אזור זה עושה שימוש באזורי וידג'טייזד שנוצרים ומנוהלים בלוח הבקרה של וורדפרס."
 
 #: ../sections/columnizer/section.php:88 ../sections/columnizer/section.php:89
 msgid "Column Site Description"
@@ -1704,9 +1649,7 @@ msgstr "עמודת תיאור האתר"
 msgid ""
 "If you use the default display of the columnizer, this field is used as a "
 "description of your company. You may want to add your address or links."
-msgstr ""
-"אם אתה משתמש בתצוגה הבסיסית של המקטע, שדה זה משמש לתיאור הארגון שלך. אולי "
-"תרצה להוסיף את הכתובת שלך או קישורים אחרים."
+msgstr "אם אתה משתמש בתצוגה הבסיסית של המקטע, שדה זה משמש לתיאור הארגון שלך. אולי תרצה להוסיף את הכתובת שלך או קישורים אחרים."
 
 #: ../sections/columnizer/section.php:100
 msgid "Get A Sidebars Plugin"
@@ -1719,8 +1662,8 @@ msgstr ""
 #: ../sections/columnizer/section.php:102
 msgid ""
 "We have detected that you don't either the Custom Sidebars or Sidebar "
-"Manager plugins installed. We recommend you install a plugin that allows you "
-"to create custom widgetized areas on demand."
+"Manager plugins installed. We recommend you install a plugin that allows you"
+" to create custom widgetized areas on demand."
 msgstr ""
 
 #: ../sections/columnizer/section.php:147
@@ -1741,7 +1684,8 @@ msgstr "תגיות"
 msgid "Categories"
 msgstr "קטגוריות"
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr "פרטים נוספים"
 
@@ -1768,9 +1712,7 @@ msgstr "מספר מקסימלי של פוסטים מוצגים"
 msgid ""
 "This controls the maximum number of posts shown. A smaller amount may be "
 "shown based on layout width."
-msgstr ""
-"קובע את המספר המרבי של הפוסטים המוצגים. ייתכן שיוצגו פחות פוסטים בהתבסס על "
-"רוחב העיצוב."
+msgstr "קובע את המספר המרבי של הפוסטים המוצגים. ייתכן שיוצגו פחות פוסטים בהתבסס על רוחב העיצוב."
 
 #: ../sections/flipper/section.php:77
 msgid "Select Image Size"
@@ -1799,16 +1741,16 @@ msgstr "מטא דאטא"
 #: ../sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>"
-"[post_comments]</strong> - Link to post comments</li><li><strong>"
-"[post_author_posts_link]</strong> - Author and link to archive</"
-"li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
+"use are: <ul><li><strong>[post_categories]</strong> - List of "
+"categories</li><li><strong>[post_edit]</strong> - Link for admins to edit "
+"the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
 #: ../sections/flipper/section.php:117
@@ -2135,7 +2077,7 @@ msgstr "וידאו (אופציונלי, לשימוש במקום תמונה)"
 
 #: ../sections/masthead/section.php:63 ../sections/masthead/section.php:260
 msgid "Maximum width of splash in px (default is full width)"
-msgstr ""
+msgstr "רוחב מרבי של התמונה בפיקסלים (ברירת המחדל היא רוחב מלא)"
 
 #: ../sections/masthead/section.php:66 ../sections/masthead/section.php:263
 msgid ""
@@ -2204,8 +2146,7 @@ msgstr "התחל כאן"
 msgid ""
 "Enter the options for the masthead splash image. If no options are "
 "specified, no image will be shown."
-msgstr ""
-"הכנס את ההגדרות עבור האובייקט הראשי. לא תופיע תמונה אלא אם כן צוין אחרת."
+msgstr "הכנס את ההגדרות עבור האובייקט הראשי. לא תופיע תמונה אלא אם כן צוין אחרת."
 
 #: ../sections/masthead/section.php:268
 msgid "Enter text for your masthead banner section"
@@ -2223,8 +2164,7 @@ msgstr "כפתור פעולה 1"
 msgid ""
 "Enter the options for the masthead button. If no options are specified, no "
 "button will be shown."
-msgstr ""
-"הכנס את ההגדרות עבור כפתור הפעולה. הכפתור לא יופיע אלא אם כן צוין אחרת."
+msgstr "הכנס את ההגדרות עבור כפתור הפעולה. הכפתור לא יופיע אלא אם כן צוין אחרת."
 
 #: ../sections/masthead/section.php:314
 msgid "Masthead Action Button 2"
@@ -2379,8 +2319,7 @@ msgstr "אפשר שורת תפריט ניווט קבועה"
 msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site."
-msgstr ""
-"סמן אפשרות זו אם ברצונך ששורת התפריט העליונה תופיע באופן קבוע באתר שלך."
+msgstr "סמן אפשרות זו אם ברצונך ששורת התפריט העליונה תופיע באופן קבוע באתר שלך."
 
 #: ../sections/navbar/section.php:162 ../sections/navbar/section.php:163
 msgid "NavBar Logo"
@@ -2391,10 +2330,7 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
-msgstr ""
-"סמן אפשרות זו אם ברצונך ששורת תפריט הניווט העליונה תופיע באופן קבוע באתר שלך."
-"<br/><br/><strong>הערות:</strong></br>1. מוצג רק במצב Fixed.<br/>2. גודל "
-"התמונה מוגבל ל-29 פיקסלים מקסימום."
+msgstr "סמן אפשרות זו אם ברצונך ששורת תפריט הניווט העליונה תופיע באופן קבוע באתר שלך.<br/><br/><strong>הערות:</strong></br>1. מוצג רק במצב Fixed.<br/>2. גודל התמונה מוגבל ל-29 פיקסלים מקסימום."
 
 #: ../sections/navbar/section.php:293
 msgid "MENU"
@@ -2418,7 +2354,7 @@ msgstr "NavBar קבוע - בחר ערכת נושא"
 
 #: ../sections/navbar/section.php:389
 msgid "NavBar and Fixed NavBar Theme"
-msgstr ""
+msgstr "ערכת נושא ל-NavBar ול-NavBar הקבוע"
 
 #: ../sections/navbar/section.php:390
 msgid "Select the color and theme of the NavBar"
@@ -2434,7 +2370,7 @@ msgstr "NavBar רגיל - בחר תפריט"
 
 #: ../sections/navbar/section.php:410
 msgid "NavBar and Fixed NavBar Menu"
-msgstr ""
+msgstr "תפרטל-NavBar ול-NavBar הקבוע"
 
 #: ../sections/navbar/section.php:411
 msgid "Select the WordPress Menu for the NavBar(s)"
@@ -2462,15 +2398,15 @@ msgstr "קבע אפשרויות עבור NavBars"
 
 #: ../sections/navbar/section.php:439
 msgid "NavBar and Fixed NavBar Configuration Options"
-msgstr ""
+msgstr "אפשרויות תצורה ל-NavBar ול-NavBar הקבוע"
 
 #: ../sections/navbar/section.php:440
 msgid "Control various appearance options for the NavBars"
-msgstr ""
+msgstr "קביעת אפשרויות תצוגה שונות של ה-NavBars"
 
 #: ../sections/navbar/section.php:447
 msgid "Applies text to NavBar on small screens. Not available on Fixed NavBar"
-msgstr ""
+msgstr "מחיל טקסט ל-NavBar על מסכים קטנים. לא זמין עבור NavBar קבוע"
 
 #: ../sections/noposts/section.php:22
 msgid ""
@@ -2480,20 +2416,17 @@ msgstr "תצוגה מקדימה <em>של</em> \"סוגי פוסטים מיוחד
 
 #: ../sections/noposts/section.php:23
 msgid ""
-"Sorry, direct previewing of special post types such as <strong>features</"
-"strong> or <strong>boxes</strong> is unavailable. This WordPress "
-"functionality is new and rapidly developing, so it should be available soon."
-msgstr ""
-"מצטערים, צפייה ישירה בסוגים מיוחדים של פוסטים כמו למשל <strong>features</"
-"strong> או strong>boxes</strong> לא זמינה. זו פונקציונליות חדשה של וורדפרס "
-"שבפיתוח מתמיד אז סביר להניח שתהיה זמינה בקרוב."
+"Sorry, direct previewing of special post types such as "
+"<strong>features</strong> or <strong>boxes</strong> is unavailable. This "
+"WordPress functionality is new and rapidly developing, so it should be "
+"available soon."
+msgstr "מצטערים, צפייה ישירה בסוגים מיוחדים של פוסטים כמו למשל <strong>features</strong> או strong>boxes</strong> לא זמינה. זו פונקציונליות חדשה של וורדפרס שבפיתוח מתמיד אז סביר להניח שתהיה זמינה בקרוב."
 
 #: ../sections/noposts/section.php:25
 msgid ""
-"To preview a &quot;custom post type&quot; just view a page with that &quot;"
-"section&quot; on it."
-msgstr ""
-"לצפייה ב- &quot;סוגים מיוחדים של פוסטים&quot; כנס לעמוד שמכיל פוסט כזה."
+"To preview a &quot;custom post type&quot; just view a page with that "
+"&quot;section&quot; on it."
+msgstr "לצפייה ב- &quot;סוגים מיוחדים של פוסטים&quot; כנס לעמוד שמכיל פוסט כזה."
 
 #: ../sections/noposts/section.php:30
 msgid "404!"
@@ -2527,9 +2460,7 @@ msgstr "מרווח ברירת מחדל מהצדדים (פיקסלים)"
 msgid ""
 "If sections are added to full width areas, the area will be givin this "
 "default padding."
-msgstr ""
-"אם מקטעים מתווספים לתוך מקטע הנפרש לכל האורך, מרווח ברירת המחדל מהצדדים "
-"יינתן להם."
+msgstr "אם מקטעים מתווספים לתוך מקטע הנפרש לכל האורך, מרווח ברירת המחדל מהצדדים יינתן להם."
 
 #: ../sections/pl_area/section.php:53
 msgid "Set Area Padding"
@@ -2581,7 +2512,7 @@ msgstr "הגדרות"
 
 #: ../sections/popthumbs/section.php:63 ../sections/popthumbs/section.php:80
 msgid "Thumb"
-msgstr ""
+msgstr "תמונה מוקטנת"
 
 #: ../sections/popthumbs/section.php:74
 msgid "Text"
@@ -2684,7 +2615,7 @@ msgstr "עיצוב <span class=\"spamp\">&amp;</span> תצורה"
 
 #: ../sections/postloop/section.php:52
 msgid "Magazine Layout Mode"
-msgstr "סגנון עיצוב של מגזין"
+msgstr "מצב פריסה של מגזין"
 
 #: ../sections/postloop/section.php:53
 msgid "List Layout Mode"
@@ -2692,18 +2623,18 @@ msgstr "רשימת מצבי פריסה"
 
 #: ../sections/postloop/section.php:55 ../sections/postloop/section.php:56
 msgid "Posts Layout Mode"
-msgstr "תבנית עיצוב לפוסטים"
+msgstr "מצבי פריסה לפוסטים"
 
 #: ../sections/postloop/section.php:57
 msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine"
+" Layout Mode</strong><br/> Magazine layout mode makes use of post "
 "<strong>clips</strong>. These are summarized excerpts shown at half the "
 "width of the main content column.<br/>  <strong>Note:</strong> There is an "
 "option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/>"
+" This is your classical post list layout. Posts span the entire width of the"
+" main content column."
 msgstr ""
 
 #: ../sections/postloop/section.php:66
@@ -2712,7 +2643,7 @@ msgstr "מספר הפוסטים שיוצגו ברוחב מלא? (מגזין)"
 
 #: ../sections/postloop/section.php:67
 msgid "Full Width Posts (Magazine Layout Mode Only)"
-msgstr ""
+msgstr "פוסטים ברוחב מלא (מצב פריסה מגזין בלבד)"
 
 #: ../sections/postloop/section.php:68
 msgid ""
@@ -2737,15 +2668,15 @@ msgstr ""
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
-"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to "
-"edit the post</li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
+"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to"
+" edit the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
 #: ../sections/postloop/section.php:92
@@ -2800,11 +2731,9 @@ msgstr ""
 
 #: ../sections/postloop/section.php:139
 msgid ""
-"Use this option to configure how thumbs will be shown in full-width posts on "
-"your blog page."
-msgstr ""
-"השתמש באפשרות זו כדי לקבוע כיצד תמונות מוקטנות יוצגו בהודעות ברוחב-מלא "
-"הודעות בעמוד הבלוג שלך."
+"Use this option to configure how thumbs will be shown in full-width posts on"
+" your blog page."
+msgstr "השתמש באפשרות זו כדי לקבוע כיצד תמונות מוקטנות יוצגו בהודעות ברוחב-מלא הודעות בעמוד הבלוג שלך."
 
 #: ../sections/postloop/section.php:154
 msgid "Clip Thumbs Layout"
@@ -2844,9 +2773,7 @@ msgstr "הסתר תקציר פוסט"
 msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
-msgstr ""
-"תקצירים הם קטע מתוך טקסט לצורך תצוגה מקדימה. הסתר אותם באמצעות שימוש באופציה "
-"זו."
+msgstr "תקצירים הם קטע מתוך טקסט לצורך תצוגה מקדימה. הסתר אותם באמצעות שימוש באופציה זו."
 
 #: ../sections/postloop/section.php:188
 msgid "Continue Reading Link Text"
@@ -2860,9 +2787,7 @@ msgstr "טקסט ל<strong>המשכת קריאה</strong> שבתקציר"
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
-msgstr ""
-"טקסט זה ישמש כקישור לכתבה המלאה שלך בעת הצגת כתבות בדף הפוסטים שלך (כאשר "
-"תקצירים מופעלים)."
+msgstr "טקסט זה ישמש כקישור לכתבה המלאה שלך בעת הצגת כתבות בדף הפוסטים שלך (כאשר תקצירים מופעלים)."
 
 #: ../sections/postloop/section.php:197
 msgid "Number of words."
@@ -2888,14 +2813,11 @@ msgstr "אפשר תגיות בתקציר"
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
-"<br/>An example of allowed tags could be: <strong>&lt;p&gt;&lt;br&gt;&lt;"
-"a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
-"strong> to disallow all tags."
-msgstr ""
-"כברירת מחדל וורדפרס מסיר את כל תגי ה-HTML מתקצירים. באפשרותך להשתמש באפשרות "
-"זו כדי לאפשר תגים מסוימים. פשוט הזן את התגים המותרים השדה זה. <br/> דוגמא "
-"לתגים מורשים: <strong>&&lt;p&gt;&lt;br&gt;&lt;a&gt;.</strong><br/> <br/> "
-"<strong>שים לב:</strong> הזן נקודה <strong>.</strong> כדי לאסור את כל התגים."
+"<br/>An example of allowed tags could be: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> "
+"<strong>Note:</strong> Enter a period <strong>.</strong> to disallow all "
+"tags."
+msgstr "כברירת מחדל וורדפרס מסיר את כל תגי ה-HTML מתקצירים. באפשרותך להשתמש באפשרות זו כדי לאפשר תגים מסוימים. פשוט הזן את התגים המותרים השדה זה. <br/> דוגמא לתגים מורשים: <strong>&&lt;p&gt;&lt;br&gt;&lt;a&gt;.</strong><br/> <br/> <strong>שים לב:</strong> הזן נקודה <strong>.</strong> כדי לאסור את כל התגים."
 
 #: ../sections/postsinfo/section.php:29
 msgid "Search results for"
@@ -2979,7 +2901,7 @@ msgstr "טקסט קישור"
 
 #: ../sections/propricing/section.php:90
 msgid "Button Theme"
-msgstr ""
+msgstr "עיצוב לכפתור"
 
 #: ../sections/propricing/section.php:95
 msgid "Attributes"
@@ -3048,9 +2970,7 @@ msgstr "תמונת רקע לשקופית"
 #: ../sections/quickslider/section.php:205
 #: ../sections/revslider/section.php:47
 msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
-msgstr ""
-"עבור רזולוציות גבוהות, השתמש בתמונות בגודל 2000px לרוחב ו-800px לגובה (הגבלה "
-"של 2מגה)"
+msgstr "עבור רזולוציות גבוהות, השתמש בתמונות בגודל 2000px לרוחב ו-800px לגובה (הגבלה של 2מגה)"
 
 #: ../sections/quickslider/section.php:211
 #: ../sections/revslider/section.php:53
@@ -3102,10 +3022,11 @@ msgstr "אלמנטים נוספים לשקופית"
 #: ../sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
+"Slider, a jQuery plugin. It supports a wide array of functionality including"
+" video embeds and additional transitions if you can handle HTML. Check out "
+"the <a href=\"http://www.orbis-"
+"ingenieria.com/code/documentation/documentation.html\" "
+"target=\"_blank\">docs here</a>."
 msgstr ""
 
 #: ../sections/revslider/section.php:284
@@ -3130,8 +3051,8 @@ msgstr "רשומות (RSS)"
 
 #: ../sections/sharebar/section.php:30
 msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
+"You have no shares setup, please look at Global Options > Social & Local; or"
+" deactivate the Sharebar from the Blog Post Template."
 msgstr ""
 
 #: ../sections/sharebar/section.php:30
@@ -3170,9 +3091,7 @@ msgstr "ערך מקסימלי למדדים (מספר)"
 msgid ""
 "This number will be used to calculate the percent of the bar filled. The "
 "StarBar values will be shown as a percentage of this value. Default is 100."
-msgstr ""
-"באמצעות מספר זה יחושבו האחוזים למילוי פס המדדים. הערכים יוצגו באחוזים ביחס "
-"לערך זה. ברירת המחדל היא 100."
+msgstr "באמצעות מספר זה יחושבו האחוזים למילוי פס המדדים. הערכים יוצגו באחוזים ביחס לערך זה. ברירת המחדל היא 100."
 
 #: ../sections/starbars/section.php:52 ../sections/starbars/section.php:221
 msgid "Starbar Modifier (Text Added to Stats)"
@@ -3240,9 +3159,7 @@ msgstr "מרווח מהצדדים <small>(CSS מקוצר)</small>"
 msgid ""
 "This option uses CSS padding shorthand. For example, use \"15px 30px\" for "
 "15px padding top/bottom, and 30 left/right."
-msgstr ""
-"אפשרות זו עושה שימוש ב-CSS מקוצר עבור ריווח מהצדדים. לדוגמא, השתמש ב-\"15px "
-"30px\" בשביל ריווח של 15 פיקסלים מלמעלה/למטה וריווח של 30 פיקסלים מימין/שמאל."
+msgstr "אפשרות זו עושה שימוש ב-CSS מקוצר עבור ריווח מהצדדים. לדוגמא, השתמש ב-\"15px 30px\" בשביל ריווח של 15 פיקסלים מלמעלה/למטה וריווח של 30 פיקסלים מימין/שמאל."
 
 #: ../sections/textbox/section.php:52
 msgid "Textbox Font Size"
@@ -3256,9 +3173,7 @@ msgstr "סימן מים של האתר"
 msgid ""
 "The website watermark is a small version of your logo for your footer. "
 "Recommended width/height is 90px."
-msgstr ""
-"סימן המים של האתר היא תמונה מוקטנת של הלוגו שלך למקטע התחתון של האתר. הגודל "
-"המומלץ הוא 90 פיקסלים על 90 פיקסלים."
+msgstr "סימן המים של האתר היא תמונה מוקטנת של הלוגו שלך למקטע התחתון של האתר. הגודל המומלץ הוא 90 פיקסלים על 90 פיקסלים."
 
 #: ../sections/watermark/section.php:29
 msgid "Watermark Image"
@@ -3313,9 +3228,9 @@ msgstr "ההגדרות נשמרו בהצלחה! מרענן תצוגה..."
 
 #: ../editor/js/pl.ajax.js:173
 msgid ""
-"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
-"off.)</p>"
-msgstr ""
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is"
+" off.)</p>"
+msgstr "<h3>כיבוי עורך ה-DMS?<p>(שים לב: מצב טיוטא לא פעיל כאשר העורך כבוי)</p></h3>"
 
 #: ../editor/js/pl.ajax.js:181
 msgid "Deactivating..."
@@ -3353,9 +3268,10 @@ msgstr "מרענן תצוגה"
 #: ../editor/js/pl.editor.js:475
 msgid ""
 "<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
-"system for your website. <br/>Watch the video below for help getting started."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+"system for your website. <br/>Watch the video below for help getting "
+"started.</p><iframe width='700' height='420' "
+"src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' "
+"allowfullscreen></iframe>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:682
@@ -3364,7 +3280,7 @@ msgstr "למד עוד על Pro"
 
 #: ../editor/js/pl.editor.js:685
 msgid "<h4>This capability is pro edition only.</h4>"
-msgstr ""
+msgstr "<h4>יכולת זו היא רק עבור משתמשי Pro.</h4>"
 
 #: ../editor/js/pl.editor.js:689
 msgid "Edit (Pro Only)"
@@ -3372,14 +3288,14 @@ msgstr "עריכה (Pro בלבד)"
 
 #: ../editor/js/pl.editor.js:690
 msgid ""
-"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
-"<br/>"
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro "
+"Membership.<br/>"
 msgstr "<h4>זהו מקטע Pro</h4>עריכת מקטעי Pro מחייב חברות Pro.<br/>"
 
 #: ../editor/js/pl.editor.js:744
 msgid ""
-"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
-"this page.</p>"
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from"
+" this page.</p>"
 msgstr ""
 
 #: ../editor/js/pl.optpanel.js:112
@@ -3406,9 +3322,17 @@ msgstr "רעונן לתצוגה מקדימה."
 msgid "Syncs with element."
 msgstr "מסתנכרן עם אלמנט."
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
 msgstr "הגדרת תפריטים"
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
+msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
 msgid "SELECT"
@@ -3417,107 +3341,126 @@ msgstr "SELECT"
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
-"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
-"add_image_size'>The Codex</a>"
+"sizes see: <a "
+"href='http://codex.wordpress.org/Function_Reference/add_image_size'>The "
+"Codex</a>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
 msgstr "בחר גופן"
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr "דג סקרן שט לו בים זך ולפתע מצא חבורה נחמדה"
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr "סוג עדיין נדרש"
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr "אפשרויות אתר כללית"
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr "אפשרויות אתר מקומיות"
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
-msgstr ""
-"<h3>האם אתה בטוח?</h3><p>זה יאפס את <strong>%s</strong> להגדרות ברירת המחדל "
-"שלהן. <br/>(לאחר האיפוס, יש לפרסם את השינויים)</p>"
-
-#: ../editor/js/pl.optpanel.js:950
-msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
-msgstr ""
+msgstr "<h3>האם אתה בטוח?</h3><p>זה יאפס את <strong>%s</strong> להגדרות ברירת המחדל שלהן. <br/>(לאחר האיפוס, יש לפרסם את השינויים)</p>"
 
 #: ../editor/js/pl.optpanel.js:951
+msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
+msgstr "<span class='btn btn-mini btn-info'> תבניות עמוד</span>&nbsp;"
+
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr "<span class='btn btn-mini btn-info'>אפשרויות כלליות</span>"
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:953
-msgid "Resetting Options"
-msgstr ""
-
 #: ../editor/js/pl.optpanel.js:954
+msgid "Resetting Options"
+msgstr "מאפס אפשרויות"
+
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr "אופס בהצלחה. מרענן תצוגה"
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr "יובא בהצלחה. מרענן תצוגה"
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
-msgstr ""
+msgstr "מנקה Cache"
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr "הצלחה! מרענן תצוגה"
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr "אפשרויות ייצוא"
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr "<h3>הגדרות מיובאות</h3>"
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr "הגדרות מיובאות"
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
 msgstr "ייבוא"
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
+msgstr "העלה תמונה"
 
 #: ../editor/js/pl.saving.js:15
 msgid "Saving."
@@ -3605,7 +3548,7 @@ msgstr "הופעל בהצלחה! מרענן תצוגה..."
 msgid ""
 "<h3>Activate Theme Preview?</h3> <p>This will activate a theme preview "
 "sitewide.<br/>(while in draft mode)</p>"
-msgstr ""
+msgstr "<h3>הפעל תצוגה מקדימה לערכת נושא?</h3><p>זה יפעיל תצוגה מקדימה לערכת נושא בכל האתר.<br/>(במצב טיוטא)</p>"
 
 #: ../editor/js/pl.themes.js:30
 msgid "Loading Theme Preview"
@@ -3617,7 +3560,7 @@ msgstr "הפעל"
 
 #: ../editor/js/pl.xlist.js:67
 msgid "Drag Thumb to Page"
-msgstr "גרור תמונה לעמוד"
+msgstr "גרור תמונה מוקטנת לעמוד"
 
 #: ../editor/js/pl.xlist.js:121
 msgid "Description"
