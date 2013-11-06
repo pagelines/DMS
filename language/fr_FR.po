@@ -1,4 +1,4 @@
-#
+# 
 # Translators:
 # Erwan Lescop <contact@erwanlescop.fr>, 2013
 # Erwan Lescop <contact@erwanlescop.fr>, 2013
@@ -8,11 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-03 19:57-0000\n"
-"Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/"
-"pagelines-dms/language/fr_FR/)\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-06 10:50+0000\n"
+"Last-Translator: Erwan Lescop <contact@erwanlescop.fr>\n"
+"Language-Team: French (France) (http://www.transifex.com/projects/p/pagelines-dms/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,10 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"lang\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -34,9 +30,7 @@ msgstr "Les commentaires sont fermés."
 #: ../comments.php:38
 msgid ""
 "This post is password protected. Enter the password to view any comments."
-msgstr ""
-"Cet article est protégé par mot de passe. Entrez le mot de passe pour voir "
-"les commentaires."
+msgstr "Cet article est protégé par mot de passe. Entrez le mot de passe pour voir les commentaires."
 
 #: ../comments.php:44
 #, php-format
@@ -68,12 +62,7 @@ msgid ""
 "using PHP version: <strong>%s</strong>. To run this framework you will need "
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
-msgstr ""
-"<div class='config-error'><h2>Problème de version PHP</h2>Il semblerait que "
-"vous utilisiez la version de PHP : <strong>%s</strong>. Pour faire "
-"fonctionner ce framework vous aurez besoin de PHP <strong>5.0</strong> ou "
-"supérieur...<br/><br/> Ne vous inquiétez pas pour autant ! Adressez-vous "
-"simplement à votre hébergeur pour une mise à niveau rapide.</div>"
+msgstr "<div class='config-error'><h2>Problème de version PHP</h2>Il semblerait que vous utilisiez la version de PHP : <strong>%s</strong>. Pour faire fonctionner ce framework vous aurez besoin de PHP <strong>5.0</strong> ou supérieur...<br/><br/> Ne vous inquiétez pas pour autant ! Adressez-vous simplement à votre hébergeur pour une mise à niveau rapide.</div>"
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -93,12 +82,9 @@ msgstr "Positions de repli DMS"
 
 #: ../admin/admin.editor.php:32
 msgid ""
-"Below are secondary fallbacks to the DMS code editors. You may need these if "
-"you create errors or issues on the front end."
-msgstr ""
-"Les positions de repli secondaire des éditeurs de code DMS se trouvent ci-"
-"dessous. Vous pourriez en avoir besoin si vous créez des erreurs ou des "
-"problèmes en avant-plan."
+"Below are secondary fallbacks to the DMS code editors. You may need these if"
+" you create errors or issues on the front end."
+msgstr "Les positions de repli secondaire des éditeurs de code DMS se trouvent ci-dessous. Vous pourriez en avoir besoin si vous créez des erreurs ou des problèmes en avant-plan."
 
 #: ../admin/admin.editor.php:36
 msgid "DMS LESS Fallback"
@@ -106,7 +92,7 @@ msgstr "Position de repli pour le LESS de DMS"
 
 #: ../admin/admin.editor.php:40
 msgid "DMS Header Scripts Fallback"
-msgstr "Position de repli pour les scripts d&acute;en-tête de DMS"
+msgstr "Position de repli pour les scripts d&rsquo;en-tête de DMS"
 
 #: ../admin/admin.editor.php:54
 msgid ""
@@ -117,9 +103,7 @@ msgstr ""
 
 #: ../admin/admin.editor.php:55
 msgid "Just visit the front end of your site (as an admin) and get started!"
-msgstr ""
-"Visitez simplement l'&acute;avant-plan de votre site (en tant qu'&acute;"
-"admin) et lancez-vous !"
+msgstr "Visitez simplement l&rsquo;avant-plan de votre site (en tant qu&rsquo;admin) et lancez-vous !"
 
 #: ../admin/admin.editor.php:57
 msgid "Edit Site Using DMS"
@@ -155,13 +139,10 @@ msgstr "Obtenez des ressources PRO gratuites avec du Karma."
 
 #: ../editor/editor.account.php:443
 msgid ""
-"For every friend you invite who joins and installs PageLines, we'll give you "
-"and your friend 50 karma points! Karma points can be redeemed as cash with "
+"For every friend you invite who joins and installs PageLines, we'll give you"
+" and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
-msgstr ""
-"Pour chaque ami que vous invitez qui rejoint et installe PageLines, nous "
-"vous donnerons ainsi qu'&acute;à votre ami 50 points karma ! Les points "
-"Karma sont monnayables avec PageLines."
+msgstr "Pour chaque ami que vous invitez qui rejoint et installe PageLines, nous vous donnerons ainsi qu&rsquo;à votre ami 50 points karma ! Les points Karma sont monnayables avec PageLines."
 
 #: ../editor/editor.account.php:447
 msgid "Invite Friends by Email"
@@ -177,15 +158,15 @@ msgstr "Inviter"
 
 #: ../editor/editor.account.php:455 ../editor/editor.account.php:467
 msgid " Add/Update Account Info"
-msgstr "Ajouter/mettre à jour l&acute;info du compte"
+msgstr "Ajouter/mettre à jour l&rsquo;info du compte"
 
 #: ../editor/editor.account.php:457
 msgid "Name and invite link needed."
-msgstr "Nom et lien d'&acute;invitation nécessaires."
+msgstr "Nom et lien d&rsquo;invitation nécessaires."
 
 #: ../editor/editor.account.php:462
 msgid "Your Invite Link"
-msgstr "Votre lien d'&acute;invitation"
+msgstr "Votre lien d&rsquo;invitation"
 
 #: ../editor/editor.account.php:483
 msgid " Your Karma"
@@ -226,7 +207,7 @@ msgstr "Activé Pro !"
 
 #: ../editor/editor.account.php:579
 msgid "Update Info"
-msgstr "Mettre à jour l'&acute;info"
+msgstr "Mettre à jour l&rsquo;info"
 
 #: ../editor/editor.account.php:581
 msgid "Deactivate"
@@ -238,7 +219,7 @@ msgstr "Compte PageLines"
 
 #: ../editor/editor.account.php:599
 msgid "Pro Activation Key"
-msgstr "Clé d&acute;activation Pro"
+msgstr "Clé d&rsquo;activation Pro"
 
 #: ../editor/editor.account.php:600
 msgid "optional"
@@ -261,10 +242,9 @@ msgid "PageLines account not added or incorrect."
 msgstr "Compte PageLines non ajouté ou incorrect."
 
 #: ../editor/editor.account.php:625
-msgid "Add account to configure PageLines APIs, karma system and store access."
-msgstr ""
-"Ajouter un compte pour configurer les API PageLines, le système de karma et "
-"l&acute;accès au magasin."
+msgid ""
+"Add account to configure PageLines APIs, karma system and store access."
+msgstr "Ajouter un compte pour configurer les API PageLines, le système de karma et l&rsquo;accès au magasin."
 
 #: ../editor/editor.account.php:631
 msgid "Profile"
@@ -292,18 +272,15 @@ msgstr "Vidéo pour démarrer"
 
 #: ../editor/editor.account.php:689
 msgid "The PageLines Experience"
-msgstr "L&acute;expérience PageLines"
+msgstr "L&rsquo;expérience PageLines"
 
 #: ../editor/editor.account.php:692
 msgid "We want you to have a most amazing time as a PageLines customer."
-msgstr ""
-"Nous voulons que vous viviez un moment exceptionnel comme client PageLines."
+msgstr "Nous voulons que vous viviez un moment exceptionnel comme client PageLines."
 
 #: ../editor/editor.account.php:694
 msgid "That's why we have a ton of people standing by to make you happy."
-msgstr ""
-"C'est pourquoi nous avons tant de personnes se tenant prêtes à vous rendre "
-"heureux."
+msgstr "C'est pourquoi nous avons tant de personnes se tenant prêtes à vous rendre heureux."
 
 #: ../editor/editor.account.php:698
 msgid "PageLines Forum"
@@ -331,10 +308,7 @@ msgid ""
 "Your site is \"Pro activated\" but you have not installed the DMS Pro tools "
 "plugin. Grab the plugin on <a href=\"http://www.pagelines.com/my-account\" "
 ">PageLines.com &rarr; My-Account</a>."
-msgstr ""
-"Votre site est \"\\activé Pro\"\\ mais vous n'avez pas installé l&acute;"
-"extension outils Pro DMS. Obtenez l&acute;extension sur <a href=\"http://www."
-"pagelines.com/my-account\">PageLines.com &rarr; My-Account</a>."
+msgstr "Votre site est &laquo;&nbsp;activé Pro&nbsp;&raquo; mais vous n&rsquo;avez pas installé l&rsquo;extension Outils Pro DMS. Obtenez l&rsquo;extension sur <a href=\\\"http://www.pagelines.com/my-account\\\">PageLines.com &rarr; My-Account</a>."
 
 #: ../editor/editor.actions.php:392
 msgid "Upgrade to Pro!"
@@ -344,10 +318,7 @@ msgstr "Mettre à niveau vers Pro !"
 msgid ""
 "You are currently using the basic DMS version. Pro activate this site for "
 "tons more features and support."
-msgstr ""
-"Vous utilisez actuellement la version de base de DMS. Activez ce site en Pro "
-"pour obtenir de nombreuses fonctionnalités et de l&acute;assistance "
-"supplémentaires."
+msgstr "Vous utilisez actuellement la version de base de DMS. Activez ce site en Pro pour obtenir de nombreuses fonctionnalités et de l&rsquo;assistance supplémentaires."
 
 #: ../editor/editor.actions.php:396
 msgid "Learn More About Pro"
@@ -363,9 +334,9 @@ msgstr "Activer le site"
 
 #: ../editor/editor.actions.php:494
 msgid "Select This Image For Option"
-msgstr "Sélectionner cette image pour l'&acute;option"
+msgstr "Sélectionner cette image pour l&rsquo;option"
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
 msgstr "Bibliothèque de médias"
 
@@ -399,15 +370,11 @@ msgid ""
 "The \"base\" color are a few standard colors used throughout DMS that "
 "plugins may use to calculate contrast or other colors to make sure "
 "everything looks great."
-msgstr ""
-"Les couleurs de \"\\base\"\\ sont quelques couleurs standard utilisées dans "
-"tout le DMS que des extensions peuvent utiliser pour calculer des contrastes "
-"ou d&acute;autres couleurs afin de veiller à ce que tout soit du plus bel "
-"effet."
+msgstr "Les couleurs de &laquo;&nbsp;base&nbsp;&raquo; sont quelques couleurs standard utilisées dans tout le DMS que des extensions peuvent utiliser pour calculer des contrastes ou d&rsquo;autres couleurs afin de veiller à ce que tout soit du plus bel effet."
 
 #: ../editor/editor.color.php:207
 msgid "Background Base Color"
-msgstr "Couleur de base d&acute;arrière-plan"
+msgstr "Couleur de base d&rsquo;arrière-plan"
 
 #: ../editor/editor.color.php:214
 msgid "Text Base Color"
@@ -419,15 +386,15 @@ msgstr "Couleur de base des liens"
 
 #: ../editor/editor.color.php:232 ../sections/pl_area/section.php:128
 msgid "Background Image"
-msgstr "Image d&acute;arrière-plan"
+msgstr "Image d&rsquo;arrière-plan"
 
 #: ../editor/editor.color.php:241
 msgid "Page Background Image"
-msgstr "Image d&acute;arrière-plan de la page"
+msgstr "Image d&rsquo;arrière-plan de la page"
 
 #: ../editor/editor.color.php:253
 msgid "Background Image Settings"
-msgstr "Réglages de l&acute;image d&acute;arrière-plan"
+msgstr "Réglages de l&rsquo;image d&rsquo;arrière-plan"
 
 #: ../editor/editor.color.php:259
 msgid "Fit image to page?"
@@ -461,15 +428,15 @@ msgstr "Répéter verticalement"
 
 #: ../editor/editor.color.php:281
 msgid "Vertical Background Position in Percent"
-msgstr "Position verticale de l&acute;arrière-plan en pourcentage"
+msgstr "Position verticale de l&rsquo;arrière-plan en pourcentage"
 
 #: ../editor/editor.color.php:292
 msgid "Horizontal Background Position in Percent"
-msgstr "Position horizontale de l&acute;arrière-plan en pourcentage"
+msgstr "Position horizontale de l&rsquo;arrière-plan en pourcentage"
 
 #: ../editor/editor.color.php:303
 msgid "Set Background Attachment"
-msgstr "Régler l'image d&acute;arrière-plan"
+msgstr "Régler l&rsquo;image d&rsquo;arrière-plan"
 
 #: ../editor/editor.color.php:306
 msgid "Scroll"
@@ -505,9 +472,7 @@ msgstr ""
 
 #: ../editor/editor.importexport.php:62
 msgid "Overwrite post type settings with ones from this import."
-msgstr ""
-"Remplacer les réglages des types d&acute;articles avec ceux de cette "
-"importation."
+msgstr "Remplacer les réglages des types d&rsquo;articles avec ceux de cette importation."
 
 #: ../editor/editor.importexport.php:70
 msgid "DMS Config Import"
@@ -528,17 +493,12 @@ msgstr "Charger la config du thème enfant"
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
-"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
-"may want to publish these changes to your live site."
-msgstr ""
-"Réinitialiser les réglages du thème en utilisant le fichier de config "
-"personnalisée de votre thème enfant.<br />⏎\n"
-"⇥⇥⇥⇥⇥<strong>Note :</strong> Une fois cette opération effectuée, vous "
-"souhaiterez probablement publier ces changements vers votre site en ligne. "
+"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you may want to publish these changes to your live site."
+msgstr "Réinitialiser les réglages du thème en utilisant le fichier de config personnalisée de votre thème enfant.<br />⏎\n⇥⇥⇥⇥⇥<strong>Note :</strong> Une fois cette opération effectuée, vous souhaiterez probablement publier ces changements vers votre site en ligne. "
 
 #: ../editor/editor.importexport.php:108
 msgid "Select User Templates"
-msgstr "Sélectionner les modèles de l&acute;utilisateur"
+msgstr "Sélectionner les modèles de l&rsquo;utilisateur"
 
 #: ../editor/editor.importexport.php:116
 msgid "Select All"
@@ -558,13 +518,10 @@ msgstr "Exporter les réglages globaux du site"
 
 #: ../editor/editor.importexport.php:143
 msgid ""
-"This will export your sites global settings. This includes everything in the "
-"options panel, as well as settings directed at sections in your \"global\" "
+"This will export your sites global settings. This includes everything in the"
+" options panel, as well as settings directed at sections in your \"global\" "
 "regions like your header and footer."
-msgstr ""
-"Ceci va exporter les réglages globaux de votre site. Ceci comprend tout ce "
-"qui relève de votre tableau d'options, ainsi que les réglages des sections "
-"dans vos zones \"globales\" telles que l'en-tête et le pie de page."
+msgstr "Ceci va exporter les réglages globaux de votre site. Ceci comprend tout ce qui relève de votre tableau d'options, ainsi que les réglages des sections dans vos zones \"globales\" telles que l'en-tête et le pie de page."
 
 #: ../editor/editor.importexport.php:148
 msgid "Post Type Settings"
@@ -585,7 +542,7 @@ msgstr "Publication de la config du thème"
 
 #: ../editor/editor.importexport.php:170
 msgid "(Disabled! No child theme active)"
-msgstr "(Désactivé ! Aucun thème enfant n&acute;est actif)"
+msgstr "(Désactivé ! Aucun thème enfant n&rsquo;est actif)"
 
 #: ../editor/editor.importexport.php:170
 msgid "Publish Configuration to Child Theme (No Download File)"
@@ -595,8 +552,8 @@ msgstr ""
 msgid ""
 "Check this to publish your site configuration as a theme configuration file "
 "in your themes root directory. When a user activates your theme it will ask "
-"if it can overwrite their settings to attain a desired initial experience to "
-"the theme."
+"if it can overwrite their settings to attain a desired initial experience to"
+" the theme."
 msgstr ""
 
 #: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
@@ -708,11 +665,7 @@ msgid ""
 "Select pixel width mode and your site maximum width will be controlled by "
 "pixels.<br/><br/> If you select \"percent\" width the width of your content "
 "will be a percentage of window size."
-msgstr ""
-"Sélectionnez le mode largeur en pixels et la largeur maximale de votre site "
-"sera contrôlée en pixels.<br/><br/> Si vous sélectionnez la largeur "
-"\"pourcentage\" la largeur de votre contenu sera un pourcentage de la taille "
-"de la fenêtre."
+msgstr "Sélectionnez le mode largeur en pixels et la largeur maximale de votre site sera contrôlée en pixels.<br/><br/> Si vous sélectionnez la largeur \"pourcentage\" la largeur de votre contenu sera un pourcentage de la taille de la fenêtre."
 
 #: ../editor/editor.layout.php:55
 msgid "Select Layout Display"
@@ -749,9 +702,7 @@ msgstr "Sélectionner le menu de navigation primaire"
 msgid ""
 "This will be used in mobile menus and optionally other places throughout "
 "your site."
-msgstr ""
-"Ceci sera utilisé par les menus sur mobiles, et le cas échéant à d'autres "
-"endroits de votre site."
+msgstr "Ceci sera utilisé par les menus sur mobiles, et le cas échéant à d'autres endroits de votre site."
 
 #: ../editor/editor.layout.php:87
 msgid "Select Secondary Navigation Menu"
@@ -761,9 +712,7 @@ msgstr "Sélectionner le menu de navigation secondaire"
 msgid ""
 "This will be shown subtly in areas throughout the site and in your mobile "
 "menu."
-msgstr ""
-"Ceci sera utilisé subtilement à différents endroits de votre site, et dans "
-"votre menu pour mobiles."
+msgstr "Ceci sera utilisé subtilement à différents endroits de votre site, et dans votre menu pour mobiles."
 
 #: ../editor/editor.loader.php:99
 msgid "Loading DMS Editor"
@@ -801,11 +750,11 @@ msgstr "Réinitialisations"
 
 #: ../editor/editor.settings.config.php:85
 msgid "<i class=\"icon-home\"></i> Set Site Homepage"
-msgstr "<i class=\"icon-home\"></i> Réglez la page d&acute;accueil du site"
+msgstr "<i class=\"icon-home\"></i> Réglez la page d&rsquo;accueil du site"
 
 #: ../editor/editor.settings.config.php:89
 msgid "Site Homepage"
-msgstr "Page d&acute;accueil du site"
+msgstr "Page d&rsquo;accueil du site"
 
 #: ../editor/editor.settings.config.php:93
 msgid "<i class=\"icon-link\"></i> Permalinks"
@@ -849,7 +798,7 @@ msgstr "Gérer les extensions"
 
 #: ../editor/editor.settings.config.php:145
 msgid "<i class=\"icon-ambulance\"></i> View Debug Info"
-msgstr "<i class=\"icon-ambulance\"></i> Voir l&acute;info de débogage"
+msgstr "<i class=\"icon-ambulance\"></i> Voir l&rsquo;info de débogage"
 
 #: ../editor/editor.settings.config.php:149
 msgid "Debug Enabled"
@@ -865,17 +814,14 @@ msgstr "Image favicon"
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
-"Enter the full URL location of your custom <strong>favicon</strong> which is "
-"visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
+"Enter the full URL location of your custom <strong>favicon</strong> which is"
+" visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
-msgstr ""
-"Entrez l&acute;URL complète de l&acute;emplacement de votre <strong>favicon</"
-"strong> qui est visible des les favoris et onglets du navigateur. <br/> "
-"<strong>Ce fichier doit être de type .png ou .ico - 32 px par 32 px</strong>."
+msgstr "Entrez l&rsquo;URL complète de l&rsquo;emplacement de votre <strong>favicon</strong> qui est visible des les favoris et onglets du navigateur. <br/> <strong>Ce fichier doit être de type .png ou .ico - 32 px par 32 px</strong>."
 
 #: ../editor/editor.settings.config.php:177
 msgid "Upload Login Image (160px Height)"
-msgstr "Envoyer l'&acute;image de connexion (d'&acute;une hauteur de 160 px)"
+msgstr "Envoyer l&rsquo;image de connexion (d&rsquo;une hauteur de 160 px)"
 
 #: ../editor/editor.settings.config.php:180
 msgid "Login Page Image"
@@ -885,31 +831,23 @@ msgstr "Image de la page de connexion"
 msgid ""
 "This image will be used on the login page to your admin. Use an image that "
 "is approximately <strong>80px</strong> in height."
-msgstr ""
-"Cette image sera utilisée sur la page de connexion vers votre admin. "
-"Utilisez une image d'&acute;une hauteur approximative de <strong>80 px</"
-"strong>."
+msgstr "Cette image sera utilisée sur la page de connexion vers votre admin. Utilisez une image d&rsquo;une hauteur approximative de <strong>80 px</strong>."
 
 #: ../editor/editor.settings.config.php:188
 msgid "Upload Touch Image (144px by 144px)"
-msgstr "Envoyer l&acute;image \"\\Touch\"\\ (144 px par 144 px)"
+msgstr "Envoyer l&rsquo;image &laquo;&nbsp;Touch&nbsp;&raquo; (144 px par 144 px)"
 
 #: ../editor/editor.settings.config.php:191
 msgid "Mobile Touch Image"
-msgstr "Image \"\\Touch\"\\ pour mobiles"
+msgstr "Image &laquo;&nbsp;Touch&nbsp;&raquo; pour mobiles"
 
 #: ../editor/editor.settings.config.php:193
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
-"Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
-"gif or .png format."
-msgstr ""
-"Entrez l&acute;URL complète de l&acute;emplacement de votre icône Apple "
-"\"\\Touch\"\\ qui est visible lorsque vos utilisateurs créent une "
-"<strong>icône webclip</strong> de votre site sur leurs iPhone et autres "
-"produits \"\\Touch\"\\ Apple. C&acute;est une image d&acute;environ 144 px "
-"par 144 px au format soit .jpg,, .gif ou .png."
+"Touch Products. It is an image approximately 144px by 144px in either .jpg, "
+".gif or .png format."
+msgstr "Entrez l&rsquo;URL complète de l&rsquo;emplacement de votre icône Apple &laquo;&nbsp;Touch&nbsp;&raquo; qui est visible lorsque vos utilisateurs créent une <strong>icône webclip</strong> de votre site sur leurs iPhone et autres produits &laquo;&nbsp;Touch&nbsp;&raquo; Apple. C&rsquo;est une image d&rsquo;environ 144 px par 144 px au format soit .jpg,, .gif ou .png."
 
 #: ../editor/editor.settings.config.php:211
 msgid "Your Twitter Username"
@@ -923,9 +861,7 @@ msgstr "Intégration Twitter"
 msgid ""
 "This places your Twitter feed on the site. Leave blank if you want to hide "
 "or not use."
-msgstr ""
-"Ceci place votre flux Twitter sur le site. Laissez vierge si vous souhaitez "
-"le cacher ou ne pas l&acute;utiliser."
+msgstr "Ceci place votre flux Twitter sur le site. Laissez vierge si vous souhaitez le cacher ou ne pas l&rsquo;utiliser."
 
 #: ../editor/editor.settings.config.php:225
 msgid "Your Facebook Page Name"
@@ -937,11 +873,9 @@ msgstr "Page Facebook"
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
-"Enter the name component of your Facebook page URL. (For example, what comes "
-"after the facebook url: www.facebook.com/[name])"
-msgstr ""
-"Entrez le composant nom de l&acute;URL de votre page Facebook. (Par exemple, "
-"ce qui apparaît après l'url facebook : www.facebook.com/[nom])"
+"Enter the name component of your Facebook page URL. (For example, what comes"
+" after the facebook url: www.facebook.com/[name])"
+msgstr "Entrez le composant nom de l&rsquo;URL de votre page Facebook. (Par exemple, ce qui apparaît après l&rsquo;url facebook : www.facebook.com/[nom])"
 
 #: ../editor/editor.settings.config.php:232
 msgid "Your Facebook App ID"
@@ -967,9 +901,7 @@ msgstr "Mot-dièse du site"
 msgid ""
 "This hashtag will be used in social media (e.g. Twitter) and elsewhere to "
 "create feeds."
-msgstr ""
-"Ce mot-dièse sera utilisé par vos média sociaux (p. ex. Twitter) et ailleurs "
-"pour créer des flux."
+msgstr "Ce mot-dièse sera utilisé par vos média sociaux (p. ex. Twitter) et ailleurs pour créer des flux."
 
 #: ../editor/editor.settings.config.php:251
 msgid "Sharebar Options"
@@ -1018,9 +950,7 @@ msgstr "Débogage PageLines"
 #: ../editor/editor.settings.config.php:311
 #, php-format
 msgid "This information can be useful in the forums if you have a problem. %s"
-msgstr ""
-"Cette information peut être utile dans les forums si vous avez un problème. "
-"%s"
+msgstr "Cette information peut être utile dans les forums si vous avez un problème. %s"
 
 #: ../editor/editor.settings.config.php:319
 msgid "Disable Error Notices?"
@@ -1032,9 +962,7 @@ msgstr "Notifications Less"
 
 #: ../editor/editor.settings.config.php:321
 msgid "Disable any error notices sent to wp-admin by the less system"
-msgstr ""
-"Désactiver toute notification d&acute;erreur adressée à wp-admin par le "
-"système less"
+msgstr "Désactiver toute notification d&rsquo;erreur adressée à wp-admin par le système less"
 
 #: ../editor/editor.settings.config.php:328
 msgid "Enable Code Prettify?"
@@ -1064,10 +992,7 @@ msgid ""
 "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines "
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
-msgstr ""
-"Si vous êtes un <a target='_blank' href='http://www.pagelines."
-"com'>partenaire PageLines</a> entrez votre lien ici et le lien de pied de "
-"page deviendra un lien partenaire ou affilié."
+msgstr "Si vous êtes un <a target='_blank' href='http://www.pagelines.com'>partenaire PageLines</a> entrez votre lien ici et le lien de pied de page deviendra un lien partenaire ou affilié."
 
 #: ../editor/editor.settings.config.php:344
 msgid "Install Class"
@@ -1082,11 +1007,7 @@ msgid ""
 "Use this option to add a class to the &gt;body&lt; element of the website. "
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
-msgstr ""
-"Utiliser cette option pour ajouter une classe à l&acute;élément &gt;body&lt; "
-"de votre site web. Ceci peut être utile lorsque vous utilisez le même thème "
-"enfant sur plusieurs installations ou sous-domaines et peut être utilisé "
-"pour contrôler les personnalisations CSS."
+msgstr "Utiliser cette option pour ajouter une classe à l&rsquo;élément &gt;body&lt; de votre site web. Ceci peut être utile lorsque vous utilisez le même thème enfant sur plusieurs installations ou sous-domaines et peut être utilisé pour contrôler les personnalisations CSS."
 
 #: ../editor/editor.settings.config.php:361
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
@@ -1098,19 +1019,14 @@ msgstr "Réinitialiser les réglages globaux du site"
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
-"Use this button to reset all global settings to their default state. <br/"
-"><strong>Note:</strong> Once you've completed this action, you may want to "
-"publish these changes to your live site."
-msgstr ""
-"Utilisez ce bouton pour réinitialiser tous les réglages globaux à leurs "
-"valeurs par défaut. <br/><strong>Note :</strong> Une fois cette action "
-"opérée, vous voudrez peut-être publier ces changements sur votre site en "
-"ligne."
+"Use this button to reset all global settings to their default state. "
+"<br/><strong>Note:</strong> Once you've completed this action, you may want "
+"to publish these changes to your live site."
+msgstr "Utilisez ce bouton pour réinitialiser tous les réglages globaux à leurs valeurs par défaut. <br/><strong>Note :</strong> Une fois cette action opérée, vous voudrez peut-être publier ces changements sur votre site en ligne."
 
 #: ../editor/editor.settings.config.php:369
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
-msgstr ""
-"<i class=\"icon-undo\"></i> Réinitialiser les réglages de la page actuelle"
+msgstr "<i class=\"icon-undo\"></i> Réinitialiser les réglages de la page actuelle"
 
 #: ../editor/editor.settings.config.php:370
 msgid "Reset Current Page Settings"
@@ -1121,11 +1037,7 @@ msgid ""
 "Use this button to reset all settings on the current page back to their "
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
-msgstr ""
-"Utilisez ce bouton pour réinitialiser tous les réglages de la page en cours "
-"à leurs valeurs par défaut. <br/><strong>Note :</strong> Une fois cette "
-"action opérée, vous voudrez peut-être publier ces changements sur votre site "
-"en ligne."
+msgstr "Utilisez ce bouton pour réinitialiser tous les réglages de la page en cours à leurs valeurs par défaut. <br/><strong>Note :</strong> Une fois cette action opérée, vous voudrez peut-être publier ces changements sur votre site en ligne."
 
 #: ../editor/editor.settings.config.php:378
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
@@ -1157,7 +1069,7 @@ msgstr "Séparer par un espace \" \""
 msgid "Templates"
 msgstr "Modèles"
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
 msgstr "Modèles de page"
 
@@ -1195,19 +1107,15 @@ msgstr "Supprimer ce modèle"
 
 #: ../editor/editor.templates.php:320
 msgid ""
-"Fill out this form and the current template will be saved for use throughout "
-"your site."
-msgstr ""
-"Complétez ce formulaire et le modèle en cours sera enregistré pour pouvoir "
-"être utilisé dans tout votre site."
+"Fill out this form and the current template will be saved for use throughout"
+" your site."
+msgstr "Complétez ce formulaire et le modèle en cours sera enregistré pour pouvoir être utilisé dans tout votre site."
 
 #: ../editor/editor.templates.php:322
 msgid ""
 "<strong>Note:</strong> Both the current page's local settings and section "
 "configurations will be saved."
-msgstr ""
-"<strong>Note :</strong> A la fois les réglages locaux de la page en cours et "
-"les configurations de sections seront enregistrés."
+msgstr "<strong>Note :</strong> A la fois les réglages locaux de la page en cours et les configurations de sections seront enregistrés."
 
 #: ../editor/editor.templates.php:325
 msgid "Template Name (required)"
@@ -1237,19 +1145,15 @@ msgstr "Modèle de mise en avant"
 msgid ""
 "A page template designed to quickly and concisely show off key features or "
 "points. (RevSlider, iBoxes, Flipper)"
-msgstr ""
-"Un modèle de page conçu pour faire ressortir rapidement et avec concision "
-"des fonctionnalités ou points clé. (RevSlider, iBoxes, Flipper)"
+msgstr "Un modèle de page conçu pour faire ressortir rapidement et avec concision des fonctionnalités ou points clé. (RevSlider, iBoxes, Flipper)"
 
 #: ../editor/editor.templates.php:539
 msgid "Landing Page"
-msgstr "Page d&acute;accueil"
+msgstr "Page d&rsquo;accueil"
 
 #: ../editor/editor.templates.php:540
 msgid "A simple page design with highlight section and postloop (content)."
-msgstr ""
-"Une page au design simple avec une section Highlight et une boucle d&acute;"
-"article (contenu)."
+msgstr "Une page au design simple avec une section Highlight et une boucle d&rsquo;article (contenu)."
 
 #: ../editor/editor.templates.php:566
 msgid "DMS Page Setup"
@@ -1283,9 +1187,7 @@ msgstr "Texte primaire"
 msgid ""
 "The base font size is a reference that will be scaled for text used "
 "throughout the site. "
-msgstr ""
-"La taille de la police de base est une référence qui sera mise à l'échelle "
-"pour le texte utilisé partout dans le site."
+msgstr "La taille de la police de base est une référence qui sera mise à l'échelle pour le texte utilisé partout dans le site."
 
 #: ../editor/editor.typography.php:91
 msgid "Select Font Face"
@@ -1301,7 +1203,7 @@ msgstr "Poids de police"
 
 #: ../editor/editor.typography.php:116
 msgid "*These weights don't always have an effect."
-msgstr "* Ces poids n&acute;ont pas toujours d&acute;effet."
+msgstr "* Ces poids n&rsquo;ont pas toujours d&rsquo;effet."
 
 #: ../editor/editor.typography.php:125
 msgid "Text Headers <small>(h1-h6)</small>"
@@ -1321,17 +1223,12 @@ msgstr "Polices additionnelles"
 
 #: ../editor/editor.typography.php:165
 msgid ""
-"<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">Google fonts</a> to your sites using this option.</p><p>For example, to "
-"add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
-"Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
-"p>"
-msgstr ""
-"<p>Ajouter des <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">polices Google</a> supplémentaires à vos sites en utilisant cette option."
-"</p><p>Par exemple, pour ajouter \"Yellowtail\" et \"Lato Bold\" vous "
-"devriez entrer : <strong>Yellowtail|Lato:700</strong>.</p><p> Vous pouvez "
-"ensuite faire référence à ces polices dans votre CSS personnalisé.</p>"
+"<p>Add additional <a href=\"http://www.google.com/fonts\" "
+"target=\"_blank\">Google fonts</a> to your sites using this "
+"option.</p><p>For example, to add \"Yellowtail\" and \"Lato Bold\" you would"
+" enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference "
+"these fonts in custom CSS.</p>"
+msgstr "<p>Ajouter des <a href=\"http://www.google.com/fonts\" target=\"_blank\">polices Google</a> supplémentaires à vos sites en utilisant cette option.</p><p>Par exemple, pour ajouter \"Yellowtail\" et \"Lato Bold\" vous devriez entrer : <strong>Yellowtail|Lato:700</strong>.</p><p> Vous pouvez ensuite faire référence à ces polices dans votre CSS personnalisé.</p>"
 
 #: ../editor/editor.typography.php:170
 msgid "Extra Google Fonts"
@@ -1360,12 +1257,11 @@ msgstr "Astuce"
 
 #: ../editor/panel.code.php:75
 msgid "Hit [Cmd&#8984;+Return] or [Ctrl+Return] to Preview Live"
-msgstr ""
-"Tapez [Cmd&#8984;+Entrée] or [Ctrl+Entrée] pour prévisualiser directement"
+msgstr "Tapez [Cmd&#8984; + Entrée] ou [Ctrl + Entrée] pour prévisualiser directement"
 
 #: ../editor/panel.code.php:91
 msgid "Custom Javascript or Header HTML"
-msgstr "Javascript personnalisé ou HTML d&acute;en-tête"
+msgstr "Javascript personnalisé ou HTML d&rsquo;en-tête"
 
 #: ../editor/panel.extend.php:21
 msgid "Store"
@@ -1409,17 +1305,15 @@ msgstr "Chercher"
 
 #: ../editor/panel.extend.php:99
 msgid "Upload a .zip extension into your PageLines install using this tool."
-msgstr ""
-"Envoyer une extension .zip vers votre installation PageLines en utilisant "
-"cet outil."
+msgstr "Envoyer une extension .zip vers votre installation PageLines en utilisant cet outil."
 
 #: ../editor/panel.extend.php:101
 msgid "Extension File (zip file - required)"
-msgstr "Fichier d&acute;extension (fichier zip - requis)"
+msgstr "Fichier d&rsquo;extension (fichier zip - requis)"
 
 #: ../editor/panel.extend.php:104
 msgid "Upload Extension"
-msgstr "Envoyer l&acute;extension"
+msgstr "Envoyer l&rsquo;extension"
 
 #: ../editor/panel.extend.php:116
 msgid "Search the PageLines store for extensions."
@@ -1491,7 +1385,7 @@ msgstr "Pleine largeur"
 
 #: ../editor/panel.sections.php:60 ../editor/panel.sections.php:116
 msgid "Post Layouts"
-msgstr "Mises en page d&acute;articles"
+msgstr "Mises en page d&rsquo;articles"
 
 #: ../editor/panel.sections.php:66 ../editor/panel.sections.php:117
 msgid "Galleries"
@@ -1551,22 +1445,20 @@ msgid "Theme Options"
 msgstr "Options du thème"
 
 #: ../editor/panel.themes.php:127
-msgid ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
-msgstr ""
-"<span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Actif</span>"
+msgid " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
+msgstr "<span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Actif</span>"
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
 msgid "Theme does not exist or is not allowed"
-msgstr "Le thème n&acute;existe pas ou n&acute;est pas autorisé"
+msgstr "Le thème n&rsquo;existe pas ou n&rsquo;est pas autorisé"
 
 #: ../editor/panel.themes.php:235
 msgid " this is the end of the world.... >> "
-msgstr "c&acute;est la fin du monde&hellip;&nbsp;>>"
+msgstr "c&rsquo;est la fin du monde&hellip;&nbsp;>>"
 
 #: ../includes/class.register.php:358
 msgid "<h2>Unable to fetch from API</h2>"
-msgstr "<h2>Impossible de récupérer à partir de l&acute;API</h2>"
+msgstr "<h2>Impossible de récupérer à partir de l&rsquo;API</h2>"
 
 #: ../includes/class.shortcodes.php:317
 msgid "<span class='editpage sc'>Edit</span>"
@@ -1601,48 +1493,42 @@ msgstr "Visiter le site de %s&#8217"
 msgid "Close"
 msgstr "Fermer"
 
-#: ../includes/deprecated.php:268
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
-"%3$s instead."
-msgstr ""
-"%1$s est <strong>obsolète</strong> depuis la version %2$s de PageLines "
-"DMS&nbsp;! Utilisez %3$s à la place."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use"
+" %3$s instead."
+msgstr "%1$s est <strong>obsolète</strong> depuis la version %2$s de PageLines DMS&nbsp;! Utilisez %3$s à la place."
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:274
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
-"no alternative available."
-msgstr ""
-"%1$s est <strong>obsolète</strong> depuis la version %2$s de PageLines DMS  "
-"sans alternative disponible."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with"
+" no alternative available."
+msgstr "%1$s est <strong>obsolète</strong> depuis la version %2$s de PageLines DMS  sans alternative disponible."
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr "Pas d'image"
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
 msgstr "Ajouter un nouveau"
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
 msgstr "Modifier"
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
 msgstr "Aperçu"
 
 #: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
-msgstr ""
-"%s/* du CSS a été compilé à %s et cela a pris %s secondes en utilisant %sMO "
-"de poussière de licorne%s.*/"
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn "
+"dust%s.*/"
+msgstr "%s/* du CSS a été compilé à %s et cela a pris %s secondes en utilisant %sMO de poussière de licorne%s.*/"
 
 #: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
@@ -1656,8 +1542,8 @@ msgstr ""
 #: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
-"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
-"unicorn dust%s.*/"
+"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of"
+" unicorn dust%s.*/"
 msgstr ""
 
 #: ../includes/lib.editor.php:72
@@ -1681,9 +1567,7 @@ msgstr "Publications suivantes &rarr;"
 msgid ""
 "<ul class='inline-list'>Please select a nav menu for this area in the <a "
 "href='%s'>WordPress menu admin</a>.</ul>"
-msgstr ""
-"<ul class='inline-list'>Veuillez sélectionner un menu de navigation pour "
-"cette zone dans l&acute;<a href='%s'>admin des menus WordPress</a>.</ul>"
+msgstr "<ul class='inline-list'>Veuillez sélectionner un menu de navigation pour cette zone dans l&rsquo;<a href='%s'>admin des menus WordPress</a>.</ul>"
 
 #: ../includes/lib.elements.php:272
 msgid "edit"
@@ -1739,8 +1623,7 @@ msgstr "Sélectionner la zone widgétisée"
 
 #: ../sections/columnizer/section.php:61
 msgid "Select the widgetized area you would like to use with this instance."
-msgstr ""
-"Sélectionnez la zone widgétisée que vous souhaitez utiliser dans ce cas."
+msgstr "Sélectionnez la zone widgétisée que vous souhaitez utiliser dans ce cas."
 
 #: ../sections/columnizer/section.php:69
 msgid "Number of Grid Columns for Each Widget (12 Col Grid)"
@@ -1758,9 +1641,7 @@ msgstr "Editer les zones widgétisées"
 msgid ""
 "This section uses widgetized areas that are created and edited in inside "
 "your admin."
-msgstr ""
-"Cette section utilise des zones widgétisées qui sont créées et modifiées "
-"dans votre admin."
+msgstr "Cette section utilise des zones widgétisées qui sont créées et modifiées dans votre admin."
 
 #: ../sections/columnizer/section.php:88 ../sections/columnizer/section.php:89
 msgid "Column Site Description"
@@ -1770,10 +1651,7 @@ msgstr "Colonne de description du site"
 msgid ""
 "If you use the default display of the columnizer, this field is used as a "
 "description of your company. You may want to add your address or links."
-msgstr ""
-"Si vous utiliser l&acute;affichage par défaut du columnizer, ce champ sera "
-"utilisé comme un descriptif de votre société. Vous pourriez souhaiter y "
-"ajouter votre adresse ou vos liens."
+msgstr "Si vous utiliser l&rsquo;affichage par défaut du columnizer, ce champ sera utilisé comme un descriptif de votre société. Vous pourriez souhaiter y ajouter votre adresse ou vos liens."
 
 #: ../sections/columnizer/section.php:100
 msgid "Get A Sidebars Plugin"
@@ -1781,20 +1659,14 @@ msgstr "Obtenir une extension de barres latérales"
 
 #: ../sections/columnizer/section.php:101
 msgid "<i class=\"icon-external-link\"></i> Check out Sidebar Manager plugin"
-msgstr ""
-"<i class=\"icon-external-link\"></i> Vérifiez l&acute;extension Sidebar "
-"Manager"
+msgstr "<i class=\"icon-external-link\"></i> Vérifiez l&rsquo;extension Sidebar Manager"
 
 #: ../sections/columnizer/section.php:102
 msgid ""
 "We have detected that you don't either the Custom Sidebars or Sidebar "
-"Manager plugins installed. We recommend you install a plugin that allows you "
-"to create custom widgetized areas on demand."
-msgstr ""
-"Nous avons détecté que vous n'&acute;avez installé ni l'&acute;extension "
-"Custom Sidebars ni l&acute;extension SideBar Manager. Nous vous recommandons "
-"d&acute;installer une extension qui vous permet de créer des zones "
-"widgétisées personnalisées à la demande. "
+"Manager plugins installed. We recommend you install a plugin that allows you"
+" to create custom widgetized areas on demand."
+msgstr "Nous avons détecté que vous n&rsquo;avez installé ni l&rsquo;extension Custom Sidebars ni l&rsquo;extension SideBar Manager. Nous vous recommandons d&rsquo;installer une extension qui vous permet de créer des zones widgétisées personnalisées à la demande. "
 
 #: ../sections/columnizer/section.php:147
 msgid "Stay in Touch!"
@@ -1814,7 +1686,8 @@ msgstr "Mots-clefs"
 msgid "Categories"
 msgstr "Catégories"
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr "Plus d'info"
 
@@ -1824,34 +1697,28 @@ msgstr "Réglages du Flipper"
 
 #: ../sections/flipper/section.php:55
 msgid "Which post type should Flipper use?"
-msgstr "Quel type d&acute;articles le Flipper doit-il utiliser ?"
+msgstr "Quel type d&rsquo;articles le Flipper doit-il utiliser ?"
 
 #: ../sections/flipper/section.php:56
 msgid ""
 "<strong>Note</strong><br/> Post types for this section must have \"featured "
 "images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
 "to create custom post types for use with Flipper."
-msgstr ""
-"<strong>Note</strong><br/> Les types d&acute;articles pour cette section "
-"doivent avoir des \"\\images à la une\"\\ activées et être publics.<br/"
-"><strong>Astuce</strong><br/> Utilisez une extension pour créer des types "
-"d&acute;articles personnalisés pour les utiliser avec le Flipper."
+msgstr "<strong>Note</strong><br/> Les types d&rsquo;articles pour cette section doivent avoir des &laquo;&nbsp;images à la une&nbsp;&raquo; activées et être publics.<br/><strong>Astuce</strong><br/> Utilisez une extension pour créer des types d&rsquo;articles personnalisés pour les utiliser avec le Flipper."
 
 #: ../sections/flipper/section.php:69
 msgid "Max Number of Posts Shown"
-msgstr "Nombre maximum d'&acute;articles à afficher"
+msgstr "Nombre maximum d&rsquo;articles à afficher"
 
 #: ../sections/flipper/section.php:70
 msgid ""
 "This controls the maximum number of posts shown. A smaller amount may be "
 "shown based on layout width."
-msgstr ""
-"Ceci contrôle le nombre maximum d'articles à afficher. Un nombre moins "
-"important pourrait être affiché en fonction de la largeur de la mis en page."
+msgstr "Ceci contrôle le nombre maximum d'articles à afficher. Un nombre moins important pourrait être affiché en fonction de la largeur de la mis en page."
 
 #: ../sections/flipper/section.php:77
 msgid "Select Image Size"
-msgstr "Sélectionnez la taille de l&acute;image"
+msgstr "Sélectionnez la taille de l&rsquo;image"
 
 #: ../sections/flipper/section.php:84
 msgid "Flipper Title"
@@ -1876,30 +1743,17 @@ msgstr "Flipper - Méta"
 #: ../sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>"
-"[post_comments]</strong> - Link to post comments</li><li><strong>"
-"[post_author_posts_link]</strong> - Author and link to archive</"
-"li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
-msgstr ""
-"Utilisez des raccourcis pour contrôler l'information dynamique des méta. "
-"Exemples de raccourcis que vous pouvez utiliser : <ul><li><strong>"
-"[post_categories]</strong> - Liste des catégories</li><li><strong>[post_edit]"
-"</strong> - Lien pour les admins pour modifier l&acute;article</"
-"li><li><strong>[post_tags]</strong> - List des mots-clefs de l&acute;article "
-"</li><li><strong>[post_comments]</strong> - Lien vers les commentaires de "
-"l&acute;article</li><li><strong>[post_author_posts_link]</strong> - Auteur "
-"et lien vers ses archives</li><li><strong>[post_author_link]</strong> - Lien "
-"vers l&acute;URL de l&acute;auteur</li><li><strong>[post_author]</strong> - "
-"Auteur de l&acute;article sans lien</li><li><strong>[post_time]</strong> - "
-"Heure de l&acute;article</li><li><strong>[post_date]</strong> - Date de "
-"l&acute;article</li><li><strong>[post_type]</strong> - Type d&acute;article</"
-"li></ul>"
+"use are: <ul><li><strong>[post_categories]</strong> - List of "
+"categories</li><li><strong>[post_edit]</strong> - Link for admins to edit "
+"the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
+msgstr "Utilisez des raccourcis pour contrôler l&rsquo;information dynamique des méta. Exemples de raccourcis que vous pouvez utiliser : <ul><li><strong>[post_categories]</strong> - Liste des catégories</li><li><strong>[post_edit]</strong> - Lien pour les admins pour modifier l&rsquo;article</li><li><strong>[post_tags]</strong> - List des mots-clefs de l&rsquo;article </li><li><strong>[post_comments]</strong> - Lien vers les commentaires de l&rsquo;article</li><li><strong>[post_author_posts_link]</strong> - Auteur et lien vers ses archives</li><li><strong>[post_author_link]</strong> - Lien vers l&rsquo;URL de l&rsquo;auteur</li><li><strong>[post_author]</strong> - Auteur de l&rsquo;article sans lien</li><li><strong>[post_time]</strong> - Heure de l&rsquo;article</li><li><strong>[post_date]</strong> - Date de l&rsquo;article</li><li><strong>[post_type]</strong> - Type d&rsquo;article</li></ul>"
 
 #: ../sections/flipper/section.php:117
 msgid "Total Posts Loaded"
@@ -1913,10 +1767,7 @@ msgstr "Clé méta"
 msgid ""
 "Select only posts which have a certain meta key and corresponding meta "
 "value. Useful for featured posts, or similar."
-msgstr ""
-"Sélectionner uniquement les articles avec une clé méta donnée et la valeur "
-"de méta correspondante. Utile pour des articles mis en avant, ou une méthode "
-"équivalente."
+msgstr "Sélectionner uniquement les articles avec une clé méta donnée et la valeur de méta correspondante. Utile pour des articles mis en avant, ou une méthode équivalente."
 
 #: ../sections/flipper/section.php:133
 msgid "Meta Key Value"
@@ -1924,7 +1775,7 @@ msgstr "Valeur de la clé méta"
 
 #: ../sections/flipper/section.php:148
 msgid "Only applies for standard blog posts."
-msgstr "S&acute;applique uniquement aux articles de blog standard."
+msgstr "S&rsquo;applique uniquement aux articles de blog standard."
 
 #: ../sections/flipper/section.php:157
 msgid "Additional Post Selection"
@@ -2059,7 +1910,7 @@ msgstr "Image en dessous du texte"
 
 #: ../sections/highlight/section.php:35 ../sections/highlight/section.php:125
 msgid "No text, just the image"
-msgstr "Pas de texte, uniquement l'&acute;image"
+msgstr "Pas de texte, uniquement l&rsquo;image"
 
 #: ../sections/highlight/section.php:41
 msgid "Highlight Text"
@@ -2068,7 +1919,7 @@ msgstr "Texte du Highlight"
 #: ../sections/highlight/section.php:48 ../sections/highlight/section.php:97
 #: ../sections/highlight/section.php:104
 msgid "Highlight Header Text (Optional)"
-msgstr "Texte de l&acute en-tête du Highlight (facultatif)"
+msgstr "Texte de l&rsquo;en-tête du Highlight (facultatif)"
 
 #: ../sections/highlight/section.php:54 ../sections/highlight/section.php:110
 msgid "Highlight Subheader Text (Optional)"
@@ -2088,7 +1939,7 @@ msgstr "Ajouter un cadre à l'image ?"
 
 #: ../sections/highlight/section.php:98
 msgid "Add the main header text for the highlight section."
-msgstr "Ajoute le texte de l&acute;en-tête principal de la section Highlight."
+msgstr "Ajoute le texte de l&rsquo;en-tête principal de la section Highlight."
 
 #: ../sections/highlight/section.php:121
 msgid "Highlight Image Style"
@@ -2108,7 +1959,7 @@ msgstr "iBox - Configuration"
 
 #: ../sections/ibox/section.php:33
 msgid "Number of iBoxes to Configure"
-msgstr "Nombre d&acute;iBox à configurer"
+msgstr "Nombre d&rsquo;iBox à configurer"
 
 #: ../sections/ibox/section.php:41
 msgid "Number of Columns for Each Box (12 Col Grid)"
@@ -2116,7 +1967,7 @@ msgstr "Nombre de colonnes pour chaque boîte (grille à 12 colonnes)"
 
 #: ../sections/ibox/section.php:47
 msgid "Icon Font"
-msgstr "Police d&acute;icônes"
+msgstr "Police d&rsquo;icônes"
 
 #: ../sections/ibox/section.php:48
 msgid "Images"
@@ -2128,7 +1979,7 @@ msgstr "Texte seulement, pas de média"
 
 #: ../sections/ibox/section.php:52
 msgid "Select iBox Media Type"
-msgstr "Sélectionnez le type de média de l&acute;iBox"
+msgstr "Sélectionnez le type de média de l&rsquo;iBox"
 
 #: ../sections/ibox/section.php:58
 msgid "Media on Top"
@@ -2140,7 +1991,7 @@ msgstr "Média à gauche"
 
 #: ../sections/ibox/section.php:62
 msgid "Select the iBox Media Location"
-msgstr "Sélectionner l&acute;emplacement du média de l&acuteiBox"
+msgstr "Sélectionner l&rsquo;emplacement du média de l&rsquo;iBox"
 
 #: ../sections/ibox/section.php:72
 msgid "iBoxes Setup"
@@ -2212,11 +2063,11 @@ msgstr "Couleur du bouton"
 
 #: ../sections/icallout/section.php:89
 msgid "Call to action!"
-msgstr "Appel à l&acute;action !"
+msgstr "Appel à l&rsquo;action !"
 
 #: ../sections/masthead/section.php:47 ../sections/masthead/section.php:246
 msgid "Masthead Splash Options"
-msgstr "Masthead - Options d&acute;accueil"
+msgstr "Masthead - Options d&rsquo;accueil"
 
 #: ../sections/masthead/section.php:53 ../sections/masthead/section.php:252
 msgid "Upload custom image"
@@ -2234,9 +2085,7 @@ msgstr "Largeur maximale de l'accueil en px (par défaut : pleine largeur)"
 msgid ""
 "Upload an image to serve as a splash image, or use an embed code for full "
 "width video."
-msgstr ""
-"Chargez une image comme image d'accueil, ou utilisez un code d'incorporation "
-"pour une vidéo en pleine largeur."
+msgstr "Chargez une image comme image d'accueil, ou utilisez un code d'incorporation pour une vidéo en pleine largeur."
 
 #: ../sections/masthead/section.php:71
 msgid "Masthead Text"
@@ -2258,7 +2107,7 @@ msgstr "Slogan"
 
 #: ../sections/masthead/section.php:94
 msgid "Masthead Action Button "
-msgstr "Bouton d&acute;action du Masthead"
+msgstr "Bouton d&rsquo;action du Masthead"
 
 #: ../sections/masthead/section.php:99 ../sections/masthead/section.php:284
 #: ../sections/masthead/section.php:319
@@ -2299,9 +2148,7 @@ msgstr "Commencez ici"
 msgid ""
 "Enter the options for the masthead splash image. If no options are "
 "specified, no image will be shown."
-msgstr ""
-"Entrez les options de l&acute;image d&acute;accueil du Masthead. Si aucune "
-"option n&acute;est spécifiée, aucune image n&acute;apparaîtra."
+msgstr "Entrez les options de l&rsquo;image d&rsquo;accueil du Masthead. Si aucune option n&rsquo;est spécifiée, aucune image n&rsquo;apparaîtra."
 
 #: ../sections/masthead/section.php:268
 msgid "Enter text for your masthead banner section"
@@ -2313,19 +2160,17 @@ msgstr "Le texte pour la section Mashthead"
 
 #: ../sections/masthead/section.php:279
 msgid "Masthead Action Button 1"
-msgstr "Masthead - Bouton d&acute;action 1"
+msgstr "Masthead - Bouton d&rsquo;action 1"
 
 #: ../sections/masthead/section.php:280 ../sections/masthead/section.php:315
 msgid ""
 "Enter the options for the masthead button. If no options are specified, no "
 "button will be shown."
-msgstr ""
-"Entrez les options du bouton du Masthead. Si aucune option n&acute;est "
-"spécifiée, aucun bouton n'apparaîtra."
+msgstr "Entrez les options du bouton du Masthead. Si aucune option n&rsquo;est spécifiée, aucun bouton n&rsquo;apparaîtra."
 
 #: ../sections/masthead/section.php:314
 msgid "Masthead Action Button 2"
-msgstr "Masthead - Bouton d&acute;action 2"
+msgstr "Masthead - Bouton d&rsquo;action 2"
 
 #: ../sections/masthead/section.php:348
 msgid "Choose a Wordpress menu to display (optional)"
@@ -2351,9 +2196,7 @@ msgstr "Texte et HTML incorporé"
 msgid ""
 "Enter rich media \"embed\" HTML in this field to add videos, etc.. instead "
 "of an image."
-msgstr ""
-"Insérez du HTML de média enrichi \"\\incorporé\"\\ dans ce champ pour "
-"ajouter des vidéos, etc. au lieu d'une image."
+msgstr "Insérez du HTML de média enrichi &laquo;&nbsp;incorporé&nbsp;&raquo; dans ce champ pour ajouter des vidéos, etc. au lieu d'une image."
 
 #: ../sections/mediabox/section.php:50
 msgid "Text/Media Alignment"
@@ -2379,9 +2222,7 @@ msgstr "Hauteur minimale de la MediaBox (px)"
 msgid ""
 "Required for \"cover\" mode. Otherwise the mediabox will be drawn at the "
 "height of the media."
-msgstr ""
-"Requis pour le mode \\\"couverture\\\". Sinon la mediabox sera ajustée à la "
-"hauteur du média."
+msgstr "Requis pour le mode &laquo;&nbsp;couverture&nbsp;&raquo;. Sinon la mediabox sera ajustée à la hauteur du média."
 
 #: ../sections/mediabox/section.php:67
 msgid "Disable Media Vertical Centering?"
@@ -2393,13 +2234,11 @@ msgstr "Animation Viewport"
 
 #: ../sections/mediabox/section.php:73 ../sections/textbox/section.php:71
 msgid "Optionally animate the appearance of this section on view."
-msgstr ""
-"Anime facultativement l&acute;apparence de cette section lors de son "
-"affichage."
+msgstr "Anime facultativement l&rsquo;apparence de cette section lors de son affichage."
 
 #: ../sections/mediabox/section.php:86
 msgid "MediaBox Background Image"
-msgstr "MediaBox - Image d&acute;arrière-plan"
+msgstr "MediaBox - Image d&rsquo;arrière-plan"
 
 #: ../sections/navbar/section.php:61 ../sections/navbar/section.php:379
 msgid "Standard NavBar - Select Theme"
@@ -2427,9 +2266,7 @@ msgstr "NavBar - Thème"
 msgid ""
 "The NavBar comes with several color options. Select one to automatically "
 "configure."
-msgstr ""
-"Plusieurs options de couleur sont proposées avec la NavBar. Sélectionnez-en "
-"une pour une configuration automatique."
+msgstr "Plusieurs options de couleur sont proposées avec la NavBar. Sélectionnez-en une pour une configuration automatique."
 
 #: ../sections/navbar/section.php:79
 msgid "NavBar Menu"
@@ -2457,9 +2294,7 @@ msgstr "NavBar - Titre"
 msgid ""
 "Add text to the NavBar to serve as a title, but only displayed on small "
 "screens."
-msgstr ""
-"Ajouter un texte à la NavBar qui sert de titre, mais qui ne s&acute;affiche "
-"que sur les petits écrans."
+msgstr "Ajouter un texte à la NavBar qui sert de titre, mais qui ne s&rsquo;affiche que sur les petits écrans."
 
 #: ../sections/navbar/section.php:106 ../sections/navbar/section.php:422
 msgid "Activate dropdowns on hover."
@@ -2486,9 +2321,7 @@ msgstr "Activer la barre de navigation fixe"
 msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site."
-msgstr ""
-"Utilisez cette fonctionnalité pour faire de la section NavBar une barre de "
-"navigation fixe en haut de votre site."
+msgstr "Utilisez cette fonctionnalité pour faire de la section NavBar une barre de navigation fixe en haut de votre site."
 
 #: ../sections/navbar/section.php:162 ../sections/navbar/section.php:163
 msgid "NavBar Logo"
@@ -2499,11 +2332,7 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
-msgstr ""
-"Utilisez cette fonctionnalité pour faire de la section NavBar une barre de "
-"navigation fixe en haut de votre site.<br/><br/><strong>Notes :</strong> <br/"
-">1. Seulement visible en mode fixe.<br/>2. La hauteur de l&acute;image est "
-"comprimée avec un maximum de 29 px."
+msgstr "Utilisez cette fonctionnalité pour faire de la section NavBar une barre de navigation fixe en haut de votre site.<br/><br/><strong>Notes :</strong> <br/>1. Seulement visible en mode fixe.<br/>2. La hauteur de l&rsquo;image est comprimée avec un maximum de 29 px."
 
 #: ../sections/navbar/section.php:293
 msgid "MENU"
@@ -2575,13 +2404,11 @@ msgstr "NavBar et NavBar fixe - Options de configuration"
 
 #: ../sections/navbar/section.php:440
 msgid "Control various appearance options for the NavBars"
-msgstr "Contrôle diverses options d&acute;apparence pour les NavBar"
+msgstr "Contrôle diverses options d&rsquo;apparence pour les NavBar"
 
 #: ../sections/navbar/section.php:447
 msgid "Applies text to NavBar on small screens. Not available on Fixed NavBar"
-msgstr ""
-"Applique un texte à la NavBar sur de petits écrans. Non disponible pour la "
-"NavBar fixe."
+msgstr "Applique un texte à la NavBar sur de petits écrans. Non disponible pour la NavBar fixe."
 
 #: ../sections/noposts/section.php:22
 msgid ""
@@ -2591,20 +2418,16 @@ msgstr ""
 
 #: ../sections/noposts/section.php:23
 msgid ""
-"Sorry, direct previewing of special post types such as <strong>features</"
-"strong> or <strong>boxes</strong> is unavailable. This WordPress "
-"functionality is new and rapidly developing, so it should be available soon."
-msgstr ""
-"Désolé, la prévisualisation directe des types d&acute; articles spéciaux "
-"tels que les <strong>mis en avant</strong> ou les <strong>boîtes</"
-"strong>n'&acute;est pas disponible. Cette fonctionnalité WordPress est "
-"nouvelle et en développement rapide, aussi devrait-elle être bientôt "
-"disponible."
+"Sorry, direct previewing of special post types such as "
+"<strong>features</strong> or <strong>boxes</strong> is unavailable. This "
+"WordPress functionality is new and rapidly developing, so it should be "
+"available soon."
+msgstr "Désolé, la prévisualisation directe des types d&rsquo;articles spéciaux tels que les <strong>mis en avant</strong> ou les <strong>boîtes</strong>n&rsquo;est pas disponible. Cette fonctionnalité WordPress est nouvelle et en développement rapide, aussi devrait-elle être bientôt disponible."
 
 #: ../sections/noposts/section.php:25
 msgid ""
-"To preview a &quot;custom post type&quot; just view a page with that &quot;"
-"section&quot; on it."
+"To preview a &quot;custom post type&quot; just view a page with that "
+"&quot;section&quot; on it."
 msgstr ""
 
 #: ../sections/noposts/section.php:30
@@ -2613,7 +2436,7 @@ msgstr "404 !"
 
 #: ../sections/noposts/section.php:31
 msgid "Sorry, This Page Does not exist."
-msgstr "Désolé, cette page n&acute;existe pas."
+msgstr "Désolé, cette page n&rsquo;existe pas."
 
 #: ../sections/noposts/section.php:31
 msgid "Go"
@@ -2639,13 +2462,11 @@ msgstr "Espacement par défaut de la zone (px)"
 msgid ""
 "If sections are added to full width areas, the area will be givin this "
 "default padding."
-msgstr ""
-"Si les sections sont ajoutées à des zones en plein largeur, la zone aura cet "
-"espacement par défaut."
+msgstr "Si les sections sont ajoutées à des zones en plein largeur, la zone aura cet espacement par défaut."
 
 #: ../sections/pl_area/section.php:53
 msgid "Set Area Padding"
-msgstr "Régler l&acute;espacement de la zone"
+msgstr "Régler l&rsquo;espacement de la zone"
 
 #: ../sections/pl_area/section.php:61
 msgid "Area Padding (px)"
@@ -2673,11 +2494,11 @@ msgstr "Arrière-plan de la zone"
 
 #: ../sections/pl_area/section.php:133
 msgid "Repeat Background Image"
-msgstr "Répéter l&acute;image d&acute;arrière-plan"
+msgstr "Répéter l&rsquo;image d&rsquo;arrière-plan"
 
 #: ../sections/pl_area/section.php:138
 msgid "Enable Background Parallax"
-msgstr "Activer le parallaxe pour l&acute;arrière-plan"
+msgstr "Activer le parallaxe pour l&rsquo;arrière-plan"
 
 #: ../sections/popthumbs/section.php:42
 msgid "PopThumb Configuration"
@@ -2710,9 +2531,7 @@ msgstr "Configuration de l'auteur"
 #: ../sections/postauthor/section.php:37
 msgid ""
 "This section uses the author's profile information. Set that in your admin."
-msgstr ""
-"Cette section utilise les informations de profil de l'auteur. Réglez-les "
-"dans votre administration."
+msgstr "Cette section utilise les informations de profil de l'auteur. Réglez-les dans votre administration."
 
 #: ../sections/postauthor/section.php:68
 msgid "Author"
@@ -2780,15 +2599,13 @@ msgstr "Modifier le contenu de l'article"
 
 #: ../sections/postloop/section.php:29
 msgid "<i class=\"icon-edit\"></i> Edit Post Info"
-msgstr "<i class=\"icon-edit\"></i> Modifier les infos de l&acute;article"
+msgstr "<i class=\"icon-edit\"></i> Modifier les infos de l&rsquo;article"
 
 #: ../sections/postloop/section.php:30
 msgid ""
 "This section uses WordPress posts. Edit post information using WordPress "
 "admin."
-msgstr ""
-"Cette section utilise les articles WordPress. Modifiez les informations de "
-"l&acute;article en utilisant l&acute;administration WordPress."
+msgstr "Cette section utilise les articles WordPress. Modifiez les informations de l&rsquo;article en utilisant l&rsquo;administration WordPress."
 
 #: ../sections/postloop/section.php:37
 msgid "Page Title"
@@ -2812,25 +2629,15 @@ msgstr "Mode de mis en page : articles"
 
 #: ../sections/postloop/section.php:57
 msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine"
+" Layout Mode</strong><br/> Magazine layout mode makes use of post "
 "<strong>clips</strong>. These are summarized excerpts shown at half the "
 "width of the main content column.<br/>  <strong>Note:</strong> There is an "
 "option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
-msgstr ""
-"Choisissez entre les deux modes de mise en page magazine ou blog. <br/><br/> "
-"<strong>Mise en page mode magazine</strong><br/> Le mode de mise en page "
-"magazine utilise les <strong>clips</strong> d&acute;articles. Ce sont des "
-"extraits résumés affichés à mi-hauteur de la colonne de contenu principale."
-"<br/> <strong>Note :</strong> il existe une option pour afficher des "
-"articles <strong>en pleine largeur</strong> sur votre page principale "
-"d&acute;<strong>articles</strong>.<br/><br/><strong>Mise en page en mode "
-"liste</strong><br/> Il s&acute;agit de votre mise en page classique des "
-"articles. Les articles couvrent la largeur complète  de votre colonne de "
-"contenu principale."
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/>"
+" This is your classical post list layout. Posts span the entire width of the"
+" main content column."
+msgstr "Choisissez entre les deux modes de mise en page magazine ou blog. <br/><br/> <strong>Mise en page mode magazine</strong><br/> Le mode de mise en page magazine utilise les <strong>clips</strong> d&rsquo;articles. Ce sont des extraits résumés affichés à mi-hauteur de la colonne de contenu principale.<br/> <strong>Note :</strong> il existe une option pour afficher des articles <strong>en pleine largeur</strong> sur votre page principale d&rsquo;<strong>articles</strong>.<br/><br/><strong>Mise en page en mode liste</strong><br/> Il s&rsquo;agit de votre mise en page classique des articles. Les articles couvrent la largeur complète  de votre colonne de contenu principale."
 
 #: ../sections/postloop/section.php:66
 msgid "Number of Full Width Posts? (Mag. Mode)"
@@ -2845,10 +2652,7 @@ msgid ""
 "Select the number of posts you would like shown at the full width of the "
 "main content column in magazine layout mode (the rest will be half-width "
 "post <strong>clips</strong>)."
-msgstr ""
-"Sélectionner le nombre d&acute;articles que vous souhaitez voir affichés en "
-"pleine largeur en mode de mise en page magazine (les autres seront des "
-"<strong>clips</strong> de demi-largeur)."
+msgstr "Sélectionner le nombre d&rsquo;articles que vous souhaitez voir affichés en pleine largeur en mode de mise en page magazine (les autres seront des <strong>clips</strong> de demi-largeur)."
 
 #: ../sections/postloop/section.php:75
 msgid "Show Full Post Content"
@@ -2856,9 +2660,7 @@ msgstr "Afficher le contenu intégral de l'article"
 
 #: ../sections/postloop/section.php:76
 msgid "Optionally show full post content on special post listing pages."
-msgstr ""
-"Affiche facultativement le contenu complet de l&acute;article sur les pages "
-"spéciales listant les articles."
+msgstr "Affiche facultativement le contenu complet de l&rsquo;article sur les pages spéciales listant les articles."
 
 #: ../sections/postloop/section.php:84
 msgid "Meta Config"
@@ -2868,29 +2670,16 @@ msgstr "Configuration des méta"
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
-"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to "
-"edit the post</li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
-msgstr ""
-"Utilisez des raccourcis pour contrôler l'information dynamique dans votre "
-"barre de méta. Exemples de raccourcis que vous pouvez utiliser : "
-"<ul><li><strong>[post_categories]</strong> - Liste des catégories</"
-"li><li><strong>[post_edit]</strong> - Lien pour les admins pour modifier "
-"l&acute;article</li><li><strong>[post_tags]</strong> - List des mots-clefs "
-"de l&acute;article </li><li><strong>[post_comments]</strong> - Lien vers les "
-"commentaires de l&acute;article</li><li><strong>[post_author_posts_link]</"
-"strong> - Auteur et lien vers ses archives</li><li><strong>[post_author_link]"
-"</strong> - Lien vers l&acute;URL de l&acute;auteur</li><li><strong>"
-"[post_author]</strong> - Auteur de l&acute;article sans lien</li><li><strong>"
-"[post_time]</strong> - Heure de l&acute;article</li><li><strong>[post_date]</"
-"strong> - Date de l&acute;article</li><li><strong>[post_type]</strong> - "
-"Type d&acute;article</li></ul>"
+"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to"
+" edit the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
+msgstr "Utilisez des raccourcis pour contrôler l&rsquo;information dynamique dans votre barre de méta. Exemples de raccourcis que vous pouvez utiliser : <ul><li><strong>[post_categories]</strong> - Liste des catégories</li><li><strong>[post_edit]</strong> - Lien pour les admins pour modifier l&rsquo;article</li><li><strong>[post_tags]</strong> - List des mots-clefs de l&rsquo;article </li><li><strong>[post_comments]</strong> - Lien vers les commentaires de l&rsquo;article</li><li><strong>[post_author_posts_link]</strong> - Auteur et lien vers ses archives</li><li><strong>[post_author_link]</strong> - Lien vers l&rsquo;URL de l&rsquo;auteur</li><li><strong>[post_author]</strong> - Auteur de l&rsquo;article sans lien</li><li><strong>[post_time]</strong> - Heure de l&rsquo;article</li><li><strong>[post_date]</strong> - Date de l&rsquo;article</li><li><strong>[post_type]</strong> - Type d&rsquo;article</li></ul>"
 
 #: ../sections/postloop/section.php:92
 msgid "Select Meta Mode"
@@ -2904,10 +2693,7 @@ msgstr "Mode de méta"
 msgid ""
 "Instead of the standard metabar (beneath post title), you can use author "
 "meta mode. This mode displays the author avatar and publish date on left."
-msgstr ""
-"Au lieu d&acute;utiliser la barre de méta standard (en dessous du titre de "
-"l&acute;article), vous pouvez utiliser mode de méta auteur. Ce mode affiche "
-"l'&acute;avatar de l&acute;auteur et publie la date à gauche."
+msgstr "Au lieu d&rsquo;utiliser la barre de méta standard (en dessous du titre de l&rsquo;article), vous pouvez utiliser mode de méta auteur. Ce mode affiche l&rsquo;avatar de l&rsquo;auteur et publie la date à gauche."
 
 #: ../sections/postloop/section.php:105
 msgid "Configure Full Width Post Metabar"
@@ -2915,7 +2701,7 @@ msgstr "Configurer la barre de métas des articles en pleine largeur"
 
 #: ../sections/postloop/section.php:106
 msgid "Post Meta Information"
-msgstr "Information méta de l&acute;article"
+msgstr "Information méta de l&rsquo;article"
 
 #: ../sections/postloop/section.php:114 ../sections/postloop/section.php:115
 msgid "Configure Clip Metabar"
@@ -2947,11 +2733,9 @@ msgstr "Mise en page des vignettes en mode pleine largeur"
 
 #: ../sections/postloop/section.php:139
 msgid ""
-"Use this option to configure how thumbs will be shown in full-width posts on "
-"your blog page."
-msgstr ""
-"Utiliser cette option pour configurer l'affichage des vignettes pour les "
-"articles en pleine largeur de votre page de blog."
+"Use this option to configure how thumbs will be shown in full-width posts on"
+" your blog page."
+msgstr "Utiliser cette option pour configurer l'affichage des vignettes pour les articles en pleine largeur de votre page de blog."
 
 #: ../sections/postloop/section.php:154
 msgid "Clip Thumbs Layout"
@@ -2961,10 +2745,7 @@ msgstr "Mise en page des vignettes des clips"
 msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
-msgstr ""
-"Utiliser cette option pour configurer l'apparence des vignettes dans les "
-"clips. Ceux-ci sont de plus petits extraits de style <strong>magazine</"
-"strong> sur votre page de blog."
+msgstr "Utiliser cette option pour configurer l'apparence des vignettes dans les clips. Ceux-ci sont de plus petits extraits de style <strong>magazine</strong> sur votre page de blog."
 
 #: ../sections/postloop/section.php:161
 msgid "Hide thumbs?"
@@ -2976,9 +2757,7 @@ msgstr "Vignettes des articles"
 
 #: ../sections/postloop/section.php:163
 msgid "Use this option to hide or show thumbs for posts on pages."
-msgstr ""
-"Utiliser cette option pour cacher ou montrer les vignettes des articles sur "
-"les pages."
+msgstr "Utiliser cette option pour cacher ou montrer les vignettes des articles sur les pages."
 
 #: ../sections/postloop/section.php:172
 msgid "Excerpts"
@@ -2990,16 +2769,13 @@ msgstr "Masquer les extraits ?"
 
 #: ../sections/postloop/section.php:180
 msgid "Hide Post Excerpt"
-msgstr "Cacher l'extrait de l&acute;article"
+msgstr "Cacher l&rsquo;extrait de l&rsquo;article"
 
 #: ../sections/postloop/section.php:181
 msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
-msgstr ""
-"Les extraits sont des des contenus courts qui sont affichés pour donner à "
-"l&acute;utilisateur un aperçu d&acute;un article. Cachez-les en utilisant "
-"cette option."
+msgstr "Les extraits sont des des contenus courts qui sont affichés pour donner à l&rsquo;utilisateur un aperçu d&rsquo;un article. Cachez-les en utilisant cette option."
 
 #: ../sections/postloop/section.php:188
 msgid "Continue Reading Link Text"
@@ -3013,9 +2789,7 @@ msgstr "Texte <strong>Lire la suite</strong> pour les extraits"
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
-msgstr ""
-"Ce texte sera utilisé comme lien vers votre article complet en parcourant "
-"les articles sur votre page de blog (lorsque les extraits utilisés)."
+msgstr "Ce texte sera utilisé comme lien vers votre article complet en parcourant les articles sur votre page de blog (lorsque les extraits utilisés)."
 
 #: ../sections/postloop/section.php:197
 msgid "Number of words."
@@ -3041,9 +2815,10 @@ msgstr "Autoriser les mots-clefs dans l'extrait"
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
-"<br/>An example of allowed tags could be: <strong>&lt;p&gt;&lt;br&gt;&lt;"
-"a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
-"strong> to disallow all tags."
+"<br/>An example of allowed tags could be: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> "
+"<strong>Note:</strong> Enter a period <strong>.</strong> to disallow all "
+"tags."
 msgstr ""
 
 #: ../sections/postsinfo/section.php:29
@@ -3104,8 +2879,7 @@ msgstr "Texte avant prix"
 
 #: ../sections/propricing/section.php:65
 msgid "Typically you will add the monetary unit here. E.g. \"$\""
-msgstr ""
-"Vous ajouterez normalement ici l&acute;unité monétaire. Par exemple \"\\$\"\\"
+msgstr "Vous ajouterez normalement ici l&rsquo;unité monétaire. Par exemple &laquo;&nbsp;$&nbsp;&raquo;"
 
 #: ../sections/propricing/section.php:69
 msgid "After Price Text"
@@ -3113,9 +2887,7 @@ msgstr "Texte après le prix"
 
 #: ../sections/propricing/section.php:71
 msgid "Typically you will add the recurring amount here. E.g. \"/ MO\""
-msgstr ""
-"Vous ajouterez normalement ici le montant récurrent. Par exemple \"\\/ mois"
-"\"\\"
+msgstr "Vous ajouterez normalement ici le montant récurrent. Par exemple &laquo;&nbsp;/ mois&nbsp;&raquo;"
 
 #: ../sections/propricing/section.php:75
 msgid "Sub Text"
@@ -3139,9 +2911,7 @@ msgstr "Attributs"
 
 #: ../sections/propricing/section.php:97
 msgid "Add each attribute on a new line. Add a \"*\" in front to add emphasis."
-msgstr ""
-"Ajouter chaque attribut dans une nouvelle ligne. Ajouter avant un \"\\*\"\\ "
-"pour marquer un accent."
+msgstr "Ajouter chaque attribut dans une nouvelle ligne. Ajouter avant un &laquo;&nbsp;*&nbsp;&raquo; pour marquer un accent."
 
 #: ../sections/quickslider/section.php:157
 #: ../sections/revslider/section.php:22
@@ -3197,14 +2967,12 @@ msgstr "Diapo"
 #: ../sections/quickslider/section.php:202
 #: ../sections/revslider/section.php:44
 msgid "Slide Background Image"
-msgstr "Image d&acute;arrière-plan de la diapo"
+msgstr "Image d&rsquo;arrière-plan de la diapo"
 
 #: ../sections/quickslider/section.php:205
 #: ../sections/revslider/section.php:47
 msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
-msgstr ""
-"Pour la haute résolution, images de largeur 2000 px et de hauteur 800 px. "
-"(limite de 2 Mo)"
+msgstr "Pour la haute résolution, images de largeur 2000 px et de hauteur 800 px. (limite de 2 Mo)"
 
 #: ../sections/quickslider/section.php:211
 #: ../sections/revslider/section.php:53
@@ -3256,10 +3024,11 @@ msgstr "Eléments supplémentaires pour la diapo"
 #: ../sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
+"Slider, a jQuery plugin. It supports a wide array of functionality including"
+" video embeds and additional transitions if you can handle HTML. Check out "
+"the <a href=\"http://www.orbis-"
+"ingenieria.com/code/documentation/documentation.html\" "
+"target=\"_blank\">docs here</a>."
 msgstr ""
 
 #: ../sections/revslider/section.php:284
@@ -3284,12 +3053,9 @@ msgstr "Publications (RSS)"
 
 #: ../sections/sharebar/section.php:30
 msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
-msgstr ""
-"Vous n&acute;avez aucun partage configuré, veuillez vous référer à Options "
-"gloables > Social & Local ; ou désactiver la ShareBar du modèle d&acute;"
-"article de blog."
+"You have no shares setup, please look at Global Options > Social & Local; or"
+" deactivate the Sharebar from the Blog Post Template."
+msgstr "Vous n&rsquo;avez aucun partage configuré, veuillez vous référer à Options globales > Social & Local ; ou désactivez la ShareBar du modèle d&rsquo;article de blog."
 
 #: ../sections/sharebar/section.php:30
 msgid "Social Settings"
@@ -3301,17 +3067,15 @@ msgstr "Partager &rarr;"
 
 #: ../sections/simple_nav/section.php:25
 msgid "Simple Nav Section"
-msgstr "Section \"\\Simple Nav\"\\"
+msgstr "Section &laquo;&nbspSimple Nav&nbsp;&raquo;"
 
 #: ../sections/simple_nav/section.php:35
 msgid "The SimpleNav uses WordPress menus. Select one for use."
-msgstr ""
-"La SimpleNav utilise les menus WordPress. Sélectionnez-en un pour l'&acute;"
-"utiliser."
+msgstr "La SimpleNav utilise les menus WordPress. Sélectionnez-en un pour l&rsquo;utiliser."
 
 #: ../sections/simple_nav/section.php:50
 msgid "Select Alignment"
-msgstr "Sélectionner l&acute;alignement"
+msgstr "Sélectionner l&rsquo;alignement"
 
 #: ../sections/starbars/section.php:29
 msgid "StarBar Configuration"
@@ -3329,10 +3093,7 @@ msgstr "Starbar - Compte total (nombre)"
 msgid ""
 "This number will be used to calculate the percent of the bar filled. The "
 "StarBar values will be shown as a percentage of this value. Default is 100."
-msgstr ""
-"Ce nombre sera utilisé pour calculer le pourcentage de remplissage de la "
-"barre. Les valeurs des StarBar s&acute;afficheront comme un pourcentage de "
-"cette valeur. Elle est égale à 100 par défaut."
+msgstr "Ce nombre sera utilisé pour calculer le pourcentage de remplissage de la barre. Les valeurs des StarBar s&rsquo;afficheront comme un pourcentage de cette valeur. Elle est égale à 100 par défaut."
 
 #: ../sections/starbars/section.php:52 ../sections/starbars/section.php:221
 msgid "Starbar Modifier (Text Added to Stats)"
@@ -3400,10 +3161,7 @@ msgstr "Espacement <small>(raccourci CSS)</small>"
 msgid ""
 "This option uses CSS padding shorthand. For example, use \"15px 30px\" for "
 "15px padding top/bottom, and 30 left/right."
-msgstr ""
-"Cette option utilise le raccourci CSS d&acute;espacement. Par exemple, "
-"utilisez \"\\15px 30px\"\\ pour un espacement haut/bas de 15 px, et de 30 "
-"gauche/droite."
+msgstr "Cette option utilise le raccourci CSS d&rsquo;espacement. Par exemple, utilisez &laquo;&nbsp;15px 30px&nbsp;&raquo; pour un espacement haut/bas de 15 px, et de 30 gauche/droite."
 
 #: ../sections/textbox/section.php:52
 msgid "Textbox Font Size"
@@ -3417,9 +3175,7 @@ msgstr "Watermark du site web"
 msgid ""
 "The website watermark is a small version of your logo for your footer. "
 "Recommended width/height is 90px."
-msgstr ""
-"Le Watermark du site web est une version miniature de votre logo dans votre "
-"pied de page. Les largeur/hauteur recommandées sont de 90 px."
+msgstr "Le Watermark du site web est une version miniature de votre logo dans votre pied de page. Les largeur/hauteur recommandées sont de 90 px."
 
 #: ../sections/watermark/section.php:29
 msgid "Watermark Image"
@@ -3431,7 +3187,7 @@ msgstr "Watermark - Lien (absent si verge)"
 
 #: ../sections/watermark/section.php:42
 msgid "Watermark Link alt text"
-msgstr "Watermark - Texte de l'&acute;atrribut alt du lien"
+msgstr "Watermark - Texte de l&rsquo;atrribut alt du lien"
 
 #: ../sections/watermark/section.php:43
 msgid "Build a website with PageLines"
@@ -3450,11 +3206,7 @@ msgid ""
 "To set up social, you need to set your global social user names under "
 "\"options\" > \"social &amp; local\"<br/><br/> After you have done that, "
 "these values will fill automatically."
-msgstr ""
-"Pour configurer les liens sociaux, vous devez configurer les noms d&acute;"
-"utilisateur dans \"\\options\"\\ > \"\\social &amp; local\"\\<br/><br/> Une "
-"fois que vous l&acute;aurez fait, ces valeurs seront renseignées "
-"automatiquement."
+msgstr "Pour configurer les liens sociaux, vous devez configurer les noms d&rsquo;utilisateur dans \"options\" > \"social &amp; local\"<br/><br/> Une fois que vous l&rsquo;aurez fait, ces valeurs seront renseignées automatiquement."
 
 #: ../sections/watermark/section.php:83
 msgid "was created with"
@@ -3478,11 +3230,9 @@ msgstr "Réglages enregistrés avec succès ! Rafraîchissement de la page&helli
 
 #: ../editor/js/pl.ajax.js:173
 msgid ""
-"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
-"off.)</p>"
-msgstr ""
-"<h3>Fermez l&acute;éditeur DMS ?</h3><p>(Note : le mode brouillon est "
-"désactivé quand l&acute;éditeur est fermé.)</p>"
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is"
+" off.)</p>"
+msgstr "<h3>Fermer l&rsquo;éditeur DMS ?</h3><p>(Note : le mode brouillon est désactivé quand l&rsquo;éditeur est fermé.)</p>"
 
 #: ../editor/js/pl.ajax.js:181
 msgid "Deactivating..."
@@ -3497,9 +3247,7 @@ msgstr "Editeur désactivé ! Rechargement de la page."
 msgid ""
 "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to "
 "your last published configuration.</p>"
-msgstr ""
-"<h3>Êtes-vous certain (e) ?</h3><p>Ceci va rétablir les changements <strong>"
-"%s</strong> à votre dernière configuration publiée.</p>"
+msgstr "<h3>Êtes-vous certain (e) ?</h3><p>Ceci va rétablir les changements <strong>%s</strong> à votre dernière configuration publiée.</p>"
 
 #: ../editor/js/pl.ajax.js:237
 msgid "Reverting Draft"
@@ -3513,9 +3261,7 @@ msgstr "Modèle mis à jour avec succès !"
 msgid ""
 "<h3>Are you sure?</h3><p>This action will delete this area and all its "
 "elements from this page.</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>Cette action va supprimer cette zone et "
-"tous ses éléments pour cette page.</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>Cette action va supprimer cette zone et tous ses éléments pour cette page.</p>"
 
 #: ../editor/js/pl.editor.js:204
 msgid "Refreshing Page"
@@ -3524,9 +3270,10 @@ msgstr "Rafraîchissement de la page"
 #: ../editor/js/pl.editor.js:475
 msgid ""
 "<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
-"system for your website. <br/>Watch the video below for help getting started."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+"system for your website. <br/>Watch the video below for help getting "
+"started.</p><iframe width='700' height='420' "
+"src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' "
+"allowfullscreen></iframe>"
 msgstr ""
 
 #: ../editor/js/pl.editor.js:682
@@ -3535,8 +3282,7 @@ msgstr ""
 
 #: ../editor/js/pl.editor.js:685
 msgid "<h4>This capability is pro edition only.</h4>"
-msgstr ""
-"<h4>Cette possibilité n&acute;est offerte que par l&acute;édition pro.</h4>"
+msgstr "<h4>Cette possibilité n&rsquo;est offerte que par l&rsquo;édition pro.</h4>"
 
 #: ../editor/js/pl.editor.js:689
 msgid "Edit (Pro Only)"
@@ -3544,27 +3290,23 @@ msgstr "Modifier (uniquement Pro)"
 
 #: ../editor/js/pl.editor.js:690
 msgid ""
-"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
-"<br/>"
-msgstr ""
-"<h4>Ceci est une section Pro</h4>L&acute;édition des sections Pro nécessite "
-"une adhésion Pro.<br/>"
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro "
+"Membership.<br/>"
+msgstr "<h4>Ceci est une section Pro</h4>L&rsquo;édition des sections Pro nécessite une adhésion Pro.<br/>"
 
 #: ../editor/js/pl.editor.js:744
 msgid ""
-"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
-"this page.</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>Ceci va supprimer cette section et ses "
-"réglages de la cette page.</p>"
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from"
+" this page.</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>Ceci va supprimer cette section et ses réglages de la cette page.</p>"
 
 #: ../editor/js/pl.optpanel.js:112
 msgid "There are no options for this section."
-msgstr "Il n&acute;y a pas d&acute;options pour cette section."
+msgstr "Il n&rsquo;y a pas d&rsquo;options pour cette section."
 
 #: ../editor/js/pl.optpanel.js:114 ../editor/js/pl.optpanel.js:115
 msgid "No Options"
-msgstr "Pas d'&acute;options"
+msgstr "Pas d&rsquo;options"
 
 #: ../editor/js/pl.optpanel.js:124
 msgid "scope"
@@ -3576,15 +3318,23 @@ msgstr "Option"
 
 #: ../editor/js/pl.optpanel.js:535
 msgid "Refresh for preview."
-msgstr "Actualiser pour voir l'aperçu"
+msgstr "Actualiser pour afficher le rendu"
 
 #: ../editor/js/pl.optpanel.js:535
 msgid "Syncs with element."
 msgstr "Synchronise avec l'élement."
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
 msgstr "Configurer les menus"
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
+msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
 msgid "SELECT"
@@ -3593,115 +3343,126 @@ msgstr ""
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
-"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
-"add_image_size'>The Codex</a>"
-msgstr ""
-"Sélectionnez la taille de vignette enregistrée à utiliser pour les images. "
-"Pour ajouter de nouvelles tailles voir : <a href='http://codex.wordpress.org/"
-"Function_Reference/add_image_size'>le Codex</a>"
+"sizes see: <a "
+"href='http://codex.wordpress.org/Function_Reference/add_image_size'>The "
+"Codex</a>"
+msgstr "Sélectionnez la taille de vignette enregistrée à utiliser pour les images. Pour ajouter de nouvelles tailles voir : <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>le Codex</a>"
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
 msgstr "Sélectionnez la police"
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr "The quick brown fox jumps over the lazy dog"
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr "options globales du site"
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr "options locales de la page"
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
-msgstr ""
-"<h3>Êtes-vous certain (e) ?</h3><p>Ceci va réinitialiser <strong>%s</strong> "
-"à ses valeurs par défaut.<br/>(Une fois réinitialisé, ceci devra toutefois "
-"être publié en ligne.)</p>"
+msgstr "<h3>Êtes-vous certain (e) ?</h3><p>Ceci va réinitialiser <strong>%s</strong> à ses valeurs par défaut.<br/>(Une fois réinitialisé, ceci devra toutefois être publié en ligne.)</p>"
 
-#: ../editor/js/pl.optpanel.js:950
+#: ../editor/js/pl.optpanel.js:951
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr "<span class='btn btn-mini btn-info'>Modèles de page</span>&nbsp;"
 
-#: ../editor/js/pl.optpanel.js:951
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr "<span class='btn btn-mini btn-info'>Options globales</span>&nbsp;"
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr "<span class='btn btn-mini btn-info'>Options de type</span>"
 
-#: ../editor/js/pl.optpanel.js:953
+#: ../editor/js/pl.optpanel.js:954
 msgid "Resetting Options"
 msgstr "Réinitialisation des options"
 
-#: ../editor/js/pl.optpanel.js:954
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr "Réinitialisé avec succès. Rafraîchissement de la page"
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>L&acute;importation de ce fichier va "
-"remplacer les réglages suivants.<br /><strong>%s%s%s</strong></p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>L&rsquo;importation de ce fichier va remplacer les réglages suivants.<br /><strong>%s%s%s</strong></p>"
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr "Importation à partir du thème enfant"
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr "Importé avec succès. Rafraîchissement de la page"
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
 msgstr "Nettoyage des caches"
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr "Réussi ! Rafraîchissement de la page"
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>Ceci va écrire tous les réglages dans un "
-"fichier de config dans votre thème enfant nommé pl-config.json</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>Ceci va écrire tous les réglages dans un fichier de config dans votre thème enfant nommé pl-config.json</p>"
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr "Exportation des options"
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr "Options globales"
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr "<h3>Réglages importés</h3>"
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr "Réglages importés"
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
 msgstr "Importation"
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
+msgstr "Charger l'image"
 
 #: ../editor/js/pl.saving.js:15
 msgid "Saving."
@@ -3724,10 +3485,7 @@ msgid ""
 "<div class='loaded-notice'><div class='the-notice'>Loaded! Note: For this "
 "section, page refresh may be needed for complete functionality (Javascript "
 "Loading).</div></div>"
-msgstr ""
-"<div class='loaded-notice'><div class='the-notice'>Chargée ! Note : pour "
-"cette section, un rafraîchissement de la page peut être nécessaire pour une "
-"pleine fonctionnalité (chargement Javascript).</div></div>"
+msgstr "<div class='loaded-notice'><div class='the-notice'>Chargée ! Note : pour cette section, un rafraîchissement de la page peut être nécessaire pour une pleine fonctionnalité (chargement Javascript).</div></div>"
 
 #: ../editor/js/pl.sections.js:172
 msgid "Loading"
@@ -3737,9 +3495,7 @@ msgstr "Chargement"
 msgid ""
 "<h3>Are you sure?</h3><p>Loading a new template will overwrite the current "
 "page's configuration.</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>Le chargement d&acute;un nouveau modèle "
-"remplacera la configuration actuelle de la page.</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>Le chargement d&rsquo;un nouveau modèle remplacera la configuration actuelle de la page.</p>"
 
 #: ../editor/js/pl.templates.js:30
 msgid "Loading Template"
@@ -3753,10 +3509,7 @@ msgstr "Chargé avec succès. Rafraîchissement de la page"
 msgid ""
 "<h3>Are you sure?</h3><p>This will delete this template. All pages using "
 "this template will be reverted to their default page configuration.</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>Cela va supprimer ce modèle. Toutes les "
-"pages utilisant ce modèle vont être rétablies dans leur configuration de "
-"page par défaut.</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>Cela va supprimer ce modèle. Toutes les pages utilisant ce modèle vont être rétablies dans leur configuration de page par défaut.</p>"
 
 #: ../editor/js/pl.templates.js:54
 msgid "Deleting Template"
@@ -3775,10 +3528,7 @@ msgid ""
 "<h3>Are you sure?</h3><p>This action will overwrite this template and its "
 "configuration. All pages using this template will be updated with the new "
 "config as well.</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3><p>Cette action écrasera ce modèle et sa "
-"configuration. Toutes les pages utilisant ce modèle seront aussi actualisées "
-"avec cette nouvelle config.</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3><p>Cette action écrasera ce modèle et sa configuration. Toutes les pages utilisant ce modèle seront aussi actualisées avec cette nouvelle config.</p>"
 
 #: ../editor/js/pl.templates.js:111
 msgid "Updating Template"
@@ -3786,9 +3536,7 @@ msgstr "Mise à jour du modèle"
 
 #: ../editor/js/pl.themes.js:13
 msgid "<h3>Are you sure?</h3> <p>This will activate this theme sitewide.</p>"
-msgstr ""
-"<h3>Êtes-vous certain(e) ?</h3> <p>Ceci va activer le thème sur tout le site."
-"</p>"
+msgstr "<h3>Êtes-vous certain(e) ?</h3> <p>Ceci va activer le thème sur tout le site.</p>"
 
 #: ../editor/js/pl.themes.js:14
 msgid "Activating Theme"
@@ -3802,13 +3550,11 @@ msgstr "Activé avec succès. Rafraîchissement de la page."
 msgid ""
 "<h3>Activate Theme Preview?</h3> <p>This will activate a theme preview "
 "sitewide.<br/>(while in draft mode)</p>"
-msgstr ""
-"<h3>Activer l&acute;aperçu du thème ?</h3> <p>Ceci va activer un aperçu du "
-"thème sur tout le site.<br/>(en mode brouillon)</p>"
+msgstr "<h3>Activer l&rsquo;aperçu du thème ?</h3> <p>Ceci va activer un aperçu du thème sur tout le site.<br/>(en mode brouillon)</p>"
 
 #: ../editor/js/pl.themes.js:30
 msgid "Loading Theme Preview"
-msgstr "Charment de l&acute;aperçu du thème"
+msgstr "Chargement de l&rsquo;aperçu du thème"
 
 #: ../editor/js/pl.themes.js:45
 msgid "Activate"

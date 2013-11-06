@@ -1,4 +1,4 @@
-#
+# 
 # Translators:
 # AVA, 2013
 # Cергей Исаченко <vortexius@gmail.com>, 2013
@@ -8,23 +8,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PageLines DMS\n"
-"POT-Creation-Date: 2013-11-01 20:56-0000\n"
-"PO-Revision-Date: 2013-11-03 19:58-0000\n"
-"Last-Translator: Simon <simon@pagelines.com>\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/"
-"pagelines-dms/language/ru_RU/)\n"
+"POT-Creation-Date: 2013-11-05 18:32-0000\n"
+"PO-Revision-Date: 2013-11-06 09:20+0000\n"
+"Last-Translator: Dionizio Bonfim Bach <translations@djio.com.br>\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/pagelines-dms/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"lang\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;lang\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -35,8 +30,7 @@ msgstr "Коментарии закрыты"
 #: ../comments.php:38
 msgid ""
 "This post is password protected. Enter the password to view any comments."
-msgstr ""
-"Это сообщение защищено паролем. Введите пароль для просмотра комментариев."
+msgstr "Это сообщение защищено паролем. Введите пароль для просмотра комментариев."
 
 #: ../comments.php:44
 #, php-format
@@ -69,12 +63,7 @@ msgid ""
 "using PHP version: <strong>%s</strong>. To run this framework you will need "
 "PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just "
 "check with your host about a quick upgrade.</div>"
-msgstr ""
-"<div class='config-error'><h2><h2>Проблема версии PHP </h2>Похоже вы "
-"используете PHP версии: <strong>%s</strong>. Для использования данного "
-"фреймворка вам необходим PHP<strong>5.0</strong> или новее... <br/> <br/> Не "
-"волнуйтесь! Просто пообщайтесь с вашим хостинг-провайдером об обновлении.</"
-"div>"
+msgstr "<div class='config-error'><h2><h2>Проблема версии PHP </h2>Похоже вы используете PHP версии: <strong>%s</strong>. Для использования данного фреймворка вам необходим PHP<strong>5.0</strong> или новее... <br/> <br/> Не волнуйтесь! Просто пообщайтесь с вашим хостинг-провайдером об обновлении.</div>"
 
 #: ../admin/admin.editor.php:18
 msgid "PageLines DMS Settings"
@@ -94,11 +83,9 @@ msgstr "Резервные настройки DMS"
 
 #: ../admin/admin.editor.php:32
 msgid ""
-"Below are secondary fallbacks to the DMS code editors. You may need these if "
-"you create errors or issues on the front end."
-msgstr ""
-"Ниже приведены вторичные настройки DMS для редакторов кода. Это может "
-"пригодиться, если вы допустите ошибки или проблемы в интерфейсе."
+"Below are secondary fallbacks to the DMS code editors. You may need these if"
+" you create errors or issues on the front end."
+msgstr "Ниже приведены вторичные настройки DMS для редакторов кода. Это может пригодиться, если вы допустите ошибки или проблемы в интерфейсе."
 
 #: ../admin/admin.editor.php:36
 msgid "DMS LESS Fallback"
@@ -113,16 +100,11 @@ msgid ""
 "Editing with DMS is done completely on the front end of your site. This "
 "allows you to customize in a way that feels more direct and intuitive than "
 "when using the admin."
-msgstr ""
-"Работа с DMS осуществляется полностью на фронтенде вашего сайта. Это "
-"позволяет вам делать настройки проще и интуитивней, чем через консоль "
-"администратора."
+msgstr "Работа с DMS осуществляется полностью на фронтенде вашего сайта. Это позволяет вам делать настройки проще и интуитивней, чем через консоль администратора."
 
 #: ../admin/admin.editor.php:55
 msgid "Just visit the front end of your site (as an admin) and get started!"
-msgstr ""
-"Просто зайдите на фронтенд вашего сайта (в роли администратора) и "
-"приступайте!"
+msgstr "Просто зайдите на фронтенд вашего сайта (в роли администратора) и приступайте!"
 
 #: ../admin/admin.editor.php:57
 msgid "Edit Site Using DMS"
@@ -158,13 +140,10 @@ msgstr "Получите PRO-компоненты бесплатно, за Ка�
 
 #: ../editor/editor.account.php:443
 msgid ""
-"For every friend you invite who joins and installs PageLines, we'll give you "
-"and your friend 50 karma points! Karma points can be redeemed as cash with "
+"For every friend you invite who joins and installs PageLines, we'll give you"
+" and your friend 50 karma points! Karma points can be redeemed as cash with "
 "PageLines."
-msgstr ""
-"За каждого приглашенного вами друга, который присоединяется и устанавливает "
-"PageLines, мы дадим вам и вашему другу 50 пунктов Кармы!Эти баллы могут быть "
-"пересчитаны в PageLines как наличные деньги."
+msgstr "За каждого приглашенного вами друга, который присоединяется и устанавливает PageLines, мы дадим вам и вашему другу 50 пунктов Кармы!Эти баллы могут быть пересчитаны в PageLines как наличные деньги."
 
 #: ../editor/editor.account.php:447
 msgid "Invite Friends by Email"
@@ -264,10 +243,9 @@ msgid "PageLines account not added or incorrect."
 msgstr "Учетная запись PageLines не добавлена или некорректна."
 
 #: ../editor/editor.account.php:625
-msgid "Add account to configure PageLines APIs, karma system and store access."
-msgstr ""
-"Добавьте учетную запись для настройки PageLines API, системы Кармы и доступа "
-"в магазин."
+msgid ""
+"Add account to configure PageLines APIs, karma system and store access."
+msgstr "Добавьте учетную запись для настройки PageLines API, системы Кармы и доступа в магазин."
 
 #: ../editor/editor.account.php:631
 msgid "Profile"
@@ -299,9 +277,7 @@ msgstr "Опыт с PageLines"
 
 #: ../editor/editor.account.php:692
 msgid "We want you to have a most amazing time as a PageLines customer."
-msgstr ""
-"Мы хотим, чтобы время сотрудничества с PageLines было для вас самым "
-"восхитительным!"
+msgstr "Мы хотим, чтобы время сотрудничества с PageLines было для вас самым восхитительным!"
 
 #: ../editor/editor.account.php:694
 msgid "That's why we have a ton of people standing by to make you happy."
@@ -333,10 +309,7 @@ msgid ""
 "Your site is \"Pro activated\" but you have not installed the DMS Pro tools "
 "plugin. Grab the plugin on <a href=\"http://www.pagelines.com/my-account\" "
 ">PageLines.com &rarr; My-Account</a>."
-msgstr ""
-"Для вашего сайта активирован \"Pro\", но у вас не установлен плагин DMS Pro "
-"tools. Взять плагин можно тут <a href=\"http://www.pagelines.com/my-account"
-"\" > PageLines.com &rarr; My-Account</a>."
+msgstr "Для вашего сайта активирован \"Pro\", но у вас не установлен плагин DMS Pro tools. Взять плагин можно тут <a href=\"http://www.pagelines.com/my-account\" > PageLines.com &rarr; My-Account</a>."
 
 #: ../editor/editor.actions.php:392
 msgid "Upgrade to Pro!"
@@ -346,9 +319,7 @@ msgstr "Обновись до Pro!"
 msgid ""
 "You are currently using the basic DMS version. Pro activate this site for "
 "tons more features and support."
-msgstr ""
-"В настоящее время вы пользуетесь базовой версией DMS. Активируйте \"Pro\" "
-"для этого сайта, и вы получите мега-возможности и поддержку."
+msgstr "В настоящее время вы пользуетесь базовой версией DMS. Активируйте \"Pro\" для этого сайта, и вы получите мега-возможности и поддержку."
 
 #: ../editor/editor.actions.php:396
 msgid "Learn More About Pro"
@@ -366,7 +337,7 @@ msgstr "Активировать сайт"
 msgid "Select This Image For Option"
 msgstr "Выберите изображение"
 
-#: ../editor/editor.actions.php:516
+#: ../editor/editor.actions.php:516 ../editor/js/pl.optpanel.js:1514
 msgid "Media Library"
 msgstr "Медиафайлы"
 
@@ -400,10 +371,7 @@ msgid ""
 "The \"base\" color are a few standard colors used throughout DMS that "
 "plugins may use to calculate contrast or other colors to make sure "
 "everything looks great."
-msgstr ""
-"«Базовый» цвет - это несколько стандартных цветов, используемых в DMS, "
-"которыми могут пользоваться плагины для вычисления контраста, или другие "
-"цвета, чтобы все выглядело здорово."
+msgstr "«Базовый» цвет - это несколько стандартных цветов, используемых в DMS, которыми могут пользоваться плагины для вычисления контраста, или другие цвета, чтобы все выглядело здорово."
 
 #: ../editor/editor.color.php:207
 msgid "Background Base Color"
@@ -437,10 +405,7 @@ msgstr "Вписать изображение в размер страницы?"
 msgid ""
 "If you use this option the image will be fit \"responsively\" to the "
 "background of your page. This means the settings below will have no effect."
-msgstr ""
-"Если вы используете этот параметр, изображение будет «отзывчиво» размещено "
-"на фоне вашей страницы. Это также означает, что следующие настройки не будут "
-"иметь никакого эффекта."
+msgstr "Если вы используете этот параметр, изображение будет «отзывчиво» размещено на фоне вашей страницы. Это также означает, что следующие настройки не будут иметь никакого эффекта."
 
 #: ../editor/editor.color.php:267
 msgid "Background Repeat"
@@ -529,13 +494,8 @@ msgstr "Загрузить конфигурацию дочерней темы"
 #: ../editor/editor.importexport.php:91
 msgid ""
 "Reset theme settings using custom config file from child theme.<br />\n"
-"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you "
-"may want to publish these changes to your live site."
-msgstr ""
-"Сброс параметров темы, с применением файла конфигурации из дочерней темы."
-"<br />⏎\n"
-"⇥⇥⇥⇥⇥<strong>Примечание:</strong>после завершения этого действия, возможно "
-"потребуется опубликовать изменения на вашем сайте."
+"\t\t\t\t\t<strong>Note:</strong> Once you have completed this action, you may want to publish these changes to your live site."
+msgstr "Сброс параметров темы, с применением файла конфигурации из дочерней темы.<br />⏎\n⇥⇥⇥⇥⇥<strong>Примечание:</strong>после завершения этого действия, возможно потребуется опубликовать изменения на вашем сайте."
 
 #: ../editor/editor.importexport.php:108
 msgid "Select User Templates"
@@ -559,13 +519,10 @@ msgstr "Экспорт глобальных параметров сайта"
 
 #: ../editor/editor.importexport.php:143
 msgid ""
-"This will export your sites global settings. This includes everything in the "
-"options panel, as well as settings directed at sections in your \"global\" "
+"This will export your sites global settings. This includes everything in the"
+" options panel, as well as settings directed at sections in your \"global\" "
 "regions like your header and footer."
-msgstr ""
-"Будут экспортированы  глобальные параметры вашего сайта. Это включает все "
-"настройки панелей, а также параметры, нацеленные на модули в ваших "
-"«глобальных» областях, таких как Header и Footer."
+msgstr "Будут экспортированы  глобальные параметры вашего сайта. Это включает все настройки панелей, а также параметры, нацеленные на модули в ваших «глобальных» областях, таких как Header и Footer."
 
 #: ../editor/editor.importexport.php:148
 msgid "Post Type Settings"
@@ -578,9 +535,7 @@ msgstr "Экспорт параметров типа записи"
 #: ../editor/editor.importexport.php:155
 msgid ""
 "This exports settings such as the template defaults for various post types."
-msgstr ""
-"Экспортируемые параметры, такие как исходный шаблон для различных типов "
-"записей."
+msgstr "Экспортируемые параметры, такие как исходный шаблон для различных типов записей."
 
 #: ../editor/editor.importexport.php:160
 msgid "Theme Config Publishing"
@@ -598,13 +553,9 @@ msgstr "Опубликовать конфигурацию в дочерней т
 msgid ""
 "Check this to publish your site configuration as a theme configuration file "
 "in your themes root directory. When a user activates your theme it will ask "
-"if it can overwrite their settings to attain a desired initial experience to "
-"the theme."
-msgstr ""
-"Отметьте тут, чтобы опубликовать конфигурацию сайта как файл конфигурации "
-"темы, корневом каталоге ваших тем. Когда пользователь активирует вашу тему, "
-"то получит вопрос, хочет ли он переписать ее настройки для достижения "
-"желаемого начального изучения темы."
+"if it can overwrite their settings to attain a desired initial experience to"
+" the theme."
+msgstr "Отметьте тут, чтобы опубликовать конфигурацию сайта как файл конфигурации темы, корневом каталоге ваших тем. Когда пользователь активирует вашу тему, то получит вопрос, хочет ли он переписать ее настройки для достижения желаемого начального изучения темы."
 
 #: ../editor/editor.importexport.php:178 ../editor/editor.interface.php:342
 msgid "Publish"
@@ -715,10 +666,7 @@ msgid ""
 "Select pixel width mode and your site maximum width will be controlled by "
 "pixels.<br/><br/> If you select \"percent\" width the width of your content "
 "will be a percentage of window size."
-msgstr ""
-"Выберите \"режим ширины в пикселях\", и максимальная ширина сайта будет "
-"задана в пикселях.<br/><br/> Если вы выберите \"ширина в процентах\", то "
-"ширина сайта будет задана в процентах от размера окна браузера."
+msgstr "Выберите \"режим ширины в пикселях\", и максимальная ширина сайта будет задана в пикселях.<br/><br/> Если вы выберите \"ширина в процентах\", то ширина сайта будет задана в процентах от размера окна браузера."
 
 #: ../editor/editor.layout.php:55
 msgid "Select Layout Display"
@@ -741,11 +689,7 @@ msgid ""
 "\"Full\" display mode allows areas to be the full width of the window, with "
 "content width sections.<br/><br/> \"Boxed\" mode contains everything in a "
 "central content box. Boxed mode is ideal for use with background images."
-msgstr ""
-"\"Полный\" режим отображения позволяет зонам занимать всю ширину окна, "
-"распределяя контент на ширину разделов.<br/><br/>\"Боксовый\" режим содержит "
-"весь контент в центральном боксе. Боксовый режим идеально подходит при "
-"использовании фоновых изображений."
+msgstr "\"Полный\" режим отображения позволяет зонам занимать всю ширину окна, распределяя контент на ширину разделов.<br/><br/>\"Боксовый\" режим содержит весь контент в центральном боксе. Боксовый режим идеально подходит при использовании фоновых изображений."
 
 #: ../editor/editor.layout.php:75
 msgid "Global Navigation Setup"
@@ -759,9 +703,7 @@ msgstr "Выберите Главное меню навигации"
 msgid ""
 "This will be used in mobile menus and optionally other places throughout "
 "your site."
-msgstr ""
-"Это будет использоваться в мобильных меню и, возможно, в других местах по "
-"всему сайту."
+msgstr "Это будет использоваться в мобильных меню и, возможно, в других местах по всему сайту."
 
 #: ../editor/editor.layout.php:87
 msgid "Select Secondary Navigation Menu"
@@ -771,8 +713,7 @@ msgstr "Выберите вторичное меню навигации"
 msgid ""
 "This will be shown subtly in areas throughout the site and in your mobile "
 "menu."
-msgstr ""
-"Будет показано в соответствующих областях на сайте и в меню мобильной версии."
+msgstr "Будет показано в соответствующих областях на сайте и в меню мобильной версии."
 
 #: ../editor/editor.loader.php:99
 msgid "Loading DMS Editor"
@@ -782,10 +723,7 @@ msgstr "Загрузка DMS редактора"
 msgid ""
 "Issues loading? See the <a href=\"http://docs.pagelines.com/support-"
 "troubleshooting/common-issues\" target=\"_blank\">troubleshooting guide</a>."
-msgstr ""
-"Проблемы с загрузкой? Смотрите <a href=\"http://docs.pagelines.com/support-"
-"troubleshooting/common-issues\" target=\"_blank\">Руководство по устранению "
-"неполадок</a>"
+msgstr "Проблемы с загрузкой? Смотрите <a href=\"http://docs.pagelines.com/support-troubleshooting/common-issues\" target=\"_blank\">Руководство по устранению неполадок</a>"
 
 #: ../editor/editor.regions.php:20
 msgid "Global Scope Region"
@@ -877,14 +815,10 @@ msgstr "Изображение Favicon"
 
 #: ../editor/editor.settings.config.php:168
 msgid ""
-"Enter the full URL location of your custom <strong>favicon</strong> which is "
-"visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
+"Enter the full URL location of your custom <strong>favicon</strong> which is"
+" visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico "
 "file - 32px by 32px</strong>."
-msgstr ""
-"Введите полный URL-адрес к файлу пользовательской <strong>favicon</strong>, "
-"которая видна в \"Избранном\" браузера и на ярлычке вкладки. <br/> "
-"<strong>Файл должен быть файл в формате .png или .ICO, размер 32 х 32 "
-"пикселя</strong>."
+msgstr "Введите полный URL-адрес к файлу пользовательской <strong>favicon</strong>, которая видна в \"Избранном\" браузера и на ярлычке вкладки. <br/> <strong>Файл должен быть файл в формате .png или .ICO, размер 32 х 32 пикселя</strong>."
 
 #: ../editor/editor.settings.config.php:177
 msgid "Upload Login Image (160px Height)"
@@ -898,10 +832,7 @@ msgstr "Изображение для страницы входа"
 msgid ""
 "This image will be used on the login page to your admin. Use an image that "
 "is approximately <strong>80px</strong> in height."
-msgstr ""
-"Это изображение будет использоваться на странице входа в консоль "
-"администратора. Рекомендуемый размер изображения <strong>80 пикселей</"
-"strong> в высоту."
+msgstr "Это изображение будет использоваться на странице входа в консоль администратора. Рекомендуемый размер изображения <strong>80 пикселей</strong> в высоту."
 
 #: ../editor/editor.settings.config.php:188
 msgid "Upload Touch Image (144px by 144px)"
@@ -915,13 +846,9 @@ msgstr "Иконка мобильного приложения"
 msgid ""
 "Enter the full URL location of your Apple Touch Icon which is visible when "
 "your users set your site as a <strong>webclip</strong> in Apple Iphone and "
-"Touch Products. It is an image approximately 144px by 144px in either .jpg, ."
-"gif or .png format."
-msgstr ""
-"Введите полный URL-адрес значка мобильного приложения, который отображается, "
-"когда пользователи <strong>сохраняют</strong> страницу сайта на устройствах "
-"Apple Iphone и любого другого сенсорного устройства. Это изображение должно "
-"иметь размер примерно 144px на 144px в одном из форматов .jpg, .gif или .png."
+"Touch Products. It is an image approximately 144px by 144px in either .jpg, "
+".gif or .png format."
+msgstr "Введите полный URL-адрес значка мобильного приложения, который отображается, когда пользователи <strong>сохраняют</strong> страницу сайта на устройствах Apple Iphone и любого другого сенсорного устройства. Это изображение должно иметь размер примерно 144px на 144px в одном из форматов .jpg, .gif или .png."
 
 #: ../editor/editor.settings.config.php:211
 msgid "Your Twitter Username"
@@ -935,9 +862,7 @@ msgstr "Интеграция с Twitter"
 msgid ""
 "This places your Twitter feed on the site. Leave blank if you want to hide "
 "or not use."
-msgstr ""
-"Теперь ваша Twitter лента размещена на сайте. Оставьте пустым, если вы "
-"хотите ее скрыть или не используете."
+msgstr "Теперь ваша Twitter лента размещена на сайте. Оставьте пустым, если вы хотите ее скрыть или не используете."
 
 #: ../editor/editor.settings.config.php:225
 msgid "Your Facebook Page Name"
@@ -949,11 +874,9 @@ msgstr "Страница в Facebook "
 
 #: ../editor/editor.settings.config.php:227
 msgid ""
-"Enter the name component of your Facebook page URL. (For example, what comes "
-"after the facebook url: www.facebook.com/[name])"
-msgstr ""
-"Введите компонент имени в адресе страницы Facebook. (К примеру та часть "
-"строки, что следует после URL сайта facebook: www.facebook.com/[имя])"
+"Enter the name component of your Facebook page URL. (For example, what comes"
+" after the facebook url: www.facebook.com/[name])"
+msgstr "Введите компонент имени в адресе страницы Facebook. (К примеру та часть строки, что следует после URL сайта facebook: www.facebook.com/[имя])"
 
 #: ../editor/editor.settings.config.php:232
 msgid "Your Facebook App ID"
@@ -979,9 +902,7 @@ msgstr "Хэштэг веб-сайта"
 msgid ""
 "This hashtag will be used in social media (e.g. Twitter) and elsewhere to "
 "create feeds."
-msgstr ""
-"Этот хэштег будет использоваться в социальных сетях (например, Twitter) и в "
-"других местах, для создания каналов."
+msgstr "Этот хэштег будет использоваться в социальных сетях (например, Twitter) и в других местах, для создания каналов."
 
 #: ../editor/editor.settings.config.php:251
 msgid "Sharebar Options"
@@ -1042,8 +963,7 @@ msgstr "Уведомления LESS"
 
 #: ../editor/editor.settings.config.php:321
 msgid "Disable any error notices sent to wp-admin by the less system"
-msgstr ""
-"Отключить все уведомления об ошибках, отсылаемые администратору системой LESS"
+msgstr "Отключить все уведомления об ошибках, отсылаемые администратору системой LESS"
 
 #: ../editor/editor.settings.config.php:328
 msgid "Enable Code Prettify?"
@@ -1058,10 +978,7 @@ msgid ""
 "Add a class of 'prettyprint' to code or pre tags, or optionally use the "
 "[pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if "
 "Wordpress inserts line breaks."
-msgstr ""
-"Добавьте в код класс 'prettyprint' или тэг pre, или же используйте шорткод "
-"[pl_codebox], при необходимости. Оберните шорткод с помощью [pl_raw], если "
-"Wordpress вставляет разрывы строк."
+msgstr "Добавьте в код класс 'prettyprint' или тэг pre, или же используйте шорткод [pl_codebox], при необходимости. Оберните шорткод с помощью [pl_raw], если Wordpress вставляет разрывы строк."
 
 #: ../editor/editor.settings.config.php:336
 msgid "Enter Partner Link"
@@ -1076,10 +993,7 @@ msgid ""
 "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines "
 "Partner</a> enter your link here and the footer link will become a partner "
 "or affiliate link."
-msgstr ""
-"Если вы введете здесь ссылку типа <a target='_blank' href='http://www."
-"pagelines.com'>Партнер PageLines </a>, то ваш футер будет содержать "
-"приглашение стать партнером или партнерскую ссылку."
+msgstr "Если вы введете здесь ссылку типа <a target='_blank' href='http://www.pagelines.com'>Партнер PageLines </a>, то ваш футер будет содержать приглашение стать партнером или партнерскую ссылку."
 
 #: ../editor/editor.settings.config.php:344
 msgid "Install Class"
@@ -1094,11 +1008,7 @@ msgid ""
 "Use this option to add a class to the &gt;body&lt; element of the website. "
 "This can be useful when using the same child theme on several installations "
 "or sub domains and can be used to control CSS customizations."
-msgstr ""
-"Используйте этот параметр для добавления элемента класса &gt;body&lt; вашего "
-"веб-сайта. Это может быть полезно при использовании одной и той же дочерней "
-"темы на нескольких инсталляциях или суб-доменах и может использоваться для "
-"управления CSS персонализацией."
+msgstr "Используйте этот параметр для добавления элемента класса &gt;body&lt; вашего веб-сайта. Это может быть полезно при использовании одной и той же дочерней темы на нескольких инсталляциях или суб-доменах и может использоваться для управления CSS персонализацией."
 
 #: ../editor/editor.settings.config.php:361
 msgid "<i class=\"icon-undo\"></i> Reset Global Settings"
@@ -1110,13 +1020,10 @@ msgstr "Сброс общих параметров сайта"
 
 #: ../editor/editor.settings.config.php:363
 msgid ""
-"Use this button to reset all global settings to their default state. <br/"
-"><strong>Note:</strong> Once you've completed this action, you may want to "
-"publish these changes to your live site."
-msgstr ""
-"Используйте эту кнопку для сброса всех параметров текущей страницы в их "
-"исходное состояние. <br/> <strong>Примечание:</strong> после завершения "
-"этого действия, возможно потребуется опубликовать изменения на вашем сайте."
+"Use this button to reset all global settings to their default state. "
+"<br/><strong>Note:</strong> Once you've completed this action, you may want "
+"to publish these changes to your live site."
+msgstr "Используйте эту кнопку для сброса всех параметров текущей страницы в их исходное состояние. <br/> <strong>Примечание:</strong> после завершения этого действия, возможно потребуется опубликовать изменения на вашем сайте."
 
 #: ../editor/editor.settings.config.php:369
 msgid "<i class=\"icon-undo\"></i> Reset Current Page Settings"
@@ -1131,10 +1038,7 @@ msgid ""
 "Use this button to reset all settings on the current page back to their "
 "default state. <br/><strong>Note:</strong> Once you've completed this "
 "action, you may want to publish these changes to your live site."
-msgstr ""
-"Используйте эту кнопку для сброса всех параметров текущей страницы в их "
-"исходное состояние. <br/> <strong>Примечание:</strong> после завершения "
-"этого действия, возможно потребуется опубликовать изменения на вашем сайте."
+msgstr "Используйте эту кнопку для сброса всех параметров текущей страницы в их исходное состояние. <br/> <strong>Примечание:</strong> после завершения этого действия, возможно потребуется опубликовать изменения на вашем сайте."
 
 #: ../editor/editor.settings.config.php:378
 msgid "<i class=\"icon-trash\"></i> Flush Caches"
@@ -1148,10 +1052,7 @@ msgstr "Очистить все кэшированные данные CSS/LESS."
 msgid ""
 "Use this button to purge the stored LESS/CSS data. This will also clear "
 "cached pages if wp-super-cache or w3-total-cache are detected."
-msgstr ""
-"Используйте эту кнопку для удаления сохраненных данных CSS/LESS. Также  "
-"будет очищен кэш страниц, если используются \"wp-super-cache\" или \"w3-"
-"total-cache\"."
+msgstr "Используйте эту кнопку для удаления сохраненных данных CSS/LESS. Также  будет очищен кэш страниц, если используются \"wp-super-cache\" или \"w3-total-cache\"."
 
 #: ../editor/editor.settings.config.php:396
 msgid "Standard Options"
@@ -1169,7 +1070,7 @@ msgstr "Разделенные пробелом \" \""
 msgid "Templates"
 msgstr "Шаблоны"
 
-#: ../editor/editor.templates.php:207
+#: ../editor/editor.templates.php:207 ../editor/js/pl.optpanel.js:1148
 msgid "Page Templates"
 msgstr "Страница шаблона"
 
@@ -1207,19 +1108,15 @@ msgstr "Удалить шаблон"
 
 #: ../editor/editor.templates.php:320
 msgid ""
-"Fill out this form and the current template will be saved for use throughout "
-"your site."
-msgstr ""
-"Заполните эту форму и текущий шаблон будет сохранен для использования на "
-"вашем сайте."
+"Fill out this form and the current template will be saved for use throughout"
+" your site."
+msgstr "Заполните эту форму и текущий шаблон будет сохранен для использования на вашем сайте."
 
 #: ../editor/editor.templates.php:322
 msgid ""
 "<strong>Note:</strong> Both the current page's local settings and section "
 "configurations will be saved."
-msgstr ""
-"<strong>Примечание:</strong> Локальные настройки текущей страницы и секций "
-"будут сохранены."
+msgstr "<strong>Примечание:</strong> Локальные настройки текущей страницы и секций будут сохранены."
 
 #: ../editor/editor.templates.php:325
 msgid "Template Name (required)"
@@ -1249,9 +1146,7 @@ msgstr "Перспективный шаблон"
 msgid ""
 "A page template designed to quickly and concisely show off key features or "
 "points. (RevSlider, iBoxes, Flipper)"
-msgstr ""
-"Шаблон страницы предназначен для быстрой и четкой демонстрации ключевых "
-"особенностей или пунктов. (RevSlider, iBoxes, Flipper)"
+msgstr "Шаблон страницы предназначен для быстрой и четкой демонстрации ключевых особенностей или пунктов. (RevSlider, iBoxes, Flipper)"
 
 #: ../editor/editor.templates.php:539
 msgid "Landing Page"
@@ -1293,9 +1188,7 @@ msgstr "Основной текст"
 msgid ""
 "The base font size is a reference that will be scaled for text used "
 "throughout the site. "
-msgstr ""
-"Базовый размер шрифта представляет собой ссылку, которая будет "
-"использоваться на всем сайте для масштабирования текста. "
+msgstr "Базовый размер шрифта представляет собой ссылку, которая будет использоваться на всем сайте для масштабирования текста. "
 
 #: ../editor/editor.typography.php:91
 msgid "Select Font Face"
@@ -1331,17 +1224,12 @@ msgstr "Дополнительные шрифты"
 
 #: ../editor/editor.typography.php:165
 msgid ""
-"<p>Add additional <a href=\"http://www.google.com/fonts\" target=\"_blank"
-"\">Google fonts</a> to your sites using this option.</p><p>For example, to "
-"add \"Yellowtail\" and \"Lato Bold\" you would enter: <strong>Yellowtail|"
-"Lato:700</strong>.</p><p> You can then reference these fonts in custom CSS.</"
-"p>"
-msgstr ""
-"<p>Добавьте дополнительные <a href=\"http://www.google.com/fonts\" target="
-"\"_blank\"> шрифты Google</a> на ваш сайт, используя этот параметр.</"
-"p><p>Например, чтобы добавить \"Yellowtail\" и \"Lato Bold\", нужно ввести: "
-"<strong>Yellowtail|Lato:700</strong>.</p><p>Теперь вы можете ссылаться на "
-"эти шрифты в пользовательских CSS.</p>"
+"<p>Add additional <a href=\"http://www.google.com/fonts\" "
+"target=\"_blank\">Google fonts</a> to your sites using this "
+"option.</p><p>For example, to add \"Yellowtail\" and \"Lato Bold\" you would"
+" enter: <strong>Yellowtail|Lato:700</strong>.</p><p> You can then reference "
+"these fonts in custom CSS.</p>"
+msgstr "<p>Добавьте дополнительные <a href=\"http://www.google.com/fonts\" target=\"_blank\"> шрифты Google</a> на ваш сайт, используя этот параметр.</p><p>Например, чтобы добавить \"Yellowtail\" и \"Lato Bold\", нужно ввести: <strong>Yellowtail|Lato:700</strong>.</p><p>Теперь вы можете ссылаться на эти шрифты в пользовательских CSS.</p>"
 
 #: ../editor/editor.typography.php:170
 msgid "Extra Google Fonts"
@@ -1418,9 +1306,7 @@ msgstr "Найти"
 
 #: ../editor/panel.extend.php:99
 msgid "Upload a .zip extension into your PageLines install using this tool."
-msgstr ""
-"Загрузите .zip расширение в вашу инсталляцию PageLines, с помощью этого "
-"инструмента."
+msgstr "Загрузите .zip расширение в вашу инсталляцию PageLines, с помощью этого инструмента."
 
 #: ../editor/panel.extend.php:101
 msgid "Extension File (zip file - required)"
@@ -1560,10 +1446,8 @@ msgid "Theme Options"
 msgstr "Опции Темы"
 
 #: ../editor/panel.themes.php:127
-msgid ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
-msgstr ""
-" <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Активно</span>"
+msgid " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Active</span>"
+msgstr " <span class=\"badge badge-info\"><i class=\"icon-ok\"></i> Активно</span>"
 
 #: ../editor/panel.themes.php:173 ../editor/panel.themes.php:193
 msgid "Theme does not exist or is not allowed"
@@ -1610,48 +1494,42 @@ msgstr "Посетите %s&#8217;s сайт"
 msgid "Close"
 msgstr "Закрыть"
 
-#: ../includes/deprecated.php:268
+#: ../includes/deprecated.php:272
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use "
-"%3$s instead."
-msgstr ""
-"%1$s является <strong>устаревшим</strong>, начиная с версии %2$s PageLines "
-"DMS! Используйте вместо этого %3$s."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS! Use"
+" %3$s instead."
+msgstr "%1$s является <strong>устаревшим</strong>, начиная с версии %2$s PageLines DMS! Используйте вместо этого %3$s."
 
-#: ../includes/deprecated.php:270
+#: ../includes/deprecated.php:274
 #, php-format
 msgid ""
-"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with "
-"no alternative available."
-msgstr ""
-"%1$s <strong>устарел</strong> с версии %2$s PageLines DMS, без доступной "
-"альтернативы."
+"%1$s is <strong>deprecated</strong> since version %2$s of PageLines DMS with"
+" no alternative available."
+msgstr "%1$s <strong>устарел</strong> с версии %2$s PageLines DMS, без доступной альтернативы."
 
-#: ../includes/deprecated.php:1345
+#: ../includes/deprecated.php:1349
 msgid "No Image"
 msgstr "Нет изображения"
 
-#: ../includes/deprecated.php:1552 ../includes/deprecated.php:1553
+#: ../includes/deprecated.php:1557 ../includes/deprecated.php:1558
 msgid "Add New "
 msgstr "Добавить"
 
-#: ../includes/deprecated.php:1554 ../includes/deprecated.php:1555
+#: ../includes/deprecated.php:1559 ../includes/deprecated.php:1560
 msgid "Edit "
 msgstr "Редактировать"
 
-#: ../includes/deprecated.php:1556 ../includes/deprecated.php:1557
+#: ../includes/deprecated.php:1561 ../includes/deprecated.php:1562
 msgid "View "
 msgstr "Показать"
 
 #: ../includes/less.legacy.php:453
 #, php-format
 msgid ""
-"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
-"*/"
-msgstr ""
-"%s/* CSS был откомпилирован в %s и занял %s секунд, используя  %sMB пыли "
-"Единорога%s.*/"
+"%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn "
+"dust%s.*/"
+msgstr "%s/* CSS был откомпилирован в %s и занял %s секунд, используя  %sMB пыли Единорога%s.*/"
 
 #: ../includes/less.legacy.php:505
 msgid "LESS Compile error!"
@@ -1665,11 +1543,9 @@ msgstr "Ошибка в коде %s LESS: %s"
 #: ../includes/less.legacy.php:739
 #, php-format
 msgid ""
-"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
-"unicorn dust%s.*/"
-msgstr ""
-"%s/* CSS был скомпилирован в стандартном режиме в %s и занял %s секунд, "
-"затратив % sMB пыли Единорога%s.*/"
+"%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of"
+" unicorn dust%s.*/"
+msgstr "%s/* CSS был скомпилирован в стандартном режиме в %s и занял %s секунд, затратив % sMB пыли Единорога%s.*/"
 
 #: ../includes/lib.editor.php:72
 msgid "(Pro Edition Only)"
@@ -1692,9 +1568,7 @@ msgstr "Следующие &rarr;"
 msgid ""
 "<ul class='inline-list'>Please select a nav menu for this area in the <a "
 "href='%s'>WordPress menu admin</a>.</ul>"
-msgstr ""
-"<ul class='inline-list'>Пожалуйста, выберите навигационное меню для этой "
-"области в <a href='%s'>меню администратора WordPress</a>.</ul>"
+msgstr "<ul class='inline-list'>Пожалуйста, выберите навигационное меню для этой области в <a href='%s'>меню администратора WordPress</a>.</ul>"
 
 #: ../includes/lib.elements.php:272
 msgid "edit"
@@ -1750,9 +1624,7 @@ msgstr "Выберите область виджетов"
 
 #: ../sections/columnizer/section.php:61
 msgid "Select the widgetized area you would like to use with this instance."
-msgstr ""
-"Выберите область виджетов, которую вы хотели бы использовать с этим "
-"экземпляром."
+msgstr "Выберите область виджетов, которую вы хотели бы использовать с этим экземпляром."
 
 #: ../sections/columnizer/section.php:69
 msgid "Number of Grid Columns for Each Widget (12 Col Grid)"
@@ -1770,9 +1642,7 @@ msgstr "Редактировать области виджетов"
 msgid ""
 "This section uses widgetized areas that are created and edited in inside "
 "your admin."
-msgstr ""
-"В данном разделе используются области виджетов, которые создаются и "
-"редактируются в вашей консоли администратора."
+msgstr "В данном разделе используются области виджетов, которые создаются и редактируются в вашей консоли администратора."
 
 #: ../sections/columnizer/section.php:88 ../sections/columnizer/section.php:89
 msgid "Column Site Description"
@@ -1782,10 +1652,7 @@ msgstr "Описание столбцов сайта"
 msgid ""
 "If you use the default display of the columnizer, this field is used as a "
 "description of your company. You may want to add your address or links."
-msgstr ""
-"Если вы используете исходное отображение \"columnizer\", то это поле "
-"используется для описания вашей компании. Вы можете добавить свой адрес или "
-"ссылки."
+msgstr "Если вы используете исходное отображение \"columnizer\", то это поле используется для описания вашей компании. Вы можете добавить свой адрес или ссылки."
 
 #: ../sections/columnizer/section.php:100
 msgid "Get A Sidebars Plugin"
@@ -1793,18 +1660,14 @@ msgstr "Взять плагин боковой панели"
 
 #: ../sections/columnizer/section.php:101
 msgid "<i class=\"icon-external-link\"></i> Check out Sidebar Manager plugin"
-msgstr ""
-"<i class=\"icon-external-link\"></i> Взгляните на наш плагин Sidebar Manager"
+msgstr "<i class=\"icon-external-link\"></i> Взгляните на наш плагин Sidebar Manager"
 
 #: ../sections/columnizer/section.php:102
 msgid ""
 "We have detected that you don't either the Custom Sidebars or Sidebar "
-"Manager plugins installed. We recommend you install a plugin that allows you "
-"to create custom widgetized areas on demand."
-msgstr ""
-"Мы обнаружили, что ни один из плагинов не установлен - Custom Sidebars или "
-"Sidebar Manager. Мы рекомендуем вам установить любой из плагинов - они "
-"позволяют создавать настраиваемый боковые панели."
+"Manager plugins installed. We recommend you install a plugin that allows you"
+" to create custom widgetized areas on demand."
+msgstr "Мы обнаружили, что ни один из плагинов не установлен - Custom Sidebars или Sidebar Manager. Мы рекомендуем вам установить любой из плагинов - они позволяют создавать настраиваемый боковые панели."
 
 #: ../sections/columnizer/section.php:147
 msgid "Stay in Touch!"
@@ -1824,7 +1687,8 @@ msgstr "Метки"
 msgid "Categories"
 msgstr "Рубрики"
 
-#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:907
+#: ../sections/columnizer/section.php:222 ../editor/js/pl.optpanel.js:817
+#: ../editor/js/pl.optpanel.js:908
 msgid "More Info"
 msgstr "Информация"
 
@@ -1841,11 +1705,7 @@ msgid ""
 "<strong>Note</strong><br/> Post types for this section must have \"featured "
 "images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
 "to create custom post types for use with Flipper."
-msgstr ""
-"<strong>Примечание</strong><br/>В этом разделе должны быть только "
-"опубликованные посты, со включенными миниатюрами.<br/><strong>Совет</"
-"strong><br/>Используйте плагин чтобы создать пользовательский типов постов, "
-"которые будут использоваться с Flipper."
+msgstr "<strong>Примечание</strong><br/>В этом разделе должны быть только опубликованные посты, со включенными миниатюрами.<br/><strong>Совет</strong><br/>Используйте плагин чтобы создать пользовательский типов постов, которые будут использоваться с Flipper."
 
 #: ../sections/flipper/section.php:69
 msgid "Max Number of Posts Shown"
@@ -1855,9 +1715,7 @@ msgstr "Максимальное количество показанных по�
 msgid ""
 "This controls the maximum number of posts shown. A smaller amount may be "
 "shown based on layout width."
-msgstr ""
-"Этим контролируется максимальное количество показываемых постов. На "
-"основании ширины макета может быть показано меньшее количество."
+msgstr "Этим контролируется максимальное количество показываемых постов. На основании ширины макета может быть показано меньшее количество."
 
 #: ../sections/flipper/section.php:77
 msgid "Select Image Size"
@@ -1886,28 +1744,17 @@ msgstr "Настройки Flipper"
 #: ../sections/flipper/section.php:109
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>"
-"[post_comments]</strong> - Link to post comments</li><li><strong>"
-"[post_author_posts_link]</strong> - Author and link to archive</"
-"li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
-msgstr ""
-"Используйте шорткоды для динамического управления вашим метабаром. Пример "
-"использования шорткодов: <ul><li><strong>[post_categories]</strong> - Список "
-"категорий</li><li><strong>[post_edit]</strong> - админская ссылка для "
-"редактирования поста</li><li><strong>[post_tags]</strong> - Список тегов в "
-"постах</li><li><strong>[post_comments]</strong> - Ссылка на комментарии к "
-"посту</li><li><strong>[post_author_posts_link]</strong> - Автор и ссылка на "
-"архив</li><li><strong>[post_author_link]</strong> - URL-адрес автора</"
-"li><li><strong>[post_author]</strong> - Автор поста, без ссылки</"
-"li><li><strong>[post_time]</strong> - Время поста/li><li><strong>[post_date]"
-"</strong> - Дата поста</li><li><strong>[post_type]</strong> - Тип поста</"
-"li></ul>"
+"use are: <ul><li><strong>[post_categories]</strong> - List of "
+"categories</li><li><strong>[post_edit]</strong> - Link for admins to edit "
+"the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
+msgstr "Используйте шорткоды для динамического управления вашим метабаром. Пример использования шорткодов: <ul><li><strong>[post_categories]</strong> - Список категорий</li><li><strong>[post_edit]</strong> - админская ссылка для редактирования поста</li><li><strong>[post_tags]</strong> - Список тегов в постах</li><li><strong>[post_comments]</strong> - Ссылка на комментарии к посту</li><li><strong>[post_author_posts_link]</strong> - Автор и ссылка на архив</li><li><strong>[post_author_link]</strong> - URL-адрес автора</li><li><strong>[post_author]</strong> - Автор поста, без ссылки</li><li><strong>[post_time]</strong> - Время поста/li><li><strong>[post_date]</strong> - Дата поста</li><li><strong>[post_type]</strong> - Тип поста</li></ul>"
 
 #: ../sections/flipper/section.php:117
 msgid "Total Posts Loaded"
@@ -1921,10 +1768,7 @@ msgstr "Мета ключ"
 msgid ""
 "Select only posts which have a certain meta key and corresponding meta "
 "value. Useful for featured posts, or similar."
-msgstr ""
-"Выберите только те записи, которые имеют определенный мета ключ и "
-"соответствующее значение метаданных. Применимо для постов с миниатюрами, или "
-"аналогичных."
+msgstr "Выберите только те записи, которые имеют определенный мета ключ и соответствующее значение метаданных. Применимо для постов с миниатюрами, или аналогичных."
 
 #: ../sections/flipper/section.php:133
 msgid "Meta Key Value"
@@ -2242,9 +2086,7 @@ msgstr "Максимальная ширина заставки в пикселя
 msgid ""
 "Upload an image to serve as a splash image, or use an embed code for full "
 "width video."
-msgstr ""
-"Загрузить изображение в качестве заставки, или использовать код для "
-"встраивания видео на полную ширину."
+msgstr "Загрузить изображение в качестве заставки, или использовать код для встраивания видео на полную ширину."
 
 #: ../sections/masthead/section.php:71
 msgid "Masthead Text"
@@ -2307,9 +2149,7 @@ msgstr "Начните с этого места"
 msgid ""
 "Enter the options for the masthead splash image. If no options are "
 "specified, no image will be shown."
-msgstr ""
-"Введите параметры для изображения заставки Masthead. Если параметры не "
-"заданы, то изображение не будет отображаться."
+msgstr "Введите параметры для изображения заставки Masthead. Если параметры не заданы, то изображение не будет отображаться."
 
 #: ../sections/masthead/section.php:268
 msgid "Enter text for your masthead banner section"
@@ -2327,9 +2167,7 @@ msgstr "Masthead управляющая кнопка 1"
 msgid ""
 "Enter the options for the masthead button. If no options are specified, no "
 "button will be shown."
-msgstr ""
-"Введите параметры для кнопки Masthead. Если параметры не заданы, то кнопка "
-"не будет отображаться."
+msgstr "Введите параметры для кнопки Masthead. Если параметры не заданы, то кнопка не будет отображаться."
 
 #: ../sections/masthead/section.php:314
 msgid "Masthead Action Button 2"
@@ -2359,9 +2197,7 @@ msgstr "Текст и встроенный HTML"
 msgid ""
 "Enter rich media \"embed\" HTML in this field to add videos, etc.. instead "
 "of an image."
-msgstr ""
-"Вставьте \"встраиваемый\" HTML в это поле, чтобы добавить мультимедиа, "
-"видео, и т.д., вместо изображения."
+msgstr "Вставьте \"встраиваемый\" HTML в это поле, чтобы добавить мультимедиа, видео, и т.д., вместо изображения."
 
 #: ../sections/mediabox/section.php:50
 msgid "Text/Media Alignment"
@@ -2387,9 +2223,7 @@ msgstr "Минимальная высота MediaBox (px)"
 msgid ""
 "Required for \"cover\" mode. Otherwise the mediabox will be drawn at the "
 "height of the media."
-msgstr ""
-"Необходимо для режима «обложка». Иначе, MediaBox будет приведен по размеру к "
-"высоте медиа."
+msgstr "Необходимо для режима «обложка». Иначе, MediaBox будет приведен по размеру к высоте медиа."
 
 #: ../sections/mediabox/section.php:67
 msgid "Disable Media Vertical Centering?"
@@ -2433,9 +2267,7 @@ msgstr "Тема NavBar"
 msgid ""
 "The NavBar comes with several color options. Select one to automatically "
 "configure."
-msgstr ""
-"NavBar имеет несколько вариантов расцветки. Выберите один для автоматической "
-"настройки."
+msgstr "NavBar имеет несколько вариантов расцветки. Выберите один для автоматической настройки."
 
 #: ../sections/navbar/section.php:79
 msgid "NavBar Menu"
@@ -2443,8 +2275,7 @@ msgstr "Меню NavBar"
 
 #: ../sections/navbar/section.php:80 ../sections/navbar/section.php:412
 msgid "The NavBar uses WordPress menus. Select one for use."
-msgstr ""
-"NavBar использует WordPress меню. Выберите одно из них для использования."
+msgstr "NavBar использует WordPress меню. Выберите одно из них для использования."
 
 #: ../sections/navbar/section.php:85 ../sections/simple_nav/section.php:34
 #: ../sections/simple_nav/section.php:40 ../editor/js/pl.optpanel.js:687
@@ -2464,9 +2295,7 @@ msgstr "Название NavBar"
 msgid ""
 "Add text to the NavBar to serve as a title, but only displayed on small "
 "screens."
-msgstr ""
-"Добавляет текст в качестве названия NavBar, но отображается только на "
-"маленьких экранах."
+msgstr "Добавляет текст в качестве названия NavBar, но отображается только на маленьких экранах."
 
 #: ../sections/navbar/section.php:106 ../sections/navbar/section.php:422
 msgid "Activate dropdowns on hover."
@@ -2493,9 +2322,7 @@ msgstr "Включить фиксированную панель навигац�
 msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site."
-msgstr ""
-"Используйте эту функцию для добавления раздела NavBar в качестве "
-"фиксированной панели навигации, вверху вашего сайта."
+msgstr "Используйте эту функцию для добавления раздела NavBar в качестве фиксированной панели навигации, вверху вашего сайта."
 
 #: ../sections/navbar/section.php:162 ../sections/navbar/section.php:163
 msgid "NavBar Logo"
@@ -2506,11 +2333,7 @@ msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
-msgstr ""
-"Используйте эту функцию для добавления раздела NavBar в качестве "
-"фиксированной панели навигации, вверху вашего сайта.<br/><br/"
-"><strong>Примечание:</strong><br/>1. Видимо только в фиксированном режиме."
-"<br/>2. Высота изображения ограничена, максимально до 29 пикселей."
+msgstr "Используйте эту функцию для добавления раздела NavBar в качестве фиксированной панели навигации, вверху вашего сайта.<br/><br/><strong>Примечание:</strong><br/>1. Видимо только в фиксированном режиме.<br/>2. Высота изображения ограничена, максимально до 29 пикселей."
 
 #: ../sections/navbar/section.php:293
 msgid "MENU"
@@ -2586,35 +2409,27 @@ msgstr "Контроль прочих параметров оформления 
 
 #: ../sections/navbar/section.php:447
 msgid "Applies text to NavBar on small screens. Not available on Fixed NavBar"
-msgstr ""
-"Добавляет текст к NavBar на небольших экранах. Не доступно на фиксированном "
-"NavBar"
+msgstr "Добавляет текст к NavBar на небольших экранах. Не доступно на фиксированном NavBar"
 
 #: ../sections/noposts/section.php:22
 msgid ""
 "Direct Previewing <em>of</em> &quot;Special Post Types&quot; Not "
 "Available... Yet"
-msgstr ""
-"Прямой предпросмотр &quot;Записей особого типа&quot; не доступен... пока еще"
+msgstr "Прямой предпросмотр &quot;Записей особого типа&quot; не доступен... пока еще"
 
 #: ../sections/noposts/section.php:23
 msgid ""
-"Sorry, direct previewing of special post types such as <strong>features</"
-"strong> or <strong>boxes</strong> is unavailable. This WordPress "
-"functionality is new and rapidly developing, so it should be available soon."
-msgstr ""
-"К сожалению, прямой предпросмотр записей особого типа, такие как <strong>"
-"\"Features\"</strong> или <strong>\"Boxes\"</strong> недоступен. Это новый и "
-"стремительно развивающийся функционал WordPress, и поэтому должен быть скоро "
-"доступен."
+"Sorry, direct previewing of special post types such as "
+"<strong>features</strong> or <strong>boxes</strong> is unavailable. This "
+"WordPress functionality is new and rapidly developing, so it should be "
+"available soon."
+msgstr "К сожалению, прямой предпросмотр записей особого типа, такие как <strong>\"Features\"</strong> или <strong>\"Boxes\"</strong> недоступен. Это новый и стремительно развивающийся функционал WordPress, и поэтому должен быть скоро доступен."
 
 #: ../sections/noposts/section.php:25
 msgid ""
-"To preview a &quot;custom post type&quot; just view a page with that &quot;"
-"section&quot; on it."
-msgstr ""
-"Для просмотра записи &quot;пользовательского типа&quot; просто откройте "
-"страницу с размещенным на ней «компонентом»."
+"To preview a &quot;custom post type&quot; just view a page with that "
+"&quot;section&quot; on it."
+msgstr "Для просмотра записи &quot;пользовательского типа&quot; просто откройте страницу с размещенным на ней «компонентом»."
 
 #: ../sections/noposts/section.php:30
 msgid "404!"
@@ -2648,9 +2463,7 @@ msgstr "Исходный padding области (px)"
 msgid ""
 "If sections are added to full width areas, the area will be givin this "
 "default padding."
-msgstr ""
-"Если разделы добавлены в области полной ширинны, то для области будет задан "
-"исходный padding."
+msgstr "Если разделы добавлены в области полной ширинны, то для области будет задан исходный padding."
 
 #: ../sections/pl_area/section.php:53
 msgid "Set Area Padding"
@@ -2719,9 +2532,7 @@ msgstr "Установки Автора"
 #: ../sections/postauthor/section.php:37
 msgid ""
 "This section uses the author's profile information. Set that in your admin."
-msgstr ""
-"Этот раздел использует сведения из профиля автора. Настраивайте эти сведения "
-"в консоли администратора."
+msgstr "Этот раздел использует сведения из профиля автора. Настраивайте эти сведения в консоли администратора."
 
 #: ../sections/postauthor/section.php:68
 msgid "Author"
@@ -2795,9 +2606,7 @@ msgstr "<i class=\"icon-edit\"></i> Редактировать информац�
 msgid ""
 "This section uses WordPress posts. Edit post information using WordPress "
 "admin."
-msgstr ""
-"Этот раздел использует записи WordPress. Редактируйте записи с помощью "
-"консоли администратора WordPress."
+msgstr "Этот раздел использует записи WordPress. Редактируйте записи с помощью консоли администратора WordPress."
 
 #: ../sections/postloop/section.php:37
 msgid "Page Title"
@@ -2821,23 +2630,15 @@ msgstr "Режим блоговой компоновки"
 
 #: ../sections/postloop/section.php:57
 msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine"
+" Layout Mode</strong><br/> Magazine layout mode makes use of post "
 "<strong>clips</strong>. These are summarized excerpts shown at half the "
 "width of the main content column.<br/>  <strong>Note:</strong> There is an "
 "option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
-msgstr ""
-"Выбор между двумя режимами компоновки, журнальной или блоговой. <br/><br/"
-"><strong>Журнальная компоновка</strong><br/>Режим журнальной компоновки "
-"позволяет использовать <strong>клипы</strong> постов. Это краткие выдержки "
-"из постов, показываемые на половину ширины основной колонки.<br/"
-"><strong>Примечание:</strong>Существует вариант для отображения постов "
-"<strong>полной ширины</strong> на вашей главной странице блога.<br/><br/"
-"><strong>Режим блоговой компоновки</strong><br/>Это классическая компоновка "
-"постов в виде списка. Посты отображаются на всю ширину основной колонки."
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/>"
+" This is your classical post list layout. Posts span the entire width of the"
+" main content column."
+msgstr "Выбор между двумя режимами компоновки, журнальной или блоговой. <br/><br/><strong>Журнальная компоновка</strong><br/>Режим журнальной компоновки позволяет использовать <strong>клипы</strong> постов. Это краткие выдержки из постов, показываемые на половину ширины основной колонки.<br/><strong>Примечание:</strong>Существует вариант для отображения постов <strong>полной ширины</strong> на вашей главной странице блога.<br/><br/><strong>Режим блоговой компоновки</strong><br/>Это классическая компоновка постов в виде списка. Посты отображаются на всю ширину основной колонки."
 
 #: ../sections/postloop/section.php:66
 msgid "Number of Full Width Posts? (Mag. Mode)"
@@ -2852,10 +2653,7 @@ msgid ""
 "Select the number of posts you would like shown at the full width of the "
 "main content column in magazine layout mode (the rest will be half-width "
 "post <strong>clips</strong>)."
-msgstr ""
-"Выберите количество постов, которые вы хотели бы показано на полную ширину "
-"колонки с основным контентом, в режиме журнальной компоновки (остальные "
-"посты будут в виде полуширинных <strong>клипов</strong>)."
+msgstr "Выберите количество постов, которые вы хотели бы показано на полную ширину колонки с основным контентом, в режиме журнальной компоновки (остальные посты будут в виде полуширинных <strong>клипов</strong>)."
 
 #: ../sections/postloop/section.php:75
 msgid "Show Full Post Content"
@@ -2863,9 +2661,7 @@ msgstr "Показывать запись полностью"
 
 #: ../sections/postloop/section.php:76
 msgid "Optionally show full post content on special post listing pages."
-msgstr ""
-"Опционально, показывать все содержимое записи на специальной странице со "
-"списком записей."
+msgstr "Опционально, показывать все содержимое записи на специальной странице со списком записей."
 
 #: ../sections/postloop/section.php:84
 msgid "Meta Config"
@@ -2875,27 +2671,16 @@ msgstr "Конфигурация Мета"
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
-"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to "
-"edit the post</li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</li><li><strong>"
-"[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - "
-"Type of post</li></ul>"
-msgstr ""
-"Используйте шорткоды для динамического управления вашим метабаром. Пример "
-"использования шорткодов: <ul><li><strong>[post_categories]</strong> - Список "
-"категорий</li><li><strong>[post_edit]</strong> - админская ссылка для "
-"редактирования поста</li><li><strong>[post_tags]</strong> - Список тегов в "
-"постах</li><li><strong>[post_comments]</strong> - Ссылка на комментарии к "
-"посту</li><li><strong>[post_author_posts_link]</strong> - Автор и ссылка на "
-"архив</li><li><strong>[post_author_link]</strong> - URL-адрес автора</"
-"li><li><strong>[post_author]</strong> - Автор поста, без ссылки</"
-"li><li><strong>[post_time]</strong> - Время поста/li><li><strong>[post_date]"
-"</strong> - Дата поста</li><li><strong>[post_type]</strong> - Тип поста</"
-"li></ul>"
+"List of categories</li><li><strong>[post_edit]</strong> - Link for admins to"
+" edit the post</li><li><strong>[post_tags]</strong> - List of post "
+"tags</li><li><strong>[post_comments]</strong> - Link to post "
+"comments</li><li><strong>[post_author_posts_link]</strong> - Author and link"
+" to archive</li><li><strong>[post_author_link]</strong> - Link to author "
+"URL</li><li><strong>[post_author]</strong> - Post author with no "
+"link</li><li><strong>[post_time]</strong> - Time of "
+"post</li><li><strong>[post_date]</strong> - Date of "
+"post</li><li><strong>[post_type]</strong> - Type of post</li></ul>"
+msgstr "Используйте шорткоды для динамического управления вашим метабаром. Пример использования шорткодов: <ul><li><strong>[post_categories]</strong> - Список категорий</li><li><strong>[post_edit]</strong> - админская ссылка для редактирования поста</li><li><strong>[post_tags]</strong> - Список тегов в постах</li><li><strong>[post_comments]</strong> - Ссылка на комментарии к посту</li><li><strong>[post_author_posts_link]</strong> - Автор и ссылка на архив</li><li><strong>[post_author_link]</strong> - URL-адрес автора</li><li><strong>[post_author]</strong> - Автор поста, без ссылки</li><li><strong>[post_time]</strong> - Время поста/li><li><strong>[post_date]</strong> - Дата поста</li><li><strong>[post_type]</strong> - Тип поста</li></ul>"
 
 #: ../sections/postloop/section.php:92
 msgid "Select Meta Mode"
@@ -2909,10 +2694,7 @@ msgstr "Режим Мета"
 msgid ""
 "Instead of the standard metabar (beneath post title), you can use author "
 "meta mode. This mode displays the author avatar and publish date on left."
-msgstr ""
-"Вместо стандартного метабара (под заголовком записи), вы можете использовать "
-"авторский мета-режим. В этом режиме слева отображается аватар автора и дата "
-"публикации."
+msgstr "Вместо стандартного метабара (под заголовком записи), вы можете использовать авторский мета-режим. В этом режиме слева отображается аватар автора и дата публикации."
 
 #: ../sections/postloop/section.php:105
 msgid "Configure Full Width Post Metabar"
@@ -2952,11 +2734,9 @@ msgstr "Компоновка на всю ширину с иконкой"
 
 #: ../sections/postloop/section.php:139
 msgid ""
-"Use this option to configure how thumbs will be shown in full-width posts on "
-"your blog page."
-msgstr ""
-"Используйте этот параметр для настройки отображения миниатюры в "
-"полноширинном посте на странице своего блога."
+"Use this option to configure how thumbs will be shown in full-width posts on"
+" your blog page."
+msgstr "Используйте этот параметр для настройки отображения миниатюры в полноширинном посте на странице своего блога."
 
 #: ../sections/postloop/section.php:154
 msgid "Clip Thumbs Layout"
@@ -2966,10 +2746,7 @@ msgstr "Компоновка клип с иконкой"
 msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
-msgstr ""
-"Используйте этот параметр для настройки отображения миниатюр в клипах. Это "
-"небольшая выдержка <strong>журнального</strong> стиля на странице своего "
-"блога."
+msgstr "Используйте этот параметр для настройки отображения миниатюр в клипах. Это небольшая выдержка <strong>журнального</strong> стиля на странице своего блога."
 
 #: ../sections/postloop/section.php:161
 msgid "Hide thumbs?"
@@ -2981,9 +2758,7 @@ msgstr "Иконки записей"
 
 #: ../sections/postloop/section.php:163
 msgid "Use this option to hide or show thumbs for posts on pages."
-msgstr ""
-"Используйте этот параметр, чтобы скрыть или показать иконки для записей на "
-"страницах."
+msgstr "Используйте этот параметр, чтобы скрыть или показать иконки для записей на страницах."
 
 #: ../sections/postloop/section.php:172
 msgid "Excerpts"
@@ -3001,9 +2776,7 @@ msgstr "Скрыть выдержки записей"
 msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
-msgstr ""
-"Выдержки - это короткие фрагменты записей, показаны для предварительного "
-"ознакомления пользователя с записью. Скройте их с помощью этого параметра."
+msgstr "Выдержки - это короткие фрагменты записей, показаны для предварительного ознакомления пользователя с записью. Скройте их с помощью этого параметра."
 
 #: ../sections/postloop/section.php:188
 msgid "Continue Reading Link Text"
@@ -3017,9 +2790,7 @@ msgstr "Текст выдержки <strong>Продолжить чтение</s
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
-msgstr ""
-"Этот текст будет использоваться как ссылка на полный текст поста, при "
-"просмотре списка ваших постов (когда включены выдержки)."
+msgstr "Этот текст будет использоваться как ссылка на полный текст поста, при просмотре списка ваших постов (когда включены выдержки)."
 
 #: ../sections/postloop/section.php:197
 msgid "Number of words."
@@ -3045,15 +2816,11 @@ msgstr "Разрешить теги в выдержках"
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
-"<br/>An example of allowed tags could be: <strong>&lt;p&gt;&lt;br&gt;&lt;"
-"a&gt;</strong>. <br/><br/> <strong>Note:</strong> Enter a period <strong>.</"
-"strong> to disallow all tags."
-msgstr ""
-"По умолчанию WordPress удаляет все HTML тэги из выдержек. Вы можете "
-"использовать эту опцию, чтобы разрешить определенные теги. Просто введите "
-"разрешенные теги в этом поле. Примером допустимых тегов может быть: "
-"<strong>&lt; p &gt;&lt; br &gt;&lt; &gt;</strong>.\n"
-"Примечание: чтобы запретить все теги, введите точку <strong>.</strong>"
+"<br/>An example of allowed tags could be: "
+"<strong>&lt;p&gt;&lt;br&gt;&lt;a&gt;</strong>. <br/><br/> "
+"<strong>Note:</strong> Enter a period <strong>.</strong> to disallow all "
+"tags."
+msgstr "По умолчанию WordPress удаляет все HTML тэги из выдержек. Вы можете использовать эту опцию, чтобы разрешить определенные теги. Просто введите разрешенные теги в этом поле. Примером допустимых тегов может быть: <strong>&lt; p &gt;&lt; br &gt;&lt; &gt;</strong>.\nПримечание: чтобы запретить все теги, введите точку <strong>.</strong>"
 
 #: ../sections/postsinfo/section.php:29
 msgid "Search results for"
@@ -3145,9 +2912,7 @@ msgstr "Свойства"
 
 #: ../sections/propricing/section.php:97
 msgid "Add each attribute on a new line. Add a \"*\" in front to add emphasis."
-msgstr ""
-"Каждый атрибут добавляется на новой строке. Для обозначения акцента вставьте "
-"«*» в начало строки."
+msgstr "Каждый атрибут добавляется на новой строке. Для обозначения акцента вставьте «*» в начало строки."
 
 #: ../sections/quickslider/section.php:157
 #: ../sections/revslider/section.php:22
@@ -3208,9 +2973,7 @@ msgstr "Фоновое изображение слайда"
 #: ../sections/quickslider/section.php:205
 #: ../sections/revslider/section.php:47
 msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
-msgstr ""
-"Для высокого разрешения, изображения 2000px в ширину на 800px в высоту. "
-"(Лимит 2 МБ)"
+msgstr "Для высокого разрешения, изображения 2000px в ширину на 800px в высоту. (Лимит 2 МБ)"
 
 #: ../sections/quickslider/section.php:211
 #: ../sections/revslider/section.php:53
@@ -3262,17 +3025,12 @@ msgstr "Дополнительные элементы слайда"
 #: ../sections/revslider/section.php:81
 msgid ""
 "Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
-msgstr ""
-"Тут добавляется дополнительная разметка для революционного Revolution "
-"Slider. Основанный на плагине jQuery, Rev Slider поддерживает широкий спектр "
-"функциональных возможностей, включая внедрение видео и дополнительные "
-"переходы, если вы можете обращаться с HTML. Ознакомьтесь с <a href=\"http://"
-"www.orbis-ingenieria.com/code/documentation/documentation.html\" target="
-"\"_blank\">документацией</a>."
+"Slider, a jQuery plugin. It supports a wide array of functionality including"
+" video embeds and additional transitions if you can handle HTML. Check out "
+"the <a href=\"http://www.orbis-"
+"ingenieria.com/code/documentation/documentation.html\" "
+"target=\"_blank\">docs here</a>."
+msgstr "Тут добавляется дополнительная разметка для революционного Revolution Slider. Основанный на плагине jQuery, Rev Slider поддерживает широкий спектр функциональных возможностей, включая внедрение видео и дополнительные переходы, если вы можете обращаться с HTML. Ознакомьтесь с <a href=\"http://www.orbis-ingenieria.com/code/documentation/documentation.html\" target=\"_blank\">документацией</a>."
 
 #: ../sections/revslider/section.php:284
 msgid "Read More"
@@ -3296,12 +3054,9 @@ msgstr "Записи (RSS)"
 
 #: ../sections/sharebar/section.php:30
 msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
-msgstr ""
-"У вас нет настроенных блоков \"Поделиться\". Пожалуйста, проверьте настройки "
-"глобальных параметров \"социальные & локальные\" или деактивируйте панель "
-"\"Поделиться\" / Sharebar в шаблоне блога."
+"You have no shares setup, please look at Global Options > Social & Local; or"
+" deactivate the Sharebar from the Blog Post Template."
+msgstr "У вас нет настроенных блоков \"Поделиться\". Пожалуйста, проверьте настройки глобальных параметров \"социальные & локальные\" или деактивируйте панель \"Поделиться\" / Sharebar в шаблоне блога."
 
 #: ../sections/sharebar/section.php:30
 msgid "Social Settings"
@@ -3317,8 +3072,7 @@ msgstr "Секция Simple Nav"
 
 #: ../sections/simple_nav/section.php:35
 msgid "The SimpleNav uses WordPress menus. Select one for use."
-msgstr ""
-"SimpleNav использует меню Wordpress. Выберите одно из них для использования."
+msgstr "SimpleNav использует меню Wordpress. Выберите одно из них для использования."
 
 #: ../sections/simple_nav/section.php:50
 msgid "Select Alignment"
@@ -3340,10 +3094,7 @@ msgstr "Всего элементов StarBar (число)"
 msgid ""
 "This number will be used to calculate the percent of the bar filled. The "
 "StarBar values will be shown as a percentage of this value. Default is 100."
-msgstr ""
-"Этот число будет использоваться для вычисления процента выполнения. Значения "
-"элементов StarBar будут показаны как процент от этого значения. Значение по "
-"умолчанию — 100."
+msgstr "Этот число будет использоваться для вычисления процента выполнения. Значения элементов StarBar будут показаны как процент от этого значения. Значение по умолчанию — 100."
 
 #: ../sections/starbars/section.php:52 ../sections/starbars/section.php:221
 msgid "Starbar Modifier (Text Added to Stats)"
@@ -3411,9 +3162,7 @@ msgstr "Отступы <small>(сокращенный CSS)</small>"
 msgid ""
 "This option uses CSS padding shorthand. For example, use \"15px 30px\" for "
 "15px padding top/bottom, and 30 left/right."
-msgstr ""
-"Этот параметр использует отступы в сокращенном CSS описании. Например "
-"укажите «15px 30px» для отступа на 15px сверху/снизу и 30px слева/справа."
+msgstr "Этот параметр использует отступы в сокращенном CSS описании. Например укажите «15px 30px» для отступа на 15px сверху/снизу и 30px слева/справа."
 
 #: ../sections/textbox/section.php:52
 msgid "Textbox Font Size"
@@ -3427,9 +3176,7 @@ msgstr " Водяной знак вэб-сайта"
 msgid ""
 "The website watermark is a small version of your logo for your footer. "
 "Recommended width/height is 90px."
-msgstr ""
-"Водяной знак веб-сайта — это уменьшенная версия вашего логотипа для нижнего "
-"колонтитула. Рекомендуемая ширина/высота — 90px."
+msgstr "Водяной знак веб-сайта — это уменьшенная версия вашего логотипа для нижнего колонтитула. Рекомендуемая ширина/высота — 90px."
 
 #: ../sections/watermark/section.php:29
 msgid "Watermark Image"
@@ -3460,11 +3207,7 @@ msgid ""
 "To set up social, you need to set your global social user names under "
 "\"options\" > \"social &amp; local\"<br/><br/> After you have done that, "
 "these values will fill automatically."
-msgstr ""
-"Чтобы настроить соц.сети, вам нужно вписать общие имена пользователей в "
-"разделе настроек \"Параметры\" > \"социальные &amp; локальные\"<br/><br/"
-">После того, как вы это сделаете, эти значения будут заполняться "
-"автоматически."
+msgstr "Чтобы настроить соц.сети, вам нужно вписать общие имена пользователей в разделе настроек \"Параметры\" > \"социальные &amp; локальные\"<br/><br/>После того, как вы это сделаете, эти значения будут заполняться автоматически."
 
 #: ../sections/watermark/section.php:83
 msgid "was created with"
@@ -3488,11 +3231,9 @@ msgstr "Настройки успешно сохранены! Обновлени
 
 #: ../editor/js/pl.ajax.js:173
 msgid ""
-"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is "
-"off.)</p>"
-msgstr ""
-"<h3>Выключить редактор DMS?</h3><p>(Заметка: Режим черновиков отключается, "
-"если редактор выключен.)</p>"
+"<h3>Turn Off DMS Editor?</h3><p>(Note: Draft mode is disabled when editor is"
+" off.)</p>"
+msgstr "<h3>Выключить редактор DMS?</h3><p>(Заметка: Режим черновиков отключается, если редактор выключен.)</p>"
 
 #: ../editor/js/pl.ajax.js:181
 msgid "Deactivating..."
@@ -3507,9 +3248,7 @@ msgstr "Редактор выключен! Перезагружаем стран
 msgid ""
 "<h3>Are you sure?</h3><p>This will revert <strong>%s</strong> changes to "
 "your last published configuration.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Это вернет <strong>%s</strong> к последним "
-"опубликованным настройкам.</p>"
+msgstr "<h3>Вы уверены?</h3><p>Это вернет <strong>%s</strong> к последним опубликованным настройкам.</p>"
 
 #: ../editor/js/pl.ajax.js:237
 msgid "Reverting Draft"
@@ -3523,9 +3262,7 @@ msgstr "Шаблон успешно обновлен!"
 msgid ""
 "<h3>Are you sure?</h3><p>This action will delete this area and all its "
 "elements from this page.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Это действие удалит секцию и все ее элементы на этой "
-"странице.</p>"
+msgstr "<h3>Вы уверены?</h3><p>Это действие удалит секцию и все ее элементы на этой странице.</p>"
 
 #: ../editor/js/pl.editor.js:204
 msgid "Refreshing Page"
@@ -3534,14 +3271,11 @@ msgstr "Обновление страницы"
 #: ../editor/js/pl.editor.js:475
 msgid ""
 "<h3>Welcome to DMS!</h3><p>A cutting-edge drag & drop design management "
-"system for your website. <br/>Watch the video below for help getting started."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
-msgstr ""
-"<h3>Добро пожаловать в DMS!</h3><p>Передовую дизайнерскую систему управления "
-"сайтом на основе drag & drop. <br/>Смотреть видео ниже для получения помощи."
-"</p><iframe width='700' height='420' src='//www.youtube.com/embed/"
-"BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+"system for your website. <br/>Watch the video below for help getting "
+"started.</p><iframe width='700' height='420' "
+"src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' "
+"allowfullscreen></iframe>"
+msgstr "<h3>Добро пожаловать в DMS!</h3><p>Передовую дизайнерскую систему управления сайтом на основе drag & drop. <br/>Смотреть видео ниже для получения помощи.</p><iframe width='700' height='420' src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
 
 #: ../editor/js/pl.editor.js:682
 msgid "Learn more about being a PRO"
@@ -3557,18 +3291,15 @@ msgstr "Редактировать (только для Pro)"
 
 #: ../editor/js/pl.editor.js:690
 msgid ""
-"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
-"<br/>"
-msgstr ""
-"<h4>Это Pro-секция</h4>Для редактирования Pro-секции требуется подписка Pro. "
-"<br/>"
+"<h4>This is a Pro Section</h4>Editing Pro sections requires Pro "
+"Membership.<br/>"
+msgstr "<h4>Это Pro-секция</h4>Для редактирования Pro-секции требуется подписка Pro. <br/>"
 
 #: ../editor/js/pl.editor.js:744
 msgid ""
-"<h3>Are you sure?</h3><p>This will remove this section and its settings from "
-"this page.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Это удалит секцию и ее параметры на этой странице.</p>"
+"<h3>Are you sure?</h3><p>This will remove this section and its settings from"
+" this page.</p>"
+msgstr "<h3>Вы уверены?</h3><p>Это удалит секцию и ее параметры на этой странице.</p>"
 
 #: ../editor/js/pl.optpanel.js:112
 msgid "There are no options for this section."
@@ -3594,9 +3325,17 @@ msgstr "Обновите для предпросмотра."
 msgid "Syncs with element."
 msgstr "Синхронизируется с элементом."
 
+#: ../editor/js/pl.optpanel.js:634
+msgid "Remove"
+msgstr ""
+
 #: ../editor/js/pl.optpanel.js:689
 msgid "Configure Menus"
 msgstr "Настроить меню"
+
+#: ../editor/js/pl.optpanel.js:723
+msgid "reverse"
+msgstr ""
 
 #: ../editor/js/pl.optpanel.js:754
 msgid "SELECT"
@@ -3605,114 +3344,126 @@ msgstr "ВЫБРАТЬ"
 #: ../editor/js/pl.optpanel.js:817
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
-"sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
-"add_image_size'>The Codex</a>"
-msgstr ""
-"Выберите размер миниатюры для изображений. Чтобы добавить новый размер см.: "
-"<a href='http://codex.wordpress.org/Function_Reference/add_image_size'> "
-"Кодекс</a>"
+"sizes see: <a "
+"href='http://codex.wordpress.org/Function_Reference/add_image_size'>The "
+"Codex</a>"
+msgstr "Выберите размер миниатюры для изображений. Чтобы добавить новый размер см.: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'> Кодекс</a>"
 
-#: ../editor/js/pl.optpanel.js:883
+#: ../editor/js/pl.optpanel.js:863
+msgid "Edit Sets"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:884
 msgid "Select Font"
 msgstr "Выбрать шрифт"
 
 #: ../editor/js/pl.optpanel.js:886
+msgid "Font Preview"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:887
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr "The quick brown fox jumps over the lazy dog"
 
-#: ../editor/js/pl.optpanel.js:897
+#: ../editor/js/pl.optpanel.js:898
 msgid "Type Still Needed"
 msgstr "Образец по-прежнему необходим"
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "global site options"
 msgstr "глобальные параметры"
 
-#: ../editor/js/pl.optpanel.js:943
+#: ../editor/js/pl.optpanel.js:944
 msgid "local page options"
 msgstr "параметры локальной страницы"
 
-#: ../editor/js/pl.optpanel.js:945
+#: ../editor/js/pl.optpanel.js:946
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Это сбросит <strong>%s</strong> до стандартных "
-"настроек.<br/>(После сброса требуется публикация.)</p>"
+msgstr "<h3>Вы уверены?</h3><p>Это сбросит <strong>%s</strong> до стандартных настроек.<br/>(После сброса требуется публикация.)</p>"
 
-#: ../editor/js/pl.optpanel.js:950
+#: ../editor/js/pl.optpanel.js:951
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr "<span class='btn btn-mini btn-info'>Шаблоны страниц</span>"
 
-#: ../editor/js/pl.optpanel.js:951
+#: ../editor/js/pl.optpanel.js:952
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr "<span class='btn btn-mini btn-info'>Глобальные параметры</span>"
 
-#: ../editor/js/pl.optpanel.js:952
+#: ../editor/js/pl.optpanel.js:953
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr "<span class='btn btn-mini btn-info'>Настройки шрифтов</span>"
 
-#: ../editor/js/pl.optpanel.js:953
+#: ../editor/js/pl.optpanel.js:954
 msgid "Resetting Options"
 msgstr "Сброс параметров"
 
-#: ../editor/js/pl.optpanel.js:954
+#: ../editor/js/pl.optpanel.js:955
 msgid "Successfully Reset. Refreshing page"
 msgstr "Успешно сброшено. Обновление страницы"
 
-#: ../editor/js/pl.optpanel.js:958 ../editor/js/pl.optpanel.js:1152
+#: ../editor/js/pl.optpanel.js:959 ../editor/js/pl.optpanel.js:1153
 #, c-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Импорт этого файла заменит соответствующие параметры. "
-"< br /> <strong>%s%s%s</strong></p>"
+msgstr "<h3>Вы уверены?</h3><p>Импорт этого файла заменит соответствующие параметры. < br /> <strong>%s%s%s</strong></p>"
 
-#: ../editor/js/pl.optpanel.js:959
+#: ../editor/js/pl.optpanel.js:960
 msgid "Importing From Child Theme"
 msgstr "Импорт из дочерней темы"
 
-#: ../editor/js/pl.optpanel.js:960
+#: ../editor/js/pl.optpanel.js:961
 msgid "Successfully Imported. Refreshing page"
 msgstr "Импорт прошел успешно. Обновление страницы"
 
-#: ../editor/js/pl.optpanel.js:991
+#: ../editor/js/pl.optpanel.js:992
 msgid "Flushing Caches"
 msgstr "Очистка кэша"
 
-#: ../editor/js/pl.optpanel.js:993
+#: ../editor/js/pl.optpanel.js:994
 msgid "Success! Refreshing page"
 msgstr "Получилось! Обновление страницы"
 
-#: ../editor/js/pl.optpanel.js:1004
+#: ../editor/js/pl.optpanel.js:1005
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Файл настроек дочерней темы pl-config.json будет "
-"записан со всеми текущими настройками</p>"
+msgstr "<h3>Вы уверены?</h3><p>Файл настроек дочерней темы pl-config.json будет записан со всеми текущими настройками</p>"
 
-#: ../editor/js/pl.optpanel.js:1013
+#: ../editor/js/pl.optpanel.js:1014
 msgid "Exporting Options"
 msgstr "Экспорт параметров"
 
-#: ../editor/js/pl.optpanel.js:1123
+#: ../editor/js/pl.optpanel.js:1124
 msgid "Refresh Page for Image Uploader"
 msgstr "Обновите страницу для загрузчика картинок"
 
-#: ../editor/js/pl.optpanel.js:1170
+#: ../editor/js/pl.optpanel.js:1149
+msgid "Global Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1150
+msgid "Type Options"
+msgstr ""
+
+#: ../editor/js/pl.optpanel.js:1171
 msgid "<h3>Settings Imported</h3>"
 msgstr "<h3>Параметры загружены</h3>"
 
-#: ../editor/js/pl.optpanel.js:1182
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Imported Settings"
 msgstr "Импортированные параметры"
 
-#: ../editor/js/pl.optpanel.js:1183
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Importing"
 msgstr "Загрузка"
+
+#: ../editor/js/pl.optpanel.js:1509
+msgid "Upload Image"
+msgstr "Загрузить картинку"
 
 #: ../editor/js/pl.saving.js:15
 msgid "Saving."
@@ -3735,10 +3486,7 @@ msgid ""
 "<div class='loaded-notice'><div class='the-notice'>Loaded! Note: For this "
 "section, page refresh may be needed for complete functionality (Javascript "
 "Loading).</div></div>"
-msgstr ""
-"<div class='loaded-notice'><div class='the-notice'>Загружено Примечание: Для "
-"этой секции, может потребоваться обновление страницы для достижения полной "
-"функциональности (загрузка Javascript).</div></div>"
+msgstr "<div class='loaded-notice'><div class='the-notice'>Загружено Примечание: Для этой секции, может потребоваться обновление страницы для достижения полной функциональности (загрузка Javascript).</div></div>"
 
 #: ../editor/js/pl.sections.js:172
 msgid "Loading"
@@ -3748,9 +3496,7 @@ msgstr "Загрузка"
 msgid ""
 "<h3>Are you sure?</h3><p>Loading a new template will overwrite the current "
 "page's configuration.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Загрузка нового шаблона перезапишет конфигурацию "
-"текущей страницы.</p>"
+msgstr "<h3>Вы уверены?</h3><p>Загрузка нового шаблона перезапишет конфигурацию текущей страницы.</p>"
 
 #: ../editor/js/pl.templates.js:30
 msgid "Loading Template"
@@ -3764,9 +3510,7 @@ msgstr "Успешно загружено. Обновление страницы
 msgid ""
 "<h3>Are you sure?</h3><p>This will delete this template. All pages using "
 "this template will be reverted to their default page configuration.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Это удалит этот шаблон. Все страницы, использующие "
-"этот шаблон будут сброшены к стандартной настройке.</p>"
+msgstr "<h3>Вы уверены?</h3><p>Это удалит этот шаблон. Все страницы, использующие этот шаблон будут сброшены к стандартной настройке.</p>"
 
 #: ../editor/js/pl.templates.js:54
 msgid "Deleting Template"
@@ -3785,10 +3529,7 @@ msgid ""
 "<h3>Are you sure?</h3><p>This action will overwrite this template and its "
 "configuration. All pages using this template will be updated with the new "
 "config as well.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3><p>Это действие перезапишет шаблон и его конфигурацию. "
-"Все страницы, использующие этот шаблон будет обновлены до новой конфигурации."
-"</p>"
+msgstr "<h3>Вы уверены?</h3><p>Это действие перезапишет шаблон и его конфигурацию. Все страницы, использующие этот шаблон будет обновлены до новой конфигурации.</p>"
 
 #: ../editor/js/pl.templates.js:111
 msgid "Updating Template"
@@ -3796,8 +3537,7 @@ msgstr "Обновление шаблона"
 
 #: ../editor/js/pl.themes.js:13
 msgid "<h3>Are you sure?</h3> <p>This will activate this theme sitewide.</p>"
-msgstr ""
-"<h3>Вы уверены?</h3> <p>Это активирует текущую тему по всему сайту.</p>"
+msgstr "<h3>Вы уверены?</h3> <p>Это активирует текущую тему по всему сайту.</p>"
 
 #: ../editor/js/pl.themes.js:14
 msgid "Activating Theme"
@@ -3811,9 +3551,7 @@ msgstr "Успешно активировано. Обновление стран
 msgid ""
 "<h3>Activate Theme Preview?</h3> <p>This will activate a theme preview "
 "sitewide.<br/>(while in draft mode)</p>"
-msgstr ""
-"<h3>Активировать предпросмотр темы?</h3> <p>Будет активирован  "
-"предварительный просмотр сайта. <br/>(пока в режиме черновика)</p>"
+msgstr "<h3>Активировать предпросмотр темы?</h3> <p>Будет активирован  предварительный просмотр сайта. <br/>(пока в режиме черновика)</p>"
 
 #: ../editor/js/pl.themes.js:30
 msgid "Loading Theme Preview"
