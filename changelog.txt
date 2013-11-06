@@ -4,6 +4,19 @@
 
 ********************************************************
 
+Version 1.1.3
+
+
+	- CORE - Allow span1 to be selected in sections.
+	- CORE - Few more javascript translations added.
+	- BUG - Fix BBPress and BuddyPress PHP notice.
+	- BUG - Fixed a bug if plugins loaded an admin page inside an iframe DMS would attempt to display frontend footer, affected nextgen file uploader.
+	
+Version 1.1.2
+
+	- CORE - Editor is now fully translatable.
+	- BUG - Fixed the ico file upload bug.
+
 Version 1.1.1
 	
 	33 commits to github including a lot of translation fixes.
