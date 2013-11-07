@@ -5,7 +5,7 @@
 	Author URI: http://www.pagelines.com
 	Description: A professional and versatile slider section. Can be customized with several transitions and a large number of slides.
 	Class Name: plRevSlider
-	Filter: full-width, slider
+	Filter: slider, full-width
 */
 
 
