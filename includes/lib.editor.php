@@ -180,9 +180,12 @@ function process_old_opt( $key, $old, $otop = array()){
 
 function pl_create_id( $string ){
 
-	$string = str_replace( ' ', '_', trim( strtolower( $string ) ) );
-	$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
-
+	if( ! empty($string) ){
+		$string = str_replace( ' ', '_', trim( strtolower( $string ) ) );
+		$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+	} else 
+		$string = pl_new_clone_id();
+	
 	return $string;
 }
 

@@ -10,7 +10,9 @@ class PageLinesSectionsHandler{
 		$this->url = PL_PARENT_URL . '/editor';
 		
 		
-		add_filter( 'pl_ajax_set_user_section', array( $this, 'set_user_section' ), 10, 2 );
+		add_filter( 'pl_ajax_set_user_section', array( $this, 'new_user_section' ), 10, 2 );
+		
+		add_filter( 'pl_load_page_settings', array( $this, 'add_user_section_settings_to_page') );
 	}
 	
 	function load_ui_actions(){
@@ -199,32 +201,41 @@ class PageLinesSectionsHandler{
 				$desc = __( '<span class="badge badge-important">PRO ONLY</span>', 'pagelines' ); 
 			}
 
-			if( !empty($s->loading) ){
-				
+			
+			
+			
+			$data_array = array(
+				'object' 	=> $s->class_name,
+				'sid'		=> $s->id,
+				'name'		=> $name,
+				'image'		=> $s->screenshot,
+				'clone'		=> pl_new_clone_id(),
+				'number' 	=> $number,
+			);
+			
+			if( !empty($s->loading) )
 				$class[] = 'loading-'.$s->loading;
-
+			
+			if( !empty( $s->usection ) ){
+				$class[] = 'user-section';
+				$data_array['object'] = $s->usection;
 			}
 			
-			
+			if( !empty( $map ) ){
+				$data_array['template'] = $map;
+			}
+				
 
 			$args = array(
 				'id'			=> $s->id,
 				'class_array' 	=> $class,
-				'data_array'	=> array(
-					'object' 	=> $s->class_name,
-					'sid'		=> $s->id,
-					'name'		=> $name,
-					'image'		=> $s->screenshot,
-					
-					'template'	=> $map,
-					'clone'		=> pl_new_clone_id(),
-					'number' 	=> $number,
-				),
+				'data_array'	=> $data_array,
 				'thumb'			=> $s->screenshot,
 				'splash'		=> $s->splash,
 				'name'			=> $name,
 				'sub'			=> $desc
 			);
+
 
 			$list .= $this->xlist->get_x_list_item( $args );
 
@@ -238,18 +249,19 @@ class PageLinesSectionsHandler{
 
 
 		global $pl_section_factory;
-
-		$available = $pl_section_factory->sections;
-
-		$available = array_merge($available, $this->layout_sections());
-
-		return $available;
+		
+		return array_merge( $pl_section_factory->sections, $this->layout_sections(), $this->render_user_sections() );
 
 	}
 	
-	function set_user_section( $response, $data ){
+	function new_user_section( $response, $data ){
 		
-		$response['here'] = 'YOOOO';
+		$name = $data['user-section-name'];
+		$map = $data['config']['map'];
+		$settings = $data['config']['settings'];
+		
+		$response['key'] = $this->create_user_section( $name, $map, $settings );
+		
 		return $response;
 	}
 	
@@ -258,6 +270,38 @@ class PageLinesSectionsHandler{
 		$sections = pl_opt( $this->user_sections_slug, array() );
 
 		return $sections;
+	}
+	
+	function load_user_section( $key ){
+		
+		$sections = $this->get_user_sections(); 
+		if( isset($sections[ $key ]) ){
+			
+			return $sections[ $key ]; 
+		}else 	
+			return false;
+		
+	}
+	
+	function render_user_sections(){
+		
+		$sections = $this->get_user_sections();
+		$rendered = array();
+		
+		foreach($sections as $key => $i){
+			
+			$rendered[ $key ] = array(
+				'name'			=> $i['name'],
+				'filter'		=> 'user-section, full-width',
+				'usection'		=> $key,
+				'screenshot'	=>  PL_IMAGES . '/section-user.png',
+				'thumb'			=>  PL_IMAGES . '/section-user.png',
+			);
+			
+		}
+		
+		
+		return $this->array_to_object( $rendered ); 
 	}
 
 
@@ -290,6 +334,45 @@ class PageLinesSectionsHandler{
 
 	}
 
+	/*
+	 * Parse the page map for user sections
+	 * Replaces them with the appropriate map, and sets up a settings array for use with page settings.
+	 */
+	function replace_user_sections( $map ){
+		
+		global $sections_handler;
+		$this->all_user_section_settings = array();
+		
+		foreach( $map as &$region ){
+			foreach( $region as $area_index => &$area){
+			
+				if( isset($area['usection']) && $area['usection'] != ''  ){
+					$usection = $this->load_user_section( $area['usection'] ); 
+					
+					$area  = wp_parse_args( $usection['map'], $area );
+					
+					$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $usection['settings'] );
+				}
+
+			}
+			unset($area);
+		}
+		unset($region);
+		
+		return $map;
+		
+	}
+	
+	/*
+	 * Called via pl_load_page_settings filter in main settings class.
+	 * Adds the compiled list of section settings created when parsing the map for user sections.
+	 */ 
+	function add_user_section_settings_to_page( $page_settings ){
+		
+		return wp_parse_args( $page_settings, $this->all_user_section_settings );
+		
+	}
+
 
 	function section_default(){
 		$defaults = array(
@@ -305,6 +388,27 @@ class PageLinesSectionsHandler{
 		);
 		
 		return $defaults;
+	}
+	
+	function array_to_object( $array ){
+		
+		$objects = array();
+		
+		foreach( $array as $index => $l){
+			$l = wp_parse_args( $l, $this->section_default() );
+
+			$obj = new stdClass();
+			
+			foreach ($l as $key => $value){
+			    $obj->$key = $value;
+			}
+			
+
+			$objects[ $l['id'] ] = $obj;
+		}
+		
+		return $objects;
+		
 	}
 
 	function layout_sections(){
@@ -359,28 +463,6 @@ class PageLinesSectionsHandler{
 		
 	}
 	
-	function array_to_object( $array ){
-		
-		$objects = array();
-		
-		foreach( $array as $index => $l){
-			$l = wp_parse_args( $l, $this->section_default() );
-
-			$obj = new stdClass();
-			$obj->id = $l['id'];
-			$obj->name = $l['name'];
-			$obj->filter = $l['filter'];
-			$obj->screenshot = $l['screenshot'];
-			$obj->description = $l['description'];
-			$obj->splash = $l['splash'];
-			$obj->class_name = $l['class_name'];
-			$obj->map = $l['map'];
-
-			$objects[ $l['id'] ] = $obj;
-		}
-		
-		return $objects;
-		
-	}
+	
 
 }

@@ -60,18 +60,7 @@
 			var that = this
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
-			,	object = theArea.data('object') || false
-
-			var config	= {
-					sid: theArea.data('sid')
-					, sobj: theArea.data('object')
-					, clone: theArea.data('clone')
-					, uniqueID: theArea.data('clone')
-					, scope: ( theArea.parents(".template-region-wrap").length == 1 ) ? 'local' : 'global'
-				}
-			
-			
-			var message = sprintf('<div class="ttl">Save New User Section</div><form class="modal-form" data-area="%s"><input name="user-section-name" placeholder="Enter Section Name..." type="text" val="" /></form>', theID)
+			,	message = sprintf('<div class="ttl">Save New User Section</div><form class="modal-form" data-area="%s"><input name="user-section-name" placeholder="Enter Section Name..." type="text" val="" /></form>', theID)
 		
 		
 			bootbox.confirm(
@@ -105,16 +94,6 @@
 
 			var that = this
 			,	theArea = btn.closest('.pl-area')
-			,	theID = theArea.attr('id')
-			,	object = theArea.data('object') || false
-
-			var config	= {
-					sid: theArea.data('sid')
-					, sobj: theArea.data('object')
-					, clone: theArea.data('clone')
-					, uniqueID: theArea.data('clone')
-					, scope: ( theArea.parents(".template-region-wrap").length == 1 ) ? 'local' : 'global'
-				}
 				
 			if( action == 'clone'){
 				
@@ -127,8 +106,6 @@
 					
 				cloned.find('.area-control').data('tooltip', false).tooltip('destroy')
 				cloned.find('.area-control').tooltip({placement: 'top'})
-
-				plPrint(cloned.data())
 
 				$.pageBuilder.handleCloneData( cloned )
 				

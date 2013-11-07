@@ -13,10 +13,19 @@
 				, 	areaConfig = []
 
 				$(this).find('.pl-area').each( function(areaIndex, o2) {
+					
+					if( $(this).hasClass('user-section') ){
+						
+						addItem = {
+							usection: $(this).data('object')
+						}
+					} else {
+						areaSet = that.getAreaMapping( $(this) )
+						addItem = areaSet.map
+					}
+						
 
-					areaSet = that.getAreaMapping( $(this) )
-
-					areaConfig.push( areaSet.map )
+					areaConfig.push( addItem )
 
 				})
 
@@ -24,7 +33,7 @@
 
 			})
 
-		
+			
 			return map
 
 		}

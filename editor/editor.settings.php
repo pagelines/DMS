@@ -1,7 +1,14 @@
 <?php
 
 
+/*
+ * The main settings slug -- used in global and meta options
+ */ 
 define('PL_SETTINGS', 'pl-settings');
+
+/*
+ * The default state of the settings, if empty
+ */
 function pl_settings_default(){
 	return array( 'draft' => array(), 'live' => array() );
 }
@@ -443,26 +450,51 @@ class PageLinesOpts extends PageLinesSettings {
 		$this->type = $this->type_settings();
 		$this->global = $this->global_settings();
 		$this->regions = (isset($this->global['regions'])) ? $this->global['regions'] : array();
+		
+		// Get settings from MAP
+		
 		$this->set = $this->page_settings();
+		
+		/*-- Going to load this after the map --*/
+		$this->page_settings = false;
 
 	}
 	
+	/*
+	 * This must come after map is set up, 
+	 * this way we can add/remove/substitute settings based on map config
+	 */ 
+	function load_page_settings(){
+		
+		$this->page_settings = apply_filters( 'pl_load_page_settings', $this->page_settings() );
+		
+	}
+	
+	/*
+	 * Gets settings for a section based on its unique ID
+	 * Used heavily in the handler as it assigns each set to meta for use with $this->opt() in sections
+	 */
 	function get_set( $uniqueID ){
 		
-		if( isset($this->set[ $uniqueID ]) )
-			return $this->set[ $uniqueID ]; 
+		$page_settings = ( ! $this->page_settings ) ?  $this->load_page_settings() : $this->page_settings;
+		
+		if( isset($page_settings[ $uniqueID ]) )
+			return $page_settings[ $uniqueID ]; 
 		else 	
 			return array();
 		
 	}
 
 
+	/* 
+	 * Use a cascade to get page's settings
+	 * 
+	 */ 
 	function page_settings(){
 
 		$set = $this->settings_cascade( $this->local, $this->settings_cascade($this->type, $this->global));
 		
-		//$set = wp_parse_args( $this->local, $this->global );
-		 
+		
 		return $set;
 
 	}

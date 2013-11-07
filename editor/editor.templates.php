@@ -16,15 +16,21 @@ class PageLinesTemplates {
 		$this->set = new PageLinesOpts;
 	}
 
-	function get_map( PageLinesPage $page ){
+	function get_map( ){
+
+		global $sections_handler;
 
 		$map['header'] = $this->get_region( 'header' );
 		$map['footer'] = $this->get_region( 'footer' );
 		$map['template'] = $this->get_region( 'template' );
 		
+		$map = $sections_handler->replace_user_sections( $map );
+		
 		return $map;
 
 	}
+	
+	
 
 	function get_region( $region ){
 		

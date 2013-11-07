@@ -88,6 +88,7 @@ class PageLinesEditor {
 		global $editorless;
 		global $storeapi;
 		global $fileopts;
+		global $sections_handler;
 
 		$plpg = $this->page = new PageLinesPage;
 		$pldraft = $this->draft = new EditorDraft( $this->page );
@@ -128,8 +129,8 @@ class PageLinesEditor {
 		// Interfaces
 		$this->xlist = new EditorXList;
 		
-		$this->add_sections = new PageLinesSectionsHandler;
-		$this->add_sections->load_ui_actions();
+		$sections_handler = new PageLinesSectionsHandler;
+		$sections_handler->load_ui_actions();
 		
 		$this->settings_panel = new PageLinesSettingsPanel;
 

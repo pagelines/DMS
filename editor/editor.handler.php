@@ -53,7 +53,7 @@ class PageLinesTemplateHandler {
 		$this->regions = new PageLinesRegions;
 		
 
-		$this->map = $this->map_handler->get_map( $this->page );
+		$this->map = $this->map_handler->get_map();
 
 		$this->parse_config();
 
@@ -236,7 +236,7 @@ class PageLinesTemplateHandler {
 		$clone_was_set = false;
 		
 		
-		foreach($this->map as $group => &$g){
+		foreach($this->map as $region => &$g){
 
 			if( !isset($g) || !is_array($g) )
 				continue;
@@ -529,50 +529,18 @@ class PageLinesTemplateHandler {
 		if($scope == 'local'){
 
 			$d = pl_settings( $this->draft->mode, $this->page->id );
-			
-			// ** Backwards Compatible Stuff ** //
-			if(!is_pagelines_special()){
-				foreach($this->opts_list as $key => $opt){
-
-					$val = plmeta( $opt, array('post_id' => $this->page->id) );
-
-					if( !isset($d[ $opt ]) && $val != '')
-						$d[$opt] = array( pl_html($val) );
-				}
-			}
+		
 
 		} elseif($scope == 'type'){
 
 			$d = pl_settings( $this->draft->mode, $this->page->typeid );
 
-			// ** Backwards Compatible Stuff **
-			$old_special = get_option('pagelines-special');
-
-			if( isset( $old_special[ $this->page->type ] ) ){
-				foreach($this->opts_list as $key => $opt){
-
-					if( !isset($d[ $opt ]) && isset($old_special[ $this->page->type ][ $opt ]) && !empty($old_special[ $this->page->type ][ $opt ]) )
-						$d[$opt] = array( pl_html($old_special[ $this->page->type ][ $opt ]));
-
-				}
-			}
-
+			
 		} else {
 
 			$d = pl_settings( $this->draft->mode );
 
-			// ** Backwards Compatible Stuff **
-			$old_special = get_option('pagelines-special');
-
-			if( isset( $old_special[ 'default' ] ) ){
-				foreach($this->opts_list as $key => $opt){
-
-					if(!isset($d[ $opt ]) && isset($old_special[ 'default' ][ $opt ]) && !empty($old_special[ 'default' ][ $opt ]) )
-						$d[ $opt ] = array( pl_html($old_special[ 'default' ][ $opt ]) );
-
-				}
-			}
-
+			
 		}
 
 
@@ -818,18 +786,12 @@ class PageLinesTemplateHandler {
 	}
 
 	function before_section( $s ){
+		
 		echo pl_source_comment($s->name . ' | Section Template', 2); // Add Comment
 
 		pagelines_register_hook('pagelines_before_'.$s->id, $s->id); // hook
 
-		// Rename to prevent conflicts
-		// TODO remove this or check to remove this strange non-algorhythmic code
-		if ( 'comments' == $s->id )
-			$sid = 'wp-comments';
-		elseif ( 'content' == $s->id )
-			$sid = 'content-area';
-		else
-			$sid = $s->id;
+		$sid = $s->id;
 
 		$clone 	= $s->meta['clone'];
 
@@ -847,6 +809,14 @@ class PageLinesTemplateHandler {
 			$class[] = 'pl-area pl-area-sortable area-tag';
 			$controls = $this->areas->area_controls( $s );
 			$pad_class = 'pl-area-pad';
+			
+			/* - User Sections Classes - */
+			if( isset( $s->meta['usection'] ) ){
+				$class[] = 'user-section';
+				$s->class_name = $s->meta['usection'];
+			}
+			
+			
 		} else {
 			// Content Section Stuff
 			$span 	= (isset($s->meta['span'])) ? sprintf('span%s', $s->meta['span']) : 'span12';
