@@ -220,6 +220,9 @@ class PageLinesSection {
 			
 		}
 
+		if( has_filter( "pl_opt-$key" ) )
+			return apply_filters( "pl_opt-$key", $val );
+
 		if( $val == '' )
 			return false; 
 		elseif( is_array( $val) )
