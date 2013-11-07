@@ -11,9 +11,6 @@ class PageLinesEditorUpdates {
 	
 	function __construct() {
 
-		if ( ! current_user_can( 'edit_theme_options' ) )
-			return;
-
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'injectUpdatePlugins' ), 999 );		
 		add_filter( 'site_transient_update_themes', array( $this, 'injectUpdateThemes' ), 999 );
 		add_action( 'load-update-core.php', array( $this, 'del_store_data' ) );
