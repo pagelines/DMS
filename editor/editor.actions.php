@@ -368,33 +368,28 @@ class PLImageUploader{
 
 	function the_js(){
 		?>
-
-		<script type="text/javascript">
+		<script>
 		jQuery(document).ready(function(){
 			jQuery('.pl-frame-button').on('click', function(){
 			
 				var oSel = parent.jQuery.pl.iframeSelector
 				,	optID = '#' + oSel
-				,	previewSel = '.pre_' + oSel
-				,	editorPrevew = '.opt-upload-thumb-' + oSel
 				,	imgURL = jQuery(this).data('imgurl')
 				,	imgURLShort = jQuery(this).data('short-img-url')
-				, 	theOption = '[id="'+oSel+'"]'
+				, 	theOption = jQuery( '[id="'+oSel+'"]', top.document) 
+				,	thePreview = theOption.closest('.img-upload-box').find('.opt-upload-thumb')
 				
-				console.log(theOption)
-
-				jQuery( theOption, top.document).val( imgURLShort )
+				theOption.val( imgURLShort )
 				
-				parent.jQuery( '.lstn' ).first().trigger('blur')
+				thePreview.html( '<div class="img-wrap"><img style="max-width:150px;max-height: 100px;" src="'+ imgURL +'" /></div>' )
 				
-				jQuery(previewSel, top.document).attr('src', imgURL)
-				
-				jQuery( editorPrevew, top.document).html( '<div class="img-wrap"><img style="max-width:200px;" src="'+ imgURL +'" /></div>' )
-				
-				parent.eval('jQuery(".bootbox").modal("hide")')
+				parent
+					.eval('jQuery(".bootbox").modal("hide")')
+					.eval("jQuery('.ui-accordion').accordion('refresh')")
+					.jQuery( '[id="'+oSel+'"]' ).trigger( 'blur' )
 			
-			});
-		});
+			})
+		})
 		</script>
 
 		<?php
