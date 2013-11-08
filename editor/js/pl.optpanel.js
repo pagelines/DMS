@@ -1121,7 +1121,7 @@
 				// Can't figure out how to reinitialize so that it works
 				theNew
 					.find('.fineupload')
-					.html(sprintf('<div class="help-block">%s</div>',$.pl.lang("Refresh Page for Image Upload Button")))
+					.html( sprintf('<div class="help-block">%s</div>',$.pl.lang("Refresh Page for Image Upload Button")) )
 
 				// change the name stuff
 				// relight UI stuff
