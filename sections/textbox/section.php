@@ -86,13 +86,16 @@ class PageLinesTextBox extends PageLinesSection {
 
 		$text = $this->opt('textbox_content');
 
-		
-		
 		$title = $this->opt('textbox_title');
 		
-		$text = (!$text && !$title) ? '<p><strong>TextBox</strong> &raquo; Add Content!</p>' : sprintf('<div class="hentry" data-sync="textbox_content">%s</div>', do_shortcode( wpautop($text) ) ); 
+		if( ! $text && ! $title ){
+			$title = 'Textbox Section';
+			$text = "Add Content!";
+		} 
 		
-		$title = ($title) ? sprintf('<strong data-sync="textbox_title">%s</strong><br/>', $title) : '';
+		$text = sprintf('<div class="hentry" data-sync="textbox_content">%s</div>', do_shortcode( wpautop($text) ) ); 
+		
+		$title = sprintf('<strong data-sync="textbox_title">%s</strong><br/>', $title);
 
 		$class = $this->opt('textbox_animation');
 			
