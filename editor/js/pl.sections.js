@@ -168,8 +168,9 @@ $.plSections = {
 				
 					}
 				,	beforeSend: function( ){
+					var Text = $.pl.lang("Loading")
 						element
-							.html(sprintf('<div class="pl-refresh-banner"><i class="icon-spinner icon-spin"></i> %s</div>'),$.pl.lang("Loading"))
+							.html('<div class="pl-refresh-banner"><i class="icon-spinner icon-spin"></i> '+Text+'</div>')
 					}
 			}
 
