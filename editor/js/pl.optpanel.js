@@ -1116,6 +1116,12 @@
 					,	collapsible: true
 					,	active: false
 				})
+				
+				// Work around til we get a better image uploader script.
+				// Can't figure out how to reinitialize so that it works
+				theNew
+					.find('.fineupload')
+					.html(sprintf('<div class="help-block">%s</div>',$.pl.lang("Refresh Page for Image Upload Button")))
 
 				// change the name stuff
 				// relight UI stuff
@@ -1126,12 +1132,7 @@
 
 				that.setBinding()
 				
-				// Work around til we get a better image uploader script.
-				// Can't figure out how to reinitialize so that it works
-				// Comes after the action, so the field shows in save
-				theOpt
-					.find('.img-upload-box')
-					.html(sprintf('<div class="help-block">%s</div>',$.pl.lang("Refresh Page for Image Uploader")))
+				
 
 		    })
 
