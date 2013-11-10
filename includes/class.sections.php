@@ -182,8 +182,9 @@ class PageLinesSection {
 	function get_the_id() {
 		return ( isset( $this->meta['clone'] ) ) ? $this->meta['clone'] : '';
 	}
-
-	function opt( $key, $args = array() ){
+        
+        //$ds do do_shortcode action
+	function opt( $key, $args = array(), $ds = true ){
 
 		global $plpg;
 		
@@ -228,7 +229,7 @@ class PageLinesSection {
 		elseif( is_array( $val) )
 			return $val;
 		else
-			return do_shortcode( $val );
+			return $ds ? do_shortcode( $val ) : $val;
 
 	}
 	
