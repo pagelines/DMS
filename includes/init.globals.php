@@ -105,10 +105,10 @@ define( 'PL_CHILD_LESS', PL_CHILD_DIR . '/less' );
 define( 'PL_CHILD_LESS_URL', PL_CHILD_URL . '/less' );
 
 
-if ( is_multisite() && ! is_super_admin() )
-	define( 'EXTEND_NETWORK', true);
-else
-	define( 'EXTEND_NETWORK', false);
+// if ( is_multisite() && ! is_super_admin() )
+// 	define( 'EXTEND_NETWORK', true);
+// else
+// 	define( 'EXTEND_NETWORK', false);
 
 
 /**
