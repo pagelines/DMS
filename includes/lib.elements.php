@@ -2,6 +2,48 @@
 
 
 /**
+ * PageLines Grid Tool
+ *
+ * Outputs row information based on mode, total items, width of current items in row, count of items
+ *
+ * @since   DMS 1.2
+ *
+ * @param   $mode - mode either start, end of row
+ * @param   $width - width of grid item in columns
+ * @param   $count - current count of item in grid
+ * @param   $total - total items in grid
+ *
+ */
+function pl_grid_tool( $mode, $item_cols, $count = false, $total = false ){
+	
+	$per_row = 12 / $item_cols;
+	
+	$output = '';
+	
+	if( $mode == 'row_start' ){
+		
+		if( $count == 1 || ( $count - 1 ) % $per_row == 0 ){
+			
+			$output .= '<div class="row fix">';
+		}
+		
+	} elseif( $mode == 'row_end' ){
+		
+		if( $count % $per_row == 0 || $count == $total ){
+			
+			$output .= '</div>';
+		}
+		
+	} elseif( $mode == 'item_class' ){
+		
+		$output .= 'span' . $item_cols;
+		
+	}
+	
+	return $output;
+}
+
+/**
  * PageLines Default Widget
  *
  * Calls default sidebar widget, or allows user with 'edit_themes' capability to adds widgets
