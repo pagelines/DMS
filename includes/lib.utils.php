@@ -971,6 +971,7 @@ function pl_add_options_page( $args ) {
 		global $pagelines_add_settings_panel;
 		
 		$d = array(
+			'id' 	=> 'No ID',
 			'name' 	=> 'No Name',
 			'icon'	=> 'icon-edit',
 			'pos'	=> 10,
@@ -987,7 +988,7 @@ function pl_add_options_page( $args ) {
 
 		$a = wp_parse_args( $args, $d );
 
-		$id = pl_create_id($a['name']);
+		$id = pl_create_id($a['id']);
 
 		// make sure its not set elsewhere. Navbar was already set, and we were writing twice
 		if( !isset( $pagelines_add_settings_panel[ $id ]) )
