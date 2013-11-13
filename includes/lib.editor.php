@@ -244,13 +244,13 @@ function pl_arrays_to_objects( array $array ) {
 
 function pl_animation_array(){
 	$animations = array(
-		'no-anim'			=> 'No Animation',
-		'pla-fade'			=> 'Fade',
-		'pla-scale'			=> 'Scale',
-		'pla-from-left'		=> 'From Left',
-		'pla-from-right'	=> 'From Right', 
-		'pla-from-bottom'	=> 'From Bottom', 
-		'pla-from-top'		=> 'From Top', 
+		'no-anim'			=> __( 'No Animation', 'pagelines' ),
+		'pla-fade'			=> __( 'Fade', 'pagelines' ),
+		'pla-scale'			=> __( 'Scale', 'pagelines' ),
+		'pla-from-left'		=> __( 'From Left', 'pagelines' ),
+		'pla-from-right'	=> __( 'From Right', 'pagelines' ), 
+		'pla-from-bottom'	=> __( 'From Bottom', 'pagelines' ), 
+		'pla-from-top'		=> __( 'From Top', 'pagelines' ), 
 	); 
 	
 	return $animations;
