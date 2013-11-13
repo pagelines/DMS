@@ -361,11 +361,14 @@ class PageLinesSectionsHandler{
 			foreach( $region as $area_index => &$area){
 			
 				if( isset($area['usection']) && $area['usection'] != ''  ){
+					
 					$usection = $this->load_user_section( $area['usection'] ); 
+					
+					$settings = ( isset($usection['settings']) ) ? $usection['settings'] : array();
 					
 					$area  = wp_parse_args( $usection['map'], $area );
 					
-					$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $usection['settings'] );
+					$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $settings );
 				}
 
 			}
