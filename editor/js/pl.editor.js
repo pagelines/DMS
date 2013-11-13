@@ -699,7 +699,7 @@
 			
 			
 			
-			$('.s-control:not(".pro-only-disabled")').on('click.sectionControls', function(e){
+			$('.pl-area:not(".editing-locked") .s-control:not(".pro-only-disabled")').on('click.sectionControls', function(e){
 
 				e.preventDefault()
 				e.stopPropagation()
@@ -987,7 +987,7 @@
 			,	reloadSort = reloadSort || false
 			,	sortableArgs = {}
 
-		    $( '.pl-sortable-area' ).sortable( that.sortableArguments( 'section' ) )
+		    $( '.pl-area:not(.editing-locked) .pl-sortable-area' ).sortable( that.sortableArguments( 'section' ) )
 
 
 			// AREA drag and drop

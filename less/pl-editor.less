@@ -28,7 +28,9 @@
 .pl-column-forcer,
 .pl-sortable-buffer, 
 .li-refresh, 
-.pl-editor-only{
+.pl-editor-only,
+.clocked,
+.area-unlock{
 	display: none;
 }
 
@@ -146,6 +148,9 @@
 				&:active{
 					background:rgba(0,0,0,1);
 				}
+			}
+			.area-unlock{
+				display: none;
 			}
 		}
 	}
@@ -299,7 +304,30 @@
 
 
 		}
-
+		
+	}
+	
+	.editing-locked{
+		.pl-section-controls{
+			opacity: .6;
+			.s-control{ display: none; }
+			.clocked{
+				display: inline;
+			}
+		}
+		.pl-section:hover{
+			cursor: auto;
+		}
+		.pl-area-controls{
+			.area-unlock{
+				display: inline-block;
+			}
+			.area-edit,
+			.area-save{
+				display: none;
+			}
+		}
+		
 	}
 
 	.pl-sortable-area,
@@ -308,7 +336,12 @@
 		.transition(.5s);
 	}
 	&.pl-dragging{
-
+		.editing-locked{
+			opacity: .5;
+			.pl-sortable-buffer{
+				display: none;
+			}
+		}
 		.pl-sortable-column{
 			padding-top: 0px;
 		}
