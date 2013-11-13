@@ -102,6 +102,12 @@ class PageLinesSectionsHandler{
 					'filter'=> '.widgetized',
 					'icon'	=> 'icon-retweet'
 				),
+				'custom'	=> array(
+					'name'	=> __( 'Custom', 'pagelines' ),
+					'href'	=> '#add_section',
+					'filter'=> '.custom-section',
+					'icon'	=> 'icon-dropbox'
+				),
 				'misc'		=> array(
 					'name'	=> __( 'Miscellaneous', 'pagelines' ),
 					'href'	=> '#add_section',
@@ -157,7 +163,7 @@ class PageLinesSectionsHandler{
 				$section_classes = 'pl-sortable span12 sortable-first sortable-last';
 			}
 
-			$name = $s->name; 
+			$name = stripslashes( $s->name ); 
 			//$desc = ucwords($s->filter);
 			$desc = array();
 			
@@ -217,7 +223,7 @@ class PageLinesSectionsHandler{
 				$class[] = 'loading-'.$s->loading;
 			
 			if( !empty( $s->usection ) ){
-				$class[] = 'user-section';
+				$class[] = 'custom-section';
 				$data_array['object'] = $s->usection;
 			}
 			
@@ -256,11 +262,13 @@ class PageLinesSectionsHandler{
 	
 	function new_user_section( $response, $data ){
 		
-		$name = $data['user-section-name'];
-		$map = $data['config']['map'];
-		$settings = $data['config']['settings'];
+		$name = $data['custom-section-name'];
+		$desc = $data['custom-section-desc'];
 		
-		$response['key'] = $this->create_user_section( $name, $map, $settings );
+		$map = ( isset($data['config']['map']) ) ? $data['config']['map'] : array();
+		$settings = ( isset($data['config']['settings']) ) ? $data['config']['settings'] : array();
+		
+		$response['key'] = $this->create_user_section( $name, $desc, $map, $settings );
 		
 		return $response;
 	}
@@ -290,9 +298,14 @@ class PageLinesSectionsHandler{
 		
 		foreach($sections as $key => $i){
 			
+			$name = ( isset($i['name']) ) ? $i['name'] : 'No Name';
+			$desc = ( isset($i['desc']) ) ? $i['desc'] : 'No Description Entered.';
+			
 			$rendered[ $key ] = array(
-				'name'			=> $i['name'],
-				'filter'		=> 'user-section, full-width',
+				'id'			=> $key,
+				'name'			=> $name,
+				'description'	=> $desc,
+				'filter'		=> 'custom-section, full-width',
 				'usection'		=> $key,
 				'screenshot'	=>  PL_IMAGES . '/section-user.png',
 				'thumb'			=>  PL_IMAGES . '/section-user.png',
@@ -305,7 +318,7 @@ class PageLinesSectionsHandler{
 	}
 
 
-	function create_user_section( $name, $map, $settings ){
+	function create_user_section( $name, $desc, $map, $settings ){
 
 		$sections = $this->get_user_sections();
 		
@@ -313,6 +326,7 @@ class PageLinesSectionsHandler{
 
 		$sections[ $key ] = array(
 			'name'		=> $name,
+			'desc'		=> $desc,
 			'map'		=> $map, 
 			'settings'	=> $settings
 		);
@@ -347,11 +361,14 @@ class PageLinesSectionsHandler{
 			foreach( $region as $area_index => &$area){
 			
 				if( isset($area['usection']) && $area['usection'] != ''  ){
+					
 					$usection = $this->load_user_section( $area['usection'] ); 
+					
+					$settings = ( isset($usection['settings']) ) ? $usection['settings'] : array();
 					
 					$area  = wp_parse_args( $usection['map'], $area );
 					
-					$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $usection['settings'] );
+					$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $settings );
 				}
 
 			}
