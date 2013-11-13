@@ -58,8 +58,8 @@ class EditorExtensions {
 
 			$this->ext[ $s->id ] = array(
 				'id'		=> $s->id,
-				'name'		=> $s->name,
-				'desc'		=> $s->description,
+				'name'		=> stripslashes( $s->name ),
+				'desc'		=> stripslashes( $s->description ),
 				'thumb'		=> $s->screenshot,
 				'splash'	=> $s->splash,
 				'purchase'	=> '',

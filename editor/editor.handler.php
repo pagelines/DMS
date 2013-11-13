@@ -812,7 +812,7 @@ class PageLinesTemplateHandler {
 			
 			/* - User Sections Classes - */
 			if( isset( $s->meta['usection'] ) ){
-				$class[] = 'user-section';
+				$class[] = 'custom-section';
 				$s->class_name = $s->meta['usection'];
 			}
 			

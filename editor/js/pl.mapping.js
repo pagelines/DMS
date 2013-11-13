@@ -14,7 +14,7 @@
 
 				$(this).find('.pl-area').each( function(areaIndex, o2) {
 					
-					if( $(this).hasClass('user-section') ){
+					if( $(this).hasClass('custom-section') ){
 						
 						addItem = {
 							usection: $(this).data('object')

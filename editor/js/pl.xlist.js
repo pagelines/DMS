@@ -85,12 +85,15 @@
 
 				var theIsotope = $(this).closest('.isotope')
 				,	removeItems = $('.x-remove')
+				,	theActiveTab = $('.current-panel').find('.ui-state-active')
+				,	activeTabFilter = theActiveTab.data('filter')
+				,	theFilter = ( typeof(activeTabFilter) != 'undefined') ? activeTabFilter : '*'
 
 				removeItems
 					.off('click')
-
+			
 				theIsotope
-					.isotope({ filter: '*' })
+					.isotope({ filter: theFilter })
 					.isotope('remove', removeItems)
 					.removeClass('x-pane-mode')
 
@@ -115,11 +118,10 @@
 				if(!theIsotope.hasClass('x-pane-mode') && ext){
 				
 
-					var splash	= sprintf('<div class="x-pane-frame"><img src="%s" /></div>', ext.splash)
-					,	btnClose = sprintf('<a class="x-close x-remove %s btn btn-close"><i class="icon-remove"></i> %s</a>', filterID, $.pl.lang( "Close" ) )
+					var btnClose = sprintf('<a class="x-close x-remove %s btn btn-close"><i class="icon-remove"></i> %s</a>', filterID, $.pl.lang( "Close" ) )
 					,	btns = sprintf('<div class="x-pane-btns fix">%s %s</div>', that.loadButtons( panel, theExtension.data() ), btnClose)
 					,	desc = sprintf('<div class="x-pane-info"><strong>%s</strong><br/>%s</div>', $.pl.lang( "Description"), ext.desc)
-					,	extPane = $( sprintf('<div class="x-pane x-remove x-item %s" data-extend-id="%s"><div class="x-pane-pad"><h3 class="x-pane-title">%s</h3>%s %s %s</div></div>', filterID, theID, ext.name, btns, splash, desc) )
+					,	extPane = $( sprintf('<div class="x-pane x-remove x-item %s" data-extend-id="%s"><div class="x-pane-pad"><h3 class="x-pane-title">%s</h3>%s  %s</div></div>', filterID, theID, ext.name, btns, desc) )
 
 					if( panel == 'x-sections' ){
 						var prep = sprintf('<span class="x-remove badge badge-info %s"><i class="icon-arrow-up"></i> %s</span>', filterID, $.pl.lang( "Drag This" ) )

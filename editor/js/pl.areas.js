@@ -60,7 +60,7 @@
 			var that = this
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
-			,	message = sprintf('<div class="ttl">Save New User Section</div><form class="modal-form" data-area="%s"><input name="user-section-name" placeholder="Enter Section Name..." type="text" val="" /></form>', theID)
+			,	message = sprintf('<div class="ttl"><i class="icon-save"></i> Save New User Section</div><form class="modal-form" data-area="%s"><input name="custom-section-name" placeholder="Section Name..." type="text" val="" /><textarea name="custom-section-desc" placeholder="Description"></textarea></form>', theID)
 		
 		
 			bootbox.confirm(
@@ -77,6 +77,7 @@
 						,	args = {
 									mode: 'set_user_section'
 								,	run: 'save'
+								,	refresh: true
 								, 	log: true
 								,	config: $.plMapping.getAreaMapping( theArea )
 							
