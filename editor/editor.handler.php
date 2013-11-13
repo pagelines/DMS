@@ -797,6 +797,8 @@ class PageLinesTemplateHandler {
 
 		$edition = $s->sinfo['edition'];
 		
+		$datas = array();
+		
 		if(!pl_is_pro()){
 			$edition = $s->sinfo['edition'];
 			
@@ -814,6 +816,7 @@ class PageLinesTemplateHandler {
 			if( isset( $s->meta['usection'] ) ){
 				$class[] = 'custom-section editing-locked';
 				$s->class_name = $s->meta['usection'];
+				$datas[] = sprintf( "data-custom-section='%s'", $s->meta['usection'] );
 			}
 			
 			
@@ -835,11 +838,12 @@ class PageLinesTemplateHandler {
 		$class = array_unique( array_filter( $class ) ); // ensure no empties or duplicates
 
 		printf(
-			'<section id="%s" data-object="%s" data-sid="%s" data-clone="%s" class="%s section-%s">%s<div class="%s fix">',
+			'<section id="%s" data-object="%s" data-sid="%s" data-clone="%s" %s class="%s section-%s">%s<div class="%s fix">',
 			$s->id.$clone,
 			$s->class_name,
 			$s->id,
 			$clone,
+			implode(" ", $datas),
 			implode(" ", $class),
 			$sid,
 			$controls,

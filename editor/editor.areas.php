@@ -65,7 +65,7 @@ class PageLinesAreas {
 				<i class="icon-reorder"></i>
 			</span><span class="area-control area-edit section-edit" data-area-action="settings" title="<?php _e( 'Edit', 'pagelines' ) ?>">
 				<i class="icon-pencil"></i>
-			</span><span class="area-control area-unlock section-edit" data-area-action="unlock" title="<?php _e( 'Break Link to Custom', 'pagelines' ) ?>">
+			</span><span class="area-control area-unlock section-edit" data-area-action="unlock" title="<?php _e( 'Break Link to Custom Section', 'pagelines' ) ?>">
 					<i class="icon-unlock"></i>
 			</span>
 		</div>
