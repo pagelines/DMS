@@ -333,6 +333,8 @@ class EditorInterface {
 						</a></li>
 					</ul>
 				</li>
+				
+				<li class="type-btn"><span class="btn-toolbox btn-save btn-refresh-less" data-mode="refresh-less"  title="<?php _e( 'Refresh Draft LESS Cache', 'pagelines' ); ?>"><i class="uxi icon-refresh"></i> <span class="txt"><?php _e( 'Draft LESS', 'pagelines' ); ?></span></span></li>
 			</ul>
 			<ul class="unstyled controls send-right">
 				
