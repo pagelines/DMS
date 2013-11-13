@@ -540,7 +540,7 @@ class EditorInterface {
 				<a title="<?php _e( 'Clone', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-clone s-loaded <?php echo pl_pro_disable_class();?>"><i class="icon-copy"></i></a>
 				<a title="<?php _e( 'Delete', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-delete"><i class="icon-remove"></i></a>
 			</div>
-			<div class="controls-title"><span class="ctitle"><?php echo $s->name;?></span> <span class="clocked">(<i class="icon-lock"></i> Locked)</span></div>
+			<div class="controls-title"><span class="ctitle"><?php echo $s->name;?></span> <span class="clocked">(<i class="icon-lock"></i> Linked to Custom)</span></div>
 		</div>
 		<?php
 
