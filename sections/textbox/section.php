@@ -84,6 +84,11 @@ class PageLinesTextBox extends PageLinesSection {
 
 	function section_template() {
 
+		global $pldraft;
+		$edit = false;
+		if( is_object( $pldraft ) && 'draft' == $pldraft->mode )
+			$edit = true;
+
 		$text = $this->opt('textbox_content');
 
 		$title = $this->opt('textbox_title');
@@ -95,7 +100,7 @@ class PageLinesTextBox extends PageLinesSection {
 		
 		$text = sprintf('<div class="hentry" data-sync="textbox_content">%s</div>', do_shortcode( wpautop($text) ) ); 
 		
-		$title = sprintf('<strong data-sync="textbox_title">%s</strong><br/>', $title);
+		$title = ( $edit || $title ) ? sprintf('<strong data-sync="textbox_title">%s</strong><br />', $title) : '';
 
 		$class = $this->opt('textbox_animation');
 			
