@@ -224,7 +224,7 @@ class PageLinesSectionsHandler{
 			
 			if( !empty( $s->usection ) ){
 				$class[] = 'custom-section';
-				$data_array['object'] = $s->usection;
+				$data_array['custom-section'] = $s->usection;
 			}
 			
 			if( !empty( $map ) ){

@@ -17,7 +17,7 @@
 					if( $(this).hasClass('custom-section') ){
 						
 						addItem = {
-							usection: $(this).data('object')
+							usection: $(this).data('custom-section')
 						}
 					} else {
 						areaSet = that.getAreaMapping( $(this) )

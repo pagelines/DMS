@@ -49,10 +49,24 @@
 				} else if (action == 'save' ){
 					$.areaControl.saveArea($(this))
 
+				} else if (action == 'unlock' ){
+					$.areaControl.unlockArea($(this))
 				}
 			})
 
 
+		}
+		
+		, unlockArea: function( btn ){
+		
+			var that = this
+			,	theArea = btn.closest('.pl-area')
+			,	theID = theArea.attr('id')
+			
+			theArea.removeClass('editing-locked custom-section')
+			
+			$.pageBuilder.reloadAllEvents()
+		
 		}
 		
 		, saveArea: function( btn ){
