@@ -117,7 +117,7 @@ class EditorLessHandler{
 		// make url safe.		
 		global $post;
 		
-		$url = ( is_object( $post ) ) ? untrailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
+		$url = ( is_object( $post ) && ! is_front_page() ) ? trailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
 		
 		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
 		
