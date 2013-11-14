@@ -76,11 +76,11 @@ class PageLinesTemplateHandler {
 					data: {
 						local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
 						
-						
 						, type:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('type') ) ); ?>
 						
-						
 						, global:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('global') ) ); ?>
+						
+						, custom:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('custom') ) ); ?>
 					}
 					
 					, map: { header: {}, footer: {}, template: {} }
@@ -93,7 +93,7 @@ class PageLinesTemplateHandler {
 						,	saving: false
 					}
 					, lang: function( args ){
-					return gt.gettext( args )
+						return gt.gettext( args )
 					}
 					, config: {
 						userID: '<?php echo $this->get_user_id();?>'
@@ -534,12 +534,15 @@ class PageLinesTemplateHandler {
 		} elseif($scope == 'type'){
 
 			$d = pl_settings( $this->draft->mode, $this->page->typeid );
-
 			
+		} elseif($scope == 'custom') {
+
+			global $sections_handler;
+			$d = $sections_handler->get_user_section_settings();
+
 		} else {
 
 			$d = pl_settings( $this->draft->mode );
-
 			
 		}
 
@@ -815,7 +818,7 @@ class PageLinesTemplateHandler {
 			/* - User Sections Classes - */
 			if( isset( $s->meta['usection'] ) ){
 				$class[] = 'custom-section editing-locked';
-				$s->class_name = $s->meta['usection'];
+				
 				$datas[] = sprintf( "data-custom-section='%s'", $s->meta['usection'] );
 			}
 			

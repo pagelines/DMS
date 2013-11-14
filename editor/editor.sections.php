@@ -10,7 +10,7 @@ class PageLinesSectionsHandler{
 		$this->url = PL_PARENT_URL . '/editor';
 		
 		
-		add_filter( 'pl_ajax_set_user_section', array( $this, 'new_user_section' ), 10, 2 );
+		add_filter( 'pl_ajax_set_user_section', array( $this, 'edit_custom_section' ), 10, 2 );
 		
 		add_filter( 'pl_load_page_settings', array( $this, 'add_user_section_settings_to_page') );
 	}
@@ -260,15 +260,22 @@ class PageLinesSectionsHandler{
 
 	}
 	
-	function new_user_section( $response, $data ){
+	function edit_custom_section( $response, $data ){
 		
-		$name = $data['custom-section-name'];
-		$desc = $data['custom-section-desc'];
-		
-		$map = ( isset($data['config']['map']) ) ? $data['config']['map'] : array();
-		$settings = ( isset($data['config']['settings']) ) ? $data['config']['settings'] : array();
-		
-		$response['key'] = $this->create_user_section( $name, $desc, $map, $settings );
+		if( $data['run'] == 'save' ){
+			
+			$name = $data['custom-section-name'];
+			$desc = $data['custom-section-desc'];
+
+			$map = ( isset($data['config']['map']) ) ? $data['config']['map'] : array();
+			$settings = ( isset($data['config']['settings']) ) ? $data['config']['settings'] : array();
+
+			$response['key'] = $this->create_user_section( $name, $desc, $map, $settings );
+			
+		} elseif( $data['run'] == 'delete'){
+			$response['delete'] = 'do that';
+		}
+	
 		
 		return $response;
 	}
@@ -283,6 +290,7 @@ class PageLinesSectionsHandler{
 	function load_user_section( $key ){
 		
 		$sections = $this->get_user_sections(); 
+		
 		if( isset($sections[ $key ]) ){
 			
 			return $sections[ $key ]; 
@@ -304,6 +312,7 @@ class PageLinesSectionsHandler{
 			$rendered[ $key ] = array(
 				'id'			=> $key,
 				'name'			=> $name,
+				'object'		=> 'PLSectionArea',
 				'description'	=> $desc,
 				'filter'		=> 'custom-section, full-width',
 				'usection'		=> $key,
@@ -356,7 +365,7 @@ class PageLinesSectionsHandler{
 		
 		global $sections_handler;
 		$this->all_user_section_settings = array();
-		
+	
 		foreach( $map as &$region ){
 			foreach( $region as $area_index => &$area){
 			
@@ -380,13 +389,19 @@ class PageLinesSectionsHandler{
 		
 	}
 	
+	function get_user_section_settings(){
+		
+		return $this->all_user_section_settings;
+		
+	}
+	
 	/*
 	 * Called via pl_load_page_settings filter in main settings class.
 	 * Adds the compiled list of section settings created when parsing the map for user sections.
 	 */ 
 	function add_user_section_settings_to_page( $page_settings ){
 		
-		return wp_parse_args( $page_settings, $this->all_user_section_settings );
+		return wp_parse_args( $page_settings, $this->get_user_section_settings() );
 		
 	}
 

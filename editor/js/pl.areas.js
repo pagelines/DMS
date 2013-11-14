@@ -69,6 +69,28 @@
 		
 		}
 		
+		, deleteCustomSection: function( key ){
+			
+			
+			
+			var args = {
+						mode: 'set_user_section'
+					,	run: 'delete'
+					, 	log: true
+					,	key: key
+					,	postSuccess: function( response ){
+							if( !response )
+								return
+						
+						}
+				
+				}
+			
+
+		
+			var response = $.plAJAX.run( args )
+		}
+		
 		, saveArea: function( btn ){
 			
 			var that = this
@@ -91,9 +113,22 @@
 						,	args = {
 									mode: 'set_user_section'
 								,	run: 'save'
-								,	refresh: true
 								, 	log: true
 								,	config: $.plMapping.getAreaMapping( theArea )
+								,	postSuccess: function( response ){
+										if( !response )
+											return
+											
+										response.key
+										
+										theArea
+											.addClass('custom-section editing-locked')	
+											.data('custom-section', response.key)
+											.attr('data-custom-section', response.key)
+											
+										// Reload page with custom sections tab open
+										$.pageBuilder.reloadConfig( {location: 'new custom section', refresh: true, refreshArgs: '?tablink=add-new&tabsublink=custom'} )
+									}
 							
 							}
 						,	args = $.extend({}, args, form) // add form fields to post

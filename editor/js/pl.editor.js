@@ -850,12 +850,13 @@
 			,	templateMode = $.pl.config.templateMode || 'local'
 			,	map = that.updatePage( obj )
 			
+			console.log(location)
 			
 			if( storeMap ){
 
 				var saveArgs = {
 					run: 'map'
-					, store: that.updatePage( obj )
+					, store: map
 					, refresh: false
 					, postSuccess: function( rsp ){
 
@@ -870,8 +871,10 @@
 					}
 				}
 				
-				if( refresh )
-					saveArgs.refresh = true
+				$.extend( saveArgs, obj )
+				
+			//	if( refresh )
+			//		saveArgs.refresh = true
 				
 				$.plSave.save( saveArgs )
 
