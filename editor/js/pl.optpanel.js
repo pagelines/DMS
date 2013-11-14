@@ -1235,7 +1235,8 @@
 
 				var mediaFrame = $.pl.config.urls.mediaLibrary
 
-				var optionID = $(this).closest('.img-upload-box').find('.upload-input').attr('id')
+				var theInput = $(this).closest('.img-upload-box').find('.upload-input')
+				, 	optionID = theInput.attr('id')
 				,	mediaFrame = $.pl.config.urls.mediaLibrary + '&oid=' + optionID
 
 				$.pl.iframeSelector = optionID
@@ -1257,6 +1258,10 @@
 				$('.bootbox').on('hidden.mediaDialog', function () {
 
 					$.toolbox('show')
+					
+					
+					theInput.trigger('blur').closest('.ui-accordion').accordion('refresh')
+					
 					$('.bootbox').off('hidden.mediaDialog')
 
 				})
