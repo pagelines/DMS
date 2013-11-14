@@ -450,11 +450,10 @@ class PLImageUploader{
 				
 				thePreview.html( '<div class="img-wrap"><img style="max-width:150px;max-height: 100px;" src="'+ imgURL +'" /></div>' )
 				
-				parent
-					.eval('jQuery(".bootbox").modal("hide")')
-					.eval("jQuery('.ui-accordion').accordion('refresh')")
-					.jQuery( '[id="'+oSel+'"]' ).trigger( 'blur' )
+				
+				parent.eval('jQuery(".bootbox").modal("hide")')
 			
+				
 			})
 		})
 		</script>
