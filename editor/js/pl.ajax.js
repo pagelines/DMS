@@ -22,6 +22,7 @@
 					,	savingText: 'Saving'
 					,	refresh: 	false
 					,	refreshText: $.pl.lang( "Refreshing page..." )
+					,	refreshArgs: false
 					, 	toolboxOpen: $.toolbox('open')
 					,	beforeSend: ''
 					, 	postSuccess: ''
@@ -103,7 +104,15 @@
 							bootbox.dialog( that.dialogText( theData.refreshText ), [ ], {animate: false})
 							
 							window.onbeforeunload = null
-							location.reload()
+							
+							if( theData.refreshArgs ){
+								var url = window.location.href
+								url += (url.indexOf('?') > -1) ? '&'+theData.refreshArgs : '?'+theData.refreshArgs
+								
+								window.location.href = url
+								
+							} else
+								location.reload()
 
 						} else {
 
