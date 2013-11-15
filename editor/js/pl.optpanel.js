@@ -344,16 +344,18 @@
 
 		, setPanel: function(){
 			var that = this
-
+			
 			$('.opt-form.isotope').isotope( 'destroy' )
-
+			
 			that.panel.find('.tab-panel').each(function(){
-
+			
 				if( $(this).is(":visible") || that.load == $(this).data('panel') ){
 
 					that.activeForm = $(this).find('.opt-form')
 					that.optScope = that.activeForm.data('scope')
 					that.optSID = that.activeForm.data('sid')
+					
+				
 
 					$(this).find('.opt-tabs').tabs()
 
@@ -379,21 +381,6 @@
 								})
 
 
-
-
-						// that.activeForm.isotope({
-						// 							itemSelector : '.opt'
-						// 							, masonry: {
-						// 								columnWidth: 315
-						// 							  }
-						// 							, layoutMode : 'masonry'
-						// 							, sortBy: 'number'
-						// 							, getSortData : {
-						// 								number : function ( $elem ) {
-						// 									return $elem.data('number');
-						// 								}
-						// 							}
-						// 						})
 					})
 
 				}

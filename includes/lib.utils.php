@@ -506,6 +506,18 @@ function pl_strip_only($str, $tags, $stripContent = false) {
 // ------------------------------------------
 
 /**
+ * For sorting by comparison based on a number input in array
+ * Used in settings arrays for ordering.
+ */
+function cmp_by_position($a, $b) {
+
+	if( isset( $a['pos'] ) && is_int( $a['pos'] ) && isset( $b['pos'] ) && is_int( $b['pos'] ) )
+		return $a['pos'] - $b['pos'];
+	else
+		return 0;
+}
+
+/**
  * Search in an array, return full info.
  */
 function array_search_ext($arr, $search, $exact = true, $trav_keys = null)

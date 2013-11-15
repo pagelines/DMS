@@ -67,7 +67,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.areas.php' );
 		require_once( PL_EDITOR . '/editor.page.php' );
 		require_once( PL_EDITOR . '/editor.handler.php' );
-		
+			require_once( PL_EDITOR . '/editor.developer.php' );
 		require_once( PL_EDITOR . '/editor.loader.php' );
 		
 		require_once( PL_EDITOR . '/editor.api.php' );
@@ -132,6 +132,8 @@ class PageLinesEditor {
 		$sections_handler->load_ui_actions();
 		
 		$this->settings_panel = new PageLinesSettingsPanel;
+		
+		$this->devtools = new PLDeveloperTools;
 
 		$this->themer = new EditorThemeHandler;
 		$this->code = new EditorCode( $this->draft );
