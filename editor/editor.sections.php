@@ -333,12 +333,16 @@ class PageLinesSectionsHandler{
 		
 		$key = pl_create_id( $name );
 
-		$sections[ $key ] = array(
-			'name'		=> $name,
-			'desc'		=> $desc,
-			'map'		=> $map, 
-			'settings'	=> $settings
-		);
+		
+		$new = array( $key => array(
+				'name'		=> $name,
+				'desc'		=> $desc,
+				'map'		=> $map, 
+				'settings'	=> $settings
+				)
+			);
+
+		$sections = array_merge( $new, $sections );
 
 		pl_opt_update( $this->user_sections_slug, $sections );
 		
@@ -400,8 +404,9 @@ class PageLinesSectionsHandler{
 	 * Adds the compiled list of section settings created when parsing the map for user sections.
 	 */ 
 	function add_user_section_settings_to_page( $page_settings ){
+		$new_page_settings = wp_parse_args( $this->get_user_section_settings(), $page_settings );
 		
-		return wp_parse_args( $page_settings, $this->get_user_section_settings() );
+		return $new_page_settings;
 		
 	}
 

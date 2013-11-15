@@ -21,6 +21,8 @@ class PageLinesSave {
 			$response = $this->save_form( $response, $data );
 		} elseif (  $data['run'] == 'publish' ){
 			$response = $this->publish( $response, $data );
+		} elseif (  $data['run'] == 'scope' ){
+			$response = $this->scope( $response, $data );
 		} else 
 			$response['error'] = "No save operation set for ".$data['run'];
 
@@ -64,6 +66,35 @@ class PageLinesSave {
 
 		return $state;
 		
+	}
+	
+	function scope( $response, $data ){
+		
+		$scope = $data['scope'];
+		
+		$settings = ( isset( $data['store'] ) ) ? $data['store'] : false;  
+		
+		if( $scope == 'global' ){
+			
+			if( $settings )
+				pl_settings_update( stripslashes_deep( $settings ) );
+				
+			$response['Message'] = 'Global settings updated';
+			
+		} else {
+			
+			$template_mode = $data['templateMode'];
+
+			$metaID = ( $template_mode == 'type' ) ? $data['typeID'] : $data['pageID'];
+			
+			pl_settings_update( $settings, 'draft', $metaID );
+			
+			$response['Message'] = sprintf( '%s with ID of %s settings updated.', $template_mode, $metaID );
+			
+		}
+		
+		
+		return $response;
 	}
 	
 	function publish( $response, $data ){

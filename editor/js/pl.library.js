@@ -1,3 +1,9 @@
+function plItemScope( item ){
+
+	return ( item.parents(".template-region-wrap").length == 1 ) ? 'local' : 'global'
+}
+
+
 function plCallWhenSet( flag, callback, flip ){
 	
 	var flip = flip || false
@@ -27,7 +33,7 @@ function plUniqueID( length ) {
   return 'u'+Math.random().toString(36).substr(2, length);
 };
 
-function plIsset(variable){
+function plIsset( variable ){
 	if(typeof(variable) != "undefined" && variable !== null)
 		return true
 	else
