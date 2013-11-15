@@ -129,6 +129,7 @@ class PageLinesTemplateHandler {
 							, siteURL: '<?php echo home_url(); ?>'
 							, mediaLibrary: '<?php echo $this->media_library_link(); ?>'
 						}
+						<?php echo $this->json_blob_objects();?>
 					}
 
 				}
@@ -138,6 +139,23 @@ class PageLinesTemplateHandler {
 		</script>
 		<?php
 
+	}
+	
+	function json_blob_objects(){
+		
+		// blob objects to add to json blob // format: array( 'name' => array() )
+		$blob_objects = apply_filters('pl_json_blob_objects', array()); 
+		
+		$output = '';
+		if( ! empty($blob_objects) ){
+			
+			foreach( $blob_objects as $name => $array ){
+				$output .= sprintf('%s, %s:%s', "\n\n", $name, json_encode( pl_arrays_to_objects( $array ) ));
+			}
+		}
+		
+		return $output;
+		
 	}
 	
 	function media_library_link(){
