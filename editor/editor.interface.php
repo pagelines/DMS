@@ -82,6 +82,7 @@ class EditorInterface {
 			// Saving 
 			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-saving', $this->url . '/js/pl.saving.js', array( 'pl-ajax' ), PL_CORE_VERSION , true);
+			wp_enqueue_script( 'pl-datas', $this->url . '/js/pl.datas.js', array( 'pl-ajax' ), PL_CORE_VERSION , true);
 			
 			
 			wp_enqueue_script( 'pl-library', $this->url . '/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION, true );

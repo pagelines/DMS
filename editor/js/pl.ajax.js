@@ -62,11 +62,14 @@
 		, runAction: function( theData ){
 
 			var that = this
+			
 			$.ajax( {
 					type: 'POST'
 				, 	url: ajaxurl
 				, 	data: theData
 				, 	beforeSend: function(){
+					
+						plPrint('Sending Ajax')
 
 						$('.btn-saving').addClass('active')
 
@@ -90,7 +93,8 @@
 					plPrint( error )
 				}
 				, 	success: function( response ){
-					
+						
+						console.log( $.parseJSON( response ) )
 						$.pl.flags.saving = false
 						
 						that.runSuccess( theData, response )
@@ -126,15 +130,13 @@
 		}
 
 		, runSuccess: function( theData, response ){
-			if(log == 'true')
-				plPrint(response)
-
+		
 			var that = this
 			,	rsp	= $.parseJSON( response )
 			,	log = (rsp.post) ? rsp.post.log || false : ''
 
-			if(log == 'true')
-				plPrint(rsp)
+			if( log == 'true' )
+				plPrint( rsp )
 
 			if ( $.isFunction( theData.postSuccess ) )
 				theData.postSuccess.call( this, rsp )

@@ -62,8 +62,17 @@
 			var that = this
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
+			, 	scope = plItemScope( theArea )
 			
 			theArea.removeClass('editing-locked custom-section')
+			
+			$.plDatas.newPageItemData( theArea, 'unlock', scope )
+			
+			$.plSave.save({ 
+				run: 'scope'
+				, store: $.pl.data[scope]
+				, scope: scope 
+			})
 			
 			$.pageBuilder.reloadAllEvents()
 		
@@ -96,7 +105,7 @@
 			var that = this
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
-			,	message = sprintf('<div class="ttl"><i class="icon-save"></i> Save New User Section</div><form class="modal-form" data-area="%s"><input name="custom-section-name" placeholder="Section Name..." type="text" val="" /><textarea name="custom-section-desc" placeholder="Description"></textarea></form>', theID)
+			,	message = sprintf('<h4><i class="icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="custom-section-name" placeholder="Section Name..." type="text" val="" /><textarea name="custom-section-desc" placeholder="Description"></textarea></form>', theID)
 		
 		
 			bootbox.confirm(
@@ -157,7 +166,7 @@
 				cloned.find('.area-control').data('tooltip', false).tooltip('destroy')
 				cloned.find('.area-control').tooltip({placement: 'top'})
 
-				$.pageBuilder.handleCloneData( cloned )
+				$.plDatas.handleNewItemData( cloned )
 				
 				$.pageBuilder.reloadAllEvents()
 			}
@@ -202,7 +211,7 @@
 				if(result == true){
 
 					currentArea.slideUp(500, function(){
-						$.pageBuilder.setElementDelete( currentArea )
+						$.plDatas.setElementDelete( currentArea )
 						$.pageBuilder.reloadConfig( {location: 'area-delete'} )
 					
 					})

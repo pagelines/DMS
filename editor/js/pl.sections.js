@@ -108,11 +108,10 @@ $.plSections = {
 			.addClass( classToAdd )
 			.addClass( sectionClass )
 			
+		// Don't think this is actually needed.
+		// var newUniqueID = $.plDatas.handleNewItemData( element )
 
-		var newUniqueID = $.pageBuilder.handleCloneData( element )
-
-
-		if(activeLoad){
+		if( activeLoad ){
 			
 			var args = {
 					run: 'load'

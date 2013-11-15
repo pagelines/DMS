@@ -8,21 +8,24 @@
 
 		save: function( opts ){
 			
-			var args = {
-					mode: 'fast_save'
-				,	run: 'all'
-				,	store: $.pl.data
-				,	savingText: $.pl.lang("Saving.")
-				,	refresh: false
-				,	refreshText: $.pl.lang("Successfully saved! Refreshing page...")
-				, 	templateMode: $.pl.config.templateMode || 'local'
-			}
+			var opts = opts || {}
+			,	args = {
+						mode: 'fast_save'
+					,	run: 'all'
+					,	log: true
+					,	store: $.pl.data
+					,	savingText: $.pl.lang("Saving.")
+					,	refresh: false
+					,	refreshText: $.pl.lang("Successfully saved! Refreshing page...")
+					, 	templateMode: $.pl.config.templateMode || 'local'
+				}
 			
 			$.pageBuilder.updatePage({ location: 'save-data' })
 
 			$.extend( args, opts )
 
-			var response = $.plAJAX.run( args )
+			$.plAJAX.run( args )
+			
 
 		}
 
