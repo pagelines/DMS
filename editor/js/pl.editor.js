@@ -128,92 +128,6 @@
 				that.tabLink(tabLink, tabSubLink)
 			}
 			
-			
-			// ACCOUNT STUFF -- NEEDS TO BE MOVED
-			$('.submit-invites').on('click', function(){
-				
-				var theInvites = $('.karma-email-invites').val()
-				,	link = $(this).data('link')
-				,	name = $(this).data('name')
-				,	args = {
-					mode: 'account'
-					,	run: 'email_invites'
-					,	invites: theInvites
-					,	link: link
-					,	name: name
-				}
-				
-				if(theInvites == ''){
-					$('.karma-email-invites').focus()
-				} else {
-					$.plAJAX.run( args )
-				}
-				
-			})
-			
-			$('[data-action="pagelines_account"]').on('click', function() {
-			
-			
-				var key = $('#pl_activation').val()
-				,	email = $('#pl_email').val()
-				,	reset = ($(this).hasClass('deactivate-key')) ? true : false
-				,	update = ($(this).hasClass('refresh-user')) ? true : false
-				, 	theData = {
-						action: 'pl_account_actions'
-					,	key: key
-					,	email: email
-					,	reset: reset
-					, 	update: update
-				}
-
-
-				$.ajax({		
-						type: 'POST'
-					, 	url: ajaxurl
-					, 	data: theData
-					, 	beforeSend: function(){
-							$('.account-saving').html(sprintf('<i class="icon-spin icon-refresh"></i> %s', $.pl.lang("Saving"))).slideDown()
-						}
-					,	success: function( response ){
-					
-						console.log(response)
-						var rsp	= $.parseJSON( response )
-						,	accountDetails = $('.account-details')
-						
-						$('.account-saving')
-							.slideUp()
-						
-						var theMessages = ''
-						
-						$.each(rsp.messages, function(i, val){ 
-							 theMessages += sprintf('<div>%s</div>', val)
-						})
-						
-						accountDetails
-							.removeClass('alert-warning')
-							.addClass('alert-info')
-							.html( theMessages )
-							.slideDown()
-
-
-						var url = sprintf( '%s?tablink=account&tabsublink=pl_account', $.pl.config.siteURL)
-						
-						if( true == rsp.refresh ){
-							
-							accountDetails
-								.append( sprintf( '<br/><div><i class="icon-refresh icon-spin"></i> %s</div>', $.pl.lang("Refreshing Page") ) )
-								
-							pl_url_refresh( url, 500 )
-							
-						}
-							
-
-						
-					}
-				})
-				
-				
-			})
         }
 
 		, tabLink: function( tabLink, tabSubLink ){
@@ -458,6 +372,18 @@
 					}
 				})
 
+			} else if( plIsset( $.pl.config[key] ) ){
+				
+				
+				var config = {
+						mode: 'settings'
+						, sid: key
+						, panel: key
+						, settings: $.pl.config[key]
+					}
+					
+				$.optPanel.render( config )
+				
 			}
 
 			selectedTab.addClass('active-tab')
@@ -610,76 +536,6 @@
 
 		}
 		
-		, setElementDelete: function( deleted ){
-			
-			var uniqueID = deleted.data('clone')
-			
-			deleted.find("[data-clone]").each(function(){
-				$.pageBuilder.setElementDelete( $(this) )
-			})
-			
-			// recursive
-			deleted.remove()
-
-			if( plIsset($.pl.data.local[ uniqueID ]) )
-				delete $.pl.data.local[ uniqueID ]
-				
-			if( plIsset($.pl.data.type[ uniqueID ]) )
-				delete $.pl.data.type[ uniqueID ]
-				
-			if( plIsset($.pl.data.global[ uniqueID ]) )
-				delete $.pl.data.global[ uniqueID ]
-		}
-		
-		, handleCloneData: function( cloned ){
-
-			var that = this
-			,	newUniqueID = $.pageBuilder.setCloneData( cloned ) // recursive function
-			
-			cloned
-				.find('.tooltip')
-				.removeClass('in')
-			
-			$.plAJAX.saveData()
-			
-			return newUniqueID
-
-		}
-		
-		, setCloneData: function( cloned ){
-			
-			var oldUniqueID = cloned.data('clone')
-			, 	newUniqueID = plUniqueID()
-			
-			// Recursion
-			cloned.find("[data-clone]").each(function(){
-				$.pageBuilder.setCloneData( $(this) )
-			})
-			
-			// Set element meta for mapping
-			cloned
-				.attr('data-clone', newUniqueID)
-				.data('clone', newUniqueID)
-				
-			var globalDat 	= (plIsset( $.pl.data.global[ oldUniqueID ] )) ? $.pl.data.global[ oldUniqueID ] : false
-			,	typeDat 	= (plIsset( $.pl.data.type[ oldUniqueID ])) ? $.pl.data.type[ oldUniqueID ] : false
-			,	localDat 	= (plIsset( $.pl.data.local[ oldUniqueID ])) ? $.pl.data.local[ oldUniqueID ] : false
-			,	theOpts 	= (plIsset( $.pl.config.opts[ oldUniqueID ])) ? $.pl.config.opts[ oldUniqueID ] : ''
-
-			// Copy and move around meta data
-			if( globalDat )
-				$.pl.data.global[ newUniqueID ] = $.extend({}, globalDat) // must clone the element, not just assign as they stay connected
-			
-			if( typeDat )	
-				$.pl.data.type[ newUniqueID ] 	= $.extend({}, typeDat) // must clone the element, not just assign as they stay connected
-			
-			if( localDat )
-				$.pl.data.local[ newUniqueID ] 	= $.extend({}, localDat) // must clone the element, not just assign as they stay connected
-			
-			$.pl.config.opts[ newUniqueID ] = theOpts
-			
-			return newUniqueID
-		}
 
 		, sectionControls: function() {
 		
@@ -749,7 +605,7 @@
 					bootbox.confirm($.pl.lang("<h3>Are you sure?</h3><p>This will remove this section and its settings from this page.</p>"), function( result ){
 
 						if(result == true){
-							$.pageBuilder.setElementDelete( section ) // recursive function
+							$.plDatas.setElementDelete( section ) // recursive function
 
 							$.pageBuilder.reloadConfig( {location: 'section-delete'} )
 					
@@ -766,7 +622,7 @@
 						.hide()
 						.fadeIn()
 
-					$.pageBuilder.handleCloneData( cloned )
+					$.pageBuilder.plDatas( cloned )
 					
 				} else if ( btn.hasClass('section-increase')){
 
@@ -850,8 +706,6 @@
 			,	templateMode = $.pl.config.templateMode || 'local'
 			,	map = that.updatePage( obj )
 			
-			console.log(location)
-			
 			if( storeMap ){
 
 				var saveArgs = {
@@ -872,9 +726,6 @@
 				}
 				
 				$.extend( saveArgs, obj )
-				
-			//	if( refresh )
-			//		saveArgs.refresh = true
 				
 				$.plSave.save( saveArgs )
 

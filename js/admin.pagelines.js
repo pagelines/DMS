@@ -70,6 +70,76 @@ $(document).ready(function(){
 
 
 
+	
+	$('.pl-account-action').on('click', function() {
+	
+	
+		var theButton = $(this)
+		,	theForm = theButton.closest('.pl-account-form')
+		,	saveText = theForm.find('.saving-confirm');
+	
+		var key = theForm.find('#pl_activation').val()
+		,	email = theForm.find('#pl_email').val()
+		,	reset = (theButton.hasClass('deactivate-key')) ? true : false
+		,	update = (theButton.hasClass('refresh-user')) ? true : false
+		, 	theData = {
+				action: 'pl_admin_ajax'
+			,	mode: 'pl_account_actions'
+			,	key: key
+			,	email: email
+			,	reset: reset
+			, 	update: update
+		}
+
+
+		$.ajax({		
+				type: 'POST'
+			, 	url: ajaxurl
+			, 	data: theData
+			,	beforeSend: function(){
+			
+				
+					saveText.show().text('Updating'); // text while saving
+				
+					interval = window.setInterval(function(){
+						var text = saveText.text();
+						if (text.length < 10){	saveText.text(text + '.'); }
+						else { saveText.text('Updating'); }
+					}, 200);
+				
+				
+				}
+			, 	success: function(response) {
+					window.clearInterval(interval); // clear dots...
+			
+					saveText.text('Updated!');
+				
+					saveText
+						.delay(800)
+						.fadeOut('slow')
+				
+					var rsp	= $.parseJSON( response )
+				
+					var theMessages = ''
+				
+					$.each(rsp.messages, function(i, val){ 
+						 theMessages += '<div>'+val+'</div>'
+					})
+				
+					theForm.find('.the-msg').html(theMessages)
+
+				
+			}
+			
+		
+			
+		})
+		
+		
+		return false
+		
+		
+	})
 
 
 });

@@ -152,6 +152,19 @@ function pl_editor_actions(){
 	die(); // don't forget this, always returns 0 w/o
 }
 
+/* 
+ * System for handling admin ajax
+ **/
+add_action('wp_ajax_pl_admin_ajax', 'pl_admin_ajax');
+function pl_admin_ajax(){
+	$response = array( 'post' => $_POST );
+	$response = apply_filters( 'pl_ajax_'.$_POST['mode'], $response, $_POST ); 
+	
+	echo json_encode(  pl_arrays_to_objects( $response ) );
+
+	die(); // don't forget this, always returns 0 w/o
+}
+
 
 add_action('wp_ajax_upload_config_file', 'pl_upload_config_file');
 function pl_upload_config_file(){
@@ -200,6 +213,8 @@ function pl_editor_mode(){
 
 	die();
 }
+
+
 
 add_action('wp_ajax_pl_dms_admin_actions', 'pl_dms_admin_actions');
 function pl_dms_admin_actions(){

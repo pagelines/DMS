@@ -10,100 +10,10 @@ class PLAccountPanel{
 
 		add_action( 'wp_ajax_pl_account_actions', array( $this, 'pl_account_actions' ) );
 		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
-		add_filter('pl_ajax_account', array($this, 'account_testing_function'), 10, 2); 
+		
 		
 	}
 	
-	
-	function account_testing_function($response, $postdata){
-
-		$run = $postdata['run']; 
-		
-		add_filter('wp_mail_content_type', array( $this, 'mail_content_type' ) );
-		
-		if($run == 'email_invites'){
-			$invites = $postdata['invites'];
-			$link = $postdata['link'];
-			$name = $postdata['name'];
-			$emails = array();
-			$html_email = $this->get_invite_email($link, $name);
-			$by_newline = explode ( "\n", $invites );
-			
-			$title = sprintf('%s invited you to check out PageLines DMS.', $name);
-			
-			foreach($by_newline as $newline){
-				$by_comma = explode ( ",", trim($newline) );
-				foreach($by_comma as $eml){
-					$emails[] = $eml;
-				}
-			}
-			
-			foreach( $emails as $eml ){
-				wp_mail($eml, $title, $html_email );
-			}
-			
-		}
-		
-		// Dont want to mess w standard behavior
-		remove_filter('wp_mail_content_type', array( $this, 'mail_content_type' ) );
-		
-		return $response;
-
-	}
-	
-	function get_invite_email( $link, $name = '' ){
-		ob_start();
-			?>
-
-	<html>
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-
-			<title>Check out DMS</title>
-			<style type="text/css">
-				a{
-					color: #1996fc;
-				}
-				hr{
-					border: none;
-					border-bottom: 1px solid #eee;
-					margin: 1.5em 0;
-				}
-				p{
-					padding-left: 10px;
-				}
-				li{
-					margin-bottom: 1em;
-				}
-			</style>
-		</head>
-		<body>
-
-			<div style="width: 600px; margin: 0 auto; font-family: helvetica, arial; font-size: 16px; line-height: 1.5em;">
-
-				<div style="padding: 15px;">
-					<p>Hey there,</p>
-					<p>Your friend <strong><?php echo $name; ?></strong> wants you to try PageLines DMS!</p> 
-					<p>DMS is a free "design management system" for websites. It's built on WordPress and lets you build and manage a website easily and professionally using drag and drop.</p>
-
-					<p>Plus, you both get <strong>50 points credit</strong> towards premium stuff if you get started through this email.</p>
-				
-					<p><a href="<?php echo $link;?>">Accept Invite and Get Points</a></p>
-				</div>
-			</div>
-			</body>
-			</html>
-			<?php
-
-		$out = ob_get_clean();
-		return $out;
-	}
-	
-	function mail_content_type(){
-		return 'text/html';
-	}
-
 	function activation_check_function() {
 
 		if( defined( 'DOING_AJAX' ) && true == DOING_AJAX )
@@ -194,40 +104,6 @@ class PLAccountPanel{
 
 	
 
-	function toolbar( $toolbar ){
-		$toolbar['account'] = array(
-			'name'	=> __( 'DMS', 'pagelines' ),
-			'icon'	=> 'icon-pagelines',
-			'pos'	=> 110,
-			//'type'	=> 'btn-panel',
-			'panel'	=> array(
-				'heading'	=> "<i class='icon-pagelines'></i> PageLines",
-				
-				'pl_account'	=> array(
-					'name'	=> __( 'Your Account', 'pagelines' ),
-					'icon'	=> 'icon-pagelines',
-					'call'	=> array( $this, 'pagelines_account'),
-				),
-				
-				'getting_started'	=> array(
-					'name'	=> __( 'Getting Started', 'pagelines' ),
-					'icon'	=> 'icon-youtube-play',
-					'call'	=> array($this, 'getting_started'),
-				),
-			
-				'support'	=> array(
-					'name'	=> __( 'Support', 'pagelines' ),
-					'icon'	=> 'icon-comments',
-					'call'	=> array( $this, 'pagelines_support'),
-				),
-			)
-		);
-		if( defined( 'DMS_DISABLE_ACCOUNT_PANEL' ) && DMS_DISABLE_ACCOUNT_PANEL && pl_is_pro() )
-			unset( $toolbar['account']['panel']['pl_account']);
-		if( defined( 'DMS_DISABLE_KARMA_PANEL' ) && DMS_DISABLE_KARMA_PANEL && pl_is_pro() )
-			unset( $toolbar['account']['panel']['get_karma']);			
-		return $toolbar;
-	}
 	
 	function remote_key_request( $request, $key, $email ){
 		
@@ -431,87 +307,6 @@ class PLAccountPanel{
 		exit();
 	}
 
-	function pagelines_karma(){
-		$data = $this->get_account_data();
-		
-		$url = (isset($data['url']) && $data['url'] != '') ? $data['url'] : '';
-		$name = (isset($data['name']) && $data['name'] != '') ? $data['name'] : '';
-		
-		?>
-		<h2><i class="icon-sun"></i> <?php _e( 'Get PRO stuff free with Karma.', 'pagelines' ); ?>
-		</h2>
-		<p><?php _e( "For every friend you invite who joins and installs PageLines, we'll give you and your friend 50 karma points! Karma points can be redeemed as cash with PageLines.", 'pagelines' ); ?>
-		</p>
-		<div class="row">
-			<div class="span4">
-				<h4><?php _e( 'Invite Friends by Email', 'pagelines' ); ?>
-				</h4>
-				<?php if($url != '' && $name != ''): ?>
-					<textarea class="karma-email-invites pl-textarea-input" placeholder="<?php _e( 'Add emails (Comma separated)', 'pagelines' ); ?>
-					"></textarea>
-					<button class="btn btn-primary submit-invites" data-link="<?php echo $url; ?>" data-name="<?php echo $name;?>"><i class="icon-share"></i> <?php _e( 'Invite', 'pagelines' ); ?>
-					</button>
-				<?php else: ?>
-					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i><?php _e( ' Add/Update Account Info', 'pagelines' ); ?>
-					</a>
-					<p><small><?php _e( 'Name and invite link needed.', 'pagelines' ); ?>
-					</small></p>
-				<?php endif; ?>
-			</div>
-			<div class="span4">
-				<h4><?php _e( 'Your Invite Link', 'pagelines' ); ?>
-				</h4>
-				<?php if($url != '' ): ?>
-					<input type="text" class="pl-text-input" value="<?php echo $url; ?>" />
-				<?php else: ?>
-					<a href="#" class="btn" data-tab-link="account" data-stab-link="pl_account"><i class="icon-user"></i><?php _e( ' Add/Update Account Info', 'pagelines' ); ?>
-					</a>
-				<?php endif; ?>
-				
-				
-			</div>
-			<div class="span4">
-				<?php $this->karma_counter(); ?>
-			</div>
-		</div>
-		<?php
-	}
-
-	function karma_counter(){
-		$data = $this->get_account_data();
-		?>
-		<h4><i class="icon-sun"></i><?php _e( ' Your Karma', 'pagelines' ); ?>
-		</h4>
-		
-		<div class="row karma-row">
-		
-			<div class="span6 kcol">
-				<div class="big-karma"><?php echo $data['karma'];?><strong><i class="icon-sun"></i><?php _e( ' Current', 'pagelines' ); ?>
-				</strong></div>
-			
-			</div>
-			<div class="span6 kcol">
-				<div class="big-karma">
-					<?php echo $data['lifetime_karma'];?>
-					<strong><i class="icon-sun"></i><?php _e( ' Lifetime', 'pagelines' ); ?>
-					</strong>
-				</div>
-				
-			</div>
-			
-			
-		</div>
-		<div class="karma-nav">
-			<a href="#" data-tab-link="account" data-stab-link="get_karma" class="btn btn-mini btn-primary"><i class="icon-sun"></i> <?php _e( 'Get karma', 'pagelines' ); ?>
-			 </a>
-			<a href="http://www.pagelines.com/shop/" class="btn btn-mini btn-success"><i class="icon-shopping-cart"></i> <?php _e( 'Use karma', 'pagelines' ); ?>
-			 </a>
-			<a href="http://www.pagelines.com/the-karma-system/" class="btn btn-mini"><?php _e( 'Learn more about karma', 'pagelines' ); ?>
-			 <i class="icon-external-link"></i></a>
-		</div>
-		
-		<?php 
-	}
 	
 	function get_account_data(){
 		

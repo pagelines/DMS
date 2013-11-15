@@ -1,5 +1,8 @@
 <?php
 
+// Load account functions
+$account_handler = new PLAccountAdmin;
+
 // ====================================
 // = Build PageLines Option Interface =
 // ====================================

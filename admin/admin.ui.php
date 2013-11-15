@@ -41,7 +41,7 @@ class DMSOptionsUI {
 		 */
 		function build_header(){?>
 			
-			<div class="wrap">
+			<div class="wrap pagelines-admin">
 			
 					
 <?php }
