@@ -926,11 +926,16 @@
 				var btn = $(this)
 				, 	theAction = btn.data('action')
 
-				if( theAction == 'reset_global' || theAction == 'reset_local' || theAction == 'reset_global_child' ){
-
-					var context = (theAction == 'reset_global') ? $.pl.lang("global site options") : $.pl.lang("local page options")
-
-					,	confirmText = sprintf( $.pl.lang("<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"), context)
+				if( theAction == 'reset_global' || theAction == 'reset_local' || theAction == 'reset_type' || theAction == 'reset_global_child' ){
+					
+					if( theAction == 'reset_global' )
+						var context = $.pl.lang("global site options")
+					else if ( theAction == 'reset_type' )
+						var context = $.pl.lang("post type options")
+					else 
+						var context = $.pl.lang("local page options")
+						
+					var confirmText = sprintf( $.pl.lang("<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"), context)
 
 					,	page_tpl_import = $('[data-scope="importexport"] #page_tpl_import').attr('checked') || 'undefined'
 					,	global_import = $('[data-scope="importexport"] #global_import').attr('checked') || 'undefined'
