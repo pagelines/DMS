@@ -17,13 +17,53 @@ class PLDeveloperTools {
 		// Add developer settings to JSON blob
 		add_filter('pl_json_blob_objects', array( $this, 'add_to_blob'));
 		
-		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
+		add_action('wp_footer', array( $this, 'draw_developer_data'), 200);
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
 
-	function scripts(){
+	function draw_developer_data(){
+		global $pl_start_time, $pl_start_mem;
 
+			?><script>
+				!function ($) {
+
+					$.plDevData = {
+						php: {
+							memory: {
+								num: '<?php echo round( (memory_get_usage() - $pl_start_mem) / (1024 * 1024), 3 );?>'
+								, label: 'MB'
+								, title: 'Editor Memory'
+								, info: 'Amount of memory used by the DMS editor in MB during this page load.'
+							}
+							
+							, queries: {
+								num: '<?php echo get_num_queries(); ?>'
+								, label: 'Queries'
+								, title: 'Total WP Queries'
+								, info: 'Retrieve the number of database queries during the WordPress/Editor execution.'
+							}
+							, total_time: {
+								num: '<?php echo timer_stop( 0 ); ?>'
+								, label: 'Seconds'
+								, title: 'Total Page Render Time'
+								, info: 'Total time to render this page including WordPress and DMS editor.'
+							}
+							, time: {
+								num: '<?php echo round( microtime(TRUE) - $pl_start_time, 3); ?>'
+								, label: 'Seconds'
+								, title: 'Editor Time'
+								, info: 'Amount of time it took to load this page once DMS had started.'
+							}
+							
+						}
+
+					}
+
+
+				}(window.jQuery);
+			</script>
+			<?php
 
 	}
 	
@@ -87,10 +127,15 @@ class PLDeveloperTools {
 			'class'	=> 'dev_logging'
 		);
 		
-		$settings['dev_page'] = array(
+		$settings['dev-page'] = array(
 			'name' 	=> __( 'Performance', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
-			'opts' 	=> $this->basic()
+			'opts' 	=> array(
+				array(
+					'type' 		=> 	'template',
+					'template'	=> 'No performance data exists on the page.'
+				),
+			),
 		);
 		
 		$settings['devopts'] = array(
@@ -119,22 +164,25 @@ class PLDeveloperTools {
 
 	function basic(){
 
-		$settings = array(
-
-			array(
-				'key'			=> 'pagelines_favicon',
-				'label'			=> __( 'Upload Favicon (32px by 32px)', 'pagelines' ),
-				'type' 			=> 	'image_upload',
-				'imgsize' 			=> 	'16',
-				'extension'		=> 'ico,png', // ico support
-				'title' 		=> 	__( 'Favicon Image', 'pagelines' ),
-				'help' 			=> 	__( 'Enter the full URL location of your custom <strong>favicon</strong> which is visible in browser favorites and tabs.<br/> <strong>Must be .png or .ico file - 32px by 32px</strong>.', 'pagelines' ),
-				'default'		=>  '[pl_parent_url]/images/default-favicon.png'
-			),
-
-
-		);
-
+			$settings = array(
+				array(
+					'key'		=> 'less_dev_mode',
+					'col'		=> 1, 
+					'type' 		=> 'check',
+					'label' 	=> __( 'Enable LESS dev mode', 'pagelines' ),
+					'title' 	=> __( 'LESS Developer Mode', 'pagelines' ),
+					'help' 		=> __( 'Enables LESS recompile on every editor load, useful when doing a lot of graphical LESS development since you dont have to manually hit publish to recompile.', 'pagelines' )
+				),
+				array(
+					'key'		=> 'no_cache_mode',
+					'col'		=> 2, 
+					'type' 		=> 'check',
+					'label' 	=> __( 'Enable no cache mode', 'pagelines' ),
+					'title' 	=> __( 'No Cache Mode', 'pagelines' ),
+					'help' 		=> __( '@simon explanation needed', 'pagelines' )
+				),
+			);
+			
 		return $settings;
 
 	}

@@ -39,6 +39,8 @@
 	$.pageTools = {
 
 		startUp: function(){
+			
+			$.plDev.init()
 
 			$.plHotKeys.init()
 
@@ -52,7 +54,7 @@
 
 			$.plAJAX.init()
 			
-			$.plDev.init()
+			
 
 			$.plTemplates.init()
 
@@ -269,6 +271,8 @@
 						
 					})
 					
+					$('body').trigger('pl-tab-build', [ theTab ])
+					
 				}
 				
 				, beforeActivate: function(e, ui){
@@ -337,9 +341,11 @@
 				
 					tabMemory = $.extend(tabMemory, obj)
 					
-					plPrint(tabMemory)
+				//	plPrint(tabMemory)
 
 					store.set('plTabMemory', tabMemory)
+					
+					$('body').trigger('pl-tab-build', [ theTab ])
 
 				}
 			})

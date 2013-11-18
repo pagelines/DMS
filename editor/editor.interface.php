@@ -71,14 +71,21 @@ class EditorInterface {
 			wp_enqueue_script( 'bootbox', PL_JS . '/utils.bootbox.js', array('jquery'), '3.0.0', true );
 			// Images Loaded
 			wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.js', array('jquery'), PL_CORE_VERSION, true);
+			
+			
+	
 
 		// PAGELINES CODE -----------------------
 		// --------------------------------------
+		
+		// PageLines Developer Panel
+			wp_enqueue_script( 'pl-dev', $this->url . '/js/pl.developer.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			
 			wp_enqueue_script( 'pl-editor-js', $this->url . '/js/pl.editor.js', array( 'jquery' ), PL_CORE_VERSION , true);
 			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), PL_CORE_VERSION, true );
 		
-			wp_enqueue_script( 'pl-dev-tools', $this->url . '/js/pl.developer.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			
 		
 			// Saving 
 			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), PL_CORE_VERSION, true );

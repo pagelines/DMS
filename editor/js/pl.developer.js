@@ -8,43 +8,56 @@
 		
 		init: function(){
 			
-			//$('.plprint-container').hide()
+			$('.plprint-container').hide()
 		
-			$('[data-tab-action="dev_log"]').on('click', function(){
-				
-				
-				//$('.current-panel .tab-panel').css('background', 'red')
-			})
 			
-			$( ".panel-dev" ).on( "tabsactivate tabscreate", function( event, ui ) {
+			$( "body" ).on( "pl-tab-build", function( event, tab ) {
 				
-				var theTab = ( plIsset(ui.newTab) ) ? ui.newTab : ui.tab
+				var theTab = tab
 				,	tabMeta = theTab.attr('data-tab-meta') || ''
 				, 	tabAction = theTab.attr('data-tab-action') || ''
 				,	tabPanel = $("[data-panel='"+tabAction+"']")
+				, 	output = ''
+				
 				
 				if( theTab.hasClass('tab-dev_log') ){
 					
 					if( $('.plprint-container').length != 0 ){
 						
-						var plprints = ''
-						
 						$('.plprint-container').each( function(){
-							plprints += '<div class="alert">Print</div>'
-							plprints += $(this).html()
+							output += '<div class="alert">Print</div>'
+							output += $(this).html()
 						})
 						
-						$('body').on('panel-setup', function(){
-							tabPanel.find('.panel-tab-content').html( plprints )
 						
-						})
 						
 					}
 					
+				} else if( theTab.hasClass('tab-dev-page') ){
+					
+					var tbl = ''
+					for ( var key in $.plDevData.php ) {
+						if ($.plDevData.php.hasOwnProperty(key)) {
+							var obj = $.plDevData.php[key];
+
+
+							tbl += sprintf( '<tr><th>%s</th><td>%s %s</td><td>%s</td></tr>', obj.title, obj.num, obj.label, obj.info )
+
+						}
+					}
+					
+					output += sprintf( '<table class="data-table" >%s</table>', tbl )
 					
 				}
 				
-				
+				if( output != ''){
+					
+					$('body').on('panel-setup', function(){
+						tabPanel.find('.panel-tab-content').html( output )
+					
+					})
+					
+				}
 				
 			} );
 		}

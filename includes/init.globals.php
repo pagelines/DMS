@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Start time and memory for performance metrics
+ */
+if( defined( 'PL_DEV' ) && PL_DEV ){
+	global $pl_start_time, $pl_start_mem;
+	$pl_start_time = microtime(TRUE);
+	$pl_start_mem = memory_get_usage();
+}
+
+/**
  * Define framework version
  */
 if( ! defined( 'PL_CORE_VERSION' ) )
