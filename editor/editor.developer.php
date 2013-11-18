@@ -227,6 +227,6 @@ function pl_add_perform_data( $number, $title, $label, $description){
 		'title'		=> $title, 
 		'num'		=> $number,
 		'label'		=> $label,
-		'info'		=> $descriptiopn
+		'info'		=> $description
 	);
 }
