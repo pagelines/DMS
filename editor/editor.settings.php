@@ -708,8 +708,24 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 		
 		if(is_array($the_settings)){
 			foreach($the_settings as $setting_key => $val){
-				if( $val === '' && $val !== 0 )
+				if( $val === '' && $val !== 0 ){
 					unset( $settings[ $mode ][ $uniqueID ][ $setting_key ] );
+				}
+				
+				// if a numeric index was set (bug)
+				if( strlen( (string) $setting_key) < 4){
+					unset( $settings[ $mode ][ $uniqueID ][ $setting_key ] );
+				}
+			
+				// accordion prevent null values from being saved and bloating things
+				if( is_array($val) ){
+					foreach( $val as $val_key => $val_val ){
+						if( $val_val == 'false' || empty($val_val))
+							unset( $settings[ $mode ][ $uniqueID ][ $setting_key ][ $val ][ $val_key ] );
+					}
+					
+				}
+					
 			}
 		}
 		
