@@ -294,23 +294,7 @@ class PageLinesSectionsHandler{
 		return $response;
 	}
 	
-	function delete_user_section( $key ){
-
-		$sections = $this->get_user_sections();
-
-		if( isset($sections[$key]) ){
-			
-			unset( $sections[$key] );
-
-			pl_opt_update( $this->user_sections_slug, $sections );
-			
-			return 'Item deleted.';
-			
-		} else 
-			return 'Not found.';
-		
-
-	}
+	
 	
 	function get_user_sections(){
 		
@@ -386,11 +370,22 @@ class PageLinesSectionsHandler{
 			);
 
 		$sections = array_merge( $new, $sections );
-
-		pl_opt_update( $this->user_sections_slug, $sections );
+		
+		
+		$this->save_custom_sections( $sections );
 		
 		return $key;
 
+	}
+	
+	function save_custom_sections( $sections ){
+		
+		foreach( $sections as $key => $data){
+			if( is_int($key) )
+				unset($sections[$key]);
+		}
+		
+		pl_opt_update( $this->user_sections_slug, $sections );
 	}
 	
 	function update_user_section( $key, $map, $settings ){
@@ -407,14 +402,29 @@ class PageLinesSectionsHandler{
 			$sections[ $key ] = wp_parse_args( $new, $sections[ $key ] );
 		}
 		
-	
-		pl_opt_update( $this->user_sections_slug, $sections );
+		$this->save_custom_sections( $sections );
 		
 		return $key;
 
 	}
 
+	function delete_user_section( $key ){
 
+		$sections = $this->get_user_sections();
+
+		if( isset($sections[$key]) ){
+			
+			unset( $sections[$key] );
+
+			$this->save_custom_sections( $sections );
+			
+			return 'Item deleted.';
+			
+		} else 
+			return 'Not found.';
+		
+
+	}
 	
 
 	/*

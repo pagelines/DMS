@@ -186,7 +186,7 @@ function pl_create_id( $string ){
 	} else 
 		$string = pl_new_clone_id();
 	
-	return $string;
+	return ( ! is_int($string) ) ? $string : 's'.$string;
 }
 
 function pl_new_clone_id(){
