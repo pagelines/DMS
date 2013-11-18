@@ -29,6 +29,9 @@ require_once( PL_INCLUDES . '/init.globals.php');
 // LOCALIZATION - Needs to come after config_theme and before localized config files
 require_once( PL_INCLUDES . '/run.I18n.php');
 
+// V3 Editor functions --- > always load
+require_once( PL_INCLUDES . '/lib.editor.php' );
+
 // Utility functions and hooks/filters
 require_once( PL_INCLUDES . '/lib.utils.php' );
 
@@ -46,9 +49,6 @@ require_once( PL_INCLUDES . '/lib.body.php' );
 
 // Start the editor
 require_once( PL_INCLUDES . '/init.editor.php' );
-
-// V3 Editor functions --- > always load
-require_once( PL_INCLUDES . '/lib.editor.php' );
 
 // LESS Functions
 require_once( PL_INCLUDES . '/less.functions.php' );

@@ -81,13 +81,18 @@ function pl_theme_support(  ){
 	add_theme_support( 'woocommerce' );
 
 }
-
-
-add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
-function pagelines_check_lessdev(){
-	if (  pl_less_dev() ) {
-		PageLinesRenderCSS::flush_version( false );
-		pl_flush_draft_caches();
+add_action( 'template_redirect', 'pl_check_cache_modes', 9);
+function pl_check_cache_modes() {
+	
+	if( ! defined( 'PL_DEV' ) || ! PL_DEV )
+		return false;
+	
+	$global_settings = pl_settings();
+	if (  true == $global_settings['settings']['no_cache_mode'] ) {
+		delete_transient( 'pagelines_sections_cache' );
+		
+		if( ! pl_draft_mode() )
+			PageLinesRenderCSS::flush_version( false );		
 	}
 }
 
