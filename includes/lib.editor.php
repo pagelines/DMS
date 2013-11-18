@@ -41,12 +41,17 @@ function pl_use_editor(){
 
 function pl_less_dev(){	
 	if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV )
-		return false; 
-	else
-		return false;
-	
-}
+		return true; 
 
+	$global_settings = pl_settings();
+	if (  true == $global_settings['settings']['less_dev_mode'] )
+		return true;
+
+	if( true == pl_setting( 'less_dev_mode' ) )
+		return true;
+		
+	return false;	
+}
 
 function pl_is_pro(){	
 	// AP stop putting return true here!!

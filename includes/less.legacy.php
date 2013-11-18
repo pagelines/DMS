@@ -188,7 +188,7 @@ class EditorLessHandler{
 		}
 		
 		
-		if( pl_draft_mode() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
+		if( pl_draft_mode() && pl_less_dev() ) {
 
 			$raw_cached = pl_cache_get( 'draft_core_raw', array( $this, 'draft_core_data' ) );
 
@@ -277,8 +277,8 @@ class PageLinesLess {
      */
 	function __construct() {
 
-		if( pl_less_dev() )
-			return;
+		// if( pl_less_dev() )
+		// 	return;
 			
 		global $less_vars;
 
@@ -376,9 +376,6 @@ class PageLinesRenderCSS {
 	var $blog_id;
 
 	function __construct() {
-		
-		if( pl_less_dev() )
-			return;
 
 		global $blog_id;
 		$this->url_string = '%s/?pageless=%s';

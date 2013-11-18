@@ -8,7 +8,7 @@ class PLDeveloperTools {
 	
 	function __construct(){
 
-		if( ! PL_DEV )
+		if( ! defined( 'PL_DEV' ) || ! PL_DEV )
 			return;
 
 		// Add tab to toolbar 
@@ -18,6 +18,9 @@ class PLDeveloperTools {
 		add_filter('pl_json_blob_objects', array( $this, 'add_to_blob'));
 		
 		add_action('wp_footer', array( $this, 'draw_developer_data'), 200);
+		
+		add_action( 'template_redirect', array( $this, 'check_less_dev' ), 9 );
+		
 
 		$this->url = PL_PARENT_URL . '/editor';
 		
@@ -25,6 +28,15 @@ class PLDeveloperTools {
 		$pl_perform = array(); 
 	}
 	
+
+
+	function check_less_dev() {	
+	
+		if (  pl_less_dev() )
+			pl_flush_draft_caches();
+	}
+
+
 
 	function draw_developer_data(){
 	
