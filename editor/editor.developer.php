@@ -23,7 +23,11 @@ class PLDeveloperTools {
 		
 
 		$this->url = PL_PARENT_URL . '/editor';
+		
+		global $pl_perform; 
+		$pl_perform = array(); 
 	}
+	
 
 
 	function check_less_dev() {	
@@ -69,39 +73,39 @@ class PLDeveloperTools {
 	
 	function basic_performance(){
 		
-		global $pl_start_time, $pl_start_mem;
+		global $pl_start_time, $pl_start_mem, $pl_perform;
 		
-		$perform = array(); 
 		
-		$perform['memory'] = array(
+		
+		$pl_perform['memory'] = array(
 			'num'		=> round( (memory_get_usage() - $pl_start_mem) / (1024 * 1024), 3 ),
 			'label'		=> 'MB',
 			'title'		=> 'Editor Memory',
 			'info'		=> 'Amount of memory used by the DMS editor in MB during this page load.'
 		);
 		
-		$perform['queries'] = array(
+		$pl_perform['queries'] = array(
 			'num'		=> get_num_queries(),
 			'label'		=> 'Queries',
 			'title'		=> 'Total Queries',
 			'info'		=> 'The number of database queries during the WordPress/Editor execution.'
 		);
 		
-		$perform['total_time'] = array(
+		$pl_perform['total_time'] = array(
 			'num'		=> timer_stop( 0 ),
 			'label'		=> 'Seconds',
 			'title'		=> 'Total Time',
 			'info'		=> 'Total time to render this page including WordPress and DMS editor.'
 		);
 		
-		$perform['time'] = array(
+		$pl_perform['time'] = array(
 			'num'		=> round( microtime(TRUE) - $pl_start_time, 3),
 			'label'		=> 'Seconds',
 			'title'		=> 'Editor Time',
 			'info'		=> 'Amount of time it took to load this page once DMS had started.'
 		);
 		
-		return $perform;
+		return $pl_perform;
 		
 	}
 	
@@ -226,4 +230,15 @@ class PLDeveloperTools {
 	}
 	
 	
+}
+
+function pl_add_perform_data( $number, $title, $label, $description){
+	global $pl_perform;
+	
+	$pl_perform[] = array(
+		'title'		=> $title, 
+		'num'		=> $number,
+		'label'		=> $label,
+		'info'		=> $description
+	);
 }
