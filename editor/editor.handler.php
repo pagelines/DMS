@@ -150,7 +150,7 @@ class PageLinesTemplateHandler {
 		if( ! empty($blob_objects) ){
 			
 			foreach( $blob_objects as $name => $array ){
-				$output .= sprintf('%s, %s:%s', "\n\n", $name, json_encode( pl_arrays_to_objects( $array ) ));
+				$output .= sprintf('%s, %s:%s', "\n", $name, json_encode( pl_arrays_to_objects( $array ) ));
 			}
 		}
 		

@@ -23,41 +23,12 @@ class PLDeveloperTools {
 	}
 
 	function draw_developer_data(){
-		global $pl_start_time, $pl_start_mem;
-
+	
 			?><script>
 				!function ($) {
 
 					$.plDevData = {
-						php: {
-							memory: {
-								num: '<?php echo round( (memory_get_usage() - $pl_start_mem) / (1024 * 1024), 3 );?>'
-								, label: 'MB'
-								, title: 'Editor Memory'
-								, info: 'Amount of memory used by the DMS editor in MB during this page load.'
-							}
-							
-							, queries: {
-								num: '<?php echo get_num_queries(); ?>'
-								, label: 'Queries'
-								, title: 'Total WP Queries'
-								, info: 'Retrieve the number of database queries during the WordPress/Editor execution.'
-							}
-							, total_time: {
-								num: '<?php echo timer_stop( 0 ); ?>'
-								, label: 'Seconds'
-								, title: 'Total Page Render Time'
-								, info: 'Total time to render this page including WordPress and DMS editor.'
-							}
-							, time: {
-								num: '<?php echo round( microtime(TRUE) - $pl_start_time, 3); ?>'
-								, label: 'Seconds'
-								, title: 'Editor Time'
-								, info: 'Amount of time it took to load this page once DMS had started.'
-							}
-							
-						}
-
+						<?php echo $this->pl_performance_object();?>
 					}
 
 
@@ -65,6 +36,61 @@ class PLDeveloperTools {
 			</script>
 			<?php
 
+	}
+	
+	function pl_performance_object(){
+		
+		// blob objects to add to json blob // format: array( 'name' => array() )
+		$blob_objects = apply_filters('pl_performance_object', $this->basic_performance() ); 
+		
+		$output = '';
+		if( ! empty($blob_objects) ){
+			
+			foreach( $blob_objects as $name => $array ){
+				$output .= sprintf('%s:%s, %s', $name, json_encode( pl_arrays_to_objects( $array ) ), "\n\n");
+			}
+		}
+		
+		return $output;
+		
+	}
+	
+	function basic_performance(){
+		
+		global $pl_start_time, $pl_start_mem;
+		
+		$perform = array(); 
+		
+		$perform['memory'] = array(
+			'num'		=> round( (memory_get_usage() - $pl_start_mem) / (1024 * 1024), 3 ),
+			'label'		=> 'MB',
+			'title'		=> 'Editor Memory',
+			'info'		=> 'Amount of memory used by the DMS editor in MB during this page load.'
+		);
+		
+		$perform['queries'] = array(
+			'num'		=> get_num_queries(),
+			'label'		=> 'Queries',
+			'title'		=> 'Total Queries',
+			'info'		=> 'The number of database queries during the WordPress/Editor execution.'
+		);
+		
+		$perform['total_time'] = array(
+			'num'		=> timer_stop( 0 ),
+			'label'		=> 'Seconds',
+			'title'		=> 'Total Time',
+			'info'		=> 'Total time to render this page including WordPress and DMS editor.'
+		);
+		
+		$perform['time'] = array(
+			'num'		=> round( microtime(TRUE) - $pl_start_time, 3),
+			'label'		=> 'Seconds',
+			'title'		=> 'Editor Time',
+			'info'		=> 'Amount of time it took to load this page once DMS had started.'
+		);
+		
+		return $perform;
+		
 	}
 	
 	function add_to_blob( $objects ){

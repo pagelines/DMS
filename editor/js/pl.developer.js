@@ -36,9 +36,9 @@
 				} else if( theTab.hasClass('tab-dev-page') ){
 					
 					var tbl = ''
-					for ( var key in $.plDevData.php ) {
-						if ($.plDevData.php.hasOwnProperty(key)) {
-							var obj = $.plDevData.php[key];
+					for ( var key in $.plDevData ) {
+						if ($.plDevData.hasOwnProperty(key)) {
+							var obj = $.plDevData[key];
 
 
 							tbl += sprintf( '<tr><th>%s</th><td>%s %s</td><td>%s</td></tr>', obj.title, obj.num, obj.label, obj.info )
