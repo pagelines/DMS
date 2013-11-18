@@ -161,7 +161,7 @@ class PLImportExport{
 		</label>
 		<?php
 			
-			$publish_active = (is_child_theme() || PL_LESS_DEV) ? true : false;
+			$publish_active = (is_child_theme() || pl_less_dev() ) ? true : false;
 		
 		?>
 		<label class="checklist-label media <?php echo (!$publish_active) ? 'disabled': '';?>" for="publish_config">

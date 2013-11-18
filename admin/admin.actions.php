@@ -106,7 +106,7 @@ function pagelines_check_php(){
 add_action( 'admin_init', 'pagelines_set_versions' );
 function pagelines_set_versions() {
 	if ( current_user_can( 'edit_themes' ) ) {
-		if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
+		if( pl_less_dev() ) {
 			PageLinesRenderCSS::flush_version( false );
 			delete_transient( 'pagelines_sections_cache' );
 		}

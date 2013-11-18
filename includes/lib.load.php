@@ -85,9 +85,7 @@ function pl_theme_support(  ){
 
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
 function pagelines_check_lessdev(){
-	if (  defined( 'PL_LESS_DEV' )
-		&& PL_LESS_DEV
-		) {
+	if (  pl_less_dev() ) {
 		PageLinesRenderCSS::flush_version( false );
 		pl_flush_draft_caches();
 	}
