@@ -19,6 +19,8 @@
 
 		, render: function( config ) {
 
+			// another test
+
 			var that = this
 			,	opts
 			, 	config = config || store.get('lastSectionConfig')
@@ -410,22 +412,20 @@
 			$.each( opts , function(index, o) {
 
 				var specialClass = ''
-				,	theTitle = o.title || o.label || $.pl.lang("Option")
+				,	theTitle = o.title || o.label || ''
 				, 	uniqueKey = ( o.key ) ? o.key : 'no-key-'+plUniqueID()
 				, 	colNum = ( o.col ) ? o.col : 1
+				,	optionName = ( theTitle != '' ) ? sprintf('<div class="opt-name">%s</div>', theTitle) : ''
 
-			//	console.log(o)
 				if( o.span )
 					specialClass += 'opt-span-'+o.span
 
 				optionHTML = that.optEngine( tabKey, o )
 
-				optsOut += sprintf( '<div id="%s" class="opt opt-%s opt-type-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, o.type, specialClass, index, theTitle, optionHTML )
-
 				if( typeof optCols[ colNum ] == 'undefined' )
 					optCols[ colNum ] = ''
 
-				optCols[ colNum ] += sprintf( '<div id="%s" class="opt opt-%s opt-type-%s %s" data-number="%s"><div class="opt-name">%s</div><div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, o.type, specialClass, index, theTitle, optionHTML )
+				optCols[ colNum ] += sprintf( '<div id="%s" class="opt opt-%s opt-type-%s %s" data-number="%s">%s<div class="opt-box">%s</div></div>', uniqueKey, uniqueKey, o.type, specialClass, index, optionName, optionHTML )
 
 
 			})
