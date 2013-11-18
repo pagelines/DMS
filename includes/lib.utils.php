@@ -1120,14 +1120,14 @@ function plprint( $data, $title = false, $echo = false) {
 
 	ob_start();
 
-		echo '<pre class="plprint">';
+		echo '<div class="plprint-container"><pre class="plprint">';
 
 		if ( $title )
 			printf('<h3>%s</h3>', $title);
 
 		echo esc_html( print_r( $data, true ) );
 
-		echo '</pre>';
+		echo '</pre></div>';
 
 	$data = ob_get_clean();
 

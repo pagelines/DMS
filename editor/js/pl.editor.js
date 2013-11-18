@@ -51,6 +51,8 @@
 			$.pageBuilder.showEditingTools()
 
 			$.plAJAX.init()
+			
+			$.plDev.init()
 
 			$.plTemplates.init()
 
@@ -333,7 +335,6 @@
 					
 					obj[key] = ui.newTab.parent().children('li').index(ui.newTab)
 				
-					
 					tabMemory = $.extend(tabMemory, obj)
 					
 					plPrint(tabMemory)
@@ -387,6 +388,8 @@
 			}
 
 			selectedTab.addClass('active-tab')
+			
+			$('body').trigger('panel-setup')
 
 			$.xList.listStop()
 

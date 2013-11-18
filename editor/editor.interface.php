@@ -78,6 +78,7 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), PL_CORE_VERSION, true );
 		
+			wp_enqueue_script( 'pl-dev-tools', $this->url . '/js/pl.developer.js', array( 'jquery' ), PL_CORE_VERSION, true );
 		
 			// Saving 
 			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), PL_CORE_VERSION, true );
@@ -427,7 +428,7 @@ class EditorInterface {
 
 								$flag = ($t['flag'] != '') ? sprintf('data-flag="%s"', $t['flag']) : '';
 
-								$class = ($t['class'] != '') ? $t['class'] : '';
+								$class = ($t['class'] != '') ? $t['class'] : 'tab-'.$tab_key;
 
 								$icon = ($t['icon'] != '') ? sprintf('<i class="%s"></i> ', $t['icon']) : '';
 								

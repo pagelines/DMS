@@ -72,8 +72,29 @@ class PLDeveloperTools {
 
 		$settings = array(); 
 		
+		
+		
+		$settings['dev_log'] = array(
+			'name' 	=> __( 'Logging', 'pagelines' ),
+			'icon'	=> 'icon-wrench',
+			'opts' 	=> array(
+
+				array(
+					'type' 		=> 	'template',
+					'template'	=> 'Nothing appears to have been logged.'
+				),
+			),
+			'class'	=> 'dev_logging'
+		);
+		
+		$settings['dev_page'] = array(
+			'name' 	=> __( 'Performance', 'pagelines' ),
+			'icon'	=> 'icon-wrench',
+			'opts' 	=> $this->basic()
+		);
+		
 		$settings['devopts'] = array(
-			'name' 	=> __( 'Dev Options', 'pagelines' ),
+			'name' 	=> __( 'Options', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
 			'opts' 	=> $this->basic()
 		);
