@@ -13,6 +13,16 @@ class PageLinesSectionsHandler{
 		add_filter( 'pl_ajax_set_user_section', array( $this, 'edit_custom_section' ), 10, 2 );
 		
 		add_filter( 'pl_load_page_settings', array( $this, 'add_user_section_settings_to_page') );
+		
+		add_filter('pl_json_blob_objects', array( $this, 'add_to_blob'));
+	}
+	
+	/*
+	 * Add custom section keys to blob	
+	 */
+	function add_to_blob( $objects ){
+		$objects['csections'] = $this->get_custom_section_keys();
+		return $objects;
 	}
 	
 	function load_ui_actions(){
@@ -266,18 +276,40 @@ class PageLinesSectionsHandler{
 			
 			$name = $data['custom-section-name'];
 			$desc = $data['custom-section-desc'];
+			$upd = $data['custom-section-update'];
 
 			$map = ( isset($data['config']['map']) ) ? $data['config']['map'] : array();
 			$settings = ( isset($data['config']['settings']) ) ? $data['config']['settings'] : array();
 
-			$response['key'] = $this->create_user_section( $name, $desc, $map, $settings );
+			if( isset($data['custom-section-update']) && $data['custom-section-update'] != ''){
+				$response['key'] = $this->update_user_section( $data['custom-section-update'], $map, $settings );
+			} else 
+				$response['key'] = $this->create_user_section( $name, $desc, $map, $settings );
 			
 		} elseif( $data['run'] == 'delete'){
-			$response['delete'] = 'do that';
+			$response['delete'] = $this->delete_user_section( $data['key'] );
 		}
 	
 		
 		return $response;
+	}
+	
+	function delete_user_section( $key ){
+
+		$sections = $this->get_user_sections();
+
+		if( isset($sections[$key]) ){
+			
+			unset( $sections[$key] );
+
+			pl_opt_update( $this->user_sections_slug, $sections );
+			
+			return 'Item deleted.';
+			
+		} else 
+			return 'Not found.';
+		
+
 	}
 	
 	function get_user_sections(){
@@ -297,6 +329,17 @@ class PageLinesSectionsHandler{
 		}else 	
 			return false;
 		
+	}
+	
+	function get_custom_section_keys(){
+		$sections = $this->get_user_sections(); 
+		
+		$keys = array(); 
+		foreach($sections as $key => $data){
+			$keys[ $key ] = stripslashes( $data['name'] );
+		}
+		
+		return $keys;
 	}
 	
 	function render_user_sections(){
@@ -349,17 +392,30 @@ class PageLinesSectionsHandler{
 		return $key;
 
 	}
-
-
-	function delete_user_section( $key ){
+	
+	function update_user_section( $key, $map, $settings ){
 
 		$sections = $this->get_user_sections();
+		
+		if( isset($sections[ $key ]) ){
+			$new = array(
+					'map'		=> $map, 
+					'settings'	=> $settings
+					);
 
-		unset( $sections[$key] );
 
+			$sections[ $key ] = wp_parse_args( $new, $sections[ $key ] );
+		}
+		
+	
 		pl_opt_update( $this->user_sections_slug, $sections );
+		
+		return $key;
 
 	}
+
+
+	
 
 	/*
 	 * Parse the page map for user sections
@@ -369,19 +425,29 @@ class PageLinesSectionsHandler{
 		
 		global $sections_handler;
 		$this->all_user_section_settings = array();
-	
+		
 		foreach( $map as &$region ){
 			foreach( $region as $area_index => &$area){
 			
 				if( isset($area['usection']) && $area['usection'] != ''  ){
 					
 					$usection = $this->load_user_section( $area['usection'] ); 
+				
+				
+					if( ! empty($usection) ){
+						
+						$settings = ( isset($usection['settings']) ) ? $usection['settings'] : array();
+
+						$area  = wp_parse_args( $usection['map'], $area );
+
+						$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $settings );
+						
+					} else {
+						// if usection isn't defined, then its been deleted or something.
+						unset( $region[ $area_index ] ); 
+					}
 					
-					$settings = ( isset($usection['settings']) ) ? $usection['settings'] : array();
 					
-					$area  = wp_parse_args( $usection['map'], $area );
-					
-					$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $settings );
 				}
 
 			}

@@ -28,10 +28,31 @@
 		}
 
 		, listen: function() {
+			
+			// Set locking name
+			$('#site [data-custom-section]').each( function(){
+			
+				if( $(this).data('custom-section') != ''){
+					var sectionID = $(this).data('custom-section')
+					,	cSections = $.pl.config.csections
+					, 	cSectionName = cSections[sectionID]
+					
+					$(this)
+						.find('.area-unlock')
+						.attr('title', sprintf('Break link to "%s" section', cSectionName))
+						.end()
+						.find('.clocked')
+						.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" Section)',cSectionName ))
+						.end()
+				}
+			})
+			
+			
 			$('.btn-region').tooltip({placement: 'right'})
 			
 			$('.area-control').tooltip({ placement: 'top' })
-
+			
+			
 			$('.area-control:not(".pro-only-disabled")').on('click.areaControl', function(e){
 				e.preventDefault()
 
@@ -105,13 +126,21 @@
 			var that = this
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
-			,	message = sprintf('<h4><i class="icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="custom-section-name" placeholder="Section Name..." type="text" val="" /><textarea name="custom-section-desc" placeholder="Description"></textarea></form>', theID)
+			,	theSections = $.pl.config.csections
+			
+			var selectOpts = '<option value="" >- Select -</option>'
+			$.each(theSections, function(key, name){
+				
+				selectOpts += sprintf('<option value="%s" >%s</option>', key, name)
+			})
+			
+			var message = sprintf('<h4><i class="icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="custom-section-name" placeholder="Section Name..." type="text" val="" /><textarea name="custom-section-desc" placeholder="Description"></textarea><label>Or update...</label><select name="custom-section-update">%s</select></form>', theID, selectOpts)
 		
 		
 			bootbox.confirm(
 				message
 				, '<i class="icon-remove"></i> Cancel'
-				, '<i class="icon-save"></i> Save Section'
+				, '<i class="icon-save"></i> Save'
 				, function( result ){
 					if( result == true ){
 
