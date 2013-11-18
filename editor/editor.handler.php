@@ -72,7 +72,7 @@ class PageLinesTemplateHandler {
 		?><script>
 			!function ($) {
 				
-				var gt = new Gettext()
+				
 				$.pl = {
 					data: {
 						local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
@@ -94,6 +94,7 @@ class PageLinesTemplateHandler {
 						,	saving: false
 					}
 					, lang: function( args ){
+						var gt = new Gettext()
 						return gt.gettext( args )
 					}
 					, config: {
