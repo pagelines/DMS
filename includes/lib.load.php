@@ -88,7 +88,7 @@ function pl_check_cache_modes() {
 		return false;
 	
 	$global_settings = pl_settings();
-	if (  true == $global_settings['settings']['no_cache_mode'] ) {
+	if (  isset($global_settings['settings']['no_cache_mode']) && true == $global_settings['settings']['no_cache_mode'] ) {
 		delete_transient( 'pagelines_sections_cache' );
 		
 		if( ! pl_draft_mode() )
