@@ -1,7 +1,9 @@
 ********************************************************
 
 	PageLines I18n
+	==============
 	
-	Included is en_US.po
+	Join our translation task force at
+	www.transifex.com/projects/p/pagelines-dms/
 
 ********************************************************
