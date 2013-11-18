@@ -115,7 +115,11 @@ function pl_editor_actions(){
 
 			$settings->reset_local( $pageID );
 
-		} elseif( $run == 'delete' ){
+		} elseif( $run == 'reset_type' ){
+
+			$settings->reset_local( $typeID );
+
+		}elseif( $run == 'delete' ){
 
 			// delete clone index by keys
 

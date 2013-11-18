@@ -371,6 +371,14 @@ class EditorSettings {
 					'help'		=> __( "Use this button to reset all settings on the current page back to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
 			),
 			array(
+					'key'		=> 'reset_type',
+					'type'		=> 'action_button',
+					'classes'	=> 'btn-important',
+					'label'		=> __( '<i class="icon-undo"></i> Reset Current Post Type Settings', 'pagelines' ),
+					'title'		=> __( 'Reset Current Post Type Settings', 'pagelines' ),
+					'help'		=> __( "Use this button to reset all settings on the current post type back to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
+			),
+			array(
 					'key'		=> 'reset_cache',
 					'col'		=> 2,
 					'type'		=> 'action_button',
