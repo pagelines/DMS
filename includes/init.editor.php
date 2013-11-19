@@ -98,7 +98,7 @@ class PageLinesEditor {
 		$templates_handler = new EditorTemplates;
 
 		// Mapping
-		$this->map = new PageLinesTemplates( $this->templates ); // this needs to be rewritten and moved to mapping class
+		$this->map = new PageLinesTemplates( $templates_handler ); // this needs to be rewritten and moved to mapping class
 
 		$this->saving_utility = new PageLinesSave;
 
@@ -143,7 +143,7 @@ class PageLinesEditor {
 
 
 		// Editor UX Elements
-		$this->interface = new EditorInterface( $this->page, $this->siteset, $this->draft, $this->templates, $this->map, $this->extensions, $this->themer );
+		$this->interface = new EditorInterface( $this->page, $this->siteset, $this->draft, $templates_handler, $this->map, $this->extensions, $this->themer );
 
 		// Master UX Handler
 		$this->handler = new PageLinesTemplateHandler(
