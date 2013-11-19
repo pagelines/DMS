@@ -8,8 +8,6 @@ class PageLinesUpdateCheck {
     	$this->theme  = 'DMS';
  		$this->version = $version;
 
-		$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
-
 		$this->email = (isset($status['email'])) ? $status['email'] : '';
 		$this->key = (isset($status['key'])) ? $status['key'] : '';
 
@@ -31,11 +29,12 @@ class PageLinesUpdateCheck {
 		if( 'dms' != $folder )
 			return;
 		
-		add_action('admin_notices', array( $this,'pagelines_theme_update_nag') );
 		add_filter('site_transient_update_themes', array( $this,'pagelines_theme_update_push') );
 		add_filter('transient_update_themes', array( $this,'pagelines_theme_update_push') );
-		add_action('load-update.php', array( $this,'pagelines_theme_clear_update_transient') );
+//		add_action('load-update-core.php', array( $this,'pagelines_theme_clear_update_transient') );
 		add_action('load-themes.php', array( $this,'pagelines_theme_clear_update_transient') );
+		add_action('admin_notices', array( $this,'pagelines_theme_update_nag') );
+		
 	}
 
 		/**
@@ -61,9 +60,8 @@ class PageLinesUpdateCheck {
 	function pagelines_theme_clear_update_transient() {
 
 		delete_transient( EXTEND_UPDATE );
-		remove_action( 'admin_notices', array( $this,'pagelines_theme_update_nag' ) );
+	//	remove_action( 'admin_notices', array( $this,'pagelines_theme_update_nag' ) );
 		delete_transient( 'pagelines_sections_cache' );
-		remove_theme_mod( 'pending_updates' );
 	}
 
 
@@ -77,16 +75,17 @@ class PageLinesUpdateCheck {
 
 		if ( ! is_super_admin() || ! $pagelines_update || ! current_user_can( 'edit_themes' ) )
 			return false;
+
 		$screen = get_current_screen();
 
-		if( ! in_array( $screen->id, array( 'update-core', 'dashboard', 'toplevel_page_PageLines-Admin' ) ) )
+		if( ! in_array( $screen->id, array( 'update-core', 'dashboard', 'toplevel_page_PageLines-Admin', 'themes' ) ) )
 			return false;
 
-		$account_set_url = add_query_arg( array( 'tablink' => 'account', 'tabsublink' => 'pl_account#pl_account' ), site_url() );
+		$account_set_url = add_query_arg( array( 'tablink' => 'account', 'tabsublink' => 'pl_account#pl_account' ), admin_url() );
 
 		$details_button = ( $pagelines_update['extra'] ) ? '<span style="float:right"><a class="pl_updates" href="#">Details</a></span>' : '';
 
-		$warning = ( $screen->id == 'update-core' ) ? '<br /><strong>Please</strong> update all plugins before upgrading DMS.' : '';
+		$warning = ( $screen->id == 'update-core' || $screen->id == 'themes' ) ? '<br /><strong>Please</strong> update all plugins before upgrading DMS.' : '';
 
 		$details = ( $pagelines_update['extra'] ) ? sprintf( '<span id="pl_updates_data" style="display:none"><br />%s</span>', $pagelines_update['extra'] ) : '';
 
@@ -137,14 +136,14 @@ class PageLinesUpdateCheck {
 
 			// Else, unserialize
 			$pagelines_update = maybe_unserialize($pagelines_update);
-
+			
+			if( false == pl_is_pro() )
+				$pagelines_update['package'] = 'bad';
+			
 			// And store in transient
 			$this->set_transients( $pagelines_update, 60*60*24 );
 			if ( isset( $pagelines_update['licence'] ) )
 				update_pagelines_licence( $pagelines_update['licence'] );
-
-		//	$this->pagelines_get_user_updates();
-
 		}
 
 		// If we're already using the latest version, return FALSE
@@ -158,19 +157,5 @@ class PageLinesUpdateCheck {
 	function set_transients( $pagelines_update, $time ) {
 
 		set_transient( EXTEND_UPDATE, $pagelines_update, $time );
-	}
-
-	function pagelines_get_user_updates() {
-
-		$options = array(
-			'body'	=> array(
-				'updates'	=> json_encode( get_theme_mod( 'available_updates' ) )
-			) );
-
-		$url = PL_API . '?get_updates';
-		$response = pagelines_try_api($url, $options);
-
-		$pagelines_update = wp_remote_retrieve_body($response);
-		set_theme_mod( 'pending_updates', $pagelines_update );
 	}
 } // end class
