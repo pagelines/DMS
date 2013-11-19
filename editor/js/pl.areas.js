@@ -48,7 +48,7 @@
 			})
 			
 			
-			$('.btn-region').tooltip({placement: 'right'})
+			$('.btn-region').tooltip({placement: 'top'})
 			
 			$('.area-control').tooltip({ placement: 'top' })
 			
@@ -157,8 +157,6 @@
 										if( !response )
 											return
 											
-										response.key
-										
 										theArea
 											.addClass('custom-section editing-locked')	
 											.data('custom-section', response.key)

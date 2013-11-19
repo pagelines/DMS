@@ -6,36 +6,69 @@
 
 			var that = this
 			,	map = {}
+			, 	templateClass = 'custom-template'
 
 			$('.pl-region').each( function(regionIndex, o) {
 
 				var region = $(this).data('region')
 				, 	areaConfig = []
 
-				$(this).find('.pl-area').each( function(areaIndex, o2) {
+				
+				if( $(this).hasClass( templateClass ) && plIsset( $(this).data( templateClass ) ) ){
 					
-					if( $(this).hasClass('custom-section') ){
-						
-						addItem = {
-							usection: $(this).data( 'custom-section' )
-						}
-					} else {
-						areaSet = that.getAreaMapping( $(this) )
-						addItem = areaSet.map
+					addItem = {
+						ctemplate: $(this).data( templateClass )
 					}
-						
+					
+				} else {
 
-					areaConfig.push( addItem )
-
-				})
-
-				map[region] = areaConfig
+					var regionSet = that.getRegionMapping( $(this) )
+				
+					addItem = regionSet.map
+				}
+			
+				map[region] = addItem
 
 			})
 
 			
 			return map
 
+		}
+		
+		, getRegionMapping: function( region ){
+			var that = this
+			,	areaConfig = []
+			,	settingConfig = []
+			,	scope = ( region.data('region') == 'template') ? 'local' : 'global'
+			,	templateClass = 'custom-section'
+			
+			region.find('.pl-area').each( function(areaIndex, o2) {
+				
+				if( $(this).hasClass( templateClass )  && plIsset( $(this).data( templateClass ) )){
+					
+					addItem = {
+						usection: $(this).data( templateClass )
+					}
+				} else {
+					areaSet = that.getAreaMapping( $(this) )
+					addItem = areaSet.map
+					settingConfig.push( areaSet.settings )
+				}
+					
+
+				areaConfig.push( addItem )
+				
+
+			})
+			
+				
+			var	set = {
+					map: areaConfig
+					, settings: settingConfig
+				}
+				
+			return set
 		}
 		
 		, getAreaMapping: function( area ){

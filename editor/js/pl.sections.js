@@ -39,7 +39,7 @@ $.plSections = {
 			, 	cursor: "move"
 			, 	connectToSortable: ".pl-sortable-area"
 			,	zIndex: 10000
-		//	,	distance: 20
+			,	distance: 20
 			, 	start: function(event, ui){
 
 					that.switchOnAdd( ui.helper )
@@ -50,6 +50,10 @@ $.plSections = {
 
 
 				}
+			, 	stop: function(event, ui){
+					$('body')
+						.removeClass('pl-dragging')
+				}
 		})
 
 		$('.panel-add-new').find( '.x-item.pl-area-sortable' ).draggable({
@@ -58,7 +62,7 @@ $.plSections = {
 			, 	cursor: "move"
 			, 	connectToSortable: ".pl-area-container"
 			,	zIndex: 10000
-		//	,	distance: 20
+			,	distance: 20
 			, 	start: function(event, ui){
 
 					that.switchOnAdd( ui.helper )
@@ -68,6 +72,10 @@ $.plSections = {
 						.css('height', 'auto')
 
 
+				}
+			, 	stop: function(event, ui){
+					$('body')
+						.removeClass('pl-dragging')
 				}
 		})
 
@@ -109,7 +117,7 @@ $.plSections = {
 			.addClass( sectionClass )
 			
 		// Don't think this is actually needed.
-		// var newUniqueID = $.plDatas.handleNewItemData( element )
+		var newUniqueID = $.plDatas.handleNewItemData( element )
 
 		if( activeLoad ){
 			

@@ -50,7 +50,8 @@ pagelines_register_hook('pagelines_before_html'); // Hook
 						</div>
 					</header>
 					<?php pagelines_register_hook('pagelines_before_main'); // Hook ?>
-					<div id="page-main" class="pl-region" data-region="template">
+					
+					<div id="page-main" <?php echo pl_get_template_region_attributes();?> data-region="template" >
 						<div id="dynamic-content" class="outline template-region-wrap pl-area-container">
 							<?php pagelines_special_content_wrap_top(); ?>
 

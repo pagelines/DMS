@@ -133,7 +133,7 @@ class PageLinesExtendPanel{
 				var url = sprintf('http://api.pagelines.com/v4/search/index.php?s=%s&callback=?',s)
 				
 				jQuery.getJSON(url,function(result){
-					//plPrint(result)
+
 					
 					jQuery(".store-search-results").append("<li><strong>" + result.results + " results</strong><?php _e( ' found for ', 'pagelines' ); ?>
 					<strong>" + s + "</strong></li>");

@@ -94,7 +94,6 @@
 				}
 				, 	success: function( response ){
 						
-						console.log( $.parseJSON( response ) )
 						$.pl.flags.saving = false
 						
 						that.runSuccess( theData, response )

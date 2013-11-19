@@ -88,13 +88,14 @@ class PageLinesEditor {
 		global $storeapi;
 		global $fileopts;
 		global $sections_handler;
+		global $templates_handler;
 
 		$plpg = $this->page = new PageLinesPage;
 		$pldraft = $this->draft = new EditorDraft( $this->page );
 		$storeapi = $this->storeapi = new EditorStoreFront;
 		$this->layout = new EditorLayout();
 
-		$this->templates = new EditorTemplates( $this->page );
+		$templates_handler = new EditorTemplates;
 
 		// Mapping
 		$this->map = new PageLinesTemplates( $this->templates ); // this needs to be rewritten and moved to mapping class

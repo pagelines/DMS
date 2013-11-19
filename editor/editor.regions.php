@@ -17,13 +17,10 @@ class PageLinesRegions {
 
 		if($region == 'header' || $region == 'footer'){
 
-			$region_title = sprintf(__('Global Scope Region', 'pagelines'), $region_name);
+			$region_title = sprintf(__('Global Region', 'pagelines'), $region_name);
 
-			$region_name .= ' <i class="icon-globe"></i>';
 		} else {
-			$region_title = sprintf(__('Local Scope Region', 'pagelines'), $region_name);
-
-			$region_name .= ' <i class="icon-map-marker"></i>';
+			$region_title = sprintf(__('Local Region', 'pagelines'), $region_name);
 		}
 
 		printf(

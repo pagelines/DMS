@@ -19,12 +19,16 @@ class PageLinesTemplates {
 	function get_map( ){
 
 		global $sections_handler;
+		global $pl_custom_template; 
+		
+		$pl_custom_template = false;
 
 		$map['header'] = $this->get_region( 'header' );
 		$map['footer'] = $this->get_region( 'footer' );
 		$map['template'] = $this->get_region( 'template' );
 		
 		$map = $sections_handler->replace_user_sections( $map );
+		
 		
 		return $map;
 
@@ -51,21 +55,31 @@ class PageLinesTemplates {
 				
 				
 				$map = $set['custom-map'];
+				
+				if( isset( $map[ $region ]['ctemplate'] ) ){
+					
+					global $pl_custom_template;
+					
+					$pl_custom_template = $map[ $region ]['ctemplate'];
+					
+					$map = $this->get_map_from_template_key( $map[ $region ]['ctemplate'] );
+					
+				
+				}
+					
 
-			} elseif( $tpl ){
-
-				$map = $this->get_map_from_template_key( $tpl ); 
-
-			}
-		
-			
-			if( is_page() && !$map && isset( $this->set->global['page-template']) )
+			} elseif( is_page() && isset( $this->set->global['page-template']) ){
+				
 				$map = $this->get_map_from_template_key( $this->set->global['page-template'] ); 
+				
+			}
+				
 			
 		}
 		
-	
-		return ( $map && isset($map[ $region ]) ) ? $map[ $region ] : $this->default_region( $region );		
+		$region_map = ( $map && isset($map[ $region ]) ) ? $map[ $region ] : $this->default_region( $region );		
+
+		return $region_map;
 		
 	}
 	
@@ -202,8 +216,6 @@ class EditorTemplates {
 		$typeID = $data['typeID'];
 		$run = $data['run'];
 		
-		$response['run_me'] = 'go';
-		
 		if ( $run == 'load' ){
 
 			$metaID = (isset($data['templateMode']) && $data['templateMode'] == 'type') ? $typeID : $pageID;
@@ -233,7 +245,7 @@ class EditorTemplates {
 			$desc = (isset($data['template-desc'])) ? $data['template-desc'] : '';
 
 			if( $name )
-				$this->create_template($name, $desc, $template_map, $settings, $pageID);
+				$response['key'] = $this->create_template($name, $desc, $template_map, $settings, $pageID);
 
 		} elseif( $run == 'set_type' ){
 
@@ -295,7 +307,7 @@ class EditorTemplates {
 				),
 				'tmp_save'	=> array(
 					'name'	=> __( 'Page Controls', 'pagelines' ),
-					'call'	=> array( $this, 'save_templates'),
+					'call'	=> array( $this, 'page_settings'),
 					'icon'	=> 'icon-wrench'
 				),
 			)
@@ -329,7 +341,7 @@ class EditorTemplates {
 			<div class="pl-list-row row pl-template-row <?php echo join(' ', $classes); ?>" data-key="<?php echo $index;?>">
 				
 				<div class="span3 list-head">
-					<div class="list-title"><?php echo $template['name']; ?></div>
+					<div class="list-title"><?php echo stripslashes( $template['name'] ); ?></div>
 					
 				</div>
 				<div class="span3 list-actions">
@@ -390,7 +402,7 @@ class EditorTemplates {
 
 		<form class="opt standard-form form-save-template">
 			<fieldset>
-				<h4>Save New Template</h4>
+				<h4>Save Current Page As New Template</h4>
 				</span>
 				<label for="template-name"><?php _e( 'Template Name (required)', 'pagelines' ); ?>
 				</label>
@@ -412,7 +424,7 @@ class EditorTemplates {
 		printf('<div class="row"><div class="span7"><div class="pl-list-contain">%s</div></div><div class="span5">%s</div></div>', $list, $form);
 	}
 
-	function save_templates(){
+	function page_settings(){
 
 		?>
 
@@ -499,12 +511,16 @@ class EditorTemplates {
 		
 		$key = pl_create_id( $name );
 
-		$templates[ $key ] = array(
-			'name'		=> $name,
-			'desc'		=> $desc,
-			'map'		=> $map, 
-			'settings'	=> $settings
-		);
+		$new = array( $key => array(
+				'name'		=> $name,
+				'desc'		=> $desc,
+				'map'		=> $map, 
+				'settings'	=> $settings
+				)
+			);
+
+		$templates = array_merge( $new, $templates );
+		
 
 		pl_opt_update( $this->template_slug, $templates );
 		

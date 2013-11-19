@@ -77,16 +77,27 @@ $.plTemplates = {
 			e.preventDefault()
 
 			var form = $(this).formParams()
+			,	theRegion = $('[data-region="template"]')
 			,	args = {
 						mode: 'set_template'
 					,	run: 'save'
-					,	confirm: false
 					,	savingText: $.pl.lang("Saving Template")
 					,	refreshText: $.pl.lang("Successfully Saved. Refreshing page")
-					,	refresh: true
 					, 	log: true
 					,	map: $.plMapping.getCurrentMap()
 					,	settings: $.pl.data.local
+					,	postSuccess: function( response ){
+							if( !response )
+								return
+								
+							theRegion
+								.addClass('custom-template editing-locked')	
+								.data('custom-template', response.key)
+								.attr('data-custom-template', response.key)
+								
+							// Reload page with custom sections tab open
+							$.pageBuilder.reloadConfig( {location: 'new custom section', refresh: true, refreshArgs: '?tablink=add-new&tabsublink=custom'} )
+						}
 				}
 			,	args = $.extend({}, args, form) // add form fields to post
 

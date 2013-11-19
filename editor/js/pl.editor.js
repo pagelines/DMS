@@ -850,11 +850,15 @@
 			,	reloadSort = reloadSort || false
 			,	sortableArgs = {}
 
-		    $( '.pl-area:not(.editing-locked) .pl-sortable-area' ).sortable( that.sortableArguments( 'section' ) )
-
-
-			// AREA drag and drop
-			$( '.pl-area-container' ).sortable( that.sortableArguments( 'area' ) )
+		 
+			$('.pl-region:not(.editing-locked)')
+	  			.find('.pl-area:not(.editing-locked) .pl-sortable-area')
+					.sortable( that.sortableArguments( 'section' ) )
+					.end()
+   				.find('.pl-area-container')
+   					.sortable( that.sortableArguments( 'area' ) )
+		
+	
 
 		}
 
