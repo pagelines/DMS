@@ -19,7 +19,6 @@
 				,	tabPanel = $("[data-panel='"+tabAction+"']")
 				, 	output = ''
 				
-				
 				if( theTab.hasClass('tab-dev_log') ){
 					
 					if( $('.plprint-container').length != 0 ){
@@ -51,10 +50,11 @@
 				}
 				
 				if( output != ''){
-					
-					$('body').on('panel-setup', function(){
-						tabPanel.find('.panel-tab-content').html( output )
-					
+					// weird, not fun, load order issues. Do this once on initial, again after settings have a chance to fill in
+					// needs to be after tabs setup because we're also using setting which fill the pane
+					tabPanel.find('.opt-fill-in').html( output )
+					$('body').one('panelSetup', function(e, panel){
+						tabPanel.find('.opt-fill-in').html( output )
 					})
 					
 				}

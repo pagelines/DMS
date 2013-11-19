@@ -395,7 +395,7 @@
 
 			selectedTab.addClass('active-tab')
 			
-			$('body').trigger('panel-setup')
+			$('body').trigger('panelSetup', [ selectedPanel ])
 
 			$.xList.listStop()
 

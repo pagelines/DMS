@@ -150,6 +150,7 @@ class PLDeveloperTools {
 			'opts' 	=> array(
 
 				array(
+					'key'		=> 'fill-in',
 					'type' 		=> 	'template',
 					'template'	=> 'Nothing appears to have been logged.'
 				),
@@ -162,6 +163,7 @@ class PLDeveloperTools {
 			'icon'	=> 'icon-wrench',
 			'opts' 	=> array(
 				array(
+					'key'		=> 'fill-in',
 					'type' 		=> 	'template',
 					'template'	=> 'No performance data exists on the page.'
 				),
