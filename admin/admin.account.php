@@ -72,7 +72,7 @@ class PLAccountAdmin {
 					<?php endif; ?>
 				</div>
 				
-				<? if($active): ?>
+				<?php if($active): ?>
 					<button class="button settings-action deactivate-key pl-account-action"> <?php _e( 'Deactivate', 'pagelines' ); ?></button>
 				<?php endif; ?>
 			</div>
