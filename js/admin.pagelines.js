@@ -111,37 +111,47 @@ $(document).ready(function(){
 				}
 			, 	success: function(response) {
 					window.clearInterval(interval); // clear dots...
-			
-					saveText.text('Updated!');
-				
-					saveText
-						.delay(800)
-						.fadeOut('slow')
-				
 					var rsp	= $.parseJSON( response )
-				
-					var theMessages = ''
-				
-					$.each(rsp.messages, function(i, val){ 
-						 theMessages += '<div>'+val+'</div>'
-					})
-				
-					theForm.find('.the-msg').html(theMessages)
+					
+					
+			
+			
+					// check for errors...
+					if( '' ==  rsp.email ) {
+						saveText.text('Please enter an email address.');
+						 saveText
+							.delay(1200)
+							.fadeOut('slow')
+					} else if ( '' ==  rsp.key ) {
+						saveText.text('Please enter a valid key.');
+						 saveText
+							.delay(1200)
+							.fadeOut('slow')
+					} else {
+						saveText.text('Updated!');
+						 saveText
+							.delay(800)
+							.fadeOut('slow')
 
+
+
+						var theMessages = ''
+
+						$.each(rsp.messages, function(i, val){ 
+							 theMessages += '<div>'+val+'</div>'
+						})
+
+						theForm.find('.the-msg').html(theMessages)
+						
+						pl_url_refresh( false, 800 );
+					}
+					
 				
+				//console.log( response );
 			}
-			
-		
-			
 		})
-		
-		
 		return false
-		
-		
 	})
-
-
 });
 // End AJAX Uploading
 

@@ -7,7 +7,7 @@ class PLAccountAdmin {
 		
 		add_action( 'pl_ajax_pl_account_actions', array( $this, 'pl_account_actions' ), 10, 2 );
 		
-		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
+//		add_action( 'admin_init', array( $this, 'activation_check_function' ) );
 		
 		add_action( 'pagelines_options_pagelines_account', array( $this, 'pagelines_account') );
 	}
@@ -66,6 +66,7 @@ class PLAccountAdmin {
 				<div class="the-msg">
 					<?php if( $active ):  ?>
 						<?php _e( 'Pro Activated!', 'pagelines' ); ?> - <?php printf($activation_message);  ?>
+						<span class="description"><a href="http://www.pagelines.com/my-account/">View PageLines Account</a></span>
 					<?php else: ?>
 						<strong><?php _e( 'Site Not Activated', 'pagelines' ); ?></strong>
 					<?php endif; ?>
@@ -75,7 +76,7 @@ class PLAccountAdmin {
 					<button class="button settings-action deactivate-key pl-account-action"> <?php _e( 'Deactivate', 'pagelines' ); ?></button>
 				<?php endif; ?>
 			</div>
-			
+			<?php if( ! $active ) : ?>
 			<div class="pl-input-field">
 
 				<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?>  autocomplete="off"/> &nbsp; <span class="description"><?php _e( "Your PageLines account email."); ?></span>
@@ -83,17 +84,17 @@ class PLAccountAdmin {
 			</div>
 	
 			<div class="pl-input-field">	 
-				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>" value="<?php echo $data['key']; ?>" <?php echo $disable; ?>  autocomplete="off"/> &nbsp; <span class="description"><?php _e( "PageLines Updates and Support Activation Key."); ?> <a href="http://www.pagelines.com/my-account/">View PageLines Account</a></span>
+				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>" value="" <?php echo $disable; ?>  autocomplete="off"/> &nbsp; <span class="description"><?php _e( "PageLines Updates and Support Activation Key."); ?> <a href="http://www.pagelines.com/my-account/">View PageLines Account</a></span>
 		
 			</div>
 		
 		
 			<div class="pl-input-field">
-					<input type="submit" class="button button-primary pl-account-action" value="<?php _e( 'Update Account', 'pagelines' ); ?>">
+					<input type="submit" class="button button-primary pl-account-action" value="<?php _e( 'Activate Site', 'pagelines' ); ?>">
 					<span class="saving-confirm"></span>
 					
 			</div>
-			
+			<?php endif; ?>
 		</div>
 		
 	<?php 
@@ -200,7 +201,7 @@ class PLAccountAdmin {
 			$email, 
 			site_url() 
 		);	
-		
+
 		$data = wp_remote_get( $url );
 
 		$rsp = ( ! is_wp_error( $data ) && isset( $data['body'] ) ) ? (array) json_decode( $data['body'] ) : array();
@@ -216,7 +217,7 @@ class PLAccountAdmin {
 				PL_API_URL,
 				$email,
 				$type
-			);		
+			);
 		$data = wp_remote_get( $url, array( 'timeout' => 20 ) );		
 		$rsp = ( ! is_wp_error( $data ) && isset($data['body'] ) ) ? (array) json_decode( $data['body'] ) : array();		
 		return $rsp;
@@ -230,10 +231,7 @@ class PLAccountAdmin {
 		$email = $postdata['email'];	
 		$reset = ($postdata['reset'] == "true") ? true : false ;
 		$update = ($postdata['update'] == "true") ? true : false ;
-		
-		
-		
-		
+				
 		$response = array( 
 			'key'	=> $key, 
 			'email'	=> $email, 
@@ -272,7 +270,7 @@ class PLAccountAdmin {
 			$current_key = ( isset( $old_activation['key'] ) ) ? $old_activation['key'] : false;
 			$current_email = ( isset( $old_activation['email'] ) ) ? $old_activation['email'] : false;
 			
-			$rsp = $this->remote_key_request( 'deactivation', $key, $email );
+			$rsp = $this->remote_key_request( 'deactivation', $current_key, $current_email );
 			
 			$response['deactivation_response'] = $rsp; 
 			
