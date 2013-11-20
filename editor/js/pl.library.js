@@ -155,6 +155,8 @@ function pl_do_shortcode(opt) {
  * =============================================
  */
 function pl_url_refresh(url,timeout){
+	if( !url )
+		var url = window.location.href;
 	if(!timeout)
 		var timeout = 0
 	setTimeout(function() {

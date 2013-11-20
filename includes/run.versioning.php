@@ -17,8 +17,6 @@ if ( version_compare( $actual, $installed ) > 0 ) {
 		delete_transient( 'pagelines_extend_plugins' );
 		delete_transient( 'pagelines_extend_integrations' );
 		delete_transient( 'pagelines_sections_cache' );
-		remove_theme_mod( 'available_updates' );
-		remove_theme_mod( 'pending_updates' );
 		define( 'PL_CSS_FLUSH', true );
 }
 set_theme_mod( 'pagelines_version', $actual );

@@ -57,7 +57,8 @@ function pagelines_theme_settings_init() {
 function pagelines_theme_settings_scripts() {
 
 	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, PL_CORE_VERSION );
-	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery' ), PL_CORE_VERSION );
+	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION );
+	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library' ), PL_CORE_VERSION );
 	
 	pl_enqueue_codemirror();
 

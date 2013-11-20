@@ -25,6 +25,26 @@ class PageLinesEditorUpdates {
 		$storeapi->del( 'store_mixed' );
 	}
 	
+	function push_update_message() {
+
+		if( ! pl_is_pro() && ! has_action( 'admin_notices', array( $this, 'push_update_message_text' ) ) )
+			add_action( 'admin_notices', array( $this, 'push_update_message_text' ) );
+	}
+	
+	function push_update_message_text() {
+		
+		require_once( ABSPATH . 'wp-admin/includes/screen.php' );
+		$screen = get_current_screen();
+		$account_set_url = admin_url( 'admin.php?page=PageLines-Admin');
+
+		if( ! in_array( $screen->id, array( 'update-core', 'dashboard', 'toplevel_page_PageLines-Admin', 'themes' ) ) )
+			return false;
+
+		printf( '<div class="updated"><p>%s</p></div>',
+		sprintf( __( 'There are available updates for some PageLines Products, <a href="%s">Click Here</a> to login and get them updated.', 'pagelines' ), $account_set_url )
+		);
+	}
+	
 	function injectUpdateThemes( $updates ) {
 
 		global $storeapi;
@@ -38,17 +58,20 @@ class PageLinesEditorUpdates {
 			if( ! isset( $mixed_array[$slug]['version'] ) )
 				continue;
 				
-			if( $mixed_array[$slug]['version'] > $data['Version'] && $this->pl_is_pro() ) {
-				$updates->response[$slug] = $this->build_theme_array( $mixed_array[$slug], $data );		
+			if( $mixed_array[$slug]['version'] > $data['Version'] ) {
+				if( $this->pl_is_pro() )
+					$updates->response[$slug] = $this->build_theme_array( $mixed_array[$slug], $data );
+				else
+					$this->push_update_message();
 			} else {
-				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$slug] ) ) {
+				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$slug] ) ) {					
 					unset( $updates->response[$slug] );
 				}
 			}
 		}
 		return $updates;
 	}
-	
+
 	function injectUpdatePlugins( $updates ) {
 		
 		global $pl_plugins;
@@ -75,8 +98,11 @@ class PageLinesEditorUpdates {
 			}
 
 			// If PageLines plugin has API data and a version check it and build a response.
-			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] > $data['Version'] ) && $this->pl_is_pro() ) {
-				$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
+			if( isset( $mixed_array[$slug]['version'] ) && ( $mixed_array[$slug]['version'] > $data['Version'] ) ) {
+				if( $this->pl_is_pro() )
+					$updates->response[$path] = $this->build_plugin_object( $mixed_array[$slug], $data );
+				else
+					$this->push_update_message();	
 			} else {
 				if( is_object( $updates ) && isset( $updates->response ) && isset( $updates->response[$path] ) ) {
 					unset( $updates->response[$path] );
