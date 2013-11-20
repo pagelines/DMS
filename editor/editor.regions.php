@@ -15,10 +15,10 @@ class PageLinesRegions {
 
 		if($region == 'header' || $region == 'footer'){
 
-			$region_title = sprintf(__('Global Region', 'pagelines'), $region);
+			$region_title = sprintf(__('Global Scope', 'pagelines'), $region);
 
 		} else {
-			$region_title = sprintf(__('Local Region', 'pagelines'), $region);
+			$region_title = sprintf(__('Local Scope', 'pagelines'), $region);
 		}
 
 		printf(

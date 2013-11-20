@@ -32,10 +32,12 @@ $.plTemplates = {
 			
 			theRegion
 				.find('.btn-region')
+					.addClass('region-unlock')
 					.html(sprintf('"%s" Template (<i class="icon-unlock"></i> Unlock)',templateName ))
 					.end()
 				.find('.area-unlock')
 					.attr('title', sprintf('Linked to "%s" template', templateName))
+					.addClass('region-unlock')
 					.end()
 				.find('.clocked')
 					.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" template)',templateName ))
@@ -62,8 +64,45 @@ $.plTemplates = {
 			
 		}
 		
+		// Load the template tooltips
 		$('.tt-top').tooltip({placement: 'top'})
 
+		$(".region-unlock").on("click.regionUnlock", function(e) {
+
+			e.preventDefault()
+			
+			var confirmText = $.pl.lang('<h4>Unlink Template</h4>This will remove the current pages connection to a template? Are you sure?')
+			
+			bootbox.confirm( confirmText, function( result ){
+				if(result == true){
+					
+					theRegion
+						.data('custom-template', false)
+						.removeClass('custom-template editing-locked')
+						.find('.btn-region')
+							.html('Template')
+							.end()
+						.find('.area-unlock')
+							.attr('title', sprintf('Unlock', templateName))
+							.removeClass('region-unlock')
+							.end()
+						.find('.clocked')
+							.html('')
+							.end()
+					
+						
+					$.removeData( theRegion, 'custom-template')
+					
+					$.pageBuilder.reloadConfig( {refresh: false } )
+				}
+			})
+			
+			
+			
+			
+		
+		})
+		
 		$(".load-template").on("click.loadTemplate", function(e) {
 
 			e.preventDefault()
