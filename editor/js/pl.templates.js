@@ -5,38 +5,76 @@ $.plTemplates = {
 	init: function(){
 		this.bindUIActions()
 	}
+	
+	, defaultArgs: function( btn ){
+		
+		var that = this
+		,	theRegion = $('[data-region="template"]')
+		,	btn = btn || false
+		,	key	= (btn) ? btn.closest('.pl-template-row').data('key') : false
+		,	args = {
+				mode: 'set_template'
+				, key: key
+			}
+		
+		return args
+	}
 
 	, bindUIActions: function(){
+		
 		var that = this
+		,	theRegion = $('[data-region="template"]')
+		
+		if( plIsset( theRegion.data('custom-template') )){
+			
+			var templateID = theRegion.data('custom-template')
+			, 	templateName = theRegion.data('template-name')
+			
+			theRegion
+				.find('.btn-region')
+					.html(sprintf('"%s" Template (<i class="icon-unlock"></i> Unlock)',templateName ))
+					.end()
+				.find('.area-unlock')
+					.attr('title', sprintf('Linked to "%s" template', templateName))
+					.end()
+				.find('.clocked')
+					.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" template)',templateName ))
+					.end()
+		} else {
+			
+			// Set locking name
+			$('#site [data-custom-section]').each( function(){
 
-		// fix issue with drop down falling behind
-		$('.actions-toggle').on('click', function(){
-			$('.x-templates').css('z-index', 7);
-			$(this).closest('.x-templates').css('z-index', 8)
-		})
+				if( $(this).data('custom-section') != ''){
+					var sectionID = $(this).data('custom-section')
+					,	cSections = $.pl.config.csections
+					, 	cSectionName = cSections[sectionID]
 
-		$('.tpl-tag').tooltip({placement: 'top'})
-
+					$(this)
+						.find('.area-unlock')
+						.attr('title', sprintf('Break link to "%s" section', cSectionName))
+						.end()
+						.find('.clocked')
+						.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" Section)',cSectionName ))
+						.end()
+				}
+			})
+			
+		}
+		
+		$('.tt-top').tooltip({placement: 'top'})
 
 		$(".load-template").on("click.loadTemplate", function(e) {
 
 			e.preventDefault()
-
-			var args = {
-					mode: 'set_template'
-				,	run: 'load'
-				,	confirm: true
-				,	confirmText: $.pl.lang("<h3>Are you sure?</h3><p>Loading a new template will overwrite the current page's configuration.</p>")
-				,	savingText: $.pl.lang("Loading Template")
-				,	refresh: true
-				,	refreshText: $.pl.lang("Successfully Loaded. Refreshing page")
-				, 	log: true
-				,	key: $(this).closest('.pl-template-row').data('key')
-				,	templateMode: $.pl.config.templateMode
-			}
-
-			var response = $.plAJAX.run( args )
 			
+			var key = $(this).closest('.pl-template-row').data('key')
+			
+			theRegion
+				.data('custom-template', key)
+				.addClass('custom-template editing-locked')
+			
+			$.pageBuilder.reloadConfig( {location: 'load template', refresh: true } )
 		
 		})
 
@@ -44,30 +82,22 @@ $.plTemplates = {
 
 			e.preventDefault()
 
-			var key = $(this).closest('.pl-template-row').data('key')
-			,	theIsotope = $(this).closest('.isotope')
+			var defaultArgs = that.defaultArgs( $(this) )
 			,	args = {
-						mode: 'set_template'
-					,	run: 'delete'
+						run: 'delete'
 					,	confirm: true
 					,	confirmText: $.pl.lang("<h3>Are you sure?</h3><p>This will delete this template. All pages using this template will be reverted to their default page configuration.</p>")
-					,	savingText: $.pl.lang("Deleting Template")
-					,	refresh: false
-					, 	log: true
-					,	key: key
 					, 	beforeSend: function(){
-							$( '.template_key_'+key ).fadeOut(300, function() {
+							$( '.template_key_' + defaultArgs.key ).fadeOut(300, function() {
 								$(this).remove()
-
 							})
 
 					}
-					,	postSuccess: function(){
-						theIsotope.isotope( 'reLayout' )
-					}
 				}
+			,	args = $.extend({}, defaultArgs , args)
+			
 
-			var response = $.plAJAX.run( args )
+			$.plAJAX.run( args )
 
 		})
 
@@ -77,15 +107,10 @@ $.plTemplates = {
 			e.preventDefault()
 
 			var form = $(this).formParams()
-			,	theRegion = $('[data-region="template"]')
+			,	config = $.extend({}, $.plMapping.getRegionMapping( theRegion ), form)
 			,	args = {
-						mode: 'set_template'
-					,	run: 'save'
-					,	savingText: $.pl.lang("Saving Template")
-					,	refreshText: $.pl.lang("Successfully Saved. Refreshing page")
-					, 	log: true
-					,	map: $.plMapping.getCurrentMap()
-					,	settings: $.pl.data.local
+						run: 'create'
+					,	config: config
 					,	postSuccess: function( response ){
 							if( !response )
 								return
@@ -95,14 +120,13 @@ $.plTemplates = {
 								.data('custom-template', response.key)
 								.attr('data-custom-template', response.key)
 								
-							// Reload page with custom sections tab open
-							$.pageBuilder.reloadConfig( {location: 'new custom section', refresh: true, refreshArgs: '?tablink=add-new&tabsublink=custom'} )
+							$.pageBuilder.reloadConfig( { refresh: true } )
 						}
 				}
-			,	args = $.extend({}, args, form) // add form fields to post
+			,	args = $.extend({}, that.defaultArgs( $(this) ), args)
 
 
-			var response = $.plAJAX.run( args )
+			$.plAJAX.run( args )
 
 
 		})
@@ -112,26 +136,29 @@ $.plTemplates = {
 
 			e.preventDefault()
 
-			var that = this
-			,	key = $(this).closest('.pl-template-row').data('key')
+			var config = $.plMapping.getRegionMapping( theRegion )
 			,	args = {
-						mode: 'set_template'
-					,	run: 'update'
-					,	confirm: true
-					,	confirmText: $.pl.lang("<h3>Are you sure?</h3><p>This action will overwrite this template and its configuration. All pages using this template will be updated with the new config as well.</p>")
-					,	savingText: $.pl.lang("Updating Template")
-					,	successNote: true
-					,	successText: $.pl.lang("Template successfully updated!")
-					,	refresh: false
-					, 	log: true
+						run: 'update'
 					,	key: key
-					,	map: $.plMapping.getCurrentMap()
-					,	settings: $.pl.data.local
+					,	config: config
+					,	confirm: true
+					,	confirmText: $.pl.lang("<h3>Are you sure?</h3><p>This action will set the current page to this template. All pages using this template will be updated with the new config as well.</p>")
+					,	postSuccess: function( response ){
+							if( !response )
+								return
+								
+							theRegion
+								.addClass('custom-template editing-locked')	
+								.data('custom-template', response.key)
+								.attr('data-custom-template', response.key)
+								
+							$.pageBuilder.reloadConfig( { refresh: true } )
+						}
+					
 				}
+			,	args = $.extend({}, that.defaultArgs( $(this) ), args)
 
-			var response = $.plAJAX.run( args )
-
-
+			$.plAJAX.run( args )
 
 		})
 

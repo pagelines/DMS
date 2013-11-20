@@ -29,28 +29,6 @@
 
 		, listen: function() {
 			
-			// Set locking name
-			$('#site [data-custom-section]').each( function(){
-			
-				if( $(this).data('custom-section') != ''){
-					var sectionID = $(this).data('custom-section')
-					,	cSections = $.pl.config.csections
-					, 	cSectionName = cSections[sectionID]
-					
-					$(this)
-						.find('.area-unlock')
-						.attr('title', sprintf('Break link to "%s" section', cSectionName))
-						.end()
-						.find('.clocked')
-						.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" Section)',cSectionName ))
-						.end()
-				}
-			})
-			
-			
-			$('.btn-region').tooltip({placement: 'top'})
-			
-			$('.area-control').tooltip({ placement: 'top' })
 			
 			
 			$('.area-control:not(".pro-only-disabled")').on('click.areaControl', function(e){
