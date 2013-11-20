@@ -44,6 +44,8 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.importexport.php' );
 		require_once( PL_EDITOR . '/editor.color.php' );
 
+		// User objects base class
+		require_once( PL_EDITOR . '/editor.objects.php' );
 		require_once( PL_EDITOR . '/editor.templates.php' );
 
 		// Mobile

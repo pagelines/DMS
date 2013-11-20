@@ -5,30 +5,19 @@
 // ------------------------------------------
 // Using Custom Templates
 // ------------------------------------------
-function pl_is_custom_template(){
-	global $pl_custom_template; 
-	
-	return ( ! empty( $pl_custom_template ) ) ? true : false;
-}
-
-
-function pl_custom_template_key(){
-	global $pl_custom_template; 
-	
-	return ( ! empty( $pl_custom_template ) ) ? $pl_custom_template : false;
-}
-
-function pl_custom_template_name( $key ){
-	global $pl_custom_template; 
-	
-	return ( ! empty( $pl_custom_template ) ) ? $pl_custom_template : false;
-}
 
 function pl_get_template_region_attributes(){
+	global $pl_custom_template; 
 	
-	if( pl_is_custom_template() )
-		$attr = sprintf('class="pl-region custom-template editing-locked" data-custom-template="%s"', pl_custom_template_key()); 
-	else 
+	if(! empty( $pl_custom_template ) ){
+		
+		$attr = sprintf(
+			'class="pl-region custom-template editing-locked" data-custom-template="%s" data-template-name="%s"', 
+			$pl_custom_template['key'], 
+			stripslashes( $pl_custom_template['name'] )
+		);
+		
+	} else 
 		$attr = 'class="pl-region"';
 		
 	return $attr;

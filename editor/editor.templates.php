@@ -8,7 +8,7 @@ class PageLinesTemplates {
 
 		$this->tpl = $tpl;
 		
-		$this->mode = pl_draft_mode() ? 'draft' : 'live';
+		$this->mode = pl_get_mode();
 	
 		global $plpg; 
 		$this->page = $plpg;
@@ -47,9 +47,6 @@ class PageLinesTemplates {
 			$map = false;
 			
 			$set = (is_page()) ? $this->set->local : $this->set->type;
-	
-			
-			$tpl = ( isset($set['page-template']) ) ? $set['page-template'] : false;
 
 			if( isset( $set['custom-map'] ) && is_array( $set['custom-map'] ) ){
 				
@@ -58,19 +55,29 @@ class PageLinesTemplates {
 				
 				if( isset( $map[ $region ]['ctemplate'] ) ){
 					
+					$key = $map[ $region ]['ctemplate'];
+					
 					global $pl_custom_template;
 					
-					$pl_custom_template = $map[ $region ]['ctemplate'];
+					$pl_custom_template = $this->tpl->handler->retrieve( $key ); 
 					
-					$map = $this->get_map_from_template_key( $map[ $region ]['ctemplate'] );
+					if( $pl_custom_template ){
+						
+						$pl_custom_template['key'] = $key;
+
+						$map[ $region ] = $pl_custom_template['map'];
+						
+					} else 
+						$map = false;
 					
-				
+					
 				}
 					
 
 			} elseif( is_page() && isset( $this->set->global['page-template']) ){
 				
-				$map = $this->get_map_from_template_key( $this->set->global['page-template'] ); 
+				$key = $this->set->global['page-template']; 
+				$map = $this->tpl->handler->retrieve_field( $key, 'map'); 
 				
 			}
 				
@@ -83,20 +90,7 @@ class PageLinesTemplates {
 		
 	}
 	
-	
-	function get_map_from_template_key( $key ){
 
-		$templates = $this->tpl->get_user_templates();
-	
-		$map = ( isset($templates[ $key ]) && isset($templates[ $key ]['map'] ) ) ? $templates[ $key ]['map'] : false;
-			
-		if($map)	
-			return array( 'template' => $map );
-		else 
-			return false;
-		
-	}
-	
 	function default_region( $region ){
 		
 		
@@ -201,6 +195,8 @@ class EditorTemplates {
 
 		$this->url = PL_PARENT_URL . '/editor';
 
+		$this->handler = new PLCustomTemplates;
+
 		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
 		add_filter('pagelines_editor_scripts', array( $this, 'scripts'));
 
@@ -212,55 +208,20 @@ class EditorTemplates {
 	}
 
 	function set_template( $response, $data ){
-		$pageID = $data['pageID'];
-		$typeID = $data['typeID'];
+		
 		$run = $data['run'];
 		
-		if ( $run == 'load' ){
-
-			$metaID = (isset($data['templateMode']) && $data['templateMode'] == 'type') ? $typeID : $pageID;
-
-			$response['loaded'] = $this->load_template( $metaID, $data['key'] );
-
-		} elseif ( $run == 'update'){
-
-			$key = ( isset($data['key']) ) ? $data['key'] : false;
-
-			$template_map = $data['map']['template'];
-
-			$response['tpl'] = $this->update_template( $key, $template_map, $postdata['settings'], $pageID );
+		if ( $run == 'update'){
+		
+			$response['key'] = $this->handler->update( $data['key'], $data['config'] );
 
 		} elseif ( $run == 'delete'){
 
-			$key = ( isset($data['key']) ) ? $data['key'] : false;
+			$response['key'] = $this->handler->delete( $data['key'] );
 
-			$tpl->delete_template( $key );
+		} elseif ( $run == 'create' ){
 
-		} elseif ( $run == 'save' ){
-
-			$template_map = $data['map']['template'];
-			$settings = $data['settings'];
-
-			$name = (isset($data['template-name'])) ? $data['template-name'] : false;
-			$desc = (isset($data['template-desc'])) ? $data['template-desc'] : '';
-
-			if( $name )
-				$response['key'] = $this->create_template($name, $desc, $template_map, $settings, $pageID);
-
-		} elseif( $run == 'set_type' ){
-
-			$field = 'page-template';
-			$value = $data['value'];
-
-			$previous_val = pl_local( $typeID, $field );
-
-			if( $previous_val == $value )
-				pl_local_update( $typeID, $field, false );
-			else
-				pl_local_update( $typeID, $field, $value );
-
-			$response['result'] = pl_local( $typeID, $field );
-
+			$response['key'] = $this->handler->create( $data['config'] );
 
 		} elseif( $run == 'set_global' ){
 
@@ -330,7 +291,13 @@ class EditorTemplates {
 			$classes = array( sprintf('template_key_%s', $index) );
 
 			$action_classes = array('x-item-actions'); 
-			//$action_classes[] = ($index === $this->page->template) ? 'active-template' : '';
+			
+			global $pl_custom_template; 
+
+			if(! empty( $pl_custom_template ) ){
+				$action_classes[] = ($index === $pl_custom_template['key']) ? 'active-template' : '';
+			}
+			
 			$action_classes[] = ($index === $this->default_global_tpl) ? 'active-global' : '';
 			$action_classes[] = ($index === $this->default_type_tpl && !$this->page->is_special()) ? 'active-type' : '';
 			
@@ -350,7 +317,7 @@ class EditorTemplates {
 						<button class="btn btn-mini btn-primary load-template"><?php _e( 'Load', 'pagelines' ); ?>
 						</button>
 
-						<button class="btn btn-mini the-active-template"><?php _e( 'Active', 'pagelines' ); ?>
+						<button class="btn btn-mini btn-important the-active-template"><?php _e( 'Active', 'pagelines' ); ?>
 						</button>
 
 						<div class="btn-group dropup">
@@ -376,8 +343,8 @@ class EditorTemplates {
 
 							</ul>
 						</div>
-						<button class="btn btn-mini tpl-tag global-tag" title="Current Sitewide Default"><i class="icon-globe"></i></button>
-						<button class="btn btn-mini tpl-tag posttype-tag" title="Current Post Type Default"><i class="icon-pushpin"></i></button>
+						<button class="btn btn-mini tpl-tag global-tag tt-top" title="Current Sitewide Default"><i class="icon-globe"></i></button>
+						<button class="btn btn-mini tpl-tag posttype-tag tt-top" title="Current Post Type Default"><i class="icon-pushpin"></i></button>
 					</div>
 				</div>
 				<div class="span6 list-desc">
@@ -406,11 +373,11 @@ class EditorTemplates {
 				</span>
 				<label for="template-name"><?php _e( 'Template Name (required)', 'pagelines' ); ?>
 				</label>
-				<input type="text" id="template-name" name="template-name" required />
+				<input type="text" id="template-name" name="name" required />
 
 				<label for="template-desc"><?php _e( 'Template Description', 'pagelines' ); ?>
 				</label>
-				<textarea rows="4" id="template-desc" name="template-desc" ></textarea>
+				<textarea rows="4" id="template-desc" name="desc" ></textarea>
 				
 				<button type="submit" class="btn btn-primary btn-save-template"><?php _e( 'Save New Template', 'pagelines' ); ?>
 				</button>
@@ -452,6 +419,8 @@ class EditorTemplates {
 		<?php
 
 	}
+	
+	
 
 	function get_user_templates(){
 
@@ -763,3 +732,18 @@ class EditorTemplates {
 		printf('<input name="menu_order" type="text" size="4" id="menu_order" value="%s" /></p>', esc_attr($post->menu_order) );
 	}
 }
+
+class PLCustomTemplates extends PLCustomObjects{
+	
+	function __construct(  ){
+		
+		$this->slug = 'pl-user-templates';
+		
+		$this->objects = $this->get_all();
+	}
+}
+
+
+
+
+

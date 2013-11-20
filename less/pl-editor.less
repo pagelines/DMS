@@ -59,6 +59,7 @@
 			height: 10px;
 			line-height: 10px;
 			a.btn-region{
+				text-transform: uppercase;
 				background: rgba(125, 233, 253, .6);
 				color: rgba(0,0,0,.8);
 				text-shadow: 0 1px 0 rgba(255,255,255,.4);
@@ -67,6 +68,10 @@
 				padding: 0px 4px;
 				font-weight: bold;
 				vertical-align: top;
+				i{
+					vertical-align: top;
+					padding-top: 1px;
+				}
 			}
 		}
 		&.custom-template{
@@ -334,6 +339,16 @@
 			}
 			.area-edit,
 			.area-save{
+				display: none;
+			}
+		}
+		&.pl-region .pl-area-controls{
+			&:hover{
+				margin-left: -68px;
+			}
+			.area-reorder,
+			.area-clone,
+			.area-delete{
 				display: none;
 			}
 		}
