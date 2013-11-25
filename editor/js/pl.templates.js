@@ -164,11 +164,10 @@ $.plTemplates = {
 		$(".update-template").on("click", function(e) {
 
 			e.preventDefault()
-
+	
 			var config = $.plMapping.getRegionMapping( theRegion )
 			,	args = {
 						run: 'update'
-					,	key: key
 					,	config: config
 					,	confirm: true
 					,	confirmText: $.pl.lang("<h3>Are you sure?</h3><p>This action will set the current page to this template. All pages using this template will be updated with the new config as well.</p>")

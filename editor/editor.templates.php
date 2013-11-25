@@ -14,7 +14,22 @@ class PageLinesTemplates {
 		$this->page = $plpg;
 		
 		$this->set = new PageLinesOpts;
+		
+		add_filter( 'pl_load_page_settings', array( $this, 'add_template_settings_to_page') );
 	}
+	
+	function add_template_settings_to_page( $page_settings ){
+		
+		global $pl_custom_template;
+		
+		$template_settings = ( ! empty( $pl_custom_template ) ) ? $pl_custom_template['settings'] : array();
+		
+		$new_page_settings = wp_parse_args( $template_settings, $page_settings );
+		
+		return $new_page_settings;
+		
+	}
+	
 
 	function get_map( ){
 
@@ -210,9 +225,12 @@ class EditorTemplates {
 		add_action( 'post_updated', array( $this, 'save_meta_options') );
 		
 		add_filter( 'pl_ajax_set_template', array( $this, 'set_template' ), 10, 2 );
+		
+	
 
 	}
-
+	
+	
 	function set_template( $response, $data ){
 		
 		$run = $data['run'];

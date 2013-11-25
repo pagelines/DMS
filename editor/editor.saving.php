@@ -142,7 +142,7 @@ class PageLinesSave {
 		$config = $response['config'] =  $data['store'];
 		$metaID = ( $data['templateMode'] == 'type' ) ? $data['typeID'] : $data['pageID'];
 		$load = $response['load'] = $data['load'];
-	
+		$slug = 'ctemplate'; 
 		foreach( $config as $region => $region_config ){
 			
 			$map = $region_config[ 'map' ];
@@ -151,15 +151,15 @@ class PageLinesSave {
 			if( is_array( $map )){
 				foreach( $map as $area => &$area_config ){
 
-					if( isset( $area_config[ 'ctemplate' ] ) && $area_config[ 'ctemplate' ] != '' ){
+					if( isset( $area_config[ $slug ] ) && $area_config[ $slug ] != '' ){
 
 						if( $load != 'section' ){
 							$section_handler = new PLCustomSections;
-							$section_handler->update( $area_config[ 'ctemplate' ], array( 'map' => $area_config ) );
+							$section_handler->update( $area_config[ $slug ], array( 'map' => $area_config ) );
 						}
 
 						
-						$area_config = array( 'ctemplate' => $area_config[ 'ctemplate' ] );
+						$area_config = array( $slug => $area_config[ $slug ] );
 					
 					} else 
 						$custom_template = false; 
@@ -177,18 +177,18 @@ class PageLinesSave {
 				
 				$local[ $region ] = $map;
 				
-				if( isset( $region_config[ 'ctemplate' ] ) && $region_config[ 'ctemplate' ] != '' ){
+				if( isset( $region_config[ $slug ] ) && $region_config[ $slug ] != '' ){
 					
-					$custom_template = $region_config[ 'ctemplate' ]; 
+					$custom_template = $region_config[ $slug ]; 
 					
 					if( $load != 'template' ){
 
 						$tpl_handler = new PLCustomTemplates;
-						$tpl_handler->update( $custom_template, array( 'map' => $local[ $region ] ) );
+						$tpl_handler->update( $region_config[ $slug ], array( 'map' => $local[ $region ] ) );
 
 					}
 					
-					$local[ $region ] = array( 'ctemplate' => $custom_template ); 
+					$local[ $region ] = array( $slug => $region_config[ $slug ] ); 
 					
 				} else 
 					$custom_template = false; 
@@ -216,6 +216,7 @@ class PageLinesSave {
 		
 		$form = $data['store'];
 		$scope = $data['scope'];
+		$key = $data['key'];
 		
 		if( $scope == 'global' ){
 			
@@ -237,8 +238,31 @@ class PageLinesSave {
 			$meta_settings = wp_parse_args( $form, $meta_settings );
 			pl_settings_update( $meta_settings, 'draft', $metaID );
 			
+		} elseif ( $scope == 'template' ){
+			
+			$handler = new PLCustomTemplates;
+			
+			$old_settings = $handler->retrieve_field( $key, 'settings' );
+			
+			$settings = wp_parse_args( $form, $old_settings );
+			
+			$handler->update( $key, array('settings' => $settings));
+			
+		} elseif ( $scope == 'section' ){
+			
+			$handler = new PLCustomSections;
+			
+			$old_settings = $handler->retrieve_field( $key, 'settings' );
+			
+			$settings = wp_parse_args( $form, $old_settings );
+			
+			$handler->update( $key, array('settings' => $settings));
+			
+			$response['settings'] = $settings;
+			
+			$response['new'] = $handler->retrieve( $key );
 		}
-		
+		$response['scope'] = $scope;
 		return $response;
 		
 	}

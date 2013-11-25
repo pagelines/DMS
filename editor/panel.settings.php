@@ -74,11 +74,11 @@ class PageLinesSettingsPanel{
 
 		$basic_scope = (is_page() || $plpg->is_special()) ? 'local' : 'type';
 		
-		$array = array('global', 'type', 'local'); 
+		$array = array('global', 'type', 'local', 'template', 'section'); 
 		
 		foreach($array as $scope){
 			$tabs[ $scope ] = array( 
-				'name'	=> sprintf( '%s <span class="label">%s</span>', __( 'Section Options', 'pagelines' ), $scope ), 
+				'name'	=> sprintf( '%s <span class="label">%s</span>', __( 'Options', 'pagelines' ), $scope ), 
 				'scope' => $scope
 			);
 		}

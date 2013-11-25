@@ -15,7 +15,7 @@
 
 		}
 
-		, cascade: ['local', 'type', 'global']
+		, cascade: ['local', 'type', 'global', 'template', 'section']
 
 		, render: function( config ) {
 
@@ -101,10 +101,11 @@
 		, sectionOptionRender: function() {
 
 			var that = this
-			, 	cascade = ['local', 'type', 'global']
+			, 	cascade = ['local', 'type', 'global', 'template', 'section']
 			, 	sid = that.config.sid
 			,	uniqueID = that.config.clone
 			, 	scope = that.scope
+			,	theKey = ''
 
 			if( that.optConfig[ uniqueID ] && !$.isEmptyObject( that.optConfig[ uniqueID ].opts ) )
 				opt_array = that.optConfig[ uniqueID ].opts
@@ -146,22 +147,42 @@
 			var section = $('section[data-clone="'+uniqueID+'"]')
 			,	panelScope
 
-			if( section.closest('[data-region="header"]').length || section.closest('[data-region="footer"]').length )
+			if( section.hasClass('custom-section') ){
+				panelScope = 'section'
+				theKey = section.data('custom-section')
+			} else if ( section.closest('.pl-area.custom-section').length ){
+				panelScope = 'section'
+				theKey = section.closest('.pl-area.custom-section').data('custom-section')
+			} else if( section.closest('[data-region="template"]').length && $('[data-region="template"]').hasClass('custom-template') ){
+				panelScope = 'template'
+				theKey = $('[data-region="template"]').data('custom-template')
+			} else if( section.closest('[data-region="header"]').length || section.closest('[data-region="footer"]').length )
 				panelScope = 'global'
 			else
 				panelScope = $.pl.config.templateMode
 
 
 
-			$('[data-tab-action]').show()
+			$('[data-tab-action]').hide()
+			$('[data-tab-action="'+panelScope+'"]').show()
+			
+			$('[data-panel="'+panelScope+'"]').data('key', theKey).attr('data-key', theKey)
 
-			if(panelScope == 'global'){
+			if( panelScope == 'section' ){
+				
+				theTabs.tabs( "option", "active", 4 )
+				
+			} else if( panelScope == 'template' ){
+				
+				theTabs.tabs( "option", "active", 3 )
+				
+			} else if(panelScope == 'global'){
 
 				theTabs.tabs("option", {
 				    "disabled": [1]
 				})
 				theTabs.tabs( "option", "active", 0 )
-				$('[data-tab-action="type"]').hide()
+				
 
 			} else if(panelScope == 'local'){
 
@@ -169,14 +190,13 @@
 				    "disabled": [0, 1]
 				})
 				theTabs.tabs( "option", "active", 2 )
-				$('[data-tab-action="global"], [data-tab-action="type"]').hide()
 
-			} else {
+			} else if(panelScope == 'type'){
 				theTabs.tabs("option", {
 				    "disabled": [0]
 				})
 				theTabs.tabs( "option", "active", 1 )
-				$('[data-tab-action="global"]').hide()
+			
 			}
 
 
@@ -244,9 +264,11 @@
 				,	thePanel = theInput.closest('.tab-panel')
 				, 	panelScope = thePanel.data('scope')
 				,	scope = (panelScope) ? panelScope : that.scope
+				,	key = thePanel.data('key')
 				,	uniqueID = (thePanel.attr('data-clone')) ? thePanel.attr('data-clone') : false
 				,	formData = that.activeForm.formParams()
-
+				
+				
 
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], formData)
 
@@ -297,13 +319,13 @@
 					$('.li-refresh').show()
 				}
 
-
 				if( e.type == 'blur' || ( e.type == 'change' && ( iType == 'checkbox' || iType == 'select') ) ){
 
 					$.plSave.save({
 						run: 'form'
 						, store: formData
 						, scope: scope
+						, key: key
 					})
 				}
 

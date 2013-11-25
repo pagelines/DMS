@@ -65,7 +65,7 @@ class PageLinesAreas {
 				<i class="icon-reorder"></i>
 			</span><span class="area-control tt-top area-edit section-edit" data-area-action="settings" title="<?php _e( 'Edit', 'pagelines' ) ?>">
 				<i class="icon-pencil"></i>
-			</span><span class="area-control tt-top area-unlock section-edit" data-area-action="unlock" title="<?php _e( 'Break Link', 'pagelines' ) ?>">
+			</span><span class="area-control tt-top area-unlock" data-area-action="unlock" title="<?php _e( 'Break Link', 'pagelines' ) ?>">
 					<i class="icon-unlock"></i>
 			</span>
 		</div>

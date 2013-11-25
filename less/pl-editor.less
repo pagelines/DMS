@@ -31,7 +31,8 @@
 .pl-editor-only,
 .linked-tpl,
 .linked-section,
-.area-unlock{
+.area-unlock,
+.tpl-unlock{
 	display: none;
 }
 
@@ -127,7 +128,7 @@
 			background: @interfaceBG;
 			text-shadow: 0 -1px 0 @interfaceBG;
 			color: #fff;
-			margin-left: -73px;
+			margin-left: -74px;
 
 			
 			&:hover{
@@ -169,7 +170,8 @@
 					background:rgba(0,0,0,1);
 				}
 			}
-			.area-unlock{
+			.area-unlock,
+			.tpl-unlock{
 				display: none;
 			}
 		}
@@ -332,6 +334,10 @@
 		&.pl-region{
 			.linked-tpl{
 				display: inline;
+			}
+			.tpl-unlock{
+				display: inline-block;
+				opacity: .7;
 			}
 		}
 		&.pl-area{
