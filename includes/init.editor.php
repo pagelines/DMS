@@ -46,6 +46,8 @@ class PageLinesEditor {
 
 		// User objects base class
 		require_once( PL_EDITOR . '/editor.objects.php' );
+		require_once( PL_EDITOR . '/editor.section.data.php' );
+		
 		require_once( PL_EDITOR . '/editor.templates.php' );
 
 		// Mobile
@@ -80,7 +82,7 @@ class PageLinesEditor {
 	function load_libs(){
 
 
-		if(!pl_use_editor())
+		if( ! pl_use_editor() )
 			return;
 
 		global $plpg;
@@ -96,6 +98,8 @@ class PageLinesEditor {
 		$pldraft = $this->draft = new EditorDraft( $this->page );
 		$storeapi = $this->storeapi = new EditorStoreFront;
 		$this->layout = new EditorLayout();
+
+		$this->section_data = new PLSectionData;
 
 		$templates_handler = new EditorTemplates;
 

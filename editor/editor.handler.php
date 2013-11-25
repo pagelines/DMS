@@ -55,6 +55,12 @@ class PageLinesTemplateHandler {
 
 		$this->map = $this->map_handler->get_map();
 
+		// NEW SECTIONS SETTINGS MODE
+		$this->uids = $this->get_uids( $this->map );
+		
+		
+		
+
 		$this->parse_config();
 
 		$this->opts_config = $this->get_options_config();
@@ -66,6 +72,50 @@ class PageLinesTemplateHandler {
 		}
 
 	}
+	
+	function get_uids( $map ){
+		$uids = array(); 
+	
+		foreach($this->map as $region => $g){
+
+			if( !isset($g) || !is_array($g) )
+				continue;
+
+			foreach($g as $area => $a){
+
+				if( isset( $a['clone'] ))
+					$uids[] = $a['clone']; 
+			
+				if( !isset($a['content']) || !is_array($a['content']) )
+					continue;
+
+				foreach($a['content'] as $key => &$meta){
+
+
+					if( isset( $meta['clone'] ))
+						$uids[] = $meta['clone'];
+						
+					if(!empty($meta['content'])){
+						foreach($meta['content'] as $subkey => $sub_meta){
+							
+							if( isset( $sub_meta['clone'] ))
+								$uids[] = $sub_meta['clone'];
+								
+						
+						}
+					
+					}
+				}
+			
+			}
+		}
+
+
+	
+		return $uids;
+	
+		
+	}
 
 	function json_blob(){
 		ob_start();
@@ -75,16 +125,16 @@ class PageLinesTemplateHandler {
 				
 				$.pl = {
 					data: {
-						local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
+							local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
 						
-						, type:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('type') ) ); ?>
+						,  type:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('type') ) ); ?>
 						
-						, global:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('global') ) ); ?>
+						,  global:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('global') ) ); ?>
 						
-						, custom:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('custom') ) ); ?>
+						,  section:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('section') ) ); ?>
+						
+						,  template:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('template') ) ); ?>
 					}
-					
-					, map: { header: {}, footer: {}, template: {} }
 					
 					, flags: {
 							refreshOnSave: false
@@ -134,9 +184,10 @@ class PageLinesTemplateHandler {
 						<?php echo $this->json_blob_objects();?>
 					}
 
+				
 				}
 
-
+					console.log($.pl.data)
 			}(window.jQuery);
 		</script>
 		<?php
@@ -560,12 +611,18 @@ class PageLinesTemplateHandler {
 
 			$d = pl_settings( $this->draft->mode, $this->page->typeid );
 			
-		} elseif($scope == 'custom') {
+		} elseif($scope == 'section') {
 
 			global $sections_handler;
 			$d = $sections_handler->get_user_section_settings();
+		
+		} elseif($scope == 'template') {
 
-		} else {
+			global $pl_custom_template;
+			
+			$d = ( ! empty( $pl_custom_template ) ) ? $pl_custom_template['settings'] : array();
+
+		} elseif( $scope == 'global' ) {
 
 			$d = pl_settings( $this->draft->mode );
 			
