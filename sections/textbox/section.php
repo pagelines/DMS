@@ -42,6 +42,24 @@ class PageLinesTextBox extends PageLinesSection {
 						'ref'		=> __( 'This option uses CSS padding shorthand. For example, use "15px 30px" for 15px padding top/bottom, and 30 left/right.', 'pagelines' ),
 						
 					),
+
+					array(
+						'label'			=> __( 'Title Wrapper', 'pagelines' ),
+						'key'			=> 'textbox_title_wrapper',
+						'default'		=> 'strong',
+						'type'			=> 'select',
+						'opts'			=> array(
+
+						'strong'		=> array( 'name' => 'strong (default)' ),
+						'em'			=> array( 'name' => 'em' ),
+						'h1'			=> array( 'name' => 'h1' ),
+						'h2'			=> array( 'name' => 'h2' ),
+						'h3'			=> array( 'name' => 'h3' ),
+						'h4'			=> array( 'name' => 'h4' ),
+						'h5'			=> array( 'name' => 'h5' ),
+						'h6'			=> array( 'name' => 'h6' )
+												)
+											),
 					array(
 						'key'			=> 'textbox_font_size',
 						'type'			=> 'count_select',
@@ -88,10 +106,17 @@ class PageLinesTextBox extends PageLinesSection {
 		
 		
 		$title = $this->opt('textbox_title');
-		
-		$text = (!$text && !$title) ? '<p><strong>TextBox</strong> &raquo; Add Content!</p>' : sprintf('<div class="hentry">%s</div>', do_shortcode( wpautop($text) ) ); 
-		
-		$title = ($title) ? sprintf('<strong>%s</strong><br/>', $title) : '';
+
+		$title_wrapper = $this->opt('textbox_title_wrapper') ? $this->opt('textbox_title_wrapper') : 'strong';
+
+		if( ! $text && ! $title ){
+			$title = 'Textbox Section';
+			$text = "Add Content!";
+		}
+
+		$text = sprintf('<div class="hentry" data-sync="textbox_content">%s</div>', do_shortcode( wpautop($text) ) );
+
+		$title = ( $edit || $title ) ? sprintf('<%s data-sync="textbox_title">%s</%s><br />', $title_wrapper, $title, $title_wrapper) : '';
 
 		$class = $this->opt('textbox_animation');
 			
