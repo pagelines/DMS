@@ -1141,7 +1141,7 @@ function show_query_analysis(){
  */
 function plprint( $data, $title = false, $echo = false) {
 
-	if ( ! is_pl_debug() || ! current_user_can('manage_options') )
+	if ( ! is_pl_debug() || ! current_user_can('manage_options') || ( defined( 'DOING_AJAX' ) && true == DOING_AJAX) )
 		return;
 
 	ob_start();
