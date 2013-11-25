@@ -11,24 +11,16 @@
 			$('.pl-region').each( function(regionIndex, o) {
 
 				var region = $(this).data('region')
-				, 	areaConfig = []
+				,	regionSet = that.getRegionMapping( $(this) )
+				, 	regionConfig = {}
 
-				
-				if( $(this).hasClass( templateClass ) && plIsset( $(this).data( templateClass ) ) ){
-					
-					addItem = {
-						ctemplate: $(this).data( templateClass )
-					}
-					
-				} else {
-
-					var regionSet = that.getRegionMapping( $(this) )
-				
-					addItem = regionSet.map
-				}
+				if( $(this).hasClass( templateClass ) && plIsset( $(this).data( templateClass ) ) ) {
+					regionConfig.ctemplate = $(this).data( templateClass )
+				} 
 			
-				map[region] = addItem
-
+				regionConfig.map = regionSet.map
+				
+				map[region] = regionConfig
 			})
 
 			
@@ -38,33 +30,31 @@
 		
 		, getRegionMapping: function( region ){
 			var that = this
-			,	areaConfig = []
+			,	areasList = []
 			,	settingConfig = []
 			,	scope = ( region.data('region') == 'template') ? 'local' : 'global'
 			,	templateClass = 'custom-section'
 			
 			region.find('.pl-area').each( function(areaIndex, o2) {
 				
-				if( $(this).hasClass( templateClass )  && plIsset( $(this).data( templateClass ) )){
+				var areaSet = that.getAreaMapping( $(this) )
+			
+				if( $(this).hasClass( templateClass )  && plIsset( $(this).data( templateClass ) ) ){
 					
-					addItem = {
-						usection: $(this).data( templateClass )
-					}
-				} else {
-					areaSet = that.getAreaMapping( $(this) )
-					addItem = areaSet.map
-					settingConfig.push( areaSet.settings )
-				}
+					areaSet.map.ctemplate = $(this).data( templateClass )
 					
-
-				areaConfig.push( addItem )
+				} 
+					
+				areasList.push( areaSet.map )
+				
+				settingConfig.push( areaSet.settings )
 				
 
 			})
 			
 				
 			var	set = {
-					map: areaConfig
+					map: areasList
 					, settings: settingConfig
 				}
 				

@@ -841,10 +841,14 @@ class PageLinesTemplateHandler {
 			$pad_class = 'pl-area-pad';
 			
 			/* - User Sections Classes - */
-			if( isset( $s->meta['usection'] ) ){
+			if( isset( $s->meta['ctemplate'] ) ){
 				$class[] = 'custom-section editing-locked';
 				
-				$datas[] = sprintf( "data-custom-section='%s'", $s->meta['usection'] );
+				
+				
+				$datas[] = sprintf( "data-custom-section='%s'", $s->meta['ctemplate'] );
+				
+				$datas[] = sprintf( "data-custom-name='%s'", pl_custom_section_name($s->meta['ctemplate']) );
 			}
 			
 			

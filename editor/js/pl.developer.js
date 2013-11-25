@@ -24,7 +24,7 @@
 					if( $('.plprint-container').length != 0 ){
 						
 						$('.plprint-container').each( function(){
-							output += '<div class="alert">Print</div>'
+							output += '<div class="alert editor-alert">Print</div>'
 							output += $(this).html()
 						})
 						

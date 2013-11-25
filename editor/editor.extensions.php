@@ -61,7 +61,6 @@ class EditorExtensions {
 				'name'		=> stripslashes( $s->name ),
 				'desc'		=> stripslashes( $s->description ),
 				'thumb'		=> $s->screenshot,
-				'splash'	=> $s->splash,
 				'purchase'	=> '',
 				'overview'	=> '',
 

@@ -35,34 +35,27 @@ $.plTemplates = {
 					.addClass('region-unlock')
 					.html(sprintf('"%s" Template (<i class="icon-unlock"></i> Unlock)',templateName ))
 					.end()
-				.find('.area-unlock')
-					.attr('title', sprintf('Linked to "%s" template', templateName))
-					.addClass('region-unlock')
+				.find('.linked-tpl')
+					.html(sprintf('&mdash; <i class="icon-file-text"></i> Linked to "%s" template',templateName ))
 					.end()
-				.find('.clocked')
-					.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" template)',templateName ))
-					.end()
-		} else {
-			
-			// Set locking name
-			$('#site [data-custom-section]').each( function(){
-
-				if( $(this).data('custom-section') != ''){
-					var sectionID = $(this).data('custom-section')
-					,	cSections = $.pl.config.csections
-					, 	cSectionName = cSections[sectionID]
-
-					$(this)
-						.find('.area-unlock')
-						.attr('title', sprintf('Break link to "%s" section', cSectionName))
-						.end()
-						.find('.clocked')
-						.html(sprintf('(<i class="icon-lock"></i> Linked to "%s" Section)',cSectionName ))
-						.end()
-				}
-			})
-			
 		}
+		
+		// Set locking name
+		$('#site [data-custom-section]').each( function(){
+
+			if( $(this).data('custom-section') != ''){
+				var sectionID = $(this).data('custom-section')
+				,	sectionName = $(this).data('custom-name')
+
+				$(this)
+					.find('.area-unlock')
+					.attr('title', sprintf('Break link to "%s" section', sectionName))
+					.end()
+					.find('.linked-section')
+					.html(sprintf('&mdash; <i class="icon-dropbox"></i> Linked to "%s" Section',sectionName ))
+					.end()
+			}
+		})
 		
 		// Load the template tooltips
 		$('.tt-top').tooltip({placement: 'top'})
@@ -82,11 +75,7 @@ $.plTemplates = {
 						.find('.btn-region')
 							.html('Template')
 							.end()
-						.find('.area-unlock')
-							.attr('title', sprintf('Unlock', templateName))
-							.removeClass('region-unlock')
-							.end()
-						.find('.clocked')
+						.find('.linked-tpl')
 							.html('')
 							.end()
 					
@@ -111,9 +100,10 @@ $.plTemplates = {
 			
 			theRegion
 				.data('custom-template', key)
+				.attr('data-custom-template', key)
 				.addClass('custom-template editing-locked')
 			
-			$.pageBuilder.reloadConfig( {location: 'load template', refresh: true } )
+			$.pageBuilder.reloadConfig( { refresh: true, load: 'template' } )
 		
 		})
 

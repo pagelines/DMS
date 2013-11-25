@@ -1,5 +1,31 @@
 <?php 
 
+function pl_array_to_object( $array, $defaults = array() ){
+	
+	$objects = array();
+	
+	foreach( $array as $index => $l){
+		$l = wp_parse_args( $l, $defaults );
+
+		$obj = new stdClass();
+		
+		foreach ($l as $key => $value){
+		    $obj->$key = $value;
+		}
+		
+		if( isset( $l['id'] ) )
+			$objects[ $l['id'] ] = $obj;
+		else 
+			$objects[] = $obj;
+			
+	}
+	
+	return $objects;
+	
+}
+
+
+
 // ------------------------------------------
 // Javascript Utilities
 // ------------------------------------------

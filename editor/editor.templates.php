@@ -30,6 +30,7 @@ class PageLinesTemplates {
 		$map = $sections_handler->replace_user_sections( $map );
 		
 		
+		
 		return $map;
 
 	}
@@ -48,11 +49,15 @@ class PageLinesTemplates {
 			
 			$set = (is_page()) ? $this->set->local : $this->set->type;
 
+				
+			
 			if( isset( $set['custom-map'] ) && is_array( $set['custom-map'] ) ){
 				
-				
+			
 				$map = $set['custom-map'];
 				
+				
+	
 				if( isset( $map[ $region ]['ctemplate'] ) ){
 					
 					$key = $map[ $region ]['ctemplate'];
@@ -61,7 +66,7 @@ class PageLinesTemplates {
 					
 					$pl_custom_template = $this->tpl->handler->retrieve( $key ); 
 					
-					if( $pl_custom_template ){
+					if( $pl_custom_template && !empty($pl_custom_template)){
 						
 						$pl_custom_template['key'] = $key;
 
@@ -70,6 +75,7 @@ class PageLinesTemplates {
 					} else 
 						$map = false;
 					
+				//	plprint( $pl_custom_template );
 					
 				}
 					
@@ -285,7 +291,9 @@ class EditorTemplates {
 		$list = '';
 		$tpls = pl_meta( $this->page->id, $this->map_option_slug, pl_settings_default());
 
-		foreach( $this->get_user_templates() as $index => $template){
+		$custom_template_handler = new PLCustomTemplates;
+
+		foreach( $custom_template_handler->get_all() as $index => $template){
 
 
 			$classes = array( sprintf('template_key_%s', $index) );
@@ -348,7 +356,7 @@ class EditorTemplates {
 					</div>
 				</div>
 				<div class="span6 list-desc">
-					<?php echo $template['desc']; ?>
+					<?php echo stripslashes( $template['desc'] ); ?>
 				</div>
 			</div>
 
@@ -421,108 +429,6 @@ class EditorTemplates {
 	}
 	
 	
-
-	function get_user_templates(){
-
-		// get option
-		$templates = pl_opt( $this->template_slug, $this->default_user_templates() );
-
-		return $templates;
-
-	}
-
-	
-	function get_template_data( $key ){
-		
-		$d = array(
-			'name'	=> __( 'No Name', 'pagelines' ),
-			'desc'	=> '', 
-			'map'	=> array(),
-			'settings'	=> array()
-		); 
-		
-		
-		$templates = $this->get_user_templates();
-	
-		if( isset($templates[ $key ]) ){
-			
-			$t = wp_parse_args($templates[ $key ], $d); 
-			return $t;
-			
-		} else
-			return false;
-	}
-
-	
-
-	function load_template( $metaID, $templateID ){
-
-		$t = $this->get_template_data( $templateID ); 
-
-		$page_settings = pl_meta( $metaID, PL_SETTINGS, pl_settings_default() ); 
-
-		$page_settings[ 'draft' ] = $t['settings'];
-		
-		$page_settings[ 'draft' ][ 'custom-map' ][ 'template' ] = $t['map'];
-		
-		$page_settings[ 'draft' ][ 'page-template' ] = $templateID;
-		
-		pl_meta_update($metaID, PL_SETTINGS, $page_settings);
-		
-		return $page_settings;
-
-	}
-
-
-	function create_template( $name, $desc, $map, $settings, $pageID ){
-
-		$templates = $this->get_user_templates();
-		
-		$key = pl_create_id( $name );
-
-		$new = array( $key => array(
-				'name'		=> $name,
-				'desc'		=> $desc,
-				'map'		=> $map, 
-				'settings'	=> $settings
-				)
-			);
-
-		$templates = array_merge( $new, $templates );
-		
-
-		pl_opt_update( $this->template_slug, $templates );
-		
-		pl_local_update( $pageID, 'page-template', $key );
-		
-		return $key;
-
-	}
-
-	function update_template( $key, $template_map, $settings, $pageID){
-
-		$templates = $this->get_user_templates();
-
-		$templates[ $key ][ 'map' ] = $template_map;
-		$templates[ $key ][ 'settings' ] = $settings;
-
-		pl_opt_update( $this->template_slug, $templates );
-		
-		pl_local_update( $pageID, 'page-template', $key );
-		
-		return $key;
-
-	}
-
-	function delete_template( $key ){
-
-		$templates = $this->get_user_templates();
-
-		unset( $templates[$key] );
-
-		pl_opt_update( $this->template_slug, $templates );
-
-	}
 
 
 	function default_template( $standard = false ){
@@ -691,7 +597,9 @@ class EditorTemplates {
 
 			$current = ( is_array( $set ) && isset( $set['live']['page-template'] ) ) ? $set['live']['page-template'] : '';
 
-			foreach($this->get_user_templates() as $index => $t){
+			$custom_template_handler = new PLCustomTemplates;
+
+			foreach( $custom_template_handler->get_all() as $index => $t){
 
 				$sel = '';
 				

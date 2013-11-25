@@ -26,6 +26,7 @@
 					, 	toolboxOpen: $.toolbox('open')
 					,	beforeSend: ''
 					, 	postSuccess: ''
+					,	load: false
 
 				}
 
@@ -63,13 +64,15 @@
 
 			var that = this
 			
+			// Note that nested objects must be of consistent type, mixed numeric/associative objects cannot be passed.
 			$.ajax( {
 					type: 'POST'
 				, 	url: ajaxurl
 				, 	data: theData
+				//,	dataType: 'json'
 				, 	beforeSend: function(){
 					
-						plPrint('Sending Ajax')
+						plPrint('--> Sending Ajax -->')
 
 						$('.btn-saving').addClass('active')
 
@@ -83,16 +86,13 @@
 							bootbox.dialog( that.dialogText( theData.savingText ), [ ], {animate: false})
 						}
 
+					
 						$.pl.flags.saving = true
 					}
-				, 	error: function( jqXHR, status, error ){
-					$.pl.flags.saving = false
-					plPrint('- AJAX Error -')
-					plPrint( jqXHR )
-					plPrint( status )
-					plPrint( error )
-				}
+				
 				, 	success: function( response ){
+					
+						//console.log(response)
 						
 						$.pl.flags.saving = false
 						
@@ -124,6 +124,14 @@
 
 						}
 
+					}
+					
+				, 	error: function( jqXHR, status, error ){
+						$.pl.flags.saving = false
+						plPrint('- AJAX Error -')
+						plPrint( jqXHR )
+						plPrint( status )
+						plPrint( error )
 					}
 			})
 		}

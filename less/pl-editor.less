@@ -29,7 +29,8 @@
 .pl-sortable-buffer, 
 .li-refresh, 
 .pl-editor-only,
-.clocked,
+.linked-tpl,
+.linked-section,
 .area-unlock{
 	display: none;
 }
@@ -81,6 +82,9 @@
 				border-top: 1px dashed #ffb333;
 				a.btn-region{
 					background: rgba(255, 179, 51, .5);
+					&:hover{
+						background: rgba(255, 179, 51, .8);
+					}
 				}
 			}
 		 	.pl-area:first-of-type{
@@ -323,36 +327,27 @@
 		
 	}
 	
+	
 	.editing-locked{
-		.pl-section-controls{
-			opacity: .6;
-			.s-control{ display: none; }
-			.clocked{
+		&.pl-region{
+			.linked-tpl{
 				display: inline;
 			}
 		}
-		.pl-section:hover{
-			cursor: auto;
-		}
-		.pl-area-controls{
+		&.pl-area{
+			.linked-section{
+				display: inline;
+			}
 			.area-unlock{
 				display: inline-block;
+				
 			}
-			.area-edit,
 			.area-save{
 				display: none;
 			}
 		}
-		&.pl-region .pl-area-controls{
-			&:hover{
-				margin-left: -68px;
-			}
-			.area-reorder,
-			.area-clone,
-			.area-delete{
-				display: none;
-			}
-		}
+	
+		
 		
 	}
 
@@ -673,7 +668,7 @@
 	}
 	.toolbox-handle{
 
-		@media (max-width: 1164px) {
+		@media (max-width: 900px) {
 			 .btn-toolbox .txt{
 					display: none;
 			}

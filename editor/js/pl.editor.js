@@ -564,7 +564,7 @@
 			
 			
 			
-			$('.pl-area:not(".editing-locked") .s-control:not(".pro-only-disabled")').on('click.sectionControls', function(e){
+			$('.pl-area .s-control:not(".pro-only-disabled")').on('click.sectionControls', function(e){
 
 				e.preventDefault()
 				e.stopPropagation()
@@ -631,7 +631,7 @@
 						.hide()
 						.fadeIn()
 
-					$.pageBuilder.plDatas( cloned )
+					$.plDatas.handleNewItemData( cloned )
 					
 				} else if ( btn.hasClass('section-increase')){
 
@@ -689,14 +689,14 @@
 				$.pageBuilder.alignGrid( this )
 			})
 			
-			var map = $.plMapping.getCurrentMap()
+			var mapConfig = $.plMapping.getCurrentMap()
 			
 			
-			$.pl.data[templateMode]['custom-map'] = $.extend({}, { template: map.template })
+			$.pl.data[templateMode]['custom-map'] = $.extend({}, { template: mapConfig.template.map })
 			
-			$.pl.data.global.regions = $.extend({}, { header: map.header, footer: map.footer })
+			$.pl.data.global.regions = $.extend({}, { header: mapConfig.header.map, footer: mapConfig.footer.map })
 
-			return map
+			return mapConfig
 			
 		} 
 
@@ -715,7 +715,11 @@
 			,	templateMode = $.pl.config.templateMode || 'local'
 			,	map = that.updatePage( obj )
 			
+			
+			
 			if( storeMap ){
+				
+				
 
 				var saveArgs = {
 					run: 'map'
@@ -735,6 +739,7 @@
 				}
 				
 				$.extend( saveArgs, obj )
+				
 				
 				$.plSave.save( saveArgs )
 
@@ -851,8 +856,8 @@
 			,	sortableArgs = {}
 
 		 
-			$('.pl-region:not(.editing-locked)')
-	  			.find('.pl-area:not(.editing-locked) .pl-sortable-area')
+			$('.pl-region')
+	  			.find('.pl-area .pl-sortable-area')
 					.sortable( that.sortableArguments( 'section' ) )
 					.end()
    				.find('.pl-area-container')

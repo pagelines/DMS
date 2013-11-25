@@ -104,15 +104,8 @@
 			var that = this
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
-			,	theSections = $.pl.config.csections
-			
-			var selectOpts = '<option value="" >- Select -</option>'
-			$.each(theSections, function(key, name){
-				
-				selectOpts += sprintf('<option value="%s" >%s</option>', key, name)
-			})
-			
-			var message = sprintf('<h4><i class="icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="custom-section-name" placeholder="Section Name..." type="text" val="" /><textarea name="custom-section-desc" placeholder="Description"></textarea><label>Or update...</label><select name="custom-section-update">%s</select></form>', theID, selectOpts)
+		
+			var message = sprintf('<h4><i class="icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="name" placeholder="Section Name..." type="text" val="" /><textarea name="desc" placeholder="Description"></textarea></form>', theID)
 		
 		
 			bootbox.confirm(
@@ -126,11 +119,12 @@
 						,	theArea = $('#'+areaID)
 						, 	settings = {}
 						,	form = $('.modal-form').formParams()
+						,	config = $.extend({}, $.plMapping.getAreaMapping( theArea ), form)
 						,	args = {
 									mode: 'set_user_section'
-								,	run: 'save'
+								,	run: 'create'
 								, 	log: true
-								,	config: $.plMapping.getAreaMapping( theArea )
+								,	config: config
 								,	postSuccess: function( response ){
 										if( !response )
 											return

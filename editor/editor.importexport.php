@@ -103,7 +103,7 @@ class PLImportExport{
 	function export_template(){
 		ob_start();
 		
-		$tpls = new EditorTemplates;
+		$tpls = new PLCustomTemplates;
 		?>
 		<label><?php _e( 'Select User Templates', 'pagelines' ); ?></label>
 		
@@ -116,7 +116,7 @@ class PLImportExport{
 			</div>', __( 'Select All', 'pagelines' ), __( 'Deselect All', 'pagelines' ) );
 		
 		$tpl_selects = ''; 
-		foreach( $tpls->get_user_templates() as $index => $template){
+		foreach( $tpls->get_all() as $index => $template){
 			
 			$tpl_selects .= sprintf(
 				'<label class="checklist-label media" for="%s">

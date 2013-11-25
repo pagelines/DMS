@@ -14,7 +14,8 @@ class PageLinesSave {
 	
 	
 	function fast_save( $response, $data ){
-		
+			
+	
 		if( $data['run'] == 'map' ){
 			$response = $this->save_map( $response, $data );
 		} elseif (  $data['run'] == 'form' ){
@@ -138,29 +139,76 @@ class PageLinesSave {
 	 */ 
 	function save_map( $response, $data ){
 	
-		$global_map = array(
-			'header' => $data['store']['header'],
-			'footer' => $data['store']['footer'],
-		);
+		$config = $response['config'] =  $data['store'];
+		$metaID = ( $data['templateMode'] == 'type' ) ? $data['typeID'] : $data['pageID'];
+		$load = $response['load'] = $data['load'];
+	
+		foreach( $config as $region => $region_config ){
+			
+			$map = $region_config[ 'map' ];
 		
-		$local_map = array(
-			'template' => $data['store']['template']
-		);
+			
+			if( is_array( $map )){
+				foreach( $map as $area => &$area_config ){
+
+					if( isset( $area_config[ 'ctemplate' ] ) && $area_config[ 'ctemplate' ] != '' ){
+
+						if( $load != 'section' ){
+							$section_handler = new PLCustomSections;
+							$section_handler->update( $area_config[ 'ctemplate' ], array( 'map' => $area_config ) );
+						}
+
+						
+						$area_config = array( 'ctemplate' => $area_config[ 'ctemplate' ] );
+					
+					} else 
+						$custom_template = false; 
+					
+
+				}
+				unset( $area_config );
+			}
 		
-		$template_mode = $data['templateMode']; 
+			if( $region == 'header' || $region == 'footer' ){
+				
+				$global[ $region ] = $map; 
+				
+			} else {
+				
+				$local[ $region ] = $map;
+				
+				if( isset( $region_config[ 'ctemplate' ] ) && $region_config[ 'ctemplate' ] != '' ){
+					
+					$custom_template = $region_config[ 'ctemplate' ]; 
+					
+					if( $load != 'template' ){
+
+						$tpl_handler = new PLCustomTemplates;
+						$tpl_handler->update( $custom_template, array( 'map' => $local[ $region ] ) );
+
+					}
+					
+					$local[ $region ] = array( 'ctemplate' => $custom_template ); 
+					
+				} else 
+					$custom_template = false; 
+					
+			}
+			
+			
+		}
+
+
 		
-		$metaID = ( $template_mode == 'type' ) ? $data['typeID'] : $data['pageID'];
-		
-		
-		$global_settings = pl_settings();
-		$global_settings['regions'] = $global_map;
-		pl_settings_update( $global_settings );
 		
 		$local_settings = pl_settings( 'draft', $metaID );
-		$local_settings['custom-map'] = $local_map;
+		$local_settings['custom-map'] = $local;
 		pl_settings_update( $local_settings, 'draft', $metaID );
 		
-	
+		$global_settings = pl_settings();
+		$global_settings['regions'] = $global;
+		pl_settings_update( $global_settings );
+		
 		return $response;
 	}
 	

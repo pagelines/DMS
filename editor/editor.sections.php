@@ -14,16 +14,11 @@ class PageLinesSectionsHandler{
 		
 		add_filter( 'pl_load_page_settings', array( $this, 'add_user_section_settings_to_page') );
 		
-		add_filter('pl_json_blob_objects', array( $this, 'add_to_blob'));
+		
+		$this->custom = new PLCustomSections;
 	}
 	
-	/*
-	 * Add custom section keys to blob	
-	 */
-	function add_to_blob( $objects ){
-		$objects['csections'] = $this->get_custom_section_keys();
-		return $objects;
-	}
+
 	
 	function load_ui_actions(){
 	
@@ -232,9 +227,9 @@ class PageLinesSectionsHandler{
 			if( !empty($s->loading) )
 				$class[] = 'loading-'.$s->loading;
 			
-			if( !empty( $s->usection ) ){
+			if( !empty( $s->ctemplate ) ){
 				$class[] = 'custom-section';
-				$data_array['custom-section'] = $s->usection;
+				$data_array['custom-section'] = $s->ctemplate;
 			}
 			
 			if( !empty( $map ) ){
@@ -247,7 +242,6 @@ class PageLinesSectionsHandler{
 				'class_array' 	=> $class,
 				'data_array'	=> $data_array,
 				'thumb'			=> $s->screenshot,
-				'splash'		=> $s->splash,
 				'name'			=> $name,
 				'sub'			=> $desc
 			);
@@ -266,166 +260,26 @@ class PageLinesSectionsHandler{
 
 		global $pl_section_factory;
 		
-		return array_merge( $pl_section_factory->sections, $this->layout_sections(), $this->render_user_sections() );
+		return array_merge( $pl_section_factory->sections, $this->layout_sections(), $this->custom->render_user_sections() );
 
 	}
 	
 	function edit_custom_section( $response, $data ){
 		
-		if( $data['run'] == 'save' ){
+		if( $data['run'] == 'create' ){
 			
-			$name = $data['custom-section-name'];
-			$desc = $data['custom-section-desc'];
-			$upd = $data['custom-section-update'];
-
-			$map = ( isset($data['config']['map']) ) ? $data['config']['map'] : array();
-			$settings = ( isset($data['config']['settings']) ) ? $data['config']['settings'] : array();
-
-			if( isset($data['custom-section-update']) && $data['custom-section-update'] != ''){
-				$response['key'] = $this->update_user_section( $data['custom-section-update'], $map, $settings );
-			} else 
-				$response['key'] = $this->create_user_section( $name, $desc, $map, $settings );
+			$response['key'] = $this->custom->create( $data['config'] );
+			
 			
 		} elseif( $data['run'] == 'delete'){
-			$response['delete'] = $this->delete_user_section( $data['key'] );
+			$response['delete'] = $this->custom->delete( $data['key'] );
 		}
 	
 		
 		return $response;
 	}
 	
-	
-	
-	function get_user_sections(){
-		
-		$sections = pl_opt( $this->user_sections_slug, array() );
 
-		return $sections;
-	}
-	
-	function load_user_section( $key ){
-		
-		$sections = $this->get_user_sections(); 
-		
-		if( isset($sections[ $key ]) ){
-			
-			return $sections[ $key ]; 
-		}else 	
-			return false;
-		
-	}
-	
-	function get_custom_section_keys(){
-		$sections = $this->get_user_sections(); 
-		
-		$keys = array(); 
-		foreach($sections as $key => $data){
-			$keys[ $key ] = stripslashes( $data['name'] );
-		}
-		
-		return $keys;
-	}
-	
-	function render_user_sections(){
-		
-		$sections = $this->get_user_sections();
-		$rendered = array();
-		
-		foreach($sections as $key => $i){
-			
-			$name = ( isset($i['name']) ) ? $i['name'] : 'No Name';
-			$desc = ( isset($i['desc']) ) ? $i['desc'] : 'No Description Entered.';
-			
-			$rendered[ $key ] = array(
-				'id'			=> $key,
-				'name'			=> $name,
-				'object'		=> 'PLSectionArea',
-				'description'	=> $desc,
-				'filter'		=> 'custom-section, full-width',
-				'usection'		=> $key,
-				'screenshot'	=>  PL_IMAGES . '/section-user.png',
-				'thumb'			=>  PL_IMAGES . '/section-user.png',
-			);
-			
-		}
-		
-		
-		return $this->array_to_object( $rendered ); 
-	}
-
-
-	function create_user_section( $name, $desc, $map, $settings ){
-
-		$sections = $this->get_user_sections();
-		
-		$key = pl_create_id( $name );
-
-		
-		$new = array( $key => array(
-				'name'		=> $name,
-				'desc'		=> $desc,
-				'map'		=> $map, 
-				'settings'	=> $settings
-				)
-			);
-
-		$sections = array_merge( $new, $sections );
-		
-		
-		$this->save_custom_sections( $sections );
-		
-		return $key;
-
-	}
-	
-	function save_custom_sections( $sections ){
-		
-		foreach( $sections as $key => $data){
-			if( is_int($key) )
-				unset($sections[$key]);
-		}
-		
-		pl_opt_update( $this->user_sections_slug, $sections );
-	}
-	
-	function update_user_section( $key, $map, $settings ){
-
-		$sections = $this->get_user_sections();
-		
-		if( isset($sections[ $key ]) ){
-			$new = array(
-					'map'		=> $map, 
-					'settings'	=> $settings
-					);
-
-
-			$sections[ $key ] = wp_parse_args( $new, $sections[ $key ] );
-		}
-		
-		$this->save_custom_sections( $sections );
-		
-		return $key;
-
-	}
-
-	function delete_user_section( $key ){
-
-		$sections = $this->get_user_sections();
-
-		if( isset($sections[$key]) ){
-			
-			unset( $sections[$key] );
-
-			$this->save_custom_sections( $sections );
-			
-			return 'Item deleted.';
-			
-		} else 
-			return 'Not found.';
-		
-
-	}
-	
 
 	/*
 	 * Parse the page map for user sections
@@ -433,35 +287,39 @@ class PageLinesSectionsHandler{
 	 */
 	function replace_user_sections( $map ){
 		
-		global $sections_handler;
 		$this->all_user_section_settings = array();
 		
 		foreach( $map as &$region ){
-			foreach( $region as $area_index => &$area){
+			if( is_array( $region) ){
 			
-				if( isset($area['usection']) && $area['usection'] != ''  ){
-					
-					$usection = $this->load_user_section( $area['usection'] ); 
-				
-				
-					if( ! empty($usection) ){
-						
-						$settings = ( isset($usection['settings']) ) ? $usection['settings'] : array();
+					foreach( $region as $area_index => &$area){
 
-						$area  = wp_parse_args( $usection['map'], $area );
+						if( isset($area['ctemplate']) && $area['ctemplate'] != ''  ){
 
-						$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $settings );
-						
-					} else {
-						// if usection isn't defined, then its been deleted or something.
-						unset( $region[ $area_index ] ); 
+							$ctemplate = $this->custom->retrieve( $area['ctemplate'] ); 
+
+
+							if( ! empty($ctemplate) ){
+
+								$settings = ( isset($ctemplate['settings']) ) ? $ctemplate['settings'] : array();
+
+								$area  = wp_parse_args( $ctemplate['map'], $area );
+
+								$this->all_user_section_settings = array_merge( $this->all_user_section_settings, $settings );
+
+							} else {
+								// if usection isn't defined, then its been deleted or something.
+								unset( $region[ $area_index ] ); 
+							}
+
+
+						}
+
 					}
-					
-					
-				}
-
+					unset($area);
+				
 			}
-			unset($area);
+		
 		}
 		unset($region);
 		
@@ -487,43 +345,9 @@ class PageLinesSectionsHandler{
 	}
 
 
-	function section_default(){
-		$defaults = array(
-			'id'			=> '',
-			'name'			=> 'No Name',
-			'filter'		=> 'misc',
-			'description'	=> 'No description given.',
-			'screenshot'	=>  PL_IMAGES . '/thumb-missing.png',
-			'splash'		=>  PL_IMAGES . '/splash-missing.png',
-			'class_name'	=> '',
-			'map'			=> ''
 
-		);
-		
-		return $defaults;
-	}
 	
-	function array_to_object( $array ){
-		
-		$objects = array();
-		
-		foreach( $array as $index => $l){
-			$l = wp_parse_args( $l, $this->section_default() );
-
-			$obj = new stdClass();
-			
-			foreach ($l as $key => $value){
-			    $obj->$key = $value;
-			}
-			
-
-			$objects[ $l['id'] ] = $obj;
-		}
-		
-		return $objects;
-		
-	}
-
+	
 	function layout_sections(){
 		
 		$the_layouts = array(
@@ -572,10 +396,69 @@ class PageLinesSectionsHandler{
 			),
 		);
 
-		return $this->array_to_object( $the_layouts );
+		return pl_array_to_object( $the_layouts, pl_section_config_default() );
 		
 	}
 	
 	
 
+}
+
+function pl_custom_section_name( $key ){
+	global $sections_handler; 
+	
+	return $sections_handler->custom->retrieve_field( $key, 'name' );
+}
+
+function pl_section_config_default(){
+	$defaults = array(
+		'id'			=> '',
+		'name'			=> 'No Name',
+		'filter'		=> 'misc',
+		'description'	=> 'No description given.',
+		'screenshot'	=>  PL_IMAGES . '/thumb-missing.png',
+		'splash'		=>  PL_IMAGES . '/splash-missing.png',
+		'class_name'	=> '',
+		'map'			=> ''
+
+	);
+	
+	return $defaults;
+}
+class PLCustomSections extends PLCustomObjects{
+	
+	function __construct(  ){
+		
+		$this->slug = 'pl-user-sections';
+		
+		$this->objects = $this->get_all();
+	}
+	
+	
+	function render_user_sections(){
+	
+		$rendered = array();
+		
+		foreach( $this->objects as $key => $i){
+			
+			$name = ( isset($i['name']) ) ? $i['name'] : 'No Name';
+			$desc = ( isset($i['desc']) ) ? $i['desc'] : 'No Description Entered.';
+			
+			$rendered[ $key ] = array(
+				'id'			=> $key,
+				'name'			=> $name,
+				'object'		=> 'PLSectionArea',
+				'description'	=> $desc,
+				'filter'		=> 'custom-section, full-width',
+				'ctemplate'		=> $key,
+				'screenshot'	=>  PL_IMAGES . '/section-user.png',
+				'thumb'			=>  PL_IMAGES . '/section-user.png',
+			);
+			
+		}
+		
+		
+		return pl_array_to_object( $rendered, pl_section_config_default() ); 
+	}
+	
 }
