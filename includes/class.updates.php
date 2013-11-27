@@ -21,9 +21,6 @@ class PageLinesUpdateCheck {
 	 */
 	function pagelines_theme_check_version() {
 
-		if( has_action( 'disable_dms_theme_update' ) )
-			return;
-
 		$folder = basename( get_template_directory() );
 
 		if( 'dms' != $folder )
@@ -43,6 +40,9 @@ class PageLinesUpdateCheck {
 		function pagelines_theme_update_push($value) {
 
 			$pagelines_update = ( array ) maybe_unserialize( $this->pagelines_theme_update_check() );
+
+			if( has_action( 'disable_dms_theme_update' ) )
+				return $value;
 
 			if ( $pagelines_update && isset( $pagelines_update['package'] ) && $pagelines_update['package'] !== 'bad' ) {
 				$value->response['dms'] = $pagelines_update;
@@ -70,6 +70,9 @@ class PageLinesUpdateCheck {
 	 * TODO Document!
 	 */
 	function pagelines_theme_update_nag() {
+
+		if( has_action( 'disable_dms_theme_update' ) )
+			return false;
 
 		$pagelines_update = $this->pagelines_theme_update_check();
 
