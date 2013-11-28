@@ -5,18 +5,42 @@
 	 * Data/Settings handling functions.
 	 */
 	$.plDatas = {
+		
+		GetUIDs: function( ){
 
-		setElementDelete: function( deleted ){
+			var uids = []
+
+			jQuery('.site-wrap').find("[data-clone]").each(function(){
+				
+				uids.push( $(this).data('clone') )
+				
+			})
+			
+			return uids
+			
+		}
+
+		, setElementDelete: function( deleted, original ){
 			
 			var that = this
+			,	original = original || 'true'
 			,	uniqueID = deleted.data('clone')
+			, 	uids = [ uniqueID ]
 			
+			// Recursion
 			deleted.find("[data-clone]").each(function(){
-				that.setElementDelete( $(this) )
+				
+				subuids = that.setElementDelete( $(this), 'false' )
+				
+				uids.concat( subuids )
+				
 			})
 			
 			// recursive
 			deleted.remove()
+
+			if( plIsset( $.pl.data.list[ uniqueID ] ) )
+				delete $.pl.data.list[ uniqueID ]
 
 			if( plIsset($.pl.data.local[ uniqueID ]) )
 				delete $.pl.data.local[ uniqueID ]
@@ -27,69 +51,89 @@
 			if( plIsset($.pl.data.global[ uniqueID ]) )
 				delete $.pl.data.global[ uniqueID ]
 		
+			// only on original call 
+			if( original == 'true' ){
+				
+				$.plSave.save({ 
+					  run: 'delete_items'
+					, store: uids
+				})
+				
+			}
+		
+			return uids
 		}
 		
-		, handleNewItemData: function( cloned ){
+		
+		, handleNewItemData: function( newItem ){
 
 			var that = this
-			,	scope = plItemScope( cloned )
-			,	newUniqueID = that.newPageItemData( cloned, 'clone', scope ) // recursive function
+			,	set = that.newPageItemData( newItem ) // recursive function
 			
-			cloned
+			newItem
 				.find('.tooltip')
 				.removeClass('in')
 			
+			console.log(set.uids)
 			$.plSave.save({ 
-				  run: 'scope'
-				, store: $.pl.data[scope]
-				, scope: scope 
+				  run: 'create_items'
+				, store: set.uids
+				, test: 'something'
 			})
 			
-			return newUniqueID
+			return set
 
 		}
 		
-		, newPageItemData: function( element, mode, scope ){
+		, newPageItemData: function( element ){
 			
 			var that = this
-			,	mode = mode || 'clone'
-			,	scope = scope || 'local'
 			,	oldUniqueID = element.data('clone')
 			, 	newUniqueID = plUniqueID()
+			, 	uids = {}
 			
-			// Recursion
-			element.find("[data-clone]").each(function(){
-				that.newPageItemData( $(this), mode, scope )
-			})
+			
 			
 			// Set element meta for mapping
-			element
-				.attr('data-clone', newUniqueID)
-				.data('clone', newUniqueID)
+			if( ! element.hasClass('custom-section') ){
 				
-			// Copy and move around meta data
-			var oldDatas = ( plIsset( $.pl.data[ scope ][ oldUniqueID ])) ? $.pl.data[ scope ][ oldUniqueID ] : false
-			
-			if( oldDatas )
-				$.pl.data[ scope ][ newUniqueID ] = $.extend({}, oldDatas) // must clone the element, not just assign as they stay connected
-			
-			// If unlocking a section, pull for custom page data	
-			if( mode == 'unlock' ){
-				
-				var customDat 	= ( plIsset( $.pl.data.custom[ oldUniqueID ])) ? $.pl.data.custom[ oldUniqueID ] : false
-				
-				if( customDat ){
-					$.pl.data[scope][ newUniqueID ] = $.extend({}, customDat) // must clone the element, not just assign as they stay connected
+				element
+					.attr('data-clone', newUniqueID)
+					.data('clone', newUniqueID)
+
+				if( plIsset( $.pl.data.list[ oldUniqueID ] ) ){
+
+					$.pl.data.list[ newUniqueID ] = $.extend({}, $.pl.data.list[ oldUniqueID ]) // must clone the element, not just assign as they stay connected
+
+					uids[ newUniqueID ] = $.pl.data.list[ oldUniqueID ]
+
 				}
+
+				// Recursion
+				element.find("[data-clone]").each(function(){
+					
+					if( ! $(this).hasClass('custom-section') && $(this).parents(".custom-section").length == 0 ){
+						
+						var subset = that.newPageItemData( $(this) )
+
+						$.extend( uids, subset.uids )
+						
+					}
+					
+				})
 				
+				// Handle options configuration
+				var	theOpts 	= ( plIsset( $.pl.config.opts[ oldUniqueID ])) ? $.pl.config.opts[ oldUniqueID ] : ''
+
+				$.pl.config.opts[ newUniqueID ] = theOpts
+				
+			} 
+			
+			var set = {
+				uid: newUniqueID
+				, uids: uids
 			}
-			
-			// Handle options configuration
-			var	theOpts 	= ( plIsset( $.pl.config.opts[ oldUniqueID ])) ? $.pl.config.opts[ oldUniqueID ] : ''
-			
-			$.pl.config.opts[ newUniqueID ] = theOpts
-			
-			return newUniqueID
+			return set
 		}
 
 

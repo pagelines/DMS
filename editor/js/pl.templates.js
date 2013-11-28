@@ -79,6 +79,7 @@ $.plTemplates = {
 							.html('')
 							.end()
 					
+					$.plDatas.handleNewItemData( $('.template-region-wrap') )	
 						
 					$.removeData( theRegion, 'custom-template')
 					

@@ -58,9 +58,12 @@ class PageLinesTemplateHandler {
 		// NEW SECTIONS SETTINGS MODE
 		$this->uids = $this->get_uids( $this->map );
 		
+		global $sections_data_handler;
 		
+		$this->sections_data = $sections_data_handler->get_section_data( $this->uids );
 		
-
+//		plprint( $this->sections_data );
+		
 		$this->parse_config();
 
 		$this->opts_config = $this->get_options_config();
@@ -72,6 +75,19 @@ class PageLinesTemplateHandler {
 		}
 
 	}
+	
+	function get_section_settings( $uid ){
+		
+		if( $uid == 'u3tegj'){
+			plprint($this->sections_data[ $uid ]);
+		}
+		
+		if( isset( $this->sections_data[ $uid ] ) ){
+			return $this->sections_data[ $uid ]; 
+		} else 
+			return array(); 
+	}
+	
 	
 	function get_uids( $map ){
 		$uids = array(); 
@@ -125,15 +141,13 @@ class PageLinesTemplateHandler {
 				
 				$.pl = {
 					data: {
-							local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
+						list: <?php echo json_encode( pl_arrays_to_objects( $this->sections_data) ); ?>
+							
+						,	local:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('local') ) ); ?>
 						
 						,  type:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('type') ) ); ?>
 						
 						,  global:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('global') ) ); ?>
-						
-						,  section:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('section') ) ); ?>
-						
-						,  template:  <?php echo json_encode( pl_arrays_to_objects( $this->current_page_data('template') ) ); ?>
 					}
 					
 					, flags: {
@@ -221,15 +235,11 @@ class PageLinesTemplateHandler {
 		
 		global $post;
 
-		if( empty($post->ID) )
-			$post_id = 0; 
-		else 
-			$post_id = $post->ID;
-
+		$post_id = ( empty($post->ID) ) ? 0 : $post->ID;
+	
 		$image_library_url = add_query_arg( 'post_id', (int) $post_id, admin_url('media-upload.php') );
 		$image_library_url = add_query_arg( 'type', 'image', $image_library_url );
 		$image_library_url = add_query_arg( 'tab', 'library', $image_library_url);
-		
 		$image_library_url = add_query_arg( array( 'context' => 'pl-custom-attach', 'TB_iframe' => 1), $image_library_url );
 		
 		return $image_library_url;
@@ -306,6 +316,7 @@ class PageLinesTemplateHandler {
 		$current_user = wp_get_current_user();
 		return $current_user->ID;
 	}
+	
 
 	function parse_config(){
 		
@@ -332,7 +343,7 @@ class PageLinesTemplateHandler {
 			
 				$a = wp_parse_args( $a, $this->meta_defaults( $area ) );
 				
-				$a['set'] = $this->optset->get_set( $a['clone'] ); 
+				$a['set'] = $this->get_section_settings( $a['clone'] ); 
 			
 				// Lets get rid of the number based clone system
 				
@@ -353,7 +364,7 @@ class PageLinesTemplateHandler {
 					}
 
 					$meta = wp_parse_args($meta, $this->meta_defaults($key));
-					$meta['set'] = $this->optset->get_set( $meta['clone'] ); 
+					$meta['set'] = $this->get_section_settings( $meta['clone'] ); 
 
 					
 
@@ -366,7 +377,7 @@ class PageLinesTemplateHandler {
 							}
 							
 							$sub_meta = wp_parse_args($sub_meta, $this->meta_defaults($subkey));
-							$sub_meta['set'] = $this->optset->get_set( $sub_meta['clone'] ); 
+							$sub_meta['set'] = $this->get_section_settings( $sub_meta['clone'] ); 
 					
 							
 							$this->section_list[  ] = $sub_meta;
@@ -614,6 +625,7 @@ class PageLinesTemplateHandler {
 		} elseif($scope == 'section') {
 
 			global $sections_handler;
+			
 			$d = $sections_handler->get_user_section_settings();
 		
 		} elseif($scope == 'template') {

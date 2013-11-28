@@ -196,7 +196,7 @@
 						, url: ajaxurl
 						, data: theData
 						, beforeSend: function(){
-							bootbox.dialog( that.dialogText($.pl.lang( "Deactivating...") ), [], {animate: false})
+							bootbox.dialog( that.dialogText($.pl.lang( "Deactivating..." ) ), [], {animate: false})
 						}
 						, success: function( response ){
 
@@ -220,7 +220,7 @@
 
 				$.plSave.save( { 
 					run: 'publish'
-					, store: false
+					, store: $.plDatas.GetUIDs()
 					, log: true
 				} )
 

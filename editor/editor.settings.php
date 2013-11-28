@@ -443,11 +443,12 @@ class PageLinesSettings extends PageLinesData {
  */
 class PageLinesOpts extends PageLinesSettings {
 
-	function __construct( ){
+	function __construct( $mode = 'detect' ){
 
 		global $plpg; 
 		$this->page = (isset($plpg)) ? $plpg : new PageLinesPage;
 	
+		$this->mode = $mode; 
 
 		$this->local = $this->local_settings();
 		$this->type = $this->type_settings();
@@ -491,13 +492,11 @@ class PageLinesOpts extends PageLinesSettings {
 
 	/* 
 	 * Use a cascade to get page's settings
-	 * 
 	 */ 
 	function page_settings(){
 
 		$set = $this->settings_cascade( $this->local, $this->settings_cascade($this->type, $this->global));
-		
-		
+			
 		return $set;
 
 	}
@@ -552,10 +551,10 @@ class PageLinesOpts extends PageLinesSettings {
 
 
 	function get_by_mode( $set ){
+		
+		$mode = ( $this->mode == 'detect' ) ? pl_get_mode() : $this->mode; 
 
 		$set = wp_parse_args( $set, $this->default );
-
-		$mode = (pl_draft_mode()) ? 'draft' : 'live';
 
 		return $set[ $mode ];
 	}

@@ -65,13 +65,9 @@
 			
 			theArea.removeClass('editing-locked custom-section')
 			
-			$.plDatas.newPageItemData( theArea, 'unlock', scope )
+			$.plDatas.handleNewItemData( theArea )
 			
-			$.plSave.save({ 
-				run: 'scope'
-				, store: $.pl.data[scope]
-				, scope: scope 
-			})
+			$.pageBuilder.reloadConfig( {refresh: false } )
 			
 			$.pageBuilder.reloadAllEvents()
 		

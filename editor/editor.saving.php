@@ -17,13 +17,29 @@ class PageLinesSave {
 			
 	
 		if( $data['run'] == 'map' ){
+			
 			$response = $this->save_map( $response, $data );
+			
 		} elseif (  $data['run'] == 'form' ){
+			
 			$response = $this->save_form( $response, $data );
+			
 		} elseif (  $data['run'] == 'publish' ){
+			
 			$response = $this->publish( $response, $data );
+			
+		} elseif (  $data['run'] == 'create_items' ){
+			
+			$response = $this->create_items( $response, $data );
+			
+		} elseif (  $data['run'] == 'delete_items' ){
+			
+			$response = $this->delete_items( $response, $data );
+			
 		} elseif (  $data['run'] == 'scope' ){
+			
 			$response = $this->scope( $response, $data );
+			
 		} else 
 			$response['error'] = "No save operation set for ".$data['run'];
 
@@ -69,6 +85,32 @@ class PageLinesSave {
 		
 	}
 	
+	function create_items( $response, $data ){
+		
+		$response['items'] = $items = ( isset($data['store']) ) ? $data['store'] : false;
+		
+		global $sections_data_handler; 
+			
+		
+		$response['result'] = ( $items ) ? $sections_data_handler->create_items( $items ) : 'No items sent.';
+		
+		
+		return $response; 
+	}
+	
+	function delete_items( $response, $data ){
+		
+		$items = $data['store'];
+		
+	
+		global $sections_data_handler; 
+			
+		$response['result'] = $sections_data_handler->delete_items( $data['store'] );
+		
+		
+		return $response; 
+	}
+	
 	function scope( $response, $data ){
 		
 		$scope = $data['scope'];
@@ -102,7 +144,18 @@ class PageLinesSave {
 		
 		$pageID = $data['pageID'];
 		$typeID = $data['typeID'];
+	
+		global $sections_data_handler; 
+
+		$response['result'] = $sections_data_handler->publish_items( $data['store'] );
 		
+		
+		$section_handler = new PLCustomSections;
+		$section_handler->update_objects( 'publish' );
+		
+		$tpl_handler = new PLCustomTemplates;
+		$tpl_handler->update_objects( 'publish' );
+	
 		$settings = array();
 
 		$settings['local'] = pl_meta( $pageID, PL_SETTINGS );
@@ -216,7 +269,14 @@ class PageLinesSave {
 		
 		$form = $data['store'];
 		$scope = $data['scope'];
-		$key = $data['key'];
+		$key = ( isset($data['key']) ) ? $data['key'] : false;
+		$uid = ( isset($data['uid']) && $data['uid'] != 'false' ) ? $data['uid'] : false;
+		
+		if( ! empty( $uid ) ){
+			global $sections_data_handler; 
+			
+			$response = $sections_data_handler->update_or_insert( $response, array( 'uid' => $uid, 'draft' => $form[ $uid ] ) );
+		}
 		
 		if( $scope == 'global' ){
 			

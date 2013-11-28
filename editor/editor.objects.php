@@ -10,7 +10,7 @@ class PLCustomObjects{
 		
 		$this->slug = $slug;
 		
-		$this->objects = $this->get_all();
+		$this->objects = $this->get_all( );
 	}
 	
 	function default_objects(){
@@ -31,12 +31,49 @@ class PLCustomObjects{
 	
 	function get_all(){
 		
-		 return pl_opt( $this->slug, $this->default_objects() );
+		$default = array(
+			'draft'	=> $this->default_objects(),
+			'live'	=> $this->default_objects()
+		); 
+		
+		$all = pl_opt( $this->slug, $default );
+		
+		// Upgrade from legacy mode
+		if( ! isset( $all['draft'] ) ){
+			
+			$new = array(
+				'draft' => $all, 
+				'live'	=> $all
+			);
+			
+			pl_opt_update( $this->slug, $new );
+			
+			$all = $new;
+			
+		} 
+
+		return $all[ pl_get_mode() ];
 	
 	}
+
+
 	
-	function update_all(){
-		pl_opt_update( $this->slug, $this->objects );
+	function update_objects( $action = 'draft' ){
+		
+		$all = pl_opt( $this->slug );
+		
+		if( $action == 'publish' ){
+		
+			$all['live'] = $all['draft'];
+			
+		} elseif( $action == 'revert' ) {
+			
+			$all['draft'] = $all['live'];
+			
+		} else 
+			$all[ 'draft' ] = $this->objects;
+		
+		pl_opt_update( $this->slug, $all );
 	}
 	
 	function create( $args = array() ){
@@ -49,7 +86,7 @@ class PLCustomObjects{
 
 		$this->objects = array_merge( $new, $this->objects );
 		
-		$this->update_all();
+		$this->update_objects( );
 		
 		return $key;
 	}
@@ -78,7 +115,7 @@ class PLCustomObjects{
 		
 		$this->objects[ $key ] = wp_parse_args( $args, $object );
 		
-		$this->update_all();
+		$this->update_objects();
 		
 		return $key;
 		
@@ -89,7 +126,7 @@ class PLCustomObjects{
 		if( isset( $this->objects[ $key ] ) ){
 			
 			unset( $this->objects[ $key ] );
-			$this->update_all();
+			$this->update_objects();
 			return $key;
 			
 		} else

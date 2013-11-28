@@ -93,13 +93,14 @@ class PageLinesEditor {
 		global $fileopts;
 		global $sections_handler;
 		global $templates_handler;
+		global $sections_data_handler;
 
 		$plpg = $this->page = new PageLinesPage;
 		$pldraft = $this->draft = new EditorDraft( $this->page );
 		$storeapi = $this->storeapi = new EditorStoreFront;
 		$this->layout = new EditorLayout();
 
-		$this->section_data = new PLSectionData;
+		$sections_data_handler = new PLSectionData;
 
 		$templates_handler = new EditorTemplates;
 

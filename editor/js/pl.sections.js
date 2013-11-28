@@ -117,7 +117,8 @@ $.plSections = {
 			.addClass( sectionClass )
 			
 		// Don't think this is actually needed.
-		var newUniqueID = $.plDatas.handleNewItemData( element )
+		var set = $.plDatas.handleNewItemData( element )
+		,	newUniqueID = set.uid
 
 		if( activeLoad ){
 			
@@ -164,7 +165,7 @@ $.plSections = {
 						
 						var newOpts = {}
 						
-						newOpts[newUniqueID] = {
+						newOpts[ newUniqueID ] = {
 							opts: response.opts
 							, name: name
 						}
