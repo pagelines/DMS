@@ -569,6 +569,10 @@
 				e.preventDefault()
 				e.stopPropagation()
 
+				// cause options to save in last panel
+				// If a user clicks on edit button of another section and it doesn't save, percieved as bug
+				$('.current-panel').find('.lstn').first().trigger('blur')
+
 				var btn = $(this)
 				,	section = btn.closest(".pl-section")
 				,	scope = ( section.parents(".template-region-wrap").length == 1 ) ? 'local' : 'global'
