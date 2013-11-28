@@ -25,19 +25,11 @@ class pliBox extends PageLinesSection {
 			'type'	=> 'multi',
 			'opts'	=> array(
 				array(
-					'key'			=> 'ibox_count',
-					'type' 			=> 'count_select',
-					'count_start'	=> 1,
-					'count_number'	=> 12,
-					'default'		=> 4,
-					'label' 	=> __( 'Number of iBoxes to Configure', 'pagelines' ),
-				),
-				array(
 					'key'			=> 'ibox_cols',
 					'type' 			=> 'count_select',
 					'count_start'	=> 1,
 					'count_number'	=> 12,
-					'default'		=> '3',
+					'default'		=> '4',
 					'label' 	=> __( 'Number of Columns for Each Box (12 Col Grid)', 'pagelines' ),
 				),
 				array(
