@@ -163,7 +163,7 @@
 
 
 
-			$('[data-tab-action]').hide()
+			$('.panel-section-options [data-tab-action]').hide()
 			$('[data-tab-action="'+panelScope+'"]').show()
 			
 			$('[data-panel="'+panelScope+'"]').data('key', theKey).attr('data-key', theKey)
@@ -272,15 +272,36 @@
 
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], formData)
 
+				
 				// for array option types, the extend is not allowing deletion, this corrects
+				// Also stop formdata from containing empty values and sending them. This clutters things up.
 				$.each( formData, function(i, o){
 					$.each( o, function(i2, o2){
 						if( typeof(o2) == 'object' ){
-
+							
 							$.pl.data[scope][i][i2] = o2
+							
+							if( typeof(o2) == 'object' ){
+								
+								$.each( o2, function(i3, o3){
+									
+									if( typeof(o3) == 'object' ){
+								
+										$.each( o3, function(i4, o4){
+									
+											if( o4 == '' )
+												delete formData[i][i2][i3][i4]
+										
+										})
+								
+									}
+								})
+							}
 						}
-
+			
 					})
+					if( o == '' )
+						delete formData[i]
 				})
 
 				if(uniqueID)
@@ -318,6 +339,8 @@
 					$.pl.flags.refreshOnSave = true
 					$('.li-refresh').show()
 				}
+				
+				console.log( e.type )
 
 				if( e.type == 'blur' || ( e.type == 'change' && ( iType == 'checkbox' || iType == 'select') ) ){
 
@@ -326,6 +349,7 @@
 						, store: formData
 						, scope: scope
 						, key: key
+						, uid: uniqueID
 					})
 				}
 
@@ -474,18 +498,26 @@
 
 			var that = this
 			, 	pageData = $.pl.data
+			,	sectionData = $.pl.data.list
 			,	index = index || false
 			, 	subkey = subkey || false
 			, 	value = ''
 
 			// global settings are always related to 'global'
-			if (that.config.mode == 'settings' || that.config.mode == 'panel')
+			if (that.config.mode == 'settings' || that.config.mode == 'panel'){
 				scope = 'global'
 
-			// Set option value
-			if( pageData[ scope ] && pageData[ scope ][ that.uniqueID ] && pageData[ scope ][ that.uniqueID ][ key ]){
-				value = pl_html_input( pageData[ scope ][ that.uniqueID ][ key ] )
+				// Set option value
+				if( pageData[ scope ] && pageData[ scope ][ that.uniqueID ] && pageData[ scope ][ that.uniqueID ][ key ]){
+					value = pl_html_input( pageData[ scope ][ that.uniqueID ][ key ] )
+				}
+				
+			} else if( sectionData[ that.uniqueID ] && sectionData[ that.uniqueID ][ key ]){
+				
+				value = pl_html_input( sectionData[ that.uniqueID ][ key ] )
+			
 			}
+				
 
 			if( value != '' && index && subkey ){
 
