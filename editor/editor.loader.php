@@ -47,7 +47,7 @@ class PageLinesPageLoader{
 				body{margin: 0;}
 				.pl-loader { display: block; position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100000; text-align: center;}
 				.pl-loader, .pl-loader p{
-					font-family: helvetica, arial, sans-serif; 
+					font-family: 'Open Sans',helvetica, arial, sans-serif; 
 					color: #CCC !important; 
 				}
 				.pl-loader a{
@@ -94,11 +94,11 @@ class PageLinesPageLoader{
 		
 		?>
 		<div class="pl-loader">
-			<div class="loader-text" style="padding: 200px 0;font-family: helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
+			<div class="loader-text" style="padding: 200px 0;font-family: 'Open Sans', helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
 				<div class="pl-spinner"></div>
 				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
 			</div>
-			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .7; text-align: center;">
+			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .8; text-align: center;">
 				<?php _e('Issues loading? See the <a href="http://docs.pagelines.com/support-troubleshooting/common-issues" target="_blank">troubleshooting guide</a>.', 'pagelines');?>
 			</div>
 		</div>
