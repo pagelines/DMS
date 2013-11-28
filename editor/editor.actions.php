@@ -13,6 +13,8 @@ function pl_editor_actions(){
 	$run = $postdata['run'];
 	$pageID = $postdata['pageID'];
 	$typeID = $postdata['typeID'];
+	
+	$response['dataAmount'] = ( isset( $_SERVER['CONTENT_LENGTH'] ) ) ? (int) $_SERVER['CONTENT_LENGTH'] : 'No Value';
 
 	if($mode == 'save'){
 		
