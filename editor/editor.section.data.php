@@ -161,32 +161,32 @@ class PLSectionData{
 				
 			}
 			
-						// 
-						// if( $num_rows == 0 ){
-						// 	
-						// 	
-						// 	$draft = new PageLinesOpts( 'draft' );
-						// 	$draft->load_page_settings();
-						// 	
-						// 	$upgrade_settings = array(); 
-						// 	$upgrade_settings['draft'] = $draft->get_set( $uid );
-						// 	
-						// 	$live = new PageLinesOpts( 'live' );
-						// 	$live->load_page_settings();
-						// 	
-						// 	$upgrade_settings['live'] = $live->get_set( $uid );
-						// 	
-						// 	$encoded_draft = serialize( $upgrade_settings['draft'] );
-						// 	$encoded_live = serialize( $upgrade_settings['live'] );
-						// 	
-						// 	$set = array( 'uid'	=> $uid, 'draft' => $encoded_draft, 'live' => $encoded_live );
-						// 	$num_rows++;
-						// 	$result = $this->wpdb->insert( $this->table_name, $set );
-						// 	$rows_added = true;
-						// 	
-						// 	$config[ $uid ] = $upgrade_settings[ $mode ];
-						// 
-						// }
+			
+			if( $num_rows == 0 ){
+				
+				
+				$draft = new PageLinesOpts( 'draft' );
+				$draft->load_page_settings();
+				
+				$upgrade_settings = array(); 
+				$upgrade_settings['draft'] = $draft->get_set( $uid );
+				
+				$live = new PageLinesOpts( 'live' );
+				$live->load_page_settings();
+				
+				$upgrade_settings['live'] = $live->get_set( $uid );
+				
+				$encoded_draft = serialize( $upgrade_settings['draft'] );
+				$encoded_live = serialize( $upgrade_settings['live'] );
+				
+				$set = array( 'uid'	=> $uid, 'draft' => $encoded_draft, 'live' => $encoded_live );
+				$num_rows++;
+				$result = $this->wpdb->insert( $this->table_name, $set );
+				$rows_added = true;
+				
+				$config[ $uid ] = $upgrade_settings[ $mode ];
+			
+			}
 			
 		}
 		
