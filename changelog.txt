@@ -4,6 +4,17 @@
 
 ********************************************************
 
+Version 1.1.4
+
+	- CORE - Properly place icon on PageLines menu item.
+	- CORE - Only show update notifications where needed.
+	- CORE - Added missing image to assets folder for RevSlider.
+	- CORE - Trigger settings to save if user clicks edit in another section.
+	- BUG - CSS was sometimes broken on a static homepage.
+	- BUG - Tweaks to settings system. Fixes some issues when saving.
+	- BUG - Fixed Watermark Section sharing options.
+	
+
 Version 1.1.3
 
 	- CORE - Allow span1 to be selected in sections.
