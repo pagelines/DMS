@@ -8,6 +8,8 @@ class PageLinesUpdateCheck {
     	$this->theme  = 'DMS';
  		$this->version = $version;
 
+		$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
+
 		$this->email = (isset($status['email'])) ? $status['email'] : '';
 		$this->key = (isset($status['key'])) ? $status['key'] : '';
 
@@ -25,7 +27,8 @@ class PageLinesUpdateCheck {
 
 		if( 'dms' != $folder )
 			return;
-		
+
+
 		add_filter('site_transient_update_themes', array( $this,'pagelines_theme_update_push') );
 		add_filter('transient_update_themes', array( $this,'pagelines_theme_update_push') );
 //		add_action('load-update-core.php', array( $this,'pagelines_theme_clear_update_transient') );
@@ -86,11 +89,11 @@ class PageLinesUpdateCheck {
 
 		$account_set_url = add_query_arg( array( 'tablink' => 'account', 'tabsublink' => 'pl_account#pl_account' ), admin_url() );
 
-		$details_button = ( $pagelines_update['extra'] ) ? '<span style="float:right"><a class="pl_updates" href="#">Details</a></span>' : '';
+		$details_button = ( $pagelines_update['extra'] ) ? '<span style="float:right" class="pl_updates"><a href="#">Details</a></span><span style="float:right" class="pl_updates hidden"><a href="#">Hide</a></span>' : '';
 
 		$warning = ( $screen->id == 'update-core' || $screen->id == 'themes' ) ? '<br /><strong>Please</strong> update all plugins before upgrading DMS.' : '';
 
-		$details = ( $pagelines_update['extra'] ) ? sprintf( '<span id="pl_updates_data" style="display:none"><br />%s</span>', $pagelines_update['extra'] ) : '';
+		$details = ( $pagelines_update['extra'] ) ? sprintf( '<div id="pl_updates_data" style="display:none"><br />%s</div>', $pagelines_update['extra'] ) : '';
 
 		$content = sprintf( 'There is an update for DMS, version %s is now available. %s%s%s%s',
 
@@ -102,7 +105,13 @@ class PageLinesUpdateCheck {
 			$warning,
 			$details
 		 );
-		printf( '<div class="updated"><p>%s</p></div><script>jQuery( ".pl_updates" ).click(function() { jQuery( "#pl_updates_data" ).show( "slow" ) });</script>', $content );
+		printf( '<div class="updated"><p>%s</p></div>
+			<script>
+				jQuery( ".pl_updates" ).click(function() {
+					jQuery( "#pl_updates_data" ).toggle( "slow" )
+					jQuery( ".pl_updates" ).toggle()
+				})
+			</script>', $content );
 	}
 
 	/**
