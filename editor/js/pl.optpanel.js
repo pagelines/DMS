@@ -959,8 +959,6 @@
 		, onceOffScripts: function() {
 
 			var that = this
-			
-			$('.make-switch').bootstrapSwitch()
 
 			// Settings Actions
 			$(".settings-action").on("click.settingsAction", function(e) {
