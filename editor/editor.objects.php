@@ -37,20 +37,33 @@ class PLCustomObjects{
 		); 
 		
 		$all = pl_opt( $this->slug, $default );
-		
+	
 		// Upgrade from legacy mode
-		if( ! isset( $all['draft'] ) ){
+		if( ! isset( $all['draft'] ) || empty( $all['draft'] ) ){
+		
+			if( ! isset( $all['draft'] ) ){
+				
+				$new = array(
+					'draft' => $all, 
+					'live'	=> $all
+				);
+
+				
+			} elseif( empty( $all['draft'] ) ) {
+				
+				$new = wp_parse_args( array( 'draft' => $this->default_objects() ), $all );
 			
-			$new = array(
-				'draft' => $all, 
-				'live'	=> $all
-			);
-			
+			}
+		
 			pl_opt_update( $this->slug, $new );
 			
-			$all = $new;
 			
+			
+			$all = $new;
+				
 		} 
+		
+		
 
 		return $all[ pl_get_mode() ];
 	
@@ -123,14 +136,14 @@ class PLCustomObjects{
 	
 	function delete( $key ){
 		
-		if( isset( $this->objects[ $key ] ) ){
+		if( isset( $this->objects[ $key ] ) || $this->objects[ $key ] == null){
 			
 			unset( $this->objects[ $key ] );
 			$this->update_objects();
 			return $key;
 			
 		} else
-			return false;
+			return array('key not found', $key, $this->objects);
 			
 	}
 	
