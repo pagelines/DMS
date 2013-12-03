@@ -334,11 +334,14 @@ class PageLinesTemplateHandler {
 		
 		$clone_was_set = false;
 		
-	
 		foreach($this->map as $region => &$g){
 
-			if( !isset($g) || !is_array($g) )
-				continue;
+			if( !isset($g) || !is_array($g) || empty( $g )){
+				
+				$g = array( array('object' => 'PLSectionArea'));
+				
+			}
+			
 
 			foreach($g as $area => &$a){
 			

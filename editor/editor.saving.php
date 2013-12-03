@@ -195,17 +195,25 @@ class PageLinesSave {
 		$config = $response['config'] =  $data['store'];
 		$metaID = ( $data['templateMode'] == 'type' ) ? $data['typeID'] : $data['pageID'];
 		$load = $response['load'] = $data['load'];
-		$slug = 'ctemplate'; 
+		$slug = 'ctemplate';
+		
+		foreach( pl_editor_regions() as $region ){
+			if( ! isset( $config[ $region ] ) )
+				$config[ $region ] = array( 'map' => array() );
+		}
+		 
 		foreach( $config as $region => $region_config ){
 			
 			$map = $region_config[ 'map' ];
 		
+			
 			
 			if( is_array( $map )){
 				foreach( $map as $area => &$area_config ){
 
 					if( isset( $area_config[ $slug ] ) && $area_config[ $slug ] != '' ){
 
+						// if its a custom section, update that
 						if( $load != 'section' ){
 							$section_handler = new PLCustomSections;
 							$section_handler->update( $area_config[ $slug ], array( 'map' => $area_config ) );
@@ -231,6 +239,7 @@ class PageLinesSave {
 					
 					$custom_template = $region_config[ $slug ]; 
 					
+					// if its a template, update that
 					if( $load != 'template' ){
 
 						$tpl_handler = new PLCustomTemplates;
@@ -252,7 +261,7 @@ class PageLinesSave {
 			
 		}
 
-
+		
 		
 		
 		$local_settings = pl_settings( 'draft', $metaID );

@@ -106,6 +106,8 @@ class PageLinesTemplates {
 			
 		}
 		
+		
+		
 		$region_map = ( $map && isset($map[ $region ]) ) ? $map[ $region ] : $this->default_region( $region );		
 
 		return $region_map;
@@ -113,18 +115,7 @@ class PageLinesTemplates {
 	}
 	
 	function upgrade_navbar_settings(){
-		// $theme = ( $this->opt('fixed_navbar_theme' ) ) ? $this->opt( 'fixed_navbar_theme' ) : false;
-		// $align = ( $this->opt( 'fixed_navbar_alignment' ) ) ? $this->opt( 'fixed_navbar_alignment' ) : false;
-		// $hidesearch = ( $this->opt( 'fixed_navbar_hidesearch' ) ) ? $this->opt( 'fixed_navbar_hidesearch' ) : false;
-		// $menu = ( $this->opt( 'fixed_navbar_menu' ) ) ? $this->opt( 'fixed_navbar_menu' ) : null;
-		// $class[] = ( $this->opt( 'fixed_navbar_enable_hover' ) ) ? 'plnav_hover' : '';
-		// 
-		// $theme = ( $this->opt( 'navbar_theme' ) ) ? $this->opt( 'navbar_theme' ) : false;
-		// $align = ( $this->opt('navbar_alignment' ) ) ? $this->opt( 'navbar_alignment' ) : false;
-		// $hidesearch = ( $this->opt( 'navbar_hidesearch' ) ) ? $this->opt( 'navbar_hidesearch' ) : false;
-		// $menu = ( $this->opt( 'navbar_menu' ) ) ? $this->opt( 'navbar_menu' ) : null;
-		// $class[] = ( $this->opt( 'navbar_enable_hover' ) ) ? 'plnav_hover' : '';
-		// 	
+		
 		$settings = array(
 			'navbar_theme'			=> pl_setting('fixed_navbar_theme' ),
 			'navbar_alignment'		=> pl_setting('fixed_navbar_alignment' ),

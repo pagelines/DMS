@@ -1,5 +1,16 @@
 <?php
 
+// get all region slugs in editor
+function pl_editor_regions(){
+
+	$regions = array(
+		'fixed', 'header', 'footer', 'template'
+	);
+	
+	return $regions;
+
+}
+
 /*
  *	Get index value in array, does shortcodes or default
  */
