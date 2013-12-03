@@ -253,7 +253,7 @@
 					else
 					    checkToggle.val(0)
 
-					that.checkboxDisplay( checkGroup )
+					
 
 				}
 
@@ -749,31 +749,19 @@
 
 			}
 
-
 			// Checkbox Options
 			else if ( o.type == 'check' ) {
 
 				var checked = (!o.value || o.value == 0 || o.value == '') ? '' : 'checked'
 				,	toggleValue = (checked == 'checked') ? 1 : 0
 				,	aux = sprintf('<input name="%s" class="checkbox-toggle" type="hidden" value="%s" />', o.name, toggleValue )
-				, 	keyFlip = o.key +'-flip'
-				,	valFlip =  that.optValue( tabIndex, keyFlip)
-				, 	checkedFlip = (!valFlip || valFlip == 0 || valFlip == '') ? '' : 'checked'
-				,	toggleValueFlip = (checkedFlip == 'checked') ? 1 : 0
-				, 	nameFlip = sprintf('%s[%s]', that.uniqueID, keyFlip)
-				,	labelFlip = (o.fliplabel) ? o.fliplabel : sprintf( '( <i class="icon-undo"></i> %s ) ', $.pl.lang("reverse") )  + optLabel
-				,	auxFlip = sprintf('<input name="%s" class="checkbox-toggle lstn" type="hidden" value="%s" />', nameFlip, toggleValueFlip )
-				, 	showFlip = false
-				, 	globalVal = (that.optValue( 'global', o.key ) == 1) ? true : false
-				, 	typeVal = (that.optValue( 'type', o.key ) == 1) ? true : false
-				, 	typeFlipVal = (that.optValue( 'type', keyFlip ) == 1) ? true : false
 
 
 				var stdCheck =  sprintf('<label class="checkbox check-standard" >%s<input id="%s" class="checkbox-input lstn" type="checkbox" %s>%s</label>', aux, o.inputID, checked, optLabel )
-				,	flipCheck =  (scope != 'global') ? sprintf('<label class="checkbox check-flip" >%s<input id="%s" class="checkbox-input lstn" type="checkbox" %s>%s</label>', auxFlip, keyFlip , checkedFlip, labelFlip ) : ''
+				
 
 
-				oHTML +=  sprintf('<div class="checkbox-group scope-%s checkgroup-%s" data-checkgroup="%s">%s %s</div>', scope, o.key, o.key, stdCheck, flipCheck )
+				oHTML +=  sprintf('<div class="checkbox-group scope-%s checkgroup-%s" data-checkgroup="%s">%s</div>', scope, o.key, o.key, stdCheck )
 
 			}
 
@@ -971,6 +959,8 @@
 		, onceOffScripts: function() {
 
 			var that = this
+			
+			$('.make-switch').bootstrapSwitch()
 
 			// Settings Actions
 			$(".settings-action").on("click.settingsAction", function(e) {
@@ -1514,13 +1504,6 @@
 				})
 
 			}
-
-			else if( o.type == 'check' ){
-
-				that.checkboxDisplay( o.inputID )
-
-			}
-
 			else if(  o.type == 'type' ||  o.type == 'fonts' ){
 
 
