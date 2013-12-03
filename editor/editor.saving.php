@@ -221,12 +221,9 @@ class PageLinesSave {
 				}
 				unset( $area_config );
 			}
+			
 		
-			if( $region == 'header' || $region == 'footer' ){
-				
-				$global[ $region ] = $map; 
-				
-			} else {
+			if( $region == 'template' ) {
 				
 				$local[ $region ] = $map;
 				
@@ -246,6 +243,10 @@ class PageLinesSave {
 				} else 
 					$custom_template = false; 
 					
+			} else {
+				
+				$global[ $region ] = $map; 
+				
 			}
 			
 			
@@ -275,7 +276,7 @@ class PageLinesSave {
 		if( ! empty( $uid ) ){
 			global $sections_data_handler; 
 			
-			$response = $sections_data_handler->update_or_insert( $response, array( 'uid' => $uid, 'draft' => $form[ $uid ] ) );
+			$response['result'] = $sections_data_handler->update_or_insert( array( 'uid' => $uid, 'draft' => $form[ $uid ] ) );
 		}
 		
 		if( $scope == 'global' ){

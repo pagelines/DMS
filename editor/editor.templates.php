@@ -38,6 +38,7 @@ class PageLinesTemplates {
 		
 		$pl_custom_template = false;
 
+		$map['fixed'] = $this->get_region( 'fixed' );
 		$map['header'] = $this->get_region( 'header' );
 		$map['footer'] = $this->get_region( 'footer' );
 		$map['template'] = $this->get_region( 'template' );
@@ -54,7 +55,7 @@ class PageLinesTemplates {
 
 	function get_region( $region ){
 		
-		if($region == 'header' || $region == 'footer'){
+		if( $region == 'header' || $region == 'footer' || $region == 'fixed' ){
 			
 			$map = $this->set->regions; 
 				
@@ -111,26 +112,53 @@ class PageLinesTemplates {
 		
 	}
 	
+	function upgrade_navbar_settings(){
+		// $theme = ( $this->opt('fixed_navbar_theme' ) ) ? $this->opt( 'fixed_navbar_theme' ) : false;
+		// $align = ( $this->opt( 'fixed_navbar_alignment' ) ) ? $this->opt( 'fixed_navbar_alignment' ) : false;
+		// $hidesearch = ( $this->opt( 'fixed_navbar_hidesearch' ) ) ? $this->opt( 'fixed_navbar_hidesearch' ) : false;
+		// $menu = ( $this->opt( 'fixed_navbar_menu' ) ) ? $this->opt( 'fixed_navbar_menu' ) : null;
+		// $class[] = ( $this->opt( 'fixed_navbar_enable_hover' ) ) ? 'plnav_hover' : '';
+		// 
+		// $theme = ( $this->opt( 'navbar_theme' ) ) ? $this->opt( 'navbar_theme' ) : false;
+		// $align = ( $this->opt('navbar_alignment' ) ) ? $this->opt( 'navbar_alignment' ) : false;
+		// $hidesearch = ( $this->opt( 'navbar_hidesearch' ) ) ? $this->opt( 'navbar_hidesearch' ) : false;
+		// $menu = ( $this->opt( 'navbar_menu' ) ) ? $this->opt( 'navbar_menu' ) : null;
+		// $class[] = ( $this->opt( 'navbar_enable_hover' ) ) ? 'plnav_hover' : '';
+		// 	
+		$settings = array(
+			'navbar_theme'			=> pl_setting('fixed_navbar_theme' ),
+			'navbar_alignment'		=> pl_setting('fixed_navbar_alignment' ),
+			'navbar_hidesearch'		=> pl_setting('fixed_navbar_hidesearch' ),
+			'navbar_menu'			=> pl_setting('fixed_navbar_menu' ),
+			'navbar_enable_hover'	=> pl_setting('fixed_navbar_enable_hover' ),
+			'navbar_logo'			=> pl_setting('navbar_logo' ),
+		);
+		
+		return $settings;
+	}
+	
 
 	function default_region( $region ){
 		
-		
+		$d = array();
 		
 		if( $region == 'header' ){
 			
-			$d = array(
-				array(
-					'areaID'	=> 'HeaderArea',
-					'content'	=> array( )
-				)
-
-			);
+			$d = array( array( 'content' => array( ) ) );
+			
+		} elseif( $region == 'fixed' ){
+			
+			$d = array( 
+					array( 
+						'object' 	=> 'PLNavBar',
+						'settings'	=> $this->upgrade_navbar_settings()
+					) 
+				);
 			
 		} elseif( $region == 'footer' ){
 			
 			$d = array(
 				array(
-					'areaID'	=> 'FooterArea',
 					'content'	=> array(
 						array(
 							'object' => 'SimpleNav'
@@ -142,7 +170,7 @@ class PageLinesTemplates {
 			
 		} elseif( $region == 'template' ){
 			
-			$d = array( $this->tpl->default_template() );
+			$d = array( pl_default_template() );
 			
 		}
 		
@@ -161,7 +189,8 @@ class PageLinesTemplates {
 
 			$global_settings['draft']['regions'] = array(
 				'header' => $map['header'],
-				'footer' => $map['footer']
+				'footer' => $map['footer'],
+				'fixed' => $map['fixed']
 			);
 
 			pl_opt_update( PL_SETTINGS, $global_settings );
@@ -447,129 +476,6 @@ class EditorTemplates {
 	}
 	
 	
-
-
-	function default_template( $standard = false ){
-	
-		if( $this->page->type == '404_page' && !$standard){
-			
-				$t = array(
-					'content'	=> array( array( 'object' => 'PageLinesNoPosts' ) )
-				);
-			
-		} elseif( $this->page->type == 'page' && !$standard){
-			
-			$t = array(
-				'content'	=> array(
-					array(
-						'object'	=> 'PageLinesPostLoop',
-						'span' 		=> 8,
-						'offset'	=> 2
-					)
-				)
-			);
-			
-		} else {
-			
-			$t = array(
-				'name'	=> 'Content Area',
-				'class'	=> 'std-content',
-				'content'	=> array(
-					array(
-						'object'	=> 'PLColumn',
-						'span' 	=> 8,
-						'content'	=> array(
-							array(
-								'object'	=> 'PageLinesPostLoop'
-							),
-							array(
-								'object'	=> 'PageLinesComments'
-							),
-						)
-					),
-					array(
-						'object'	=> 'PLColumn',
-						'span' 	=> 4,
-						'content'	=> array(
-							array(
-								'object'	=> 'PLRapidTabs'
-							),
-							array(
-								'object'	=> 'PrimarySidebar'
-							),
-						)
-					),
-				)
-			);
-			
-		}
-		
-
-		return $t;
-
-	}
-
-
-
-
-	function default_user_templates(){
-
-		$t = array();
-
-		$t[ 'default' ] = array(
-				'name'	=> __( 'Default', 'pagelines' ),
-				'desc'	=> __( 'Standard page configuration. (Content and Primary Sidebar.)', 'pagelines' ),
-				'map'	=> array(
-					'template' => $this->default_template( true )
-				)
-			);
-
-		$t[ 'feature' ] = array(
-			'name'	=> __( 'Feature Template', 'pagelines' ),
-			'desc'	=> __( 'A page template designed to quickly and concisely show off key features or points. (RevSlider, iBoxes, Flipper)', 'pagelines' ),
-			'map'	=> array(
-				array(
-					'object'	=> 'plRevSlider',
-				),
-				array(
-					'content'	=> array(
-						array(
-							'object'	=> 'pliBox',
-
-						),
-						array(
-							'object'	=> 'PageLinesFlipper',
-
-						),
-					)
-				)
-			)
-		);
-
-		$t[ 'landing' ] = array(
-				'name'	=> __( 'Landing Page', 'pagelines' ),
-				'desc'	=> __( 'A simple page design with highlight section and postloop (content).', 'pagelines' ),
-				'map'	=> array(
-					'template' => array(
-						'area'	=> 'TemplateAreaID',
-						'content'	=> array(
-							array(
-								'object'	=> 'PageLinesHighlight',
-							),
-							array(
-								'object'	=> 'PageLinesPostLoop',
-								'span'		=> 8, 
-								'offset'	=> 2
-							),
-
-						)
-					)
-				)
-		);
-
-		return $t;
-	}
-
 	function admin_page_meta_box(){
 		if(pl_deprecate_v2())
 			remove_meta_box( 'pageparentdiv', 'page', 'side' );
@@ -667,9 +573,127 @@ class PLCustomTemplates extends PLCustomObjects{
 		
 		$this->objects = $this->get_all();
 	}
+	
+	function default_objects(){
+
+		$t = array();
+
+		$t[ 'default' ] = array(
+				'name'	=> __( 'Default', 'pagelines' ),
+				'desc'	=> __( 'Standard page configuration. (Content and Primary Sidebar.)', 'pagelines' ),
+				'map'	=> array(
+					'template' => pl_default_template( true )
+				)
+			);
+
+		$t[ 'feature' ] = array(
+			'name'	=> __( 'Feature Template', 'pagelines' ),
+			'desc'	=> __( 'A page template designed to quickly and concisely show off key features or points. (RevSlider, iBoxes, Flipper)', 'pagelines' ),
+			'map'	=> array(
+				array(
+					'object'	=> 'plRevSlider',
+				),
+				array(
+					'content'	=> array(
+						array(
+							'object'	=> 'pliBox',
+
+						),
+						array(
+							'object'	=> 'PageLinesFlipper',
+
+						),
+					)
+				)
+			)
+		);
+
+		$t[ 'landing' ] = array(
+				'name'	=> __( 'Landing Page', 'pagelines' ),
+				'desc'	=> __( 'A simple page design with highlight section and postloop (content).', 'pagelines' ),
+				'map'	=> array(
+					'template' => array(
+						'area'	=> 'TemplateAreaID',
+						'content'	=> array(
+							array(
+								'object'	=> 'PageLinesHighlight',
+							),
+							array(
+								'object'	=> 'PageLinesPostLoop',
+								'span'		=> 8, 
+								'offset'	=> 2
+							),
+
+						)
+					)
+				)
+		);
+
+		return $t;
+	}
 }
 
+function pl_default_template( $standard = false ){
 
+	global $plpg;
+
+	if( $plpg->type == '404_page' && ! $standard){
+		
+			$t = array(
+				'content'	=> array( array( 'object' => 'PageLinesNoPosts' ) )
+			);
+		
+	} elseif( $plpg->type == 'page' && ! $standard){
+		
+		$t = array(
+			'content'	=> array(
+				array(
+					'object'	=> 'PageLinesPostLoop',
+					'span' 		=> 8,
+					'offset'	=> 2
+				)
+			)
+		);
+		
+	} else {
+		
+		$t = array(
+			'name'	=> 'Content Area',
+			'class'	=> 'std-content',
+			'content'	=> array(
+				array(
+					'object'	=> 'PLColumn',
+					'span' 	=> 8,
+					'content'	=> array(
+						array(
+							'object'	=> 'PageLinesPostLoop'
+						),
+						array(
+							'object'	=> 'PageLinesComments'
+						),
+					)
+				),
+				array(
+					'object'	=> 'PLColumn',
+					'span' 	=> 4,
+					'content'	=> array(
+						array(
+							'object'	=> 'PLRapidTabs'
+						),
+						array(
+							'object'	=> 'PrimarySidebar'
+						),
+					)
+				),
+			)
+		);
+		
+	}
+	
+
+	return $t;
+
+}
 
 
 

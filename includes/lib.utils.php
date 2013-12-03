@@ -117,28 +117,6 @@ function setup_pagelines_template() {
 // SECTIONS FUNCTIONS 
 // ------------------------------------------
 
-/**
- * Builds a sections for use outside of drag drop setup
- */
-function build_passive_section( $args = array() ){
-
-	global $passive_sections;
-
-	if(!isset($passive_sections))
-		$passive_sections = array();
-
-	$defaults = array(
-		'sid'	=> ''
-	);
-
-	$s = wp_parse_args($args, $defaults);
-
-	$new = array($s['sid']);
-
-	$passive_sections = array_merge($new, $passive_sections);
-
-}
-
 
 
 /**

@@ -210,11 +210,6 @@ class PageLinesSection {
 								
 				$val = $this->meta[ 'set' ][ $key ];
 			
-			} elseif( pl_setting( $key, $args) ){
-			
-			
-				$val = pl_setting( $key, $args);
-			 
 			} else
 				$val = $a['default'];
 			
@@ -360,33 +355,6 @@ class PageLinesSection {
 	function section_template() {
 		die('function PageLinesSection::section_template() must be over-ridden in a sub-class.');
 	}
-
-	/**
-     * Passive Section Load Template
-  	 * If a section is loaded through a hook use this builder instead of the one
-     * inside of the template class.
- 	 *
-     * @since   2.1.6
-     */
-	function passive_section_template( $hook_name = false ){
-
-		$this->passive_hook = $hook_name;
-
-		$location = 'passive';
-
-		$markup = ( isset( $this->settings['markup'] ) ) ? $this->settings['markup'] : 'content';
-
-		$this->before_section_template( $location );
-
-		$this->before_section( $markup );
-
-		$this->section_template( $location );
-
-		$this->after_section( $markup );
-
-		$this->after_section_template();
-	}
-	
 
 	function before_section( $markup = 'content', $clone_id = null, $classes = ''){
 

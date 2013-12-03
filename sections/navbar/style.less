@@ -1,47 +1,10 @@
-/*
- * PageLines Inc.
- */
 
-body.navbar_fixed {
-	.page-canvas {
-		padding-top: 50px;
-	}
-	.fixed_width #page .page-canvas{
-		margin-top: 42px;
-		padding-top: 0;
-	}
-
-	.section-navbar.fixed-top{
-		position: fixed;
-		z-index: @zindexFixedNavbar;
-	}
-	
-}
-
-.section-navbar.fixed-top{
-	.navbar-edit{
-		position: absolute;
-		left: -30px;
-		top: 6px;
-		display: none;
-	}
-	&:hover{
-		.navbar-edit{
-			display: block;
-		}
-	}
-}
 
 /*  Basic formatting
  ************************************************************/
 .section-navbar {
-
-
 	margin: 0 auto;
 	width: 100%;
-	font-family: @altFontFamily;
-	font-weight: @altFontWeight;
-
 	.content-pad,
 	.pl-section-pad{
 		padding-top: 5px;
@@ -57,7 +20,6 @@ body.navbar_fixed {
 	display: none;
 }
 .navbar{
-	.box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 3px rgba(0, 0, 0, 0.25)");
 	color:rgba(255,255,255,.7);
 	&.navbar-content-width{
 		.border-radius( 4px );
@@ -321,14 +283,6 @@ body.navbar_fixed {
 	}
 }
 
-
-// Hide Title on Fixed Crackbar
-#navbar.fixed-top {
-	.navbar-title {
-		display:none;
-	}
-}
-
 // CrackBar Title Defaults
 span.navbar-title {
 	display: inline-block;
@@ -429,23 +383,6 @@ span.navbar-title {
 
 @media (max-width: @resPortraitTablet){
 
-body.navbar_fixed {
-	.page-canvas  {
-	  padding-top: 0;
-	}
-	.fixed_width #page .page-canvas{
-		margin-top: 0;
-	}
-}
-.section-navbar{
-	&.fixed-top {
-		position: static;
-		.navbar-inner {
-			padding: 5px;
-		}
-		
-	}
-}
 
 #site .navbar{
 	.brand {

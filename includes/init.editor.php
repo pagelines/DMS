@@ -26,6 +26,7 @@ class PageLinesEditor {
 		add_action( 'wp_footer', array( $this, 'process_foot' ) );
 
 		// RENDER SECTION TEMPLATES ACTIONS
+		add_action( 'pagelines_fixed', array( $this, 'process_fixed' ) );
 		add_action( 'pagelines_header', array( $this, 'process_header' ) );
 		add_action( 'pagelines_template', array( $this, 'process_template' ) );
 		add_action( 'pagelines_footer', array( $this, 'process_footer' ) );
@@ -193,6 +194,15 @@ class PageLinesEditor {
 			$this->handler->process_foot();
 	}
 
+	function process_fixed(){
+
+		if( ! is_object( $this->handler ) )
+			return false;
+
+		$this->handler->process_region('fixed');
+
+	}
+	
 	function process_header(){
 
 		if( ! is_object( $this->handler ) )

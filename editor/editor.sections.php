@@ -162,28 +162,38 @@ class PageLinesSectionsHandler{
 			if($s->filter == 'deprecated')
 				continue;
 
-			if( strpos($s->filter,'full-width') !== false ){
-				$section_classes = 'pl-area-sortable area-tag';
-			} else {
-				$section_classes = 'pl-sortable span12 sortable-first sortable-last';
-			}
-
+			$full_width_classes = 'pl-area-sortable area-tag';
+			$content_width_classes = 'pl-sortable span12 sortable-first sortable-last';
+			
+			$full_width = ( strpos($s->filter,'full-width') !== false ) ? true : false;
+			$content_width = ( strpos($s->filter,'content-width') !== false ) ? true : false;
+			$dual_loading = ( strpos($s->filter,'dual-width') !== false ) ? true : false;
+			
+			$section_classes = ( $full_width ) ? $full_width_classes : $content_width_classes;
+			
+			
+			
 			$name = stripslashes( $s->name ); 
-			//$desc = ucwords($s->filter);
+		
 			$desc = array();
 			
+			// Start Class Array (all classes on section icon)
+			$class = array('x-add-new');
 			
-
-			$class = array('x-add-new', $section_classes, $special_class);
+			$class['section'] = $section_classes; 
+			$class['special'] = $special_class;
 
 			$filters = explode(',', $s->filter);
 			
 			foreach($filters as $f){
-				$class[] = $f;
+				
+				$class[ 'filter-'.$f ] = $f;
+				
 				$desc[] = ( isset($filter_local[trim($f)]) ) ? $filter_local[trim($f)] : ucwords(trim($f));
+				
 			}
 			
-			$desc = join( ',', $desc );
+			$desc = join( ', ', $desc );
 
 			$number = $count++;
 
@@ -200,7 +210,7 @@ class PageLinesSectionsHandler{
 				}
 
 				if( $disable ) {
-					$class[] = 'x-disable';
+					$class['disable'] = 'x-disable';
 					$number += 100;
 				}
 
@@ -208,7 +218,7 @@ class PageLinesSectionsHandler{
 			
 			if( !pl_is_pro() && !empty($s->sinfo['edition']) && !empty($s->sinfo['edition']) == 'pro' ){
 				
-				$class[] = 'x-disable';
+				$class['disable'] = 'x-disable';
 				$desc = __( '<span class="badge badge-important">PRO ONLY</span>', 'pagelines' ); 
 			}
 
@@ -225,10 +235,10 @@ class PageLinesSectionsHandler{
 			);
 			
 			if( !empty($s->loading) )
-				$class[] = 'loading-'.$s->loading;
+				$class['loading'] = 'loading-'.$s->loading;
 			
 			if( !empty( $s->ctemplate ) ){
-				$class[] = 'custom-section';
+				$class['custom'] = 'custom-section';
 				$data_array['custom-section'] = $s->ctemplate;
 			}
 			
@@ -248,6 +258,13 @@ class PageLinesSectionsHandler{
 
 
 			$list .= $this->xlist->get_x_list_item( $args );
+			
+			if( $dual_loading ){
+				$args['class_array']['section'] = $full_width_classes;
+				$args['class_array'][] = 'full-width';
+				$args['name'] = $name.' (Full)';
+				$list .= $this->xlist->get_x_list_item( $args );
+			}
 
 		}
 

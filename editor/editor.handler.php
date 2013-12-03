@@ -78,10 +78,6 @@ class PageLinesTemplateHandler {
 	
 	function get_section_settings( $uid ){
 		
-		if( $uid == 'u3tegj'){
-			plprint($this->sections_data[ $uid ]);
-		}
-		
 		if( isset( $this->sections_data[ $uid ] ) ){
 			return $this->sections_data[ $uid ]; 
 		} else 
@@ -317,12 +313,28 @@ class PageLinesTemplateHandler {
 		return $current_user->ID;
 	}
 	
+	function load_new_section_from_map( $s ){
+		global $sections_data_handler;
+		
+		$newID = pl_new_clone_id();
+		
+		if( isset( $s['settings'] ) ){
+			
+			$sections_data_handler->create_items( array( $newID => $s['settings'] ) );
+			
+			$this->sections_data[ $newID ] = $s['settings'];
+			
+		}
+		
+		return $newID;
+		
+	}
 
 	function parse_config(){
 		
 		$clone_was_set = false;
 		
-		
+	
 		foreach($this->map as $region => &$g){
 
 			if( !isset($g) || !is_array($g) )
@@ -330,13 +342,15 @@ class PageLinesTemplateHandler {
 
 			foreach($g as $area => &$a){
 			
-			
-				if( !isset( $a['object'] ) || !$a['object'] ){
+				// If object isn't set, create blank section area
+				if( ! isset( $a['object'] ) || ! $a['object'] )
 					$a['object'] = 'PLSectionArea';
-				}
 			
+				// If no ID, set up as new section
 				if( !isset( $a['clone'] ) ){
-					$a['clone'] = pl_new_clone_id();
+				
+					$a['clone'] = $this->load_new_section_from_map( $a );
+					
 					$clone_was_set = true;
 					
 				}
@@ -344,7 +358,7 @@ class PageLinesTemplateHandler {
 				$a = wp_parse_args( $a, $this->meta_defaults( $area ) );
 				
 				$a['set'] = $this->get_section_settings( $a['clone'] ); 
-			
+				$a['draw']	= 'area';
 				// Lets get rid of the number based clone system
 				
 					
@@ -358,27 +372,28 @@ class PageLinesTemplateHandler {
 				foreach($a['content'] as $key => &$meta){
 
 					if( !isset( $meta['clone'] ) ){
-						$meta['clone'] = pl_new_clone_id();
+					
+						$meta['clone'] = $this->load_new_section_from_map( $meta );
 						$clone_was_set = true;
 					
 					}
 
 					$meta = wp_parse_args($meta, $this->meta_defaults($key));
 					$meta['set'] = $this->get_section_settings( $meta['clone'] ); 
-
+					$meta['draw']	= 'content';
 					
 
 					if(!empty($meta['content'])){
 						foreach($meta['content'] as $subkey => &$sub_meta){
 							
 							if( !isset( $sub_meta['clone'] ) ){
-								$sub_meta['clone'] = pl_new_clone_id();
+								$sub_meta['clone'] = $this->load_new_section_from_map( $sub_meta );
 								$clone_was_set = true;
 							}
 							
 							$sub_meta = wp_parse_args($sub_meta, $this->meta_defaults($subkey));
 							$sub_meta['set'] = $this->get_section_settings( $sub_meta['clone'] ); 
-					
+							$sub_meta['draw']	= 'content';
 							
 							$this->section_list[  ] = $sub_meta;
 							$this->section_list_unique[$sub_meta['object']] = $sub_meta;
@@ -400,25 +415,7 @@ class PageLinesTemplateHandler {
 
 		
 		
-			
-		
-	
 
-		// add passive sections (not in drag drop but added through options/hooks)
-		global $passive_sections;
-
-		if(is_array($passive_sections) && !empty($passive_sections)){
-			foreach($passive_sections as $key){
-				 
-			
-				$meta = wp_parse_args(array(), $this->meta_defaults($key));
-				$meta['set'] = $this->optset->get_set( $meta['clone'] ); 
-				
-				$this->section_list[  ] = $meta;
-				$this->section_list_unique[ $meta['object'] ] = $meta;
-			}
-		}
-		
 		// This sets a map for the page, if it isn't set with new clone IDs the options wont
 		// work until a user action causes the map to be saved, non-ideal
 		if( $clone_was_set ){

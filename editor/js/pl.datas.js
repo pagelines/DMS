@@ -74,7 +74,7 @@
 				.find('.tooltip')
 				.removeClass('in')
 			
-			console.log(set.uids)
+		
 			$.plSave.save({ 
 				  run: 'create_items'
 				, store: set.uids
