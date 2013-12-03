@@ -45,7 +45,7 @@ class PLSectionData{
 	   $rows_affected = $wpdb->insert( $this->table_name, array( 'uid'	=> 'u12345', 'draft' => '' ) );
 	}
 	
-	function update_or_insert( $response, $data ){
+	function update_or_insert( $data ){
 		
 		$uid = $data['uid']; 
 		$draft = serialize( $data['draft'] );
@@ -56,9 +56,9 @@ class PLSectionData{
 										draft = %s", $uid, $draft, $draft); 
 								
 		      
-		$this->wpdb->query( $query );
+		$result = $this->wpdb->query( $query );
 		
-		return $response;
+		return $result;
 	}
 	
 	function create_items( $items ){
@@ -67,7 +67,7 @@ class PLSectionData{
 			foreach( $items as $uid => $dat ){
 				
 				$result = array();
-				$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft) VALUES ( %s, %s );", $uid, serialize( $dat ) );
+				$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft, live) VALUES ( %s, %s, %s );", $uid, serialize( $dat ), serialize( $dat ));
 				
 				$result[] = $this->wpdb->query( $query );
 			}
@@ -133,7 +133,7 @@ class PLSectionData{
 		
 		$config = $this->configure_section_data( $uids, $rows );
 		
-		if( PL_DEV )
+		if( is_pl_debug() )
 			pl_add_perform_data( round( microtime(TRUE) - $start_time, 3), 'Section Data Query', 'Seconds', 'Time for section data DB query and configuration.' );
 		
 		return $config;
