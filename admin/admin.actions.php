@@ -66,19 +66,6 @@ function pagelines_theme_settings_scripts() {
 
 
 
-add_action( 'admin_init', 'pagelines_check_customizer' );
-function pagelines_check_customizer() {
-	
-	global $pagenow;
-	
-	if($pagenow == 'customize.php')
-		wp_redirect( PL_ACTIVATE_URL );
-		
-	if( isset($_GET['activated'] ) && $pagenow == "themes.php" )
-		wp_redirect( PL_ACTIVATE_URL );
-}
-
-
 /**
  * Checks if PHP5
  *

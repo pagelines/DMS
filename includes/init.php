@@ -44,6 +44,9 @@ require_once( PL_INCLUDES . '/lib.head.php' );
 // Applied in body
 require_once( PL_INCLUDES . '/lib.body.php' );
 
+// Installation Routine
+require_once( PL_INCLUDES . '/init.install.php' );
+
 // Start the editor
 require_once( PL_INCLUDES . '/init.editor.php' );
 
@@ -70,6 +73,7 @@ require_once( PL_INCLUDES . '/class.foundry.php' );
 
 // BUILD Controller
 require_once( PL_INCLUDES . '/version.php' );
+
 	
 // Run the pagelines_init Hook
 pagelines_register_hook('pagelines_hook_init'); // Hook

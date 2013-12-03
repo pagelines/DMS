@@ -12,4 +12,5 @@ require_once( PL_ADMIN . '/admin.account.php' );
 // Load option actions
 require_once( PL_ADMIN . '/admin.actions.php' );
 
+do_action('pagelines_admin_load', 'core'); // Hook
 
