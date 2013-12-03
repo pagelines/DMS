@@ -8,7 +8,7 @@ class PLDeveloperTools {
 	
 	function __construct(){
 
-		if( ! PL_DEV )
+		if( ! is_pl_debug() )
 			return;
 
 		// Add tab to toolbar 
