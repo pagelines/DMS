@@ -116,6 +116,7 @@ $.plTemplates = {
 			,	args = {
 						run: 'delete'
 					,	confirm: true
+					, 	log: true
 					,	confirmText: $.pl.lang("<h3>Are you sure?</h3><p>This will delete this template. All pages using this template will be reverted to their default page configuration.</p>")
 					, 	beforeSend: function(){
 							$( '.template_key_' + defaultArgs.key ).fadeOut(300, function() {
