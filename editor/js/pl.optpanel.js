@@ -786,18 +786,19 @@
 
 					var cnt_start = (o.count_start) ? o.count_start : 0
 					,	cnt_num = (o.count_number) ? o.count_number : 10
+					,	cnt_multiple = (o.count_mult) ? o.count_mult : 1
 					,	suffix = (o.suffix) ? o.suffix : ''
 
 					o.opts = {}
 
 					if( o.type == 'count_select_same' ){
 
-						for(i = cnt_start; i <= cnt_num; i++)
+						for(i = cnt_start; i <= cnt_num; i+=cnt_multiple)
 							o.opts[i+suffix] = {name: i+suffix}
 
 					} else {
 
-						for(i = cnt_start; i <= cnt_num; i++)
+						for(i = cnt_start; i <= cnt_num; i+=cnt_multiple)
 							o.opts[i] = {name: i+suffix}
 
 					}
