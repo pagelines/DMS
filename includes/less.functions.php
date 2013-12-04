@@ -78,6 +78,7 @@ function get_all_active_sections() {
 				$sections[$type] = $data;
 		}
 	}
+
 	foreach( $sections as $t ) {
 		foreach( $t as $key => $data ) {
 			if ( $data['less'] && $data['loadme'] ) {

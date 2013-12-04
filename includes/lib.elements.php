@@ -142,7 +142,13 @@ function pagelines_search_form( $echo = true ){
 		return apply_filters('pagelines_search_form', $searchform);
 }
 
-
+function pl_get_search_form() {
+	$searchform = trailingslashit( get_stylesheet_directory() ) . 'searchform.php';
+	if( file_exists( $searchform ) )
+		include( $searchform );
+	else
+		pagelines_search_form();	
+}
 
 /**
  *
