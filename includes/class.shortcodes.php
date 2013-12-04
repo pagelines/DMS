@@ -122,7 +122,8 @@ class PageLines_ShortCodes {
 			'pl_video'					=>	array( 'function' => 'pl_video_shortcode' ),
 			'pl_child_url'				=>	array( 'function' => 'pl_child_url' ),
 			'pl_site_url'				=>	array( 'function' => 'pl_site_url' ),
-			'pl_parent_url'				=>	array( 'function' => 'get_themeurl' )
+			'pl_parent_url'				=>	array( 'function' => 'get_coreurl' ),
+			'pl_theme_url'				=>	array( 'function' => 'get_themeurl' )
 			);
 
 		return $core;
@@ -186,6 +187,10 @@ class PageLines_ShortCodes {
 
 	// 3. Function for getting template path
 	// USAGE: [themeurl]
+	function get_coreurl( $atts ) {
+		return pl_get_template_directory_uri();
+	}
+
 	function get_themeurl( $atts ) {
 		return get_template_directory_uri();
 	}
