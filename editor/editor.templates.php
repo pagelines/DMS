@@ -43,6 +43,8 @@ class PageLinesTemplates {
 		$map['footer'] = $this->get_region( 'footer' );
 		$map['template'] = $this->get_region( 'template' );
 		
+		
+		
 		$map = $sections_handler->replace_user_sections( $map );
 		
 		
@@ -170,47 +172,47 @@ class PageLinesTemplates {
 		
 	}
 
-	function save_map_draft( $pageID, $typeID, $map, $mode){
-
-		if(!$map)
-			return; 
-			
-		// GLOBAL //
-			$global_settings = pl_opt( PL_SETTINGS, pl_settings_default(), true );
-
-			$global_settings['draft']['regions'] = array(
-				'header' => $map['header'],
-				'footer' => $map['footer'],
-				'fixed' => $map['fixed']
-			);
-
-			pl_opt_update( PL_SETTINGS, $global_settings );
-
-		// LOCAL OR TYPE //	
-			$updateID = ($mode == 'local') ? $pageID : $typeID;
-		
-			$template_settings = pl_meta( $updateID, PL_SETTINGS, pl_settings_default());
-		
-			$new_settings = $template_settings;
-		
-			$new_settings['draft']['custom-map'] = array(
-				'template' => $map['template']
-			);
-
-		if($new_settings != $template_settings){
-			
-			$new_settings['draft']['page-template'] = 'custom'; 
-			
-			pl_meta_update( $updateID, PL_SETTINGS, $new_settings );
-			
-			$local = 1;
-		
-		} else
-			$local = 0;
-
-
-		return array('local' => $local);
-	}
+	// function save_map_draft( $pageID, $typeID, $map, $mode){
+	// 
+	// 	if(!$map)
+	// 		return; 
+	// 		
+	// 	// GLOBAL //
+	// 		$global_settings = pl_opt( PL_SETTINGS, pl_settings_default(), true );
+	// 
+	// 		$global_settings['draft']['regions'] = array(
+	// 			'header' => $map['header'],
+	// 			'footer' => $map['footer'],
+	// 			'fixed' => $map['fixed']
+	// 		);
+	// 
+	// 		pl_opt_update( PL_SETTINGS, $global_settings );
+	// 
+	// 	// LOCAL OR TYPE //	
+	// 		$updateID = ($mode == 'local') ? $pageID : $typeID;
+	// 	
+	// 		$template_settings = pl_meta( $updateID, PL_SETTINGS, pl_settings_default());
+	// 	
+	// 		$new_settings = $template_settings;
+	// 	
+	// 		$new_settings['draft']['custom-map'] = array(
+	// 			'template' => $map['template']
+	// 		);
+	// 
+	// 	if($new_settings != $template_settings){
+	// 		
+	// 		$new_settings['draft']['page-template'] = 'custom'; 
+	// 		
+	// 		pl_meta_update( $updateID, PL_SETTINGS, $new_settings );
+	// 		
+	// 		$local = 1;
+	// 	
+	// 	} else
+	// 		$local = 0;
+	// 
+	// 
+	// 	return array('local' => $local);
+	// }
 }
 
 class EditorTemplates {
@@ -563,6 +565,7 @@ class PLCustomTemplates extends PLCustomObjects{
 		$this->slug = 'pl-user-templates';
 		
 		$this->objects = $this->get_all();
+		
 	}
 	
 	function default_objects(){
@@ -686,5 +689,31 @@ function pl_default_template( $standard = false ){
 
 }
 
+function pl_add_or_update_template( $name, $map, $desc = '' ){
+	$tpls = new PLCustomTemplates;
+	
+	$args = array(
+		'name'	=> $name, 
+		'desc'	=> $desc, 
+		'map'	=> $map
+	); 
+	
+	$key = $tpls->create( $args );
+	
+	return $key;
+}
+
+function pl_set_page_template( $metaID, $key ){
+	
+	// set local meta
+	
+	$map = array();
+	
+	$map['template']['ctemplate'] = $key;
+	
+	pl_local_update( $metaID, 'custom-map', $map );
+
+	
+}
 
 

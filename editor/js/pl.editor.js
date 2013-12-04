@@ -46,7 +46,9 @@
 
 			$(".dropdown-toggle").dropdown()
 
-			$.pageBuilder.reloadConfig({ location: 'start', storeMap: false})
+			var storeMap = ( $('body').hasClass('pl-save-map-on-load') ) ? true : false
+			
+			$.pageBuilder.reloadConfig({ location: 'start', storeMap: storeMap })
 
 			this.theToolBox = $('body').toolbox()
 
