@@ -32,6 +32,7 @@ class PLSectionArea extends PageLinesSection {
 					'label' 	=> __( 'Default Area Padding (px)', 'pagelines' ),
 					'count_start'	=> 0,
 					'count_number'	=> 200,
+					'count_mult'	=> 5,
 					'suffix'		=> 'px',
 					'help'	 	=> __( 'If sections are added to full width areas, the area will be givin this default padding.', 'pagelines' )
 				),
@@ -57,6 +58,7 @@ class PLSectionArea extends PageLinesSection {
 					'type' 			=> 'count_select_same',
 					'count_start'	=> 0,
 					'count_number'	=> 200,
+					'count_mult'	=> 5,
 					'suffix'		=> 'px',
 					'label' 	=> __( 'Area Padding (px)', 'pagelines' ),
 				),
@@ -65,6 +67,7 @@ class PLSectionArea extends PageLinesSection {
 					'type' 			=> 'count_select_same',
 					'count_start'	=> 0,
 					'count_number'	=> 200,
+					'count_mult'	=> 5,
 					'suffix'		=> 'px',
 					'label' 	=> __( 'Area Padding Bottom (if different)', 'pagelines' ),
 				)
@@ -80,13 +83,6 @@ class PLSectionArea extends PageLinesSection {
 			'col'			=> 3,
 			'label' 	=> __( 'Area Styling', 'pagelines' ),
 			'opts'	=> array(
-				// array(
-				// 
-				// 				'key'			=> 'pl_area_class',
-				// 				'type' 			=> 'text',
-				// 				'label' 	=> __( 'Styling Classes', 'pagelines' ),
-				// 				'help'		=> __( 'Separate with a space " "', 'pagelines' ),
-				// 			),
 				array(
 
 					'key'			=> 'pl_area_bg',

@@ -31,12 +31,7 @@ class PLCustomObjects{
 	
 	function get_all(){
 		
-		$default = array(
-			'draft'	=> $this->default_objects(),
-			'live'	=> $this->default_objects()
-		); 
-		
-		$all = pl_opt( $this->slug, $default );
+		$all = pl_opt( $this->slug, pl_settings_default() );
 	
 		// Upgrade from legacy mode
 		if( ! isset( $all['draft'] ) || empty( $all['draft'] ) ){
@@ -97,7 +92,7 @@ class PLCustomObjects{
 
 		$new = array( $key => $args );
 
-		$this->objects = array_merge( $new, $this->objects );
+		$this->objects[ $key ] = $args;
 		
 		$this->update_objects( );
 		
