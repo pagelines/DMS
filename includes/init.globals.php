@@ -30,9 +30,11 @@ define('PL_NICETHEMENAME', pl_get_theme_data( get_template_directory(), 'Name' )
 define('PL_NICECHILDTHEMENAME',  pl_get_theme_data( get_stylesheet_directory(), 'Name' ) );
 
 define('PL_PARENT_DIR', pl_get_template_directory() );
+define('PL_THEME_DIR', get_template_directory() );
 define('PL_CHILD_DIR', get_stylesheet_directory());
 
 define('PL_PARENT_URL', pl_get_template_directory_uri() );
+define('PL_THEME_URL', get_template_directory_uri() );
 define('PL_CHILD_URL', get_stylesheet_directory_uri());
 define('PL_CHILD_IMAGES', PL_CHILD_URL . '/images' );
 
