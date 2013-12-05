@@ -117,33 +117,34 @@ body a.btn:hover {
 
 // Set text color
 // -------------------------
+
 .btn-primary,
-.btn-primary:hover,
+a.btn-primary,
 .btn-warning,
-.btn-warning:hover,
+a.btn-warning,
 .btn-important,
-.btn-important:hover,
+a.btn-important,
 .btn-success,
-.btn-success:hover,
+a.btn-success,
 .btn-info,
-.btn-info:hover,
+a.btn-info,
 .btn-inverse,
-.btn-inverse:hover, 
+a.btn-inverse,
 .btn-edit,
-.btn-edit:hover{
-  text-shadow: 0 -1px 0px rgba(0,0,0,.3);
-  color: @white;
+a.btn-edit{
+	text-shadow: 0 -1px 0px rgba(0,0,0,.3);
+	color: @white;
+	&a, 
+	&:hover{
+		text-shadow: 0 -1px 0px rgba(0,0,0,.3);
+		color: @white;
+	}
+	&.active{
+		color: rgba(255,255,255,.75);
+	}
 }
-// Provide *some* extra contrast for those who can get it
-.btn-primary.active,
-.btn-warning.active,
-.btn-important.active,
-.btn-success.active,
-.btn-info.active,
-.btn-inverse.active,
-.btn-edit.active {
-  color: rgba(255,255,255,.75);
-}
+
+
 
 // Set the backgrounds
 // -------------------------
