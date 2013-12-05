@@ -97,12 +97,13 @@ class PLNavBar extends PageLinesSection {
 						'key'			=> 'navbar_alignment',
 						'type'			=> 'check',
 						'default'		=> true,
-						'label'		=> __( 'Align Menu Right? (Defaults Left)', 'pagelines' ),
+						'label'			=> __( 'Align Menu Right? (Defaults Left)', 'pagelines' ),
 					),
 					array(
 						'key'			=> 'navbar_hidesearch',
 						'type'			=> 'check',
-						'label'		=> __(  'Hide Search?', 'pagelines' ),
+						'default'		=> true,
+						'label'			=> __(  'Hide Search?', 'pagelines' ),
 					),
 				),
 
