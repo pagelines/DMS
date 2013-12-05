@@ -20,7 +20,10 @@ body {
 	}
 	.pl-fixed-top{
 		background-color: @pl-base;
-		box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 3px rgba(0, 0, 0, 0.25);
+		&.is-fixed{
+			box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 3px rgba(0, 0, 0, 0.25);
+		}
+		
 	}
 	.pl-mobile-menu{
 		position: absolute; 

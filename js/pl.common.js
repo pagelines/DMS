@@ -1,5 +1,8 @@
 !function ($) {
 
+
+	
+
 	// --> Initialize
 	$(document).ready(function() {
 		
@@ -17,6 +20,8 @@
 		$.plParallax.init()
 		
 		$('.pl-credit').show()
+		
+		
 	})
 	
 	$(window).load(function() {
@@ -229,8 +234,22 @@
 
 			$.resize.delay = 100 // resize throttle
 
-			$('.pl-fixed-top').on('resize', function(){
+			var fixedTop = $('.pl-fixed-top')
+			, 	fixedOffset = fixedTop[0].offsetTop
+			console.log(fixedOffset)
+			fixedTop.on('resize', function(){
 				that.setHeight()
+			})
+			
+			$(document).on('ready scroll', function() {
+			    var docScroll = $(document).scrollTop()
+
+			    if (docScroll >= fixedOffset) {
+			        fixedTop.addClass('is-fixed');
+			    } else {
+			        fixedTop.removeClass('is-fixed')
+			    }
+
 			})
 			
 			$('.pl-make-link').on('click', function(){
