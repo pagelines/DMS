@@ -77,9 +77,10 @@ class PageLinesInstall{
 			array(
 				'object'	=> 'PLSectionArea',
 				'settings'	=> array(
-					'pl_area_bg' 	=> 'pl-dark-img',
-					'pl_area_image'	=> '[pl_parent_url]/images/getting-started-mast-bg.jpg',
-					'pl_area_pad'	=> '80px'
+					'pl_area_bg' 		=> 'pl-dark-img',
+					'pl_area_image'		=> '[pl_parent_url]/images/getting-started-mast-bg.jpg',
+					'pl_area_pad'		=> '80px',
+					'pl_area_parallax'	=> 1
 				),
 				
 				'content'	=> array(
@@ -115,7 +116,7 @@ class PageLinesInstall{
 								),
 								array(
 									'title'	=> 'Docs',
-									'text'	=> 'Time to dig in. Check out the Docs for specifics on getting your site finished.',
+									'text'	=> 'Time to dig in. Check out the Docs for specifics on creating your dream website.',
 									'icon'	=> 'file-text',
 									'link'	=> 'http://docs.pagelines.com/'
 								),
