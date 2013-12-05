@@ -80,11 +80,15 @@ function pl_local( $metaID, $key ){
 	
 }
 
-function pl_local_update( $metaID, $key, $value ){
+function pl_local_update( $metaID, $key, $value, $mode = 'draft' ){
 	
 	$settings = pl_meta($metaID, PL_SETTINGS, pl_settings_default() );
 	
-	$settings[ pl_get_mode() ][$key] = $value; 
+	if( $mode == 'both'){
+		$settings[ 'draft' ][$key] = $value; 
+		$settings[ 'live' ][$key] = $value; 
+	} else 
+		$settings[ $mode ][$key] = $value; 
 	
 	pl_meta_update($metaID, PL_SETTINGS, $settings);
 		

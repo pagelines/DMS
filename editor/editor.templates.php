@@ -470,8 +470,7 @@ class EditorTemplates {
 	
 	
 	function admin_page_meta_box(){
-		if(pl_deprecate_v2())
-			remove_meta_box( 'pageparentdiv', 'page', 'side' );
+		remove_meta_box( 'pageparentdiv', 'page', 'side' );
 			
 		add_meta_box('specialpagelines', __( 'DMS Page Setup', 'pagelines' ), array( $this, 'page_attributes_meta_box'), 'page', 'side');
 
@@ -488,13 +487,9 @@ class EditorTemplates {
 			$user_template = (isset($post['pagelines_template'])) ? $post['pagelines_template'] : '';
 
 			if($user_template != ''){
-
-				$set = pl_meta($postID, PL_SETTINGS);
 				
-				$set['draft']['page-template'] = $user_template; 
-				$set['live']['page-template'] = $user_template; 
+				pl_set_page_template( $postID, $user_template, 'both' );
 				
-				pl_meta_update($postID, PL_SETTINGS, $set);
 			}
 
 
@@ -703,7 +698,7 @@ function pl_add_or_update_template( $name, $map, $desc = '' ){
 	return $key;
 }
 
-function pl_set_page_template( $metaID, $key ){
+function pl_set_page_template( $metaID, $key, $mode = 'draft' ){
 	
 	// set local meta
 	
@@ -711,7 +706,7 @@ function pl_set_page_template( $metaID, $key ){
 	
 	$map['template']['ctemplate'] = $key;
 	
-	pl_local_update( $metaID, 'custom-map', $map );
+	pl_local_update( $metaID, 'custom-map', $map, $mode );
 
 	
 }
