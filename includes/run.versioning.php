@@ -6,11 +6,10 @@
  */
 
 $installed = get_theme_mod( 'pagelines_version' );
-$actual = pl_get_theme_data( get_template_directory(), 'Version' );
+$actual = PL_CORE_VERSION;
 
 // if new version do some housekeeping.
 if ( version_compare( $actual, $installed ) > 0 ) {
-
 		delete_transient( 'pagelines_theme_update' );
 		delete_transient( 'pagelines_extend_themes' );
 		delete_transient( 'pagelines_extend_sections' );

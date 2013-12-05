@@ -99,14 +99,16 @@ function pagelines_set_versions() {
 			delete_transient( 'pagelines_sections_cache' );
 		}
 	}
-	set_theme_mod( 'pagelines_version', pl_get_theme_data( get_template_directory(), 'Version' ) );
+	set_theme_mod( 'pagelines_version', PL_CORE_VERSION );
 	set_theme_mod( 'pagelines_child_version', pl_get_theme_data( get_stylesheet_directory(), 'Version' ) );
 }
 
 // make sure were running out of 'pagelines' folder.
 add_action( 'admin_notices', 'pagelines_check_folders' );
 function pagelines_check_folders() {
-
+		
+		if( defined( 'DMS_CORE' ) )
+			return;
 		$folder = basename( get_template_directory() );
 
 		if( 'dms' == $folder )

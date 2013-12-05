@@ -12,8 +12,9 @@ if( defined( 'PL_DEV' ) && PL_DEV ){
 /**
  * Define framework version
  */
-if( ! defined( 'PL_CORE_VERSION' ) )
-	define( 'PL_CORE_VERSION', get_theme_mod( 'pagelines_version' ) );
+global $platform_build;
+
+define( 'PL_CORE_VERSION', $platform_build );
 
 define( 'PL_CHILD_VERSION', get_theme_mod( 'pagelines_child_version' ) );
 
@@ -28,10 +29,12 @@ define( 'PL_CHILDTHEMENAME', get_option('stylesheet') );
 define('PL_NICETHEMENAME', pl_get_theme_data( get_template_directory(), 'Name' ) );
 define('PL_NICECHILDTHEMENAME',  pl_get_theme_data( get_stylesheet_directory(), 'Name' ) );
 
-define('PL_PARENT_DIR', get_template_directory());
+define('PL_PARENT_DIR', pl_get_template_directory() );
+define('PL_THEME_DIR', get_template_directory() );
 define('PL_CHILD_DIR', get_stylesheet_directory());
 
-define('PL_PARENT_URL', get_template_directory_uri());
+define('PL_PARENT_URL', pl_get_template_directory_uri() );
+define('PL_THEME_URL', get_template_directory_uri() );
 define('PL_CHILD_URL', get_stylesheet_directory_uri());
 define('PL_CHILD_IMAGES', PL_CHILD_URL . '/images' );
 
@@ -54,7 +57,7 @@ define( 'PAGELINES_SETTINGS_LEGACY', 'pagelines-settings' );
 define( 'PAGELINES_TEMPLATE_MAP_LEGACY', 'pagelines_template_map' );
 
 // Define PL Admin Paths
-define( 'PL_ADMIN', get_template_directory() . '/admin' );
+define( 'PL_ADMIN', pl_get_template_directory() . '/admin' );
 define( 'PL_ADMIN_URI', PL_PARENT_URL . '/admin' );
 
 define( 'PL_ADMIN_IMAGES', PL_ADMIN_URI . '/images' );
@@ -74,12 +77,12 @@ define('PL_ADMIN_STORE_URL', 'admin.php?page='.PL_ADMIN_STORE_SLUG);
 define('PL_TEMPLATE_SETUP_URL', 'admin.php?page=pagelines_templates');
 define('PL_SPECIAL_OPTS_URL', 'admin.php?page=pagelines_special');
 
-define( 'PL_EDITOR', get_template_directory() . '/editor' );
-define( 'PL_EDITOR_URL', get_template_directory_uri() . '/editor' );
+define( 'PL_EDITOR', pl_get_template_directory() . '/editor' );
+define( 'PL_EDITOR_URL', pl_get_template_directory_uri() . '/editor' );
 /**
  * Define theme path constants
  */
-define('PL_SECTIONS', get_template_directory() . '/sections');
+define('PL_SECTIONS', pl_get_template_directory() . '/sections');
 
 /**
  * Define web constants

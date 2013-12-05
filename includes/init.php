@@ -6,12 +6,13 @@
  *
 */
 
+
+
 /**
  * Run the starting hook
  */
 do_action('pagelines_hook_pre', 'core'); // Hook
-
-define('PL_INCLUDES', get_template_directory() . '/includes');
+define('PL_INCLUDES', pl_get_template_directory() . '/includes');
 
 // Removed in Free/WPORG Version
 if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
@@ -20,11 +21,13 @@ if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
 // Load deprecated functions
 require_once( PL_INCLUDES.'/deprecated.php' );
 
-// Run version checks and setup
-require_once( PL_INCLUDES . '/run.versioning.php');
+require_once( PL_INCLUDES . '/version.php' );
 
 // Setup Globals
 require_once( PL_INCLUDES . '/init.globals.php');
+
+// Run version checks and setup
+require_once( PL_INCLUDES . '/run.versioning.php');
 
 // LOCALIZATION - Needs to come after config_theme and before localized config files
 require_once( PL_INCLUDES . '/run.I18n.php');
@@ -72,13 +75,31 @@ require_once( PL_INCLUDES . '/class.sections.php' );
 require_once( PL_INCLUDES . '/class.foundry.php' );
 
 // BUILD Controller
-require_once( PL_INCLUDES . '/version.php' );
+
 
 	
 // Run the pagelines_init Hook
 pagelines_register_hook('pagelines_hook_init'); // Hook
 
+function pl_get_template_directory() {
+	if( defined( 'DMS_CORE' ) ) {
+		$folder = 'dms';
+		if( defined( 'DMS_CORE_DIR' ) )
+			$folder = DMS_CORE_DIR;
+		return trailingslashit( get_template_directory() ) . $folder;
+	} else {
+		return get_template_directory();
+	}
+}
 
-
-
+function pl_get_template_directory_uri(){
+	if( defined( 'DMS_CORE' ) ) {
+		$folder = 'dms';
+		if( defined( 'DMS_CORE_DIR' ) )
+			$folder = DMS_CORE_DIR;
+		return trailingslashit( get_template_directory_uri() ) . $folder;
+	} else {
+		return get_template_directory_uri();
+	}
+}
 

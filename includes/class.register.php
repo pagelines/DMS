@@ -227,11 +227,14 @@ class PageLinesRegister {
 				$base_url =  get_stylesheet_directory_uri()  . '/sections' . $folder;
 				$base_dir =  get_stylesheet_directory()  . '/sections' . $folder;
 			}
-
+			if ( 'theme' == $type ) {
+				$base_url =  get_template_directory_uri()  . '/sections' . $folder;
+				$base_dir =  get_template_directory()  . '/sections' . $folder;
+			}
 			/*
 			* Look for custom dirs.
 			*/
-			if ( !in_array( $type, array( 'custom', 'child', 'parent', 'editor' ) ) ) {
+			if ( !in_array( $type, array( 'custom', 'child', 'parent', 'editor', 'theme' ) ) ) {
 
 				// Ok so we're a plugin then.. if not active then bypass.
 				$plugin_slug = $type;
@@ -371,6 +374,8 @@ function pl_get_section_dirs() {
 	if ( is_child_theme() && is_dir( $theme_sections_dir ) )
 		$section_dirs['custom'] = $theme_sections_dir;
 
+	if ( defined( 'DMS_CORE' ) && is_dir( PL_THEME_DIR . '/sections' ) )
+		$section_dirs['theme'] = PL_THEME_DIR . '/sections';
 	// load v3 section/plugins...
 
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );

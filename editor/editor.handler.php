@@ -185,9 +185,10 @@ class PageLinesTemplateHandler {
 							adminURL: '<?php echo admin_url(); ?>'
 							, editPost: '<?php echo $this->edit_post_link(); ?>'
 							, menus: '<?php echo admin_url( "nav-menus.php" );?>'
-							, widgets: '<?php echo $this->edit_post_link();?>'
-							, StyleSheetURL: '<?php echo get_stylesheet_directory_uri(); ?>'
+							, widgets: '<?php echo $this->edit_post_link();?>'							
+							, CoreURL: '<?php echo pl_get_template_directory_uri(); ?>'
 							, ParentStyleSheetURL: '<?php echo get_template_directory_uri(); ?>'
+							, ChildStyleSheetURL: '<?php echo get_stylesheet_directory_uri(); ?>'
 							, siteURL: '<?php echo home_url(); ?>'
 							, mediaLibrary: '<?php echo $this->media_library_link(); ?>'
 						}

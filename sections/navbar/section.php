@@ -175,7 +175,7 @@ class PLNavBar extends PageLinesSection {
 	      		<div class="nav-collapse collapse">
 	       <?php 	if( ! $hidesearch ) {
 	       				pagelines_register_hook('pagelines_navbar_before_search');
-						get_search_form();
+						pl_get_search_form();
 						pagelines_register_hook('pagelines_navbar_after_search');
 
 					}

@@ -141,11 +141,13 @@ function pl_do_shortcode(opt) {
 		
 	switch(shortcode) {
 		case 'pl_child_url':
-			opt = opt.replace(/\[pl_child_url\]/g, jQuery.pl.config.urls.StyleSheetURL)
+			opt = opt.replace(/\[pl_child_url\]/g, jQuery.pl.config.urls.ChildStyleSheetURL) // should link to child theme root
 		case 'pl_parent_url':
-			opt = opt.replace(/\[pl_parent_url\]/g, jQuery.pl.config.urls.ParentStyleSheetURL)
+			opt = opt.replace(/\[pl_parent_url\]/g, jQuery.pl.config.urls.CoreURL) // should always be dms root
 		case 'pl_site_url':
-			opt = opt.replace(/\[pl_site_url\]/g, jQuery.pl.config.urls.siteURL)
+			opt = opt.replace(/\[pl_site_url\]/g, jQuery.pl.config.urls.siteURL) // site root url
+		case 'pl_theme_url':
+			opt = opt.replace(/\[pl_theme_url\]/g, jQuery.pl.config.urls.ParentStyleSheetURL) // parent theme
 	}
 	return opt
 }

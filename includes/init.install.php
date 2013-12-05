@@ -9,6 +9,8 @@ class PageLinesInstall{
 		$this->activate_url = apply_filters('pl_activate_url', home_url().'?plnew=core');
 		
 		$this->getting_started_pagename = 'PageLines Getting Started';
+		
+		$this->getting_started_pageslug = 'pl-getting-started';
 	
 		add_action( 'pagelines_admin_load', array($this, 'pagelines_check_install') );
 	}
@@ -39,7 +41,7 @@ class PageLinesInstall{
 			$name = $page->post_name;
 			
 	
-			if ( $name == $this->getting_started_pagename ) { 
+			if ( $name == $this->getting_started_pageslug ) { 
 				$page_exists = true;
 				$id = $page->ID;
 			}
@@ -55,8 +57,8 @@ class PageLinesInstall{
 				'post_title'	=> $this->getting_started_pagename,
 				'post_status'	=> 'draft',
 				'post_author'	=> $user_ID,
-				'post_content'	=> $this->getting_started_content()
-
+				'post_content'	=> $this->getting_started_content(),
+				'post_name'		=> $this->getting_started_pageslug
 			);
 
 			$id = wp_insert_post (  apply_filters('pl_getting_started_page', $page) );

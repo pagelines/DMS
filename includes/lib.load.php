@@ -96,6 +96,14 @@ function pagelines_check_lessdev(){
 add_action( 'init', 'pagelines_check_child_less' );
 function pagelines_check_child_less() {
 
+	// we might be a new standalone theme so we need to check tamplatedir too now.
+	if( defined( 'DMS_CORE' ) ) {		
+
+		$lessfile = sprintf( '%s/style.less', get_template_directory() );
+		if ( is_file( $lessfile ) )
+			pagelines_insert_core_less( $lessfile );
+	}
+	// include child style.less
 	$lessfile = sprintf( '%s/style.less', get_stylesheet_directory() );
 
 	if ( is_file( $lessfile ) )

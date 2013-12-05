@@ -305,7 +305,7 @@ function pagelines_check_folders_dms( $note ) {
 	
 	$folder = basename( get_template_directory() );
 
-	if( 'dms' != $folder ){
+	if( 'dms' != $folder && ! defined( 'DMS_CORE' ) ){
 		
 		ob_start(); ?>
 

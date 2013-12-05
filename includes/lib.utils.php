@@ -104,12 +104,26 @@ function setup_pagelines_template() {
 	// if not true, then a non pagelines template is being rendered (wrap with .content)
 	$GLOBALS['pagelines_render'] = true;
 
-	get_header();
+	if (is_file( get_template_directory() . '/header.php')) {
+		// yep, load the page template
+		include_once( get_template_directory() . '/header.php' );
+	} else {
+		// nope, load the content
+		include_once( trailingslashit( pl_get_template_directory() ) . '/header.php' );
+	}
+
 
 	if(!has_action('override_pagelines_body_output'))
 		pagelines_template_area('pagelines_template', 'templates');
 
-	get_footer();
+	if (is_file( get_template_directory() . '/footer.php')) {
+		// yep, load the page template
+		include_once( get_template_directory() . '/footer.php' );
+	} else {
+		// nope, load the content
+		include_once( trailingslashit( pl_get_template_directory() ) . '/footer.php' );
+	}
+
 }
 
 
