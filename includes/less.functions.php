@@ -41,10 +41,10 @@ function get_core_lessfiles(){
 function get_all_active_sections() {
 
 	$out = '';
-	global $load_sections;
-	$available = $load_sections->pagelines_register_sections( true, true );
+	global $editorsections;
+	$available = $editorsections->get_sections();
 
-	$disabled = get_option( 'pagelines_sections_disabled', array() );
+	$disabled = apply_filters( 'pagelines_section_disabled', array() );
 
 	/*
 	* Filter out disabled sections

@@ -274,11 +274,8 @@ class PageLinesSectionsHandler{
 	
 	function get_available_sections(){
 
-
-		global $pl_section_factory;
-		
+		global $pl_section_factory;	
 		return array_merge( $pl_section_factory->sections, $this->layout_sections(), $this->custom->render_user_sections() );
-
 	}
 	
 	function edit_custom_section( $response, $data ){

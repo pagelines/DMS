@@ -77,8 +77,8 @@ class PageLinesSection {
      */
 	function set_section_info(){
 
-		global $load_sections;
-		$available = $load_sections->pagelines_register_sections( false, true );
+		global $editorsections;
+		$available = $editorsections->get_sections();
 
 		$type = $this->section_install_type( $available );
 
@@ -326,12 +326,13 @@ class PageLinesSection {
 
 		if ( isset( $available['custom'][$this->class_name] ) )
 			return 'custom';
+		elseif ( isset( $available['theme'][$this->class_name] ) )
+			return 'theme';
 		elseif ( isset( $available['child'][$this->class_name] ) )
 			return 'child';
 		elseif ( isset( $available['parent'][$this->class_name] ) )
 			return 'parent';
 		else {
-
 			/**
 			 * We dont know the type, could be a 3rd party plugin.
 			 */
@@ -339,7 +340,6 @@ class PageLinesSection {
 			if ( is_array( $results ) && isset( $results[0]['keys']))
 				return $results[0]['keys'][0];
 		}
-
 	}
 
     /**
@@ -615,9 +615,9 @@ class PageLinesSectionFactory {
      */
 	function register($section_class, $args) {
 
-		if(class_exists($section_class))
+		if(class_exists($section_class)) {			
 			$this->sections[$section_class] = new $section_class( $args );
-
+		}
 	}
 
 

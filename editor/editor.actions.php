@@ -39,8 +39,9 @@ function pl_editor_actions(){
 
 		if( $run == 'reload'){
 
-			global $load_sections;
-			$available = $load_sections->pagelines_register_sections( true, false );
+			global $editorsections;
+			$editorsections->reset_sections();
+			$available = $editorsections->get_sections();
 			$response['result'] = $available;
 			
 		} elseif( $run == 'load' ){

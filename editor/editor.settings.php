@@ -244,6 +244,8 @@ class PageLinesSettings extends PageLinesData {
 	function reset_caches() {
 		do_action( 'extend_flush' );
 		pl_flush_draft_caches( false );
+		global $editorsections;
+		$editorsections->reset_sections();
 		$cache_key = substr(uniqid(), -6);
 		set_theme_mod( 'pl_cache_key', $cache_key );
 	}
