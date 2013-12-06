@@ -132,9 +132,13 @@ function pagelines_standard_sidebar($name, $description){
  */
 function pagelines_search_form( $echo = true ){
 
-	$searchfield = sprintf('<input type="text" value="" name="s" class="searchfield" placeholder="%s" />', __('Search', 'pagelines'));
+	$searchfield = sprintf('<span class="btn-search"><i class="icon-search"></i></span><input type="text" value="" name="s" class="searchfield" placeholder="%s" />', __('Search', 'pagelines'));
 
-	$searchform = sprintf('<form method="get" class="searchform" onsubmit="this.submit();return false;" action="%s/" ><fieldset>%s</fieldset></form>', home_url(), $searchfield);
+	$searchform = sprintf(
+						'<form method="get" class="searchform" onsubmit="this.submit();return false;" action="%s/" ><fieldset>%s</fieldset></form>', 
+						home_url(), 
+						$searchfield
+					);
 
 	if ( $echo )
 		echo apply_filters('pagelines_search_form', $searchform);

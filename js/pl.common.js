@@ -262,6 +262,12 @@
 					window.location.href = url
 			
 			})
+			
+			$('.btn-search').on('click', function(e){
+				e.preventDefault()
+				$(this).parent().find('.searchfield').focus()
+			
+			})
 
 		}
 
