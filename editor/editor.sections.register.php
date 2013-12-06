@@ -46,7 +46,7 @@ class PLSectionsRegister {
 		global $editor_sections_data;
 		
 		// check the global 1st, we dont want to use an option if we cant help it.
-		if( is_array( $data ) && ! empty( $data ) ) {
+		if( is_array( $editor_sections_data ) && ! empty( $editor_sections_data ) ) {
 			if( $type && isset( $editor_sections_data[$type]) )
 				return $editor_sections_data[$type];
 			else
@@ -149,7 +149,7 @@ class PLSectionsRegister {
 					'name'		=> $section['name']
 				);
 				
-				if( true == $disabled[$section['type']][ $section['class'] ] )
+				if( isset( $disabled[$section['type']][ $section['class'] ] ) && true == $disabled[$section['type']][ $section['class'] ] )
 					continue;
 				
 				if ( ! class_exists( $section['class'] ) && is_file( $section['base_file'] ) ) {
