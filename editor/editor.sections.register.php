@@ -263,8 +263,8 @@ class PLSectionsRegister {
 		if ( 'parent' != $type && ! is_dir( $dir ) )
 			return;
 
-		if ( is_multisite() )
-			$store_sections = $this->get_latest_cached( 'sections' );
+		// if ( is_multisite() )
+		// 	$store_sections = $this->get_latest_cached( 'sections' );
 
 		$default_headers = array(
 			'External'		=> 'External',
@@ -369,25 +369,25 @@ class PLSectionsRegister {
 
 
 			// do we need to load this section?
-			if ( 'child' == $type && is_multisite() ) {
-				$load      = false;
-				$slug      = basename( $folder );
-				$purchased = ( isset( $store_sections->$slug->purchased ) ) ? $store_sections->$slug->purchased : '';
-				$plus      = ( isset( $store_sections->$slug->plus_product ) ) ? $store_sections->$slug->plus_product : '';
-				$price     = ( isset( $store_sections->$slug->price ) ) ? $store_sections->$slug->price : '';
-				$uid       = ( isset( $store_sections->$slug->uid ) ) ? $store_sections->$slug->uid : '';
-
-				if ( 'purchased' === $purchased )
-					$load = true;
-				elseif ( $plus && pagelines_check_credentials( 'plus' ) )
-					$load = true;
-				else {
-					$disabled = pl_get_disabled_sections();
-
-					if ( ! isset( $disabled['child'][ $headers['classname'] ] ) )
-						$load = true;
-				}
-			}
+			// if ( 'child' == $type && is_multisite() ) {
+			// 	$load      = false;
+			// 	$slug      = basename( $folder );
+			// 	$purchased = ( isset( $store_sections->$slug->purchased ) ) ? $store_sections->$slug->purchased : '';
+			// 	$plus      = ( isset( $store_sections->$slug->plus_product ) ) ? $store_sections->$slug->plus_product : '';
+			// 	$price     = ( isset( $store_sections->$slug->price ) ) ? $store_sections->$slug->price : '';
+			// 	$uid       = ( isset( $store_sections->$slug->uid ) ) ? $store_sections->$slug->uid : '';
+			// 
+			// 	if ( 'purchased' === $purchased )
+			// 		$load = true;
+			// 	elseif ( $plus && pagelines_check_credentials( 'plus' ) )
+			// 		$load = true;
+			// 	else {
+			// 		$disabled = pl_get_disabled_sections();
+			// 
+			// 		if ( ! isset( $disabled['child'][ $headers['classname'] ] ) )
+			// 			$load = true;
+			// 	}
+			// }
 
 			if ( $load )
 				$purchased = 'purchased';
