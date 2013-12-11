@@ -644,11 +644,35 @@ function pl_default_template( $standard = false ){
 			)
 		);
 		
+	} elseif(  $plpg->is_special() ){
+		$t = array(
+			'content'	=> array(
+				array(
+					'object'	=> 'PLColumn',
+					'span' 	=> 8,
+					'content'	=> array(
+						array(
+							'object'	=> 'PageLinesPostLoop'
+						),
+					)
+				),
+				array(
+					'object'	=> 'PLColumn',
+					'span' 	=> 4,
+					'content'	=> array(
+						array(
+							'object'	=> 'PLRapidTabs'
+						),
+						array(
+							'object'	=> 'PrimarySidebar'
+						),
+					)
+				),
+			)
+		);
 	} else {
 		
 		$t = array(
-			'name'	=> 'Content Area',
-			'class'	=> 'std-content',
 			'content'	=> array(
 				array(
 					'object'	=> 'PLColumn',
