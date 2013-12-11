@@ -13,9 +13,9 @@
 
 class PLSectionsRegister {
 	
-	function __construct() {
-		add_action( 'init', array( $this, 'register_sections' ) );
-	}
+	// function __construct() {
+	// 	add_action( 'init', array( $this, 'register_sections' ), 9 );
+	// }
 
 	// start the shitstorm
 	function generate_data() {
