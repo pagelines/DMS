@@ -59,6 +59,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/panel.code.php' );
 		
 		require_once( PL_EDITOR . '/editor.updates.php' );
+		
 		require_once( PL_EDITOR . '/editor.sections.php' );
 		require_once( PL_EDITOR . '/panel.extend.php' );
 		require_once( PL_EDITOR . '/panel.themes.php' );
@@ -77,7 +78,7 @@ class PageLinesEditor {
 		
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
-		require_once( PL_EDITOR . '/sections.register.php' );
+		require_once( PL_EDITOR . '/editor.sections.register.php' );
 	}
 
 	function load_libs(){

@@ -91,10 +91,7 @@ class PageLinesTemplates {
 						$map[ $region ] = $pl_custom_template['map'];
 						
 					} else 
-						$map = false;
-					
-				//	plprint( $pl_custom_template );
-					
+						$map = false;					
 				}
 					
 

@@ -62,8 +62,6 @@ class PageLinesTemplateHandler {
 		
 		$this->sections_data = $sections_data_handler->get_section_data( $this->uids );
 		
-//		plprint( $this->sections_data );
-		
 		$this->parse_config();
 
 		$this->opts_config = $this->get_options_config();

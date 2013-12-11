@@ -28,26 +28,15 @@ function pl_load_registers(){
 	/**
 	 * Add Extension Handlers
 	 */
-	require_once( PL_INCLUDES . '/class.register.php' );
-
-	/**
-	 * Register and load all sections
-	 */
-	global $load_sections;
-	$load_sections = new PageLinesRegister();
-	$load_sections->pagelines_register_sections();
-
+//	require_once( PL_INCLUDES . '/class.register.php' );
+	global $editorsections;
+	$editorsections->register_sections();
 	pagelines_register_hook( 'pagelines_setup' ); // Hook
-
 
 	$GLOBALS['render_css'] = new PageLinesRenderCSS;
 	
-
 	if ( pl_setting( 'enable_debug' ) )
 		require_once ( PL_INCLUDES . '/class.debug.php');
-	
-
-
 }
 
 /**
