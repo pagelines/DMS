@@ -29,7 +29,8 @@ function pl_load_registers(){
 	 * Add Extension Handlers
 	 */
 //	require_once( PL_INCLUDES . '/class.register.php' );
-
+	global $editorsections;
+	$editorsections->register_sections();
 	pagelines_register_hook( 'pagelines_setup' ); // Hook
 
 	$GLOBALS['render_css'] = new PageLinesRenderCSS;
