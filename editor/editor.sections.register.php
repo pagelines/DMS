@@ -23,7 +23,7 @@ class PLSectionsRegister {
 		$panel = $components['add-new']['panel'];
 
 		$theme['theme'] = array(
-			'name'	=> __( 'Theme Specific', 'pagelines' ),
+			'name'	=> sprintf( __( 'Theme: %s', 'pagelines' ), PL_NICETHEMENAME ),
 			'href'	=> '#add_section',
 			'filter'=> '.theme',
 			'icon'	=> 'icon-beer'
