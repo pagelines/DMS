@@ -13,10 +13,25 @@
 
 class PLSectionsRegister {
 	
-	// function __construct() {
-	// 	add_action( 'init', array( $this, 'register_sections' ), 9 );
-	// }
+	function __construct() {
+		if( defined( 'DMS_CORE' ) )
+			add_filter( 'pl_toolbar_components', array( $this, 'add_standalone_menu' ) );
+	}
 
+	function add_standalone_menu( $components ) {
+		$theme = array();	
+		$panel = $components['add-new']['panel'];
+
+		$theme['theme'] = array(
+			'name'	=> __( 'Theme Specific', 'pagelines' ),
+			'href'	=> '#add_section',
+			'filter'=> '.theme',
+			'icon'	=> 'icon-beer'
+		);
+		$components['add-new']['panel'] = array_merge( $panel, $theme );
+		return $components;
+	}
+	
 	// start the shitstorm
 	function generate_data() {
 		
@@ -314,6 +329,7 @@ class PLSectionsRegister {
 			$price    = '';
 			$uid      = '';
 			$headers  = get_file_data( $fullFileName, $default_headers );
+			$filters = array();
 
 			// If no pagelines class headers ignore this file.
 			// beyond this point $fullFileName should refer to a section.php
@@ -392,6 +408,13 @@ class PLSectionsRegister {
 			if ( $load )
 				$purchased = 'purchased';
 
+			$filters = explode( ',', $headers['filter'] );
+
+			if( 'theme' == $type ) {
+				$filters[] = 'theme';
+			}
+			
+			$filters = implode( $filters, ',' );
 
 			$sections[ $headers['classname'] ] = array(
 				'class'			=> $headers['classname'],
@@ -423,7 +446,7 @@ class PLSectionsRegister {
 				'price'			=> $price,
 				'purchased'		=> $purchased,
 				'uid'			=> $uid,
-				'filter'		=> $headers['filter'],
+				'filter'		=> $filters,
 				'loading'		=> $headers['loading']
 			);
 		}

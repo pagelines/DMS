@@ -122,7 +122,7 @@ class PageLinesSectionsHandler{
 			)
 		);
 
-		return $toolbar;
+		return apply_filters( 'pl_toolbar_components', $toolbar );
 	}
 
 	function add_new_callback(){
