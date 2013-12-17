@@ -108,46 +108,27 @@
 			,	siteWrap = $('.site-wrap')
 			, 	mobileMenu = $('.pl-mobile-menu')
 			
-			mobileMenu.css('max-height', siteWrap.height()-10)
+		//	mobileMenu.css('max-height', siteWrap.height()-10)
 			
 			menuToggle.on('click.mmToggle', function(e){
 				
 				e.stopPropagation()
-				mobileMenu.css('max-height', siteWrap.height())
+			//	mobileMenu.css('max-height', siteWrap.height())
 				
 				if( !siteWrap.hasClass('show-mm') ){
 					
-					mobileMenu.show()
+					mobileMenu.addClass('show-menu')
 					
-					siteWrap
-						.addClass('show-mm')
 					
 					$('.site-wrap, .mm-close').one('click touchstart', function(){
-						siteWrap.removeClass('show-mm')
-						setTimeout(function () {
-						    mobileMenu.hide()
-						}, 500)
+						mobileMenu.removeClass('show-menu')
 					})
 					
 					
-					$('.mm-holder').waypoint(function() {
-						siteWrap.removeClass('show-mm')
-						setTimeout(function () {
-						    mobileMenu.hide()
-						}, 500)
-					}, {
-						offset: function() {
-							return -$(this).height();
-						}
-					})
 					
 				} else {
 					
-					siteWrap.removeClass('show-mm')
-					
-					setTimeout(function () {
-					    mobileMenu.hide()
-					}, 500)
+					mobileMenu.removeClass('show-menu')
 					
 				}
 			

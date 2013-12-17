@@ -70,7 +70,7 @@ class PageLinesMobileMenu {
 						if($twitter)
 							printf('<a href="http://www.twitter.com/%s"><i class="mm-icon icon-large icon-twitter"></i></a>', $twitter); 
 							
-						printf('<a href="%s"><i class="mm-icon icon-large icon-rss"></i></a>', get_bloginfo( 'rss2_url' ) );?>
+						?>
 				</div>
 			</div>
 		</div>
