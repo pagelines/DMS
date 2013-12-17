@@ -104,26 +104,26 @@ function setup_pagelines_template() {
 	// if not true, then a non pagelines template is being rendered (wrap with .content)
 	$GLOBALS['pagelines_render'] = true;
 
-	if (is_file( get_template_directory() . '/header.php')) {
-		// yep, load the page template
-		include_once( get_template_directory() . '/header.php' );
+	if ( locate_template( array( 'header.php' ) ) ) {
+		// yep, header.php is in main templates/child theme.
+		get_header();
 	} else {
 		// nope, load the content
+		do_action( 'get_header' );
 		include_once( trailingslashit( pl_get_template_directory() ) . '/header.php' );
 	}
-
 
 	if(!has_action('override_pagelines_body_output'))
 		pagelines_template_area('pagelines_template', 'templates');
 
-	if (is_file( get_template_directory() . '/footer.php')) {
-		// yep, load the page template
-		include_once( get_template_directory() . '/footer.php' );
+	if ( locate_template( array( 'footer.php' ) ) ) {
+		// yep, footer.php is in main templates/child theme.
+		get_footer();
 	} else {
-		// nope, load the content
-		include_once( trailingslashit( pl_get_template_directory() ) . '/footer.php' );
+		// nope, we could be in a child theme here without a footer.php?
+		do_action( 'get_footer' );
+		load_template( trailingslashit( pl_get_template_directory() ) . '/footer.php' );
 	}
-
 }
 
 
