@@ -127,7 +127,12 @@ class PageLinesSection {
 			$this->screenshot = $this->settings['screenshot'] = sprintf( '%s/thumb.png', $this->base_url );
 		} else {
 		
-			$scrn_url = ($this->sinfo['type'] == 'custom' && is_child_theme()) ? PL_CHILD_URL : PL_PARENT_URL; 
+			if( 'theme' == $this->sinfo['type'] ) {
+				$scrn_url = PL_CHILD_URL; 
+			} else {
+				$scrn_url = ($this->sinfo['type'] == 'custom' && is_child_theme()) ? PL_CHILD_URL : PL_PARENT_URL; 
+			}
+			
 			
 			$this->screenshot = $this->settings['screenshot'] = sprintf( '%s/screenshot.png', $scrn_url );
 		
