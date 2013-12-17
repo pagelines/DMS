@@ -26,7 +26,7 @@
 	
 	$(window).load(function() {
 		$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
-		$('.pl-section').on('resize', function(){
+		$('.pl-section').on('plresize', function(){
 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		})
 	})
@@ -218,7 +218,7 @@
 			var fixedTop = $('.pl-fixed-top')
 			, 	fixedOffset = fixedTop[0].offsetTop
 			console.log(fixedOffset)
-			fixedTop.on('resize', function(){
+			fixedTop.on('plresize', function(){
 				that.setHeight()
 			})
 			
