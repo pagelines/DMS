@@ -115,19 +115,21 @@
 				e.stopPropagation()
 			//	mobileMenu.css('max-height', siteWrap.height())
 				
-				if( !siteWrap.hasClass('show-mm') ){
+				if( !siteWrap.hasClass('show-mobile-menu') ){
 					
+					siteWrap.addClass('show-mobile-menu')
 					mobileMenu.addClass('show-menu')
 					
 					
 					$('.site-wrap, .mm-close').one('click touchstart', function(){
+						siteWrap.removeClass('show-mobile-menu')
 						mobileMenu.removeClass('show-menu')
 					})
 					
 					
 					
 				} else {
-					
+					siteWrap.removeClass('show-mobile-menu')
 					mobileMenu.removeClass('show-menu')
 					
 				}

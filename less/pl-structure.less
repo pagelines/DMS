@@ -11,6 +11,10 @@ body {
 		background: @bodyBackground;
 		z-index: 0;
 		position: relative;
+		.transition(all .3s ease-in-out);
+		&.show-mobile-menu{
+			-webkit-filter: blur(3px);
+		}
 		
 		
 		#supersized{
