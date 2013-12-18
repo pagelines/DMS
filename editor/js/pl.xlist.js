@@ -2,7 +2,7 @@
 
 	$.xList = {
 
-		renderList: function( panel, list ){
+		renderList: function(panel, list) {
 			var items = ''
 
 			// console.log(list)
@@ -19,7 +19,7 @@
 
 		}
 
-		, listStart: function( panel, key ){
+		, listStart: function(panel, key) {
 
 			var that = this
 			,	layout = (key == 'pl-extend') ? 'masonry' : 'fitRows';
@@ -56,7 +56,7 @@
 
 		}
 
-		, loadButtons: function( panel, data ){
+		, loadButtons: function(panel, data) {
 			var buttons = ''
 
 			if(panel == 'x-store'){
@@ -71,7 +71,7 @@
 			return buttons
 		}
 
-		, loadPaneActions: function(panel){
+		, loadPaneActions: function(panel) {
 
 			var that = this 
 			
@@ -119,13 +119,13 @@
 						})
 					
 				} else {
-					that.unFilter( theFilter, removeItems, theIsotope )
+					that.unFilter(theFilter, removeItems, theIsotope)
 				}	
 				
 			})
 		}
 		
-		, unFilter: function( theFilter, removeItems, theIsotope ){
+		, unFilter: function(theFilter, removeItems, theIsotope) {
 			
 			removeItems
 				.off('click')
