@@ -146,7 +146,7 @@ class EditorColor{
 		if( !pl_setting('supersize_bg') )
 			return; 
 			
-		wp_enqueue_script( 'pagelines-supersize', PL_JS . '/script.supersize.js', array( 'jquery' ), '3.1.3', false );
+		wp_enqueue_script( 'pagelines-supersize', PL_JS . '/script.supersize.min.js', array( 'jquery' ), '3.1.3', false );
 		
 		add_action('pl_scripts_on_ready', array( $this, 'run_background_fit'), 20);
 	}

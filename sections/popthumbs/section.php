@@ -16,7 +16,7 @@ class PLPopThumbs extends PageLinesSection {
 	var $default_limit = 4;
 
 	function section_styles(){
-		wp_enqueue_script('prettyphoto', $this->base_url.'/prettyphoto.js', array('jquery'));
+		wp_enqueue_script('prettyphoto', $this->base_url.'/prettyphoto.min.js', array('jquery'));
 		wp_enqueue_style( 'prettyphoto-css', $this->base_url.'/prettyPhoto/css/prettyPhoto.css');
 		
 	}

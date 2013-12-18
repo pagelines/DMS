@@ -61,8 +61,8 @@ class EditorInterface {
 			
 
 			// Forms handling
-			wp_enqueue_script( 'form-params', PL_JS . '/form.params.js', array('jquery'), PL_CORE_VERSION, true );
-			wp_enqueue_script( 'form-store', PL_JS . '/form.store.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-params', PL_JS . '/form.params.min.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-store', PL_JS . '/form.store.min.js', array('jquery'), PL_CORE_VERSION, true );
 
 			wp_enqueue_script( 'form-fileupload', PL_JS . '/utils.fileupload.js', array('jquery', 'jquery-ui-widget'), PL_CORE_VERSION, true );
 
@@ -70,7 +70,7 @@ class EditorInterface {
 			// Bootbox Dialogs
 			wp_enqueue_script( 'bootbox', PL_JS . '/utils.bootbox.js', array('jquery'), '3.0.0', true );
 			// Images Loaded
-			wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.js', array('jquery'), PL_CORE_VERSION, true);
+			wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), PL_CORE_VERSION, true);
 			
 			
 	
@@ -96,7 +96,7 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-library', $this->url . '/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), PL_CORE_VERSION, true );
 			
-			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.js', array( 'jquery'), PL_CORE_VERSION );
+			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.min.js', array( 'jquery'), PL_CORE_VERSION );
 
 
 			// i18n test
