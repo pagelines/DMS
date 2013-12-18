@@ -84,7 +84,7 @@
 
 			$('.x-close').on('click.paneAction ', function(e){
 
-				e.preventDefault
+				e.preventDefault()
 
 				var theIsotope = $(this).closest('.isotope')
 				,	theAction = $(this).data('action')
@@ -103,7 +103,7 @@
 					bootbox.confirm(
 						'<h3>Are you sure?</h3> <p>This will delete this custom section and all linked sections in use.</p>'
 						, function( result ){
-							if( result == true ){
+							if( result === true ){
 
 								$.areaControl.deleteCustomSection( theSection )
 							
