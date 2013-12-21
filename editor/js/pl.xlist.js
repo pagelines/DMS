@@ -2,7 +2,7 @@
 
 	$.xList = {
 
-		renderList: function( panel, list ){
+		renderList: function(panel, list) {
 			var items = ''
 
 			// console.log(list)
@@ -19,7 +19,7 @@
 
 		}
 
-		, listStart: function( panel, key ){
+		, listStart: function(panel, key) {
 
 			var that = this
 			,	layout = (key == 'pl-extend') ? 'masonry' : 'fitRows';
@@ -56,7 +56,7 @@
 
 		}
 
-		, loadButtons: function( panel, data ){
+		, loadButtons: function(panel, data) {
 			var buttons = ''
 
 			if(panel == 'x-store'){
@@ -71,7 +71,7 @@
 			return buttons
 		}
 
-		, loadPaneActions: function(panel){
+		, loadPaneActions: function(panel) {
 
 			var that = this 
 			
@@ -84,7 +84,7 @@
 
 			$('.x-close').on('click.paneAction ', function(e){
 
-				e.preventDefault
+				e.preventDefault()
 
 				var theIsotope = $(this).closest('.isotope')
 				,	theAction = $(this).data('action')
@@ -103,7 +103,7 @@
 					bootbox.confirm(
 						'<h3>Are you sure?</h3> <p>This will delete this custom section and all linked sections in use.</p>'
 						, function( result ){
-							if( result == true ){
+							if( result === true ){
 
 								$.areaControl.deleteCustomSection( theSection )
 							
@@ -119,13 +119,13 @@
 						})
 					
 				} else {
-					that.unFilter( theFilter, removeItems, theIsotope )
+					that.unFilter(theFilter, removeItems, theIsotope)
 				}	
 				
 			})
 		}
 		
-		, unFilter: function( theFilter, removeItems, theIsotope ){
+		, unFilter: function(theFilter, removeItems, theIsotope) {
 			
 			removeItems
 				.off('click')
