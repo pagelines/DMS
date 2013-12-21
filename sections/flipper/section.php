@@ -27,19 +27,7 @@ class PageLinesFlipper extends PageLinesSection {
 
 	function section_opts(){
 
-		$pt_objects = get_post_types( array(), 'objects');
-
-		$pts = array();
-
-		foreach($pt_objects as $key => $pt){
-
-			if(post_type_supports( $key, 'thumbnail' ) && $pt->public){
-				$pts[ $key ] = array(
-					'name' => $pt->label
-				);
-			}
-
-		}
+		
 		$options = array();
 
 		$options[] = array(
@@ -50,7 +38,7 @@ class PageLinesFlipper extends PageLinesSection {
 				array(
 					'key'			=> 'flipper_post_type',
 					'type' 			=> 'select',
-					'opts'			=> $pts,
+					'opts'			=> pl_get_thumb_post_types(),
 					'default'		=> 4,
 					'label' 	=> __( 'Which post type should Flipper use?', 'pagelines' ),
 					'help'		=> __( '<strong>Note</strong><br/> Post types for this section must have "featured images" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin to create custom post types for use with Flipper.', 'pagelines' ),

@@ -1,5 +1,23 @@
 <?php 
 
+
+function pl_get_thumb_post_types(){
+	$pt_objects = get_post_types( array(), 'objects');
+
+	$pts = array();
+
+	foreach($pt_objects as $key => $pt){
+
+		if(post_type_supports( $key, 'thumbnail' ) && $pt->public){
+			$pts[ $key ] = array(
+				'name' => $pt->label
+			);
+		}
+
+	}
+	return $pts;
+}
+
 function pl_array_to_object( $array, $defaults = array() ){
 	
 	$objects = array();
