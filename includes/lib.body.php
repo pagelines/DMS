@@ -53,11 +53,10 @@ function pagelines_after_footer_elements() {
 	<a class="pl-credit" href="http://www.pagelines.com/" title="Built with PageLines DMS [basic]" target="_blank">
 		<i class="icon-pagelines pl-transit"></i> <span class="fademein">DMS</span>
 	</a>
-	<?php endif; ?>
+	<?php endif; 
 	
-	<div id="supersized"></div>
-	
-	<?php 
+	if( pl_setting('supersize_bg') ) echo '<div id="supersized"></div>';
+
 }
 
 
