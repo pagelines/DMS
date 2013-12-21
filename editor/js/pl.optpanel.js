@@ -340,8 +340,6 @@
 					$('.li-refresh').show()
 				}
 				
-				console.log( e.type )
-
 				if( e.type == 'blur' || ( e.type == 'change' && ( iType == 'checkbox' || iType == 'select') ) ){
 
 					$.plSave.save({
@@ -587,25 +585,6 @@
 				optLabel += sprintf(' <span data-key="%s" class="pl-help-text btn btn-mini pl-tooltip sync-btn-%s" title="%s"><i class="icon-%s"></i></span>', o.key, syncType, syncTooltip, syncIcon)
 			}
 
-
-
-						//
-						//
-						//
-						//
-						// if(optLevel == 3){
-						// 	o.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
-						// 	o.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
-						// 	o.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
-						// } else {
-						// 	o.name = sprintf('%s[%s]', that.uniqueID, o.key )
-						// 	o.value =  that.optValue( tabIndex, o.key )
-						// 	o.inputID = o.key
-						// }
-						//
-
-
-
 			if( o.type == 'multi' ){
 				if(o.opts){
 					$.each( o.opts , function(index, osub) {
@@ -696,10 +675,16 @@
 			}
 
 			// Text Options
-			else if( o.type == 'text' ){
+			else if( o.type == 'text' || o.type == 'text_small' ){
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="" value="%3$s" />', o.inputID, o.name, o.value, o.classes)
+				
+				if( o.type == 'text_small' )
+					o.classes += ' pl-text-small'
+					
+				var place = o.place || ""
+				
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="%5$s" value="%3$s" />', o.inputID, o.name, o.value, o.classes, place)
 
 			}
 
