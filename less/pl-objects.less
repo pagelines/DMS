@@ -90,8 +90,12 @@
 }
 
 
-
-
+/*
+ * @ PageLines Love
+ **********************************************************************/
+.pl-love.loved .pl-love-heart{
+	color: @linkColor;
+}
 
 /*
  * @ Lists
@@ -179,7 +183,9 @@ ul.tabbed-list {
 
 .media-list{
 	margin-bottom: 0;
-	> li{
+	> li,
+	> lh {
+		display: block;
 		line-height: 1.3em;
 		margin-bottom: .8em;
 		.title, 
@@ -194,6 +200,7 @@ ul.tabbed-list {
 			margin-bottom: 0;
 		}
 	}
+	> lh{ font-weight: 600; }
 	.img .the-media{
 		display: block;
 		width: 50px; 
