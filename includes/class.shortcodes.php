@@ -704,15 +704,18 @@ class PageLines_ShortCodes {
 			ob_start();
 				// Facebook
 				?>
+				<div id="fb-root" style="display: none;"></div>
 				<script>(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) return;
-						js = d.createElement(s); js.id = id;
-						js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-						fjs.parentNode.insertBefore(js, fjs);
-						}(document, 'script', 'facebook-jssdk'));
-				</script><?php
-				printf( '<div class="fb-like" data-href="%s" data-send="false" data-layout="button_count" data-width="%s" data-show-faces="false" data-font="arial" style="vertical-align: top"></div>',
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=244419892345248";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+			<?php
+				
+				
+				printf( '<div class="fb-like" data-href="%s" data-width="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
 					$a['url'],
 					$a['width']
 				);
