@@ -171,24 +171,7 @@ class PageLinesColumnizer extends PageLinesSection {
 		<li id="the_default_widget_latest" class="span3 widget">
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('The Latest','pagelines'); ?></h3>
-				<ul class="media-list">
-					<?php
-
-					foreach( get_posts( array('numberposts' => 3) ) as $p ){
-						$img = (has_post_thumbnail( $p->ID )) ? sprintf('<div class="img"><a class="the-media" href="%s" style="background-image: url(%s)"></a></div>', get_permalink( $p->ID ), pl_the_thumbnail_url( $p->ID, 'thumbnail')) : '';
-
-						printf(
-							'<li class="media fix">%s<div class="bd"><a class="title" href="%s">%s</a><span class="excerpt">%s</span></div></li>',
-							$img,
-							get_permalink( $p->ID ),
-							$p->post_title,
-							pl_short_excerpt($p->ID)
-						);
-
-					} ?>
-
-
-				</ul>
+				<?php pl_recent_posts(); ?>
 			</div>
 		</li>
 
