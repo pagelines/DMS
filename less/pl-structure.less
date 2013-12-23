@@ -14,7 +14,8 @@ body {
 		position: relative;
 		.transition(all .3s ease-in-out);
 		&.show-mobile-menu{
-			-webkit-filter: blur(3px);
+			//-webkit-filter: blur(3px);
+			margin-left: -260px;
 		}
 		
 		
@@ -40,7 +41,7 @@ body {
 		background: rgba(0,0,0,.87);
 		height: 100%;
 		color: rgba(255,255,255,.5);
-		
+		font-family: @defaultFont;
 		&.show-menu{
 			margin-right: 0px;
 		
@@ -73,14 +74,14 @@ body {
 						line-height: 1em;
 					}
 					li a{
-						font-size: 14px; 
+						font-size: 13px; 
 						line-height: 1.3em;
 					}
 				}
 				
 			}
 			a{
-				font-size: @fontSizeLarge; 
+				font-size: 14px; 
 				line-height: 1.4em;
 			}
 		}
