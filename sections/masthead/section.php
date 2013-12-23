@@ -66,6 +66,7 @@ class PLMasthead extends PageLinesSection {
 					'help'                   => __( 'Upload an image to serve as a splash image, or use an embed code for full width video.', 'pagelines' ),
 				),
 				array(
+						'col'				=> 2,
 						'key'				=> 'pagelines_masthead_text',
 						'type' 				=> 'multi',
 						'label' 		=> __( 'Masthead Text', 'pagelines' ),
@@ -91,6 +92,7 @@ class PLMasthead extends PageLinesSection {
 			$options[] = array(
 				'key'		=> 'masthead_button_multi_'.$i,
 				'type'		=> 'multi',
+				'col'		=> 3,
 				'title'		=> __('Masthead Action Button '.$i, 'pagelines'),
 				'opts'	=> array(
 					array(
@@ -125,12 +127,14 @@ class PLMasthead extends PageLinesSection {
 			
 				
 		$options[] = array(
+					'col'		=> 2,
 					'key'		=> 'masthead_menu',
 					'type' 			=> 'select_menu',
 					'title'			=> __( 'Masthead Menu', 'pagelines' ),
 					'inputlabel' 	=> __( 'Select Masthead Menu', 'pagelines' ),
 				); 
 		$options[] = array(
+					'col'				=> 2,
 					'key'		=> 'masthead_meta',
 					'type' 			=> 'text',
 					'title'			=> __( 'Masthead Meta', 'pagelines' ),
