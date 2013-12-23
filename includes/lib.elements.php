@@ -196,6 +196,13 @@ function pl_get_search_form() {
 		pagelines_search_form();	
 }
 
+function pl_current_url(){
+	global $wp;
+	$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+
+	return $current_url;
+}
+
 /**
  *
  *  Pagination Function
@@ -233,17 +240,7 @@ function pl_nav_callback( $args ){
 
 function pl_nav_fallback($class = '', $limit = 6){
 
-	$pages = wp_list_pages('echo=0&title_li=&sort_column=menu_order&depth=1');
-
-	$pages_arr = explode("\n", $pages);
-
-	$pages_out = '';
-	for($i=0; $i < $limit; $i++){
-
-		if(isset($pages_arr[$i]))
-			$pages_out .= $pages_arr[$i];
-
-	}
+	$pages_out = pl_list_pages( $limit );
 
 	printf('<ul class="%s">%s</ul>', $class, $pages_out);
 }
