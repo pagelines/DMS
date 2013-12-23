@@ -69,7 +69,7 @@ class EditorThemeHandler {
 		}
 		unset($info);
 
-		uasort($settings, array( $this, "cmp_by_position") );
+		uasort($settings, "cmp_by_position" );
 	
 		$settings = array_merge( array( 'heading' => __( 'Theme Options', 'pagelines' ) ), $settings );
 	
