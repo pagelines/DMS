@@ -19,6 +19,8 @@
 		
 		$.plParallax.init()
 		
+		$.plLove.init()
+		
 		$('.pl-credit').show()
 		
 		
@@ -30,6 +32,50 @@
 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		})
 	})
+	
+	$.plLove = {
+		
+		init: function(){
+			
+			$('body').on('click','.pl-love', function() {
+
+					var loveLink = $(this)
+					,	id = loveLink.attr('id')
+
+					if( loveLink.hasClass('loved') ) 
+						return false
+
+					if( loveLink.hasClass('inactive') ) 
+						return false;
+
+					var passData = {
+						action: 'pl_love', 
+						loves_id: id
+					}
+
+					$.post( plLove.ajaxurl, passData, function( data ){
+
+						loveLink
+							.find( 'span' )
+							.html( data )
+							.end()
+								.addClass( 'loved' )
+								.attr( 'title', 'You already love this!' )
+							.end()
+								.find( 'span')
+								.css({ 'opacity': 1, 'width':'auto' } )
+
+					});
+
+					loveLink
+						.addClass('inactive')
+
+					return false
+			})
+		}
+		
+		
+	}
 	
 	$.plNavigation = {
 		init: function(){

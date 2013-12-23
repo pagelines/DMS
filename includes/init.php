@@ -47,6 +47,10 @@ require_once( PL_INCLUDES . '/lib.head.php' );
 // Applied in body
 require_once( PL_INCLUDES . '/lib.body.php' );
 
+// Utility Functions -- Theming
+require_once( PL_INCLUDES . '/utils.love.php' );
+require_once( PL_INCLUDES . '/utils.theming.php' );
+
 // Installation Routine
 require_once( PL_INCLUDES . '/init.install.php' );
 
