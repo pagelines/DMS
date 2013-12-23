@@ -15,21 +15,21 @@ class PLSectionsRegister {
 	
 	function __construct() {
 		if( defined( 'DMS_CORE' ) )
-			add_filter( 'pl_toolbar_components', array( $this, 'add_standalone_menu' ) );
+			add_filter( 'pl_section_filters', array( $this, 'add_theme_section_filter' ) );
 	}
 
-	function add_standalone_menu( $components ) {
-		$theme = array();	
-		$panel = $components['add-new']['panel'];
+	function add_theme_section_filter( $items ) {
 
-		$theme['theme'] = array(
+
+		$items['theme'] = array(
 			'name'	=> sprintf( __( 'Theme: %s', 'pagelines' ), PL_NICETHEMENAME ),
 			'href'	=> '#add_section',
 			'filter'=> '.theme',
-			'icon'	=> 'icon-beer'
+			'icon'	=> 'icon-laptop',
+			'pos'	=> 30
 		);
-		$components['add-new']['panel'] = array_merge( $panel, $theme );
-		return $components;
+	
+		return $items;
 	}
 	
 	// start the shitstorm

@@ -32,94 +32,122 @@ class PageLinesSectionsHandler{
 	}
 
 	function toolbar( $toolbar ){
+		
+		$panel = array(
+			'heading'	=> __( "<i class='icon-random'></i> Drag to Add", 'pagelines' ),
+			'add_section'	=> array(
+				'name'	=> __( 'Your Sections', 'pagelines' ),
+				'icon'	=> 'icon-random',
+				'clip'	=> __( 'Drag on to page to add', 'pagelines' ),
+				'tools'	=> sprintf( '<button class="btn btn-mini btn-reload-sections"><i class="icon-repeat"></i> %s</button>', __( 'Reload Sections', 'pagelines' ) ),
+				'type'	=> 'call',
+				'call'	=> array( $this, 'add_new_callback'),
+				'filter'=> '*'
+			),
+			'more_sections'	=> array(
+				'name'	=> __( 'Get More Sections', 'pagelines' ),
+				'icon'	=> 'icon-download',
+				'flag'	=> 'link-storefront'
+			),
+			'heading2'	=> __( "<i class='icon-filter'></i> Filters", 'pagelines' ),
+			
+		);
+		
+		$sorted_panel = array(
+			'components'		=> array(
+				'name'	=> __( 'Components', 'pagelines' ),
+				'pos'	=> 20,
+				'href'	=> '#add_section',
+				'filter'=> '.component',
+				'icon'	=> 'icon-circle-blank'
+			),
+			
+			'layouts'		=> array(
+				'name'	=> __( 'Layouts', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.layout',
+				'icon'	=> 'icon-columns'
+			),
+			'full-width'	=> array(
+				'name'	=> __( 'Full Width', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.full-width',
+				'icon'	=> 'icon-resize-horizontal'
+			),
+			'formats'		=> array(
+				'name'	=> __( 'Post Layouts', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.format',
+				'icon'	=> 'icon-th'
+			),
+			'galleries'		=> array(
+				'name'	=> __( 'Galleries', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.gallery',
+				'icon'	=> 'icon-camera'
+			),
+			'navigation'	=> array(
+				'name'	=> __( 'Navigation', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.nav',
+				'icon'	=> 'icon-circle-arrow-right'
+			),
+			'sliders'		=> array(
+				'name'	=> __( 'Sliders', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.slider',
+				'icon'	=> 'icon-picture'
+			),
+			'social'	=> array(
+				'name'	=> __( 'Social', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.social',
+				'icon'	=> 'icon-comments'
+			),
+			'widgets'	=> array(
+				'name'	=> __( 'Widgetized', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.widgetized',
+				'icon'	=> 'icon-retweet'
+			),
+			'custom'	=> array(
+				'name'	=> __( 'Custom', 'pagelines' ),
+				
+				'href'	=> '#add_section',
+				'filter'=> '.custom-section',
+				'icon'	=> 'icon-dropbox'
+			),
+			'misc'		=> array(
+				'name'	=> __( 'Miscellaneous', 'pagelines' ),
+				'href'	=> '#add_section',
+				'filter'=> '.misc',
+				'icon'	=> 'icon-star',
+				'pos'	=> 150
+			),
+		);
+		
+		$default = array(
+			'icon'		=> 'icon-edit',
+			'pos'		=> 100,
+			'filter'	=> '*'
+		);
+		
+		$sorted_panel = apply_filters('pl_section_filters', $sorted_panel );
+		
+		$pos = 90; 
+		foreach( $sorted_panel as $key => &$info ){
+			if( ! isset( $info['pos'] ) )
+				$info['pos'] = $pos++;
+		}
+		unset( $info);
+		
+		uasort( $sorted_panel, "cmp_by_position" );
+		
 		$toolbar['add-new'] = array(
 			'name'	=> __( 'Add To Page', 'pagelines' ),
 			'icon'	=> 'icon-plus-sign',
 			'pos'	=> 20,
-			'panel'	=> array(
-				'heading'	=> __( "<i class='icon-random'></i> Drag to Add", 'pagelines' ),
-				'add_section'	=> array(
-					'name'	=> __( 'Your Sections', 'pagelines' ),
-					'icon'	=> 'icon-random',
-					'clip'	=> __( 'Drag on to page to add', 'pagelines' ),
-					'tools'	=> sprintf( '<button class="btn btn-mini btn-reload-sections"><i class="icon-repeat"></i> %s</button>', __( 'Reload Sections', 'pagelines' ) ),
-					'type'	=> 'call',
-					'call'	=> array( $this, 'add_new_callback'),
-					'filter'=> '*'
-				),
-				'more_sections'	=> array(
-					'name'	=> __( 'Get More Sections', 'pagelines' ),
-					'icon'	=> 'icon-download',
-					'flag'	=> 'link-storefront'
-				),
-				'heading2'	=> __( "<i class='icon-filter'></i> Filters", 'pagelines' ),
-				'components'		=> array(
-					'name'	=> __( 'Components', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.component',
-					'icon'	=> 'icon-circle-blank'
-				),
-				'layouts'		=> array(
-					'name'	=> __( 'Layouts', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.layout',
-					'icon'	=> 'icon-columns'
-				),
-				'full-width'	=> array(
-					'name'	=> __( 'Full Width', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.full-width',
-					'icon'	=> 'icon-resize-horizontal'
-				),
-				'formats'		=> array(
-					'name'	=> __( 'Post Layouts', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.format',
-					'icon'	=> 'icon-th'
-				),
-				'galleries'		=> array(
-					'name'	=> __( 'Galleries', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.gallery',
-					'icon'	=> 'icon-camera'
-				),
-				'navigation'	=> array(
-					'name'	=> __( 'Navigation', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.nav',
-					'icon'	=> 'icon-circle-arrow-right'
-				),
-				'sliders'		=> array(
-					'name'	=> __( 'Sliders', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.slider',
-					'icon'	=> 'icon-picture'
-				),
-				'social'	=> array(
-					'name'	=> __( 'Social', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.social',
-					'icon'	=> 'icon-comments'
-				),
-				'widgets'	=> array(
-					'name'	=> __( 'Widgetized', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.widgetized',
-					'icon'	=> 'icon-retweet'
-				),
-				'custom'	=> array(
-					'name'	=> __( 'Custom', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.custom-section',
-					'icon'	=> 'icon-dropbox'
-				),
-				'misc'		=> array(
-					'name'	=> __( 'Miscellaneous', 'pagelines' ),
-					'href'	=> '#add_section',
-					'filter'=> '.misc',
-					'icon'	=> 'icon-star'
-				),
-			)
+			'panel'	=> array_merge( $panel, $sorted_panel )
 		);
 
 		return apply_filters( 'pl_toolbar_components', $toolbar );
