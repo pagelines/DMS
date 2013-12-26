@@ -62,8 +62,11 @@ class PageLines_ShortCodes {
 
 		// Make widgets process shortcodes
 		add_filter( 'widget_text', 'do_shortcode' );
-//		add_action( 'template_redirect', array( $this, 'filters' ) );
+
 		add_action('wp_footer',array( $this, 'print_carousel_js' ), 21);
+		
+		add_action('wp_footer',array( $this, 'print_shortcode_js' ), 21);
+		
 
 	}
 
@@ -580,11 +583,15 @@ class PageLines_ShortCodes {
 
 			$atts = shortcode_atts( $defaults, $atts );
 
-			$out = sprintf( '<a href="http://pinterest.com/pin/create/button/?url=%s&amp;media=%s&amp;description=%s" class="pin-it-button" count-layout="horizontal"><img style="border:0px;" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>',
+			$out = sprintf( '<a href="http://pinterest.com/pin/create/button/?url=%s&amp;media=%s&amp;description=%s" class="pin-it-button" count-layout="horizontal"><img style="border:0px;" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>',
 			$atts['url'],
 			$atts['img'],
 			$atts['title']
 			);
+			
+			global $shortcode_js; 
+			
+			$shortcode_js['pinterest'] = '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
 
 			return $out;
 
@@ -611,17 +618,15 @@ class PageLines_ShortCodes {
 
     	ob_start();
 
-        ?>
-			<script type="text/javascript">
-			  (function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			  })();
-			</script><?php
-
 		 printf( '<div class="g-plusone" style="width:190px;" data-size="%s" data-annotation="%s" data-href="%s"></div>',
 			$atts['size'],
 			$atts['count'],
 			$atts['url']
 		);
+		
+		global $shortcode_js; 
+		
+		$shortcode_js['gplus'] = "<script type='text/javascript'>(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>";
 
 		return ob_get_clean();
     }
@@ -642,10 +647,14 @@ class PageLines_ShortCodes {
 			$atts = wp_parse_args( $atts, $defaults );
 
 
-            $out = sprintf( '<script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="%s" data-counter="%s"></script>',
+            $out = sprintf( '<script type="IN/Share" data-url="%s" data-counter="%s"></script>',
 					$atts['url'],
 					$atts['count']
 				);
+				
+			global $shortcode_js; 
+
+			$shortcode_js['linkedin'] = '<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>';
 
            return $out;
 
@@ -670,19 +679,24 @@ class PageLines_ShortCodes {
 
 			if ($a['type'] == 'follow') {
 
-				$out = sprintf( '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><a href="https://twitter.com/%1$s" class="twitter-follow-button" data-show-count="true">Follow @%1$s</a>',
+				$out = sprintf( '<a href="https://twitter.com/%1$s" class="twitter-follow-button" data-show-count="true">Follow @%1$s</a>',
 					$a['handle']
 						);
 
 			} else {
 
-				$out = sprintf( '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><a href="https://twitter.com/share" class="twitter-share-button" data-url="%s" data-text="%s" data-via="%s">Tweet</a>',
+				$out = sprintf( '<a href="https://twitter.com/share" class="twitter-share-button" data-url="%s" data-text="%s" data-via="%s">Tweet</a>',
 					$a['type'],
 					$a['permalink'],
 					$a['title'],
 					$a['handle']
 					);
 			}
+			
+			global $shortcode_js; 
+
+			$shortcode_js['twitter'] = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+			
 			return $out;
 	}
 
@@ -701,26 +715,34 @@ class PageLines_ShortCodes {
 
 			$a = wp_parse_args( $args, $defaults );
 
+			$app_id = '';
+			if( pl_setting( 'facebook_app_id' ) )
+				$app_id = sprintf( '&appId=%s', pl_setting( 'facebook_app_id' ) );
+
 			ob_start();
-				// Facebook
-				?>
-				<div id="fb-root" style="display: none;"></div>
-				<script>(function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) return;
-				  js = d.createElement(s); js.id = id;
-				  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=244419892345248";
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
+			?>
+			<div id="fb-root" style="display: none;"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1<?php echo $app_id; ?>";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
 			<?php
+			
+			$facebook_js = ob_get_clean();
+
+			global $shortcode_js; 
+
+			$shortcode_js['facebook'] = $facebook_js;
 				
-				
-				printf( '<div class="fb-like" data-href="%s" data-width="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
+			return sprintf( '<div class="fb-like" data-href="%s" data-width="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
 					$a['url'],
 					$a['width']
 				);
 
-			return ob_get_clean();
+				
 
 		}
 
@@ -1022,14 +1044,11 @@ class PageLines_ShortCodes {
 
         $atts = shortcode_atts( $defaults, $atts );
 
-			ob_start();
+		global $shortcode_js; 
 
-				?>
-				<script>
-                	jQuery(function(){
-						jQuery("a[rel=tooltip]").tooltip();
-					});
-				</script><?php
+		$shortcode_js['tooltips'] = '<script> jQuery(function(){ jQuery("a[rel=tooltip]").tooltip();}); </script>';
+
+			ob_start();
 
 			printf( '<a href="#" rel="tooltip" title="%s" data-placement="%s">%s</a>',
 				$atts['tip'],
@@ -1056,22 +1075,13 @@ class PageLines_ShortCodes {
 	    );
 
 	    $atts = shortcode_atts( $defaults, $atts );
+	
+			global $shortcode_js; 
+
+			$shortcode_js['popover'] = '<script> jQuery(function(){ jQuery("a[rel=popover]").popover({ html:true, trigger: "hover" }).click(function(e) { e.preventDefault() }); }); </script>';
 
 	    ob_start();
 
-	    	?>
-	    	<script>
-                	jQuery(function(){
-						 jQuery("a[rel=popover]")
-      					.popover({
-							html:true,
-      						trigger: 'hover'
-      					})
-      					.click(function(e) {
-        					e.preventDefault()
-      					});
-					});
-	    	</script><?php
 
     	printf( '<a href="#" rel="popover" title="%s" data-content="%s" data-placement="%s">%s</a>',
 			$atts['title'],
@@ -1196,6 +1206,19 @@ class PageLines_ShortCodes {
 				$imageurl,
 				do_shortcode( $content )
 				);
+	}
+	
+	function print_shortcode_js(){
+		
+		global $shortcode_js;
+		
+		if( isset($shortcode_js) && is_array($shortcode_js) ){
+			foreach( $shortcode_js as $js_set ){
+				echo $js_set;
+			}
+		}
+		
+		
 	}
 
 	function print_carousel_js() {

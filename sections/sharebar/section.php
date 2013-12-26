@@ -284,17 +284,25 @@ class PageLinesShareBar extends PageLinesSection {
 			$app_id = sprintf( '&appId=%s', pl_setting( 'facebook_app_id' ) );
 
 		ob_start();
-			// Facebook
-			?>
-			<script>(function(d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) return;
-					js = d.createElement(s); js.id = id;
-					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1<?php echo $app_id; ?>";
-					fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));
-			</script>
-			<?php
+		?>
+		<div id="fb-root" style="display: none;"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $app_id; ?>";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<?php
+		
+		$facebook_js = ob_get_clean();
+
+		global $shortcode_js; 
+
+		$shortcode_js['facebook'] = $facebook_js;
+
+		ob_start();
+		
 			printf(
 				'<div class="fb-like" data-href="%s" data-send="false" data-layout="button_count" data-width="%s" data-show-faces="false" data-font="arial" style="vertical-align: top"></div>',
 				$a['permalink'],
