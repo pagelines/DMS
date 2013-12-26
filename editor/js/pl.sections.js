@@ -116,6 +116,7 @@ $.plSections = {
 			.addClass( classToAdd )
 			.addClass( sectionClass )
 			
+			
 		// Don't think this is actually needed.
 		var set = $.plDatas.handleNewItemData( element )
 		,	newUniqueID = set.uid
@@ -186,7 +187,10 @@ $.plSections = {
 			
 		} else {
 			
-			$.pageBuilder.reloadConfig( {location: 'passive load', refresh: true, load: 'section'} )
+			element
+				.find( '.banner-content' ).append('<div><i class="icon-refresh"></i> Refresh To Load.</div>')
+			
+			$.pageBuilder.reloadConfig( {location: 'passive load', load: 'section'} )
 			
 		}
 		
