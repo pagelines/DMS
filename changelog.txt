@@ -5,6 +5,10 @@
 
 ********************************************************
 
+Version 1.0.3.3
+	
+	- CORE - Backported a few fixes from DMS.
+
 Version 1.0.3.2
 
 	- CORE - Update language files.
