@@ -174,7 +174,7 @@ class EditorSettings {
 				'key'			=> 'pl_login_image',
 				'type' 			=> 	'image_upload',
 				'col'			=> 2,
-				'label'			=> __( 'Upload Login Image (160px Height)', 'pagelines' ),
+				'label'			=> __( 'Upload Login Image (80px Height)', 'pagelines' ),
 				'imgsize' 			=> 	'80',
 				'sizemode'		=> 'height',
 				'title' 		=> __( 'Login Page Image', 'pagelines' ),
