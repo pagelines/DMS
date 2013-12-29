@@ -12,36 +12,6 @@
 
 class PLSectionArea extends PageLinesSection {
 
-
-	function section_persistent(){
-	
-		add_filter('pl_layout_settings', array( $this, 'add_global_options'));
-	}
-	
-	function add_global_options( $settings ){
-		$settings[] = array(
-
-			'key'			=> 'layout_areas',
-			'type' 			=> 'multi',
-			'col'			=> 3,
-			'label' 	=> __( 'Section Area Layout', 'pagelines' ),
-			'opts'	=> array(
-				array(
-					'key'		=> 'section_area_default_pad',
-					'type' 		=> 'count_select',
-					'label' 	=> __( 'Default Area Padding (px)', 'pagelines' ),
-					'count_start'	=> 0,
-					'count_number'	=> 200,
-					'count_mult'	=> 5,
-					'suffix'		=> 'px',
-					'help'	 	=> __( 'If sections are added to full width areas, the area will be givin this default padding.', 'pagelines' )
-				),
-				
-			),
-		);
-		
-		return $settings;
-	}
 	
 	function section_opts(){
 
