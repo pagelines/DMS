@@ -243,16 +243,6 @@ class EditorColor{
 						'compile'		=> true,
 
 					),
-					
-				)
-			), 
-			array(
-				'key'		=> 'background_image_config',
-				'type' 		=> 'multi',
-				'col'		=> 3,
-				'title' 	=> __( 'Background Image Settings', 'pagelines' ),
-				'help' 		=> '',
-				'opts'		=> array(
 					array(
 						'key'			=> 'supersize_bg',
 						'type'			=> 'check',
@@ -309,8 +299,9 @@ class EditorColor{
 						'compile'		=> true,
 
 					)
+					
 				)
-			)
+			), 
 
 		);
 
