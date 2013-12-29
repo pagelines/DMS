@@ -25,9 +25,12 @@ class EditorExtensions {
 			foreach($themes as $theme => $t){
 				$class = array();
 
-				if($t->get_template() != 'dms')
-					continue;
+				$tags = $t->get('Tags');
 
+				if( $t->get_template() != 'dms' && ! in_array('dms', $tags) ){
+					continue;
+				}
+				
 				$thumb = $t->get_screenshot( );
 
 				if( is_file( sprintf( '%s/splash.png', $t->get_stylesheet_directory() ) ) )

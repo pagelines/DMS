@@ -109,7 +109,7 @@ class EditorThemeHandler {
 		}
 
 		$themes = wp_get_themes( $args );
-
+	
 		$active_theme = wp_get_theme();
 
 		$list = '';
@@ -119,8 +119,12 @@ class EditorThemeHandler {
 			foreach($themes as $theme => $t){
 				$class = array();
 
-				if($t->get_template() != 'dms')
+				$tags = $t->get('Tags');
+
+				if( $t->get_template() != 'dms' && ! in_array('dms', $tags) ){
 					continue;
+				}
+					
 
 				if($active_theme->stylesheet == $t->get_stylesheet()){
 					$class[] = 'active-theme';
@@ -176,9 +180,12 @@ class EditorThemeHandler {
 
 
 		switch_theme( $theme->get_stylesheet() );
-
+		
+	
 		$response['success'] = 'Theme Switched!';
 		$response['new'] = $new;
+		
+		$response['url'] = apply_filters('pl_theme_activate_url', ''); 
 
 		return $response;
 	}
