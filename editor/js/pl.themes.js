@@ -5,7 +5,9 @@ $.plThemes = {
 
 	btnActions: function(){
 
-		$('.btn-theme-activate').on('click.paneAction', function(){
+		$('.btn-theme-activate').on('click.paneAction', function(e){
+			e.preventDefault()
+			
 			var args = {
 					mode: 'themes'
 				,	run: 'activate'
@@ -16,25 +18,10 @@ $.plThemes = {
 				,	refreshText: $.pl.lang("Successfully Activated. Refreshing page")
 				, 	log: true
 				,	stylesheet: $(this).data('stylesheet')
+				
 			}
 
-			var response = $.plAJAX.run( args )
-		})
-
-		$('.btn-theme-preview').on('click.paneAction', function(){
-			var args = {
-					mode: 'themes'
-				,	run: 'preview'
-				,	confirm: true
-				,	confirmText: $.pl.lang("<h3>Activate Theme Preview?</h3> <p>This will activate a theme preview sitewide.<br/>(while in draft mode)</p>")
-				,	savingText: $.pl.lang("Loading Theme Preview")
-				,	refresh: false
-				,	refreshText: $.pl.lang("Successfully Loaded. Refreshing page")
-				, 	log: true
-				,	stylesheet: $(this).data('stylesheet')
-			}
-
-			var response = $.plAJAX.run( args )
+			$.plAJAX.run( args )
 		})
 
 	}

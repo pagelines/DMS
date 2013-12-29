@@ -94,9 +94,11 @@
 					
 						//console.log(response)
 						
+						var rsp	= $.parseJSON( response )
+						
 						$.pl.flags.saving = false
 						
-						that.runSuccess( theData, response )
+						that.runSuccess( theData, rsp )
 
 						if( theData.refresh ){
 
@@ -108,14 +110,23 @@
 							
 							window.onbeforeunload = null
 							
-							if( theData.refreshArgs ){
+							if( plIsset( rsp.url ) ){
+								
+								window.location.href = rsp.url
+								
+							} else if( theData.refreshArgs ){
+								
 								var url = window.location.href
 								url += (url.indexOf('?') > -1) ? '&'+theData.refreshArgs : '?'+theData.refreshArgs
 								
 								window.location.href = url
 								
-							} else
+							} else{
 								location.reload()
+								
+							//	console.log()
+							}
+								
 
 						} else {
 
@@ -136,10 +147,9 @@
 			})
 		}
 
-		, runSuccess: function( theData, response ){
-		
+		, runSuccess: function( theData, rsp ){
+			
 			var that = this
-			,	rsp	= $.parseJSON( response )
 			,	log = (rsp.post) ? rsp.post.log || false : ''
 
 			if( log == 'true' )
