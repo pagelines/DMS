@@ -1,8 +1,20 @@
 <?php
 
+
+function pl_get_core_header(){
+	require_once( pl_get_template_directory() . '/header.php' );
+}
+
+function pl_get_core_footer(){
+	require_once( pl_get_template_directory() . '/footer.php' );
+}
+
 // This file contains utilities for theme development and theme user experience
 
-
+function pl_theme_info( $field ){
+	$theme_info = wp_get_theme();
+	return $theme_info->$field;
+}
 
 
 // Blog Sections & Post Utilities
