@@ -59,14 +59,6 @@ function pl_fixed_top_area(){
 	<?php 
 }
 
-
-
-
-/**
- *
- * @TODO document
- *
- */
 add_filter( 'user_contactmethods', 'pagelines_add_google_profile', 10, 1);
 function pagelines_add_google_profile( $contactmethods ) {
 	// Add Google Profiles
@@ -84,10 +76,6 @@ function pagelines_google_author_head() {
 	if ( '' != $google_profile )
 		printf( '<link rel="author" href="%s" />%s', $google_profile, "\n" );
 }
-
-
-
-
 
 /**
  * Register website Javascript
