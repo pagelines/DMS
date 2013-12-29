@@ -32,6 +32,15 @@ require_once( PL_INCLUDES . '/run.versioning.php');
 // LOCALIZATION - Needs to come after config_theme and before localized config files
 require_once( PL_INCLUDES . '/run.I18n.php');
 
+// Installation Routine
+require_once( PL_INCLUDES . '/init.install.php' );
+
+if( file_exists( PL_THEME_DIR . '/config.php' ) )
+	require_once( PL_THEME_DIR . '/config.php' );
+
+// Utility functions and hooks/filters
+require_once( PL_INCLUDES . '/lib.settings.php' );
+
 // Utility functions and hooks/filters
 require_once( PL_INCLUDES . '/lib.utils.php' );
 
@@ -51,8 +60,7 @@ require_once( PL_INCLUDES . '/lib.body.php' );
 require_once( PL_INCLUDES . '/utils.love.php' );
 require_once( PL_INCLUDES . '/utils.theming.php' );
 
-// Installation Routine
-require_once( PL_INCLUDES . '/init.install.php' );
+
 
 // Start the editor
 require_once( PL_INCLUDES . '/init.editor.php' );
@@ -81,7 +89,6 @@ require_once( PL_INCLUDES . '/class.foundry.php' );
 // BUILD Controller
 
 
-	
 // Run the pagelines_init Hook
 pagelines_register_hook('pagelines_hook_init'); // Hook
 

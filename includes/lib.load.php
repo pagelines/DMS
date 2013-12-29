@@ -13,6 +13,15 @@ function load_pagelines_admin(){
 	require_once( PL_ADMIN . '/admin.init.php' );
 }
 
+add_action( 'pagelines_hook_init', 'install_pagelines' ); 
+function install_pagelines(){
+	
+	if( class_exists('PageLinesInstallTheme') )
+		new PageLinesInstallTheme;
+	else
+		new PageLinesInstall;
+}
+
 // Always best to load most stuff after WP loads fully.
 // The "after_setup_theme" hook is the point at which it has... 
 // NOTE: pl_setting cannot be used BEFORE the 'after_setup_theme' hook
