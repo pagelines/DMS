@@ -38,29 +38,35 @@ class EditorLayout {
 
 		$settings = array(
 			array(
-				'key'		=> 'layout_mode',
-				'type' 		=> 'select',
-				'label' 	=> __( 'Select Layout Mode', 'pagelines' ),
-				'title' 	=> __( 'Layout Mode', 'pagelines' ),
+				'key'		=> 'layout_opts',
+				'type' 		=> 'multi',
+				'title' 	=> __( 'Layout Configuration', 'pagelines' ),
 				'opts' 		=> array(
-					'pixel' 	=> array('name' => __( 'Pixel Width Based Layout', 'pagelines' )),
-					'percent' 	=> array('name' => __( 'Percentage Width Based Layout', 'pagelines' ))
+					array(
+						'key'		=> 'layout_mode',
+						'type' 		=> 'select',
+						'label' 	=> __( 'Select Content Width Mode', 'pagelines' ),
+						'title' 	=> __( 'Layout Mode', 'pagelines' ),
+						'opts' 		=> array(
+							'pixel' 	=> array('name' => __( 'Pixel Width Based Layout', 'pagelines' )),
+							'percent' 	=> array('name' => __( 'Percentage Width Based Layout', 'pagelines' ))
+						),
+						'default'	=> 'pixel',
+					),
+					array(
+						'key'		=> 'layout_display_mode',
+						'type' 		=> 'select',
+						'label' 	=> __( 'Select Layout Display', 'pagelines' ),
+						'title' 	=> __( 'Display Mode', 'pagelines' ),
+						'opts' 		=> array(
+							'display-full' 		=> array('name' => __( 'Full Width Display', 'pagelines' )),
+							'display-boxed' 	=> array('name' => __( 'Boxed Display', 'pagelines' ))
+						),
+						'default'	=> 'display-full',
+					),
 				),
-				'default'	=> 'pixel',
-				'help'	 	=> __( 'Select pixel width mode and your site maximum width will be controlled by pixels.<br/><br/> If you select "percent" width the width of your content will be a percentage of window size.', 'pagelines' )
 			),
-			array(
-				'key'		=> 'layout_display_mode',
-				'type' 		=> 'select',
-				'label' 	=> __( 'Select Layout Display', 'pagelines' ),
-				'title' 	=> __( 'Display Mode', 'pagelines' ),
-				'opts' 		=> array(
-					'display-full' 		=> array('name' => __( 'Full Width Display', 'pagelines' )),
-					'display-boxed' 	=> array('name' => __( 'Boxed Display', 'pagelines' ))
-				),
-				'default'	=> 'display-full',
-				'help'	 	=> __( '"Full" display mode allows areas to be the full width of the window, with content width sections.<br/><br/> "Boxed" mode contains everything in a central content box. Boxed mode is ideal for use with background images.', 'pagelines' )
-			),
+			
 			
 			
 
@@ -69,24 +75,24 @@ class EditorLayout {
 
 		$settings[] = array(
 
-			'key'			=> 'layout_navigations',
-			'col'			=> 2,
-			'type' 			=> 'multi',
-			'label' 	=> __( 'Global Navigation Setup', 'pagelines' ),
+			'key'		=> 'layout_navigations',
+			'col'		=> 2,
+			'type' 		=> 'multi',
+			'label' 	=> __( 'Default Navigation Setup', 'pagelines' ),
+			'help'	 	=> __( 'These will be used in mobile menus and optionally other places throughout your site.', 'pagelines' ),
 			'opts'	=> array(
 				array(
 					'key'		=> 'primary_navigation_menu',
 					'type' 		=> 'select_menu',
-					'label' 	=> __( 'Select Primary Navigation Menu', 'pagelines' ),
+					'label' 	=> __( 'Primary Navigation Menu', 'pagelines' ),
 				
-					'help'	 	=> __( 'This will be used in mobile menus and optionally other places throughout your site.', 'pagelines' )
+					
 				),
 				array(
 					'key'		=> 'secondary_navigation_menu',
 					'type' 		=> 'select_menu',
-					'label' 	=> __( 'Select Secondary Navigation Menu', 'pagelines' ),
+					'label' 	=> __( 'Secondary Navigation Menu', 'pagelines' ),
 				
-					'help'	 	=> __( 'This will be shown subtly in areas throughout the site and in your mobile menu.', 'pagelines' )
 				),
 				
 			),
