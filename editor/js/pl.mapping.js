@@ -94,7 +94,7 @@
 
 			var UID = area.data('clone')
 			,	map = {
-					name: area.data('name') || ''
+						name: area.data('name') || ''
 					,	class: area.data('class') || ''
 					,	id: area.attr('id') || ''
 					, 	object: area.data('object') || ''
