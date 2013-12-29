@@ -120,7 +120,7 @@ class EditorFileOpts {
 
 		// IMPORT MAIN
 		if( isset( $file_data[PL_SETTINGS] ) && 'checked' == $opts['global_import'] ) {
-			update_option( PL_SETTINGS, $file_data[PL_SETTINGS] );
+			pl_update_global_settings( $file_data[PL_SETTINGS] );
 			$parsed[] = 'globals';
 		}
 
@@ -159,7 +159,7 @@ class EditorFileOpts {
 
 		// do globals
 		if( isset( $this->data->export_global ) )
-			$option['pl-settings'] = get_option( PL_SETTINGS, array( 'draft' => array(), 'live' => array() ) );
+			$option['pl-settings'] = pl_get_global_settings();
 
 		// grab the map
 		// $option['pl-template_map'] = get_option( 'pl-template-map', array() );

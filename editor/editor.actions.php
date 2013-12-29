@@ -112,7 +112,7 @@ function pl_editor_actions(){
 
 		if ($run == 'reset_global'){
 
-			$response['settings'] = $settings->reset_global();
+			reset_global_settings();
 
 		} elseif( $run == 'reset_local' ){
 

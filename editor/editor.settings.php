@@ -4,14 +4,9 @@
 /*
  * The main settings slug -- used in global and meta options
  */ 
-define('PL_SETTINGS', 'pl-settings');
+//define('PL_SETTINGS', 'pl-settings');
 
-/*
- * The default state of the settings, if empty
- */
-function pl_settings_default(){
-	return array( 'draft' => array(), 'live' => array() );
-}
+
 
 function pl_setting( $key, $args = array() ){
 	global $plopts;
@@ -54,23 +49,7 @@ function pl_setting_update( $args_or_key, $value = false, $scope = 'global', $mo
 
 }
 
-function pl_global( $key ){
-	
-	$settings = pl_opt( PL_SETTINGS, pl_settings_default() );
-	
- 	return (isset($settings[pl_get_mode()][$key])) ? $settings[pl_get_mode()][$key] : false;
-	
-}
 
-function pl_global_update( $key, $value ){
-	
-	$settings = pl_opt( PL_SETTINGS, pl_settings_default() );
-	
-	$settings[ pl_get_mode() ][$key] = $value; 
-	
-	pl_opt_update( PL_SETTINGS, $settings);
-	
-}
 
 function pl_local( $metaID, $key ){
 	
@@ -195,17 +174,15 @@ class PageLinesData {
  *  PageLines Settings Interface
  */
 class PageLinesSettings extends PageLinesData {
-
-	var $pl_settings = PL_SETTINGS;
-	var $default = array( 'draft' => array(), 'live' => array() );
+	
 
 	function global_settings(){
 
-		$set = $this->opt( PL_SETTINGS );
+		$set = pl_get_global_settings();
 
 		// Have to move this to an action because ploption calls pl_setting before all settings are loaded
 		if( !$set || empty($set['draft']) || empty($set['live']) )
-			add_action('pl_after_settings_load', array( $this, 'set_default_settings'));
+			add_action('pl_after_settings_load', 'set_default_settings');
 
 		return $this->get_by_mode($set);
 
@@ -222,22 +199,6 @@ class PageLinesSettings extends PageLinesData {
 	}
 
 
-	/*
-	 *  Resets global options to an empty set
-	 */
-	function reset_global(){
-
-		$set = $this->opt( PL_SETTINGS, $this->default );
-		
-		$set['draft'] = $this->default['draft'];
-		
-		$this->opt_update( PL_SETTINGS, $set );
-		
-		$this->set_default_settings();
-	
-	
-		return $set;
-	}
 	/*
 	 *  Resets all cached data including any detected cache plugins.
 	 */
@@ -262,57 +223,6 @@ class PageLinesSettings extends PageLinesData {
 		$this->meta_update( $metaID, PL_SETTINGS, $set );
 
 	}
-
-	/*
-	 *  Sets default values for global settings
-	 */
-	function set_default_settings(){
-
-		$set = $this->opt( $this->pl_settings );
-
-		$settings_defaults = $this->get_default_settings();
-
-		if( !$set )
-			$set = $this->default;
-
-		if(empty($set['draft']))
-			$set['draft']['settings'] = $settings_defaults;
-
-		if(empty($set['live']))
-			$set['live']['settings'] = $settings_defaults;
-
-		$this->opt_update( $this->pl_settings, $set);
-
-	}
-
-	/*
-	 *  Grabs global settings engine array, and default values (set in array)
-	 */
-	function get_default_settings(){
-		$settings_object = new EditorSettings;
-
-		$settings = $settings_object->get_set();
-
-
-		$defaults = array();
-		foreach($settings as $tab => $tab_settings){
-			foreach($tab_settings['opts'] as $index => $opt){
-				if($opt['type'] == 'multi'){
-					foreach($opt['opts'] as $subi => $sub_opt){
-						if(isset($sub_opt['default'])){
-							$defaults[ $sub_opt['key'] ] = $sub_opt['default'];
-						}
-					}
-				}
-				if(isset($opt['default'])){
-					$defaults[ $opt['key'] ] = $opt['default'];
-				}
-			}
-		}
-
-		return $defaults;
-	}
-
 
 
 	/*
@@ -340,13 +250,13 @@ class PageLinesSettings extends PageLinesData {
 
 		if( $scope == 'global'){
 
-			$settings = $this->opt( PL_SETTINGS, pl_settings_default() );
+			$settings = pl_get_global_settings();
 			
 			$old_settings = (isset($settings[ $mode ][ $uid ])) ? $settings[ $mode ][ $uid ] : array();
 	
 			$settings[ $mode ][ $uid ] = wp_parse_args(  $parse_value, $old_settings);
 
-			pl_opt_update( PL_SETTINGS, $settings );
+			pl_update_global_settings( $settings );
 			
 		} elseif ( $scope == 'local' || $scope == 'type' ){
 			global $plpg;
@@ -560,7 +470,7 @@ class PageLinesOpts extends PageLinesSettings {
 		
 		$mode = ( $this->mode == 'detect' ) ? pl_get_mode() : $this->mode; 
 
-		$set = wp_parse_args( $set, $this->default );
+		$set = wp_parse_args( $set, pl_settings_default() );
 
 		return $set[ $mode ];
 	}
@@ -652,18 +562,6 @@ function pl_meta_setting( $key, $metaID ){
 
 }
 
-function pl_global_setting( $key ){
-
-	global $pldrft;
-
-	$mode = $pldrft->mode;
-
-	$set = pl_opt( PL_SETTINGS );
-
-	$settings = ( isset($set[ $mode ]) ) ? $set[ $mode ] : array();
-
-	return ( isset( $settings[ $key ] ) ) ? $settings[ $key ] : false;
-}
 
 /*
  *
@@ -672,19 +570,17 @@ function pl_global_setting( $key ){
  */
 function pl_settings( $mode = 'draft', $metaID = false ){
 
-	$default = array( 'draft' => array(), 'live' => array() );
-
 	if( $metaID ){
 
-		$set = pl_meta( $metaID, PL_SETTINGS, $default );
+		$set = pl_meta( $metaID, PL_SETTINGS, pl_settings_default() );
 
 	} else {
 
-		$set = pl_opt(PL_SETTINGS, $default);
+		$set = pl_get_global_settings();
 
 	}
 
-	$settings = ( isset($set[ $mode ]) ) ? $set[ $mode ] : $default;
+	$settings = ( isset($set[ $mode ]) ) ? $set[ $mode ] : pl_settings_default();
 
 	return $settings;
 
@@ -696,9 +592,9 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 
 
 	if( $metaID )
-		$settings = pl_meta( $metaID, PL_SETTINGS );
+		$settings = pl_get_meta_settings( $metaID );
 	else
-		$settings = pl_opt(PL_SETTINGS);
+		$settings = pl_get_global_settings();
 
 	// in case of empty, use live/draft default
 	$settings = wp_parse_args($settings, pl_settings_default());
@@ -740,7 +636,7 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 	if( $metaID )
 		pl_meta_update( $metaID, PL_SETTINGS, $settings );
 	else
-		pl_opt_update( PL_SETTINGS, $settings );
+		pl_update_global_settings( $settings );
 
 	return $settings;
 }
@@ -748,46 +644,19 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 function pl_revert_settings( $metaID = false ){
 
 	if( $metaID ){
-		$set = pl_meta( $metaID, PL_SETTINGS, pl_settings_default() );
+		$settings = pl_meta( $metaID, PL_SETTINGS, pl_settings_default() );
 
 	} else {
-		$set = pl_opt(PL_SETTINGS, pl_settings_default());
+		$settings = pl_get_global_settings();
 	}
 
-	$set['draft'] = $set['live'];
+	$settings['draft'] = $settings['live'];
 
 	if( $metaID )
-		pl_meta_update( $metaID, PL_SETTINGS, $set );
+		pl_meta_update( $metaID, PL_SETTINGS, $settings );
 	else
-		pl_opt_update( PL_SETTINGS, $set );
+		pl_update_global_settings( $settings );
 
 }
 
-
-/*
- *
- * Global Option
- *
- */
-function pl_opt_global( $mode = 'draft' ){
-	$default = array( 'draft' => array(), 'live' => array() );
-
-	$option_set = pl_opt(PL_SETTINGS, $default);
-
-	return $option_set[ $mode ];
-}
-
-function pl_opt_update_global( $set, $mode = 'draft'){
-
-	$default = array( 'draft' => array(), 'live' => array() );
-
-	$option_set = pl_opt(PL_SETTINGS, $default);
-
-	if($mode == 'draft'){
-		$option_set['draft'] = wp_parse_args($set, $option_set['draft']);
-	}
-
-	pl_opt_update( PL_SETTINGS, $option_set );
-
-}
 

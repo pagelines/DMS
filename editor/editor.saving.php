@@ -160,7 +160,7 @@ class PageLinesSave {
 
 		$settings['local'] = pl_meta( $pageID, PL_SETTINGS );
 		$settings['type'] = pl_meta( $typeID, PL_SETTINGS );
-		$settings['global'] = pl_opt( PL_SETTINGS  );
+		$settings['global'] = pl_get_global_settings();
 
 		foreach($settings as $scope => $set){
 
@@ -177,7 +177,8 @@ class PageLinesSave {
 
 		pl_meta_update( $pageID, PL_SETTINGS, $settings['local'] );
 		pl_meta_update( $typeID, PL_SETTINGS, $settings['type'] );
-		pl_opt_update( PL_SETTINGS, $settings['global'] );
+		
+		pl_update_global_settings( $settings['global'] );
 
 
 		// Flush less

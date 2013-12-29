@@ -636,7 +636,7 @@ class PageLinesTemplateHandler {
 
 		} elseif( $scope == 'global' ) {
 
-			$d = pl_settings( $this->draft->mode );
+			$d = pl_get_global_settings( pl_get_mode() );
 			
 		}
 

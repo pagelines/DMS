@@ -108,7 +108,7 @@ class EditorDraft{
 		if($typeID != $pageID)
 			$settings['type'] = pl_meta( $typeID, PL_SETTINGS );
 
-		$settings['global'] = pl_opt( PL_SETTINGS );
+		$settings['global'] = pl_get_global_settings( );
 
 		foreach( $settings as $scope => $set ){
 
