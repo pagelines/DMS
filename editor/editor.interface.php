@@ -20,11 +20,9 @@ class EditorInterface {
 		EditorDraft $draft, 
 		EditorTemplates $templates, 
 		PageLinesTemplates $map, 
-		EditorExtensions $extensions, 
-		EditorThemeHandler $theme 
+		EditorExtensions $extensions
 		) {
 
-		$this->theme = $theme;
 		$this->page = $pg;
 		$this->draft = $draft;
 		$this->siteset = $siteset;
