@@ -6,9 +6,6 @@ class PageLinesInstall{
 	
 	function __construct(){
 		
-		$this->pagelines_check_install();
-		
-		add_filter( 'pl_theme_activate_url', array($this, 'run_installation_routine'));
 		
 		add_filter( 'pl_theme_default_settings', array($this, 'mod_default_settings') );
 		
@@ -20,19 +17,33 @@ class PageLinesInstall{
 		
 		add_filter( 'pl_default_template_handler', array($this, 'default_template_handling') );
 		
+		// MUST COME AFTER FILTERS!
+		$this->pagelines_check_install();
+		
 	}
 	
 	function pagelines_check_install() {
 
-		if( ! is_admin() )
-			return;
+		$install = false;
 
-		global $pagenow;
-		
+		if( isset($_GET['pl-install-theme']) ){
+			$install = true;
+		}
 
-		if( $pagenow == 'customize.php' || ( isset($_GET['activated'] ) && $pagenow == "themes.php" ) ){
-			$url = $this->run_installation_routine();
+		if( is_admin() ){
+			global $pagenow;
+
+
+			if( $pagenow == 'customize.php' || ( isset($_GET['activated'] ) && $pagenow == "themes.php" ) ){
+				$install = true;
 			
+				
+			}
+		}
+		
+		if( $install == true ){
+			$url = $this->run_installation_routine();
+
 			wp_redirect( $url ); 
 
 			exit;
@@ -43,13 +54,15 @@ class PageLinesInstall{
 	
 	function run_installation_routine( $url = '' ){
 		
+		set_default_settings();
+		
 		$this->load_page_templates();
 		
 		// Add Templates
 		$id = $this->page_on_activation();
 		
 		// Redirect 
-		$url = add_query_arg( 'plinstall', pl_theme_info('template'), get_permalink( $id ) );
+		$url = add_query_arg( 'pl-installed-theme', pl_theme_info('template'), get_permalink( $id ) );
 		
 		return $url;
 	
