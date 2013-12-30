@@ -110,7 +110,7 @@
 							
 							window.onbeforeunload = null
 							
-							if( plIsset( rsp.url ) ){
+							if( plIsset( rsp.url ) &&  rsp.url != '' ){
 								
 								window.location.href = rsp.url
 								
