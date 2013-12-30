@@ -105,7 +105,7 @@ class PageLinesTemplateHandler {
 					if( isset( $meta['clone'] ))
 						$uids[] = $meta['clone'];
 						
-					if(!empty($meta['content'])){
+					if( isset($meta['content']) && is_array($meta['content']) && !empty($meta['content'])){
 						foreach($meta['content'] as $subkey => $sub_meta){
 							
 							if( isset( $sub_meta['clone'] ))
