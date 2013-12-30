@@ -103,13 +103,15 @@ function set_default_settings(){
 	$settings = pl_get_global_settings();
 
 	
-	if( ! $settings )
+	if( ! $settings ){
 		$settings = pl_settings_default();
+	}
+		
 	
 	$settings_defaults = apply_filters( 'pl_theme_default_settings', get_default_settings() );
 	
 	$region_defaults = apply_filters( 'pl_theme_default_regions', array() );
-	
+
 	if( empty( $settings['draft'] ) ){
 		$settings['draft'] = array(
 			'settings'	=>	$settings_defaults,
@@ -125,6 +127,8 @@ function set_default_settings(){
 	}
 		
 	pl_update_global_settings( $settings );
+	
+	return $settings;
 
 }
 

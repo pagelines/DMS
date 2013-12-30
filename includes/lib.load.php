@@ -13,7 +13,7 @@ function load_pagelines_admin(){
 	require_once( PL_ADMIN . '/admin.init.php' );
 }
 
-add_action( 'pagelines_hook_init', 'install_pagelines' ); 
+add_action( 'pagelines_hook_init', 'install_pagelines', 5 ); 
 function install_pagelines(){
 	
 	if( class_exists('PageLinesInstallTheme') )
