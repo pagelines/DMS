@@ -579,88 +579,80 @@ class PLCustomTemplates extends PLCustomObjects{
 }
 
 function pl_default_template( $standard = false ){
+	$sidebar = array(
+		'object'	=> 'PLColumn',
+		'span' 	=> 4,
+		'content'	=> array(
+			array(
+				'object'	=> 'PLRapidTabs'
+			),
+			array(
+				'object'	=> 'PrimarySidebar'
+			),
+		)
+	);
 
-	global $plpg;
+	// 404 Page
+	if( is_404() ){
 
-	if( $plpg->type == '404_page' && ! $standard){
-		
-			$t = array(
-				'content'	=> array( array( 'object' => 'PageLinesNoPosts' ) )
-			);
-		
-	} elseif( $plpg->type == 'page' && ! $standard){
-		
-		$t = array(
-			'content'	=> array(
-				array(
-					'object'	=> 'PageLinesPostLoop',
-					'span' 		=> 8,
-					'offset'	=> 2
-				)
-			)
-		);
-		
-	} elseif(  $plpg->is_special() ){
-		$t = array(
-			'content'	=> array(
-				array(
-					'object'	=> 'PLColumn',
-					'span' 	=> 8,
-					'content'	=> array(
-						array(
-							'object'	=> 'PageLinesPostLoop'
-						),
-					)
-				),
-				array(
-					'object'	=> 'PLColumn',
-					'span' 	=> 4,
-					'content'	=> array(
-						array(
-							'object'	=> 'PLRapidTabs'
-						),
-						array(
-							'object'	=> 'PrimarySidebar'
-						),
-					)
-				),
-			)
-		);
-	} else {
-		
-		$t = array(
-			'content'	=> array(
-				array(
-					'object'	=> 'PLColumn',
-					'span' 	=> 8,
-					'content'	=> array(
-						array(
-							'object'	=> 'PageLinesPostLoop'
-						),
-						array(
-							'object'	=> 'PageLinesComments'
-						),
-					)
-				),
-				array(
-					'object'	=> 'PLColumn',
-					'span' 	=> 4,
-					'content'	=> array(
-						array(
-							'object'	=> 'PLRapidTabs'
-						),
-						array(
-							'object'	=> 'PrimarySidebar'
-						),
-					)
-				),
-			)
-		);
-		
-	}
+		$content = array( 'object' => 'PageLinesNoPosts' );
+
+	} 
 	
+	// Standard WP page default
+	elseif( is_page() ){
 
-	return apply_filters( 'pl_default_template_handler', $t );
+		$content = array(
+			array(
+				'object'	=> 'PageLinesPostLoop',
+				'span' 		=> 10,
+				'offset'	=> 1
+			)
+		);
+
+	} 
+	
+	// Post Page 
+	elseif( is_single() ) {
+
+		$content = array(
+					array(
+						'object'	=> 'PLColumn',
+						'span' 		=> 8,
+						'content'	=> array(
+							array(
+								'object'	=> 'PageLinesPostLoop'
+							),
+							array(
+								'object'	=> 'PageLinesComments'
+							)
+						)
+					),
+					
+					$sidebar 
+				);
+
+	} 
+	
+	
+	// Overall Default 
+	else {
+		$content = array( 
+					array(
+						'object'	=> 'PLColumn',
+						'span' 	=> 8,
+						'content'	=> array(
+							array(
+								'object'	=> 'PageLinesPostLoop'
+							),
+						)
+					),
+					$sidebar
+				);
+	}
+
+
+	return apply_filters( 'pl_default_template_handler', array( 'content' => $content ) );
 
 }
 
