@@ -59,7 +59,7 @@ http://www.gnu.org/licenses/gpl.html
 					return;
 				}
 
-				$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
+				$this.css('backgroundPosition', xpos + " " + Math.round((0 - pos) * speedFactor) + "px");
 			});
 		}		
 
