@@ -18,6 +18,8 @@ class PageLinesInstall{
 		// Add theme templates when default templates are set
 		add_filter( 'pl_default_templates', array($this, 'add_templates_at_default') );
 		
+		add_filter( 'pl_default_template_handler', array($this, 'default_template_handling') );
+		
 	}
 	
 	function pagelines_check_install() {
@@ -84,6 +86,7 @@ class PageLinesInstall{
 	}
 	
 	// Override this function in core/child themes
+	// It will automatically load and/or update templates
 	function page_templates( ){
 		$templates = array(
 			$this->template_welcome()
@@ -93,8 +96,14 @@ class PageLinesInstall{
 	}
 	
 	// Override this function in core/child themes
+	// Use it to set global options on activation of theme
 	function set_global_options( ){
 		return array();
+	}
+	
+	// Override this to change default templates for various types of pages
+	function default_template_handling( $t ){
+		return $t;
 	}
 	
 	// Override this function in core/child themes

@@ -660,7 +660,7 @@ function pl_default_template( $standard = false ){
 	}
 	
 
-	return $t;
+	return apply_filters( 'pl_default_template_handler', $t );
 
 }
 
