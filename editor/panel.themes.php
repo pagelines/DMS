@@ -10,6 +10,7 @@ class EditorThemeHandler {
 
 		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
 		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
+		add_filter('pl_ajax_themes', array( $this, 'activate_new_theme'));
 
 		$this->url = PL_PARENT_URL . '/editor';
 	}
@@ -28,6 +29,15 @@ class EditorThemeHandler {
 		);
 		
 		return apply_filters('pl_themes_tabs_final', $toolbar);
+	}
+	
+	function activate_new_theme($response, $data){
+		
+		$response = $this->activate( $response );
+		pl_flush_draft_caches( false );
+		
+		return $response;
+		
 	}
 
 	function pl_get_settings(){
@@ -185,8 +195,6 @@ class EditorThemeHandler {
 		$response['success'] = 'Theme Switched!';
 		$response['new'] = $new;
 		
-		$response['url'] = apply_filters('pl_theme_activate_url', ''); 
-
 		return $response;
 	}
 

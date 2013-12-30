@@ -7,7 +7,7 @@ $.plThemes = {
 
 		$('.btn-theme-activate').on('click.paneAction', function(e){
 			e.preventDefault()
-			
+		
 			var args = {
 					mode: 'themes'
 				,	run: 'activate'
@@ -15,6 +15,7 @@ $.plThemes = {
 				,	confirmText: $.pl.lang("<h3>Are you sure?</h3> <p>This will activate this theme sitewide.</p>")
 				,	savingText: $.pl.lang("Activating Theme")
 				,	refresh: true
+				,	refreshArgs: 'pl-install-theme=1'
 				,	refreshText: $.pl.lang("Successfully Activated. Refreshing page")
 				, 	log: true
 				,	stylesheet: $(this).data('stylesheet')
