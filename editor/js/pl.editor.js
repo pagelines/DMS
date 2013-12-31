@@ -701,6 +701,7 @@
 			,	obj = obj || {}
 			, 	location = obj.location || 'none'
 			, 	refresh  = obj.refresh || false
+			,	refreshText = (typeof obj.refreshText !== 'undefined') ? obj.refreshText : $.pl.lang( "Refreshing page..." )
 			,	storeMap = (typeof obj.storeMap !== 'undefined') ? obj.storeMap : true
 			,	templateMode = $.pl.config.templateMode || 'local'
 			,	map = that.updatePage( obj )
@@ -709,12 +710,11 @@
 			
 			if( storeMap ){
 				
-				
-
 				var saveArgs = {
 					run: 'map'
 					, store: map
-					, refresh: false
+					, refresh: refresh
+					, refreshText: refreshText
 					, postSuccess: function( rsp ){
 
 						if(!rsp)

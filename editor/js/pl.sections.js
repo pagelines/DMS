@@ -186,11 +186,17 @@ $.plSections = {
 			$.plAJAX.run( args )
 			
 		} else {
-			
+
 			element
 				.find( '.banner-content' ).append('<div><i class="icon-refresh"></i> Refresh To Load.</div>')
 			
-			$.pageBuilder.reloadConfig( {location: 'passive load', load: 'section'} )
+			var loadArgs = {	refresh: true
+								, refreshText: 'Congrats! <br/> Section added. Reloading page to add scripts.'
+								, location: 'passive load'
+								, load: 'section'
+							}
+			
+			$.pageBuilder.reloadConfig( loadArgs )
 			
 		}
 		
