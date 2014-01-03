@@ -63,6 +63,10 @@ class PageLinesInstall{
 		// Add Templates
 		$id = $this->page_on_activation();
 		
+		// Publish New Templates
+		$tpl_handler = new PLCustomTemplates;
+		$tpl_handler->update_objects( 'publish' );
+		
 		// Redirect 
 		$url = add_query_arg( 'pl-installed-theme', pl_theme_info('template'), get_permalink( $id ) );
 		
