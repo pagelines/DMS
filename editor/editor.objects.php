@@ -20,6 +20,7 @@ class PLCustomObjects{
 	
 	function default_fields(){
 		$d = array(
+			'key'	=> false,
 			'name'	=> __( 'No Name', 'pagelines' ),
 			'desc'	=> '', 
 			'map'	=> array(),
@@ -88,11 +89,12 @@ class PLCustomObjects{
 		
 		$args = wp_parse_args( $args, $this->default_fields());
 		
-		$key = pl_create_id( $args['name'] );
+		$key = ( $args['key'] ) ? $args['key'] : pl_create_id( $args['name'] );
 
 		$new = array( $key => $args );
 
-		$this->objects[ $key ] = $args;
+		// turns out you can add arrays, puts new templates at front
+		$this->objects = $new + $this->objects; 
 		
 		$this->update_objects( );
 		
