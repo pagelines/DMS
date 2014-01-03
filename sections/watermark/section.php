@@ -116,11 +116,7 @@ class PLWatermark extends PageLinesSection {
 			
 			?>
 		</div>
-		<?php if(!pl_is_pro()):?>
-		<div class="powered-by stack-element" style="display: block; visibility: visible; opacity: 1;">
-			<?php echo $powered;?>
-		</div>
-		<?php endif; ?>
+	
 		<?php echo $watermark; ?>
 	</div>
 	<?php
