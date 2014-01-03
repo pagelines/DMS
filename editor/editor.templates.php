@@ -664,7 +664,7 @@ function pl_add_or_update_template( $args ){
 	return $key;
 }
 
-function pl_set_page_template( $metaID, $key, $mode = 'draft' ){
+function pl_set_page_template( $metaID, $key, $mode = 'both' ){
 	
 	// set local meta
 	
@@ -672,7 +672,7 @@ function pl_set_page_template( $metaID, $key, $mode = 'draft' ){
 	
 	$map['template']['ctemplate'] = $key;
 	
-	pl_local_update( $metaID, 'custom-map', $map, $mode );
+	pl_update_single_meta_setting( $metaID, 'custom-map', $map, $mode );
 
 	
 }

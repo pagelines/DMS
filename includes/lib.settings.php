@@ -68,7 +68,12 @@ function pl_update_global_settings( $settings ){
 
 function pl_get_meta_settings( $metaID ){
 	
-	return get_post_meta( $metaID, pl_base_options_slug(), true );
+	$settings = get_post_meta( $metaID, pl_base_options_slug(), true );
+	
+	if( ! $settings )
+		$settings = pl_settings_default();
+		
+	return $settings;
 	
 }
 
@@ -78,7 +83,18 @@ function pl_update_meta_settings( $metaID, $settings ){
 	
 }
 
-
+function pl_update_single_meta_setting( $metaID, $key, $value, $mode = 'both' ){
+	$settings = pl_get_meta_settings( $metaID );
+	
+	if( $mode == 'both'){
+		$settings[ 'draft' ][$key] = $value; 
+		$settings[ 'live' ][$key] = $value; 
+	} else 
+		$settings[ $mode ][$key] = $value; 
+	
+	pl_update_meta_settings($metaID, $settings);
+	
+}
 
 /*
  *  Resets global options to an empty set
