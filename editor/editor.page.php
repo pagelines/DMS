@@ -77,9 +77,9 @@ class PageLinesPage {
 
 	}
 
-	function special_id(){
+	function special_id( $type = false ){
 
-		$index = $this->special_index_lookup();
+		$index = $this->special_index_lookup( $type );
 
 		$id = $this->special_base + $index;
 
@@ -87,7 +87,9 @@ class PageLinesPage {
 
 	}
 
-	function special_index_lookup(){
+	function special_index_lookup( $type = false ){
+
+		$type = ( $type ) ? $type : $this->type();
 
 		$lookup_array = array(
 			'blog',
@@ -101,10 +103,10 @@ class PageLinesPage {
 			'404_page'
 		);
 		
-		$index = array_search( $this->type(), $lookup_array );
+		$index = array_search( $type, $lookup_array );
 		
 		if( !$index )
-			$index = pl_create_int_from_string( $this->type() ); 
+			$index = pl_create_int_from_string( $type ); 
 
 		return $index;
 
@@ -195,6 +197,12 @@ function pl_type_id(){
 function pl_type_slug(){
 	global $plpg; 
 	return $plpg->type; 
+}
+function pl_special_id( $type = false ){
+	
+	$page_handler = new PageLinesPage; 
+	return $page_handler->special_id( $type ); 
+	
 }
 
 
