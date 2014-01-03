@@ -1,5 +1,16 @@
 <?php
 
+function pl_posts_404(){
+
+	$head = ( is_search() ) ? sprintf(__('No results for &quot;%s&quot;', 'pagelines'), get_search_query()) : __('Nothing Found', 'pagelines');
+
+	$subhead = ( is_search() ) ? __('Try another search?', 'pagelines') : __("Sorry, what you are looking for isn't here.", 'pagelines');
+
+	$the_text = sprintf('<h2 class="center">%s</h2><p class="subhead center">%s</p>', $head, $subhead);
+
+	return sprintf( '<section class="billboard">%s <div class="center fix">%s</div></section>', apply_filters('pagelines_posts_404', $the_text), pagelines_search_form( false ));
+
+}
 
 function pl_get_core_header(){
 	require_once( pl_get_template_directory() . '/header.php' );

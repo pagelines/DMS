@@ -57,7 +57,7 @@ class PageLinesPosts {
 		if( have_posts() )
 			while ( have_posts() ) : the_post();  $this->get_article(); endwhile;
 		else
-			$this->posts_404();
+			echo pl_posts_404();
 
 	}
 
