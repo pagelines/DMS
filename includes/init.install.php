@@ -58,6 +58,8 @@ class PageLinesInstall{
 		
 		$this->load_page_templates();
 		
+		$this->apply_page_templates();
+		
 		// Add Templates
 		$id = $this->page_on_activation();
 		
@@ -84,6 +86,21 @@ class PageLinesInstall{
 			$templateID = pl_add_or_update_template( $tpl );
 		}
 		
+	}
+	
+	function apply_page_templates(){
+		$mapping = $this->map_templates_to_pages();
+		
+		foreach( $mapping as $type => $tpl ){
+			
+			$id = pl_special_id( $type );
+			pl_set_page_template( $id, $tpl, 'both' );
+		}
+	}
+	
+	// Override this to set templates on install
+	function map_templates_to_pages(){
+		return array();
 	}
 	
 	function mod_default_regions( $defaults = array() ){
@@ -249,7 +266,7 @@ class PageLinesInstall{
 			$id = wp_insert_post(  $post_data );
 			
 		
-		pl_set_page_template( $id, $post_data['template'] );
+		pl_set_page_template( $id, $post_data['template'], 'both' );
 		
 		return $id;
 	}
