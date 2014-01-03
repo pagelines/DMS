@@ -659,6 +659,7 @@ function pl_icon_array(){
 function pl_button_classes(){
 	$array = array(
 		''			 		=> 'Default',
+		'btn-flat'			=> 'Outline',
 		'btn-primary'		=> 'Dark Blue',
 		'btn-info'			=> 'Light Blue',
 		'btn-success'		=> 'Green',
