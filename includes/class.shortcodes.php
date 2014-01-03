@@ -422,7 +422,7 @@ class PageLines_ShortCodes {
 	 * 13. This function produces the comment link
 	 *
 	 * @example <code>[post_comments]</code> is the default usage
-	 * @example <code>[post_comments zero="No Comments" one="1 Comment" more="% Comments"]</code>
+	 * @example <code>[post_comments zero="No Comments" one="1 Comment" more="% Comments" output="link"]</code>
 	 */
 	function pagelines_post_comments_shortcode( $atts ) {
 
@@ -431,8 +431,9 @@ class PageLines_ShortCodes {
 			'one' => __( "<span class='num'>1</span> Comment", 'pagelines' ),
 			'more' => __( "<span class='num'>%</span> Comments", 'pagelines' ),
 			'hide_if_off' => 'disabled',
-			'before' => '',
-			'after' => ''
+			'before' 	=> '',
+			'after' 	=> '',
+			'output'	=> 'span'
 		);
 		$atts = shortcode_atts( $defaults, $atts );
 
@@ -446,7 +447,10 @@ class PageLines_ShortCodes {
 
 		$comments = sprintf( '<a href="%s">%s</a>', $this->get_comment_link(), $comments );
 
-		$output = sprintf( '<span class="post-comments sc">%2$s%1$s%3$s</span>', $comments, $atts['before'], $atts['after'] );
+		if( $atts['output'] == 'link')
+			$output = $comments;
+		else 
+			$output = sprintf( '<span class="post-comments sc">%2$s%1$s%3$s</span>', $comments, $atts['before'], $atts['after'] );
 
 		return apply_filters( 'pagelines_post_comments_shortcode', $output, $atts );
 	}
@@ -554,6 +558,8 @@ class PageLines_ShortCodes {
 		);
 		$atts = shortcode_atts( $defaults, $atts );
 
+
+		
 		$output = sprintf( '<time class="date time published updated sc" datetime="%5$s">%1$s%3$s%4$s%2$s</time> ',
 						$atts['before'],
 						$atts['after'],
