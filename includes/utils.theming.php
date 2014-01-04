@@ -2,7 +2,7 @@
 
 function pl_posts_404(){
 
-	$head = ( is_search() ) ? sprintf(__('No results for &quot;%s&quot;', 'pagelines'), get_search_query()) : __('Nothing Found', 'pagelines');
+	$head = __('Nothing Found', 'pagelines');
 
 	$subhead = ( is_search() ) ? __('Try another search?', 'pagelines') : __("Sorry, what you are looking for isn't here.", 'pagelines');
 
