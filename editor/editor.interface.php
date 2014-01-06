@@ -174,6 +174,20 @@ class EditorInterface {
 				'pos'	=> 199
 			),
 
+			'pagelines-home' => array(
+				'icon'	=> 'icon-pagelines',
+				'tip'	=> __( 'PageLines.com', 'pagelines' ),
+				'type'	=> 'link',
+				'link'	=> 'http://www.pagelines.com',
+				'pos'	=> 210
+			),
+			
+			'state-tool' => array(
+				'type'		=> 'output',
+				'output'	=> $this->state_tool(),
+				'pos'		=> 205
+			),
+			
 		);
 
 		return $data;
@@ -236,14 +250,44 @@ class EditorInterface {
 		<?php
 	}
 
-	function pagelines_toolbox(){
-
+	function state_tool(){
+		
 		$state = $this->draft->get_state( $this->page->id, $this->page->typeid, $this->map );
 
 		$state_class = '';
 		foreach($state as $st){
 			$state_class .= ' '.$st;
 		}
+		
+		$show_unload = ($state_class != '') ? 'yes' : '';
+		ob_start();
+		?>
+		<li id="stateTool" class="dropup <?php echo $state_class;?>" data-show-unload="<?php echo $show_unload;?>">
+			<span class="btn-toolbox btn-state " data-toggle="dropdown">
+				<span id="update-state" class="state-draft state-tag">&nbsp;</span>
+			</span>
+			<ul class="dropdown-menu pull-right state-list">
+				<li class="li-state-multi"><a class="btn-revert" data-revert="all"><span class="update-state state-draft multi">&nbsp;</span>&nbsp; <?php _e( 'Undo All Unpublished Changes', 'pagelines' ); ?>
+				</a></li>
+				<li class="li-state-global"><a class="btn-revert" data-revert="global"><span class="update-state state-draft global">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Global Changes', 'pagelines' ); ?>
+				</a></li>
+
+				<li class="li-state-type"><a class="btn-revert" data-revert="type"><span class="update-state state-draft type">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Post Type Changes', 'pagelines' ); ?>
+				</a></li>
+				<li class="li-state-local"><a class="btn-revert" data-revert="local"><span class="update-state state-draft local">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Local Changes', 'pagelines' ); ?>
+				</a></li>
+				<li class="li-state-clean disabled"><a class="txt"><span class="update-state state-draft clean">&nbsp;</span>&nbsp; <?php _e( 'No Unpublished Changes', 'pagelines' ); ?>
+				</a></li>
+			</ul>
+		</li>
+		<?php 
+		
+		return ob_get_clean();
+	}
+
+	function pagelines_toolbox(){
+
+		
 	?>
 
 	<div class="pl-toolbox-pusher">
@@ -253,7 +297,7 @@ class EditorInterface {
 		<div class="toolbox-handle fix">
 
 			<ul class="unstyled controls">
-				<li ><span class="btn-toolbox btn-closer" title="Close [esc]"><i class="icon-remove"></i></span></li>
+				<li class="el-closer" ><span class="btn-toolbox btn-closer" title="Close [esc]"><i class="icon-remove"></i></span></li>
 
 				<?php
 
@@ -264,12 +308,18 @@ class EditorInterface {
 
 						if( $tab['type'] == 'hidden' || ( $tab['type'] == 'dropup' && empty($tab['panel']) ) )
 							continue;
+							
+						if( $tab['type'] == 'output' ){
+							echo $tab['output']; 
+							continue;
+						}
 
 						$data = '';
 						$suffix = '';
 						$content = '';
 						$li_class = array();
 						$li_class[] = 'type-'.$tab['type'];
+						$li_class[] = 'el-'.$key;
 
 						if($tab['type'] == 'dropup' && !empty($tab['panel'])){
 
@@ -291,8 +341,15 @@ class EditorInterface {
 						$class[] = ($tab['type'] == 'panel' ) ? 'btn-panel' : '';
 						$class[] = ($tab['type'] == 'btn-panel' ) ? 'btn-panel' : '';
 						$class[] = ($tab['type'] == 'btn') ? 'btn-action' : '';
+						$class[] = ($tab['type'] == 'link') ? 'btn-link' : '';
 
 						$class[] = 'btn-'.$key;
+
+						$el_type = ($tab['type'] == 'link') ? 'a' : 'span';
+						
+						if( $tab['type'] == 'link' ){
+							$data .= sprintf(' href="%s" target="_blank"', $tab['link']);
+						}
 
 						$classes = join(' ', $class);
 
@@ -306,8 +363,9 @@ class EditorInterface {
 						$title = sprintf('title="%s"', $tip);
 
 						printf(
-							'<li class="%s"><span class="btn-toolbox %s" data-action="%s" %s %s>%s%s%s</span>%s</li>',
+							'<li class="%s"><%s class="btn-toolbox %s" data-action="%s" %s %s>%s%s%s</%s>%s</li>',
 							$li_classes,
+							$el_type,
 							$classes,
 							$key,
 							$data,
@@ -315,31 +373,15 @@ class EditorInterface {
 							$icon,
 							$name,
 							$suffix,
+							$el_type,
 							$content
 						);
 
 					}
 					
-					$show_unload = ($state_class != '') ? 'yes' : ''
+					
 				?>
-				<li id="stateTool" class="dropup <?php echo $state_class;?>" data-show-unload="<?php echo $show_unload;?>">
-					<span class="btn-toolbox btn-state " data-toggle="dropdown">
-						<span id="update-state" class="state-draft state-tag">&nbsp;</span>
-					</span>
-					<ul class="dropdown-menu pull-right state-list">
-						<li class="li-state-multi"><a class="btn-revert" data-revert="all"><span class="update-state state-draft multi">&nbsp;</span>&nbsp; <?php _e( 'Undo All Unpublished Changes', 'pagelines' ); ?>
-						</a></li>
-						<li class="li-state-global"><a class="btn-revert" data-revert="global"><span class="update-state state-draft global">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Global Changes', 'pagelines' ); ?>
-						</a></li>
-
-						<li class="li-state-type"><a class="btn-revert" data-revert="type"><span class="update-state state-draft type">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Post Type Changes', 'pagelines' ); ?>
-						</a></li>
-						<li class="li-state-local"><a class="btn-revert" data-revert="local"><span class="update-state state-draft local">&nbsp;</span>&nbsp; <?php _e( 'Undo Unpublished Local Changes', 'pagelines' ); ?>
-						</a></li>
-						<li class="li-state-clean disabled"><a class="txt"><span class="update-state state-draft clean">&nbsp;</span>&nbsp; <?php _e( 'No Unpublished Changes', 'pagelines' ); ?>
-						</a></li>
-					</ul>
-				</li>
+				
 			</ul>
 			<ul class="unstyled controls send-right">
 				
