@@ -330,6 +330,26 @@ function pagelines_check_folders_dms( $note ) {
 	} 
 	if ( ! pl_is_pro() ){
 		
+		// check for updater...
+		$slug = 'pagelines-updater';
+		
+		if( ! pl_check_updater_exists() ) { // need to install...
+			$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
+			$message = '<a href="' . esc_url( $install_url ) . '">Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
+		} else {
+			// must be installed..maybe its not active?
+			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			if( ! is_plugin_active( 'pagelines-updater/pagelines-updater.php' ) ) {
+				$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
+				$message = '<a href="' . esc_url( self_admin_url( $activate_url ) ) . '">Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.';
+			} else {
+				// were active, so then a key isnt there...
+				$url = 'index.php?page=pagelines_updater';
+				$message = '<a href="' . esc_url( self_admin_url( $url ) ) . '">Add your key now</a> to get updates for your PageLines themes and plugins.';
+			}
+		}
+		
+		
 		ob_start(); ?>
 		
 		<div class="alert editor-alert">
@@ -340,9 +360,8 @@ function pagelines_check_folders_dms( $note ) {
 			
 			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> <?php _e( 'Learn More About Pro', 'pagelines' ); ?>
 			</a>
-			&mdash; <em><?php _e( 'Already a Pro?', 'pagelines' ); ?>
-			</em> <a href="#" class="btn btn-mini" data-tab-link="account" data-stab-link="pl_account"><i class="icon-star"></i> <?php _e( 'Activate Site', 'pagelines' ); ?>
-			</a> 
+			<br /><em><?php _e( 'Already a Pro?', 'pagelines' ); ?></em>
+			<?php echo $message; ?>
 		</div>
 		
 		<?php 

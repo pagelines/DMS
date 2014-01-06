@@ -762,3 +762,8 @@ function pl_get_image_sizes() {
 	$sizes[] = 'full';
 	return $sizes;
 }
+
+function pl_check_updater_exists() {
+	$path = sprintf( '%s/pagelines-updater/pagelines-updater.php', WP_PLUGIN_DIR );
+	return ( is_file( $path ) ) ? true : false;
+}
