@@ -129,7 +129,35 @@
 			if( $('.pl-parallax').length >= 1){
 				
 				$('.pl-parallax').each(function(element){
-				$(this).parallax('50%', .3)
+					$(this).parallax('50%', .3, true, 'background')
+				})
+			}
+			
+			if( $('.pl-scroll-translate').length >= 1){
+
+				$('.pl-scroll-translate').each(function(element){
+					
+					$(this).waypoint(function(direction){
+							console.log(direction)
+							
+							if( direction == 'down' ){
+								$(this)
+									.addClass('do-translate')
+							} else{
+								$(this)
+									.removeClass('do-translate')
+									.css('transform', 'none')
+							}
+							
+						 	
+
+						}
+						, { offset: '10%' 
+							, triggerOnce: false
+						}
+					)
+					
+					$(this).parallax('50%', .4, true, 'translate')
 				})
 			}
 			

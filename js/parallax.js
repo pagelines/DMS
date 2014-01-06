@@ -19,11 +19,13 @@ http://www.gnu.org/licenses/gpl.html
 		windowHeight = $window.height();
 	});
 
-	$.fn.parallax = function(xpos, speedFactor, outerHeight) {
+	$.fn.parallax = function(xpos, speedFactor, outerHeight, theMode) {
 		var $this = $(this);
 		var getHeight;
 		var firstTop;
 		var paddingTop = 0;
+		
+		var theMode = theMode || 'background'
 		
 		//get the starting position of each element to have parallax applied to it		
 		$this.each(function(){
@@ -51,15 +53,35 @@ http://www.gnu.org/licenses/gpl.html
 
 			$this.each(function(){
 				var $element = $(this);
-				var top = $element.offset().top;
+				var top = $element.parent().offset().top;
 				var height = getHeight($element);
+				var fixedHeight = $('.pl-fixed-top').height()
 
 				// Check if totally above or totally below viewport
 				if (top + height < pos || top > pos + windowHeight) {
 					return;
 				}
 
-				$this.css('backgroundPosition', xpos + " " + Math.round((0 - pos) * speedFactor) + "px");
+				var trns = pos - top
+			
+				if( theMode == 'translate' && (trns + fixedHeight) > 0){
+					
+						$this
+							.css('transform', 'translate(0, ' + Math.round( .6 * (trns + fixedHeight) ) + 'px)' )
+						
+				} else if( theMode == 'translate' ){
+					$this
+						.css( 'transform', 'none' )
+				}
+				
+				if(  theMode == 'background' ){
+					
+					$this.css('backgroundPosition', xpos + " " + Math.round((-100 - pos) * speedFactor) + "px");
+					
+				}
+					
+				
+			
 			});
 		}		
 

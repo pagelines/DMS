@@ -100,8 +100,13 @@ class PLSectionArea extends PageLinesSection {
 				),
 				array(
 					'key'			=> 'pl_area_parallax',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Enable Background Parallax', 'pagelines' ),
+					'type' 			=> 'select',
+					'opts'			=> array(
+						''						=> array('name' => "No Scroll Effect"),
+						'pl-parallax'			=> array('name' => "Parallaxed Background Image"),
+						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
+					),
+					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
 				)
 			),
 			
@@ -136,7 +141,8 @@ class PLSectionArea extends PageLinesSection {
 		
 		$style .= ($this->opt('pl_area_image')) ? sprintf('background-image: url(%s);', $this->opt('pl_area_image')) : '';
 		
-		$classes = ($this->opt('pl_area_parallax')) ? 'pl-parallax' : '';
+		$classes = ($this->opt('pl_area_parallax')) ? $this->opt('pl_area_parallax') : '';
+		
 		$classes .= ($this->opt('pl_area_bg_repeat')) ? ' pl-bg-repeat' : ' pl-bg-cover';
 		
 		// If there is no output, there should be no padding or else the empty area will have height.
