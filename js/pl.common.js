@@ -137,26 +137,6 @@
 
 				$('.pl-scroll-translate').each(function(element){
 					
-					$(this).waypoint(function(direction){
-							console.log(direction)
-							
-							if( direction == 'down' ){
-								$(this)
-									.addClass('do-translate')
-							} else{
-								$(this)
-									.removeClass('do-translate')
-									.css('transform', 'none')
-							}
-							
-						 	
-
-						}
-						, { offset: '10%' 
-							, triggerOnce: false
-						}
-					)
-					
 					$(this).parallax('50%', .4, true, 'translate')
 				})
 			}
