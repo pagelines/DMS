@@ -55,50 +55,24 @@ class PLAccountAdmin {
 
 		$activation_message = ($data['message'] == '') ? 'Site not activated.' : $data['message'];
 
-		?>
-		
-		
-		
+		?>	
 		<div class="pl-account-form">
 			
 			<div class="update-nag pl-account-message">
 				
 				<div class="the-msg">
 					<?php if( $active ):  ?>
-						<?php _e( 'Pro Activated!', 'pagelines' ); ?> - <?php printf($activation_message);  ?>
+						<?php _e( 'Pro Activated!', 'pagelines' ); ?>
 						<span class="description"><a href="http://www.pagelines.com/my-account/">View PageLines Account</a></span>
 					<?php else: ?>
 						<strong><?php _e( 'Site Not Activated', 'pagelines' ); ?></strong>
 					<?php endif; ?>
 				</div>
-				
-				<?php if($active): ?>
-					<button class="button settings-action deactivate-key pl-account-action"> <?php _e( 'Deactivate', 'pagelines' ); ?></button>
-				<?php endif; ?>
 			</div>
-			<?php if( ! $active ) : ?>
-			<div class="pl-input-field">
+		</div>	
 
-				<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?>  autocomplete="off"/> &nbsp; <span class="description"><?php _e( "Your PageLines account email."); ?></span>
-			
-			</div>
-	
-			<div class="pl-input-field">	 
-				<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>" value="" <?php echo $disable; ?>  autocomplete="off"/> &nbsp; <span class="description"><?php _e( "PageLines Updates and Support Activation Key."); ?> <a href="http://www.pagelines.com/my-account/">View PageLines Account</a></span>
-		
-			</div>
-		
-		
-			<div class="pl-input-field">
-					<input type="submit" class="button button-primary pl-account-action" value="<?php _e( 'Activate Site', 'pagelines' ); ?>">
-					<span class="saving-confirm"></span>
-					
-			</div>
-			<?php endif; ?>
-		</div>
-		
-	<?php 
-	
+		<?php
+		return;
 	}
 	
 	function activation_check_function() {

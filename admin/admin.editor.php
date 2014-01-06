@@ -14,19 +14,19 @@ class EditorAdmin {
 	function admin_array(){
 
 		$d = array(
-			'tabs'	=> array(
+			'tabs'	=> array( 
 				'title'		=> __( 'PageLines DMS Settings', 'pagelines' ),
 				'slug'		=> 'dms_settings',
 				'groups'	=> array(
-					array(
-						'title'	=> __( 'Editing Your Site With DMS', 'pagelines' ), 
-						'opts'	=> array(
-							'intro'		=> array(
-								'type'		=> 'dms_intro',
-								'title'		=> __( 'Welcome to DMS!', 'pagelines' ),
-							),
-						)
-					),
+									array(
+										'title'	=> __( 'Editing Your Site With DMS', 'pagelines' ), 
+										'opts'	=> array(
+										'intro'		=> array(
+														'type'		=> 'dms_intro',
+														'title'		=> __( 'Welcome to DMS!', 'pagelines' ),
+														),
+													)
+									),
 					array(
 						'title'	=> __( 'Your PageLines Account', 'pagelines' ), 
 						'opts'	=> array(
