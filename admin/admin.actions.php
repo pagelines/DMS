@@ -64,6 +64,18 @@ function pagelines_theme_settings_scripts() {
 
 }
 
+add_action('admin_head', 'add_global_admin_css');
+function add_global_admin_css() {
+?>
+<style type="text/css">
+	#toplevel_page_PageLines-Admin .wp-menu-image img{ max-width: 18px; }
+	#toplevel_page_PageLines-Admin.current  .wp-menu-image img{ opacity: 1; }
+</style>
+
+<?php
+
+}
+
 
 
 /**
