@@ -1700,7 +1700,7 @@ class PageLinesPostType {
 		*/
 		function load_sections_for_type( $sections, $template_type, $hook ){
 
-			if( $template_type == $this->id || $template_type == get_post_type_plural( $this->id ) )
+			if( $template_type == $this->id || $template_type == pl_get_post_type_plural( $this->id ) )
 				return $this->settings['load_sections'];
 			else
 				return $sections;

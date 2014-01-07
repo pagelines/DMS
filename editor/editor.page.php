@@ -58,6 +58,7 @@ class PageLinesPage {
 		}
 
 	}
+
 	
 	function template(){
 
@@ -105,10 +106,13 @@ class PageLinesPage {
 			'404_page'
 		);
 		
+		
+		
 		$index = array_search( $type, $lookup_array );
 		
-		if( !$index )
-			$index = pl_create_int_from_string( $type ); 
+		if( !$index ){
+			$index = pl_create_int_from_string( $type );	
+		} 
 
 		return $index;
 
@@ -119,8 +123,8 @@ class PageLinesPage {
 		if( is_404() )
 			$type = '404_page';
 
-		elseif( pl_is_cpt('archive') )
-			$type = get_post_type_plural();
+		elseif( is_post_type_archive() )
+			$type = pl_get_post_type_plural();
 
 		elseif( is_tag() )
 			$type = 'tag';
@@ -157,14 +161,7 @@ class PageLinesPage {
 
 	}
 	
-	function page_scope(){
-		if(is_page() || $this->page->is_special()){
-			return 'local';
-		} else {
-			return 'type';
-		}
-	}
-
+	
 	function is_special(){
 
 		if ( is_404() || is_home() || is_search() || is_archive() )
@@ -181,6 +178,14 @@ class PageLinesPage {
 		else
 			return false;
 
+	}
+	
+	function pl_standard_post_page(){
+		
+		if( is_post_type_archive() || pl_is_cpt() )
+			return false;
+		else 
+			return true;
 	}
 
 
@@ -207,4 +212,7 @@ function pl_special_id( $type = false ){
 	
 }
 
-
+function pl_standard_post_page(){
+	global $plpg; 
+	return $plpg->pl_standard_post_page();
+}

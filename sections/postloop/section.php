@@ -1,6 +1,6 @@
 <?php
 /*
-	Section: Content/PostLoop
+	Section: WP Content/Loop
 	Author: PageLines
 	Author URI: http://www.pagelines.com
 	Description: The Main Content area (Post Loop in WP speak). Includes content and post information.
@@ -230,13 +230,17 @@ class PageLinesPostLoop extends PageLinesSection {
 	*/
    function section_template() {
 	
-		
+		// if using non pagelines template
 		if(do_special_content_wrap()){
+			
 			 global $integration_out;
 			echo $integration_out;
 			
-		} else {	
+		} 
 		
+		// if standard page use uber loop
+		elseif( pl_standard_post_page() ){	
+			
 			require_once( $this->base_dir . '/class.posts.php' );
 			
 			//Included in theme root for easy editing.
@@ -244,6 +248,12 @@ class PageLinesPostLoop extends PageLinesSection {
 			$theposts->load_loop();
 			
 		}
+		
+		// Basic loop for overridding via 'the_content'
+		else {
+			require_once( $this->base_dir . '/loop.php' );
+		}
+		
 	
 	}
 
