@@ -269,9 +269,9 @@ class EditorTemplates {
 					'filter' => '*'
 				),
 				'tmp_save'	=> array(
-					'name'	=> __( 'Page Controls', 'pagelines' ),
-					'call'	=> array( $this, 'page_settings'),
-					'icon'	=> 'icon-wrench'
+					'name'	=> __( 'Page Info', 'pagelines' ),
+					'call'	=> array( $this, 'page_controls'),
+					'icon'	=> 'icon-info'
 				),
 			)
 
@@ -394,32 +394,67 @@ class EditorTemplates {
 		
 		printf('<div class="row"><div class="span7"><div class="pl-list-contain">%s</div></div><div class="span5">%s</div></div>', $list, $form);
 	}
+	
+	function page_information(){
+		
+		global $plpg;
+		
+		$info['type'] = array(
+			'num'		=> $plpg->type,
+			'label'		=> '',
+			'title'		=> 'Current Page Type',
+			'info'		=> 'The classification of WordPress page.'
+		);
+		
+		$info['typeid'] = array(
+			'num'		=> $plpg->typeid,
+			'label'		=> '',
+			'title'		=> 'Current Type ID',
+			'info'		=> 'A meta ID associated with this type of page. Used for settings for entire type.'
+		);
+		
+		$info['id'] = array(
+			'num'		=> $plpg->id,
+			'label'		=> '',
+			'title'		=> 'Current Page ID',
+			'info'		=> 'A meta ID associated with this specific page.'
+		);
+		
+		$info['template-mode'] = array(
+			'num'		=> $plpg->template_mode(),
+			'label'		=> '',
+			'title'		=> 'Template Handling',
+			'info'		=> 'The scope of template handling. "Page" or "type" wide.'
+		);
+		
+		$info['template'] = array(
+			'num'		=> $plpg->template(),
+			'label'		=> '',
+			'title'		=> 'Template',
+			'info'		=> 'The ID of the current template being used.'
+		);
+	
+		
+		return $info;
+		
+	}
 
-	function page_settings(){
-
+	function page_controls(){
+		global $plpg;
 		?>
-
-		<form class="opt standard-form form-save-template">
-			<fieldset>
-				<span class="help-block">
-					<?php _e( 'Fill out this form and the current template will be saved for use throughout your site.', 'pagelines' ); ?>
-					<br/>
-					<?php _e( "<strong>Note:</strong> Both the current page's local settings and section configurations will be saved.", 'pagelines' ); ?>
+		<div class="row">
+			<div class="controls-table">
+				<table class="data-table">
+				<?php foreach( $this->page_information() as $key => $item ){
 					
-				</span>
-				<label for="template-name"><?php _e( 'Template Name (required)', 'pagelines' ); ?>
-				</label>
-				<input type="text" id="template-name" name="template-name" required />
-
-				<label for="template-desc"><?php _e( 'Template Description', 'pagelines' ); ?>
-				</label>
-				<textarea rows="4" id="template-desc" name="template-desc" ></textarea>
+					printf('<tr><th>%s</th><td>%s %s</td><td>%s</td></tr>', $item['title'], $item['num'], $item['label'], $item['info']); 
+					
+					
+				}?>
+				</table>
 				
-				<button type="submit" class="btn btn-primary btn-save-template"><?php _e( 'Save New Template', 'pagelines' ); ?>
-				</button>
-			</fieldset>
-		</form>
-
+			</div>
+		</div>
 		<?php
 
 	}
