@@ -183,7 +183,7 @@ class PageLinesInstall{
 					'pl_area_bg' 		=> 'pl-dark-img',
 					'pl_area_image'		=> '[pl_parent_url]/images/getting-started-mast-bg.jpg',
 					'pl_area_pad'		=> '80px',
-					'pl_area_parallax'	=> 1
+					'pl_area_parallax'	=> 'pl-parallax'
 				),
 				
 				'content'	=> array(

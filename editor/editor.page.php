@@ -49,22 +49,24 @@ class PageLinesPage {
 		return $d;
 	}
 
+	function template_mode(){
+
+		if(is_page() || $this->is_special()){
+			return 'local';
+		} else {
+			return 'type';
+		}
+
+	}
+	
 	function template(){
 
-		$page = pl_local( $this->id, 'page-template' );
-		$type = pl_local( $this->typeid, 'page-template' );
-		$gbl = pl_global( 'page-template' );
-
-		if( $page && $page != 'default' )
-			$tpl = $page;
-		elseif( $type && $type != 'default' )
-			$tpl = $type;
-		elseif( $gbl )
-			$tpl = $gbl;
-		else
-			$tpl = 'default';
-
-		return $tpl;
+		global $pl_custom_template;
+		
+		if( isset($pl_custom_template) && isset($pl_custom_template['key']))
+			return $pl_custom_template['key']; 
+		else 
+			return 'custom (no template)';
 
 	}
 
