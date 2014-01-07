@@ -62,16 +62,28 @@ http://www.gnu.org/licenses/gpl.html
 					return;
 				}
 
-				var trns = pos - top
+				var trns = pos + fixedHeight - top
 			
-				if( theMode == 'translate' && (trns + fixedHeight) > 0){
+				if( theMode == 'translate' && trns > 0){
 					
+						var diff =  (trns + height) / (trns * 6);
+						
+						
+ 						if (diff > 1) 
+							diff = 1;
+			            else if (diff < 0) 
+							diff = 0;
+
 						$this
-							.css('transform', 'translate(0, ' + Math.round( .6 * (trns + fixedHeight) ) + 'px)' )
+							.css('transform', 'translate(0, ' + Math.round( .6 * trns ) + 'px)' )
+							.find('.pl-content')
+								.css('opacity', diff)
 						
 				} else if( theMode == 'translate' ){
 					$this
 						.css( 'transform', 'none' )
+						.find('.pl-content')
+							.css('opacity', 1)
 				}
 				
 				if(  theMode == 'background' ){

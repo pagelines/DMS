@@ -141,7 +141,17 @@ class PLSectionArea extends PageLinesSection {
 		
 		$style .= ($this->opt('pl_area_image')) ? sprintf('background-image: url(%s);', $this->opt('pl_area_image')) : '';
 		
-		$classes = ($this->opt('pl_area_parallax')) ? $this->opt('pl_area_parallax') : '';
+		$classes = '';
+		
+		$scroll_effect = $this->opt('pl_area_parallax');
+		
+		if( $scroll_effect ){
+			if( $scroll_effect == 1 ){
+				$classes .= ' pl-parallax';
+			} else 
+				$classes .= ' ' . $scroll_effect;
+		}
+		($this->opt('pl_area_parallax')) ? $this->opt('pl_area_parallax') : '';
 		
 		$classes .= ($this->opt('pl_area_bg_repeat')) ? ' pl-bg-repeat' : ' pl-bg-cover';
 		
