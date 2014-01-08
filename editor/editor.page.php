@@ -37,6 +37,8 @@ class PageLinesPage {
 			$this->type_name = ucwords( str_replace('_', ' ', $this->type()) );
 
 		}
+		
+
 
 	}
 
@@ -51,7 +53,7 @@ class PageLinesPage {
 
 	function template_mode(){
 
-		if(is_page() || $this->is_special()){
+		if( $this->type == 'page' || $this->is_special()){
 			return 'local';
 		} else {
 			return 'type';
@@ -155,7 +157,7 @@ class PageLinesPage {
 			$type = 'post';
 
 		else
-			$type = 'other';
+			$type = 'page';
 
 		return $type;
 
