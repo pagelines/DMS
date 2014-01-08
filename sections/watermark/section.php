@@ -52,6 +52,7 @@ class PLWatermark extends PageLinesSection {
 			),
 			array(
 				'type' 	=> 	'help',
+				'col'	=> 2,
 				'title' 		=> __( 'Setting Up Social Shares', 'pagelines' ),
 				'help' 		=> __( 'To set up social, you need to set your global social user names under "options" > "social &amp; local"<br/><br/> After you have done that, these values will fill automatically.', 'pagelines' ),
 
