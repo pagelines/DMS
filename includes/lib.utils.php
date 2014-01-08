@@ -246,12 +246,14 @@ function pl_is_cpt( $type = 'single' ){
 * @TODO do
 *
 */
-function get_post_type_plural( $id = null ){
+function pl_get_post_type_plural( $id = null ){
+
+	$post_type = get_query_var( 'post_type' );
 
 	if(isset($id))
 		return $id.'_archive';
 	else
-		return get_post_type().'_archive';
+		return $post_type.'_archive';
 }
 
 

@@ -19,11 +19,13 @@ http://www.gnu.org/licenses/gpl.html
 		windowHeight = $window.height();
 	});
 
-	$.fn.parallax = function(xpos, speedFactor, outerHeight) {
+	$.fn.parallax = function(xpos, speedFactor, outerHeight, theMode) {
 		var $this = $(this);
 		var getHeight;
 		var firstTop;
 		var paddingTop = 0;
+		
+		var theMode = theMode || 'background'
 		
 		//get the starting position of each element to have parallax applied to it		
 		$this.each(function(){
@@ -51,15 +53,47 @@ http://www.gnu.org/licenses/gpl.html
 
 			$this.each(function(){
 				var $element = $(this);
-				var top = $element.offset().top;
+				var top = $element.parent().offset().top;
 				var height = getHeight($element);
+				var fixedHeight = $('.pl-fixed-top').height()
 
 				// Check if totally above or totally below viewport
 				if (top + height < pos || top > pos + windowHeight) {
 					return;
 				}
 
-				$this.css('backgroundPosition', xpos + " " + Math.round((0 - pos) * speedFactor) + "px");
+				var trns = pos + fixedHeight - top
+			
+				if( theMode == 'translate' && trns > 0){
+					
+						var diff =  (trns + height) / (trns * 6);
+						
+						
+ 						if (diff > 1) 
+							diff = 1;
+			            else if (diff < 0) 
+							diff = 0;
+
+						$this
+							.css('transform', 'translate(0, ' + Math.round( .6 * trns ) + 'px)' )
+							.find('.pl-content')
+								.css('opacity', diff)
+						
+				} else if( theMode == 'translate' ){
+					$this
+						.css( 'transform', 'none' )
+						.find('.pl-content')
+							.css('opacity', 1)
+				}
+				
+				if(  theMode == 'background' ){
+					
+					$this.css('backgroundPosition', xpos + " " + Math.round((-100 - pos) * speedFactor) + "px");
+					
+				}
+					
+				
+			
 			});
 		}		
 

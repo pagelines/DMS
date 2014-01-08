@@ -633,6 +633,8 @@
 			}
 
 			else if( o.type == 'disabled' ){ }
+			
+			else if( o.type == 'divider' ){ oHTML += '<hr />' }
 
 			else if( o.type == 'color' ){
 

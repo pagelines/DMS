@@ -129,7 +129,15 @@
 			if( $('.pl-parallax').length >= 1){
 				
 				$('.pl-parallax').each(function(element){
-				$(this).parallax('50%', .3)
+					$(this).parallax('50%', .3, true, 'background')
+				})
+			}
+			
+			if( $('.pl-scroll-translate').length >= 1){
+
+				$('.pl-scroll-translate').each(function(element){
+					
+					$(this).parallax('50%', .4, true, 'translate')
 				})
 			}
 			
@@ -265,7 +273,7 @@
 
 			var fixedTop = $('.pl-fixed-top')
 			, 	fixedOffset = fixedTop[0].offsetTop
-			console.log(fixedOffset)
+			
 			fixedTop.on('plresize', function(){
 				that.setHeight()
 			})
@@ -292,12 +300,29 @@
 			
 			})
 			
+			that.handleSearchfield()
+			
+
+		}
+		
+		, handleSearchfield: function(){
+			
 			$('.btn-search').on('click', function(e){
-				e.preventDefault()
-				$(this).parent().find('.searchfield').focus()
+				
+				$(this).parent().find( '.searchfield' ).focus()
+				
+			})
+			
+			$('.searchfield').on('focus', function(e){
+				
+				$(this).parent().parent().addClass('has-focus')
+					
+			}).on( 'blur', function(e){
+				
+				$(this).parent().parent().removeClass('has-focus')
 			
 			})
-
+			
 		}
 
 		, setHeight: function(){

@@ -84,7 +84,7 @@
 
 			
 			// Click event listener
-			$(".btn-toolbox").on("click.toolboxHandle", function(e) {
+			$(".btn-toolbox:not(.btn-link)").on("click.toolboxHandle", function(e) {
 
 				e.preventDefault()
 				
