@@ -94,6 +94,16 @@ function pl_editor_actions(){
 		}
 
 
+	} elseif( $mode == 'themes'){
+
+		$theme = new EditorThemeHandler;
+
+		if( $run == 'activate' ){
+			$response = $theme->activate( $response );
+			pl_flush_draft_caches( false );
+		}
+
+
 	} elseif ( $mode == 'settings' ){
 
 		$plpg = new PageLinesPage( array( 'mode' => 'ajax', 'pageID' => $pageID, 'typeID' => $typeID ) );
