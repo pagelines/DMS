@@ -65,8 +65,7 @@ class PageLinesInstall{
 
 			$this->apply_page_templates();
 
-			// Add Templates
-			$id = $this->page_on_activation();
+			
 
 			// Publish New Templates
 			$tpl_handler = new PLCustomTemplates;
@@ -74,6 +73,8 @@ class PageLinesInstall{
 			
 		}
 		
+		// Add Templates
+		$id = $this->page_on_activation();
 		
 		
 		// Redirect 

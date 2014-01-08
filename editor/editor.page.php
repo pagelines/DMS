@@ -156,8 +156,11 @@ class PageLinesPage {
 		elseif( is_single() )
 			$type = 'post';
 
-		else
-			$type = 'page';
+		else{
+			$type = 'other';
+		
+		}
+			
 
 		return $type;
 
@@ -184,7 +187,7 @@ class PageLinesPage {
 	
 	function pl_standard_post_page(){
 		
-		if( is_post_type_archive() || pl_is_cpt() )
+		if( is_post_type_archive() || pl_is_cpt() || $this->type == 'other')
 			return false;
 		else 
 			return true;
