@@ -70,7 +70,7 @@ function pagelines_after_footer_elements() {
 function do_special_content_wrap(){
 	global $pagelines_render;
 	
-	if( isset($pagelines_render) || is_bbpress())
+	if( isset($pagelines_render) )
 		return false;
 	else
 		return true;
