@@ -54,18 +54,27 @@ class PageLinesInstall{
 	
 	function run_installation_routine( $url = '' ){
 		
+		$settings = pl_get_global_settings(); 
+		
+		// Only sets defaults if they are null
 		set_default_settings();
 		
-		$this->load_page_templates();
+		if( ! $settings ){
+			
+			$this->load_page_templates();
+
+			$this->apply_page_templates();
+
+			// Add Templates
+			$id = $this->page_on_activation();
+
+			// Publish New Templates
+			$tpl_handler = new PLCustomTemplates;
+			$tpl_handler->update_objects( 'publish' );
+			
+		}
 		
-		$this->apply_page_templates();
 		
-		// Add Templates
-		$id = $this->page_on_activation();
-		
-		// Publish New Templates
-		$tpl_handler = new PLCustomTemplates;
-		$tpl_handler->update_objects( 'publish' );
 		
 		// Redirect 
 		$url = add_query_arg( 'pl-installed-theme', pl_theme_info('template'), get_permalink( $id ) );
