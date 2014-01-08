@@ -712,7 +712,7 @@
 				}
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">&mdash; %s &mdash;</option>%s</select>', o.inputID, o.name, $.pl.lang("Select Menu"), select_opts)
+				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">%s</option>%s</select>', o.inputID, o.name, $.pl.lang("Default"), select_opts)
 
 				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, $.pl.lang( "Configure Menus") )
 			}

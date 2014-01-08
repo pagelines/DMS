@@ -107,8 +107,9 @@ class PLDeveloperTools {
 	function toolbar( $toolbar ){
 
 		$toolbar[ 'dev' ] = array(
-			'name'	=> __( 'Developer', 'pagelines' ),
+			'name'	=> __( '', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
+		//	'type'	=> 'btn',
 			'pos'	=> 105,
 			'panel'	=> $this->get_settings_tabs()
 		

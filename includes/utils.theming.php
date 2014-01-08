@@ -1,5 +1,40 @@
 <?php
 
+function pl_navigation( $args = array() ){
+	
+	if( ! isset( $args['menu'] ) || empty( $args['menu'] ) ){
+		
+		$out = sprintf('<ul class="inline-list pl-nav"><li class="popup-nav"><a class="menu-toggle mm-toggle"><i class="icon-reorder"></i></a></li></ul>');
+		
+	} else {
+		
+		$defaults = array(
+			'menu_class'		=> 'inline-list pl-nav',
+			'menu'				=> pl_setting( 'primary_navigation_menu' ),
+			'container'			=> null,
+			'container_class'	=> '',
+			'depth'				=> 3,
+			'fallback_cb'		=> '',
+			'items_wrap'      	=> '<ul id="%1$s" class="%2$s">%3$s<li class="popup-nav"><a class="menu-toggle mm-toggle respond"><i class="icon-reorder"></i></a></li></ul>',
+			'echo'				=> false,
+			'pl_behavior'		=> 'standard'
+		); 
+
+
+		$args = wp_parse_args( $args, $defaults );
+		
+		$out = str_replace("\n","", wp_nav_menu( $args ));
+		
+	}
+		
+		
+
+	
+	return $out;
+
+}
+
+
 function pl_posts_404(){
 
 	$head = __('Nothing Found', 'pagelines');
