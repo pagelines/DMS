@@ -373,7 +373,8 @@ class EditorTemplates {
 
 		<form class="opt standard-form form-save-template">
 			<fieldset>
-				<h4>Save Current Page As New Template</h4>
+				<h4><?php _e( 'Save Current Page As New Template', 'pagelines' ); ?>
+				</h4>
 				</span>
 				<label for="template-name"><?php _e( 'Template Name (required)', 'pagelines' ); ?>
 				</label>
@@ -402,36 +403,36 @@ class EditorTemplates {
 		$info['type'] = array(
 			'num'		=> $plpg->type,
 			'label'		=> '',
-			'title'		=> 'Current Page Type',
-			'info'		=> 'The classification of WordPress page.'
+			'title'		=> __( 'Current Page Type', 'pagelines' ),
+			'info'		=> __( 'The classification of WordPress page.', 'pagelines' )
 		);
 		
 		$info['typeid'] = array(
 			'num'		=> $plpg->typeid,
 			'label'		=> '',
-			'title'		=> 'Current Type ID',
-			'info'		=> 'A meta ID associated with this type of page. Used for settings for entire type.'
+			'title'		=> __( 'Current Type ID', 'pagelines' ),
+			'info'		=> __( 'A meta ID associated with this type of page. Used for settings for entire type.', 'pagelines' )
 		);
 		
 		$info['id'] = array(
 			'num'		=> $plpg->id,
 			'label'		=> '',
-			'title'		=> 'Current Page ID',
-			'info'		=> 'A meta ID associated with this specific page.'
+			'title'		=> __( 'Current Page ID', 'pagelines' ),
+			'info'		=> __( 'A meta ID associated with this specific page.', 'pagelines' )
 		);
 		
 		$info['template-mode'] = array(
 			'num'		=> $plpg->template_mode(),
 			'label'		=> '',
-			'title'		=> 'Template Handling',
-			'info'		=> 'The scope of template handling. "Page" or "type" wide.'
+			'title'		=> __( 'Template Handling', 'pagelines' ),
+			'info'		=> __( 'The scope of template handling. "Page" or "type" wide.', 'pagelines' )
 		);
 		
 		$info['template'] = array(
 			'num'		=> $plpg->template(),
 			'label'		=> '',
-			'title'		=> 'Template',
-			'info'		=> 'The ID of the current template being used.'
+			'title'		=> __( 'Template', 'pagelines' ),
+			'info'		=> __( 'The ID of the current template being used.', 'pagelines' )
 		);
 	
 		

@@ -28,9 +28,9 @@ class PageLinesEditorUpdates {
 		$registered_pagelines_updates['dmspro'] = array(
 			'type' => 'theme',
 			'product_file_path'	=> 'dmspro',
-			'product_name'	=> 'PageLines Club Membership',
+			'product_name'	=> __( 'PageLines Club Membership', 'pagelines' ),
 			'product_version'	=> '',
-			'product_desc'		=> 'Activating this will automatically give you updates to any PageLines Product detected.'
+			'product_desc'		=> __( 'Activating this will automatically give you updates to any PageLines Product detected.', 'pagelines' )
 			);
 						
 		$registered_pagelines_updates[$themeslug] = array(

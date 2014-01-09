@@ -134,7 +134,7 @@ class PLSectionData{
 		$config = $this->configure_section_data( $uids, $rows );
 		
 		if( is_pl_debug() )
-			pl_add_perform_data( round( microtime(TRUE) - $start_time, 3), 'Section Data Query', 'Seconds', 'Time for section data DB query and configuration.' );
+			pl_add_perform_data( round( microtime(TRUE) - $start_time, 3), __( 'Section Data Query', 'pagelines' ), __( 'Seconds', 'pagelines' ), __( 'Time for section data DB query and configuration.', 'pagelines' ) );
 		
 		return $config;
 	}
