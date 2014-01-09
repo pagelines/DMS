@@ -2,14 +2,7 @@
 
 add_action( 'pagelines_hook_init', 'load_pagelines_admin' ); 
 function load_pagelines_admin(){
-	
-	/**
-	 * Load updater class
-	 */
-//	require_once( PL_INCLUDES . '/class.updates.php' );
-//	new PageLinesUpdateCheck( PL_CORE_VERSION );
-		
-		
+			
 	require_once( PL_ADMIN . '/admin.init.php' );
 }
 
