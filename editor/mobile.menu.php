@@ -18,10 +18,11 @@ class PageLinesMobileMenu {
 		$menu2 = ( pl_setting( 'secondary_navigation_menu' ) ) ? pl_setting( 'secondary_navigation_menu' ) : false;
 		?>
 		<div class="pl-mobile-menu">
+			
+			<?php pagelines_search_form( true, 'mm-search'); ?>
 			<div class="mm-holder">
-				<div class="mm-close">
-					<i class="icon-remove icon-large"></i>
-				</div>
+				
+				
 				<?php
 				
 				if ( is_array( wp_get_nav_menu_items( $menu ) ) || has_nav_menu( 'primary' ) ) {
