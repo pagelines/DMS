@@ -20,7 +20,7 @@ class PageLinesEditor {
 		// !important - must load after $post variable
 		// ALSO, bbPress and other plugins make adjustments to queries which change pages from 404 to something else. 
 		// Therefore must come after WP_Query (parse query)
-		add_action( 'parse_query', array( $this, 'load_libs' ), 10); 
+		add_action( 'wp', array( $this, 'load_libs' ), 10); 
 		add_action( 'admin_init', array( $this, 'load_libs' ), 5);
 
 		add_action('wp_enqueue_scripts', array( $this, 'process_styles' ));

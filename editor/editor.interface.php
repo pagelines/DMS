@@ -292,8 +292,7 @@ class EditorInterface {
 		
 	?>
 
-	<div class="pl-toolbox-pusher">
-	</div>
+	<div class="pl-toolbox-pusher"> </div>
 	<div id="PageLinesToolbox" class="pl-toolbox">
 		<div class="resizer-handle"></div>
 		<div class="toolbox-handle fix">
