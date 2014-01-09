@@ -69,6 +69,9 @@ add_action('after_setup_theme', 'pl_theme_support');
 function pl_theme_support(  ){
 
 	add_theme_support( 'post-thumbnails' );
+	
+	add_theme_support( 'post-formats', array('quote','video','audio','gallery','link') );
+	
 	add_image_size( 'aspect-thumb', 900, 600, true );
 	add_image_size( 'basic-thumb', 400, 400, true );
 	add_image_size( 'landscape-thumb', 900, 450, true );
