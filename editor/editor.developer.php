@@ -226,7 +226,7 @@ class PLDeveloperTools {
 function pl_add_perform_data( $data_point, $title, $label, $description){
 	global $pl_perform;
 	
-	$pl_perform[] = array(
+	$pl_perform[$label] = array(
 		'title'		=> $title, 
 		'num'		=> $data_point,
 		'label'		=> $label,
