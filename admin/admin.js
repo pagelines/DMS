@@ -32,8 +32,8 @@
 			if(typeof format != 'undefined'){
 
 
-				$('#post-body div[id^=nectar-metabox-post-]').hide();
-				$('#post-body #nectar-metabox-post-'+format+'').stop(true,true).fadeIn(500);
+				$('#post-body div[id^=pagelines-metabox-post-]').hide();
+				$('#post-body #pagelines-metabox-post-'+format+'').stop(true,true).fadeIn(500);
 
 			}
 			
