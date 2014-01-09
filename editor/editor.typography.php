@@ -129,7 +129,7 @@ class EditorTypography{
 						'key'			=> 'font_headers',
 						'type' 			=> 'type',
 						'label' 		=> __( 'Header Font', 'pagelines' ),
-						'default'		=> 'source_sans_pro',
+						'default'		=> 'open_sans',
 						
 
 					),
