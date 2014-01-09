@@ -80,11 +80,19 @@ function pl_theme_support(  ){
 
 }
 
+
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
 function pagelines_check_lessdev(){
-	if (  pl_less_dev() ) {
+
+	if ( ( defined('PL_LESS_DEV' ) && PL_LESS_DEV ) || 1 == pl_setting( 'less_dev_mode' ) ) {
 		PageLinesRenderCSS::flush_version( false );
+		
 		pl_flush_draft_caches();
+	}
+	
+	if( 1 == pl_setting( 'no_cache_mode' ) ) {
+		delete_transient( 'pagelines_sections_cache' );
+		set_theme_mod( 'editor-sections-data', array() );
 	}
 }
 
