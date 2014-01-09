@@ -52,16 +52,22 @@
 					
 					display: inline-block;
 				}
-				&:hover{
-					background: @textColor;
-					i{
-						color: @pl-base;
-					}
-				}
+				
 			}
 		}
 		
 	}
+	
+	&:hover .ibox-media .ibox-icon-border.media-type-icon{
+		background: @textColor;
+		i{
+			color: @pl-base;
+		}
+	}
+	
+	
+	
+	
 	&.top-aligned{
 		.ibox-media{
 			max-width: 60%;
