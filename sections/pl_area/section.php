@@ -123,8 +123,15 @@ class PLSectionArea extends PageLinesSection {
 	
 	function before_section_template( $location = '' ) {
 
+		$scroll_effect = $this->opt('pl_area_parallax');
+		
+		if( $scroll_effect && $scroll_effect == 1 ){
+			$scroll_effect = 'pl-parallax';
+		}
+		
+
 		$this->wrapper_classes['background'] = $this->opt('pl_area_bg');
-		//$this->wrapper_classes['user_classes'] = $this->opt('pl_area_class');
+		$this->wrapper_classes['scroll'] = $scroll_effect;
 
 	}
 
@@ -143,15 +150,7 @@ class PLSectionArea extends PageLinesSection {
 		
 		$classes = '';
 		
-		$scroll_effect = $this->opt('pl_area_parallax');
 		
-		if( $scroll_effect ){
-			if( $scroll_effect == 1 ){
-				$classes .= ' pl-parallax';
-			} else 
-				$classes .= ' ' . $scroll_effect;
-		}
-		($this->opt('pl_area_parallax')) ? $this->opt('pl_area_parallax') : '';
 		
 		$classes .= ($this->opt('pl_area_bg_repeat')) ? ' pl-bg-repeat' : ' pl-bg-cover';
 		

@@ -128,14 +128,14 @@
 
 			if( $('.pl-parallax').length >= 1){
 				
-				$('.pl-parallax').each(function(element){
+				$('.pl-parallax .pl-area-wrap').each(function(element){
 					$(this).parallax('50%', .3, true, 'background')
 				})
 			}
 			
 			if( $('.pl-scroll-translate').length >= 1){
 
-				$('.pl-scroll-translate').each(function(element){
+				$('.pl-scroll-translate .pl-area-wrap').each(function(element){
 					
 					$(this).parallax('50%', .4, true, 'translate')
 				})
