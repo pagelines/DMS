@@ -60,20 +60,22 @@ body {
 			input{
 				width: 100%; 
 				margin: 0; 
-				background: rgba(255,255,255, .1);
+				background: rgba(0,0,0, .15);
 				border: none; 
 				border-radius: 0;
 				padding-left: 30px;
 				color: #fff; 
 				border: none;
 				outline: none;
+				border-bottom: 1px solid rgba(255, 255, 255, .1);
+				font-family: @defaultFont;
 				&:focus{
 					box-shadow: none;
 					background: rgba(255,255,255, .15);
 				}
 			}
-			input::-webkit-input-placeholder { color:rgba(255,255,255,.2); }
-			input::-moz-placeholder { color:rgba(255,255,255,.2); }
+			input::-webkit-input-placeholder { color:rgba(255,255,255,.3); }
+			input::-moz-placeholder { color:rgba(255,255,255,.3x); }
 			.btn-search{
 				position: absolute;
 				right: 21px;
