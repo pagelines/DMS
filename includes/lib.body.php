@@ -49,7 +49,7 @@ function pl_comment_form_js() {
 add_action( 'pagelines_after_footer', 'pagelines_after_footer_elements' );
 function pagelines_after_footer_elements() {
 	
-	if(!pl_is_pro()): ?>
+	if( ! pl_is_pro() && ! pl_draft_mode() ): ?>
 	<a class="pl-credit" href="http://www.pagelines.com/" title="Built with PageLines DMS [basic]" target="_blank">
 		<i class="icon-pagelines pl-transit"></i> <span class="fademein">DMS</span>
 	</a>
