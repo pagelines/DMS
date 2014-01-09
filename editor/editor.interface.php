@@ -56,8 +56,7 @@ class EditorInterface {
 		// UTILITIES ----------------------------
 		// --------------------------------------
 
-			// Sprintf
-			wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			
 			
 
 			// Forms handling
