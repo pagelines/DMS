@@ -204,7 +204,7 @@ class PLDeveloperTools {
 					'type' 		=> 'check',
 					'label' 	=> __( 'Enable LESS dev mode', 'pagelines' ),
 					'title' 	=> __( 'LESS Developer Mode', 'pagelines' ),
-					'help' 		=> __( 'Enables LESS recompile on every editor load, useful when doing a lot of graphical LESS development since you dont have to manually hit publish to recompile.', 'pagelines' )
+					'help' 		=> __( 'Enables LESS recompile on every editor load, useful when doing a lot of graphical LESS development since you dont have to manually hit publish to recompile.<br /><strong>Note:</strong> This is VERY server intensive, be careful!!', 'pagelines' )
 				),
 				array(
 					'key'		=> 'no_cache_mode',
@@ -212,7 +212,7 @@ class PLDeveloperTools {
 					'type' 		=> 'check',
 					'label' 	=> __( 'Enable no cache mode', 'pagelines' ),
 					'title' 	=> __( 'No Cache Mode', 'pagelines' ),
-					'help' 		=> __( '@simon explanation needed', 'pagelines' )
+					'help' 		=> __( 'Disables section data caching. Useful for theme/section/plugin developers.', 'pagelines' )
 				),
 			);
 			
