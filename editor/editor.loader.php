@@ -33,7 +33,7 @@ class PageLinesPageLoader{
 		?>
 		<script>
 			jQuery( document ).ready(function() {
-				jQuery(".pl-loader").fadeOut()
+				jQuery(".pl-loader").fadeOut(1000)
 			})
 		</script>
 		<?php
@@ -46,7 +46,8 @@ class PageLinesPageLoader{
 				.no-js .pl-loader { display: none;  }
 				body{margin: 0;}
 				.pl-loader { display: block; position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100000; text-align: center;}
-				.pl-loader, .pl-loader p{
+				.pl-loader, 
+				.pl-loader p{
 					font-family: 'Open Sans',helvetica, arial, sans-serif; 
 					color: #CCC !important; 
 				}
@@ -59,7 +60,7 @@ class PageLinesPageLoader{
 				   margin:0 auto;
 				   position:relative;
 				   -webkit-animation: pl-rotation .6s infinite linear;
-				   border:6px solid rgba(66, 133, 243,.15);
+				   border:6px solid rgba(66, 133, 243,.25);
 				   border-radius:100%;
 				}
 
@@ -71,7 +72,7 @@ class PageLinesPageLoader{
 				   top:-6px;
 				   height:100%;
 				   width:100%;
-				   border-top:6px solid rgba(66, 133, 243,.8);
+				   border-top:6px solid rgba(66, 133, 243,.9);
 				   border-left:6px solid transparent;
 				   border-bottom:6px solid transparent;
 				   border-right:6px solid transparent;
@@ -93,13 +94,17 @@ class PageLinesPageLoader{
 		
 		
 		?>
-		<div class="pl-loader">
-			<div class="loader-text" style="padding: 200px 0;font-family: 'Open Sans', helvetica, arial, sans-serif; color: #CCC; font-size: 30px; line-height: 1.9em; font-weight: 300; ">
-				<div class="pl-spinner"></div>
-				<span style=""><?php _e('Loading DMS Editor', 'pagelines');?></span>
-			</div>
-			<div class="loader-sub" style="position: fixed; width: 100%; bottom: 15px; font-size: 11px; opacity: .8; text-align: center;">
-				<?php _e('Issues loading? See the <a href="http://docs.pagelines.com/support-troubleshooting/common-issues" target="_blank">troubleshooting guide</a>.', 'pagelines');?>
+		<div class="pl-loader pl-pro-version">
+			<div class="loader-text" style="padding: 200px 0;font-family: 'Open Sans', helvetica, arial, sans-serif; font-size: 30px; line-height: 1.9em; font-weight: 600; letter-spacing: -1px; color: #000;">
+				<div class="pl-spin-c pl-animation pla-from-top "><div class="pl-spinner"></div></div>
+				<div class="pl-loader-head pl-animation pla-from-bottom "><?php _e('Loading DMS Editor', 'pagelines');?></div>
+				
+				<script> 
+				setTimeout(function() { jQuery(".pl-loader .pl-animation").addClass('animation-loaded') }, 150);
+				
+				setTimeout(function() { jQuery(".pl-loader .pl-loader-head").html('Oops, There may be an issue loading. <div style="font-size: 16px; opacity: .5; line-height: 1.55em;">DMS typically loads in less than 5 seconds. Please check for Javascript or PHP errors.<br/>(Typically, slow or incomplete loading is related to plugin conflicts or server issues.)<br/><a href="http://docs.pagelines.com/support-troubleshooting/common-issues" target="_blank">View the Troubleshooting Guide</a></div>') }, 13000);
+				
+				</script>
 			</div>
 		</div>
 		
