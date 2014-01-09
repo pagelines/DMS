@@ -28,7 +28,7 @@ class PLSectionArea extends PageLinesSection {
 					'type' 			=> 'count_select_same',
 					'count_start'	=> 0,
 					'count_number'	=> 200,
-					'count_mult'	=> 5,
+					'count_mult'	=> 10,
 					'suffix'		=> 'px',
 					'label' 	=> __( 'Area Padding (px)', 'pagelines' ),
 				),
@@ -37,7 +37,7 @@ class PLSectionArea extends PageLinesSection {
 					'type' 			=> 'count_select_same',
 					'count_start'	=> 0,
 					'count_number'	=> 200,
-					'count_mult'	=> 5,
+					'count_mult'	=> 10,
 					'suffix'		=> 'px',
 					'label' 	=> __( 'Area Padding Bottom (if different)', 'pagelines' ),
 				)
