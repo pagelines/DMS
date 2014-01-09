@@ -1,4 +1,13 @@
 
+/* METABOXES */
+.pagelines-metabox-table input, 
+.pagelines-metabox-table textarea {
+	float: left;
+	margin-right: 20px;
+	width: 100%;
+	transition: all 0.2s linear;
+}
+
 .CodeMirror{
 	border: 1px solid #ccc;
 }
