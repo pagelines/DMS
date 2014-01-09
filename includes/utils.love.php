@@ -19,14 +19,12 @@ class PLLove {
 	
 	function ajax($post_id) {
 		
-		//update
 		if( isset($_POST['loves_id']) ) {
+			
 			$post_id = str_replace('pl-love-', '', $_POST['loves_id']);
 			echo $this->love_post($post_id, 'update');
-		} 
 		
-		//get
-		else {
+		} else {
 			$post_id = str_replace('pl-love-', '', $_POST['loves_id']);
 			echo $this->love_post($post_id, 'get');
 		}

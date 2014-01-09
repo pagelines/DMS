@@ -58,7 +58,10 @@ require_once( PL_INCLUDES . '/lib.body.php' );
 
 // Utility Functions -- Theming
 require_once( PL_INCLUDES . '/utils.love.php' );
-require_once( PL_INCLUDES . '/utils.theming.php' );
+require_once( PL_INCLUDES . '/lib.theming.php' );
+
+// Post Media Functions
+require_once( PL_INCLUDES . '/lib.posts.php' );
 
 
 

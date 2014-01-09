@@ -427,9 +427,9 @@ class PageLines_ShortCodes {
 	function pagelines_post_comments_shortcode( $atts ) {
 
 		$defaults = array(
-			'zero' => __( "0 <i class='icon-comments'></i>", 'pagelines' ),
-			'one' => __( "1 <i class='icon-comments'></i>", 'pagelines' ),
-			'more' => __( "%s <i class='icon-comments'></i>", 'pagelines' ),
+			'zero' => __( "Add Comment", 'pagelines' ),
+			'one' => __( "1 Comment", 'pagelines' ),
+			'more' => __( "%s Comments", 'pagelines' ),
 			'hide_if_off' => 'disabled',
 			'before' 	=> '',
 			'after' 	=> '',

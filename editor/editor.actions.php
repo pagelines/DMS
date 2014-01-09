@@ -106,11 +106,11 @@ function pl_editor_actions(){
 
 		} elseif( $run == 'reset_local' ){
 
-			$settings->reset_local( $pageID );
+			pl_reset_meta_settings( $pageID );
 
 		} elseif( $run == 'reset_type' ){
 
-			$settings->reset_local( $typeID );
+			pl_reset_meta_settings( $typeID );
 
 		}elseif( $run == 'delete' ){
 

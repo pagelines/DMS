@@ -214,15 +214,7 @@ class PageLinesSettings extends PageLinesData {
 	/*
 	 *  Resets local options to an empty set based on ID (works for type ID)
 	 */
-	function reset_local( $metaID ){
-
-		$set = $this->meta( $metaID, PL_SETTINGS, $this->default );
-
-		$set['draft'] = $this->default['draft'];
-
-		$this->meta_update( $metaID, PL_SETTINGS, $set );
-
-	}
+	
 
 
 	/*

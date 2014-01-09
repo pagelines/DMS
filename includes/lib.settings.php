@@ -65,6 +65,19 @@ function pl_update_global_settings( $settings ){
 	
 }
 
+/*
+ * META SETTINGS FUNCTIONS
+ */ 
+function pl_reset_meta_settings( $metaID ){
+
+	$set = pl_get_meta_settings( $metaID );
+
+	$set['draft'] = array();
+
+	pl_update_meta_settings( $metaID, $set );
+
+}
+
 
 function pl_get_meta_settings( $metaID ){
 	

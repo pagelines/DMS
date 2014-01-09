@@ -92,7 +92,7 @@
 				
 				, 	success: function( response ){
 					
-						//console.log(response)
+						console.log(response)
 						
 						var rsp	= $.parseJSON( response )
 						
