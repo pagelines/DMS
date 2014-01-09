@@ -84,6 +84,8 @@ add_action( 'wp_enqueue_scripts', 'pagelines_register_js' );
 function pagelines_register_js() {
 	// Sprintf
 	wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	// Images Loaded
+	wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), PL_CORE_VERSION, true);
 	
 	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
 	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), PL_CORE_VERSION, true );

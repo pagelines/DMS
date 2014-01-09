@@ -68,8 +68,7 @@ class EditorInterface {
 
 			// Bootbox Dialogs
 			wp_enqueue_script( 'bootbox', PL_JS . '/utils.bootbox.js', array('jquery'), '3.0.0', true );
-			// Images Loaded
-			wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), PL_CORE_VERSION, true);
+			
 			
 			
 	
