@@ -202,7 +202,7 @@ class PageLinesTemplateHandler {
 		<?php
 		
 		if( PL_DEV )
-			pl_add_perform_data( ob_get_length(), 'Data Length', 'characters', 'The total number of characters in the data blob. Watching size can be good to detect data leaks or other strange behavior.' ); 
+			pl_add_perform_data( ob_get_length(), __( 'Data Length', 'pagelines' ), __( 'Characters', 'pagelines' ), __( 'The total number of characters in the data blob. Watching size can be good to detect data leaks or other strange behavior.', 'pagelines' ) ); 
 	
 		echo apply_filters( 'pl_data_blob', ob_get_clean()); 
 

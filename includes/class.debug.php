@@ -101,12 +101,12 @@ class PageLinesDebug {
 
 			$this->debug_info[] = array(
 				'title'	=> 'Framework Path',
-				'value' => '<kbd>' . get_template_directory() . '</kbd>',
+				'value' => '<kbd>' . pl_get_template_directory() . '</kbd>',
 			);
 
 			$this->debug_info[] = array(
 				'title'	=> 'Framework URI',
-				'value' => '<kbd>' . get_template_directory_uri() . '</kbd>',
+				'value' => '<kbd>' . pl_get_template_directory_uri() . '</kbd>',
 			);
 
 			$this->debug_info[] = array(
@@ -132,7 +132,7 @@ class PageLinesDebug {
 
 			$this->debug_info[] = array(
 				'title'	=> 'PHP Open basedir restriction',
-				'value' => ( (bool) ini_get('open_basedir') ) ? 'Yes!':'',
+				'value' => ( (bool) ini_get('open_basedir') ) ? 'Yes! This can cause issues if it is not setup correctly':'',
 				'extra'	=> ini_get('open_basedir')
 			);
 

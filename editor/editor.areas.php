@@ -36,9 +36,9 @@ class PageLinesAreas {
 		global $plpg;
 
 		$tabs = array();
-		$tabs['heading'] = "<i class='icon-reorder'></i> Area Settings";
+		$tabs['heading'] = sprintf( "<i class='icon-reorder'></i> %s", __( 'Area Settings', 'pagelines' ) );
 
-		$tabs[ $this->settings_panel ] = array( 'name'	=> 'Area Settings', 'icon' => 'icon-reorder');
+		$tabs[ $this->settings_panel ] = array( 'name'	=> __( 'Area Settings', 'pagelines' ), 'icon' => 'icon-reorder');
 
 
 		return $tabs;

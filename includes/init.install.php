@@ -200,11 +200,11 @@ class PageLinesInstall{
 					array(
 						'object'	=> 'PLMasthead',
 						'settings'	=> array(
-							'pagelines_masthead_title'		=> 'Congratulations!',
-							'pagelines_masthead_tagline'	=> 'You are up and running with PageLines DMS.',
+							'pagelines_masthead_title'		=> __( 'Congratulations!', 'pagelines' ),
+							'pagelines_masthead_tagline'	=> __( 'You are up and running with PageLines DMS.', 'pagelines' ),
 							'pagelines_masthead_img'		=> '[pl_parent_url]/images/getting-started-pl-logo.png',
 							'masthead_button_link_1'		=> home_url(),
-							'masthead_button_text_1'		=> 'View Your Blog <i class="icon-angle-right"></i>',
+							'masthead_button_text_1'		=> __( 'View Your Blog <i class="icon-angle-right"></i>', 'pagelines' ),
 						)
 					),
 				)
@@ -216,20 +216,20 @@ class PageLinesInstall{
 						'settings'	=> array(
 							'ibox_array'	=> array(
 								array(
-									'title'	=> 'Quick Start',
-									'text'	=> 'New to PageLines? Get started fast with PageLines DMS Quick Start guide...',
+									'title'	=> __( 'Quick Start', 'pagelines' ),
+									'text'	=> __( 'New to PageLines? Get started fast with PageLines DMS Quick Start guide...', 'pagelines' ),
 									'icon'	=> 'rocket',
 									'link'	=> 'http://www.pagelines.com/quickstart/'
 								),
 								array(
-									'title'	=> 'Forum',
-									'text'	=> 'Have questions? We are happy to help, just search or post on PageLines Forum.',
+									'title'	=> __( 'Forum', 'pagelines' ),
+									'text'	=> __( 'Have questions? We are happy to help, just search or post on PageLines Forum.', 'pagelines' ),
 									'icon'	=> 'comment',
 									'link'	=> 'http://forum.pagelines.com/'
 								),
 								array(
-									'title'	=> 'Docs',
-									'text'	=> 'Time to dig in. Check out the Docs for specifics on creating your dream website.',
+									'title'	=> __( 'Docs', 'pagelines' ),
+									'text'	=> __( 'Time to dig in. Check out the Docs for specifics on creating your dream website.', 'pagelines' ),
 									'icon'	=> 'file-text',
 									'link'	=> 'http://docs.pagelines.com/'
 								),
@@ -254,7 +254,7 @@ class PageLinesInstall{
 			'post_type'		=> 'page',
 			'post_status'	=> 'draft',
 			'post_author'	=> $user_ID,
-			'post_title'	=> 'PageLines Getting Started',
+			'post_title'	=> __( 'PageLines Getting Started', 'pagelines' ),
 			'post_content'	=> $this->getting_started_content(),
 			'post_name'		=> 'pl-getting-started',
 			'template'		=> 'welcome',
@@ -292,8 +292,9 @@ class PageLinesInstall{
 		ob_start(); 
 		
 		?>
-		<h3>Welcome to DMS!</h3>
-		<p>A cutting-edge drag & drop design management system for your website. <br/>Watch the video below for help getting started.</p>
+		<h3><?php _e( 'Welcome to DMS!', 'pagelines' ); ?>
+		</h3>
+		<p><?php _e( 'A cutting-edge drag & drop design management system for your website. <br/>Watch the video below for help getting started.', 'pagelines' ); ?></p>
 		<iframe width='700' height='420' src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>
 		
 		<?php 

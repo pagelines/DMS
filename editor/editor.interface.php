@@ -233,13 +233,13 @@ class EditorInterface {
 
 			$activate_url = pl_add_query_arg( array( 'edtr' => 'on' ) );
 
-			$text = 'Activate PageLines Editor';
+			$text = __( 'Activate PageLines Editor', 'pagelines' );
 
 			$target = "";
 		} else {
 			$target = "target='_blank'";
 			$activate_url = 'http://www.google.com/chrome';
-			$text = 'Please use Google Chrome to edit with DMS';
+			$text = __( 'Please use Google Chrome to edit with DMS', 'pagelines' );
 
 		}
 		?>

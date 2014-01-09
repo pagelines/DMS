@@ -68,29 +68,29 @@ class PLDeveloperTools {
 		$pl_perform['memory'] = array(
 			'num'		=> round( (memory_get_usage() - $pl_start_mem) / (1024 * 1024), 3 ),
 			'label'		=> 'MB',
-			'title'		=> 'Editor Memory',
-			'info'		=> 'Amount of memory used by the DMS editor in MB during this page load.'
+			'title'		=> __( 'Editor Memory', 'pagelines' ),
+			'info'		=> __( 'Amount of memory used by the DMS editor in MB during this page load.', 'pagelines' )
 		);
 		
 		$pl_perform['queries'] = array(
 			'num'		=> get_num_queries(),
-			'label'		=> 'Queries',
-			'title'		=> 'Total Queries',
-			'info'		=> 'The number of database queries during the WordPress/Editor execution.'
+			'label'		=> __( 'Queries', 'pagelines' ),
+			'title'		=> __( 'Total Queries', 'pagelines' ),
+			'info'		=> __( 'The number of database queries during the WordPress/Editor execution.', 'pagelines' )
 		);
 		
 		$pl_perform['total_time'] = array(
 			'num'		=> timer_stop( 0 ),
-			'label'		=> 'Seconds',
-			'title'		=> 'Total Time',
-			'info'		=> 'Total time to render this page including WordPress and DMS editor.'
+			'label'		=> __( 'Seconds', 'pagelines' ),
+			'title'		=> __( 'Total Time', 'pagelines' ),
+			'info'		=> __( 'Total time to render this page including WordPress and DMS editor.', 'pagelines' )
 		);
 		
 		$pl_perform['time'] = array(
 			'num'		=> round( microtime(TRUE) - $pl_start_time, 3),
-			'label'		=> 'Seconds',
-			'title'		=> 'Editor Time',
-			'info'		=> 'Amount of time it took to load this page once DMS had started.'
+			'label'		=> __( 'Seconds', 'pagelines' ),
+			'title'		=> __( 'Editor Time', 'pagelines' ),
+			'info'		=> __( 'Amount of time it took to load this page once DMS had started.', 'pagelines' )
 		);
 		
 		return $pl_perform;
@@ -107,7 +107,7 @@ class PLDeveloperTools {
 	function toolbar( $toolbar ){
 
 		$toolbar[ 'dev' ] = array(
-			'name'	=> __( '', 'pagelines' ),
+			'name'	=> '',
 			'icon'	=> 'icon-wrench',
 		//	'type'	=> 'btn',
 			'pos'	=> 105,
@@ -153,7 +153,7 @@ class PLDeveloperTools {
 				array(
 					'key'		=> 'fill-in',
 					'type' 		=> 	'template',
-					'template'	=> 'Nothing appears to have been logged.'
+					'template'	=> __( 'Nothing appears to have been logged.', 'pagelines' )
 				),
 			),
 			'class'	=> 'dev_logging'
@@ -166,7 +166,7 @@ class PLDeveloperTools {
 				array(
 					'key'		=> 'fill-in',
 					'type' 		=> 	'template',
-					'template'	=> 'No performance data exists on the page.'
+					'template'	=> __( 'No performance data exists on the page.', 'pagelines' )
 				),
 			),
 		);

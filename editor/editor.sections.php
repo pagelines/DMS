@@ -455,9 +455,9 @@ function pl_custom_section_name( $key ){
 function pl_section_config_default(){
 	$defaults = array(
 		'id'			=> '',
-		'name'			=> 'No Name',
+		'name'			=> __( 'No Name', 'pagelines' ),
 		'filter'		=> 'misc',
-		'description'	=> 'No description given.',
+		'description'	=> __( 'No description given.', 'pagelines' ),
 		'screenshot'	=>  PL_IMAGES . '/thumb-missing.png',
 		'splash'		=>  PL_IMAGES . '/splash-missing.png',
 		'class_name'	=> '',
@@ -483,8 +483,8 @@ class PLCustomSections extends PLCustomObjects{
 		
 		foreach( $this->objects as $key => $i){
 			
-			$name = ( isset($i['name']) ) ? $i['name'] : 'No Name';
-			$desc = ( isset($i['desc']) ) ? $i['desc'] : 'No Description Entered.';
+			$name = ( isset($i['name']) ) ? $i['name'] : __( 'No Name', 'pagelines' );
+			$desc = ( isset($i['desc']) ) ? $i['desc'] : __( 'No Description Entered.', 'pagelines' );
 			
 			$rendered[ $key ] = array(
 				'id'			=> $key,

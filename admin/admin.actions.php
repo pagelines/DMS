@@ -76,27 +76,6 @@ function add_global_admin_css() {
 
 }
 
-
-
-/**
- * Checks if PHP5
- *
- * Tests for installed version of PHP higher than 5.0 and prints message if version is found to be lower.
- *
- * @package PageLines DMS
- * @subpackage Functions Library
- * @since 4.0.0
- */
-add_action( 'pagelines_before_optionUI', 'pagelines_check_php' );
-function pagelines_check_php(){
-	
-	if( floatval( phpversion() ) < 5.0 ){
-		printf( __( "<div class='config-error'><h2>PHP Version Problem</h2>Looks like you are using PHP version: <strong>%s</strong>. To run this framework you will need PHP <strong>5.0</strong> or better...<br/><br/> Don't worry though! Just check with your host about a quick upgrade.</div>", 'pagelines' ), phpversion() );
-	}
-	
-}
-
-
 /**
  * Setup Versions and flush caches.
  *
@@ -130,6 +109,7 @@ add_action( 'activate_plugin', 'pagelines_purge_sections_cache' );
 add_action( 'deactivate_plugin', 'pagelines_purge_sections_cache' );
 function pagelines_purge_sections_cache() {
 	delete_transient( 'pagelines_sections_cache' );
+	set_theme_mod( 'editor-sections-data', array() );
 }
 
 add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
