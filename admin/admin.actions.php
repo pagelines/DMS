@@ -109,6 +109,7 @@ add_action( 'activate_plugin', 'pagelines_purge_sections_cache' );
 add_action( 'deactivate_plugin', 'pagelines_purge_sections_cache' );
 function pagelines_purge_sections_cache() {
 	delete_transient( 'pagelines_sections_cache' );
+	set_theme_mod( 'editor-sections-data', array() );
 }
 
 add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
