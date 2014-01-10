@@ -175,7 +175,7 @@ class PageLinesPosts {
 		<?php
 		}
 		echo '</div>';
-	return do_shortcode( ob_get_clean() );	
+		return do_shortcode( ob_get_clean() );	
 	}
 
 

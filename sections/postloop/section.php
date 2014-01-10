@@ -30,20 +30,170 @@ class PageLinesPostLoop extends PageLinesSection {
 				'help'		=> __( 'This section uses WordPress posts. Edit post information using WordPress admin.', 'pagelines' ),
 				'classes'	=> 'btn-primary'
 			),
+			
 			array(
-				'key'		=> 'pagetitles',
-				'type'		=> 'check',
-				'case'		=> 'page',
-				'title'		=> __( 'Page Title', 'pagelines' ),
-				'label'		=> 'Show page title?',
+				'key'			=> 'metabar_standard',
+				'default'		=> 'On [post_date] | [post_comments] [post_edit]',
+				'type'			=> 'text',
+				'col'			=> 2,
+				'label'			=> __( 'Enter Meta Information', 'pagelines' ),
+				'title'			=> __( 'Meta Information', 'pagelines' ),
+				'ref'			=> __( 'Use shortcodes to control the dynamic information in your metabar. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' ),
 			),
+			
 
+		);
+
+		return $opts;
+	}
+
+	function before_section_template( $location = '' ) {
+
+		global $wp_query;
+
+		if( isset($wp_query) && is_object($wp_query) )
+			$this->wrapper_classes[] = ( $wp_query->post_count > 1 ) ? 'multi-post' : 'single-post';
+
+	}
+
+	/**
+	* Section template.
+	*/
+   function section_template() {
+	
+		// if using non pagelines template
+		if(do_special_content_wrap()){
+			
+			 global $integration_out;
+			echo $integration_out;
+			
+		} 
+		
+		// // if standard page use uber loop
+		// 		elseif( pl_standard_post_page() ){	
+		// 			
+		// 			require_once( $this->base_dir . '/class.posts.php' );
+		// 			
+		// 			//Included in theme root for easy editing.
+		// 			$theposts = new PageLinesPosts( $this );
+		// 			$theposts->load_loop();
+		// 			
+		// 		}
+		
+		// Basic loop for overridding via 'the_content'
+		else {
+			$this->loop();
+		}
+		
+	
+	}
+	
+	function loop(){
+		
+		$count = 0; 
+		
+		if( have_posts() )
+			while ( have_posts() ) : the_post(); 
+		
+			$count++;
+			
+			$class = array(); 
+			
+			$class[ ] = ( is_single() ) ? 'single-post' : '';
+			
+			$class[ ] = ( is_archive() || is_search() || is_home() ) ? 'multi-post' : '';
+			
+			$class[ ] = ( is_page() ) ? 'standard-page' : '';
+			
+			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
+			?>	
+			<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
+		
+				<?php
+				
+					if( ! is_page() )
+						echo do_shortcode( '<div class="metahead">[pl_author_avatar size="80"][post_author_posts_link][pl_love]</div>' );
+				
+					if( ! is_single() ){
+						
+						printf( '<div class="metamedia">%s</div>', pagelines_media() );
+						
+					}
+					
+				
+					?>
+				
+				<header class="entry-header">
+					<?php 
+
+						if ( is_single() ) :
+							the_title( '<h2 class="entry-title">', '</h2>' );
+						elseif( ! is_page() ) :	
+							the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+						endif;
+
+						$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]'; 
+						
+						if( $meta && ! is_page() )
+							printf( '<div class="metabar"> %s </div>', do_shortcode( $meta ) );
+						
+					?>
+				</header><!-- .entry-header -->
+				<div class="entry-content">
+
+					<?php
+
+					if( is_single() || is_page() ){
+						
+						printf( '<div class="metamedia">%s</div>', pagelines_media() );
+						
+						the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pagelines' ) );
+						
+						wp_link_pages( array(
+							'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'pagelines' ) . '</span>',
+							'after'       => '</div>',
+							'link_before' => '<span>',
+							'link_after'  => '</span>',
+						) );
+
+					} else {
+						the_excerpt();
+						printf(
+							'<a class="continue_reading_link btn-inverse btn btn-mini" href="%s" title="%s %s">%s</a>',
+							get_permalink(),
+							__("View", 'pagelines'),
+							the_title_attribute(array('echo'=> 0)),
+							__('View <i class="icon-angle-right"></i>', 'pagelines')
+						);
+					}
+
+					?>
+				</div><!-- .entry-content -->
+			</article><!-- #post-## -->
+			<?php
+
+			 
+		endwhile;
+		
+	}
+	
+	function get_old_options(){
+		
+		$opts = array(
+			
 			array(
 				
 				'title' 	=> __( 'Layout <span class="spamp">&amp;</span> Config', 'pagelines' ),
 				'type'		=> 'multi',
 				'col'		=> 2,
 				'opts'		=> array(
+					array(
+						'key'		=> 'pagetitles',
+						'type'		=> 'check',
+						'case'		=> 'page',
+						'title'		=> __( 'Page Title', 'pagelines' ),
+						'label'		=> 'Show page title?',
+					),
 					array(
 						'type'		=> 'select',
 						'key'		=> 'blog_layout_mode',
@@ -209,52 +359,12 @@ class PageLinesPostLoop extends PageLinesSection {
 					)
 				)
 			)
-
-
+			
+			
 		);
-
-		return $opts;
+		
 	}
 
-	function before_section_template( $location = '' ) {
-
-		global $wp_query;
-
-		if(isset($wp_query) && is_object($wp_query))
-			$this->wrapper_classes[] = ( $wp_query->post_count > 1 ) ? 'multi-post' : 'single-post';
-
-	}
-
-	/**
-	* Section template.
-	*/
-   function section_template() {
 	
-		// if using non pagelines template
-		if(do_special_content_wrap()){
-			
-			 global $integration_out;
-			echo $integration_out;
-			
-		} 
-		
-		// if standard page use uber loop
-		elseif( pl_standard_post_page() ){	
-			
-			require_once( $this->base_dir . '/class.posts.php' );
-			
-			//Included in theme root for easy editing.
-			$theposts = new PageLinesPosts( $this );
-			$theposts->load_loop();
-			
-		}
-		
-		// Basic loop for overridding via 'the_content'
-		else {
-			require_once( $this->base_dir . '/loop.php' );
-		}
-		
-	
-	}
 
 }

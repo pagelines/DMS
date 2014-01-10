@@ -11,13 +11,20 @@ if( have_posts() )
 				if ( is_single() ) :
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				else :	
-					the_title( '<h2 class="entry-title post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				endif;
+				
+				
 			?>
-
+			<div class="metabar">
+			</div>
 		</header><!-- .entry-header -->
 		<div class="entry-content">
+			
 			<?php
+			
+			if( is_single() ){
+				
 				the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pagelines' ) );
 				wp_link_pages( array(
 					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'pagelines' ) . '</span>',
@@ -25,6 +32,19 @@ if( have_posts() )
 					'link_before' => '<span>',
 					'link_after'  => '</span>',
 				) );
+				
+			} else {
+				the_excerpt();
+				
+				printf(
+					'<a class="continue_reading_link btn btn-inverse" href="%s" title="%s %s">%s</a>',
+					get_permalink(),
+					__("View", 'pagelines'),
+					the_title_attribute(array('echo'=> 0)),
+					$this->continue_reading
+				);
+			}
+				
 			?>
 		</div><!-- .entry-content -->
 	</article><!-- #post-## -->
