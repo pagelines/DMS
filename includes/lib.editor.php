@@ -724,11 +724,6 @@ function pl_default_image(){
 	return PL_IMAGES.'/default-image.jpg';
 }
 
-function pl_dms_settings_link( $panel, $tab, $class = 'btn btn-edit btn-mini', $content = '<i class="icon-pencil"></i>'){
-	
-	return sprintf('<span data-tab-link="%s" data-stab-link="%s" class="%s">%s</span>', $panel, $tab, $class, $content);
-	
-}
 
 
 function pl_blank_template(){
