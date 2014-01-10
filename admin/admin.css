@@ -1,11 +1,18 @@
 
 /* METABOXES */
-.pagelines-metabox-table input, 
-.pagelines-metabox-table textarea {
-	float: left;
-	margin-right: 20px;
-	width: 100%;
-	transition: all 0.2s linear;
+.pagelines-metabox-table th{
+	width: 30%;
+}
+
+.pagelines-metabox-table label{
+	font-weight: 300;
+}
+.pagelines-metabox-table label strong{
+	display: block;
+}
+
+.pagelines-metabox-table .redux-opts-screenshot{
+	max-width: 250px;
 }
 
 .CodeMirror{
