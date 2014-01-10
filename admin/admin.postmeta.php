@@ -84,28 +84,28 @@ function pagelines_metabox_posts(){
 		'fields' => array(
 			array( 
 				'name' => __('M4V File URL', 'pagelines'),
-				'desc' => __('Please upload the .m4v video file. <br/><strong>You must include both formats.</strong>', 'pagelines'),
+				'desc' => __('Please upload the .m4v video file.', 'pagelines'),
 				'id' => '_pagelines_video_m4v',
 				'type' => 'media', 
 				'std' => ''
 			),
 			array( 
 					'name' => __('OGV File URL', 'pagelines'),
-					'desc' => __('Please upload the .ogv video file  <br/><strong>You must include both formats.</strong>', 'pagelines'),
+					'desc' => __('Please upload the .ogv video file', 'pagelines'),
 					'id' => '_pagelines_video_ogv',
 					'type' => 'media',
 					'std' => ''
 				),
 			array( 
 					'name' => __('Preview Image', 'pagelines'),
-					'desc' => __('Image should be at least 680px wide. Click the "Upload" button to begin uploading your image, followed by "Select File" once you have made your selection. Only applies to self hosted videos.', 'pagelines'),
+					'desc' => __('Image should be at least 680px wide.Only applies to self hosted videos.', 'pagelines'),
 					'id' => '_pagelines_video_poster',
 					'type' => 'file',
 					'std' => ''
 				),
 			array(
 					'name' => __('Embedded Code', 'pagelines'),
-					'desc' => __('If the video is an embed rather than self hosted, enter in a Vimeo or Youtube embed code here. <strong> Embeds work worse with the parallax effect, but if you must use this, Vimeo is recommended. </strong> ', 'pagelines'),
+					'desc' => __('If the video is an embed rather than self hosted, enter in a Vimeo or Youtube embed code here.', 'pagelines'),
 					'id' => '_pagelines_video_embed',
 					'type' => 'textarea',
 					'std' => ''
@@ -170,9 +170,7 @@ function pl_create_meta_box( $post, $meta_box )
 		if(isset($field['extra'])) { $inline = true; }
 		
 		if($inline == null) {
-			
-		echo '<tr><th><label for="'. $field['id'] .'"><strong>'. $field['name'] .'</strong>
-			  <span>'. $field['desc'] .'</span></label></th>';
+			echo '<tr><th><label for="'. $field['id'] .'"><strong>'. $field['name'] .'</strong> <span>'. $field['desc'] .'</span></label></th>';
 		}
 
 		
@@ -182,7 +180,7 @@ function pl_create_meta_box( $post, $meta_box )
 				break;	
 				
 			case 'textarea':
-				echo '<td><textarea name="pagelines_meta['. $field['id'] .']" id="'. $field['id'] .'" rows="8" cols="5">'. ($meta ? $meta : $field['std']) .'</textarea></td>';
+				echo '<td><textarea class="large-text" name="pagelines_meta['. $field['id'] .']" id="'. $field['id'] .'" rows="8" cols="5">'. ($meta ? $meta : $field['std']) .'</textarea></td>';
 				break;
 			case 'media_textarea':
 				echo '<td><div style="display:none;" class="attr_placeholder" data-poster="" data-media-mp4="" data-media-ogv=""></div><textarea name="pagelines_meta['. $field['id'] .']" id="'. $field['id'] .'" rows="8" cols="5">'. ($meta ? $meta : $field['std']) .'</textarea></td>';
@@ -203,7 +201,7 @@ function pl_create_meta_box( $post, $meta_box )
 		        echo '<img class="redux-opts-screenshot" id="redux-opts-screenshot-' . $field['id'] . '" src="' . ($meta ? $meta : $field['std']) . '" />';
 		        if( ($meta ? $meta : $field['std']) == '') {$remove = ' style="display:none;"'; $upload = ''; } else {$remove = ''; $upload = ' style="display:none;"'; }
 		        echo ' <a data-update="Select File" data-choose="Choose a File" href="javascript:void(0);"class="redux-opts-upload button-secondary"' . $upload . ' rel-id="' . $field['id'] . '">' . __('Upload', 'pagelines') . '</a>';
-		        echo ' <a href="javascript:void(0);" class="redux-opts-upload-remove"' . $remove . ' rel-id="' . $field['id'] . '">' . __('Remove Upload', 'pagelines') . '</a></td>';
+				printf(' <a href="javascript:void(0);" class="redux-opts-upload-remove button" %s rel-id="%s">%s</a></td>', $remove, $field['id'], __('Remove Upload', 'pagelines'));
 		        
 				break;
  			
@@ -212,8 +210,8 @@ function pl_create_meta_box( $post, $meta_box )
 				echo '<td><input type="text" class="file_display_text" id="' . $field['id'] . '" name="pagelines_meta[' . $field['id'] . ']" value="' . ($meta ? $meta : $field['std']) . '" />';
 		        if( ($meta ? $meta : $field['std']) == '') {$remove = ' style="display:none;"'; $upload = ''; } else {$remove = ''; $upload = ' style="display:none;"'; }
 		        echo ' <a data-update="Select File" data-choose="Choose a File" href="javascript:void(0);"class="redux-opts-media-upload button-secondary"' . $upload . ' rel-id="' . $field['id'] . '">' . __('Add Media', 'pagelines') . '</a>';
-		        echo ' <a href="javascript:void(0);" class="redux-opts-upload-media-remove"' . $remove . ' rel-id="' . $field['id'] . '">' . __('Remove Media', 'pagelines') . '</a></td>';
-		        
+		       
+		        printf(' <a href="javascript:void(0);" class="redux-opts-upload-media-remove button" %s rel-id="%s">%s</a></td>', $remove, $field['id'], __('Remove Media', 'pagelines'));
 				break;
 				
 			case 'images':
