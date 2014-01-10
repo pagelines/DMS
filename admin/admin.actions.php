@@ -56,7 +56,7 @@ function pagelines_theme_settings_init() {
 // JS/CSS
 function pagelines_theme_settings_scripts() {
 
-	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, PL_CORE_VERSION );
+	
 	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION );
 	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library' ), PL_CORE_VERSION );
 	
@@ -115,6 +115,7 @@ function pagelines_purge_sections_cache() {
 
 add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
 function pagelines_metabox_scripts() {
+	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, PL_CORE_VERSION );
 	wp_enqueue_script( 'pagelines-admin-meta', PL_ADMIN_URI .'/admin.js', array('jquery'));
 }
 
