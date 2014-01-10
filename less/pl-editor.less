@@ -684,7 +684,7 @@
 		}
 
 		text-align: left;
-		#gradient > .vertical(rgba(230,230,230,.75), rgba(230,230,230,.9));
+		#gradient > .vertical(rgba(230,230,230,.9), rgba(230,230,230, 1));
 		box-shadow: inset 1px 1px 0 rgba(255,255,255,.8), 0 1px 3px rgba(0,0,0,.2);
 		border-top: 1px solid #999;
 		border-bottom: 1px solid #999;
@@ -753,7 +753,7 @@
 				height: 28px;
 
 				&.dropup.open > .btn-toolbox{
-					.buttonBackground(#bbb, #ddd);
+					#gradient > .vertical(#bbb, #ddd);
 					.crt{
 						color: #0f63cc;
 					}
@@ -795,7 +795,7 @@
 					&:hover,
 					&.active-tab{
 
-						.buttonBackground(#e1e1e1, #bbb);
+						#gradient > .vertical(#ddd, #c1c1c1);
 						border-left: 1px solid #999;
 						text-decoration: none;
 						i{
@@ -804,7 +804,7 @@
 					}
 					&:active{
 						
-						.buttonBackground(#bbb, #ddd);
+						#gradient > .vertical(#bbb, #ddd);
 					}
 					&.btn-link{
 						color: #AAA;
@@ -834,7 +834,7 @@
 
 					
 					&.active-toggle {
-						.buttonBackground(#fff, #eee);
+						#gradient > .vertical(#fff, #eee);
 						i{
 							color: #0f63cc;
 
@@ -1037,7 +1037,7 @@
 				}
 
 				&.ui-state-active a{
-						.buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+						#gradient > .vertical(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 						box-shadow: inset 1px 1px 0px rgba(255,255,255,.2), 0 1px 3px rgba(0,0,0,.2);
 						border-top-color: 1px solid @btnBorder;
 						border-bottom-color: darken(@btnBorder, 10%);
@@ -1640,29 +1640,6 @@
 				}
 				.title{
 					font-weight: bold;
-				}
-				&.t-box{
-					.border-radius(10px);
-					border:1px solid #ddd;
-					.buttonBackground(#fafafa, #eee);
-					box-shadow: inset 1px 1px 0 #fff;
-					cursor: pointer;
-					&:hover{
-						.buttonBackground(#f7f7f7, #eaeaea);
-					}
-					&:active{
-						.user-select(none);
-						box-shadow: inset 1px 1px 0 rgba(0,0,0,.2);
-						.buttonBackground(#ddd, #eee);
-					}
-					.t-box-pad{
-						padding: 17px 24px;
-						.img i{
-							font-size: 40px;
-							line-height: 40px;
-							color: #ccc;
-						}
-					}
 				}
 				&.x-item-size-5{
 					width: 120px;

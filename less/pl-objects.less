@@ -93,8 +93,17 @@
 /*
  * @ PageLines Love
  **********************************************************************/
-.pl-love.loved .pl-love-heart{
-	color: @linkColor;
+.pl-love{
+	color: @baseContrastMore;
+	.pl-love-heart{
+		color: @baseContrastMore;
+	}
+	&:hover,
+	&.loved {
+		.pl-love-heart{
+			color: @linkColor;
+		}
+	}
 }
 
 /*
