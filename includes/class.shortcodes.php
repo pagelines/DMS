@@ -126,7 +126,9 @@ class PageLines_ShortCodes {
 			'pl_child_url'				=>	array( 'function' => 'pl_child_url' ),
 			'pl_site_url'				=>	array( 'function' => 'pl_site_url' ),
 			'pl_parent_url'				=>	array( 'function' => 'get_coreurl' ),
-			'pl_theme_url'				=>	array( 'function' => 'get_themeurl' )
+			'pl_theme_url'				=>	array( 'function' => 'get_themeurl' ),
+			'pl_author_avatar'			=> 	array( 'function' => 'pl_author_avatar' ),
+			'pl_love'					=> 	array( 'function' => 'pl_love_shortcode' )
 			);
 
 		return $core;
@@ -466,7 +468,7 @@ class PageLines_ShortCodes {
 	}
 
 	/**
-	 * 14. This function produces the author of the post (link to author archive)
+	 * This function produces the author of the post (link to author archive)
 	 *
 	 * @example <code>[post_author_posts_link]</code> is the default usage
 	 * @example <code>[post_author_posts_link before="<b>" after="</b>"]</code>
@@ -488,6 +490,54 @@ class PageLines_ShortCodes {
 
 		return apply_filters( 'pagelines_post_author_shortcode', $output, $atts );
 	}
+	
+	/**
+	 * Produces an Author Avatar
+	 *
+	 * @example <code>[pl_author_avatar size="100"]</code> is the default usage
+	 */
+	function pl_author_avatar( $atts ) {
+
+		global $post;
+		
+		if( ! isset( $post ) )
+			return;
+
+		$defaults = array(
+			'size' => '100'
+		);
+		$atts = shortcode_atts( $defaults, $atts );
+		
+		$author_url = get_author_posts_url($post->post_author);
+
+		$author_email = get_the_author_meta('email', $post->post_author);
+		
+		$avatar = get_avatar( $author_email, $atts['size'] );
+
+		return sprintf('<a href="%s">%s</a>', $author_url, $avatar);
+	}
+	
+	/**
+	 * Produces a love counter for post
+	 *
+	 * @example <code>[pl_love]</code> is the default usage
+	 */
+	function pl_love_shortcode( $atts ) {
+
+		global $post;
+
+		if( ! isset( $post ) )
+			return;
+
+		$defaults = array(
+			'size' => '100'
+		);
+		$atts = shortcode_atts( $defaults, $atts );
+
+		return pl_love( );
+	}
+	
+	
 
 	/**
 	 * 15. This function produces the author of the post (link to author URL)
