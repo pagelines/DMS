@@ -1,13 +1,13 @@
-// BUTTON STYLES
-// -------------
+/*
+ * BUTTON STYLES
+ */ 
 
-// Base styles
-// --------------------------------------------------
 
-// Core
+
+
+
 .btn {
 	display: inline-block;
-	.ie7-inline-block();
 	padding: 4px 10px 4px;
 	margin-bottom: 0; // For input.btn
 	font-size: @buttonFontSize;
@@ -17,16 +17,10 @@
 	text-shadow: 0 1px 1px rgba(255,255,255,.75);
 	vertical-align: middle;
 	background:  @btnBackgroundHighlight;
-	.buttonBackground(@btnBackground, @btnBackgroundHighlight);
 	border: 1px solid @btnBorder;
-	border-bottom-color: darken(@btnBorder, 10%);
 	.border-radius(3px);
 	box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
 	cursor: pointer;
-
-	// Give IE7 some love
-	.ie7-restore-left-whitespace();
-	
 	&:hover {
 		color: @grayDark;
 		text-decoration: none;
@@ -42,7 +36,6 @@
 	}
 	&.active,
 	&:active {
-		.translate3d(0, 1px, 0);
 		background-image: none;
 		box-shadow: inset 0 2px 2px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
 	
@@ -146,7 +139,6 @@ a.btn-info,
 a.btn-inverse,
 .btn-edit,
 a.btn-edit{
-	text-shadow: 0 -1px 0px rgba(0,0,0,.3);
 	color: @white;
 	&a, 
 	&:hover{
@@ -184,10 +176,6 @@ a.btn-edit{
 // Inverse appears as dark gray
 .btn-inverse {
   .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
-}
-.btn-edit {
-	.buttonBackground(rgba(70,70,70,.5), rgba(70,70,70,.7));
-	border: 1px solid rgba(0,0,0,.7);
 }
 
 .btn-link-icon{
