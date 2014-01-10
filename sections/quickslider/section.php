@@ -24,10 +24,10 @@ class PageLinesQuickSlider extends PageLinesSection {
 	 * Load styles and scripts
 	 */
 	function section_styles(){
-		wp_enqueue_script( 'flexslider', $this->base_url.'/flexslider/jquery.flexslider.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), PL_CORE_VERSION, true );
 	}
 
-	function section_head(){
+	function old_section_head(){
 
 		$animation = ($this->opt('quick_transition', $this->oset) == 'slide_v' || $this->opt('quick_transition', $this->oset) == 'slide_h') ? 'slide' : 'fade';
 		$transfer = ($this->opt('quick_transition', $this->oset) == 'slide_v') ? 'vertical' : 'horizontal';
@@ -41,15 +41,15 @@ class PageLinesQuickSlider extends PageLinesSection {
 		?>
 <script>
 jQuery(window).load(function() {
-	var theSlider = jQuery('<?php echo $this->prefix();?> .flexslider');
-	theSlider.flexslider({
-		controlsContainer: '.fs-nav-container',
-		animation: '<?php echo $animation;?>',
-		slideDirection: '<?php echo $transfer;?>',
-		slideshow: <?php echo $slideshow;?>,
-		directionNav: <?php echo $direction_nav;?>,
-		controlNav: <?php echo $control_nav;?>
-	});
+	// var theSlider = jQuery('<?php echo $this->prefix();?> .flexslider');
+	// theSlider.flexslider({
+	// 	controlsContainer: '.fs-nav-container',
+	// 	animation: '<?php echo $animation;?>',
+	// 	slideDirection: '<?php echo $transfer;?>',
+	// 	slideshow: <?php echo $slideshow;?>,
+	// 	directionNav: <?php echo $direction_nav;?>,
+	// 	controlNav: <?php echo $control_nav;?>
+	// });
 });
 </script>
 <?php }
@@ -61,11 +61,14 @@ jQuery(window).load(function() {
 
 	$control_nav = (!$this->opt('quick_nav', $this->oset) || $this->opt('quick_nav', $this->oset) == 'both' || $this->opt('quick_nav', $this->oset) == 'control_only') ? 'true' : 'false';
 
+	$transition = ( $this->opt('quick_transition') == 'slide_h' ) ? 'slide' : 'fade';
+	$animate = ( $this->opt('quick_slideshow') ) ? 'true' : 'false';
+
 	$nav_class = ($control_nav) ? 'control-nav' : 'no-control-nav';
 	?>
 	<div class="flexwrap animated fadeIn <?php echo 'wrap-'.$nav_class;?>">
 		<div class="fslider">
-		<div class="flexslider <?php echo 'pl-clone' . $this->oset['clone_id'];?>">
+		<div class="flex-gallery flexslider <?php echo 'pl-clone' . $this->oset['clone_id'];?>" data-transition="<?php echo $transition;?>" data-animate="<?php echo $animate;?>">
 		  <ul class="slides">
 
 			<?php
@@ -93,22 +96,10 @@ jQuery(window).load(function() {
 					
 					if( $the_image ){
 
-						$the_text =  pl_array_get( 'text', $item ); 
-						$the_link =  pl_array_get( 'link', $item ); 
+						$the_text =  pl_array_get( 'text', $item );
+						$the_link =  pl_array_get( 'link', $item );
 
-						$tlocation = pl_array_get( 'location', $item ); 
-
-						if($tlocation == 'right_top')
-							$caption_style = 'right:0; bottom: auto; top:0;';
-						elseif($tlocation == 'left_bottom')
-							$caption_style = 'left:0; bottom:0; top: auto;';
-						elseif($tlocation == 'left_top')
-							$caption_style = 'left:0; bottom:auto; top: 0;';
-						else
-							$caption_style = 'right:0; bottom:0; top: auto;';
-
-
-						$text = ($the_text) ? sprintf('<p class="flex-caption" style="%s">%s</p>', $caption_style, $the_text) : '';
+						$text = ($the_text) ? sprintf('<p class="flex-caption">%s</p>', $the_text) : '';
 
 						$img = sprintf('<img src="%s" alt="" />', $the_image );
 
@@ -132,7 +123,6 @@ jQuery(window).load(function() {
 		  </ul>
 		</div>
 		</div>
-		<div class="fs-nav-container <?php echo $nav_class;?>"></div>
 	</div>
 
 		<?php
@@ -167,18 +157,6 @@ jQuery(window).load(function() {
 							'slide_h' 		=> array('name' => __( 'Use Slide/Horizontal Transition', 'pagelines' ) ),
 						),
 					), 
-					array(
-						'key'			=> 'quick_nav',
-						'type' 			=> 'select',
-						'opts' => array(
-							'both' 			=> array('name' => __( 'Use Both Arrow and Slide Control Navigation', 'pagelines' ) ),
-							'none'			=> array('name' => __( 'No Navigation', 'pagelines' ) ),
-							'control_only'	=> array('name' => __( 'Slide Controls Only', 'pagelines' ) ),
-							'arrow_only'	=> array('name' => __( 'Arrow Navigation Only', 'pagelines' ) ),
-						),
-						'label' 	=> __( 'Slider Navigation Mode', 'pagelines' ),
-					
-					),
 					array(
 						'key'			=> 'quick_slideshow',
 						'type' 			=> 'check',
@@ -216,17 +194,7 @@ jQuery(window).load(function() {
 						'label'	=> __( 'Slide Link URL', 'pagelines' ),
 						'type'			=> 'text'
 					),
-					array(
-						'key'	=> 'location',
-						'label'	=> __( 'Slide Text Location', 'pagelines' ),
-						'type'			=> 'select',
-						'opts'	=> array(
-							'right_bottom'	=> array('name'=> 'Right/Bottom'),
-							'right_top'		=> array('name'=> 'Right/Top'),
-							'left_bottom'	=> array('name'=> 'Left/Bottom'),
-							'left_top'		=> array('name'=> 'Left/Top')
-						)
-					),
+					
 
 
 				)

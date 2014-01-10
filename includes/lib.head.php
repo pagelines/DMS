@@ -97,6 +97,8 @@ function pagelines_register_js() {
 	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
 
 	// Load Supersize BG Script
+	if( get_post_format() == 'gallery' )
+		wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), PL_CORE_VERSION, true );
 
 }
 

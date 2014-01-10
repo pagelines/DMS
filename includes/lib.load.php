@@ -81,6 +81,7 @@ add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
 function pagelines_check_lessdev(){
 
 	if ( ( defined('PL_LESS_DEV' ) && PL_LESS_DEV ) || 1 == pl_setting( 'less_dev_mode' ) ) {
+		
 		PageLinesRenderCSS::flush_version( false );
 		
 		pl_flush_draft_caches();

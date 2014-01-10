@@ -105,6 +105,10 @@ class PageLinesPostLoop extends PageLinesSection {
 			
 			$class[ ] = ( is_page() ) ? 'standard-page' : '';
 			
+			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true); 
+			
+			$class[ ] = ( ! empty( $gallery_format ) ) ? 'use-flex-gallery' : '';
+			
 			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
 			?>	
 			<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>

@@ -21,6 +21,8 @@
 		
 		$.plLove.init()
 		
+		$.plGallery.init()
+		
 		$('.pl-credit').show()
 		
 		
@@ -32,6 +34,40 @@
 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		})
 	})
+	
+	$.plGallery = {
+		init: function(){
+			//gallery
+			$('.flex-gallery').each(function(){
+
+				var gallery = $(this)
+				,	animate = gallery.data('animate') || true
+				,	transition = gallery.data('transition') || 'fade'
+
+				gallery.imagesLoaded( function(instance){
+
+					gallery.flexslider({
+				        animation: transition
+						, smoothHeight: true
+						, slideshow: animate
+				    })
+					
+					if( gallery.find('.slides li').length <= 1 ){
+						gallery.find('.flex-direction-nav').hide()
+					}
+
+					////gallery slider add arrows
+					$('.flex-gallery .flex-direction-nav li a.flex-next').html('<i class="icon-angle-right"></i>')
+					$('.flex-gallery .flex-direction-nav li a.flex-prev').html('<i class="icon-angle-left"></i>')
+
+				});
+
+			});
+			
+			
+			
+		}
+	}
 	
 	$.plLove = {
 		
