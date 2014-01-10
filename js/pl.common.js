@@ -48,7 +48,7 @@
 
 					gallery.flexslider({
 				        animation: transition
-						, smoothHeight: true
+						, smoothHeight: false
 						, slideshow: animate
 				    })
 					

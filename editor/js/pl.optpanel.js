@@ -348,6 +348,7 @@
 						, scope: scope
 						, key: key
 						, uid: uniqueID
+						
 					})
 				}
 
@@ -561,6 +562,11 @@
 			return oNew
 
 		}
+		
+		, addHiddenInput: function( key, itemNumber ){
+			var that = this
+			return sprintf( '<input type="text" class="lstn dont-change" id="%s_%s_showitem" name="%s[%s][%s][showitem]" value="1" />', key, itemNumber, that.uniqueID, key, itemNumber)
+		}
 
 		, optEngine: function( tabIndex, o, optLevel, parent ) {
 
@@ -623,6 +629,10 @@
 
 						})
 					}
+					
+					// adds a hidden input set to true, so that the item doesn't disappear
+					oHTML += that.addHiddenInput( o.key, o.itemNumber )
+					
 					oHTML += sprintf("</div></div>")
 
 					itemNumber++
@@ -1126,7 +1136,7 @@
 
 				theNew.find('.bar-title').html('New Item')
 				theNew.find('.ui-icon').remove()
-				theNew.find('.lstn').val('')
+				theNew.find('.lstn:not(.dont-change)').val('')
 				theNew.find('.remove-item').show()
 				theNew.find('.img-wrap').remove()
 
