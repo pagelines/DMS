@@ -115,6 +115,6 @@ function pagelines_purge_sections_cache() {
 
 add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
 function pagelines_metabox_scripts() {
-	wp_enqueue_script( 'pagelines-admin', PL_ADMIN_URI .'/admin.js', array('jquery'));
+	wp_enqueue_script( 'pagelines-admin-meta', PL_ADMIN_URI .'/admin.js', array('jquery'));
 }
 
