@@ -176,6 +176,22 @@ class PageLinesPage {
 
 	}
 
+	function is_blog_page_type(){
+
+		if ( $this->type == 'blog' 
+			|| $this->type == 'category' 
+			|| $this->type == 'post' 
+			|| $this->type == 'archive' 
+			|| $this->type == 'author' 
+			|| $this->type == 'tag' 
+			|| $this->type == 'search' 
+		)
+			return true;
+		else
+			return false;
+
+	}
+	
 	function is_posts_page(){
 
 		if ( is_home() || is_search() || is_archive() || is_category() )

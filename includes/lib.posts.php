@@ -51,18 +51,19 @@ function pagelines_media( $args = array() ){
 	} 
 	
 	// QUOTE
-	else if( $post_format == 'quote' && ( ! empty( $args['quote'] ) ) ){
+	else if( $post_format == 'quote' ){
 	
+		$quote = ( $args['quote'] ) ? $args['quote'] : get_the_content();
 	
-		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="author">%s</span><span class="linkbox-icon"><i class="icon-quote-right icon-2x"></i></span></h2>', $args['quote'], get_the_title());
+		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="author">%s</span><span class="linkbox-icon"><i class="icon-quote-right icon-2x"></i></span></h2>', $quote, get_the_title());
 		
-		$wrapped = ( is_single()) ? sprintf('<div class="pl-linkbox pl-quote">%s</div>', $content ) : sprintf('<a href="%s" class="pl-linkbox pl-quote">%s</a>', get_permalink(), $content );
+		$wrapped = ( is_single()) ? sprintf('<div class="pl-linkbox pl-quote fix">%s</div>', $content ) : sprintf('<a href="%s" class="pl-linkbox pl-quote">%s</a>', get_permalink(), $content );
 		
 		$media = $wrapped;
 	}
 	
 	// LINK
-	else if( $post_format == 'link' && ( ! empty( $args['link'] ) ) ){
+	else if( $post_format == 'link' ){
 	
 		$link = $args['link'];
 		
@@ -71,7 +72,7 @@ function pagelines_media( $args = array() ){
 	
 		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="destination">%s</span><span class="linkbox-icon"><i class="icon-link icon-2x"></i></span></h2>', get_the_title(), $link );
 		
-		$wrapped = sprintf('<a href="http://%s" class="pl-linkbox pl-quote">%s</a>', $link, $content );
+		$wrapped = sprintf('<a href="http://%s" class="pl-linkbox pl-quote fix">%s</a>', $link, $content );
 		
 		$media = $wrapped;
 	}

@@ -91,6 +91,7 @@ class PageLinesPostLoop extends PageLinesSection {
 	function loop(){
 		
 		$count = 0; 
+		global $plpg; 
 		
 		if( have_posts() )
 			while ( have_posts() ) : the_post(); 
@@ -103,11 +104,13 @@ class PageLinesPostLoop extends PageLinesSection {
 			
 			$class = array(); 
 			
-			$class[ ] = ( is_single() ) ? 'single-post' : '';
-			
+			$postlist = ( $plpg->is_blog_page_type() ) ? true : false;
+		
 			$class[ ] = ( is_archive() || is_search() || is_home() ) ? 'multi-post' : '';
 			
-			$class[ ] = ( is_page() ) ? 'standard-page' : '';
+			$class[ ] = ( ! $postlist ) ? 'standard-page' : '';
+			
+			$class[ ] = ( is_single() ) ? 'single-post' : '';
 			
 			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true); 
 			
@@ -119,7 +122,7 @@ class PageLinesPostLoop extends PageLinesSection {
 		
 				<?php
 				
-					if( ! is_page() )
+					if( $postlist )
 						echo do_shortcode( '<div class="metahead">[pl_author_avatar size="80"][post_author_posts_link][pl_love]</div>' );
 				
 					if( ! is_single() ){
