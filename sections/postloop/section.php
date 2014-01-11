@@ -97,6 +97,10 @@ class PageLinesPostLoop extends PageLinesSection {
 		
 			$count++;
 			
+			$format = get_post_format();
+			
+			$linkbox = ($format == 'quote' || $format == 'link') ? true : false;
+			
 			$class = array(); 
 			
 			$class[ ] = ( is_single() ) ? 'single-post' : '';
@@ -127,22 +131,24 @@ class PageLinesPostLoop extends PageLinesSection {
 				
 					?>
 				
-				<header class="entry-header">
-					<?php 
+				<?php if( ! $linkbox ): ?>
+					<header class="entry-header">
+						<?php 
 
-						if ( is_single() ) :
-							the_title( '<h2 class="entry-title">', '</h2>' );
-						elseif( ! is_page() ) :	
-							the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-						endif;
+							if ( is_single() ) :
+								the_title( '<h2 class="entry-title">', '</h2>' );
+							elseif( ! is_page() ) :	
+								the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+							endif;
 
-						$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]'; 
+							$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]'; 
 						
-						if( $meta && ! is_page() )
-							printf( '<div class="metabar"> %s </div>', do_shortcode( $meta ) );
+							if( $meta && ! is_page() )
+								printf( '<div class="metabar"> %s </div>', do_shortcode( $meta ) );
 						
-					?>
-				</header><!-- .entry-header -->
+						?>
+					</header><!-- .entry-header -->
+				<?php endif; ?>
 				<div class="entry-content">
 
 					<?php
@@ -160,7 +166,7 @@ class PageLinesPostLoop extends PageLinesSection {
 							'link_after'  => '</span>',
 						) );
 
-					} else {
+					} elseif( ! $linkbox ) {
 						the_excerpt();
 						printf(
 							'<a class="continue_reading_link btn-inverse btn btn-mini" href="%s" title="%s %s">%s</a>',

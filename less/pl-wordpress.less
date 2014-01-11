@@ -6,9 +6,40 @@
 /* 
  * POST FORMATS 
  */
-.format-gallery.use-flex-gallery .gallery{
-	display: none;
+
+
+// QUOTE
+
+.pl-linkbox{
+	background-color: @pl-link;
+	color: @pl-base;
+	display: block; 
+	padding: 15px; 
+	position: relative;
+	transition: all 0.2s linear 0s;
+	&[href]:hover{
+		background: #000; 
+		color: #fff; 
+	}
+	.linkbox-icon{
+		float: right;
+	}
 }
+
+// AUDIO
+#page .mejs-controls .mejs-horizontal-volume-slider{
+	
+	.mejs-horizontal-volume-current {
+		background: @pl-link;
+	
+	}
+} 
+
+
+
+
+// VIDEO
+
 /* MEDIA PLAYERS */ 
 #page .mejs-controls .mejs-time-rail {
 	.mejs-time-current{
@@ -20,6 +51,10 @@
 }
 
 
+// GALLERY
+.format-gallery.use-flex-gallery .gallery{
+	display: none;
+}
 /* 
  * FLEXSLIDER 
  */ 

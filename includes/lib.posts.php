@@ -25,6 +25,10 @@ function pagelines_media( $args = array() ){
 		'ogv'			=> get_post_meta( $args['id'], '_pagelines_video_ogv', true),
 		'poster'		=> get_post_meta( $args['id'], '_pagelines_video_poster', true),
 		'gallery'		=> get_post_meta( $args['id'], '_pagelines_gallery_slider', true),
+		'mp3'	 		=> get_post_meta( $args['id'], '_pagelines_audio_mp3', true),
+	    'ogg'	 		=> get_post_meta( $args['id'], '_pagelines_audio_ogg', true),
+		'quote'	 		=> get_post_meta( $args['id'], '_pagelines_quote', true),
+		'link' 			=> get_post_meta( $args['id'], '_pagelines_link', true)
 	);
 	
 	$args = wp_parse_args( $args, $vars );
@@ -45,6 +49,40 @@ function pagelines_media( $args = array() ){
 
 		} 
 	} 
+	
+	// QUOTE
+	else if( $post_format == 'quote' && ( ! empty( $args['quote'] ) ) ){
+	
+	
+		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="author">%s</span><span class="linkbox-icon"><i class="icon-quote-right icon-2x"></i></span></h2>', $args['quote'], get_the_title());
+		
+		$wrapped = ( is_single()) ? sprintf('<div class="pl-linkbox pl-quote">%s</div>', $content ) : sprintf('<a href="%s" class="pl-linkbox pl-quote">%s</a>', get_permalink(), $content );
+		
+		$media = $wrapped;
+	}
+	
+	// LINK
+	else if( $post_format == 'link' && ( ! empty( $args['link'] ) ) ){
+	
+		$link = $args['link'];
+		
+		$link = str_replace( 'http://', '', $link );
+		$link = str_replace( 'https://', '', $link );
+	
+		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="destination">%s</span><span class="linkbox-icon"><i class="icon-link icon-2x"></i></span></h2>', get_the_title(), $link );
+		
+		$wrapped = sprintf('<a href="http://%s" class="pl-linkbox pl-quote">%s</a>', $link, $content );
+		
+		$media = $wrapped;
+	}
+	
+	// AUDIO
+	else if( $post_format == 'audio' && ( ! empty( $args['mp3'] ) || ! empty( $args['ogg'] ) ) ){
+	
+		$audio_output = sprintf('[audio mp3="%s" ogg="%s"]', $args['mp3'], $args['ogg']);
+		
+		$media = do_shortcode($audio_output);
+	}
 	
 	// GALLERY
 	else if( $post_format == 'gallery' && !empty( $args['gallery'] ) ){
