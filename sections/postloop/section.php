@@ -169,11 +169,11 @@ class PageLinesPostLoop extends PageLinesSection {
 					} elseif( ! $linkbox ) {
 						the_excerpt();
 						printf(
-							'<a class="continue_reading_link btn-inverse btn btn-mini" href="%s" title="%s %s">%s</a>',
+							'<a class="continue_reading_link btn" href="%s" title="%s %s">%s</a>',
 							get_permalink(),
-							__("View", 'pagelines'),
+							__("Read More", 'pagelines'),
 							the_title_attribute(array('echo'=> 0)),
-							__('View <i class="icon-angle-right"></i>', 'pagelines')
+							__('Read More <i class="icon-angle-right"></i>', 'pagelines')
 						);
 					}
 
