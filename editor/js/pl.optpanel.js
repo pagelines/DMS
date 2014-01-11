@@ -565,7 +565,7 @@
 		
 		, addHiddenInput: function( key, itemNumber ){
 			var that = this
-			return sprintf( '<input type="text" class="lstn dont-change" id="%s_%s_showitem" name="%s[%s][%s][showitem]" value="1" />', key, itemNumber, that.uniqueID, key, itemNumber)
+			return sprintf( '<input type="hidden" class="lstn dont-change" id="%s_%s_showitem" name="%s[%s][%s][showitem]" value="1" />', key, itemNumber, that.uniqueID, key, itemNumber)
 		}
 
 		, optEngine: function( tabIndex, o, optLevel, parent ) {
