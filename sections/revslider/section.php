@@ -175,13 +175,17 @@ class plRevSlider extends PageLinesSection {
 	}
 	function section_styles(){
 
-		wp_enqueue_script( 'revslider-plugins', $this->base_url.'/jquery.revslider.plugins.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'revslider', $this->base_url.'/jquery.revslider.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'revolution-plugins', $this->base_url.'/rs-plugin/js/jquery.themepunch.plugins.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'revolution', $this->base_url.'/rs-plugin/js/jquery.themepunch.revolution.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_style(  'revolution', sprintf( '%s/rs-plugin/css/settings.css', $this->base_url ), null, PL_CORE_VERSION );
+		
+		wp_enqueue_script( 'pagelines-slider', $this->base_url.'/pl.slider.js', array( 'jquery', 'revolution' ), PL_CORE_VERSION, true );
+		
 
 
 	}
 
-	function section_head( ){
+	function old_section_head( ){
 
 		?>
 <script>
@@ -206,11 +210,11 @@ class plRevSlider extends PageLinesSection {
 							navigationVOffset:20,
 							soloArrowLeftHalign:"left",
 							soloArrowLeftValign:"center",
-							soloArrowLeftHOffset:20,
+							soloArrowLeftHOffset:0,
 							soloArrowLeftVOffset:0,
 							soloArrowRightHalign:"right",
 							soloArrowRightValign:"center",
-							soloArrowRightHOffset:20,
+							soloArrowRightHOffset:0,
 							soloArrowRightVOffset:0,
 							touchenabled:"on",
 							stopAtSlide:-1,
@@ -303,54 +307,7 @@ class plRevSlider extends PageLinesSection {
 		
 		}
 				
-				
-		// for($i = 1; $i <= $slides; $i++){
-		// 
-		// 			$the_bg = $this->opt( 'revslider_bg_'.$i );
-		// 			
-		// 			$extra = $this->opt('revslider_extra_'.$i);
-		// 			
-		// 			if( $the_bg || $extra ){
-		// 
-		// 				$the_text = $this->opt('revslider_text_'.$i);
-		// 				$the_link = $this->opt('revslider_link_'.$i);
-		// 				
-		// 				$the_location = $this->opt('revslider_text_location_'.$i);
-		// 				$transition = $this->opt('revslider_transition_'.$i, array('default' => 'fade'));
-		// 
-		// 				if($the_location == 'centered'){
-		// 					$the_x = 'center';
-		// 					$caption_class = 'centered sfb stb';
-		// 				} elseif ($the_location == 'right-side'){
-		// 					$the_x = '560';
-		// 					$caption_class = 'right-side sfr str';
-		// 				} else {
-		// 					$the_x =  '0';
-		// 					$caption_class = 'left-side sfl stl';
-		// 				}
-		// 
-		// 				$bg = ($the_bg) ? sprintf('<img src="%s" data-fullwidthcentering="on">', $the_bg) : '';
-		// 
-		// 				$content = sprintf('<h2><span class="slider-text">%s</span></h2>', $the_text);
-		// 
-		// 				$link = ($the_link) ? sprintf('<a href="%s" class="slider-btn">%s</a>', $the_link, __('Read More', 'pagelines')) : '';
-		// 
-		// 				if(!$extra){
-		// 					$caption = sprintf(
-		// 							'<div class="caption slider-content %s" data-x="%s" data-y="130" data-speed="300" data-start="500" data-easing="easeOutExpo">%s %s</div>',
-		// 							$caption_class,
-		// 							$the_x,
-		// 							$content,
-		// 							$link
-		// 					);
-		// 				} else
-		// 					$caption = '';
-		// 				
-		// 
-		// 				$output .= sprintf('<li data-transition="%s" data-slotamount="7">%s %s %s</li>', $transition, $bg, $caption, $extra);
-		// 			}
-		// 		}
-		
+	
 		return $output;
 	}
 
@@ -420,9 +377,9 @@ class plRevSlider extends PageLinesSection {
 
 
 	?>
-	<div class="revslider-container">
+	<div class="revslider-container pl-slider-container">
 		<div class="header-shadow"></div>
-			<div class="revslider-full" style="display:none;max-height:480px;height:480px;">
+			<div class="pl-slider revslider-full" style="display:none;max-height:480px;height:480px;">
 				<ul>
 					<?php
 
