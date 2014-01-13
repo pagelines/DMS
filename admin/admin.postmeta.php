@@ -390,46 +390,6 @@ function pl_create_meta_box( $post, $meta_box )
                 <input type="checkbox" id="'. $field['id'] .'" name="pagelines_meta['. $field['id'] .']" value="on"'. $val .' /> ';
 			    echo '</td>';
 			    break;
-			case 'caption_pos' :
-				
-				wp_register_style(
-	                'redux-opts-jquery-ui-custom-css',
-	                apply_filters('redux-opts-ui-theme',  pagelines_FRAMEWORK_DIRECTORY . 'options/css/custom-theme/jquery-ui-1.10.0.custom.css'),
-	                '',
-	                time(),
-	                'all'
-	            );
-				 wp_enqueue_style('redux-opts-jquery-ui-custom-css');
-		         wp_enqueue_script(
-		            'redux-opts-field-button_set-js', 
-		            pagelines_FRAMEWORK_DIRECTORY . 'options/fields/button_set/field_button_set.js', 
-		            array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'),
-		            time(),
-		            true
-		        );
-				if($field['extra'] == 'first'){
-					echo '<tr><td><label><strong>Slide Content Alignment</strong> <span>Configure the position for your slides content</span> </label></td>';
-				}
-				echo '<td class="content-alignment"> <label><strong>'.$field['desc'].'</strong><span>Select Your Alignment</span></label>';
-				    echo '<fieldset class="buttonset">';
-						foreach( $field['options'] as $key => $option ){
-				
-							echo '<input type="radio" id="pagelines_meta_'. $key .'" name="pagelines_meta['. $field["id"] .']" value="'. $key .'" ';
-							if( $meta ){ 
-								if( $meta == $key ) echo ' checked="checked"'; 
-							} else {
-								if( $field['std'] == $key ) echo ' checked="checked"';
-							}
-							echo ' /> ';
-							echo '<label for="pagelines_meta_'. $key .'"> '.$option.'</label>';
-							
-						}
-					echo '</fieldset>';
-				echo '</td>';
-				if($field['extra'] == 'last'){
-					echo '</tr>';
-				}
-				break;
 		}
 		
 	
