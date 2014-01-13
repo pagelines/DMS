@@ -188,7 +188,13 @@ class EditorLessHandler{
 		}
 		
 		
-		if( pl_draft_mode() && defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
+		if( pl_draft_mode() )  {
+			
+			if( defined( 'PL_LESS_DEV' ) && false == PL_LESS_DEV )
+				return;
+
+			if( 0 == pl_setting( 'less_dev_mode' ) )
+				return;
 
 			$raw_cached = pl_cache_get( 'draft_core_raw', array( $this, 'draft_core_data' ) );
 
@@ -209,12 +215,7 @@ class EditorLessHandler{
 
 		if( true == $flush )
 			pl_flush_draft_caches( $this->draft_less_file );
-	}
-
-
-	
-
-	
+	}	
 
 	/**
 	 *
