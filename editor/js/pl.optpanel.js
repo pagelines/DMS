@@ -696,14 +696,14 @@
 					
 				var place = o.place || ""
 				
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="%5$s" value="%3$s" />', o.inputID, o.name, o.value, o.classes, place)
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="%5$s" value="%3$s" />', o.inputID, o.name, pl_html_input( o.value ), o.classes, place)
 
 			}
 
 			else if( o.type == 'textarea' ){
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				oHTML += sprintf('<textarea id="%s" name="%s" class="%s type-textarea lstn" >%s</textarea>', o.inputID, o.name, o.classes, o.value )
+				oHTML += sprintf('<textarea id="%s" name="%s" class="%s type-textarea lstn" >%s</textarea>', o.inputID, o.name, o.classes, pl_html_input( o.value ) )
 
 			}
 
