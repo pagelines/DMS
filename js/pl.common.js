@@ -321,7 +321,9 @@
 
 			    if (docScroll >= fixedOffset) {
 			        fixedTop.addClass('is-fixed');
+			 		fixedTop.removeClass('is-not-fixed');
 			    } else {
+					fixedTop.addClass('is-not-fixed');
 			        fixedTop.removeClass('is-fixed')
 			    }
 

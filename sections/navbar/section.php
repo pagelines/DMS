@@ -6,8 +6,7 @@
 	Description: A responsive navigation bar for your website.
 	Class Name: PLNavBar
 	Workswith: header
-	Compatibility: 2.2
-	Cloning: false
+	Loading: active
 	Filter: nav, dual-width
 */
 

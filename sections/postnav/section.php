@@ -22,8 +22,8 @@ class PageLinesPostNav extends PageLinesSection {
 
 		pagelines_register_hook( 'pagelines_section_before_postnav' ); // Hook ?>
 		<div class="post-nav fix">
-			<span class="previous"><?php previous_post_link('%link', '<i class="icon-circle-arrow-left"></i> %title') ?></span>
-			<span class="next"><?php next_post_link('%link', '%title <i class="icon-circle-arrow-right"></i>') ?></span>
+			<span class="previous"><?php previous_post_link('%link', '<i class="icon-angle-left"></i> %title') ?></span>
+			<span class="next"><?php next_post_link('%link', '%title <i class="icon-angle-right"></i>') ?></span>
 		</div>
 <?php 	pagelines_register_hook( 'pagelines_section_after_postnav' ); // Hook
 
