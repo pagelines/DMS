@@ -58,39 +58,29 @@ function pl_less_dev(){
 	
 }
 
-
-function pl_is_pro(){	
-	// AP stop putting return true here!!
-	$status = get_option( 'dms_activation', array( 'active' => false, 'key' => '', 'message' => '', 'email' => '' ) );
-	
-	$pro = (isset($status['active']) && true === $status['active']) ? true : false;
-	
-	return $pro;
-	
-}
-
 function pl_has_dms_plugin(){	
 	
 	if( class_exists( 'DMSPluginPro' ) )
 		return true;
 	else 
-		return false;
-	
+		return false;	
 }
 
-function pl_pro_text(){
-	
-	return (!pl_is_pro()) ? __('(Pro Edition Only)', 'pagelines') : '';
-	
+function pl_is_pro(){
+	return apply_filters( 'pl_is_pro', false );
+}
+
+function pl_pro_text(){	
+	return apply_filters( 'pl_pro_text', '' );
 }
 
 function pl_pro_disable_class(){
-	
-	return (!pl_is_pro()) ? 'pro-only-disabled' : ''; 
-	
+	return apply_filters( 'pl_pro_disable_class', 'hidden' );	
 }
 
-
+function pl_is_activated(){
+	return apply_filters( 'pl_is_activated', false );
+}
 
 // Process old function type to new format
 function process_to_new_option_format( $old_options ){
