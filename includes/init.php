@@ -14,10 +14,6 @@
 do_action('pagelines_hook_pre', 'core'); // Hook
 define('PL_INCLUDES', pl_get_template_directory() . '/includes');
 
-// Removed in Free/WPORG Version
-if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
-	require_once( PL_INCLUDES . '/library.pagelines.php');
-
 // Load deprecated functions
 require_once( PL_INCLUDES.'/deprecated.php' );
 
@@ -63,7 +59,12 @@ require_once( PL_INCLUDES . '/lib.theming.php' );
 // Post Media Functions
 require_once( PL_INCLUDES . '/lib.posts.php' );
 
+// Shortcodes
+require_once( PL_INCLUDES . '/class.shortcodes.php');
 
+// Removed in Free/WPORG Version
+if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
+	require_once( PL_INCLUDES . '/library.pagelines.php');
 
 // Start the editor
 require_once( PL_INCLUDES . '/init.editor.php' );
@@ -80,8 +81,7 @@ require_once( PL_INCLUDES . '/less.legacy.php' );
 // LESS Handling -> DMS Approach
 require_once( PL_INCLUDES . '/less.engine.php' );
 
-// Shortcodes
-require_once( PL_INCLUDES . '/class.shortcodes.php');
+
 
 // Base Section Class
 require_once( PL_INCLUDES . '/class.sections.php' );
@@ -89,7 +89,6 @@ require_once( PL_INCLUDES . '/class.sections.php' );
 // Typography Foundry / Fonts
 require_once( PL_INCLUDES . '/class.foundry.php' );
 
-// BUILD Controller
 
 
 // Run the pagelines_init Hook
