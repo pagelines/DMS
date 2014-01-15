@@ -123,9 +123,9 @@
 				float: left;
 
 				> a {
-					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+				
 					
-					.transition(padding .3s ease-in-out);
+					.transition(all .3s ease-in-out);
 					float: none;
 					display: block;
 					padding: 9px 12px;
@@ -133,7 +133,6 @@
 					color:#fff; /* IE */
 					color:rgba(255,255,255,.8);
 					text-decoration: none;
-					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 					&:hover{
 						background-color: transparent;
 						color:rgba(255,255,255,.9);
@@ -198,21 +197,69 @@
 
 		&.pl-color-black-trans{
 			background: #000;
-			border-color: rgba(0,0,0,.9);
 			
+			.navline{
+				> li{
+					&:hover,
+					&.current-menu-item,
+					&.current_page_item,
+					&.dropdown.open{
+						> a{
+							background: #333;
+						}
+					}
+
+				}
+			}
 		}
 		&.pl-color-red{
 			background: @btnImportantBackground;
-			border-color: @btnImportantBackgroundHighlight;
-			
+			.navline{
+				> li{
+					&:hover,
+					&.current-menu-item,
+					&.current_page_item,
+					&.dropdown.open{
+						> a{
+							background: darken(@btnImportantBackground, 10%);
+						}
+					}
+
+				}
+			}
 		}
 		&.pl-color-blue{
 			
 			background: @btnPrimaryBackground;
-		
+			.navline{
+				> li{
+					&:hover,
+					&.current-menu-item,
+					&.current_page_item,
+					&.dropdown.open{
+						> a{
+							background: darken(@btnPrimaryBackground, 10%);
+						}
+					}
+
+				}
+			}
 		}
 		&.pl-color-orange{
 			background: @btnWarningBackground;
+			.navline{
+				> li{
+					&:hover,
+					&.current-menu-item,
+					&.current_page_item,
+					&.dropdown.open{
+						> a{
+							background: darken(@btnWarningBackground, 10%);
+						}
+					}
+
+				}
+			}
 		}
 
 		&.pl-color-base{
@@ -254,21 +301,25 @@
 			}
 			.navline{
 				> li{
-					> a {
-						color:rgba(0,0,0,.6);22
-						&:hover{
-							color:rgba(0,0,0,1);
+					&:hover,
+					&.current-menu-item, 
+					&.current_page_item,
+					&.active {
+						> a{
+							background: #e1e1e1;
 						}
 					}
-					&.current-menu-item > a{
-						color:rgba(0,0,0,1);
+					> a {
+						color:rgba(0,0,0,.8);
+					
 					}
+				
 					&.active > a:hover {
 						color:rgba(0,0,0,.8);
 						background-color: #ddd;
 					}
 					&.dropdown.open > a{
-						text-shadow: 0 1px 0 rgba(255,255,255,1);
+						
 						color:#000;
 						background: rgba(0, 0, 0, 0.1);
 					}

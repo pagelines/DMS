@@ -42,7 +42,7 @@ function pl_js_wrap( $js ){
 add_action('pagelines_site_wrap', 'pl_fixed_top_area');
 function pl_fixed_top_area(){
 	?>
-	<div id="fixed-top" class="pl-fixed-top" data-region="fixed-top">
+	<div id="fixed-top" class="pl-fixed-top is-not-fixed" data-region="fixed-top">
 		
 		<div class="pl-fixed-region pl-region" data-region="fixed">
 			<div class="outline pl-area-container">
