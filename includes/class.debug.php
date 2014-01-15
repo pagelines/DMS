@@ -176,7 +176,7 @@ class PageLinesDebug {
 				'value' => PHP_OS,
 			);
 
-			if ( pl_is_pro() ) {
+			if ( pl_is_activated() ) {
 				$status = get_option( 'dms_activation' );
 				$this->debug_info[] = array(
 					'title'	=> 'Licence OK',
