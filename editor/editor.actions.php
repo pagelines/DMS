@@ -291,9 +291,11 @@ function pl_up_image (){
 }
 
 add_filter( 'pagelines_global_notification', 'pagelines_check_folders_dms');
+add_filter( 'pagelines_global_notification', 'pagelines_check_dms_plugin');
+add_filter( 'pagelines_global_notification', 'pagelines_check_updater');
+
 function pagelines_check_folders_dms( $note ) {
-	
-	
+		
 	$folder = basename( get_template_directory() );
 
 	if( 'dms' != $folder && ! defined( 'DMS_CORE' ) ){
@@ -305,14 +307,16 @@ function pagelines_check_folders_dms( $note ) {
 			  	<strong><i class="icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
 
 			</div>
-
 			<?php 
 
 		$note .= ob_get_clean();
-		
-	} 
-	if( pl_is_pro() && !pl_has_dms_plugin() ){
-		
+	}
+	return $note;
+}
+
+function pagelines_check_dms_plugin( $note ) {
+	
+	if( pl_is_activated() && ! pl_has_dms_plugin() ){
 		ob_start(); ?>
 
 			<div class="editor-alert alert">
@@ -326,59 +330,54 @@ function pagelines_check_folders_dms( $note ) {
 			<?php 
 
 		$note .= ob_get_clean();
-		
-	} 
-	if ( ! pl_is_pro() ){
-		
-		// check for updater...
-		$slug = 'pagelines-updater';
-		
-		if( ! pl_check_updater_exists() ) { // need to install...
-			$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
-			$message = '<a href="' . esc_url( $install_url ) . '">Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
+	}
+	return $note;
+}
+	
+function pagelines_check_updater( $note ) {
+	// check for updater...
+	$slug = 'pagelines-updater';
+	$message = '';
+	
+	if( ! pl_check_updater_exists() ) { // need to install...
+		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
+		$message = '<a href="' . esc_url( $install_url ) . '">Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
+	} else {
+		// must be installed..maybe its not active?
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if( ! is_plugin_active( 'pagelines-updater/pagelines-updater.php' ) ) {
+			$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
+			$message = '<a href="' . esc_url( self_admin_url( $activate_url ) ) . '">Activate the PageLines Updater plugin</a> to activate your site and get updates for your PageLines themes and plugins.';
 		} else {
-			// must be installed..maybe its not active?
-			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			if( ! is_plugin_active( 'pagelines-updater/pagelines-updater.php' ) ) {
-				$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
-				$message = '<a href="' . esc_url( self_admin_url( $activate_url ) ) . '">Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.';
-			} else {
-				// were active, so then a key isnt there...
+			if( ! pl_is_activated() ) {
 				$url = 'index.php?page=pagelines_updater';
-				$message = '<a href="' . esc_url( self_admin_url( $url ) ) . '">Add your key now</a> to get updates for your PageLines themes and plugins.';
+				$message = '<a href="' . esc_url( self_admin_url( $url ) ) . '">Add your key now</a> to activate this site and get updates for your PageLines themes and plugins.';
 			}
 		}
-		
-		
-		ob_start(); ?>
-		
-		<div class="alert editor-alert">
-			<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-		  	<strong><i class="icon-star"></i> <?php _e( 'Upgrade to Pro!', 'pagelines' ); ?>
-		  	</strong> <br/>
-			<?php _e( 'You are currently using the basic DMS version. Pro activate this site for tons more features and support.', 'pagelines' ); ?>
-			
-			<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> <?php _e( 'Learn More About Pro', 'pagelines' ); ?>
-			</a>
-			<br /><em><?php _e( 'Already a Pro?', 'pagelines' ); ?></em>
-			<?php echo $message; ?>
-		</div>
-		
-		<?php 
-		
-		$note .= ob_get_clean();
 	}
-		
-	
-	
+	if( $message ) {
+		ob_start();
+		?>
+		<div class="editor-alert alert">		
+		  	<p><i class="icon-cogs"></i>
+			<?php echo $message ?>
+			</p>
+		</div>
+		<?php $note .= ob_get_clean();
+	}
 	return $note;
-		
-}
+}		
 
 // clear draft css on plugin activate/deactivate
 if( is_admin() && isset( $_REQUEST['plugin'] ) ) {
-	add_action( 'activate_' . $_REQUEST['plugin'], 'pl_flush_draft_caches' );
-	add_action( 'deactivate_' . $_REQUEST['plugin'], 'pl_flush_draft_caches' );
+	add_action( 'activate_' . $_REQUEST['plugin'], 'pl_editor_plugin_flush' );
+	add_action( 'deactivate_' . $_REQUEST['plugin'], 'pl_editor_plugin_flush' );
+}
+
+function pl_editor_plugin_flush() {
+	delete_transient( 'pagelines_sections_cache' );
+	set_theme_mod( 'editor-sections-data', array() );
+	pl_flush_draft_caches();
 }
 
 $custom_attach = new PLImageUploader();
