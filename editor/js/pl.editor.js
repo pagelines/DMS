@@ -385,6 +385,10 @@
 					
 				$.optPanel.render( config )
 				
+			} else if ( key == 'add-new'){
+				
+				$.pageTools.toggleGrid(false, 'show')
+				
 			}
 
 			selectedTab.addClass('active-tab')
