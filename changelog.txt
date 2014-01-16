@@ -5,6 +5,14 @@
 
 ********************************************************
 
+Version 1.0.3.4
+
+	- BUG - Fixes for login image.
+	- BUG - Make media image selection box slightly bigger.
+	- BUG - Adjust modal load order to remove added p tag, fixes #612
+	- BUG - namespace jquery resize script.
+	- BUG - remove non UTF8 char.
+
 Version 1.0.3.3
 	
 	- CORE - Backported a few fixes from DMS.
