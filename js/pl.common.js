@@ -21,7 +21,7 @@
 	
 	$(window).load(function() {
 		$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
-		$('.pl-section').on('resize', function(){
+		$('.pl-section').on('plresize', function(){
 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		})
 	})
@@ -223,7 +223,7 @@
 
 			$.resize.delay = 100 // resize throttle
 
-			$('.pl-fixed-top').on('resize', function(){
+			$('.pl-fixed-top').on('plresize', function(){
 				that.setHeight()
 			})
 			
