@@ -4,6 +4,13 @@
 
 ********************************************************
 
+Version 1.1.5
+
+	- BUG - Fixes for login image.
+	- BUG - Make media image selection box slightly bigger.
+	- BUG - Adjust modal load order to remove added p tag, fixes #612
+	- BUG - namespace jquery resize script. 
+
 Version 1.1.4
 
 	- CORE - Properly place icon on PageLines menu item.
