@@ -516,9 +516,17 @@ class PLImageUploader{
 			add_filter( 'media_upload_tabs', array( $this, 'filter_upload_tabs' ) );
 			add_filter( 'media_upload_mime_type_links', '__return_empty_array' );
 			add_action( 'media_upload_library' , array( $this, 'the_js' ), 15 );
+			add_action( 'admin_head', array( $this, 'media_css' ) ); 
 		}
 	}
 
+	function media_css() {
+ 
+		echo '<style type="text/css">
+		#media-upload #filter, #media-upload #media-items {
+		width: 770px;
+		}</style>';
+	}
 
 	function the_js(){
 		?>
