@@ -1,6 +1,6 @@
 <?php
 /*
-	Section: Section Area
+	Section: Canvas Area
 	Author: PageLines
 	Author URI: http://www.pagelines.com
 	Description: Creates a full width area with a nested content width region for placing sections and columns.
