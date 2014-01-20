@@ -1,6 +1,22 @@
 <?php 
 
 
+function pl_sanitize_color( $color ){
+
+	$clean = str_replace('#', '', $color);
+
+	if(preg_match('/^[a-f0-9]{6}$/i', $clean)){
+		// IS A COLOR
+	} elseif (preg_match('/^[a-f0-9]{3}$/i', $clean)){
+		$clean = $clean.$clean;
+	} else {
+		$clean = 'FFFFFF';
+	}
+
+	return sprintf('#%s', $clean);
+
+}
+
 function pl_get_thumb_post_types(){
 	$pt_objects = get_post_types( array(), 'objects');
 
