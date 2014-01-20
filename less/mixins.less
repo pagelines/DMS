@@ -6,6 +6,11 @@
 // UTILITY MIXINS
 // --------------------------------------------------
 
+
+.hex_to_rgb_bg( @color: #ffffff, @alpha: 1 ) {
+	background: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+
 // Clearfix
 // --------
 // For clearing floats like a boss h5bp.com/q
