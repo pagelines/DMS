@@ -173,7 +173,7 @@ class PageLinesSave {
 		}
 
 
-		set_theme_mod( 'pl_cache_key', substr(uniqid(), -6) );
+		pagelines_reset_pl_cache_key();
 
 		pl_meta_update( $pageID, PL_SETTINGS, $settings['local'] );
 		pl_meta_update( $typeID, PL_SETTINGS, $settings['type'] );

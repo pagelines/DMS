@@ -109,6 +109,13 @@ add_action( 'activate_plugin', 'pagelines_purge_sections_cache' );
 add_action( 'deactivate_plugin', 'pagelines_purge_sections_cache' );
 add_action( 'upgrader_process_complete', 'pagelines_purge_sections_cache' );
 add_action( 'after_switch_theme', 'pagelines_purge_sections_cache' );
+add_action( 'save_post', 'pagelines_reset_pl_cache_key' );
+
+function pagelines_reset_pl_cache_key() {
+	$key = substr(uniqid(), -6);
+	set_theme_mod( 'pl_cache_key', $key );
+	return $key;
+}
 function pagelines_purge_sections_cache() {
 	delete_transient( 'pagelines_sections_cache' );
 	set_theme_mod( 'editor-sections-data', array() );

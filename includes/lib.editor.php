@@ -736,9 +736,7 @@ function pl_get_cache_key() {
 	if ( '' != get_theme_mod( 'pl_cache_key' ) ) {
 		return get_theme_mod( 'pl_cache_key' );
 	} else { 	
-		$cache_key = substr(uniqid(), -6);
-		set_theme_mod( 'pl_cache_key', $cache_key );
-		return $cache_key;
+		return pagelines_reset_pl_cache_key();
 	}
 }
 
