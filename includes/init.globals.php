@@ -149,12 +149,30 @@ if (is_dir( PL_CHILD_DIR . '/language' )) {
 	$lang = EXTEND_CHILD_DIR . '/language';
 	$lang_url = EXTEND_CHILD_URL . '/language';
 } else {
-	$lang = PL_PARENT_DIR . '/language';
-	$lang_url = PL_PARENT_URL . '/language';
-}
-define( 'PAGELINES_LANGUAGE_DIR', $lang );
-define( 'PAGELINES_LANGUAGE_URL', $lang_url );
 
+}
+
+// dms core language folder
+$corelang = PL_PARENT_DIR . '/language';
+$corelang_url = PL_PARENT_URL . '/language';
+define( 'PAGELINES_CORE_LANG_DIR', $corelang );
+define( 'PAGELINES_CORE_LANG_URL', $corelang_url );
+
+// secondary lang folder, this will be ./language if its a CORE theme, or stylesheet_dir/language if its a normal child theme.
+
+if( defined( 'DMS_CORE' ) ) {
+	if( is_dir( PL_THEME_DIR . '/language') ) {
+		$lang = PL_THEME_DIR . '/language';
+		$lang_url = PL_THEME_URL . '/language';
+	}
+} elseif( is_dir( EXTEND_CHILD_DIR . '/language' ) ) {
+	$lang = EXTEND_CHILD_DIR . '/language';
+	$lang_url = EXTEND_CHILD_URL . '/language';
+}
+if( isset( $lang ) ) {
+	define( 'PAGELINES_THEME_LANG_DIR', $lang );
+	define( 'PAGELINES_THEME_LANG_URL', $lang_url );
+}
 /**
  * Pro/Free Version Variables
  */

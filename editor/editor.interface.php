@@ -139,10 +139,16 @@ class EditorInterface {
 	function lang_head() {
 		$locale = get_locale();
 		$text = '';
-		$langurl = sprintf( '%s/%s.po', PAGELINES_LANGUAGE_URL, $locale );
-		$langfile = sprintf( '%s/%s.po', PAGELINES_LANGUAGE_DIR, $locale );
-		if( is_file( $langfile ) )
-			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $langurl );
+		$core_lang_url = sprintf( '%s/%s.po', PAGELINES_CORE_LANG_URL, $locale );
+		$core_lang_file = sprintf( '%s/%s.po', PAGELINES_CORE_LANG_DIR, $locale );
+		if( is_file( $core_lang_file ) )
+			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $core_lang_url );
+
+		$theme_lang_url = sprintf( '%s/%s.po', PAGELINES_THEME_LANG_URL, $locale );
+		$theme_lang_file = sprintf( '%s/%s.po', PAGELINES_THEME_LANG_DIR, $locale );
+
+		if( is_file( $theme_lang_file ) )
+			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $theme_lang_url );
 
 		echo $text;
 	}
