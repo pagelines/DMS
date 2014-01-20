@@ -79,7 +79,8 @@
 		}
 		
 	}
-	.custom-template{
+	.custom-template,
+	.custom-section{
 		.pl-region-bar{
 			background: rgba(255, 179, 51, .1);
 			border-top: 1px dashed #ffb333;
@@ -706,10 +707,13 @@
 				box-shadow: none;
 				border-right: 1px solid transparent;
 				overflow: hidden;
-
+				
 				width: 130px;
 				height: 28px;
 				> li {
+					.not-btn{
+						box-shadow: none;
+					}
 					&.switch-btn{
 						right: 0;
 						top: -30px;
