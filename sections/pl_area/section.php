@@ -40,7 +40,12 @@ class PLSectionArea extends PageLinesSection {
 					'count_mult'	=> 10,
 					'suffix'		=> 'px',
 					'label' 	=> __( 'Area Padding Bottom (if different)', 'pagelines' ),
-				)
+				),
+				array(
+					'key'			=> 'pl_area_height',
+					'type' 			=> 'text',
+					'label' 	=> __( 'Area Minimum Height (px)', 'pagelines' ),
+				),
 			),
 			
 
@@ -58,24 +63,31 @@ class PLSectionArea extends PageLinesSection {
 					'key'			=> 'pl_area_bg',
 					'type' 			=> 'select',
 					'opts'	=> array(
-						'pl-trans'		=> array('name'=> 'Transparent Background and Default Text Color'),
-						'pl-contrast'	=> array('name'=> 'Contrast Color and Default Text Color'),
-						'pl-black'		=> array('name'=> 'Black Background &amp; White Text'),
-						'pl-grey'		=> array('name'=> 'Dark Grey Background &amp; White Text'),
-						'pl-dark-img'	=> array('name'=> 'Image-Dark: Embossed Light Text.'),
-						'pl-light-img'	=> array('name'=> 'Image-Light: Embossed Dark Text.'),
-						'pl-base'		=> array('name'=> 'Base Background and Default Text Color'),
+						'pl-trans'		=> array('name'=> 'Site Text Color, No BG Color'),
+						'pl-contrast'	=> array('name'=> 'Site Text Color, Contrast BG'),
+						'pl-black'		=> array('name'=> 'White Text Color, Black BG Color'),
+						'pl-grey'		=> array('name'=> 'White Text Color, Dark Grey BG Color'),
+						'pl-white'		=> array('name'=> 'Black Text Color, White BG Color'),
+						'pl-dark-img'	=> array('name'=> 'White Text Color w Shadow, Black BG Color'),
+						'pl-light-img'	=> array('name'=> 'Black Text Color w Shadow, White BG Color'),
+						'pl-base'		=> array('name'=> 'Site Text Color, Site Base BG Color'),
 					),
 					'label' 	=> __( 'Area Theme', 'pagelines' ),
 
 				),
+				
 				array(
-					'key'			=> 'pl_area_height',
-					'type' 			=> 'text',
-					'label' 	=> __( 'Area Minimum Height (px)', 'pagelines' ),
+					'key'			=> 'pl_area_bg_color_enable',
+					'type' 			=> 'check',
+					'label' 	=> __( 'Use Custom Background Color?', 'pagelines' ),
+				),
+				array(
+					'key'			=> 'pl_area_bg_color',
+					'type' 			=> 'color',
+					'label' 	=> __( 'Select Custom Background Color', 'pagelines' ),
 				)
 			),
-			
+			'help' => __( 'Use a combination of the area color theme (which sets text color and base background color) along with images or a custom background color to create completely custom effects.', 'pagelines' ),
 
 		);
 		
@@ -150,7 +162,7 @@ class PLSectionArea extends PageLinesSection {
 		
 		$classes = '';
 		
-		
+		$style .= ( $this->opt('pl_area_bg_color_enable') && $this->opt('pl_area_bg_color') ) ? sprintf( 'background: %s;', pl_sanitize_color( $this->opt('pl_area_bg_color') ) ) : '';	
 		
 		$classes .= ($this->opt('pl_area_bg_repeat')) ? ' pl-bg-repeat' : ' pl-bg-cover';
 		

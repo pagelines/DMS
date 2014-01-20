@@ -214,13 +214,21 @@ body .pl-area .pl-section{
  * STANDARD COLORING
  ***********************************/
 .pl-contrast{
-	background: @baseContrastSlight;
+	.hex_to_rgb_bg( @pl-text, .1 );
 	.pl-contrast{
-		background: @baseContrast;
+		.hex_to_rgb_bg( @pl-text, .1 );
 	}
 }
 .pl-base{
 	background: @pl-base;
+}
+
+.pl-white{
+	color: #000; 
+	background: #fff; 
+	.pl-contrast{
+		background: rgba(0,0,0,.07); 
+	}
 }
 
 .pl-black,
@@ -233,19 +241,17 @@ body .pl-area .pl-section{
 		opacity: .7;
 		color:inherit;
 	}
+	.pl-contrast{
+		background: rgba(255,255,255,.2); 
+	}
 }
 .pl-black{
 	background:#000; 
-	.pl-contrast{
-		background: #222; 
-	}
+	
 }
 
 .pl-grey{
 	background:#1c1c1c; 
-	.pl-contrast{
-		background: #000; 
-	}
 }
 
 .pl-dark-img{
