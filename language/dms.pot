@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2014-01-09 16:13-0000\n"
-"PO-Revision-Date: 2014-01-09 16:14-0000\n"
+"POT-Creation-Date: 2014-01-20 21:01-0000\n"
+"PO-Revision-Date: 2014-01-20 21:01-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -122,7 +122,7 @@ msgid "Save Scripts"
 msgstr ""
 
 #: ../admin/admin.postmeta.php:9
-msgid "Gallery Configuration"
+msgid "Gallery"
 msgstr ""
 
 #: ../admin/admin.postmeta.php:16
@@ -133,93 +133,85 @@ msgstr ""
 msgid "Would you like to turn your gallery into a slider?"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:33
+#: ../admin/admin.postmeta.php:34
 msgid "Quote Settings"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:40
+#: ../admin/admin.postmeta.php:41
 msgid "Quote Content"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:41
+#: ../admin/admin.postmeta.php:42
 msgid "Please type the text for your quote here."
 msgstr ""
 
-#: ../admin/admin.postmeta.php:55
+#: ../admin/admin.postmeta.php:57
 msgid "Link Settings"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:62 ../sections/propricing/section.php:80
+#: ../admin/admin.postmeta.php:64
 msgid "Link URL"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:63
-msgid "Please input the URL for your link. I.e. http://www.themenectar.com"
+#: ../admin/admin.postmeta.php:65
+msgid "Please input the URL for your link. I.e. http://www.pagelines.com"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:77
+#: ../admin/admin.postmeta.php:79
 msgid "Video Settings"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:84
+#: ../admin/admin.postmeta.php:86
 msgid "M4V File URL"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:85
-msgid ""
-"Please upload the .m4v video file. <br/><strong>You must include both "
-"formats.</strong>"
+#: ../admin/admin.postmeta.php:87
+msgid "Please upload the .m4v video file."
 msgstr ""
 
-#: ../admin/admin.postmeta.php:91
+#: ../admin/admin.postmeta.php:93
 msgid "OGV File URL"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:92
-msgid ""
-"Please upload the .ogv video file  <br/><strong>You must include both "
-"formats.</strong>"
+#: ../admin/admin.postmeta.php:94
+msgid "Please upload the .ogv video file"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:98
+#: ../admin/admin.postmeta.php:100
 msgid "Preview Image"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:99
-msgid ""
-"Image should be at least 680px wide. Click the \"Upload\" button to begin "
-"uploading your image, followed by \"Select File\" once you have made your "
-"selection. Only applies to self hosted videos."
+#: ../admin/admin.postmeta.php:101
+msgid "Image should be at least 680px wide.Only applies to self hosted videos."
 msgstr ""
 
-#: ../admin/admin.postmeta.php:105
+#: ../admin/admin.postmeta.php:107
 msgid "Embedded Code"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:106
+#: ../admin/admin.postmeta.php:108
 msgid ""
 "If the video is an embed rather than self hosted, enter in a Vimeo or "
-"Youtube embed code here. <strong> Embeds work worse with the parallax "
-"effect, but if you must use this, Vimeo is recommended. </strong> "
+"Youtube embed code here."
 msgstr ""
 
-#: ../admin/admin.postmeta.php:120
+#: ../admin/admin.postmeta.php:122
 msgid "Audio Settings"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:127
+#: ../admin/admin.postmeta.php:129
 msgid "MP3 File URL"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:128
-msgid "Please enter in the URL to the .mp3 file"
+#: ../admin/admin.postmeta.php:130
+msgid "Please enter in the .mp3 file URL"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:134
+#: ../admin/admin.postmeta.php:136
 msgid "OGA File URL"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:135
+#: ../admin/admin.postmeta.php:137
 msgid "Please enter in the URL to the .ogg or .oga file"
 msgstr ""
 
@@ -235,7 +227,7 @@ msgstr ""
 msgid "Add Media"
 msgstr ""
 
-#: ../admin/admin.postmeta.php:213
+#: ../admin/admin.postmeta.php:214
 msgid "Remove Media"
 msgstr ""
 
@@ -248,40 +240,22 @@ msgstr ""
 msgid "Upload Error: %s"
 msgstr ""
 
-#: ../editor/editor.actions.php:320
+#: ../editor/editor.actions.php:324
 msgid "Install DMS Utilities"
 msgstr ""
 
-#: ../editor/editor.actions.php:321
+#: ../editor/editor.actions.php:325
 msgid ""
 "Your site is \"Pro activated\" but you have not installed the DMS Pro tools "
 "plugin. Grab the plugin on <a href=\"http://www.pagelines.com/my-account\" "
 ">PageLines.com &rarr; My-Account</a>."
 msgstr ""
 
-#: ../editor/editor.actions.php:357
-msgid "Upgrade to Pro!"
-msgstr ""
-
-#: ../editor/editor.actions.php:359
-msgid ""
-"You are currently using the basic DMS version. Pro activate this site for "
-"tons more features and support."
-msgstr ""
-
-#: ../editor/editor.actions.php:361
-msgid "Learn More About Pro"
-msgstr ""
-
-#: ../editor/editor.actions.php:363
-msgid "Already a Pro?"
-msgstr ""
-
-#: ../editor/editor.actions.php:452
+#: ../editor/editor.actions.php:459
 msgid "Select This Image For Option"
 msgstr ""
 
-#: ../editor/editor.actions.php:474 ../editor/js/pl.optpanel.js:1536
+#: ../editor/editor.actions.php:481 ../editor/js/pl.optpanel.js:1546
 msgid "Media Library"
 msgstr ""
 
@@ -474,10 +448,8 @@ msgstr ""
 
 #: ../editor/editor.developer.php:207
 msgid ""
-"Enables LESS recompile on every editor load, useful when doing a lot of "
-"graphical LESS development since you dont have to manually hit publish to "
-"recompile.<br /><strong>Note:</strong> This is VERY server intensive, be "
-"careful!!"
+"Less subsystem will check files for changed less code on every pageload and "
+"recompile if there are changes."
 msgstr ""
 
 #: ../editor/editor.developer.php:213
@@ -489,8 +461,7 @@ msgid "No Cache Mode"
 msgstr ""
 
 #: ../editor/editor.developer.php:215
-msgid ""
-"Disables section data caching. Useful for theme/section/plugin developers."
+msgid "Disables all caching including all CSS/LESS."
 msgstr ""
 
 #: ../editor/editor.handler.php:205
@@ -776,14 +747,8 @@ msgstr ""
 msgid "Secondary Navigation Menu"
 msgstr ""
 
-#: ../editor/editor.loader.php:99
+#: ../editor/editor.loader.php:100
 msgid "Loading DMS Editor"
-msgstr ""
-
-#: ../editor/editor.loader.php:102
-msgid ""
-"Issues loading? See the <a href=\"http://docs.pagelines.com/support-"
-"troubleshooting/common-issues\" target=\"_blank\">troubleshooting guide</a>."
 msgstr ""
 
 #: ../editor/editor.objects.php:24 ../editor/editor.sections.php:458
@@ -976,7 +941,7 @@ msgid ""
 msgstr ""
 
 #: ../editor/editor.settings.config.php:177
-msgid "Upload Login Image (160px Height)"
+msgid "Upload Login Image (80px Height)"
 msgstr ""
 
 #: ../editor/editor.settings.config.php:180
@@ -1350,7 +1315,7 @@ msgstr ""
 msgid "Page Order"
 msgstr ""
 
-#: ../editor/editor.templates.php:563 ../editor/js/pl.optpanel.js:715
+#: ../editor/editor.templates.php:563 ../editor/js/pl.optpanel.js:725
 msgid "Default"
 msgstr ""
 
@@ -1558,38 +1523,34 @@ msgstr ""
 msgid "Theme Opts"
 msgstr ""
 
-#: ../includes/class.shortcodes.php:325
+#: ../includes/class.shortcodes.php:174
 msgid "<span class='editpage sc'>Edit</span>"
 msgstr ""
 
-#: ../includes/class.shortcodes.php:375
+#: ../includes/class.shortcodes.php:224
 msgid "Tagged With: "
 msgstr ""
 
-#: ../includes/class.shortcodes.php:399
+#: ../includes/class.shortcodes.php:248
 msgid "Type: "
 msgstr ""
 
-#: ../includes/class.shortcodes.php:430
-msgid "0 <i class='icon-comments'></i>"
+#: ../includes/class.shortcodes.php:279
+msgid "Add Comment"
 msgstr ""
 
-#: ../includes/class.shortcodes.php:431
-msgid "1 <i class='icon-comments'></i>"
+#: ../includes/class.shortcodes.php:280
+msgid "1 Comment"
 msgstr ""
 
-#: ../includes/class.shortcodes.php:432
+#: ../includes/class.shortcodes.php:281
 #, php-format
-msgid "%s <i class='icon-comments'></i>"
+msgid "%s Comments"
 msgstr ""
 
-#: ../includes/class.shortcodes.php:513
+#: ../includes/class.shortcodes.php:366
 #, php-format
 msgid "Visit %s&#8217;s website"
-msgstr ""
-
-#: ../includes/class.shortcodes.php:1379 ../editor/js/pl.xlist.js:157
-msgid "Close"
 msgstr ""
 
 #: ../includes/deprecated.php:272
@@ -1672,58 +1633,54 @@ msgid ""
 ">Watch the video below for help getting started."
 msgstr ""
 
-#: ../includes/less.legacy.php:453
+#: ../includes/less.legacy.php:454
 #, php-format
 msgid ""
 "%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s."
 "*/"
 msgstr ""
 
-#: ../includes/less.legacy.php:505
+#: ../includes/less.legacy.php:506
 msgid "LESS Compile error!"
 msgstr ""
 
-#: ../includes/less.legacy.php:512
+#: ../includes/less.legacy.php:513
 #, php-format
 msgid "Error in %s Less code: %s"
 msgstr ""
 
-#: ../includes/less.legacy.php:739
+#: ../includes/less.legacy.php:740
 #, php-format
 msgid ""
 "%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of "
 "unicorn dust%s.*/"
 msgstr ""
 
-#: ../includes/lib.editor.php:83
-msgid "(Pro Edition Only)"
-msgstr ""
-
-#: ../includes/lib.editor.php:258
+#: ../includes/lib.editor.php:248
 msgid "No Animation"
 msgstr ""
 
-#: ../includes/lib.editor.php:259
+#: ../includes/lib.editor.php:249
 msgid "Fade"
 msgstr ""
 
-#: ../includes/lib.editor.php:260
+#: ../includes/lib.editor.php:250
 msgid "Scale"
 msgstr ""
 
-#: ../includes/lib.editor.php:261
+#: ../includes/lib.editor.php:251
 msgid "From Left"
 msgstr ""
 
-#: ../includes/lib.editor.php:262
+#: ../includes/lib.editor.php:252
 msgid "From Right"
 msgstr ""
 
-#: ../includes/lib.editor.php:263
+#: ../includes/lib.editor.php:253
 msgid "From Bottom"
 msgstr ""
 
-#: ../includes/lib.editor.php:264
+#: ../includes/lib.editor.php:254
 msgid "From Top"
 msgstr ""
 
@@ -1778,23 +1735,35 @@ msgstr ""
 msgid "Google Profile URL"
 msgstr ""
 
-#: ../includes/lib.head.php:299
+#: ../includes/lib.head.php:301
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: ../includes/lib.head.php:321
+#: ../includes/lib.head.php:323
 msgid "|"
 msgstr ""
 
-#: ../includes/lib.head.php:333
+#: ../includes/lib.head.php:335
 #, php-format
 msgid "Search Results: %s"
 msgstr ""
 
-#: ../includes/lib.head.php:337
+#: ../includes/lib.head.php:339
 #, php-format
 msgid "Page: %s"
+msgstr ""
+
+#: ../includes/lib.theming.php:40 ../sections/postloop/class.posts.php:696
+msgid "Nothing Found"
+msgstr ""
+
+#: ../includes/lib.theming.php:42 ../sections/postloop/class.posts.php:698
+msgid "Try another search?"
+msgstr ""
+
+#: ../includes/lib.theming.php:42 ../sections/postloop/class.posts.php:698
+msgid "Sorry, what you are looking for isn't here."
 msgstr ""
 
 #: ../includes/lib.utils.php:176
@@ -1806,28 +1775,38 @@ msgstr ""
 msgid "Configure this section"
 msgstr ""
 
-#: ../includes/library.pagelines.php:14
+#: ../includes/library.pagelines.php:22
+msgid "Upgrade to Pro!"
+msgstr ""
+
+#: ../includes/library.pagelines.php:24
+msgid ""
+"You are currently using the basic DMS version. Pro activate this site for "
+"tons more features and support."
+msgstr ""
+
+#: ../includes/library.pagelines.php:26
+msgid "Learn More About Pro"
+msgstr ""
+
+#: ../includes/library.pagelines.php:50
+msgid "(Pro Edition Only)"
+msgstr ""
+
+#: ../includes/library.pagelines.php:77
 msgid "Dashboard"
 msgstr ""
 
-#: ../includes/utils.love.php:76
+#: ../includes/library.pagelines.php:1029 ../editor/js/pl.xlist.js:157
+msgid "Close"
+msgstr ""
+
+#: ../includes/utils.love.php:74
 msgid "Love this"
 msgstr ""
 
-#: ../includes/utils.love.php:79
+#: ../includes/utils.love.php:77
 msgid "You already love this!"
-msgstr ""
-
-#: ../includes/utils.theming.php:40 ../sections/postloop/class.posts.php:696
-msgid "Nothing Found"
-msgstr ""
-
-#: ../includes/utils.theming.php:42 ../sections/postloop/class.posts.php:698
-msgid "Try another search?"
-msgstr ""
-
-#: ../includes/utils.theming.php:42 ../sections/postloop/class.posts.php:698
-msgid "Sorry, what you are looking for isn't here."
 msgstr ""
 
 #: ../sections/columnizer/section.php:52
@@ -1897,8 +1876,7 @@ msgstr ""
 msgid "The Latest"
 msgstr ""
 
-#: ../sections/columnizer/section.php:180 ../sections/rapidtabs/section.php:56
-#: ../sections/rapidtabs/section.php:138
+#: ../sections/columnizer/section.php:180
 msgid "Tags"
 msgstr ""
 
@@ -1907,207 +1885,9 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: ../sections/columnizer/section.php:205 ../editor/js/pl.optpanel.js:834
-#: ../editor/js/pl.optpanel.js:925
+#: ../sections/columnizer/section.php:205 ../editor/js/pl.optpanel.js:844
+#: ../editor/js/pl.optpanel.js:935
 msgid "More Info"
-msgstr ""
-
-#: ../sections/flipper/section.php:35
-msgid "Flipper Setup"
-msgstr ""
-
-#: ../sections/flipper/section.php:43
-msgid "Which post type should Flipper use?"
-msgstr ""
-
-#: ../sections/flipper/section.php:44
-msgid ""
-"<strong>Note</strong><br/> Post types for this section must have \"featured "
-"images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
-"to create custom post types for use with Flipper."
-msgstr ""
-
-#: ../sections/flipper/section.php:57
-msgid "Max Number of Posts Shown"
-msgstr ""
-
-#: ../sections/flipper/section.php:58
-msgid ""
-"This controls the maximum number of posts shown. A smaller amount may be "
-"shown based on layout width."
-msgstr ""
-
-#: ../sections/flipper/section.php:65
-msgid "Select Image Size"
-msgstr ""
-
-#: ../sections/flipper/section.php:72
-msgid "Flipper Title"
-msgstr ""
-
-#: ../sections/flipper/section.php:74
-msgid "Options to control the text and link in the Flipper title."
-msgstr ""
-
-#: ../sections/flipper/section.php:79
-msgid "Flipper Title Text"
-msgstr ""
-
-#: ../sections/flipper/section.php:84
-msgid "Hide Title Link?"
-msgstr ""
-
-#: ../sections/flipper/section.php:96
-msgid "Flipper Meta"
-msgstr ""
-
-#: ../sections/flipper/section.php:97
-msgid ""
-"Use shortcodes to control the dynamic meta info. Example shortcodes you can "
-"use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
-"li><li><strong>[post_edit]</strong> - Link for admins to edit the post</"
-"li><li><strong>[post_tags]</strong> - List of post tags</"
-"li><li><strong>[post_comments]</strong> - Link to post comments</"
-"li><li><strong>[post_author_posts_link]</strong> - Author and link to "
-"archive</li><li><strong>[post_author_link]</strong> - Link to author URL</"
-"li><li><strong>[post_author]</strong> - Post author with no link</"
-"li><li><strong>[post_time]</strong> - Time of post</"
-"li><li><strong>[post_date]</strong> - Date of post</"
-"li><li><strong>[post_type]</strong> - Type of post</li></ul>"
-msgstr ""
-
-#: ../sections/flipper/section.php:105
-msgid "Total Posts Loaded"
-msgstr ""
-
-#: ../sections/flipper/section.php:114
-msgid "Meta Key"
-msgstr ""
-
-#: ../sections/flipper/section.php:115
-msgid ""
-"Select only posts which have a certain meta key and corresponding meta "
-"value. Useful for featured posts, or similar."
-msgstr ""
-
-#: ../sections/flipper/section.php:121
-msgid "Meta Key Value"
-msgstr ""
-
-#: ../sections/flipper/section.php:136
-msgid "Only applies for standard blog posts."
-msgstr ""
-
-#: ../sections/flipper/section.php:145
-msgid "Additional Post Selection"
-msgstr ""
-
-#: ../sections/flipper/section.php:207
-msgid " / View All"
-msgstr ""
-
-#: ../sections/flipper/section.php:212
-msgid " / View Blog"
-msgstr ""
-
-#: ../sections/flipper/section.php:254
-#: ../sections/postloop/class.posts.php:505
-msgid "View"
-msgstr ""
-
-#: ../sections/hero/section.php:27
-msgid "Hero Settings"
-msgstr ""
-
-#: ../sections/hero/section.php:34
-msgid "Heading"
-msgstr ""
-
-#: ../sections/hero/section.php:39
-msgid "Subtext"
-msgstr ""
-
-#: ../sections/hero/section.php:44
-msgid "Hero Image"
-msgstr ""
-
-#: ../sections/hero/section.php:50
-msgid "Upload Custom Image"
-msgstr ""
-
-#: ../sections/hero/section.php:55
-msgid "Reverse the Hero unit (image on left)"
-msgstr ""
-
-#: ../sections/hero/section.php:59
-msgid "Content Widths"
-msgstr ""
-
-#: ../sections/hero/section.php:65
-msgid "Text Area Width"
-msgstr ""
-
-#: ../sections/hero/section.php:81
-msgid "Image Area Width"
-msgstr ""
-
-#: ../sections/hero/section.php:99
-msgid "Hero Action Button"
-msgstr ""
-
-#: ../sections/hero/section.php:107
-msgid "Button link destination (URL - Required)"
-msgstr ""
-
-#: ../sections/hero/section.php:112
-msgid "Hero Button Text"
-msgstr ""
-
-#: ../sections/hero/section.php:118 ../sections/icallout/section.php:57
-msgid "Open link in new window"
-msgstr ""
-
-#: ../sections/hero/section.php:121 ../sections/masthead/section.php:120
-#: ../sections/masthead/section.php:304 ../sections/masthead/section.php:339
-msgid "Select Button Color"
-msgstr ""
-
-#: ../sections/hero/section.php:127 ../sections/masthead/section.php:306
-#: ../sections/masthead/section.php:341 ../sections/navbar/section.php:58
-msgid "Blue"
-msgstr ""
-
-#: ../sections/hero/section.php:128 ../sections/masthead/section.php:307
-#: ../sections/masthead/section.php:342 ../sections/navbar/section.php:60
-msgid "Orange"
-msgstr ""
-
-#: ../sections/hero/section.php:129 ../sections/masthead/section.php:308
-#: ../sections/masthead/section.php:343 ../sections/navbar/section.php:61
-msgid "Red"
-msgstr ""
-
-#: ../sections/hero/section.php:130 ../sections/masthead/section.php:309
-#: ../sections/masthead/section.php:344
-msgid "Green"
-msgstr ""
-
-#: ../sections/hero/section.php:131 ../sections/masthead/section.php:310
-#: ../sections/masthead/section.php:345
-msgid "Light Blue"
-msgstr ""
-
-#: ../sections/hero/section.php:132 ../sections/masthead/section.php:311
-#: ../sections/masthead/section.php:346
-msgid "Grey"
-msgstr ""
-
-#: ../sections/hero/section.php:166
-msgid "The Hero!"
-msgstr ""
-
-#: ../sections/hero/section.php:167
-msgid "Now just set up your Hero section options"
 msgstr ""
 
 #: ../sections/highlight/section.php:29
@@ -2247,159 +2027,16 @@ msgstr ""
 msgid "iBox "
 msgstr ""
 
-#: ../sections/icallout/section.php:24
-msgid "Callout Format"
-msgstr ""
-
-#: ../sections/icallout/section.php:26
-msgid "Text on top of button"
-msgstr ""
-
-#: ../sections/icallout/section.php:27
-msgid "Text/Button Inline"
-msgstr ""
-
-#: ../sections/icallout/section.php:32 ../sections/icallout/section.php:38
-msgid "Callout Text"
-msgstr ""
-
-#: ../sections/icallout/section.php:51
-msgid "URL"
-msgstr ""
-
-#: ../sections/icallout/section.php:62
-msgid "Text on Button"
-msgstr ""
-
-#: ../sections/icallout/section.php:67
-msgid "Button Color"
-msgstr ""
-
-#: ../sections/icallout/section.php:89
-msgid "Call to action!"
-msgstr ""
-
-#: ../sections/masthead/section.php:47 ../sections/masthead/section.php:250
-msgid "Masthead Splash Options"
-msgstr ""
-
-#: ../sections/masthead/section.php:53 ../sections/masthead/section.php:256
-msgid "Upload custom image"
-msgstr ""
-
-#: ../sections/masthead/section.php:58 ../sections/masthead/section.php:260
-msgid "Masthead Video (optional, to be used instead of image)"
-msgstr ""
-
-#: ../sections/masthead/section.php:63 ../sections/masthead/section.php:264
-msgid "Maximum width of splash in px (default is full width)"
-msgstr ""
-
-#: ../sections/masthead/section.php:66 ../sections/masthead/section.php:267
-msgid ""
-"Upload an image to serve as a splash image, or use an embed code for full "
-"width video."
-msgstr ""
-
-#: ../sections/masthead/section.php:72
-msgid "Masthead Text"
-msgstr ""
-
-#: ../sections/masthead/section.php:73 ../sections/masthead/section.php:273
-msgid " Text"
-msgstr ""
-
-#: ../sections/masthead/section.php:78 ../sections/masthead/section.php:275
-#: ../sections/mediabox/section.php:30 ../sections/popthumbs/section.php:69
-#: ../sections/propricing/section.php:53
-msgid "Title"
-msgstr ""
-
-#: ../sections/masthead/section.php:83 ../sections/masthead/section.php:276
-msgid "Tagline"
-msgstr ""
-
-#: ../sections/masthead/section.php:96
-msgid "Masthead Action Button "
-msgstr ""
-
-#: ../sections/masthead/section.php:101 ../sections/masthead/section.php:288
-#: ../sections/masthead/section.php:323
-msgid "Enter the link destination (URL - Required)"
-msgstr ""
-
-#: ../sections/masthead/section.php:107 ../sections/masthead/section.php:293
-#: ../sections/masthead/section.php:328
-msgid "Masthead Button Text"
-msgstr ""
-
-#: ../sections/masthead/section.php:114 ../sections/masthead/section.php:299
-#: ../sections/masthead/section.php:334
-msgid "Open link in new window."
-msgstr ""
-
-#: ../sections/masthead/section.php:133 ../sections/masthead/section.php:354
-msgid "Masthead Menu"
-msgstr ""
-
-#: ../sections/masthead/section.php:134 ../sections/masthead/section.php:355
-msgid "Select Masthead Menu"
-msgstr ""
-
-#: ../sections/masthead/section.php:140 ../sections/masthead/section.php:360
-msgid "Masthead Meta"
-msgstr ""
-
-#: ../sections/masthead/section.php:141 ../sections/masthead/section.php:361
-msgid "Enter Masthead Meta Text"
-msgstr ""
-
-#: ../sections/masthead/section.php:198
-msgid "Start Here"
-msgstr ""
-
-#: ../sections/masthead/section.php:251
-msgid ""
-"Enter the options for the masthead splash image. If no options are "
-"specified, no image will be shown."
-msgstr ""
-
-#: ../sections/masthead/section.php:272
-msgid "Enter text for your masthead banner section"
-msgstr ""
-
-#: ../sections/masthead/section.php:278
-msgid "The text for the masthead section"
-msgstr ""
-
-#: ../sections/masthead/section.php:283
-msgid "Masthead Action Button 1"
-msgstr ""
-
-#: ../sections/masthead/section.php:284 ../sections/masthead/section.php:319
-msgid ""
-"Enter the options for the masthead button. If no options are specified, no "
-"button will be shown."
-msgstr ""
-
-#: ../sections/masthead/section.php:318
-msgid "Masthead Action Button 2"
-msgstr ""
-
-#: ../sections/masthead/section.php:352
-msgid "Choose a Wordpress menu to display (optional)"
-msgstr ""
-
-#: ../sections/masthead/section.php:358
-msgid "Enter text to be shown on Masthead (optional)"
-msgstr ""
-
 #: ../sections/mediabox/section.php:18
 msgid "MediaBox Media"
 msgstr ""
 
 #: ../sections/mediabox/section.php:25
 msgid "MediaBox Image"
+msgstr ""
+
+#: ../sections/mediabox/section.php:30
+msgid "Title"
 msgstr ""
 
 #: ../sections/mediabox/section.php:35
@@ -2454,73 +2091,85 @@ msgstr ""
 msgid "MediaBox Background Image"
 msgstr ""
 
-#: ../sections/navbar/section.php:40 ../sections/navbar/section.php:41
+#: ../sections/navbar/section.php:39 ../sections/navbar/section.php:40
 msgid "NavBar Logo"
 msgstr ""
 
-#: ../sections/navbar/section.php:42
+#: ../sections/navbar/section.php:41
 msgid ""
 "Use this feature to add the NavBar section as a fixed navigation bar on the "
 "top of your site.<br/><br/><strong>Notes:</strong> <br/>1. Only visible in "
 "Fixed Mode.<br/>2. Image Height is constricted to a maximum 29px."
 msgstr ""
 
-#: ../sections/navbar/section.php:54
+#: ../sections/navbar/section.php:53
 msgid "Standard NavBar - Select Theme"
 msgstr ""
 
-#: ../sections/navbar/section.php:56
+#: ../sections/navbar/section.php:55
 msgid "Base Color"
 msgstr ""
 
-#: ../sections/navbar/section.php:57
+#: ../sections/navbar/section.php:56
 msgid "Black (Default)"
 msgstr ""
 
-#: ../sections/navbar/section.php:59
+#: ../sections/navbar/section.php:57
+msgid "Blue"
+msgstr ""
+
+#: ../sections/navbar/section.php:58
 msgid "Light Grey"
 msgstr ""
 
-#: ../sections/navbar/section.php:65
+#: ../sections/navbar/section.php:59
+msgid "Orange"
+msgstr ""
+
+#: ../sections/navbar/section.php:60
+msgid "Red"
+msgstr ""
+
+#: ../sections/navbar/section.php:64
 msgid "NavBar Theme"
 msgstr ""
 
-#: ../sections/navbar/section.php:66
+#: ../sections/navbar/section.php:65
 msgid ""
 "The NavBar comes with several color options. Select one to automatically "
 "configure."
 msgstr ""
 
-#: ../sections/navbar/section.php:72
+#: ../sections/navbar/section.php:71
 msgid "NavBar Menu"
 msgstr ""
 
-#: ../sections/navbar/section.php:73
+#: ../sections/navbar/section.php:72
 msgid "The NavBar uses WordPress menus. Select one for use."
 msgstr ""
 
-#: ../sections/navbar/section.php:78 ../sections/simple_nav/section.php:34
+#: ../sections/navbar/section.php:77 ../sections/simple_nav/section.php:34
 #: ../sections/simple_nav/section.php:40
 msgid "Select Menu"
 msgstr ""
 
-#: ../sections/navbar/section.php:87
+#: ../sections/navbar/section.php:86
 msgid "NavBar Configuration Options"
 msgstr ""
 
-#: ../sections/navbar/section.php:93
+#: ../sections/navbar/section.php:92
 msgid "Activate dropdowns on hover."
 msgstr ""
 
-#: ../sections/navbar/section.php:100
+#: ../sections/navbar/section.php:99
 msgid "Align Menu Right? (Defaults Left)"
 msgstr ""
 
-#: ../sections/navbar/section.php:106
+#: ../sections/navbar/section.php:105
 msgid "Hide Search?"
 msgstr ""
 
-#: ../sections/navbar/section.php:164
+#: ../sections/navbar/section.php:163
 msgid "MENU"
 msgstr ""
 
@@ -2599,30 +2248,6 @@ msgstr ""
 msgid "Scrolling effects and parallax."
 msgstr ""
 
-#: ../sections/popthumbs/section.php:42
-msgid "PopThumb Configuration"
-msgstr ""
-
-#: ../sections/popthumbs/section.php:51
-msgid "Number of Columns for Each Thumb (12 Col Grid)"
-msgstr ""
-
-#: ../sections/popthumbs/section.php:62
-msgid "PopThumbs Setup"
-msgstr ""
-
-#: ../sections/popthumbs/section.php:63 ../sections/popthumbs/section.php:80
-msgid "Thumb"
-msgstr ""
-
-#: ../sections/popthumbs/section.php:74
-msgid "Text"
-msgstr ""
-
-#: ../sections/popthumbs/section.php:85
-msgid "Image"
-msgstr ""
-
 #: ../sections/postauthor/section.php:35
 msgid "Author Setup"
 msgstr ""
@@ -2645,7 +2270,7 @@ msgid "Authors Google Profile &rarr;"
 msgstr ""
 
 #: ../sections/postloop/class.posts.php:37
-#: ../sections/postloop/section.php:186
+#: ../sections/postloop/section.php:349
 msgid "Read More &raquo;"
 msgstr ""
 
@@ -2675,16 +2300,20 @@ msgstr ""
 msgid "In"
 msgstr ""
 
+#: ../sections/postloop/class.posts.php:505 ../sections/postloop/loop.php:42
+msgid "View"
+msgstr ""
+
 #: ../sections/postloop/class.posts.php:696
 #, php-format
 msgid "No results for &quot;%s&quot;"
 msgstr ""
 
-#: ../sections/postloop/loop.php:21
+#: ../sections/postloop/loop.php:28 ../sections/postloop/section.php:163
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: ../sections/postloop/loop.php:23
+#: ../sections/postloop/loop.php:30 ../sections/postloop/section.php:166
 msgid "Pages:"
 msgstr ""
 
@@ -2702,66 +2331,15 @@ msgid ""
 "admin."
 msgstr ""
 
-#: ../sections/postloop/section.php:37
-msgid "Page Title"
+#: ../sections/postloop/section.php:39
+msgid "Enter Meta Information"
 msgstr ""
 
-#: ../sections/postloop/section.php:43
-msgid "Layout <span class=\"spamp\">&amp;</span> Config"
+#: ../sections/postloop/section.php:40
+msgid "Meta Information"
 msgstr ""
 
-#: ../sections/postloop/section.php:52
-msgid "Magazine Layout Mode"
-msgstr ""
-
-#: ../sections/postloop/section.php:53
-msgid "List Layout Mode"
-msgstr ""
-
-#: ../sections/postloop/section.php:55 ../sections/postloop/section.php:56
-msgid "Posts Layout Mode"
-msgstr ""
-
-#: ../sections/postloop/section.php:57
-msgid ""
-"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
-"Layout Mode</strong><br/> Magazine layout mode makes use of post "
-"<strong>clips</strong>. These are summarized excerpts shown at half the "
-"width of the main content column.<br/>  <strong>Note:</strong> There is an "
-"option for showing <strong>full-width</strong> posts on your main "
-"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
-"This is your classical post list layout. Posts span the entire width of the "
-"main content column."
-msgstr ""
-
-#: ../sections/postloop/section.php:66
-msgid "Number of Full Width Posts? (Mag. Mode)"
-msgstr ""
-
-#: ../sections/postloop/section.php:67
-msgid "Full Width Posts (Magazine Layout Mode Only)"
-msgstr ""
-
-#: ../sections/postloop/section.php:68
-msgid ""
-"Select the number of posts you would like shown at the full width of the "
-"main content column in magazine layout mode (the rest will be half-width "
-"post <strong>clips</strong>)."
-msgstr ""
-
-#: ../sections/postloop/section.php:75
-msgid "Show Full Post Content"
-msgstr ""
-
-#: ../sections/postloop/section.php:76
-msgid "Optionally show full post content on special post listing pages."
-msgstr ""
-
-#: ../sections/postloop/section.php:84
-msgid "Meta Config"
-msgstr ""
-
-#: ../sections/postloop/section.php:87
+#: ../sections/postloop/section.php:41 ../sections/postloop/section.php:250
 msgid ""
 "Use shortcodes to control the dynamic information in your metabar. Example "
 "shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - "
@@ -2776,137 +2354,204 @@ msgid ""
 "li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
-#: ../sections/postloop/section.php:92
+#: ../sections/postloop/section.php:177
+msgid "Read More"
+msgstr ""
+
+#: ../sections/postloop/section.php:179
+msgid "Read More <i class=\"icon-angle-right\"></i>"
+msgstr ""
+
+#: ../sections/postloop/section.php:199
+msgid "Layout <span class=\"spamp\">&amp;</span> Config"
+msgstr ""
+
+#: ../sections/postloop/section.php:207
+msgid "Page Title"
+msgstr ""
+
+#: ../sections/postloop/section.php:215
+msgid "Magazine Layout Mode"
+msgstr ""
+
+#: ../sections/postloop/section.php:216
+msgid "List Layout Mode"
+msgstr ""
+
+#: ../sections/postloop/section.php:218 ../sections/postloop/section.php:219
+msgid "Posts Layout Mode"
+msgstr ""
+
+#: ../sections/postloop/section.php:220
+msgid ""
+"Choose between two magazine or blog layout mode. <br/><br/> <strong>Magazine "
+"Layout Mode</strong><br/> Magazine layout mode makes use of post "
+"<strong>clips</strong>. These are summarized excerpts shown at half the "
+"width of the main content column.<br/>  <strong>Note:</strong> There is an "
+"option for showing <strong>full-width</strong> posts on your main "
+"<strong>posts</strong> page.<br/><br/><strong>List Layout Mode</strong><br/> "
+"This is your classical post list layout. Posts span the entire width of the "
+"main content column."
+msgstr ""
+
+#: ../sections/postloop/section.php:229
+msgid "Number of Full Width Posts? (Mag. Mode)"
+msgstr ""
+
+#: ../sections/postloop/section.php:230
+msgid "Full Width Posts (Magazine Layout Mode Only)"
+msgstr ""
+
+#: ../sections/postloop/section.php:231
+msgid ""
+"Select the number of posts you would like shown at the full width of the "
+"main content column in magazine layout mode (the rest will be half-width "
+"post <strong>clips</strong>)."
+msgstr ""
+
+#: ../sections/postloop/section.php:238
+msgid "Show Full Post Content"
+msgstr ""
+
+#: ../sections/postloop/section.php:239
+msgid "Optionally show full post content on special post listing pages."
+msgstr ""
+
+#: ../sections/postloop/section.php:247
+msgid "Meta Config"
+msgstr ""
+
+#: ../sections/postloop/section.php:255
 msgid "Select Meta Mode"
 msgstr ""
 
-#: ../sections/postloop/section.php:93
+#: ../sections/postloop/section.php:256
 msgid "Meta Mode"
 msgstr ""
 
-#: ../sections/postloop/section.php:98
+#: ../sections/postloop/section.php:261
 msgid ""
 "Instead of the standard metabar (beneath post title), you can use author "
 "meta mode. This mode displays the author avatar and publish date on left."
 msgstr ""
 
-#: ../sections/postloop/section.php:105
+#: ../sections/postloop/section.php:268
 msgid "Configure Full Width Post Metabar"
 msgstr ""
 
-#: ../sections/postloop/section.php:106
+#: ../sections/postloop/section.php:269
 msgid "Post Meta Information"
 msgstr ""
 
-#: ../sections/postloop/section.php:114 ../sections/postloop/section.php:115
+#: ../sections/postloop/section.php:277 ../sections/postloop/section.php:278
 msgid "Configure Clip Metabar"
 msgstr ""
 
-#: ../sections/postloop/section.php:122
+#: ../sections/postloop/section.php:285
 msgid "Thumbs"
 msgstr ""
 
-#: ../sections/postloop/section.php:133 ../sections/postloop/section.php:149
+#: ../sections/postloop/section.php:296 ../sections/postloop/section.php:312
 msgid "Left Justified"
 msgstr ""
 
-#: ../sections/postloop/section.php:134 ../sections/postloop/section.php:150
+#: ../sections/postloop/section.php:297 ../sections/postloop/section.php:313
 msgid "On Top"
 msgstr ""
 
-#: ../sections/postloop/section.php:135 ../sections/postloop/section.php:151
+#: ../sections/postloop/section.php:298 ../sections/postloop/section.php:314
 msgid "Left, In Excerpt"
 msgstr ""
 
-#: ../sections/postloop/section.php:136 ../sections/postloop/section.php:152
+#: ../sections/postloop/section.php:299 ../sections/postloop/section.php:315
 msgid "Right, In Excerpt"
 msgstr ""
 
-#: ../sections/postloop/section.php:138
+#: ../sections/postloop/section.php:301
 msgid "Full Width Thumbs Layout"
 msgstr ""
 
-#: ../sections/postloop/section.php:139
+#: ../sections/postloop/section.php:302
 msgid ""
 "Use this option to configure how thumbs will be shown in full-width posts on "
 "your blog page."
 msgstr ""
 
-#: ../sections/postloop/section.php:154
+#: ../sections/postloop/section.php:317
 msgid "Clip Thumbs Layout"
 msgstr ""
 
-#: ../sections/postloop/section.php:155
+#: ../sections/postloop/section.php:318
 msgid ""
 "Use this option to configure how thumbs will be shown in clips. These are "
 "the smaller <strong>magazine</strong> style excerpts on your blog page."
 msgstr ""
 
-#: ../sections/postloop/section.php:161
+#: ../sections/postloop/section.php:324
 msgid "Hide thumbs?"
 msgstr ""
 
-#: ../sections/postloop/section.php:162
+#: ../sections/postloop/section.php:325
 msgid "Post Thumbnails"
 msgstr ""
 
-#: ../sections/postloop/section.php:163
+#: ../sections/postloop/section.php:326
 msgid "Use this option to hide or show thumbs for posts on pages."
 msgstr ""
 
-#: ../sections/postloop/section.php:172
+#: ../sections/postloop/section.php:335
 msgid "Excerpts"
 msgstr ""
 
-#: ../sections/postloop/section.php:179
+#: ../sections/postloop/section.php:342
 msgid "Hide excerpts?"
 msgstr ""
 
-#: ../sections/postloop/section.php:180
+#: ../sections/postloop/section.php:343
 msgid "Hide Post Excerpt"
 msgstr ""
 
-#: ../sections/postloop/section.php:181
+#: ../sections/postloop/section.php:344
 msgid ""
 "Excerpts are short pieces of content that are shown to give users a preview "
 "of a post. Hide them using this option."
 msgstr ""
 
-#: ../sections/postloop/section.php:188
+#: ../sections/postloop/section.php:351
 msgid "Continue Reading Link Text"
 msgstr ""
 
-#: ../sections/postloop/section.php:189
+#: ../sections/postloop/section.php:352
 msgid "Excerpts <strong>Continue Reading</strong> Text"
 msgstr ""
 
-#: ../sections/postloop/section.php:190
+#: ../sections/postloop/section.php:353
 msgid ""
 "This text will be used as the link to your full article when viewing "
 "articles on your posts page (when excerpts are turned on)."
 msgstr ""
 
-#: ../sections/postloop/section.php:197
+#: ../sections/postloop/section.php:360
 msgid "Number of words."
 msgstr ""
 
-#: ../sections/postloop/section.php:198
+#: ../sections/postloop/section.php:361
 msgid "Excerpt Length"
 msgstr ""
 
-#: ../sections/postloop/section.php:199
+#: ../sections/postloop/section.php:362
 msgid "Excerpts are set to 55 words by default."
 msgstr ""
 
-#: ../sections/postloop/section.php:206
+#: ../sections/postloop/section.php:369
 msgid "Allowed Tags"
 msgstr ""
 
-#: ../sections/postloop/section.php:207
+#: ../sections/postloop/section.php:370
 msgid "Allow Tags in Excerpt"
 msgstr ""
 
-#: ../sections/postloop/section.php:208
+#: ../sections/postloop/section.php:371
 msgid ""
 "By default WordPress strips all HTML tags from excerpts. You can use this "
 "option to allow certain tags. Simply enter the allowed tags in this field. "
@@ -2947,183 +2592,6 @@ msgstr ""
 msgid "Viewing archives for "
 msgstr ""
 
-#: ../sections/propricing/section.php:28
-msgid "ProPricing Configuration"
-msgstr ""
-
-#: ../sections/propricing/section.php:38
-msgid "Number of Columns for Each Plan (12 Col Grid)"
-msgstr ""
-
-#: ../sections/propricing/section.php:48
-msgid "Pricing Setup"
-msgstr ""
-
-#: ../sections/propricing/section.php:49
-msgid "Column"
-msgstr ""
-
-#: ../sections/propricing/section.php:58
-msgid "Price"
-msgstr ""
-
-#: ../sections/propricing/section.php:63
-msgid "Before Price Text"
-msgstr ""
-
-#: ../sections/propricing/section.php:65
-msgid "Typically you will add the monetary unit here. E.g. \"$\""
-msgstr ""
-
-#: ../sections/propricing/section.php:69
-msgid "After Price Text"
-msgstr ""
-
-#: ../sections/propricing/section.php:71
-msgid "Typically you will add the recurring amount here. E.g. \"/ MO\""
-msgstr ""
-
-#: ../sections/propricing/section.php:75
-msgid "Sub Text"
-msgstr ""
-
-#: ../sections/propricing/section.php:85
-msgid "Link Text"
-msgstr ""
-
-#: ../sections/propricing/section.php:90
-msgid "Button Theme"
-msgstr ""
-
-#: ../sections/propricing/section.php:95
-msgid "Attributes"
-msgstr ""
-
-#: ../sections/propricing/section.php:97
-msgid "Add each attribute on a new line. Add a \"*\" in front to add emphasis."
-msgstr ""
-
-#: ../sections/quickslider/section.php:157
-#: ../sections/revslider/section.php:22
-msgid "Slider Configuration"
-msgstr ""
-
-#: ../sections/quickslider/section.php:164
-msgid "Select Transition Type"
-msgstr ""
-
-#: ../sections/quickslider/section.php:166
-msgid "Use Fading Transition"
-msgstr ""
-
-#: ../sections/quickslider/section.php:167
-msgid "Use Slide/Horizontal Transition"
-msgstr ""
-
-#: ../sections/quickslider/section.php:174
-msgid "Use Both Arrow and Slide Control Navigation"
-msgstr ""
-
-#: ../sections/quickslider/section.php:175
-msgid "No Navigation"
-msgstr ""
-
-#: ../sections/quickslider/section.php:176
-msgid "Slide Controls Only"
-msgstr ""
-
-#: ../sections/quickslider/section.php:177
-msgid "Arrow Navigation Only"
-msgstr ""
-
-#: ../sections/quickslider/section.php:179
-msgid "Slider Navigation Mode"
-msgstr ""
-
-#: ../sections/quickslider/section.php:185
-msgid "Animate Slideshow Automatically?"
-msgstr ""
-
-#: ../sections/quickslider/section.php:197
-#: ../sections/revslider/section.php:39
-msgid "Slides Setup"
-msgstr ""
-
-#: ../sections/quickslider/section.php:198
-#: ../sections/revslider/section.php:40
-msgid "Slide"
-msgstr ""
-
-#: ../sections/quickslider/section.php:202
-#: ../sections/revslider/section.php:44
-msgid "Slide Background Image"
-msgstr ""
-
-#: ../sections/quickslider/section.php:205
-#: ../sections/revslider/section.php:47
-msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
-msgstr ""
-
-#: ../sections/quickslider/section.php:211
-#: ../sections/revslider/section.php:53
-msgid "Slide Text"
-msgstr ""
-
-#: ../sections/quickslider/section.php:216
-#: ../sections/revslider/section.php:58
-msgid "Slide Link URL"
-msgstr ""
-
-#: ../sections/quickslider/section.php:221
-#: ../sections/revslider/section.php:63
-msgid "Slide Text Location"
-msgstr ""
-
-#: ../sections/rapidtabs/section.php:53
-msgid "Popular"
-msgstr ""
-
-#: ../sections/rapidtabs/section.php:54
-msgid "Recent"
-msgstr ""
-
-#: ../sections/rapidtabs/section.php:55 ../sections/rapidtabs/section.php:105
-msgid "Comments"
-msgstr ""
-
-#: ../sections/rapidtabs/section.php:61
-msgid "Popular Posts"
-msgstr ""
-
-#: ../sections/rapidtabs/section.php:83
-msgid "Recent Posts"
-msgstr ""
-
-#: ../sections/revslider/section.php:29
-msgid "Time Per Slide (in Milliseconds)"
-msgstr ""
-
-#: ../sections/revslider/section.php:73
-msgid "Slide Transition"
-msgstr ""
-
-#: ../sections/revslider/section.php:79
-msgid "Slide Extra Elements"
-msgstr ""
-
-#: ../sections/revslider/section.php:81
-msgid ""
-"Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
-msgstr ""
-
-#: ../sections/revslider/section.php:284
-msgid "Read More"
-msgstr ""
-
 #: ../sections/sb_primary/section.php:51
 msgid "Archives"
 msgstr ""
@@ -3140,20 +2608,6 @@ msgstr ""
 msgid "Entries (RSS)"
 msgstr ""
 
-#: ../sections/sharebar/section.php:30
-msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
-msgstr ""
-
-#: ../sections/sharebar/section.php:30
-msgid "Social Settings"
-msgstr ""
-
-#: ../sections/sharebar/section.php:34
-msgid "Share &rarr;"
-msgstr ""
-
 #: ../sections/simple_nav/section.php:25
 msgid "Simple Nav Section"
 msgstr ""
@@ -3164,74 +2618,6 @@ msgstr ""
 
 #: ../sections/simple_nav/section.php:50
 msgid "Select Alignment"
-msgstr ""
-
-#: ../sections/starbars/section.php:29
-msgid "StarBar Configuration"
-msgstr ""
-
-#: ../sections/starbars/section.php:38 ../sections/starbars/section.php:211
-msgid "Number of StarBars to Configure"
-msgstr ""
-
-#: ../sections/starbars/section.php:44 ../sections/starbars/section.php:216
-msgid "Starbar Total Count (Number)"
-msgstr ""
-
-#: ../sections/starbars/section.php:45
-msgid ""
-"This number will be used to calculate the percent of the bar filled. The "
-"StarBar values will be shown as a percentage of this value. Default is 100."
-msgstr ""
-
-#: ../sections/starbars/section.php:52 ../sections/starbars/section.php:221
-msgid "Starbar Modifier (Text Added to Stats)"
-msgstr ""
-
-#: ../sections/starbars/section.php:53
-msgid "This will be added to the stat number."
-msgstr ""
-
-#: ../sections/starbars/section.php:63 ../sections/starbars/section.php:230
-msgid "Starbar Format"
-msgstr ""
-
-#: ../sections/starbars/section.php:69 ../sections/starbars/section.php:235
-msgid "StarBar Title (Optional)"
-msgstr ""
-
-#: ../sections/starbars/section.php:82
-msgid "Descriptor"
-msgstr ""
-
-#: ../sections/starbars/section.php:86
-msgid "Value"
-msgstr ""
-
-#: ../sections/starbars/section.php:88
-msgid "Shown as a percentage of the StarBar total in the config."
-msgstr ""
-
-#: ../sections/starbars/section.php:95
-msgid "<i class=\"icon-star\"></i> StarBar #"
-msgstr ""
-
-#: ../sections/starbars/section.php:252
-#, php-format
-msgid "Starbar #%s Description"
-msgstr ""
-
-#: ../sections/starbars/section.php:256
-#, php-format
-msgid "Starbar #%s Value"
-msgstr ""
-
-#: ../sections/starbars/section.php:262
-msgid "StarBar Values"
-msgstr ""
-
-#: ../sections/starbars/section.php:269
-msgid "Starbar"
 msgstr ""
 
 #: ../sections/textbox/section.php:23
@@ -3305,7 +2691,7 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../editor/js/pl.ajax.js:24 ../editor/js/pl.editor.js:704
+#: ../editor/js/pl.ajax.js:24 ../editor/js/pl.editor.js:708
 msgid "Refreshing page..."
 msgstr ""
 
@@ -3352,25 +2738,25 @@ msgid ""
 "elements from this page.</p>"
 msgstr ""
 
-#: ../editor/js/pl.editor.js:538
+#: ../editor/js/pl.editor.js:542
 msgid "Learn more about being a PRO"
 msgstr ""
 
-#: ../editor/js/pl.editor.js:541
+#: ../editor/js/pl.editor.js:545
 msgid "<h4>This capability is pro edition only.</h4>"
 msgstr ""
 
-#: ../editor/js/pl.editor.js:545
+#: ../editor/js/pl.editor.js:549
 msgid "Edit (Pro Only)"
 msgstr ""
 
-#: ../editor/js/pl.editor.js:546
+#: ../editor/js/pl.editor.js:550
 msgid ""
 "<h4>This is a Pro Section</h4>Editing Pro sections requires Pro Membership."
 "<br/>"
 msgstr ""
 
-#: ../editor/js/pl.editor.js:604
+#: ../editor/js/pl.editor.js:608
 msgid ""
 "<h3>Are you sure?</h3><p>This will remove this section and its settings from "
 "this page.</p>"
@@ -3388,154 +2774,154 @@ msgstr ""
 msgid "scope"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:574
+#: ../editor/js/pl.optpanel.js:580
 msgid "Refresh for preview."
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:574
+#: ../editor/js/pl.optpanel.js:580
 msgid "Syncs with element."
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:656
+#: ../editor/js/pl.optpanel.js:666
 msgid "Remove"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:717
+#: ../editor/js/pl.optpanel.js:727
 msgid "Configure Menus"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:770
+#: ../editor/js/pl.optpanel.js:780
 msgid "SELECT"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:834
+#: ../editor/js/pl.optpanel.js:844
 msgid ""
 "Select which registered thumbnail size to use for the images. To add new "
 "sizes see: <a href='http://codex.wordpress.org/Function_Reference/"
 "add_image_size'>The Codex</a>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:880
+#: ../editor/js/pl.optpanel.js:890
 msgid "Edit Sets"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:901
+#: ../editor/js/pl.optpanel.js:911
 msgid "Select Font"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:903
+#: ../editor/js/pl.optpanel.js:913
 msgid "Font Preview"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:904
+#: ../editor/js/pl.optpanel.js:914
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:915
+#: ../editor/js/pl.optpanel.js:925
 msgid "Type Still Needed"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:962
+#: ../editor/js/pl.optpanel.js:972
 msgid "global site options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:964
+#: ../editor/js/pl.optpanel.js:974
 msgid "post type options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:966
+#: ../editor/js/pl.optpanel.js:976
 msgid "local page options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:968
+#: ../editor/js/pl.optpanel.js:978
 #, javascript-format
 msgid ""
 "<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their "
 "defaults.<br/>(Once reset, this will still need to be published live.)</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:973
+#: ../editor/js/pl.optpanel.js:983
 msgid "<span class='btn btn-mini btn-info'>Page Templates</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:974
+#: ../editor/js/pl.optpanel.js:984
 msgid "<span class='btn btn-mini btn-info'>Global Options</span>&nbsp;"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:975
+#: ../editor/js/pl.optpanel.js:985
 msgid "<span class='btn btn-mini btn-info'>Type Options</span>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:976
+#: ../editor/js/pl.optpanel.js:986
 msgid "Resetting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:977
+#: ../editor/js/pl.optpanel.js:987
 msgid "Successfully Reset. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:981 ../editor/js/pl.optpanel.js:1177
+#: ../editor/js/pl.optpanel.js:991 ../editor/js/pl.optpanel.js:1187
 #, javascript-format
 msgid ""
 "<h3>Are you sure?</h3><p>Importing this file will replace the following "
 "settings.<br /><strong>%s%s%s</strong></p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:982
+#: ../editor/js/pl.optpanel.js:992
 msgid "Importing From Child Theme"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:983
+#: ../editor/js/pl.optpanel.js:993
 msgid "Successfully Imported. Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1014
+#: ../editor/js/pl.optpanel.js:1024
 msgid "Flushing Caches"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1016
+#: ../editor/js/pl.optpanel.js:1026
 msgid "Success! Refreshing page"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1027
+#: ../editor/js/pl.optpanel.js:1037
 msgid ""
 "<h3>Are you sure?</h3><p>This will write all settings to a config file in "
 "your child theme named pl-config.json</p>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1036
+#: ../editor/js/pl.optpanel.js:1046
 msgid "Exporting Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1146
+#: ../editor/js/pl.optpanel.js:1156
 msgid "Refresh Page for Image Upload Button"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1172
+#: ../editor/js/pl.optpanel.js:1182
 msgid "Page Templates"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1173
+#: ../editor/js/pl.optpanel.js:1183
 msgid "Global Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1174
+#: ../editor/js/pl.optpanel.js:1184
 msgid "Type Options"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1195
+#: ../editor/js/pl.optpanel.js:1205
 msgid "<h3>Settings Imported</h3>"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1207
+#: ../editor/js/pl.optpanel.js:1217
 msgid "Imported Settings"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1208
+#: ../editor/js/pl.optpanel.js:1218
 msgid "Importing"
 msgstr ""
 
-#: ../editor/js/pl.optpanel.js:1531
+#: ../editor/js/pl.optpanel.js:1541
 msgid "Upload Image"
 msgstr ""
 
