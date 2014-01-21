@@ -198,7 +198,8 @@ class PageLinesSection {
 		
 		$d = array(
 			'default'	=> false,
-			'scope'		=> 'cascade'
+			'scope'		=> 'cascade',
+			'shortcode'	=> true
 		);
 
 		$a = wp_parse_args($args, $d);
@@ -231,9 +232,12 @@ class PageLinesSection {
 			return false; 
 		elseif( is_array( $val) )
 			return $val;
-		else
-			return do_shortcode( $val );
-
+		else {
+			if( true == $a['shortcode'] ) 
+				return do_shortcode( $val );
+			else
+				return $val;
+		}
 	}
 	
 	function opt_update( $key, $value, $scope = 'global' ){
