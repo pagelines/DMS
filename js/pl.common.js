@@ -23,6 +23,8 @@
 		
 		$.plGallery.init()
 		
+		$.plVideos.init()
+		
 		$('.pl-credit').show()
 		
 		
@@ -34,6 +36,68 @@
 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		})
 	})
+	
+	$.plVideos = {
+		init: function(){
+			
+			$(window).resize(function () { 
+				
+				$(".bg-video").each(function () {
+				
+				
+					
+					var vid = $(this)
+					, 	canvas = vid.closest('.bg-video-canvas')
+					,	viewport = vid.parent()
+					
+					var vW = this.videoWidth
+					, 	vH = this.videoHeight
+					
+				
+					$.plVideos.resizeToCover( vid, canvas, viewport, vH, vW )
+						
+					
+
+				})
+				
+			})
+			
+			$(window).trigger('resize')
+			
+			$('.bg-video-canvas').on('plresize', function(){
+				$(window).trigger('resize')
+			})
+			
+		}
+		
+		, resizeToCover: function( vid, canvas, viewport, vH, vW ){
+			
+			
+			var canvasWidth	= canvas.width()
+			, 	canvasHeight = canvas.height()
+			
+		    viewport.width( canvasWidth )
+		    viewport.height( canvasHeight )
+
+		    var scale_h = canvasWidth / vW
+		    var scale_v = canvasWidth / vH
+		    var scale = scale_h > scale_v ? scale_h : scale_v
+
+		    // don't allow scaled width < minimum video width
+		    if (scale * vW < 300) {
+				scale = 300 / vW 
+			} 
+
+		    // now scale the video
+		    vid.width(scale * vW);
+		    vid.height(scale * vH);
+		
+		    // and center it by scrolling the video viewport
+		    viewport.scrollLeft(( vid.width() - canvasWidth ) / 2);
+		    viewport.scrollTop(( vid.height() - canvasHeight ) / 2);
+		  
+		}
+	}
 	
 	$.plGallery = {
 		init: function(){
