@@ -125,7 +125,7 @@ class PageLinesPostLoop extends PageLinesSection {
 					array(
 						'type'		=> 'select',
 						'key'		=> 'excerpt_mode_full',
-						'default'	=> 'left',
+						'default'	=> 'top',
 						'opts'	=> array(
 							'left'			=> array( 'name' => __( 'Left Justified', 'pagelines' ), 'offset' => '0px -50px' ),
 							'top'			=> array( 'name' => __( 'On Top', 'pagelines' ), 'offset' => '0px 0px', 'version' => 'pro' ),
@@ -141,7 +141,7 @@ class PageLinesPostLoop extends PageLinesSection {
 						'case'		=> 'special',
 						'type'		=> 'select',
 						'key'		=> 'excerpt_mode_clip',
-						'default'	=> 'left',
+						'default'	=> 'top',
 						'opts'	=> array(
 							'left'			=> array( 'name' => __( 'Left Justified', 'pagelines' ), 'offset' => '0px -50px' ),
 							'top'			=> array( 'name' => __( 'On Top', 'pagelines' ), 'offset' => '0px 0px' ),
