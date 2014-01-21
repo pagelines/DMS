@@ -61,9 +61,12 @@ PL_Code.prototype = {
 	,	setEditorBindings : function ( mode, $area ) {
 		that = this
 		editor = this.editors[ mode ]
-
+		
 		// common bindings
-		editor.on('blur', that.triggerSave )
+		editor.on('blur', function ( instance ) {
+			dataobj = $area.parent().formParams();
+			that.triggerSave(dataobj)
+		})
 		editor.on('change', function ( instance ) {
 			// Update the content of the textarea.
 			instance.save()
@@ -105,8 +108,16 @@ PL_Code.prototype = {
 		})
 	}
 
-	,	triggerSave : function () {
-		$.plAJAX.saveData()
+	,	triggerSave : function (dataobj) {
+
+			var data = dataobj
+			 $.plSave.save({
+				mode: 'fast_save',
+				run: 'form',
+				scope: 'global',
+			 	log: true,
+			 	store: data
+			 })
 	}
 }
 
