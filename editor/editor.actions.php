@@ -322,7 +322,7 @@ function pagelines_check_dms_plugin( $note ) {
 			<div class="editor-alert alert">
 				
 			  	<strong><i class="icon-cogs"></i> <?php _e( 'Install DMS Utilities', 'pagelines' ); ?>
-			  	</strong><p><?php _e( 'Your site is "Pro activated" but you have not installed the DMS Pro tools plugin. Grab the plugin on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
+			  	</strong><p><?php _e( 'Your site is "Pro activated" but we have detected that the DMS Pro Tools plugin is not activated. Grab this plugin if you have not installed it yet on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
 			  	</p>
 
 			</div>
