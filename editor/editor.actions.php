@@ -429,8 +429,16 @@ class PLImageUploader{
 			add_filter( 'media_upload_tabs', array( $this, 'filter_upload_tabs' ) );
 			add_filter( 'media_upload_mime_type_links', '__return_empty_array' );
 			add_action( 'media_upload_library' , array( $this, 'the_js' ), 15 );
-			add_action( 'admin_head', array( $this, 'media_css' ) ); 
+			add_action( 'admin_head', array( $this, 'media_css' ) );
+			add_action('admin_print_scripts', array( $this, 'dequeue_offending_scripts' ));
 		}
+	}
+
+	// dequeue scripts that break the image uploader.
+	function dequeue_offending_scripts() {
+		
+		// nextgen gallery destroys media uploader. 
+		wp_dequeue_script( 'frame_event_publisher' );
 	}
 
 	function media_css() {
