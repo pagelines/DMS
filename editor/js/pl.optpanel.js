@@ -666,7 +666,7 @@
 				,	remove = sprintf('<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">%s</a>', $.pl.lang("Remove") )
 				,	thm = (o.value != '') ? sprintf('<div class="img-wrap"><img src="%s" style="max-%s: %s" /></div>', o.value, sizeMode, size) : ''
 
-				oHTML += '<div class="img-upload-box">'
+				oHTML += '<div class="upload-box">'
 
 				oHTML += sprintf( '<div class="opt-upload-thumb-%s opt-upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm) );
 
@@ -684,6 +684,21 @@
 
 				oHTML += '</div>'
 
+			}
+			
+			else if( o.type == 'media_select_video' ){
+
+				oHTML += '<div class="video-upload-inputs">'
+				
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+
+				oHTML +=  that.addVideoOption( o.value, o.inputID, o.name, 'Video Format 1 (.mp4)')
+				
+				o2 = that.addOptionObjectMeta( tabIndex, {key: o.key+'_2'} )
+				
+				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2 (.webm or .ogg)')
+
+				oHTML += '</div>'
 			}
 
 			// Text Options
@@ -939,6 +954,25 @@
 			else
 				return oHTML
 
+		}
+		
+		, addVideoOption: function( inputValue, inputID, inputName, inputLabel){
+			
+			var theOption = ''
+			
+			theOption += '<div class="upload-box media-select-video">'
+			
+			theOption += sprintf('<label for="%s">%s</label>', inputID, inputLabel )
+
+			theOption += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', inputID, inputName, inputValue )
+			
+			theOption += '<a class="btn btn-primary btn-mini pl-load-media-lib" data-mimetype="video">Select Media</a>'
+			
+			theOption += sprintf(' <a class="btn btn-mini" href="%s">Add Media</a>', $.pl.config.urls.addMedia)
+			
+			theOption += '</div>'
+			
+			return theOption
 		}
 
 		, runScriptEngine: function ( tabIndex, opts ) {
@@ -1265,11 +1299,14 @@
 
 			$('.pl-load-media-lib').on('click', function(){
 
-				var mediaFrame = $.pl.config.urls.mediaLibrary
+				if( $(this).data('mimetype') == 'video' )
+					var mediaFrame = $.pl.config.urls.mediaLibraryVideo
+				else 
+					var mediaFrame = $.pl.config.urls.mediaLibrary
 
-				var theInput = $(this).closest('.img-upload-box').find('.upload-input')
+				var theInput = $(this).closest('.upload-box').find('.upload-input')
 				, 	optionID = theInput.attr('id')
-				,	mediaFrame = $.pl.config.urls.mediaLibrary + '&oid=' + optionID
+				,	mediaFrame = mediaFrame + '&oid=' + optionID
 
 				$.pl.iframeSelector = optionID
 
@@ -1304,7 +1341,7 @@
 
 			$('.rmv-upload').on('click', function(){
 
-				$(this).closest('.img-upload-box')
+				$(this).closest('.upload-box')
 					.find('.upload-input')
 						.val('').trigger('blur')
 					.end()
@@ -1550,7 +1587,7 @@
 
 				}).on('complete', function(event, id, fileName, response) {
 
-					var optBox = $(this).closest('.img-upload-box')
+					var optBox = $(this).closest('.upload-box')
 
 						if (response.success) {
 							var theThumb = optBox.find('.opt-upload-thumb')

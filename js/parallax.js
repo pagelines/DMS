@@ -81,7 +81,7 @@ http://www.gnu.org/licenses/gpl.html
 						
 				} else if( theMode == 'translate' ){
 					$this
-						.css( 'transform', 'none' )
+						.css( 'transform', 'translate(0, 0)' )
 						.find('.pl-content')
 							.css('opacity', 1)
 				}

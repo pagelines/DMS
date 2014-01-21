@@ -1,6 +1,14 @@
 <?php 
 
 
+function pl_get_video_sources( $source1, $source2 ){
+
+	$sources = sprintf( '<source src="%s"><source src="%s">', $source1, $source2 );
+	
+	return $sources;
+			
+}
+
 function pl_sanitize_color( $color ){
 
 	$clean = str_replace('#', '', $color);

@@ -53,7 +53,7 @@ class PLNavBar extends PageLinesSection {
 							'label' 	=> __( 'Standard NavBar - Select Theme', 'pagelines' ),
 							'opts'	=> array(
 								'base'			=> array( 'name'	=> __( 'Base Color', 'pagelines' ) ),
-								'black-trans'	=> array( 'name'	=> __( 'Black (Default)', 'pagelines' ) ),
+								'black-trans'	=> array( 'name'	=> __( 'Black', 'pagelines' ) ),
 								'blue'			=> array( 'name'	=> __( 'Blue', 'pagelines' ) ),
 								'grey'			=> array( 'name'	=> __( 'Light Grey', 'pagelines' ) ),
 								'orange'		=> array( 'name'	=> __( 'Orange', 'pagelines' ) ),

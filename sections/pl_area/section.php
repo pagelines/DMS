@@ -59,6 +59,16 @@ class PLSectionArea extends PageLinesSection {
 			'label' 	=> __( 'Area Styling', 'pagelines' ),
 			'opts'	=> array(
 				array(
+					'key'			=> 'pl_area_parallax',
+					'type' 			=> 'select',
+					'opts'			=> array(
+						''						=> array('name' => "No Scroll Effect"),
+						'pl-parallax'			=> array('name' => "Parallaxed Background Image"),
+						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
+					),
+					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
+				),
+				array(
 
 					'key'			=> 'pl_area_bg',
 					'type' 			=> 'select',
@@ -111,15 +121,12 @@ class PLSectionArea extends PageLinesSection {
 					'label' 	=> __( 'Repeat Background Image', 'pagelines' ),
 				),
 				array(
-					'key'			=> 'pl_area_parallax',
-					'type' 			=> 'select',
-					'opts'			=> array(
-						''						=> array('name' => "No Scroll Effect"),
-						'pl-parallax'			=> array('name' => "Parallaxed Background Image"),
-						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
-					),
-					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
-				)
+
+					'key'			=> 'pl_area_video',
+					'type' 			=> 'media_select_video',
+					'label' 	=> __( 'Video Background', 'pagelines' ),
+				),
+				
 			),
 			
 
@@ -189,8 +196,17 @@ class PLSectionArea extends PageLinesSection {
 			$content_class = '';
 		}
 		
+		$video = '';
+		if( $this->opt('pl_area_video') ){
+			
+			$videos = pl_get_video_sources( $this->opt('pl_area_video'), $this->opt('pl_area_video_2') );
+			$video = sprintf('<div class="bg-video-contain"><video class="bg-video" autoplay loop>%s</video></div>', $videos);
+
+		}
+		
 	?>
 	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
+		<?php echo $video; ?>
 		<div class="pl-content <?php echo $content_class;?>">
 			<div class="pl-inner area-region pl-sortable-area editor-row" style="<?php echo $inner_style;?>">
 				<?php  echo $section_output; ?>

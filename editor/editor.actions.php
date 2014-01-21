@@ -380,6 +380,24 @@ function pl_editor_plugin_flush() {
 	pl_flush_draft_caches();
 }
 
+
+function pl_media_library_link( $type = 'image' ){
+	
+	global $post;
+
+	$post_id = ( empty($post->ID) ) ? 0 : $post->ID;
+
+	$image_library_url = add_query_arg( 'post_id', (int) $post_id, admin_url('media-upload.php') );
+//	$image_library_url = add_query_arg( 'type', $type, $image_library_url );
+	$image_library_url = add_query_arg( 'post_mime_type', $type, $image_library_url );
+	$image_library_url = add_query_arg( 'tab', 'library', $image_library_url);
+	$image_library_url = add_query_arg( array( 'context' => 'pl-custom-attach', 'TB_iframe' => 1), $image_library_url );
+	
+	return $image_library_url;
+	
+}
+
+
 $custom_attach = new PLImageUploader();
 
 class PLImageUploader{
@@ -390,11 +408,14 @@ class PLImageUploader{
 
 			add_filter( 'attachment_fields_to_edit', array( $this, 'attachment_fields_to_edit' ), 15, 2 );
 			add_filter( 'media_upload_tabs', array( $this, 'filter_upload_tabs' ) );
-			add_filter( 'media_upload_mime_type_links', '__return_empty_array' );
+			//add_filter( 'media_upload_mime_type_links', '__return_empty_array' );
 			add_action( 'media_upload_library' , array( $this, 'the_js' ), 15 );
-			add_action( 'admin_head', array( $this, 'media_css' ) ); 
+			add_action( 'admin_head', array( $this, 'media_css' ) );
+		//	add_filter('media_upload_default_tab', array( $this, 'set_default_tab' ));
 		}
 	}
+
+
 
 	function media_css() {
 
@@ -415,7 +436,7 @@ class PLImageUploader{
 				,	imgURL = jQuery(this).data('imgurl')
 				,	imgURLShort = jQuery(this).data('short-img-url')
 				, 	theOption = jQuery( '[id="'+oSel+'"]', top.document) 
-				,	thePreview = theOption.closest('.img-upload-box').find('.opt-upload-thumb')
+				,	thePreview = theOption.closest('.upload-box').find('.opt-upload-thumb')
 				
 				theOption.val( imgURLShort )
 				
@@ -456,7 +477,7 @@ class PLImageUploader{
 							$this->option_id,
 							$image_url,
 							$short_img_url,
-							__( 'Select This Image For Option', 'pagelines' )
+							__( 'Select This For Option', 'pagelines' )
 					)
 		);
 		$form_fields['context'] = array(
@@ -477,7 +498,9 @@ class PLImageUploader{
 	 *
 	 * @since 3.4.0
 	 */
-	function filter_upload_tabs() {
-		return array( 'library' => __('Media Library', 'pagelines') );
+	function filter_upload_tabs( $tabs ) {
+		return array( 
+			'library' => __('Your Media Library', 'pagelines'),
+		);
 	}
 }
