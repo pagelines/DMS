@@ -152,7 +152,8 @@ class PLSectionArea extends PageLinesSection {
 		$this->wrapper_classes['background'] = $this->opt('pl_area_bg');
 		$this->wrapper_classes['scroll'] = $scroll_effect;
 		
-		$this->wrapper_classes['special'] = 'bg-video-canvas';
+		if( $this->opt('pl_area_video') )
+			$this->wrapper_classes['special'] = 'bg-video-canvas';
 
 	}
 
