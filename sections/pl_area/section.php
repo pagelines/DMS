@@ -202,7 +202,7 @@ class PLSectionArea extends PageLinesSection {
 		$video = '';
 		if( $this->opt('pl_area_video') ){
 			
-			$videos = pl_get_video_sources( $this->opt('pl_area_video'), $this->opt('pl_area_video_2') );
+			$videos = pl_get_video_sources( array( $this->opt('pl_area_video'), $this->opt('pl_area_video_2') ) );
 			$video = sprintf(
 				'<div class="bg-video-contain"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
 				$this->opt('pl_area_image'), 

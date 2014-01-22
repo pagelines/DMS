@@ -9,19 +9,17 @@ function pl_transparent_image(){
 	
 }
 
-function pl_get_video_sources( $source1, $source2 ){
+function pl_get_video_sources( $videos ){
 
-	$ogg = '';
-	$mp4 = '';
-	
-	if( '' != $source1 )
-		$mp4 = sprintf( '<source src="%s" type="video/mp4">', $source1 );
-		
-	if( '' != $source2 )
-		$ogg = sprintf( '<source src="%s" type="video/ogg">', $source2  );
+	// videos should be an array of videos, we need to return a sane block of <source> tags depending on the filetype.
+	$out = '';
 
-	return $mp4 . $ogg;
-			
+	foreach( (array) $videos as $source ) {
+		$filetype = explode( '.', basename( $source ) );
+		$filetype = ( 'ogv' == $filetype[1] ) ? 'ogg' : $filetype[1];	
+		$out .= sprintf( '<source src="%s" type="video/%s">', $source, $filetype );
+	}
+	return $out;			
 }
 
 function pl_sanitize_color( $color ){
