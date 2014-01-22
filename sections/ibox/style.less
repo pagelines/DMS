@@ -28,12 +28,14 @@
 			margin-bottom: @baseLineHeight/2;
 			display: inline-block;
 			text-align: center;
-			overflow: hidden;
+			
 			.border-radius(500px);
-			img{
-				.border-radius(500px);
-			}
 			&.media-type-image {
+				overflow: hidden;
+				
+				img{
+					.border-radius(500px);
+				}
 				.background-size(cover);
 				display: block;
 				margin-right: auto;
@@ -74,12 +76,12 @@
 		text-align: left;
 		.ibox-icon-border{
 			&.media-type-icon {
-
-				width: 70px;
-				height: 70px;
-				line-height: 85px;
+				background: transparent;
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
 				i{
-					font-size: 35px;
+					font-size: 30px;
 				}
 
 			}
