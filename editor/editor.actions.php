@@ -322,7 +322,7 @@ function pagelines_check_dms_plugin( $note ) {
 			<div class="editor-alert alert">
 				
 			  	<strong><i class="icon-cogs"></i> <?php _e( 'Install DMS Utilities', 'pagelines' ); ?>
-			  	</strong><p><?php _e( 'Your site is "Pro activated" but you have not installed the DMS Pro tools plugin. Grab the plugin on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
+			  	</strong><p><?php _e( 'Your site is "Pro activated" but we have detected that the DMS Pro Tools plugin is not activated. Grab this plugin if you have not installed it yet on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
 			  	</p>
 
 			</div>
@@ -411,11 +411,15 @@ class PLImageUploader{
 			//add_filter( 'media_upload_mime_type_links', '__return_empty_array' );
 			add_action( 'media_upload_library' , array( $this, 'the_js' ), 15 );
 			add_action( 'admin_head', array( $this, 'media_css' ) );
-		//	add_filter('media_upload_default_tab', array( $this, 'set_default_tab' ));
+			add_action('admin_print_scripts', array( $this, 'dequeue_offending_scripts' ));
 		}
 	}
-
-
+	// dequeue scripts that break the image uploader.
+	function dequeue_offending_scripts() {
+		
+		// nextgen gallery destroys media uploader. 
+		wp_dequeue_script( 'frame_event_publisher' );
+	}
 
 	function media_css() {
 

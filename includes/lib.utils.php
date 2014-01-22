@@ -11,9 +11,16 @@ function pl_transparent_image(){
 
 function pl_get_video_sources( $source1, $source2 ){
 
-	$sources = sprintf( '<source src="%s"><source src="%s">', $source1, $source2 );
+	$ogg = '';
+	$mp4 = '';
 	
-	return $sources;
+	if( '' != $source1 )
+		$mp4 = sprintf( '<source src="%s" type="video/mp4">', $source1 );
+		
+	if( '' != $source2 )
+		$ogg = sprintf( '<source src="%s" type="video/ogg">', $source2  );
+
+	return $mp4 . $ogg;
 			
 }
 

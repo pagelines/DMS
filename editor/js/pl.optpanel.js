@@ -688,15 +688,24 @@
 			
 			else if( o.type == 'media_select_video' ){
 
+
+			
+
 				oHTML += '<div class="video-upload-inputs">'
 				
+				
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-
+				
+				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("Important Information"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
+				
 				oHTML +=  that.addVideoOption( o.value, o.inputID, o.name, 'Video Format 1 (.mp4)')
 				
 				o2 = that.addOptionObjectMeta( tabIndex, {key: o.key+'_2'} )
 				
-				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2 (.webm or .ogg)')
+				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2 (.ogv)')
+
+
+				
 
 				oHTML += '</div>'
 			}
