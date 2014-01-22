@@ -23,6 +23,21 @@ class PageLinesTextBox extends PageLinesSection {
 						'label' 		=> __( 'Title (Optional)', 'pagelines' ),
 					),
 					array(
+						'type' 			=> 'select',
+						'key'			=> 'textbox_title_wrap',
+						'label' 		=> __( 'Title wrapper', 'pagelines' ),
+						'default'		=> 'strong',
+						'opts'			=> array(
+							'strong'		=> array('name' => '&lt;strong&gt; (default)'),
+							'h1'			=> array('name' => '&lt;h1&gt;'),
+							'h2'			=> array('name' => '&lt;h2&gt;'),
+							'h3'			=> array('name' => '&lt;h3&gt;'),
+							'h4'			=> array('name' => '&lt;h4&gt;'),
+							'h5'			=> array('name' => '&lt;h5&gt;'),
+							'none'			=> array('name' => 'none'),
+						)
+					),					
+					array(
 						'type' 			=> 'textarea',
 						'key'			=> 'textbox_content',
 						'label' 		=> __( 'Text Content', 'pagelines' ),
@@ -86,8 +101,11 @@ class PageLinesTextBox extends PageLinesSection {
 
 		global $pldraft;
 		$edit = false;
+		$extra = '';
 		if( is_object( $pldraft ) && 'draft' == $pldraft->mode )
 			$edit = true;
+
+		$title_wrap = ( '' != $this->opt( 'textbox_title_wrap' ) ) ? $this->opt( 'textbox_title_wrap' ) : 'strong';
 
 		$text = $this->opt('textbox_content');
 
@@ -98,10 +116,18 @@ class PageLinesTextBox extends PageLinesSection {
 			$text = "Add Content!";
 		} 
 		
+		if( 'strong' == $title_wrap )
+			$extra = '<br />';
+		
+		if( '' != $title ) {
+			if( 'none' != $title_wrap )
+				$title = sprintf( '<%s data-sync="textbox_title">%s</%s>%s', $title_wrap, $title, $title_wrap, $extra );
+			else
+				$title = sprintf( '<span data-sync="textbox_title">%s</span>', $title );
+		}
+		
 		$text = sprintf('<div class="hentry" data-sync="textbox_content">%s</div>', do_shortcode( wpautop($text) ) ); 
 		
-		$title = ( $edit || $title ) ? sprintf('<strong data-sync="textbox_title">%s</strong><br />', $title) : '';
-
 		$class = $this->opt('textbox_animation');
 			
 		$align = $this->opt('textbox_align');
