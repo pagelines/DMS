@@ -94,13 +94,13 @@ class PageLinesEditorUpdates {
 		$install_url = wp_nonce_url( network_admin_url( 'update.php?action=install-plugin&plugin=pagelines-updater' ), 'install-plugin_pagelines-updater' );
 		$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
 
-		$message = '<a href="' . esc_url( $install_url ) . '">Install the PageLines Updater plugin</a> to activate a key and get updates for your PageLines themes and plugins.';
+		$message = '<a class="btn btn-mini" href="' . esc_url( $install_url ) . '"> Install the PageLines Updater plugin</a> to activate a key and get updates for your PageLines themes and plugins.';
 		$is_downloaded = false;
 		$plugins = array_keys( get_plugins() );
 		foreach ( $plugins as $plugin ) {
 			if ( strpos( $plugin, 'pagelines-updater.php' ) !== false ) {
 				$is_downloaded = true;
-				$message = '<a href="' . esc_url( network_admin_url( $activate_url ) ) . '">Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.';
+				$message = '<a class="btn btn-mini" href="' . esc_url( network_admin_url( $activate_url ) ) . '">Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.';
 			}
 		}
 		echo '<div class="updated fade"><p>' . $message . '</p></div>' . "\n";

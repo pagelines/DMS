@@ -341,7 +341,7 @@ function pagelines_check_updater( $note ) {
 	
 	if( ! pl_check_updater_exists() ) { // need to install...
 		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
-		$message = '<a href="' . esc_url( $install_url ) . '">Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
+		$message = '<a class="btn btn-mini btn-warning" href="' . esc_url( $install_url ) . '"><i class="icon-download"></i> Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
 	} else {
 		// must be installed..maybe its not active?
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -359,7 +359,7 @@ function pagelines_check_updater( $note ) {
 		ob_start();
 		?>
 		<div class="editor-alert alert">		
-		  	<p><i class="icon-cogs"></i>
+		  	<p>
 			<?php echo $message ?>
 			</p>
 		</div>
