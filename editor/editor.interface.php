@@ -120,11 +120,7 @@ class EditorInterface {
 			wp_enqueue_script( 'jquery-ui-droppable' );
 			wp_enqueue_script( 'jquery-ui-resizable' );
 			wp_enqueue_script( 'jquery-ui-accordion' );
-			
-			// Older sortable needs to be used for now
-			// 	https://github.com/jquery/jquery-ui/commit/bae06d2b1ef6bbc946dce9fae91f68cc41abccda#commitcomment-2141597
-			//	http://bugs.jqueryui.com/ticket/8810
-			wp_enqueue_script( 'pl-new-ui-sortable', PL_JS . '/new.jquery.sortable.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'jquery-ui-sortable' );
 	
 			wp_enqueue_script( 'jquery-mousewheel', PL_JS . '/utils.mousewheel.js', array('jquery'), PL_CORE_VERSION, true );
 
