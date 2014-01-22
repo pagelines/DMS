@@ -722,7 +722,7 @@
 				
 				oHTML +=  that.addVideoOption( o.value, o.inputID, o.name, 'Video Format 1 (.mp4)')
 				
-				o2 = that.addOptionObjectMeta( tabIndex, {key: o.key+'_2'} )
+				o2 = that.addOptionObjectMeta( tabIndex, {key: o.key+'_2'}, level, parent )
 				
 				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2 (.ogv)')
 
