@@ -641,6 +641,28 @@
 				oHTML += sprintf("</div><div class='accordion-tools'><span class='btn btn-mini add-accordion-item' data-uid='' data-scope='' data-key=''><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
 
 			}
+			
+			else if ( o.type == 'button_link' ){
+				
+				var buttonOpts = [
+					{type: 'text', key: o.key, label: 'URL', }
+					,	{type: 'text', key: o.key+'_text', label: 'Text'}
+					,	{type: 'select_button', key: o.key+'_style', label: 'Style'}
+				]
+				
+				oHTML += '<div class="button-link option-group">'
+				
+				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				
+				$.each( buttonOpts , function(index, osub) {
+
+					oHTML += that.optEngine(tabIndex, osub, level, parent) // recursive
+
+				})
+				
+				oHTML += '</div>'
+				
+			}
 
 			else if( o.type == 'disabled' ){ }
 			
@@ -691,12 +713,12 @@
 
 			
 
-				oHTML += '<div class="video-upload-inputs">'
+				oHTML += '<div class="video-upload-inputs option-group">'
 				
 				
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
 				
-				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("Important Information"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
+				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About HTML5 Video"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
 				
 				oHTML +=  that.addVideoOption( o.value, o.inputID, o.name, 'Video Format 1 (.mp4)')
 				
@@ -958,7 +980,7 @@
 			if ( o.ref )
 				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"),o.ref)
 
-			if(level == 2)
+			if(level == 2 || level == 3)
 				return sprintf('<div class="input-wrap">%s</div>', oHTML)
 			else
 				return oHTML
