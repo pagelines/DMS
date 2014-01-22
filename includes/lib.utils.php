@@ -1,5 +1,13 @@
 <?php 
 
+/* 
+ * Gets a transparent image
+ */
+function pl_transparent_image(){
+	
+	return PL_IMAGES . '/transparent.png';
+	
+}
 
 function pl_get_video_sources( $source1, $source2 ){
 
