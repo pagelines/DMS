@@ -686,24 +686,32 @@
 				,	size = imgSize + 'px'
 				,	sizeMode = o.sizemode || 'width'
 				,	remove = sprintf('<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">%s</a>', $.pl.lang("Remove") )
-				,	thm = (o.value != '') ? sprintf('<div class="img-wrap"><img src="%s" style="max-%s: %s" /></div>', o.value, sizeMode, size) : ''
+				,	thm = (o.value != '') ? sprintf('<div class="img-wrap"><img src="%s" /></div>', o.value) : ''
 
-				oHTML += '<div class="upload-box">'
-
-				oHTML += sprintf( '<div class="opt-upload-thumb-%s opt-upload-thumb" data-imgstyle="max-%s: %s">%s</div>', o.key, sizeMode, size, pl_do_shortcode(thm) );
+				oHTML += '<div class="upload-box image-uploader">'
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
+				
+				oHTML += '<div class="uploader-input">'
+				
+				
 
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.inputID, o.name, o.value )
+					oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.inputID, o.name, o.value )
+				
+				
+					var attach_key = o.key + "_attach_id"
+					,	attach_value =  that.optValue( tabIndex, attach_key )
+					,	attach_name = (optLevel == 3) ? sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, attach_key ) : sprintf('%s[%s]', that.uniqueID, attach_key )
 
-				var attach_key = o.key + "_attach_id"
-				,	attach_value =  that.optValue( tabIndex, attach_key )
-				,	attach_name = (optLevel == 3) ? sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, attach_key ) : sprintf('%s[%s]', that.uniqueID, attach_key )
+					oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
 
-				oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
+					oHTML += sprintf('<div id="upload-%1$s" class="fineupload upload-%1$s fileupload-new" data-provides="fileupload"></div>', o.inputID)
 
-				oHTML += sprintf('<div id="upload-%1$s" class="fineupload upload-%1$s fileupload-new" data-provides="fileupload"></div>', o.inputID)
 
+				oHTML += '</div>'
+				
+				oHTML += sprintf( '<div class="opt-upload-thumb-%s opt-upload-thumb" >%s</div>', o.key, pl_do_shortcode(thm) );
+				
 				oHTML += '</div>'
 
 			}
@@ -718,7 +726,6 @@
 				
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
 				
-				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About HTML5 Video"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
 				
 				oHTML +=  that.addVideoOption( o.value, o.inputID, o.name, 'Video Format 1')
 				
@@ -726,7 +733,7 @@
 				
 				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2')
 
-
+				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About HTML5 Video"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
 				
 
 				oHTML += '</div>'
@@ -819,6 +826,8 @@
 				|| o.type == 'select_animation'
 				|| o.type == 'select_multi'
 				|| o.type == 'select_button'
+				|| o.type == 'select_theme'
+				|| o.type == 'select_padding'
 				|| o.type == 'select_imagesizes'
 			){
 
@@ -849,8 +858,15 @@
 
 
 				}
+				
+				if(o.type == 'select_padding'){
 
-				if(o.type == 'select_icon'){
+					var icons = $.pl.config.icons
+					o.opts = {}
+					for(i = 0; i <= 200; i+=20)
+						o.opts['pad'+i] = {name: i + ' px'}
+
+				} else if(o.type == 'select_icon'){
 
 					var icons = $.pl.config.icons
 
@@ -877,7 +893,16 @@
 						o.opts[ key ] = {name: s}
 					})
 
-				} else if( o.type == 'select_imagesizes' ){
+				}	else if( o.type == 'select_theme' ){
+
+					var themes = $.pl.config.themes
+
+					o.opts = {}
+					$.each(themes, function(key, s){
+						o.opts[ key ] = {name: s}
+					})
+
+				}else if( o.type == 'select_imagesizes' ){
 
 						var sizes = $.pl.config.imgSizes
 
@@ -997,9 +1022,9 @@
 
 			theOption += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', inputID, inputName, inputValue )
 			
-			theOption += '<a class="btn btn-primary btn-mini pl-load-media-lib" data-mimetype="video">Select Media</a>'
+			theOption += '<a class="btn btn-primary btn-mini pl-load-media-lib" data-mimetype="video"><i class="icon-play-circle"></i> Select</a>'
 			
-			theOption += sprintf(' <a class="btn btn-mini" href="%s">Add Media</a>', $.pl.config.urls.addMedia)
+			theOption += sprintf(' <a class="btn btn-mini" href="%s"><i class="icon-plus"></i> Add</a>', $.pl.config.urls.addMedia)
 			
 			theOption += '</div>'
 			
@@ -1606,12 +1631,12 @@
 							sizeLimit: sizeLimit
 						}
 					,	text: {
-							uploadButton: sprintf( '<i class="icon-upload"></i> %s', $.pl.lang("Upload Image") )
+							uploadButton: sprintf( '<i class="icon-upload"></i> %s', $.pl.lang("Upload") )
 						}
 					// , 	debug: true
 					,	template: '<div class="qq-uploader span12">' +
 					                      '<pre class="qq-upload-drop-area span12 hidden"><span>{dragZoneText}</span></pre>' +
-					                      sprintf( '<div class="qq-upload-button btn btn-primary btn-mini" style="width: auto;">{uploadButtonText}</div> <div class="pl-load-media-lib btn btn-mini" >%s</div>  <div class="btn  btn-mini rmv-upload"><i class="icon-remove"></i></div>', $.pl.lang("Media Library") ) +
+					                      sprintf( '<div class="qq-upload-button btn btn-primary btn-mini" style="width: auto;">{uploadButtonText}</div> <div class="pl-load-media-lib btn btn-mini" >%s</div>  <div class="btn  btn-mini rmv-upload"><i class="icon-remove"></i></div>', $.pl.lang("Library") ) +
 					                      '<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="icon-spinner icon-spin spin-fast"></span></span>' +
 					                      '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
 					                    '</div>'
