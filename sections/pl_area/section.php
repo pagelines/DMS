@@ -123,11 +123,6 @@ class PLSectionArea extends PageLinesSection {
 
 		);
 		
-		
-		
-		
-
-
 		return $options;
 	}
 	
