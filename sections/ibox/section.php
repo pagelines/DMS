@@ -166,7 +166,7 @@ class pliBox extends PageLinesSection {
 						$icons = pl_icon_array();
 						$icon = $icons[ array_rand($icons) ];
 					}
-					$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $icon);
+					$media_html = sprintf('<i class="icon-3x icon-%s "></i>', $icon);
 
 				} elseif( $media_type == 'image' ){
 				
@@ -187,12 +187,14 @@ class pliBox extends PageLinesSection {
 				if($width == 0)
 					$output .= '<div class="row fix">';
 
+				$inverter = ($media_format != 'left') ? 'pl-inverter' : '';
+
 
 				$output .= sprintf(
-					'<div class="span%s ibox %s %s fix">
+					'<div class="span%s ibox %s %s pl-hover-flag fix">
 						<div class="ibox-media img">
 							%s
-							<span class="ibox-icon-border pl-animation pl-appear pl-contrast %s" style="%s">
+							<span class="ibox-icon-border pl-animation pl-appear pl-link %s %s" style="%s">
 								%s
 							</span>
 							%s
@@ -209,6 +211,7 @@ class pliBox extends PageLinesSection {
 					$format_class,
 					$user_class,
 					$media_link,
+					$inverter,
 					$media_class,
 					$media_bg,
 					$media_html,

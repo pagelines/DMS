@@ -18,8 +18,7 @@
 			}
 		}
 	}
-
-
+	
 
 	.ibox-media{
 		text-align: center;
@@ -28,7 +27,7 @@
 			margin-bottom: @baseLineHeight/2;
 			display: inline-block;
 			text-align: center;
-			
+			.transition(all 0.2s ease-in-out);
 			.border-radius(500px);
 			&.media-type-image {
 				overflow: hidden;
@@ -48,7 +47,7 @@
 				line-height: 106px;
 				
 				border: 1px solid transparent;
-				.transition(all 0.2s ease-in-out);
+				
 				i{
 					font-size: 40px;
 					display: inline-block;
@@ -58,7 +57,7 @@
 		}
 		
 	}
-
+	
 		
 	&.top-aligned{
 		.ibox-media{
@@ -70,7 +69,9 @@
 				height: 0; 
 				padding: 50% 0;
 			}
+			
 		}
+		
 	}
 	&.left-aligned{
 		text-align: left;

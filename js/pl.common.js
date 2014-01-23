@@ -305,6 +305,21 @@
 			var that = this
 						
 			$.plAnimate.plWaypoints()
+			
+			$.plAnimate.doHoverFlag()
+		}
+		
+		// adds a hover class on hover to items that have the flag
+		, doHoverFlag: function(){
+			
+			$( ".pl-hover-flag" ).hover(
+				function() {
+			    	$( this ).addClass( "pl-hover" )
+			  	}, function() {
+			    	$( this ).removeClass( "pl-hover" )
+			  	}
+			)
+			
 		}
 		
 		, plWaypoints: function(selector, options_passed){
