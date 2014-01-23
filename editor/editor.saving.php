@@ -142,13 +142,11 @@ class PageLinesSave {
 	
 	function publish( $response, $data ){
 		
+		global $sections_data_handler, $dms_cache; 
 		$pageID = $data['pageID'];
 		$typeID = $data['typeID'];
-	
-		global $sections_data_handler; 
 
 		$response['result'] = $sections_data_handler->publish_items( $data['store'] );
-		
 		
 		$section_handler = new PLCustomSections;
 		$section_handler->update_objects( 'publish' );
@@ -172,9 +170,6 @@ class PageLinesSave {
 
 		}
 
-
-		pagelines_reset_pl_cache_key();
-
 		pl_meta_update( $pageID, PL_SETTINGS, $settings['local'] );
 		pl_meta_update( $typeID, PL_SETTINGS, $settings['type'] );
 		
@@ -182,8 +177,7 @@ class PageLinesSave {
 
 
 		// Flush less
-		do_action( 'extend_flush' );
-		
+		$dms_cache->purge('live_css');
 		
 		return $response;
 	}

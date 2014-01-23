@@ -25,7 +25,6 @@ class PLDeveloperTools {
 		$pl_perform = array(); 
 	}
 	
-
 	function draw_developer_data(){
 	
 			?><script>
@@ -204,7 +203,7 @@ class PLDeveloperTools {
 					'type' 		=> 'check',
 					'label' 	=> __( 'Enable LESS dev mode', 'pagelines' ),
 					'title' 	=> __( 'LESS Developer Mode', 'pagelines' ),
-					'help' 		=> __( 'Less subsystem will check files for changed less code on every pageload and recompile if there are changes.', 'pagelines' )
+					'help' 		=> sprintf( __( 'Less subsystem will check files for changed less code on every pageload and recompile if there are changes. %s', 'pagelines' ), $this->get_api_key() )
 				),
 				array(
 					'key'		=> 'no_cache_mode',
@@ -217,10 +216,14 @@ class PLDeveloperTools {
 			);
 			
 		return $settings;
-
 	}
 	
-	
+	function get_api_key() {
+
+		$key = md5( get_bloginfo( 'admin_email' ) . site_url() );
+		$link = sprintf( '%s?pl_purge=%s', trailingslashit( site_url() ), $key );
+		return sprintf( '<br />To remote purge all caches and update the js/css cache number use this url: <a href="%s">link</a>', $link );
+	}
 }
 
 function pl_add_perform_data( $data_point, $title, $label, $description){
