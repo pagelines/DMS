@@ -220,7 +220,7 @@ class PLDeveloperTools {
 	
 	function get_api_key() {
 
-		$key = md5( get_bloginfo( 'admin_email' ) . site_url() );
+		$key = md5( site_url() );
 		$link = sprintf( '%s?pl_purge=%s', trailingslashit( site_url() ), $key );
 		return sprintf( '<br />To remote purge all caches and update the js/css cache number use this url: <a href="%s">link</a>', $link );
 	}

@@ -74,7 +74,7 @@ class DMS_Cache {
 		if( ! isset( $_REQUEST['pl_purge'] ) )
 			return false;
 
-		$key = md5( get_bloginfo( 'admin_email' ) . site_url() );
+		$key = md5( site_url() );
 		if( $key === $_REQUEST['pl_purge'] ) {
 			$this->purge_all();
 			wp_die( sprintf( '<h2>Caches Cleared</h2><a href="%s">Go back..</a>', site_url() ), 'PageLines DMS', array( 'response' => 200 ) );
