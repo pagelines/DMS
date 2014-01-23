@@ -177,6 +177,7 @@ class PageLinesTemplateHandler {
 						, extensions: <?php echo json_encode( pl_arrays_to_objects( $this->extensions->get_list() ) ); ?>
 						, icons: <?php echo json_encode( pl_arrays_to_objects( pl_icon_array() ) ); ?>
 						, btns: <?php echo json_encode( pl_arrays_to_objects( pl_button_classes() ) ); ?>
+						, themes: <?php echo json_encode( pl_arrays_to_objects( pl_theme_classes() ) ); ?>
 						, imgSizes: <?php echo json_encode( pl_arrays_to_objects( pl_get_image_sizes() ) ); ?>
 						, animations: <?php echo json_encode( pl_arrays_to_objects( pl_animation_array() ) ); ?>
 						, urls: {

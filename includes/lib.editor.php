@@ -661,6 +661,23 @@ function pl_button_classes(){
 	return $array;
 }
 
+function pl_theme_classes(){
+	$array = array(
+		''			 	=> 'Default',
+		'pl-trans'		=> 'Site Text Color, No BG Color',
+		'pl-contrast'	=> 'Site Text Color, Contrast BG',
+		'pl-black'		=> 'White Text Color, Black BG Color',
+		'pl-grey'		=> 'White Text Color, Dark Grey BG Color',
+		'pl-white'		=> 'Black Text Color, White BG Color',
+		'pl-dark-img'	=> 'White Text Color w Shadow, Black BG Color',
+		'pl-light-img'	=> 'Black Text Color w Shadow, White BG Color',
+		'pl-base'		=> 'Site Text Color, Site Base BG Color',
+	); 
+	return $array;
+}
+
+
+
 function get_sidebar_select(){
 
 
