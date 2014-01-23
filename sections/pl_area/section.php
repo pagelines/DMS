@@ -71,17 +71,8 @@ class PLSectionArea extends PageLinesSection {
 				array(
 
 					'key'			=> 'pl_area_bg',
-					'type' 			=> 'select',
-					'opts'	=> array(
-						'pl-trans'		=> array('name'=> 'Site Text Color, No BG Color'),
-						'pl-contrast'	=> array('name'=> 'Site Text Color, Contrast BG'),
-						'pl-black'		=> array('name'=> 'White Text Color, Black BG Color'),
-						'pl-grey'		=> array('name'=> 'White Text Color, Dark Grey BG Color'),
-						'pl-white'		=> array('name'=> 'Black Text Color, White BG Color'),
-						'pl-dark-img'	=> array('name'=> 'White Text Color w Shadow, Black BG Color'),
-						'pl-light-img'	=> array('name'=> 'Black Text Color w Shadow, White BG Color'),
-						'pl-base'		=> array('name'=> 'Site Text Color, Site Base BG Color'),
-					),
+					'type' 			=> 'select_theme',
+					
 					'label' 	=> __( 'Area Theme', 'pagelines' ),
 
 				),
