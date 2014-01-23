@@ -15,7 +15,7 @@ class PageLinesAreas {
 	}
 
 	function scripts(){
-		wp_enqueue_script( 'pl-js-areas', $this->url . '/js/pl.areas.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-js-areas', $this->url . '/js/pl.areas.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 	function toolbar( $toolbar ){

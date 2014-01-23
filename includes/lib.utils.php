@@ -94,12 +94,12 @@ function pl_enqueue_codemirror(){
 	wp_enqueue_style( 'codemirror',			PL_JS . '/codemirror/codemirror.css' );
 
 	// CodeMirror Syntax Highlighting
-	wp_enqueue_script( 'codemirror',		PL_JS . '/codemirror/codemirror.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'codemirror-html',	PL_JS . '/codemirror/htmlmixed/htmlmixed.js', array( 'codemirror-css', 'codemirror', 'codemirror-js', 'codemirror-xml' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'codemirror-css',	PL_JS . '/codemirror/css/css.js', array( 'codemirror' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'codemirror-less',	PL_JS . '/codemirror/less/less.js', array( 'codemirror' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'codemirror-js',		PL_JS . '/codemirror/javascript/javascript.js', array( 'codemirror' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'codemirror-xml',	PL_JS . '/codemirror/xml/xml.js', array( 'codemirror' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'codemirror',		PL_JS . '/codemirror/codemirror.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'codemirror-html',	PL_JS . '/codemirror/htmlmixed/htmlmixed.js', array( 'codemirror-css', 'codemirror', 'codemirror-js', 'codemirror-xml' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'codemirror-css',	PL_JS . '/codemirror/css/css.js', array( 'codemirror' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'codemirror-less',	PL_JS . '/codemirror/less/less.js', array( 'codemirror' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'codemirror-js',		PL_JS . '/codemirror/javascript/javascript.js', array( 'codemirror' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'codemirror-xml',	PL_JS . '/codemirror/xml/xml.js', array( 'codemirror' ), pl_get_cache_key(), true );
 	
 
 	// Codebox defaults

@@ -21,7 +21,7 @@ class PLNavBar extends PageLinesSection {
 	var $default_limit = 2;
 
 	function section_styles() {
-		wp_enqueue_script( 'navbar', $this->base_url.'/navbar.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'navbar', $this->base_url.'/navbar.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 

@@ -37,8 +37,8 @@ class PageLinesLESSEngine {
 	}
 	
 	function enqueue_scripts(){
-		wp_enqueue_script( 'pl-less-parser', PL_JS . '/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'pl-less-handler', PL_JS . '/pl.less.js', array( 'jquery', 'pl-less-parser' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-less-parser', PL_JS . '/utils.less.js', array( 'jquery' ), pl_get_cache_key(), true );
+		wp_enqueue_script( 'pl-less-handler', PL_JS . '/pl.less.js', array( 'jquery', 'pl-less-parser' ), pl_get_cache_key(), true );
 	}
 	
 	function render_css_container(){

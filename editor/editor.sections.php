@@ -28,7 +28,7 @@ class PageLinesSectionsHandler{
 	}
 
 	function scripts(){
-		wp_enqueue_script( 'pl-js-sections', $this->url . '/js/pl.sections.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-js-sections', $this->url . '/js/pl.sections.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 	function toolbar( $toolbar ){

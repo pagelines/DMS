@@ -13,7 +13,7 @@ class PageLinesExtendPanel{
 	}
 
 	function scripts(){
-		wp_enqueue_script( 'pl-js-extend', $this->url . '/js/pl.extend.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-js-extend', $this->url . '/js/pl.extend.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 	function toolbar( $toolbar ){
