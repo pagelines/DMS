@@ -296,8 +296,8 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 	/**
 	 * 1X.Shortcode to display Google Plus 1 Button
 	 *
-	 * @example <code>[google_plus]</code> is the default usage
-	 * @example <code>[google_plus size="" count=""]</code>
+	 * @example <code>[googleplus]</code> is the default usage
+	 * @example <code>[googleplus size="" count=""]</code>
 	 * @example available attributes for size include small, medium, and tall
 	 * @example avialable counts include inline, and bubble
 	 */
@@ -305,7 +305,7 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
     	$defaults = array(
     		'size' => 'medium',
-    		'count' => 'inline',
+    		'count' => '',
     		'url' => get_permalink()
 
 	    );
@@ -314,7 +314,7 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
     	ob_start();
 
-		 printf( '<div class="g-plusone" style="width:190px;" data-size="%s" data-annotation="%s" data-href="%s"></div>',
+		 printf( '<div class="g-plusone" data-size="%s" data-href="%s"></div>',
 			$atts['size'],
 			$atts['count'],
 			$atts['url']
@@ -322,7 +322,20 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 		
 		global $shortcode_js; 
 		
-		$shortcode_js['gplus'] = "<script type='text/javascript'>(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>";
+		ob_start();
+		
+		?>
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/platform.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		
+		<?php 
+		
+		$shortcode_js['gplus'] = ob_get_clean();
 
 		return ob_get_clean();
     }
