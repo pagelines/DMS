@@ -107,13 +107,13 @@ class PLWatermark extends PageLinesSection {
 			<?php 
 			
 				if( pl_setting( 'share_facebook' ) )
-					echo do_shortcode('[like_button]');
+					echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
 			
 				if( pl_setting( 'share_google' ) ) 
 					echo do_shortcode('[googleplus]');
 				
 				if( pl_setting( 'share_twitter' ) )
-					echo do_shortcode('[twitter_button]');
+					echo do_shortcode('[twitter_button type="follow"]');
 			
 			?>
 		</div>

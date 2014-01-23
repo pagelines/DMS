@@ -388,7 +388,7 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
 			if ($a['type'] == 'follow') {
 
-				$out = sprintf( '<a href="https://twitter.com/%1$s" class="twitter-follow-button" data-show-count="true">Follow @%1$s</a>',
+				$out = sprintf( '<a href="https://twitter.com/%1$s" class="twitter-follow-button" data-show-count="true" data-show-screen-name="false">Follow @%1$s</a>',
 					$a['handle']
 						);
 
