@@ -676,6 +676,39 @@ function pl_theme_classes(){
 	return $array;
 }
 
+function pl_get_background_options( $namespace, $column ){
+	$options = array(
+		'title' => __( 'Background', 'pagelines' ),
+		'type'	=> 'multi',
+		'col'	=> $column,
+		'opts'	=> array(
+			array(
+				'key'			=> $namespace.'_background',
+				'type' 			=> 'image_upload',
+				'label' 		=> __( 'Background Image', 'pagelines' ),
+			),
+			array(
+				'key'			=> $namespace.'_video',
+				'type' 			=> 'media_select_video',
+				'label' 		=> __( 'Background Video', 'pagelines' ),
+			),
+			array(
+				'key'			=> $namespace.'_color_enable',
+				'type' 			=> 'check',
+				'label' 		=> __( 'Background Color Enable', 'pagelines' ),
+			),
+			array(
+				'key'			=> $namespace.'_color',
+				'type' 			=> 'color',
+				'label' 		=> __( 'Background Color', 'pagelines' ),
+			),
+		)
+	);
+	
+	
+	return $options;
+}
+
 
 
 function get_sidebar_select(){
