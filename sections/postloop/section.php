@@ -122,7 +122,7 @@ class PageLinesPostLoop extends PageLinesSection {
 		
 				<?php
 				
-					if( $postlist )
+					if( $postlist && get_post_type() != 'page' )
 						echo do_shortcode( '<div class="metahead">[pl_author_avatar size="80"][post_author_posts_link][pl_love]</div>' );
 				
 					if( ! is_single() ){
@@ -146,7 +146,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 							$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]'; 
 						
-							if( $meta && ! is_page() )
+							if( $meta && ! is_page() && get_post_type() != 'page' )
 								printf( '<div class="metabar"> %s </div>', do_shortcode( $meta ) );
 						
 						?>
@@ -172,7 +172,7 @@ class PageLinesPostLoop extends PageLinesSection {
 					} elseif( ! $linkbox ) {
 						the_excerpt();
 						printf(
-							'<a class="continue_reading_link btn" href="%s" title="%s %s">%s</a>',
+							'<div class="continue_reading_link"><a class="btn" href="%s" title="%s %s">%s</a></div>',
 							get_permalink(),
 							__("Read More", 'pagelines'),
 							the_title_attribute(array('echo'=> 0)),
