@@ -864,7 +864,7 @@
 					var icons = $.pl.config.icons
 					o.opts = {}
 					for(i = 0; i <= 200; i+=20)
-						o.opts['pad'+i] = {name: i + ' px'}
+						o.opts['pad-'+i] = {name: i + ' px'}
 
 				} else if(o.type == 'select_icon'){
 
