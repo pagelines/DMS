@@ -128,6 +128,7 @@ $.plSections = {
 				,	mode: 'sections'
 				,	object: object
 				, 	uniqueID: newUniqueID
+				,	draw: type
 				, 	postSuccess: function(response){
 					
 						if(!response)

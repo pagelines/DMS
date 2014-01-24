@@ -48,6 +48,7 @@ function pl_editor_actions(){
 
 			$section_object = $postdata['object'];
 			$section_unique_id = $postdata['uniqueID'];
+			$draw = $postdata['draw'];
 
 			global $pl_section_factory;
 
@@ -62,6 +63,7 @@ function pl_editor_actions(){
 				// needs to be set.. ??
 				$s->meta['content'] = array();
 				$s->meta['unique']	= '';
+				$s->meta['draw']	= $draw;
 				
 				
 				$opts = $s->section_opts();

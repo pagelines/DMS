@@ -341,8 +341,6 @@ class PageLinesTemplateHandler {
 				
 				$a['set'] = $this->get_section_settings( $a['clone'] ); 
 				$a['draw']	= 'area';
-				// Lets get rid of the number based clone system
-				
 					
 				
 				$this->section_list[ ] = $a;
