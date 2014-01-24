@@ -9,6 +9,112 @@ function pl_transparent_image(){
 	
 }
 
+
+
+
+function pl_get_button_link( $key, $section, $size = 'btn-large' ){
+	
+	$link = ( $section->opt( $key ) ) ? $section->opt( $key ) : false;
+	$style = ( $section->opt( $key. '_style' ) ) ? $section->opt( $key. '_style' ) : '';
+	$text = ( $section->opt( $key. '_text' ) ) ? $section->opt( $key. '_text' ) : false;
+	$target = ( $section->opt( $key. '_target' ) ) ? sprintf('target="_blank"') : '';
+	
+	return ( $link ) ? sprintf('<a href="%s" class="btn %s %s" %s>%s</a>', $link, $style, $size, $target, $text) : '';
+	
+}
+
+// Gets a smart page title
+function pl_smart_page_title(){
+	
+	
+	
+	if( is_page() || is_single() ){
+		
+		global $post;
+		return get_the_title( $post->ID );
+		
+	} elseif( is_home() )
+	
+	 	return __('Blog', 'pagelines');
+	
+	elseif( is_category() )
+	 	return __('Category', 'pagelines');
+	
+	elseif( is_search() )
+	 	return __('Search', 'pagelines');
+	
+	elseif( is_tag() )
+	 	return __('Tag', 'pagelines');
+	
+	elseif( is_author() )
+	 	return __('Author', 'pagelines');
+	
+	elseif( is_archive() )
+	 	return __('Archive', 'pagelines');
+	
+	elseif( is_404() )
+		return __('404 Error!', 'pagelines');
+		
+	else
+		return false;
+
+}
+
+function pl_smart_page_subtitle(){
+	
+	if( is_home() ){
+		
+		return false;
+		
+	} elseif( is_category() ){
+		
+		return sprintf( '%s "%s"', __( 'Currently viewing the category:', 'pagelines' ), single_cat_title( false, false ) );
+	
+	} elseif( is_search() ){
+		
+		return sprintf( '%s "%s"', __( 'Showing search results for', 'pagelines' ), get_search_query() );
+		
+	} elseif( is_tag() ){
+		
+		return sprintf( '%s "%s"', __( 'Currently viewing the tag:', 'pagelines' ), single_tag_title( false, false ) );
+	
+	} elseif( is_archive() ){
+		
+		if (is_author()) {
+			global $author;
+			global $author_name;
+			$curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) );
+			$out = sprintf( '%s <strong>"%s"</strong>', __( 'Posts by:', 'pagelines' ), $curauth->display_name );
+		} elseif ( is_day() ) {
+			$out = sprintf( '%s <strong>"%s"</strong>', __( 'From the daily archives:', 'pagelines' ), get_the_time('l, F j, Y') );
+		} elseif ( is_month() ) {
+			$out = sprintf( '%s <strong>"%s"</strong>', __( 'From the monthly archives:', 'pagelines' ), get_the_time('F Y') );
+		} elseif ( is_year() ) {
+			$out = sprintf( '%s <strong>"%s"</strong>', __( 'From the yearly archives:', 'pagelines' ), get_the_time('Y') );
+		} else {
+			
+			if ( is_post_type_archive() )
+				$title =  post_type_archive_title( null,false );
+				
+			if ( ! isset( $title ) ) {
+				$o = get_queried_object();
+				if ( isset( $o->name ) )
+					$title = $o->name;
+			}
+			
+			if ( ! isset( $title ) )
+				$title = the_date();
+				
+			$out = sprintf( '%s <strong>"%s"</strong>', __( 'Viewing archives for ', 'pagelines'), $title );
+		}
+		
+		return $out;
+		
+	} else
+		return false;
+}
+
+
 function pl_get_video_sources( $videos ){
 
 	// videos should be an array of videos, we need to return a sane block of <source> tags depending on the filetype.

@@ -676,6 +676,25 @@ function pl_theme_classes(){
 	return $array;
 }
 
+function pl_get_area_classes( $namespace, $section, $set = array() ){
+
+	$class = array(
+		'theme'		=> $section->opt($namespace.'_theme'),
+		'scroll'	=> $section->opt($namespace.'_scroll'),
+		'video'		=> ( $section->opt($namespace.'_video') ) ? 'bg-video-canvas' : ''
+	);
+	
+	$class = wp_parse_args( $set, $class );
+	
+	return join(' ', $class);
+
+}
+
+function pl_get_area_styles( $namespace, $section ){
+
+	
+}
+
 function pl_get_background_options( $namespace, $column ){
 	$options = array(
 		'title' => __( 'Background', 'pagelines' ),
@@ -686,6 +705,11 @@ function pl_get_background_options( $namespace, $column ){
 				'key'			=> $namespace.'_background',
 				'type' 			=> 'image_upload',
 				'label' 		=> __( 'Background Image', 'pagelines' ),
+			),
+			array(
+				'key'			=> $namespace.'_theme',
+				'type' 			=> 'select_theme',
+				'label' 		=> __( 'Background Theme', 'pagelines' ),
 			),
 			array(
 				'key'			=> $namespace.'_video',
