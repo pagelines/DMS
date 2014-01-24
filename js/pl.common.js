@@ -13,7 +13,7 @@
 	
 		$(".fitvids").fitVids(); // fit videos
 	
-		$.plAnimate.initAnimation()
+		
 		
 		$.plNavigation.init()
 		
@@ -25,6 +25,8 @@
 		
 		$.plVideos.init()
 		
+		$.plAnimate.initAnimation()
+		
 		$('.pl-credit').show()
 		
 		
@@ -32,9 +34,9 @@
 	
 	$(window).load(function() {
 		$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
-		$('.pl-section').on('plresize', function(){
-			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
-		})
+		// $('.pl-section').on('plresize', function(){
+		// 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
+		// 		})
 	})
 	
 	$.plVideos = {
@@ -64,9 +66,9 @@
 			
 			$(window).trigger('resize')
 			
-			$('.bg-video-canvas').on('plresize', function(){
-				$(window).trigger('resize')
-			})
+			// $('.bg-video-canvas').on('plresize', function(){
+			// 			$(window).trigger('resize')
+			// 		})
 			
 		}
 		
@@ -365,9 +367,18 @@
 
 				element.waypoint(function(direction){
 					
+						if( $(this).hasClass('pl-slidedown') ){
+							var endHeight = $(this).find('.pl-end-height').outerHeight()
+							console.log(endHeight+'end height')
+							$(this).css('height', endHeight)
+						}
+						
+					
 					 	$(this)
 							.addClass('animation-loaded')
 							.trigger('animation_loaded')
+							
+						
 
 					}
 					, { offset: '85%' 

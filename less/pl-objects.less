@@ -69,6 +69,17 @@
 	.pla-from-top{
 		.translate3d(0, -60px, 0);
 	}
+	
+	.pl-slidedown{
+		height: 0;
+		overflow:hidden;
+		-webkit-transition: height 0.85s cubic-bezier(0.725, 0.000, 0.000, 0.995);
+			-moz-transition: height 0.85s cubic-bezier(0.725, 0.000, 0.000, 0.995);
+			     transition:  height 0.85s cubic-bezier(0.725, 0.000, 0.000, 0.995);
+		&.animation-loaded{
+		//	max-height: 200px;
+		}
+	}
 
 	.pl-appear{
 		opacity: .1;
