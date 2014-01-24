@@ -115,14 +115,16 @@ function pl_update_single_meta_setting( $metaID, $key, $value, $mode = 'both' ){
 function reset_global_settings(){
 
 	$settings = pl_get_global_settings();
-	
+
 	$set['draft'] = array();
 	
 	pl_update_global_settings( $set );
 	
 	set_default_settings();
 
-
+	global $dms_cache;
+	$dms_cache->purge('draft');
+	
 	return $set;
 }
 
