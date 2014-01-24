@@ -83,22 +83,22 @@ function pagelines_google_author_head() {
 add_action( 'wp_enqueue_scripts', 'pagelines_register_js' );
 function pagelines_register_js() {
 	// Sprintf
-	wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), pl_get_cache_key(), true );
 	// Images Loaded
-	wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), PL_CORE_VERSION, true);
+	wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), pl_get_cache_key(), true);
 	
 	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
-	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.min.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), PL_CORE_VERSION, true );
-	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), PL_CORE_VERSION, true );
+	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.min.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), pl_get_cache_key(), true );
 
 	// Load Supersize BG Script
 	if( get_post_format() == 'gallery' )
-		wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), pl_get_cache_key(), true );
 
 }
 

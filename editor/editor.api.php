@@ -262,23 +262,6 @@ function pl_cache_del( $id ) {
 }
 
 /**
- *  Clear draft caches.
- *
- *	@since 3.0
- */
-function pl_flush_draft_caches( $file = false ) {
-
-	$caches = array( 'draft_core_raw', 'draft_core_compiled', 'draft_sections_compiled' );
-	foreach( $caches as $key ) {
-		pl_cache_del( $key );
-	}
-	if( false == $file )
-		$file = sprintf( '%s%s', trailingslashit( pl_get_css_dir( 'path' ) ), 'editor-draft.css' ); 
-	if( is_file( $file ) )
-		unlink( $file );
-}
-
-/**
  *  Search the store.
  *
  *	@since 3.0

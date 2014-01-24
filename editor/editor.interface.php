@@ -60,10 +60,10 @@ class EditorInterface {
 			
 
 			// Forms handling
-			wp_enqueue_script( 'form-params', PL_JS . '/form.params.min.js', array('jquery'), PL_CORE_VERSION, true );
-			wp_enqueue_script( 'form-store', PL_JS . '/form.store.min.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-params', PL_JS . '/form.params.min.js', array('jquery'), pl_get_cache_key(), true );
+			wp_enqueue_script( 'form-store', PL_JS . '/form.store.min.js', array('jquery'), pl_get_cache_key(), true );
 
-			wp_enqueue_script( 'form-fileupload', PL_JS . '/utils.fileupload.js', array('jquery', 'jquery-ui-widget'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'form-fileupload', PL_JS . '/utils.fileupload.js', array('jquery', 'jquery-ui-widget'), pl_get_cache_key(), true );
 
 
 			// Bootbox Dialogs
@@ -77,28 +77,28 @@ class EditorInterface {
 		// --------------------------------------
 		
 		// PageLines Developer Panel
-			wp_enqueue_script( 'pl-dev', $this->url . '/js/pl.developer.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'pl-dev', $this->url . '/js/pl.developer.js', array( 'jquery' ), pl_get_cache_key(), true );
 			
-			wp_enqueue_script( 'pl-editor-js', $this->url . '/js/pl.editor.js', array( 'jquery' ), PL_CORE_VERSION , true);
-			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), PL_CORE_VERSION, true );
-			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'pl-editor-js', $this->url . '/js/pl.editor.js', array( 'jquery' ), pl_get_cache_key() , true);
+			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), pl_get_cache_key(), true );
+			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), pl_get_cache_key(), true );
 		
 			
 		
 			// Saving 
-			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), PL_CORE_VERSION, true );
-			wp_enqueue_script( 'pl-saving', $this->url . '/js/pl.saving.js', array( 'pl-ajax' ), PL_CORE_VERSION , true);
-			wp_enqueue_script( 'pl-datas', $this->url . '/js/pl.datas.js', array( 'pl-ajax' ), PL_CORE_VERSION , true);
+			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), pl_get_cache_key(), true );
+			wp_enqueue_script( 'pl-saving', $this->url . '/js/pl.saving.js', array( 'pl-ajax' ), pl_get_cache_key() , true);
+			wp_enqueue_script( 'pl-datas', $this->url . '/js/pl.datas.js', array( 'pl-ajax' ), pl_get_cache_key() , true);
 			
 			
-			wp_enqueue_script( 'pl-library', $this->url . '/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION, true );
-			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'pl-library', $this->url . '/js/pl.library.js', array( 'jquery' ), pl_get_cache_key(), true );
+			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), pl_get_cache_key(), true );
 			
-			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.min.js', array( 'jquery'), PL_CORE_VERSION );
+			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.min.js', array( 'jquery'), pl_get_cache_key() );
 
 
 			// i18n test
-			wp_enqueue_script( 'js-i18n', $this->url . '/js/Gettext.js', PL_CORE_VERSION );
+			wp_enqueue_script( 'js-i18n', $this->url . '/js/Gettext.js', pl_get_cache_key() );
 							
 			add_action( 'wp_head', array( $this, 'lang_head' ) );
 
@@ -122,7 +122,7 @@ class EditorInterface {
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 	
-			wp_enqueue_script( 'jquery-mousewheel', PL_JS . '/utils.mousewheel.js', array('jquery'), PL_CORE_VERSION, true );
+			wp_enqueue_script( 'jquery-mousewheel', PL_JS . '/utils.mousewheel.js', array('jquery'), pl_get_cache_key(), true );
 
 
 		// Global AjaxURL variable --> http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/

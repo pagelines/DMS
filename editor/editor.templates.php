@@ -248,8 +248,8 @@ class EditorTemplates {
 	}
 
 	function scripts(){
-		wp_enqueue_script( 'pl-js-mapping', $this->url . '/js/pl.mapping.js', array('jquery'), PL_CORE_VERSION, true);
-		wp_enqueue_script( 'pl-js-templates', $this->url . '/js/pl.templates.js', array( 'jquery' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-js-mapping', $this->url . '/js/pl.mapping.js', array('jquery'), pl_get_cache_key(), true);
+		wp_enqueue_script( 'pl-js-templates', $this->url . '/js/pl.templates.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 	function toolbar( $toolbar ){

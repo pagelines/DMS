@@ -22,6 +22,9 @@ require_once( PL_INCLUDES . '/version.php' );
 // Setup Globals
 require_once( PL_INCLUDES . '/init.globals.php');
 
+// cache functions.
+require_once( PL_INCLUDES . '/lib.cache.php' );
+
 // Run version checks and setup
 require_once( PL_INCLUDES . '/run.versioning.php');
 

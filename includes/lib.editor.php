@@ -806,15 +806,6 @@ function pl_shortcodize_url( $full_url ){
 	return $url;
 }
 
-function pl_get_cache_key() {
-
-	if ( '' != get_theme_mod( 'pl_cache_key' ) ) {
-		return get_theme_mod( 'pl_cache_key' );
-	} else { 	
-		return pagelines_reset_pl_cache_key();
-	}
-}
-
 function pl_get_image_sizes() {
 	$sizes = get_intermediate_image_sizes();
 	$sizes[] = 'full';

@@ -22,8 +22,8 @@ class EditorCode{
 		pl_enqueue_codemirror();
 
 		// PageLines Specific JS @Code Stuff
-		wp_enqueue_script( 'pl-less-parser',	PL_JS . '/utils.less.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'pl-js-code',		$this->url . '/js/pl.code.js', array( 'jquery', 'codemirror', 'pl-less-parser' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'pl-less-parser',	PL_JS . '/utils.less.js', array( 'jquery' ), pl_get_cache_key(), true );
+		wp_enqueue_script( 'pl-js-code',		$this->url . '/js/pl.code.js', array( 'jquery', 'codemirror', 'pl-less-parser' ), pl_get_cache_key(), true );
 		
 		// less.js
 		$lessjs_config = array('env' => is_pl_debug() ? 'development' : 'production');

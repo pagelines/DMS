@@ -57,8 +57,8 @@ function pagelines_theme_settings_init() {
 function pagelines_theme_settings_scripts() {
 
 	
-	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), PL_CORE_VERSION );
-	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library' ), PL_CORE_VERSION );
+	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
+	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library' ), pl_get_cache_key() );
 	
 	pl_enqueue_codemirror();
 
@@ -105,25 +105,11 @@ function pagelines_check_folders() {
 		echo '</div>';
 }
 
-add_action( 'activate_plugin', 'pagelines_purge_sections_cache' );
-add_action( 'deactivate_plugin', 'pagelines_purge_sections_cache' );
-add_action( 'upgrader_process_complete', 'pagelines_purge_sections_cache' );
-add_action( 'after_switch_theme', 'pagelines_purge_sections_cache' );
-add_action( 'save_post', 'pagelines_reset_pl_cache_key' );
 
-function pagelines_reset_pl_cache_key() {
-	$key = substr(uniqid(), -6);
-	set_theme_mod( 'pl_cache_key', $key );
-	return $key;
-}
-function pagelines_purge_sections_cache() {
-	delete_transient( 'pagelines_sections_cache' );
-	set_theme_mod( 'editor-sections-data', array() );
-}
 
 add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
 function pagelines_metabox_scripts() {
-	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, PL_CORE_VERSION );
+	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, pl_get_cache_key() );
 	wp_enqueue_script( 'pagelines-admin-meta', PL_ADMIN_URI .'/admin.js', array('jquery'));
 }
 

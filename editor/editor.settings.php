@@ -203,10 +203,16 @@ class PageLinesSettings extends PageLinesData {
 	 *  Resets all cached data including any detected cache plugins.
 	 */
 	function reset_caches() {
-		do_action( 'extend_flush' );
-		pl_flush_draft_caches( false );
-		global $editorsections;
-		$editorsections->reset_sections();
+		global $dms_cache;
+		
+		// clear draft css
+		$dms_cache->purge('draft');
+		//clear sections cache
+		$dms_cache->purge('sections');
+		// clear live css
+		$dms_cache->purge('live_css');
+
+		// reset css/js cachekey
 		pagelines_reset_pl_cache_key();
 	}
 

@@ -213,8 +213,10 @@ class EditorLessHandler{
 		}
 
 
-		if( true == $flush )
-			pl_flush_draft_caches( $this->draft_less_file );
+		if( true == $flush ) {
+			global $dms_cache;
+			$dms_cache->purge('draft');
+		}
 	}	
 
 	/**

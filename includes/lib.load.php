@@ -82,7 +82,8 @@ function pagelines_check_lessdev(){
 	
 	if( 1 == pl_setting( 'no_cache_mode' ) ) {
 		PageLinesRenderCSS::flush_version( false );
-		pl_flush_draft_caches();
+		global $dms_cache;
+		$dms_cache->purge('draft');
 		delete_transient( 'pagelines_sections_cache' );
 		set_theme_mod( 'editor-sections-data', array() );
 	}
@@ -113,9 +114,10 @@ function pagelines_check_child_less() {
 add_action( 'init', 'pagelines_check_less_reset', 999 );
 function pagelines_check_less_reset() {
 
-	if( isset( $_GET['pl_reset_less'] ) && ! defined( 'PL_CSS_FLUSH' ) )
-		do_action( 'extend_flush' );
-
+	if( isset( $_GET['pl_reset_less'] ) && ! defined( 'PL_CSS_FLUSH' ) ) {
+		global $dms_cache;
+		$dms_cache->purge('live_css');
+	}
 }
 
 

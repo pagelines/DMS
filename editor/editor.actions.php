@@ -228,8 +228,10 @@ function pl_dms_admin_actions(){
 	pl_setting_update($field, $value);
 
 	echo json_encode(  pl_arrays_to_objects( $response ) );
-	if( $lessflush )
-		pl_flush_draft_caches( false );
+	if( $lessflush ) {
+		global $dms_cache;
+		$dms_cache->purge('draft');
+	}
 	die();
 }
 
@@ -369,19 +371,6 @@ function pagelines_check_updater( $note ) {
 	}
 	return $note;
 }		
-
-// clear draft css on plugin activate/deactivate
-if( is_admin() && isset( $_REQUEST['plugin'] ) ) {
-	add_action( 'activate_' . $_REQUEST['plugin'], 'pl_editor_plugin_flush' );
-	add_action( 'deactivate_' . $_REQUEST['plugin'], 'pl_editor_plugin_flush' );
-}
-
-function pl_editor_plugin_flush() {
-	delete_transient( 'pagelines_sections_cache' );
-	set_theme_mod( 'editor-sections-data', array() );
-	pl_flush_draft_caches();
-}
-
 
 function pl_media_library_link( $type = 'image' ){
 	
