@@ -20,6 +20,8 @@ class PageLinesPostLoop extends PageLinesSection {
 
 	function section_opts(){
 
+
+
 		$opts = array(
 
 			array(
@@ -40,9 +42,22 @@ class PageLinesPostLoop extends PageLinesSection {
 				'title'			=> __( 'Meta Information', 'pagelines' ),
 				'ref'			=> __( 'Use shortcodes to control the dynamic information in your metabar. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' ),
 			),
-			
-
+			array(
+				'key'		=> 'post_loop_opts',
+				'type'		=> 'link',
+				'title'		=> __( 'Enable Legacy Options', 'pagelines' ),
+				'label'		=>	__( 'Enable Legacy Options', 'pagelines' ),
+				'tab_link'	=> 'settings',
+				'stab_link'	=> 'advanced',
+				'url'		=> site_url(),
+				'target'	=> '_self',
+				'help'		=> __( 'The Legacy loop has more options but is not as compatible with 3rd party plugins like forums etc.', 'pagelines')
+			),
 		);
+		global $post;
+		$id = ( isset( $post->ID ) ) ? $post->ID : null; 
+		if( true == apply_filters( 'pl_legacy_postloop', pl_setting( 'post_loop_legacy'), $id ) )
+			$opts = $this->get_old_options();
 
 		return $opts;
 	}
@@ -68,24 +83,18 @@ class PageLinesPostLoop extends PageLinesSection {
 			echo $integration_out;
 			
 		} 
-		
-		// // if standard page use uber loop
-		// 		elseif( pl_standard_post_page() ){	
-		// 			
-		// 			require_once( $this->base_dir . '/class.posts.php' );
-		// 			
-		// 			//Included in theme root for easy editing.
-		// 			$theposts = new PageLinesPosts( $this );
-		// 			$theposts->load_loop();
-		// 			
-		// 		}
-		
-		// Basic loop for overridding via 'the_content'
+
 		else {
-			$this->loop();
+			global $post;
+			$id = ( isset( $post->ID ) ) ? $post->ID : null;
+			if( true == apply_filters( 'pl_legacy_postloop', pl_setting( 'post_loop_legacy') , $id ) ) {
+				require_once( $this->base_dir . '/class.posts.php' );
+				$theposts = new PageLinesPosts( $this );
+				$theposts->load_loop();
+			} else {
+				$this->loop();
+			}	
 		}
-		
-	
 	}
 	
 	function loop(){
@@ -375,7 +384,7 @@ class PageLinesPostLoop extends PageLinesSection {
 			
 			
 		);
-		
+		return $opts;
 	}
 
 	
