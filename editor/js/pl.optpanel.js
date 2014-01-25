@@ -795,7 +795,11 @@
 
 			else if( o.type == 'link' ){
 
-				oHTML += sprintf('<div class="center"><a href="%s" class="btn %s" target="_blank" >%s</a></div>', o.url, o.classes, optLabel )
+				var target = o.target || '_blank'
+				,	tab_link = o.tab_link || ''
+				,	stab_link = o.stab_link || ''
+
+				oHTML += sprintf('<div><a href="%s" class="btn %s" target="%s" data-tab-link="%s" data-stab-link="%s">%s</a></div>', o.url, o.classes, target, tab_link, stab_link, optLabel )
 
 			}
 
