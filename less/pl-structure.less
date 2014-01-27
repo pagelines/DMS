@@ -18,12 +18,17 @@ body {
 			margin-left: -260px;
 		}
 		
-		.pl-region > .template-region-wrap{
-		//	min-height: 450px;
-		}
+		
 		#supersized{
 			background: @bodyBackground;
 		}
+	}
+	
+	.pl-region > .template-region-wrap{
+		min-height: 450px;
+	}
+	&.drag-drop-editing .pl-region > .template-region-wrap{
+		min-height: 0;
 	}
 	.pl-fixed-top{
 		background-color: @pl-base;
