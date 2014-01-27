@@ -602,36 +602,39 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 	// lets do some clean up
 	// Gonna clear out all the empty values and arrays
 	// Also, needs to be array or... deletehammer
-	foreach($settings[$mode] as $uniqueID => $the_settings){
+	foreach($settings[$mode] as $uniqueID => &$the_settings){
 		
 		if(is_array($the_settings)){
-			foreach($the_settings as $setting_key => $val){
+			foreach($the_settings as $setting_key => &$val){
 				if( $val === '' && $val !== 0 ){
-					unset( $settings[ $mode ][ $uniqueID ][ $setting_key ] );
+					unset( $the_settings[ $setting_key ] );
 				}
 				
 				// if a numeric index was set (bug)
 				if( strlen( (string) $setting_key) < 4){
-					unset( $settings[ $mode ][ $uniqueID ][ $setting_key ] );
+					unset( $the_settings[ $setting_key ] );
 				}
 			
 				// accordion prevent null values from being saved and bloating things
 				if( is_array($val) ){
-					foreach( $val as $val_key => $val_val ){
+					foreach( $val as $val_key => &$val_val ){
 						if( $val_val == 'false' || empty($val_val) ){
-							if( isset( $settings[ $mode ][ $uniqueID ][ $setting_key ][ $val ][ $val_key ] ))
-								unset( $settings[ $mode ][ $uniqueID ][ $setting_key ][ $val ][ $val_key ] );
+							if( isset( $val[ $val_key ] ))
+								unset( $val[ $val_key ] );
 						}
 							
 					}
+					unset( $val_val );
 					
 				}
 					
 			}
+			unset( $val );
 		}
 		
 		
 	}
+	unset( $the_settings );
 
 	if( $metaID )
 		pl_meta_update( $metaID, PL_SETTINGS, $settings );
