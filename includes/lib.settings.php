@@ -1,5 +1,7 @@
 <?php 
 
+define( 'PL_SETTINGS', pl_base_options_slug() );
+
 //The default state of the settings, if empty
 function pl_settings_default(){
 	return array( 'draft' => array(), 'live' => array() );
@@ -19,7 +21,17 @@ function pl_theme_options_slug(){
 	
 }
 
-define( 'PL_SETTINGS', pl_base_options_slug() );
+
+
+function pl_global_setting_update( $key, $value ){
+	
+	$settings = pl_get_global_settings();
+	
+	$settings[ pl_get_mode() ]['settings'][$key] = $value; 
+	
+	pl_update_global_settings( $settings );
+	
+}
 
 function pl_global( $key ){
 	

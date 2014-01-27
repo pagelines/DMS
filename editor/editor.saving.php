@@ -20,6 +20,10 @@ class PageLinesSave {
 			
 			$response = $this->save_map( $response, $data );
 			
+		} elseif (  $data['run'] == 'layout' ){
+
+			$response = $this->save_layout( $response, $data );
+
 		} elseif (  $data['run'] == 'form' ){
 			
 			$response = $this->save_form( $response, $data );
@@ -44,6 +48,21 @@ class PageLinesSave {
 			$response['error'] = "No save operation set for ".$data['run'];
 
 		$response['state'] = $this->get_state( $data );
+		
+		return $response;
+		
+	}
+	
+	function save_layout( $response, $data ){
+		
+		$px = $data['store']['px'];
+		$percent = $data['store']['percent']; 
+		
+		pl_global_setting_update('content_width_px', $px);
+		pl_global_setting_update('content_width_percent', $percent);
+		
+		$response['px'] = $px;
+		$response['_px'] = pl_setting('content_width_px');
 		
 		return $response;
 		

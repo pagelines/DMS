@@ -32,7 +32,19 @@ $.widthResize = {
 				$('body').removeClass('width-resizing')
 				$('.btn-layout-resize').removeClass('active')
 
-				$.plAJAX.saveData( )
+
+				var layoutData = {
+					px: $.pl.data.global.settings.content_width_px,
+					percent: $.pl.data.global.settings.content_width_percent
+				}
+				var saveArgs = {
+					run: 'layout'
+					, store: layoutData
+				}
+				
+				
+				$.plSave.save( saveArgs )
+
 			}
 
 			, resize: function(event, ui) {

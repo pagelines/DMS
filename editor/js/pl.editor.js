@@ -991,7 +991,8 @@
 			
 			store[ newScope ] = $.pl.data[ newScope ]
 			store[ oldScope ] = $.pl.data[ oldScope ]
-			$.plAJAX.saveData()
+		
+		//	$.plAJAX.saveData()
 		}
     }
 }(window.jQuery);
