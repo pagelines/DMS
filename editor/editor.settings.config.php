@@ -345,6 +345,14 @@ class EditorSettings {
 					'title'		=> __( 'Current Install Class', 'pagelines' ),
 					'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
 			),
+			array(
+				'key'		=> 'post_loop_legacy',
+				'default'	=> false,
+				'type'		=> 'check',
+				'col'		=> 2,
+				'label'		=> __( 'Enable Legacy PostLoop Options', 'pagelines' ),
+				'help'		=> __( 'The Legacy loop has more options but is not as compatible with 3rd party plugins like forums etc.')				
+			)
 			
 			
 		);
