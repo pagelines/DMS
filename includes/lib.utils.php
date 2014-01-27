@@ -10,7 +10,15 @@ function pl_transparent_image(){
 }
 
 
-
+function pl_get_theme_logo(){
+	
+	
+	if( file_exists( PL_THEME_DIR . '/logo.png' ) ){
+		return PL_THEME_URL.'/logo.png';
+	} else {
+		return PL_IMAGES. '/dms.png';
+	}
+}
 
 function pl_get_button_link( $key, $section, $size = 'btn-large' ){
 	
@@ -121,8 +129,14 @@ function pl_get_video_sources( $videos ){
 	$out = '';
 
 	foreach( (array) $videos as $source ) {
+		
 		$filetype = explode( '.', basename( $source ) );
-		$filetype = ( 'ogv' == $filetype[1] ) ? 'ogg' : $filetype[1];	
+		
+		if( ! isset($filetype[1]) )
+			continue;
+		
+		$filetype = (  'ogv' == $filetype[1] ) ? 'ogg' : $filetype[1];	
+		
 		$out .= sprintf( '<source src="%s" type="video/%s">', $source, $filetype );
 	}
 	return $out;			
