@@ -111,7 +111,7 @@ function pl_recent_comments( $number = 3 ){
 			$img = ($avatar) ? sprintf('<div class="img rtimg"><a class="the-media" href="%s" style="background-image: url(%s)"></a></div>', $link, $avatar) : '';
 			
 			printf(
-				'<li class="media fix">%s<div class="bd"><div class="the-quote"><span class="nig"></span><div class="title" >"%s"</div><div class="excerpt">on <a href="%s">%s</a></div></div></div></li>', 
+				'<li class="media fix">%s<div class="bd"><div class="the-quote pl-contrast"><div class="title" >"%s"</div><div class="excerpt">on <a href="%s">%s</a></div></div></div></li>', 
 				$img, 
 				stripslashes( substr( wp_filter_nohtml_kses( $comment->comment_content ), 0, 50 ) ),
 				$link,
