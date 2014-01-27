@@ -6,9 +6,24 @@
 		$.plAdminMeta.init()
 		
 		$.plAdminMedia.init()
-
+		
+		$.plAdminPlugins.init()
 	})
 
+
+	$.plAdminPlugins = {
+		
+		init: function(){
+			$('.pl-rec-plugins').expander({
+				slicePoint:       0,
+				expandPrefix:     ' ',
+				expandText:       'Click here for more details.',
+				userCollapseText: '',
+				expandEffect: 'fadeIn',
+				expandSpeed: 550,
+			})
+		}
+	}
 
 	/*
 	 * Data/Settings handling functions.
