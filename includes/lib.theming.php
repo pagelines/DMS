@@ -95,6 +95,35 @@ function pl_list_pages( $number = 6 ){
 	
 }
 
+function pl_recent_comments( $number = 3 ){
+
+	$comments = get_comments( array( 'number' => $number, 'status' => 'approve' ) );
+	if ( $comments ) {
+		foreach ( (array) $comments as $comment) {
+			
+			if( 'comment' != get_comment_type( $comment ) )
+				continue;
+
+			$post = get_post( $comment->comment_post_ID );
+			$link = get_comment_link( $comment->comment_ID ); 
+			
+			$avatar = pl_get_avatar_url( get_avatar( $comment ) ); 
+			$img = ($avatar) ? sprintf('<div class="img rtimg"><a class="the-media" href="%s" style="background-image: url(%s)"></a></div>', $link, $avatar) : '';
+			
+			printf(
+				'<li class="media fix">%s<div class="bd"><div class="the-quote"><span class="nig"></span><div class="title" >"%s"</div><div class="excerpt">on <a href="%s">%s</a></div></div></div></li>', 
+				$img, 
+				stripslashes( substr( wp_filter_nohtml_kses( $comment->comment_content ), 0, 50 ) ),
+				$link,
+				custom_trim_excerpt($post->post_title, 3)
+				
+			);
+		}
+		
+	}
+	
+}
+
 function pl_recent_posts( $number = 3 ){?>
 	<ul class="media-list">
 		<?php
@@ -102,12 +131,12 @@ function pl_recent_posts( $number = 3 ){?>
 		foreach( get_posts( array('numberposts' => $number ) ) as $p ){
 			
 			
-			$img_src = (has_post_thumbnail( $p->ID )) ? pl_the_thumbnail_url( $p->ID, 'thumbnail') : pl_default_thumb();
+			$img_src = (has_post_thumbnail( $p->ID )) ? pl_the_thumbnail_url( $p->ID, 'thumbnail') : '';
 		
-			$img = sprintf('<div class="img"><a class="the-media" href="%s" style="background-image: url(%s)"></a></div>', get_permalink( $p->ID ), $img_src);
+			$img = ( $img_src != '' ) ? sprintf('<div class="img"><a class="the-media" href="%s" style="background-image: url(%s)"></a></div>', get_permalink( $p->ID ), $img_src) : '';
 
 			printf(
-				'<li class="media fix">%s<div class="bd"><a class="title" href="%s">%s</a><span class="excerpt">%s</span></div></li>',
+				'<li class="media fix">%s<div class="bd"><div class="wrp"><a class="title" href="%s">%s</a><span class="excerpt">%s</span></div></div></li>',
 				$img,
 				get_permalink( $p->ID ),
 				$p->post_title,

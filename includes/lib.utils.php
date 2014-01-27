@@ -1,5 +1,11 @@
 <?php 
 
+// gets the url of an avatar image 
+function pl_get_avatar_url($avatar){
+	preg_match("/src='(.*?)'/i", $avatar, $matches);
+
+    return (isset($matches) && isset($matches[1])) ? $matches[1] : '';
+}
 /* 
  * Gets a transparent image
  */

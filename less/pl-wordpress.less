@@ -243,15 +243,19 @@ html[xmlns] .slides {display: block;}
 // Align Search Left In Widgets
 .widget {
 	margin: 0;
-	margin-bottom: 1em;
+	margin-bottom: 15px;
 	overflow: hidden; //prevents responsive issues.
 	.widget-title, 
 	.widgettitle{
 		> a{ color: inherit; }
 		text-align:left;
-		padding:3px 8px 3px 0px;
-		font-size: @h5Size;
-		margin-bottom: .5em;
+		font-family: @defaultFont; 
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 12px;
+		line-height: 20px;
+		margin-bottom: 5px;
 	}
 	.widget-pad{
 		padding: 10px;
@@ -272,7 +276,6 @@ html[xmlns] .slides {display: block;}
 		padding: 4px;
 	}
 	.textwidget {
-		padding: 5px 2px;
 		font-size: @fontSizeSmall;
 		> p, 
 		> address, 
@@ -291,14 +294,16 @@ html[xmlns] .slides {display: block;}
 		&.sub-menu{
 			margin:0px;
 		}
+		
+	}
+	li{
+		padding: 8px 0px;
+		list-style:none;
+		margin: 0;
+		border-bottom: 1px solid @baseContrastSlight;
+		display: block;
 		li{
-
-			list-style:none;
-			display: block;
-			padding: 0 2px;
-			ul li{
-				margin-left: .3em;
-			}
+			margin-left: .3em;
 		}
 	}
 	.tags-list a{

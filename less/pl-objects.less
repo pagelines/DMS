@@ -225,6 +225,7 @@ ul.tabbed-list {
 		&.rtimg{
 			float:right;
 			margin-left: 15px;
+			margin-right: 0;
 		}
 	
 		> img{
@@ -256,24 +257,65 @@ ul.tabbed-list {
 
 .media-list{
 	margin-bottom: 0;
+	.title, 
+	.excerpt{
+		display: block;
+	}
+	.title{
+		font-weight: 600;
+	}
+	.excerpt{
+		padding-bottom: 5px;
+	}
 	> li,
 	> lh {
 		display: block;
-		line-height: 1.3em;
-		margin-bottom: 1em;
-		.title, 
-		.excerpt{
-			display: block;
-		}
-		.excerpt{
-			font-size: @smallerText;
-			
-		}
+		line-height: 1.6em;
+		
 		&:last-child{
 			margin-bottom: 0;
 		}
 	}
 	> lh{ font-weight: 600; }
+	.img .the-media{
+		display: block;
+		width: 40px; 
+		height: 40px; 
+		.background-size(cover);
+	}
+	
+	
+}
+
+.quote-list{
+	margin-bottom: 0;
+	.title{
+		font-weight: 600;
+	}
+	.the-quote{
+		background: @baseContrastSlight;
+		padding: 10px;
+		position: relative; 
+		.nig{
+			display: block; 
+			position: absolute; 
+			top:0;
+			right: -9px;
+		
+			border: 5px solid transparent;
+			border-left-color: @baseContrastSlight;
+			border-top-color: @baseContrastSlight;
+		}
+	}
+	> li{
+		display: block;
+		line-height: 1.6em;
+		padding: 0;
+		border-bottom: none;
+		
+		margin-bottom: 15px;
+		
+	}
 	.img .the-media{
 		display: block;
 		width: 40px; 

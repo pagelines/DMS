@@ -142,67 +142,35 @@ class PageLinesColumnizer extends PageLinesSection {
 		$facebook = $this->opt('facebook_name');
 		?>
 
-		<li id="the_default_widget_social" class="span3 widget">
-			<div class="widget-pad">
-				<h3 class="widget-title"><?php _e('Stay in Touch!','pagelines'); ?></h3>
-				<div class="textwidget">
-					<p>
-					Thanks for stopping by! Please make sure to stay in touch.
-					</p>
-					<ul>
-					<?php
-					if($twitter)
-						printf('<li><a href="http://www.twitter.com/%1$s"><i class="icon-twitter"></i> Twitter</a></li>', $twitter);
-
-					if($facebook)
-						printf('<li><a href="http://www.facebook.com/%1$s"><i class="icon-facebook"></i> Facebook</a></li>', $facebook);
-
-						printf('<li><a href="%s"><i class="icon-rss"></i> Subscribe</a></li>', get_bloginfo( 'rss2_url' ) );
-					?>
-					</ul>
-
-				</div>
-			</div>
-		</li>
-
-		<?php
-
-		?>
 		<li id="the_default_widget_latest" class="span3 widget">
 			<div class="widget-pad">
-				<h3 class="widget-title"><?php _e('The Latest','pagelines'); ?></h3>
-				<?php pl_recent_posts(); ?>
-			</div>
-		</li>
-
-		<li id="the_default_widget_tags" class="span3 widget">
-			<div class="widget-pad">
-				<h3 class="widget-title"><?php _e('Tags','pagelines'); ?></h3>
-				<div class="tags-list">
-					<?php
-
-					wp_tag_cloud( array('number'=> 6, 'smallest' => 10, 'largest' => 10) );
-					 ?>
-
-
-				</div>
-			</div>
-			<div class="widget-pad">
-				<h3 class="widget-title"><?php _e('Categories','pagelines'); ?></h3>
+				<h3 class="widget-title"><?php _e('Latest Posts','pagelines'); ?></h3>
 				<ul class="media-list">
-					<?php
-
-					echo wp_list_categories( array( 'number' => 5, 'depth' => 1, 'title_li' => '', 'orderby' => 'count' ));
-					 ?>
-
-
+				<?php pl_recent_posts(); ?>
 				</ul>
 			</div>
 		</li>
 
+		<li id="the_default_widget_latest" class="span3 widget">
+			<div class="widget-pad">
+				<h3 class="widget-title"><?php _e('Recent Comments','pagelines'); ?></h3>
+				<ul class="quote-list">
+					<?php  pl_recent_comments();  ?>
+				</ul>
+			</div>
+		</li>
+		
+		<li id="the_default_widget_latest" class="span3 widget">
+			<div class="widget-pad">
+				<h3 class="widget-title"><?php _e('Top Categories','pagelines'); ?></h3>
+				<ul class="media-list">
+			<?php  echo  pl_popular_taxonomy();  ?>
+				</ul>
+			</div>
+		</li>
 		<li id="the_default_widget_more" class="span3 widget">
 			<div class="widget-pad">
-				<h3 class="widget-title"><?php _e('More Info','pagelines'); ?></h3>
+				<h3 class="widget-title"><?php _e('About','pagelines'); ?> <?php bloginfo('name'); ?></h3>
 				<div class="textwidget">
 					<?php
 
