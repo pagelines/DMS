@@ -105,11 +105,55 @@ function pagelines_check_folders() {
 		echo '</div>';
 }
 
-
-
 add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
 function pagelines_metabox_scripts() {
 	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, pl_get_cache_key() );
 	wp_enqueue_script( 'pagelines-admin-meta', PL_ADMIN_URI .'/admin.js', array('jquery'));
 }
 
+function dms_suggest_plugin( $name, $slug, $desc = false ) {
+	global $dms_suggest_plugins;
+	if( ! is_admin() )
+		return;
+	if( ! is_array( $dms_suggest_plugins ) )
+		$dms_suggest_plugins = array();
+
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	$plugins = get_plugins();
+	if( '' != $slug && '' != $name && ! isset( $plugins[sprintf('%s/%s.php', $slug, $slug)] ) )
+		$dms_suggest_plugins[$slug] = array(
+			'name'		=> $name,
+			'desc'		=> $desc
+		);		
+}
+
+add_action( 'admin_notices', 'pagelines_recommended_plugins' );
+function pagelines_recommended_plugins() {
+	if( isset( $_REQUEST['dms_suggest_plugins'] ) )
+		set_theme_mod( 'dms_suggest_plugins', (bool) $_REQUEST['dms_suggest_plugins'] );
+
+	global $dms_suggest_plugins;
+	if( ! is_array( $dms_suggest_plugins ) || empty( $dms_suggest_plugins ) )
+		return false;
+
+	// Already dismissed.
+	if( true == get_theme_mod( 'dms_suggest_plugins' ) )
+		return false;
+	
+	$header = sprintf( '<div id="message" class="updated"><span class="alignright"><a href="%s">[dismiss this notice]</a></span><p>This theme recommends %s from the WordPress Plugins Repository.</p>', admin_url( '?dms_suggest_plugins=1'), _n( 'a plugin.', 'some plugins. ', count( $dms_suggest_plugins ), 'pagelines') );
+	
+	$footer = '</ul></div>';
+	$content = '<ul class="pl-rec-plugins">';
+	foreach( $dms_suggest_plugins as $slug => $plugin ) {
+		
+		$install_link = wp_nonce_url( network_admin_url( sprintf( 'update.php?action=install-plugin&plugin=%s', $slug ) ), sprintf( 'install-plugin_%s', $slug ) );
+		
+		$content .= sprintf( '<li><strong>%s</strong><br /><i>%s</i> <a href="%s"><strong>[Install Now]</strong></a>', $plugin['name'], $plugin['desc'], $install_link );
+	}
+	
+	echo $header . $content . $footer;
+}
+add_action('admin_enqueue_scripts', 'pagelines_enqueue_expander');
+function pagelines_enqueue_expander() {
+	wp_enqueue_script( 'expander', PL_JS .'/utils.expander.min.js', array('jquery'), pl_get_cache_key() );
+}
