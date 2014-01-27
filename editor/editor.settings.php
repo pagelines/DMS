@@ -618,8 +618,11 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 				// accordion prevent null values from being saved and bloating things
 				if( is_array($val) ){
 					foreach( $val as $val_key => $val_val ){
-						if( $val_val == 'false' || empty($val_val))
-							unset( $settings[ $mode ][ $uniqueID ][ $setting_key ][ $val ][ $val_key ] );
+						if( $val_val == 'false' || empty($val_val) ){
+							if( isset( $settings[ $mode ][ $uniqueID ][ $setting_key ][ $val ][ $val_key ] ))
+								unset( $settings[ $mode ][ $uniqueID ][ $setting_key ][ $val ][ $val_key ] );
+						}
+							
 					}
 					
 				}
