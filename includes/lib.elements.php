@@ -176,7 +176,7 @@ function pagelines_search_form( $echo = true, $class = 'searchform' ){
 	$searchfield = sprintf('<span class="btn-search"><i class="icon-search"></i></span><input type="text" value="" name="s" class="searchfield" placeholder="%s" />', __('Search', 'pagelines'));
 
 	$searchform = sprintf(
-						'<form method="get" class="%s" onsubmit="this.submit();return false;" action="%s/" ><fieldset>%s</fieldset></form>', 
+						'<form method="get" class="%s pl-searcher" onsubmit="this.submit();return false;" action="%s/" ><fieldset>%s</fieldset></form>', 
 						$class,
 						home_url(), 
 						$searchfield
