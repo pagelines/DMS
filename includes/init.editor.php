@@ -175,6 +175,12 @@ class PageLinesEditor {
 	}
 
 	function process_styles(){
+		wp_enqueue_style(
+			'open-sans',
+			'//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin',
+			false,
+			'20130605'
+		);
 
 		if( pl_draft_mode() )
 			pagelines_add_bodyclass('pl-editor');
