@@ -437,7 +437,7 @@
 		
 		, handleSearchfield: function(){
 			
-			$('.btn-search').on('click', function(e){
+			$('.pl-searcher').on('click', function(e){
 				
 				$(this).parent().find( '.searchfield' ).focus()
 				
