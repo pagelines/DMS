@@ -875,6 +875,7 @@
 				sortableSettings = {
 				       	items: 	items
 					,	connectWith: container
+					,	appendTo: document.body
 					,	placeholder: placeholder
 					,	forcePlaceholderSize: true
 			        ,	tolerance: "pointer"		// basis for calculating where to drop
