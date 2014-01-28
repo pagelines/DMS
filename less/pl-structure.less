@@ -228,6 +228,17 @@ body .pl-area .pl-section{
 	color: @pl-link;
 }
 
+.nav-theme li {
+	a{
+		border-color: @pl-text; 
+	}
+	
+	&:hover a,
+	&.active a{
+		background-color: @pl-text;
+	}
+}
+
 .pl-hover .pl-inverter,
 .pl-inverter:hover{
 	color: @pl-base; 
@@ -254,6 +265,16 @@ body .pl-area .pl-section{
 	background: #fff; 
 	.widget li{
 		border-bottom-color: #eee;
+	}
+	.nav-theme li {
+		a{
+			border-color: #000; 
+		}
+		
+		&:hover a,
+		&.active a{
+			background-color: #000;
+		}
 	}
 	.pl-contrast,
 	.pl-inverter{
@@ -285,6 +306,17 @@ body .pl-area .pl-section{
 	a:hover{
 		opacity: .7;
 		color:inherit;
+	}
+	
+	.nav-theme li {
+		a{
+			border-color: #000; 
+		}
+		
+		&:hover a,
+		&.active a{
+			background-color: #000;
+		}
 	}
 
 	.pl-contrast,
