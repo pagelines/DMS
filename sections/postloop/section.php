@@ -77,31 +77,51 @@ class PageLinesPostLoop extends PageLinesSection {
    function section_template() {
 	
 		// if using non pagelines template
-		if(do_special_content_wrap()){
-			
-			 global $integration_out;
+		if( do_special_content_wrap() ) {
+	
+			global $integration_out;
 			echo $integration_out;
 			
-		} 
-
-		else {
-			global $post;
-			$id = ( isset( $post->ID ) ) ? $post->ID : null;
-			if( true == apply_filters( 'pl_legacy_postloop', pl_setting( 'post_loop_legacy') , $id ) ) {
-				require_once( $this->base_dir . '/class.posts.php' );
-				$theposts = new PageLinesPosts( $this );
-				$theposts->load_loop();
-			} else {
-				$this->loop();
-			}	
+		} else {
+			
+			if( pl_standard_post_page() )
+				$this->get_loop();
+			else
+				$this->standard_loop();
+		}	
+	}
+	
+	/*
+	 * Decide which loop we need and load it.
+	 */
+	function get_loop() {
+		global $post;
+		$id = ( isset( $post->ID ) ) ? $post->ID : null;
+		if( true == apply_filters( 'pl_legacy_postloop', pl_setting( 'post_loop_legacy') , $id ) ) {
+			require_once( $this->base_dir . '/class.posts.php' );
+			$theposts = new PageLinesPosts( $this );
+			$theposts->load_loop();
+		} else {
+			$this->loop();
 		}
+	}
+
+	/*
+	 * Standard loop.
+	 */
+	function standard_loop() {
+
+		if( have_posts() )
+			while ( have_posts() ) : the_post(); 
+			the_content();
+			endwhile;
 	}
 	
 	function loop(){
 		
 		$count = 0; 
 		global $plpg; 
-		
+						
 		if( have_posts() )
 			while ( have_posts() ) : the_post(); 
 		
