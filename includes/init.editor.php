@@ -20,8 +20,7 @@ class PageLinesEditor {
 		// !important - must load after $post variable
 		// ALSO, bbPress and other plugins make adjustments to queries which change pages from 404 to something else. 
 		// Therefore must come after WP_Query (parse query)
-		add_action( 'pre_get_posts', array( $this, 'load_plpg' ) );
-		add_action( 'wp', array( $this, 'load_libs' ), 10); 
+		add_action( 'pre_get_posts', array( $this, 'load_libs' ) ); 
 		add_action( 'admin_init', array( $this, 'load_libs' ), 5);
 
 		add_action('wp_enqueue_scripts', array( $this, 'process_styles' ));
@@ -85,17 +84,12 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.sections.register.php' );
 	}
 
-	function load_plpg() {
-		global $plpg;
-		$plpg = $this->page = new PageLinesPage;
-	}
-
 	function load_libs(){
 
 		if( ! pl_use_editor() )
 			return;
 
-		
+		global $plpg;
 		global $pldraft;
 		global $plopts;
 		global $editorless;
@@ -105,7 +99,7 @@ class PageLinesEditor {
 		global $templates_handler;
 		global $sections_data_handler;
 
-		
+		$plpg = $this->page = new PageLinesPage;
 		$pldraft = $this->draft = new EditorDraft( $this->page );
 		$storeapi = $this->storeapi = new EditorStoreFront;
 		$this->layout = new EditorLayout();
