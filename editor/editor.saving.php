@@ -61,6 +61,9 @@ class PageLinesSave {
 		pl_global_setting_update('content_width_px', $px);
 		pl_global_setting_update('content_width_percent', $percent);
 		
+		global $dms_cache;
+		$dms_cache->purge('draft_core');
+
 		$response['px'] = $px;
 		$response['_px'] = pl_setting('content_width_px');
 		

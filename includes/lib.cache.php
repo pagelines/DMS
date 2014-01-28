@@ -24,6 +24,10 @@ class DMS_Cache {
 				$this->pl_flush_draft_caches();
 				break;
 			
+			case 'draft_core':
+				$this->draft_core();
+				break;
+					
 			case 'live_css':
 				do_action( 'extend_flush' );
 				break;
@@ -48,6 +52,13 @@ class DMS_Cache {
 		foreach( $caches as $key ) {
 			pl_cache_del( $key );
 		}
+		$file = sprintf( '%s%s', trailingslashit( pl_get_css_dir( 'path' ) ), 'editor-draft.css' ); 
+		if( is_file( $file ) )
+			unlink( $file );
+	}
+
+	function draft_core() {
+		pl_cache_del( 'draft_core_compiled' );
 		$file = sprintf( '%s%s', trailingslashit( pl_get_css_dir( 'path' ) ), 'editor-draft.css' ); 
 		if( is_file( $file ) )
 			unlink( $file );
