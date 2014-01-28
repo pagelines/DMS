@@ -140,7 +140,13 @@ function pagelines_recommended_plugins() {
 	if( true == get_theme_mod( 'dms_suggest_plugins' ) )
 		return false;
 	
-	$header = sprintf( '<div id="message" class="updated"><span class="alignright"><a href="%s">[dismiss this notice]</a></span><p>This theme recommends %s from the WordPress Plugins Repository.</p>', admin_url( '?dms_suggest_plugins=1'), _n( 'a plugin.', 'some plugins. ', count( $dms_suggest_plugins ), 'pagelines') );
+	$header = sprintf( '<div id="message" class="updated"><span class="alignright"><a href="%s">[%s]</a></span><p>%s %s %s</p>',
+		admin_url( '?dms_suggest_plugins=1' ),
+		__( 'dismiss this notice', 'pagelines' ),
+		__( 'This theme recommends', 'pagelines' ),
+		_n( 'a plugin', 'some plugins', count( $dms_suggest_plugins ), 'pagelines' ),
+		__( 'from the WordPress Plugins Repository.', 'pagelines' )
+		);
 	
 	$footer = '</ul></div>';
 	$content = '<ul class="pl-rec-plugins">';
