@@ -228,6 +228,17 @@ body .pl-area .pl-section{
 	color: @pl-link;
 }
 
+.nav-theme li {
+	a{
+		border-color: @pl-text; 
+	}
+	
+	&:hover a,
+	&.active a{
+		background-color: @pl-text;
+	}
+}
+
 .pl-hover .pl-inverter,
 .pl-inverter:hover{
 	color: @pl-base; 
@@ -255,6 +266,16 @@ body .pl-area .pl-section{
 	.widget li{
 		border-bottom-color: #eee;
 	}
+	.nav-theme li {
+		a{
+			border-color: #000; 
+		}
+		
+		&:hover a,
+		&.active a{
+			background-color: #000;
+		}
+	}
 	.pl-contrast,
 	.pl-inverter{
 		
@@ -279,12 +300,33 @@ body .pl-area .pl-section{
 	h1, h2, h3, h4, h5, h6, a{
 		color:#fff; 
 	}
+	.nav-theme li {
+		a{
+			border-color: #FFF; 
+		}
+		
+		&:hover a,
+		&.active a{
+			background-color: #FFF;
+		}
+	}
 	.widget li{
 		border-bottom-color: rgba(255,255,255,.1);
 	}
 	a:hover{
 		opacity: .7;
 		color:inherit;
+	}
+	
+	.nav-theme li {
+		a{
+			border-color: #000; 
+		}
+		
+		&:hover a,
+		&.active a{
+			background-color: #000;
+		}
 	}
 
 	.pl-contrast,
