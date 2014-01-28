@@ -172,7 +172,7 @@ class EditorLessHandler{
 	 */
 	function compare_less() {
 
-		$flush = false;
+		global $dms_cache;
 
 		$cached_constants = (array) pl_cache_get('pagelines_less_vars' );
 
@@ -184,7 +184,7 @@ class EditorLessHandler{
 			pl_cache_put( $this->pless->constants, 'pagelines_less_vars');
 
 			// force recompile
-			$flush = true;
+			$dms_cache->purge('draft');
 		}
 		
 		
@@ -204,18 +204,11 @@ class EditorLessHandler{
 				$raw = $this->draft_core_data();
 
 				if( $raw_cached['core'] != $raw['core'] )
-					$flush = true;
+					$dms_cache->purge('draft');
 
 				if( $raw_cached['sections'] != $raw['sections'] )
-					$flush = true;
+					$dms_cache->purge('draft');
 			}
-
-		}
-
-
-		if( true == $flush ) {
-			global $dms_cache;
-			$dms_cache->purge('draft');
 		}
 	}	
 
