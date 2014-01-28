@@ -503,7 +503,9 @@
 			, 	value = ''
 
 			// global settings are always related to 'global'
-			if (that.config.mode == 'settings' || that.config.mode == 'panel' || scope == 'global'){
+			if (that.config.mode == 'settings' || that.config.mode == 'panel' || scope == 'global_setting'){
+				
+				console.log('GLOBAL SCOPE HERE')
 				scope = 'global'
 
 				// Set option value
@@ -556,7 +558,7 @@
 			} else if( o.scope == 'global' ){
 				
 				oNew.name = sprintf('settings[%s]', o.key )
-				oNew.value =  that.optValue( 'global', o.key )
+				oNew.value =  that.optValue( 'global_setting', o.key )
 				oNew.inputID = o.key
 			
 			} else {
