@@ -117,7 +117,7 @@ function pagelines_standard_sidebar($name, $description){
 
 
 function pl_get_comments_template(){
-	if(!have_comments() && !comments_open()){
+	if( have_comments() && ! comments_open() ){
 
 		printf('<p class="nocomments">%s</p>', __('Comments are closed.', 'pagelines'));
 		return;
