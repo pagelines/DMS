@@ -503,12 +503,12 @@
 			, 	value = ''
 
 			// global settings are always related to 'global'
-			if (that.config.mode == 'settings' || that.config.mode == 'panel'){
+			if (that.config.mode == 'settings' || that.config.mode == 'panel' || scope == 'global'){
 				scope = 'global'
 
 				// Set option value
-				if( pageData[ scope ] && pageData[ scope ][ that.uniqueID ] && pageData[ scope ][ that.uniqueID ][ key ]){
-					value = pl_html_input( pageData[ scope ][ that.uniqueID ][ key ] )
+				if( pageData[ 'global' ] && pageData[ 'global' ][ 'settings' ] && pageData[ 'global' ][ 'settings' ][ key ]){
+					value = pl_html_input( pageData[ 'global' ][ 'settings' ][ key ] )
 				}
 				
 			} else if( sectionData[ that.uniqueID ] && sectionData[ that.uniqueID ][ key ]){
@@ -553,6 +553,12 @@
 				oNew.name = sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, o.key )
 				oNew.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
 				oNew.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
+			} else if( o.scope == 'global' ){
+				
+				oNew.name = sprintf('settings[%s]', o.key )
+				oNew.value =  that.optValue( 'global', o.key )
+				oNew.inputID = o.key
+			
 			} else {
 				oNew.name = sprintf('%s[%s]', that.uniqueID, o.key )
 				oNew.value =  that.optValue( tabIndex, o.key )
@@ -583,6 +589,10 @@
 			,	parent = parent || {}
 
 			o = that.addOptionObjectMeta( tabIndex, o, optLevel, parent )
+			
+
+			if( o.scope == 'global')
+				optLabel += ' <i class="icon-globe" title="Global Setting"></i> '
 
 		//	o.classes = o.classes || ''
 			//o.label = o.label || o.title

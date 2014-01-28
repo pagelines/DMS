@@ -302,7 +302,9 @@ class PageLinesSave {
 			$response['result'] = $sections_data_handler->update_or_insert( array( 'uid' => $uid, 'draft' => $form[ $uid ] ) );
 		}
 		
-		if( $scope == 'global' ){
+		
+		
+		if( $scope == 'global' || ( isset( $form[ 'settings' ] ) && is_array( $form[ 'settings' ] ) ) ){
 			
 			$global_settings = pl_settings();
 			
@@ -314,7 +316,9 @@ class PageLinesSave {
 			$global_settings = wp_parse_args( $form, $global_settings );
 			pl_settings_update( $global_settings );
 			
-		} elseif( $scope == 'type' || $scope == 'local' ){
+		}
+		
+		if( $scope == 'type' || $scope == 'local' ){
 			
 			$metaID = ( $scope == 'type' ) ? $data['typeID'] : $data['pageID'];
 			
@@ -322,7 +326,9 @@ class PageLinesSave {
 			$meta_settings = wp_parse_args( $form, $meta_settings );
 			pl_settings_update( $meta_settings, 'draft', $metaID );
 			
-		} elseif ( $scope == 'template' ){
+		}
+		
+		if ( $scope == 'template' ){
 			
 			$handler = new PLCustomTemplates;
 			
@@ -332,7 +338,9 @@ class PageLinesSave {
 			
 			$handler->update( $key, array('settings' => $settings));
 			
-		} elseif ( $scope == 'section' ){
+		}
+		
+		if ( $scope == 'section' ){
 			
 			$handler = new PLCustomSections;
 			

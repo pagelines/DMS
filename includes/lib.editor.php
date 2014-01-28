@@ -127,7 +127,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		'post_type'		=> '',
 		'span'			=> 1,
 		'col'			=> 1,
-		'default'		=> ''
+		'default'		=> '',
 	);
 
 	$old = wp_parse_args($old, $defaults);
@@ -155,9 +155,12 @@ function process_old_opt( $key, $old, $otop = array()){
 		'help'			=> $exp,
 		'opts'			=> ( !isset($old['opts']) && isset($old['selectvalues'])) ? $old['selectvalues'] : $old['opts'],
 		'span'			=> $old['span'],
-		'col'			=> $old['col'],
+		'col'			=> $old['col']
 	);
 
+	if ( isset( $old['scope'] ) )
+		$new['scope'] = $old['scope'];
+	
 	if ( isset( $old['template'] ) )
 		$new['template'] = $old['template'];
 
