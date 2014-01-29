@@ -67,7 +67,8 @@ function pl_theme_support(  ){
 	
 	add_image_size( 'aspect-thumb', 900, 600, true );
 	add_image_size( 'basic-thumb', 400, 400, true );
-	add_image_size( 'landscape-thumb', 900, 450, true );
+	add_image_size( 'landscape-thumb', 1000, 500, true );
+	add_image_size( 'tall-thumb', 500, 1000, true );
 	
 	add_theme_support( 'menus' );
 	add_theme_support( 'automatic-feed-links' );

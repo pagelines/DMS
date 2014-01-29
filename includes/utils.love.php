@@ -65,21 +65,23 @@ class PLLove {
 	}
 
 
-	function add_love() {
+	function add_love( $id = false ) {
 		global $post;
+		
+		$id = ($id) ? $id : $post->ID;
 
-		$output = $this->love_post($post->ID);
+		$output = $this->love_post($id);
   
   		$class = 'pl-love';
   		$title = __('Love this', 'pagelines');
-		if( isset( $_COOKIE['pl_love_'. $post->ID] ) ){
+		if( isset( $_COOKIE['pl_love_'. $id] ) ){
 			$class = 'pl-love loved';
 			$title = __('You already love this!', 'pagelines');
 		}
 		
 		return sprintf('<a href="#" class="%s" id="pl-love-%s" title="%s"> <i class="icon-heart pl-love-heart"></i> %s</a>', 
 						$class, 
-						$post->ID,
+						$id,
 						$title,
 						$output
 					);
@@ -92,11 +94,11 @@ class PLLove {
 global $pl_love;
 $pl_love = new PLLove();
 
-function pl_love( ) {
+function pl_love( $id = false ) {
 	
 	global $pl_love;
 
-	return $pl_love->add_love(); 
+	return $pl_love->add_love( $id ); 
 	
 }
 

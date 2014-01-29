@@ -133,17 +133,34 @@
 .pad-200{ padding: 200px 0; }
 
 /*
+ * @ Text Formatting
+ **********************************************************************/
+.pl-title{
+	font-family: @defaultFont;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+/*
  * @ PageLines Love
  **********************************************************************/
 .pl-love{
-	color: @baseContrastMore;
+	color: inherit;
+	font-family: @defaultFont;
+	font-weight: 600;
+	.pl-love-count{
+		opacity:.6;
+		font-size: 11px;
+		vertical-align: top;
+	}
 	.pl-love-heart{
-		color: @baseContrastMore;
+		opacity: .3;
 	}
 	&:hover,
 	&.loved {
 		.pl-love-heart{
-			color: @linkColor;
+			opacity: 1;
+			color: @pl-link;
 		}
 	}
 }

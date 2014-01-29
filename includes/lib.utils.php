@@ -1,5 +1,16 @@
 <?php 
 
+
+
+function pl_default_thumb(){
+	return PL_IMAGES.'/default-thumb.jpg';
+}
+
+function pl_default_image(){
+	return PL_IMAGES.'/default-image.jpg';
+}
+
+
 // gets the url of an avatar image 
 function pl_get_avatar_url($avatar){
 	preg_match("/src='(.*?)'/i", $avatar, $matches);

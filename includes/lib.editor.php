@@ -785,12 +785,6 @@ function pl_add_theme_tab( $array ){
 	
 }
 
-function pl_default_thumb(){
-	return PL_IMAGES.'/default-thumb.jpg';
-}
-function pl_default_image(){
-	return PL_IMAGES.'/default-image.jpg';
-}
 
 
 
