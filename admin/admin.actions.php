@@ -113,18 +113,27 @@ function pagelines_metabox_scripts() {
 
 function dms_suggest_plugin( $name, $slug, $desc = false ) {
 	global $dms_suggest_plugins;
+
 	if( ! is_admin() )
 		return;
+
+	if( '' == $slug || '' == $name )
+		return;
+
 	if( ! is_array( $dms_suggest_plugins ) )
 		$dms_suggest_plugins = array();
 
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	$plugins = get_plugins();
-	if( '' != $slug && '' != $name && ! isset( $plugins[sprintf('%s/%s.php', $slug, $slug)] ) )
-		$dms_suggest_plugins[$slug] = array(
-			'name'		=> $name,
-			'desc'		=> $desc
-		);		
+	foreach( $plugins as $s => $data ) {
+		if( $name == $data['Name'] ) {
+			return;
+		}
+	}
+	$dms_suggest_plugins[$slug] = array(
+		'name'		=> $name,
+		'desc'		=> $desc
+	);	
 }
 
 add_action( 'admin_notices', 'pagelines_recommended_plugins' );
