@@ -10,6 +10,23 @@ function pl_default_image(){
 	return PL_IMAGES.'/default-image.jpg';
 }
 
+function pl_hash( $color ){
+
+	$clean = str_replace('#', '', $color);
+
+	if(preg_match('/^[a-f0-9]{6}$/i', $clean)){
+		// IS A COLOR
+	} elseif (preg_match('/^[a-f0-9]{3}$/i', $clean)){
+		$clean = $clean.$clean;
+	} else {
+		$clean = 'FFFFFF';
+	}
+
+
+	return sprintf('#%s', $clean);
+
+}
+
 
 // gets the url of an avatar image 
 function pl_get_avatar_url($avatar){

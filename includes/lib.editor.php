@@ -707,7 +707,7 @@ function pl_get_area_styles( $section, $namespace = false ){
 
 	$style = array(
 		'background' => ( $bg ) ? sprintf('background-image: url(%s);', $bg) : '',
-		'color'		=> ( $color_enable ) ? sprintf('background-color: %s;', $color) : '',
+		'color'		=> ( $color_enable ) ? sprintf('background-color: %s;', pl_hash($color)) : '',
 	); 
 	
 	return join(' ', $style);
