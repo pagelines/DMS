@@ -132,7 +132,12 @@ class PageLinesSectionsHandler{
 			'filter'	=> '*'
 		);
 		
+		if( empty( $this->custom->objects ) )
+			unset( $sorted_panel['custom'] );
+		
 		$sorted_panel = apply_filters('pl_section_filters', $sorted_panel );
+		
+		
 		
 		$pos = 90; 
 		foreach( $sorted_panel as $key => &$info ){
