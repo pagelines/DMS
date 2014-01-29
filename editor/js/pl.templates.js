@@ -59,6 +59,7 @@ $.plTemplates = {
 		
 		// Load the template tooltips
 		$('.tt-top').tooltip({placement: 'top'})
+		$('.tt-bottom').tooltip({placement: 'bottom'})
 
 		$(".region-unlock").on("click.regionUnlock", function(e) {
 
