@@ -24,7 +24,9 @@ class PLNavBar extends PageLinesSection {
 		wp_enqueue_script( 'navbar', $this->base_url.'/navbar.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
-
+	function section_persistent() {
+		register_nav_menus( array( 'main_nav' => __( 'Main Nav Section', 'pagelines' ) ) );
+	}
 
 	function section_opts(){
 
@@ -179,7 +181,7 @@ class PLNavBar extends PageLinesSection {
 
 					}
 
-					if ( is_array( wp_get_nav_menu_items( $menu ) ) || has_nav_menu( 'primary' ) ) {
+					if ( is_array( wp_get_nav_menu_items( $menu ) ) || has_nav_menu( 'main_nav' ) ) {
 					wp_nav_menu(
 						array(
 							'menu_class'		=> 'font-sub navline pldrop ' . $align_class,
@@ -187,7 +189,8 @@ class PLNavBar extends PageLinesSection {
 							'container'			=> null,
 							'container_class'	=> '',
 							'depth'				=> 3,
-							'fallback_cb'		=> ''
+							'fallback_cb'		=> '',
+							'theme_location'	=> 'main_nav',
 						)
 					);
 					} else 
