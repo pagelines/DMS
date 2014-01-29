@@ -22,6 +22,8 @@ class PageLinesEditor {
 		// Therefore must come after WP_Query (parse query)
 		add_action( 'wp', array( $this, 'load_libs' ), 10); 
 		add_action( 'admin_init', array( $this, 'load_libs' ), 5);
+		
+		add_filter( 'parse_request', array( $this, 'check_for_type' ) );
 
 		add_action('wp_enqueue_scripts', array( $this, 'process_styles' ));
 
@@ -82,6 +84,17 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
 		require_once( PL_EDITOR . '/editor.sections.register.php' );
+	}
+
+
+	function check_for_type( $wp ) {
+
+		global $pl_404;
+		if( isset( $wp->query_vars['pagename']) && false !== strpos($wp->query_vars['pagename'], 'members' ) ) {
+			$pl_404 = false;
+		} else {
+			$pl_404 = true;
+		}
 	}
 
 	function load_libs(){

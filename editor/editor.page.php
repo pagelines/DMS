@@ -121,8 +121,9 @@ class PageLinesPage {
 	}
 
 	function type(){
+		global $pl_404;
 
-		if( is_404() )
+		if( is_404() && $pl_404 )
 			$type = '404_page';
 
 		elseif( is_post_type_archive() )
