@@ -8,7 +8,12 @@ class PageLinesMobileMenu {
 	
 	function __construct(){
 		
-		add_action('pagelines_before_site', array( $this, 'menu_template'));
+		add_action( 'pagelines_before_site', array( $this, 'menu_template' ) );
+		register_nav_menus( array( 'mobile_nav' => __( 'Mobile Navigation', 'pagelines' ) ) );
+	}
+	
+	function register_location() {
+		
 		
 	}
 	
@@ -25,7 +30,7 @@ class PageLinesMobileMenu {
 				
 				<?php
 				
-				if ( is_array( wp_get_nav_menu_items( $menu ) ) || has_nav_menu( 'primary' ) ) {
+				if ( is_array( wp_get_nav_menu_items( $menu ) ) || has_nav_menu( 'mobile_nav' ) ) {
 					
 					wp_nav_menu(
 						array(
@@ -34,7 +39,8 @@ class PageLinesMobileMenu {
 							'container'			=> null,
 							'container_class'	=> '',
 							'depth'				=> 2,
-							'fallback_cb'		=> ''
+							'fallback_cb'		=> '',
+							'theme_location'	=> 'mobile_nav'
 						)
 					);
 					

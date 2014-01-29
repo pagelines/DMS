@@ -2,7 +2,7 @@
 
 function pl_navigation( $args = array() ){
 	
-	if( ! isset( $args['menu'] ) || empty( $args['menu'] ) ){
+	if( ( ! isset( $args['menu'] ) || empty( $args['menu'] ) ) && ! has_nav_menu( $args['theme_location'] ) ){
 		
 		$out = sprintf('<ul class="inline-list pl-nav"><li class="popup-nav"><a class="menu-toggle mm-toggle"><i class="icon-reorder"></i></a></li></ul>');
 		
@@ -20,18 +20,11 @@ function pl_navigation( $args = array() ){
 			'pl_behavior'		=> 'standard'
 		); 
 
-
 		$args = wp_parse_args( $args, $defaults );
 		
 		$out = str_replace("\n","", wp_nav_menu( $args ));
-		
-	}
-		
-		
-
-	
+	}	
 	return $out;
-
 }
 
 
