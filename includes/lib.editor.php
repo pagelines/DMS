@@ -679,7 +679,9 @@ function pl_theme_classes(){
 	return $array;
 }
 
-function pl_get_area_classes( $namespace, $section, $set = array() ){
+function pl_get_area_classes( $section, $set = array(), $namespace = false ){
+
+	$namespace = ( $namespace ) ? $namespace : $section->id;
 
 	$class = array(
 		'theme'		=> $section->opt($namespace.'_theme'),
@@ -693,9 +695,43 @@ function pl_get_area_classes( $namespace, $section, $set = array() ){
 
 }
 
-function pl_get_area_styles( $namespace, $section ){
+function pl_get_area_styles( $section, $namespace = false ){
 
+	$namespace = ( $namespace ) ? $namespace : $section->id;
+
+	$bg = $section->opt($namespace.'_background');
 	
+	$color = $section->opt($namespace.'_color');
+	
+	$color_enable = $section->opt($namespace.'_color_enable');
+
+	$style = array(
+		'background' => ( $bg ) ? sprintf('background-image: url(%s);', $bg) : '',
+		'color'		=> ( $color_enable ) ? sprintf('background-color: %s;', $color) : '',
+	); 
+	
+	return join(' ', $style);
+	
+	
+}
+
+function pl_standard_video_bg( $section, $namespace = false ){
+	
+	$namespace = ( $namespace ) ? $namespace : $section->id;
+	$video = '';
+	if( $section->opt( $namespace.'_video') ){
+		
+		$videos = pl_get_video_sources( array( $section->opt( $namespace.'_video'), $section->opt( $namespace.'_video_2') ) );
+		$video = sprintf(
+			'<div class="bg-video-contain"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
+			pl_transparent_image(), 
+			$videos
+		);
+
+		return $video;
+	} else
+		return '';
+		
 }
 
 function pl_get_background_options( $namespace, $column ){

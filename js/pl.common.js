@@ -351,7 +351,7 @@
 								function(){ 
 									element.addClass('animation-loaded') 
 								}
-								, (i * 250)
+								, (i * 350)
 							);
 						})
 
