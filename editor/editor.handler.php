@@ -515,7 +515,7 @@ class PageLinesTemplateHandler {
 					unset($o); // set by reference
 				}
 
-				$opts = array_merge($opts, pl_standard_section_options());
+				$opts = array_merge( $opts, pl_standard_section_options( $s ) );
 
 				$opts_config[ $s->meta['clone'] ][ 'opts' ] = $opts;
 
@@ -793,6 +793,12 @@ class PageLinesTemplateHandler {
 				
 				$s->wrapper_classes['user_classes'] = $s->opt('pl_area_class');
 				
+				$s->wrapper_classes['option_classes'] = pl_get_area_classes( $s );
+				
+				$s->wrapper_styles = pl_get_area_styles( $s ); 
+				
+				$s->wrapper_styles['user'] = $s->opt('pl_standard_styles');
+				
 				$s->before_section_template( );
 
 				$this->before_section( $s );
@@ -912,12 +918,21 @@ class PageLinesTemplateHandler {
 			$pad_class = 'pl-section-pad';
 		}
 
+		$styles = $s->wrapper_styles;
 
 		$class = array_merge( $class, $s->wrapper_classes, (array) explode( ' ', $s->special_classes ) );
 		$class = array_unique( array_filter( $class ) ); // ensure no empties or duplicates
 
+		$video = pl_standard_video_bg( $s );
+		
+		$title = $s->opt('pl_standard_title');
+		
+		if( $title ){
+			$title = ( $s->level == 0 ) ? sprintf( '<h2 class="pl-section-title">%s</h2>', $title ) : sprintf( '<h3 class="pl-section-title">%s</h3>', $title );
+		}
+		
 		printf(
-			'<section id="%s" data-object="%s" data-sid="%s" data-clone="%s" %s class="%s section-%s">%s<div class="%s fix">',
+			'<section id="%s" data-object="%s" data-sid="%s" data-clone="%s" %s class="%s section-%s" style="%s">%s%s<div class="%s fix">%s',
 			$s->id.$clone,
 			$s->class_name,
 			$s->id,
@@ -925,8 +940,11 @@ class PageLinesTemplateHandler {
 			implode(" ", $datas),
 			implode(" ", $class),
 			$sid,
+			implode(" ", $styles),
 			$controls,
-			$pad_class
+			$video,
+			$pad_class,
+			$title
 		);
 
 		pagelines_register_hook('pagelines_outer_'.$s->id, $s->id); // hook

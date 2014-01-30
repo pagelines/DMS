@@ -667,14 +667,14 @@ function pl_button_classes(){
 function pl_theme_classes(){
 	$array = array(
 		''			 	=> 'Default',
-		'pl-trans'		=> 'Site Text Color, No BG Color',
-		'pl-contrast'	=> 'Site Text Color, Contrast BG',
-		'pl-black'		=> 'White Text Color, Black BG Color',
-		'pl-grey'		=> 'White Text Color, Dark Grey BG Color',
-		'pl-white'		=> 'Black Text Color, White BG Color',
-		'pl-dark-img'	=> 'White Text Color w Shadow, Black BG Color',
-		'pl-light-img'	=> 'Black Text Color w Shadow, White BG Color',
-		'pl-base'		=> 'Site Text Color, Site Base BG Color',
+		'pl-trans'		=> 'No Background',
+		'pl-contrast'	=> 'Contrast BG',
+		'pl-black'		=> 'Black Background, white text',
+		'pl-grey'		=> 'Dark Grey Background, White Text',
+		'pl-white'		=> 'White Background, Black Text',
+		'pl-dark-img'	=> 'Black Background, White Text w Shadow',
+		'pl-light-img'	=> 'White Background, Black Text w Shadow',
+		'pl-base'		=> 'Base Color Background',
 	); 
 	return $array;
 }
@@ -686,7 +686,8 @@ function pl_get_area_classes( $section, $set = array(), $namespace = false ){
 	$class = array(
 		'theme'		=> $section->opt($namespace.'_theme'),
 		'scroll'	=> $section->opt($namespace.'_scroll'),
-		'video'		=> ( $section->opt($namespace.'_video') ) ? 'bg-video-canvas' : ''
+		'video'		=> ( $section->opt($namespace.'_video') ) ? 'bg-video-canvas' : '',
+		'repeat'	=> ( $section->opt($namespace.'_repeat') ) ? 'pl-bg-repeat' : 'pl-bg-cover'
 	);
 	
 	$class = wp_parse_args( $set, $class );
@@ -710,7 +711,7 @@ function pl_get_area_styles( $section, $namespace = false ){
 		'color'		=> ( $color_enable ) ? sprintf('background-color: %s;', pl_hash($color)) : '',
 	); 
 	
-	return join(' ', $style);
+	return $style;
 	
 	
 }
@@ -734,9 +735,12 @@ function pl_standard_video_bg( $section, $namespace = false ){
 		
 }
 
-function pl_get_background_options( $namespace, $column ){
+function pl_get_background_options( $section, $column = 3 ){
+	
+	$namespace = $section->id;
+	
 	$options = array(
-		'title' => __( 'Background', 'pagelines' ),
+		'title' => __( 'Background Options', 'pagelines' ),
 		'type'	=> 'multi',
 		'col'	=> $column,
 		'opts'	=> array(
@@ -744,6 +748,11 @@ function pl_get_background_options( $namespace, $column ){
 				'key'			=> $namespace.'_background',
 				'type' 			=> 'image_upload',
 				'label' 		=> __( 'Background Image', 'pagelines' ),
+			),
+			array(
+				'key'			=> $namespace.'_repeat',
+				'type' 			=> 'check',
+				'label' 		=> __( 'Repeat Background?', 'pagelines' ),
 			),
 			array(
 				'key'			=> $namespace.'_theme',

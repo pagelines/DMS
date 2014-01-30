@@ -402,29 +402,42 @@ class EditorSettings {
 	}
 }
 
-function pl_standard_section_options( ){
+function pl_standard_section_options( $section ){
 	$options = array();
 
+
+	if( $section->meta['draw'] == 'area' ){
+		
+		$options['background'] = pl_get_background_options( $section );
+	}
+	
+	
 	$options['standard'] = array(
 
 		'key'			=> 'pl_section_styling',
 		'type' 			=> 'multi',
+		'col'			=> 1,
 		'label' 	=> __( 'Standard Options', 'pagelines' ),
 		'opts'	=> array(
+			array(
+				'key'		=> 'pl_standard_title',
+				'type' 		=> 'text',
+				'label' 	=> __( 'Standard Title', 'pagelines' ),
+			),
 			array(
 
 				'key'		=> 'pl_area_class',
 				'type' 		=> 'text',
-				'label' 	=> __( 'Styling Classes', 'pagelines' ),
-				'help'		=> __( 'Separate with a space " "', 'pagelines' ),
+				'label' 	=> __( 'Custom Styling Classes', 'pagelines' ),
+			),
+			
+			array(
+				'key'		=> 'pl_standard_styles',
+				'type' 		=> 'text',
+				'label' 	=> __( 'Inline CSS Styling', 'pagelines' ),
+				'help'		=> __( 'Use sparingly. Example: "text-transform:uppercase; font-size: 80%;"', 'pagelines' ),
 			)
-			// , array(
-			// 
-			// 					'key'		=> 'pl_disabled_section',
-			// 					'type' 		=> 'check',
-			// 					'label' 	=> __( 'Hide On Current Page?', 'pagelines' ),
-			// 					'scope'		=> 'local'
-			// 				)
+	
 		),
 		
 
