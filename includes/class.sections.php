@@ -191,6 +191,9 @@ class PageLinesSection {
 
 	function opt( $key, $args = array() ){
 
+		if( has_filter( "pl_opt-$key" ) )
+			return apply_filters( "pl_opt-$key", $val );
+
 		$d = array(
 			'default'	=> false
 		);
