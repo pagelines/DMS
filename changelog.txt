@@ -4,6 +4,9 @@
   (wporg version)
 
 ********************************************************
+Version 1.0.3.5
+
+	- CORE - Backported option filters.
 
 Version 1.0.3.4
 
