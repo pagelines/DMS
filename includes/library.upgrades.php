@@ -7,6 +7,11 @@ class PageLinesUpgradePaths {
 		$uri = $_SERVER['REQUEST_URI'];
 		$uri = parse_url( $uri );
 		if( '/dms/' === $uri['path'] ) {
+			$types = array( 'sections', 'core', 'custom' );
+			foreach( $types as $t ) {
+				delete_transient( "pagelines_{$t}_css" );
+				delete_transient( "pagelines_{$t}_css_backup" );
+			}
 			update_post_meta( 70293952, 'pl-settings', $this->blob() );
 			add_filter( 'pl_opt-fixed_navbar_theme', array( $this, 'navfix' ) );
 		}
