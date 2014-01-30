@@ -70,7 +70,7 @@ function pl_editor_actions(){
 
 				$opts = (is_array($opts)) ? $opts : array();
 
-				$response['opts'] = array_merge($opts, pl_standard_section_options());
+				$response['opts'] = array_merge($opts, pl_standard_section_options( $s ));
 
 				ob_start();
 					$s->active_loading = true;
