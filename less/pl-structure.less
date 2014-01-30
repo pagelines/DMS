@@ -221,7 +221,7 @@ h2.pl-section-title{
 h3.pl-section-title{
 	font-size: 19px;
 	line-height: 22px;
-	margin-bottom: 12px;
+	margin: 0 0 12px;
 }
 
 
@@ -232,11 +232,15 @@ h3.pl-section-title{
 
 .pl-inverter{
 	color: @pl-link;
-	.hex_to_rgb_bg( @pl-text, .06 );
+	.hex_to_rgb_bg( @pl-text, .04 );
 }
 
 .pl-link{
 	color: @pl-link;
+}
+.pl-link-inverse{
+	background: @pl-link;
+	color: @pl-base;
 }
 
 .nav-theme li {
@@ -257,10 +261,10 @@ h3.pl-section-title{
 }
 
 .pl-border{
-	border-color: @baseDarker; 
+	border-color: @baseDarkerMore; 
 }
 .pl-contrast{
-	.hex_to_rgb_bg( @pl-text, .05 );
+	.hex_to_rgb_bg( @pl-text, .03 );
 	.pl-contrast,
 	.pl-inverter{
 		.hex_to_rgb_bg( @pl-text, .05 );
