@@ -149,12 +149,14 @@
 	color: inherit;
 	font-family: @defaultFont;
 	font-weight: 600;
+	line-height: 1em;
 	.pl-love-count{
 		opacity:.6;
 		font-size: 11px;
 		vertical-align: top;
 	}
 	.pl-love-heart{
+		vertical-align: top;
 		opacity: .3;
 	}
 	&:hover,
@@ -163,6 +165,18 @@
 			opacity: 1;
 			color: @pl-link;
 		}
+	}
+}
+
+.pl-center-table{
+	display:table;
+	height: 100%; 
+	width: 100%;
+	.pl-center-cell{
+		height: 100%;
+		display:table-cell;
+		vertical-align: middle;
+		text-align: center;
 	}
 }
 
