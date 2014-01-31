@@ -618,8 +618,17 @@
 
 				// option value should be an array, so foreach
 
-				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : [[],[],[]]
-				,	itemType = o.post_type || 'Item'
+				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : false
+				,	opts_cnt = o.opts_cnt || 3
+				
+				if( ! optionArray ) {
+					optionArray = new Array()
+					for ( var i = 0; i < opts_cnt; i++ ){
+						optionArray.push([]);
+					}
+				}
+			
+				var	itemType = o.post_type || 'Item'
 				, 	itemNumber = 1
 				, 	totalNum = optionArray.length || Object.keys(optionArray).length
 				, 	removeShow = ( totalNum <= 1 ) ? 'display: none;' : ''
