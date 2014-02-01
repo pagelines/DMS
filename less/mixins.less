@@ -682,6 +682,25 @@
 
 
 			}
+			&.row-closed{
+				> [class*="span"]{
+					margin-left: 0;
+					margin-bottom: 0;
+				}
+				&.with-gutter{
+					.span-wrap{
+						padding: 10px;
+					}
+				}
+				
+				.span1{ width: 8.333333333%;}
+				.span2{ width: 16.666666666%;}
+				.span3{ width: 25%;}
+				.span4{ width: 33.33333333%;}
+				.span5{ width: 41.6666666%;}
+				.span6{ width: 50%;}
+			}
+			
 			> [class*="span"]:first-child,
 			> section:first-of-type,
 			.sortable-first {
@@ -689,13 +708,13 @@
 				clear: both;
 			}
 			
-			.spanX (@gridColumns);
-			.offsetX (@gridColumns);
-		}
-		
-		.row-close{
+			.spanX ( 12 );
+			.offsetX ( 12 );
+			
 			
 		}
+		
+		
 		
 	}
 
