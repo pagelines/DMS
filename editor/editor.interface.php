@@ -61,7 +61,7 @@ class EditorInterface {
 
 			// Forms handling
 			wp_enqueue_script( 'form-params', PL_JS . '/form.params.min.js', array('jquery'), pl_get_cache_key(), true );
-			wp_enqueue_script( 'form-store', PL_JS . '/form.store.min.js', array('jquery'), pl_get_cache_key(), true );
+			//wp_enqueue_script( 'form-store', PL_JS . '/form.store.min.js', array('jquery'), pl_get_cache_key(), true );
 
 			wp_enqueue_script( 'form-fileupload', PL_JS . '/utils.fileupload.js', array('jquery', 'jquery-ui-widget'), pl_get_cache_key(), true );
 
