@@ -429,19 +429,14 @@ function pl_standard_section_options( $section ){
 				'key'		=> 'pl_area_class',
 				'type' 		=> 'text',
 				'label' 	=> __( 'Custom Styling Classes', 'pagelines' ),
-			),
-			
+			),	
 			array(
 				'key'		=> 'pl_standard_styles',
 				'type' 		=> 'text',
 				'label' 	=> __( 'Inline CSS Styling', 'pagelines' ),
 				'help'		=> __( 'Use sparingly. Example: "text-transform:uppercase; font-size: 80%;"', 'pagelines' ),
 			)
-	
-		),
-		
-
-	);
-	
-	return $options;
+		)
+	);	
+	return apply_filters( 'pl_standard_section_options', $options );
 }
