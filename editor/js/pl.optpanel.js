@@ -1604,7 +1604,7 @@
 
 			else if( o.type == 'color' ){
 
-				var dflt = ( isset( o.default ) ) ? o.default : '#ffffff'
+				var dflt = ( isset( o.default ) ) ? o.default : ''
 
 				dflt = dflt.replace('#', '')
 
