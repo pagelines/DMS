@@ -414,5 +414,5 @@ function pl_standard_section_options( ){
 
 	);
 	
-	return $options;
+	return apply_filters( 'pl_standard_section_options', $options );
 }
