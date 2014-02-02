@@ -8,6 +8,11 @@ function pl_navigation( $args = array() ){
 		
 	} else {
 		
+		// allow inline styles on nav ( offsets! )
+		if( isset( $args['attr'] ) ){
+			$args['items_wrap'] = '<ul id="%1$s" class="%2$s" '.$args['attr'].'>%3$s<li class="popup-nav"><a class="menu-toggle mm-toggle respond"><i class="icon-reorder"></i></a></li></ul>'; 
+		}
+		
 		$defaults = array(
 			'menu_class'		=> 'inline-list pl-nav',
 			'menu'				=> pl_setting( 'primary_navigation_menu' ),
@@ -15,12 +20,16 @@ function pl_navigation( $args = array() ){
 			'container_class'	=> '',
 			'depth'				=> 3,
 			'fallback_cb'		=> '',
-			'items_wrap'      	=> '<ul id="%1$s" class="%2$s">%3$s<li class="popup-nav"><a class="menu-toggle mm-toggle respond"><i class="icon-reorder"></i></a></li></ul>',
+			'items_wrap'      	=> '<ul id="%1$s" class="%2$s" style="">%3$s<li class="popup-nav"><a class="menu-toggle mm-toggle respond"><i class="icon-reorder"></i></a></li></ul>',
+			'style'				=> false, 
 			'echo'				=> false,
 			'pl_behavior'		=> 'standard'
 		); 
 
 		$args = wp_parse_args( $args, $defaults );
+		
+		
+		
 		
 		$out = str_replace("\n","", wp_nav_menu( $args ));
 	}	
