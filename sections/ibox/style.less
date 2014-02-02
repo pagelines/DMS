@@ -23,12 +23,35 @@
 	.ibox-media{
 		text-align: center;
 		a{color: inherit;}
+		.pl-counter{
+			font-size: 80px;
+			font-weight: 600;
+			letter-spacing: -1px;
+			line-height: 1em;
+		}
 		.ibox-icon-border{
 			margin-bottom: @baseLineHeight/2;
 			display: inline-block;
 			text-align: center;
 			.transition(all 0.2s ease-in-out);
 			.border-radius(500px);
+			position: relative;
+			.invert-icon{
+				position: absolute; 
+				width: 100%; 
+				height: 100%;
+				border-radius: 500px;
+				z-index: 0;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				.transition(all 0.2s ease-in-out);
+			}
+			.iii{
+				position: relative; 
+				z-index: 10;
+			}
+			
 			&.media-type-image {
 				overflow: hidden;
 				
@@ -62,7 +85,7 @@
 		
 	&.top-aligned{
 		.ibox-media{
-			max-width: 60%;
+			max-width: 70%;
 			margin-right: auto;
 			margin-left: auto;
 			.media-type-image {
@@ -77,6 +100,10 @@
 	&.left-aligned{
 		text-align: left;
 		.ibox-icon-border{
+			.pl-counter{
+				font-size: 25px;
+				line-height: 1em;
+			}
 			&.media-type-icon {
 				background: transparent;
 				width: 40px;

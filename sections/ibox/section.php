@@ -37,6 +37,7 @@ class pliBox extends PageLinesSection {
 					'type' 			=> 'select',
 					'opts'		=> array(
 						'icon'	 	=> array( 'name' => __( 'Icon Font', 'pagelines' ) ),
+						'count'		=> array( 'name' => __( 'Counter', 'pagelines' ) ),
 						'image'		=> array( 'name' => __( 'Images', 'pagelines' ) ),
 						'text'		=> array( 'name' => __( 'Text Only, No Media', 'pagelines' ) )
 					),
@@ -86,13 +87,23 @@ class pliBox extends PageLinesSection {
 				),
 				array(
 					'key'		=> 'icon',
-					'label'		=> __( 'iBox Icon', 'pagelines' ),
+					'label'		=> __( 'Icon (Icon Mode)', 'pagelines' ),
 					'type'		=> 'select_icon'
 				),
 				array(
+					'key'		=> 'count',
+					'label'		=> __( 'Count Number (Counter Mode)', 'pagelines' ),
+					'type'		=> 'text_small'
+				),
+				array(
 					'key'		=> 'image',
-					'label'		=> __( 'iBox Image', 'pagelines' ),
+					'label'		=> __( 'Box Image (Image Mode)', 'pagelines' ),
 					'type'		=> 'image_upload'
+				),
+				array(
+					'key'		=> 'color',
+					'label'		=> __( 'Icon/Count Color', 'pagelines' ),
+					'type'		=> 'color'
 				),
 				
 
@@ -147,6 +158,8 @@ class pliBox extends PageLinesSection {
 				$user_class = pl_array_get( 'class', $ibox ); 
 				$image = pl_array_get( 'image', $ibox ); 
 				$icon = pl_array_get( 'icon', $ibox ); 
+				$counter = pl_array_get( 'count', $ibox, rand( 100 , 1000 )); 
+				$color = pl_hash( pl_array_get( 'color', $ibox ), false);
 				
 	
 				$text = sprintf('<div data-sync="ibox_array_item%s_text">%s</div>', $count, $text );
@@ -154,10 +167,12 @@ class pliBox extends PageLinesSection {
 				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
+				$text_color = ( $color ) ? sprintf( 'color: %s;', $color ) : ''; 
+
 				$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
 				$media_class = 'media-type-'.$media_type;
 
-				$media_bg = '';
+				$style = '';
 				$media_html = '';
 
 				if( $media_type == 'icon' ){
@@ -166,15 +181,24 @@ class pliBox extends PageLinesSection {
 						$icons = pl_icon_array();
 						$icon = $icons[ array_rand($icons) ];
 					}
-					$media_html = sprintf('<i class="icon-3x icon-%s "></i>', $icon);
+					
+					$background = ($color) ? sprintf('<span class="invert-icon" style="background-color: %s;"></span>', $color) : '';
+					$media_html = sprintf( '<i class="iii icon-3x icon-%s " style="%s"></i>%s', $icon, $text_color, $background );
 
 				} elseif( $media_type == 'image' ){
 				
 					$media_html = '';
 
-					$media_bg = ($image) ? sprintf('background-image: url(%s);', $image) : '';
+					$style .= ($image) ? sprintf('background-image: url(%s);', $image) : '';
+
+				} elseif( $media_type == 'count' ){
+
+					$media_html = sprintf('<span class="pl-counter" style="%s">%s</span>', $text_color, $counter);
+					
 
 				}
+				
+				
 
 				$media_link = '';
 				$media_link_close = '';
@@ -187,14 +211,14 @@ class pliBox extends PageLinesSection {
 				if($width == 0)
 					$output .= '<div class="row fix">';
 
-				$inverter = ($media_format != 'left') ? 'pl-inverter' : '';
+				$inverter = ($media_format != 'left' && $media_type == 'icon') ? 'pl-contrast' : '';
 
 
 				$output .= sprintf(
 					'<div class="span%s ibox %s %s pl-hover-flag fix">
 						<div class="ibox-media img">
 							%s
-							<span class="ibox-icon-border pl-animation pl-appear pl-link %s %s" style="%s">
+							<span class="ibox-icon-border pl-animation pl-appear pl-link pl-link-invert %s %s" style="%s">
 								%s
 							</span>
 							%s
@@ -213,7 +237,7 @@ class pliBox extends PageLinesSection {
 					$media_link,
 					$inverter,
 					$media_class,
-					$media_bg,
+					$style,
 					$media_html,
 					$media_link_close,
 					$title,
