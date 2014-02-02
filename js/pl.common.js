@@ -32,6 +32,21 @@
 		
 	})
 	
+	function shuffle(o){ //v1.0
+		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
+	};
+	
+	function plRandSort(c) {
+	    var o = new Array();
+	    for (var i = 0; i < c; i++) {
+			o.push(i);
+		
+	    }
+	    return shuffle(o);
+	}
+	
+	
 	$(window).load(function() {
 		$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		// $('.pl-section').on('plresize', function(){
@@ -308,20 +323,6 @@
 						
 			$.plAnimate.plWaypoints()
 			
-			$.plAnimate.doHoverFlag()
-		}
-		
-		// adds a hover class on hover to items that have the flag
-		, doHoverFlag: function(){
-			
-			$( ".pl-hover-flag" ).hover(
-				function() {
-			    	$( this ).addClass( "pl-hover" )
-			  	}, function() {
-			    	$( this ).removeClass( "pl-hover" )
-			  	}
-			)
-			
 		}
 		
 		, plWaypoints: function(selector, options_passed){
@@ -340,9 +341,16 @@
 			$('.pl-animation-group').each(function(){
 				
 				var element = $(this)
+				
 
-				element.waypoint(function(direction){
-				 	$(this)
+				element.appear(function() {
+					
+					var animationNum = $(this).find('.pl-animation').size()
+					,	randomLoad = plRandSort(animationNum)
+					
+					console.log(randomLoad)
+
+				   	$(this)
 						.find('.pl-animation')
 						.each( function(i){
 							var element = $(this)
@@ -355,37 +363,48 @@
 							);
 						})
 
-				}
-				, { offset: '80%' 
-					, triggerOnce: true
 				})
+
 			})
 
 			$('.pl-animation:not(.pla-group)').each(function(){
 				
 				var element = $(this)
+				
+				element.appear(function() {
 
-				element.waypoint(function(direction){
-					
-						if( $(this).hasClass('pl-slidedown') ){
-							var endHeight = $(this).find('.pl-end-height').outerHeight()
-							console.log(endHeight+'end height')
-							$(this).css('height', endHeight)
-						}
-						
-					
-					 	$(this)
-							.addClass('animation-loaded')
-							.trigger('animation_loaded')
-							
-						
-
+				  	if( $(this).hasClass('pl-slidedown') ){
+						var endHeight = $(this).find('.pl-end-height').outerHeight()
+						console.log(endHeight+'end height')
+						$(this).css('height', endHeight)
 					}
-					, { offset: '85%' 
-					, triggerOnce: true
-				})
+					
+				
+				 	$(this)
+						.addClass('animation-loaded')
+						.trigger('animation_loaded')
 
+				})
 			
+			})
+			
+			$('.pl-counter').each(function(){
+				
+				var cntr = $(this)
+				
+				cntr.appear( function() {
+			
+					var the_number = parseInt( cntr.text() )
+				
+					cntr.countTo({
+							from: 0
+						,	to: the_number
+						,	speed: 1500
+						,	refreshInterval: 30
+					})
+				
+				})
+				
 			})
 		}
 		
