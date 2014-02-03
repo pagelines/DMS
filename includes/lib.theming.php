@@ -142,7 +142,7 @@ function pl_recent_posts( $number = 3 ){?>
 				$img,
 				get_permalink( $p->ID ),
 				$p->post_title,
-				pl_short_excerpt($p->ID)
+				pl_short_excerpt($p->ID, 6)
 			);
 
 		} ?>
