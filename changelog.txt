@@ -3,6 +3,13 @@
   DMS Release Notes:
 
 ********************************************************
+Version 1.1.6
+
+	- CORE - Fix media uploader being destroyed by nextgen gallery js.
+	- CORE - Merge Pull request #568 ( allow none as an alignment option in mediabox )
+	- CORE - Register menus to allow polylang to switch menus depending on language
+	- CORE - Section TextBox: Add dropdown selection for title wrapper h1/h2/h3 etc
+	- BUG - Fix #622: Sharebar was not w3c validating
 
 Version 1.1.5
 
