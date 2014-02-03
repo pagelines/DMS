@@ -51,6 +51,52 @@
 }
 
 
+@media only screen and (min-width: 1600px) {
+	body:after {
+		content: "5";
+		display: none;
+	}
+	.row.row-closed > [class*="span"]{
+		width: 19.98%;
+	}
+}
+@media only screen and (min-width: 1300px) and (max-width: 1600px) {
+	body:after {
+		content: "4";
+		display: none;
+	}
+	.row.row-closed > [class*="span"]{
+		width: 24.98%;
+	}
+}
+@media only screen and (min-width: 990px) and (max-width: 1300px) {
+	body:after {
+		content: '3';
+		display: none;
+	}
+	.row.row-closed > [class*="span"]{
+		width: 33.3%;
+	}
+}
+@media only screen and (min-width: 470px) and (max-width: 990px) {
+	body:after {
+		content: '2';
+		display: none;
+	}
+	.row.row-closed > [class*="span"]{
+		width: 49.98%;
+	}
+}
+@media only screen and (max-width: 470px) {
+	body:after {
+		content: '1';
+		display: none;
+	}
+	.row.row-closed > [class*="span"]{
+		width: 99.98%;
+	}
+}
+
 // UP TO LANDSCAPE PHONE
 // ---------------------
 
@@ -117,6 +163,11 @@
 // --------------------------------------------------
 
 @media (max-width: 767px) {
+	
+	body:after {
+		content: 'four';
+		display: none;
+	}
 
   // Padding to set content in a bit
 

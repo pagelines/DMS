@@ -5,7 +5,6 @@
 	}
 	.ibox-desc{
 
-		margin-bottom: 1em;
 		.ibox-link{
 			display: block;
 			margin-top: .5em;
@@ -19,6 +18,11 @@
 		}
 	}
 	
+	&:hover .ibox-icon-border{
+		//.scale( 1.1 );
+		//.translate3d(0, 5px, 0);
+		
+	}
 
 	.ibox-media{
 		text-align: center;
@@ -30,7 +34,7 @@
 			line-height: 1em;
 		}
 		.ibox-icon-border{
-			margin-bottom: @baseLineHeight/2;
+			margin-bottom: 12px;
 			display: inline-block;
 			text-align: center;
 			.transition(all 0.2s ease-in-out);
@@ -67,13 +71,10 @@
 			
 				border-style: solid;
 				.border-radius(500px);
-				width: 90px;
-				height: 90px;
-				line-height: 106px;
 				
 				
 				i{
-					font-size: 40px;
+					font-size: 80px;
 					display: inline-block;
 				}
 				
@@ -84,6 +85,10 @@
 	
 		
 	&.top-aligned{
+		.ibox-desc{
+			max-width: 300px;
+			margin: 0 auto;
+		}
 		.ibox-media{
 			max-width: 70%;
 			margin-right: auto;
@@ -103,6 +108,10 @@
 			.pl-counter{
 				font-size: 25px;
 				line-height: 1em;
+			}
+			&.media-type-count{
+				min-width: 100px;
+				text-align: right;
 			}
 			&.media-type-icon {
 				background: transparent;
