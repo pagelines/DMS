@@ -93,7 +93,7 @@ function pagelines_register_js() {
 	
 	wp_enqueue_script( 'pagelines-helpers', PL_JS . '/pl.helpers.js', array( 'jquery' ), pl_get_cache_key(), true );
 	
-	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), pl_get_cache_key(), true );
+//	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), pl_get_cache_key(), true );
 //	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), pl_get_cache_key(), true );
 	//wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.min.js', array( 'jquery' ), pl_get_cache_key(), true );
 	//wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), pl_get_cache_key(), true );

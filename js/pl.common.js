@@ -348,7 +348,6 @@
 					var animationNum = $(this).find('.pl-animation').size()
 					,	randomLoad = plRandSort(animationNum)
 					
-					console.log(randomLoad)
 
 				   	$(this)
 						.find('.pl-animation')
@@ -416,14 +415,14 @@
 			var that = this
 			that.setHeight()
 
-			$.resize.delay = 100 // resize throttle
+		//	$.resize.delay = 100 // resize throttle
 
 			var fixedTop = $('.pl-fixed-top')
 			, 	fixedOffset = fixedTop[0].offsetTop
 			
-			fixedTop.on('plresize', function(){
-				that.setHeight()
-			})
+			// fixedTop.on('plresize', function(){
+			// 				that.setHeight()
+			// 			})
 			
 			$(document).on('ready scroll', function() {
 			    var docScroll = $(document).scrollTop()
