@@ -29,11 +29,6 @@ class PLNavBar extends PageLinesSection {
 
 		wp_enqueue_script( 'navbar', $this->base_url.'/navbar.js', array( 'jquery' ), PL_CORE_VERSION, true );
 	}
-
-	function section_persistent(){
-		register_nav_menus( array( 'main_nav' => __( 'Main Nav Section', 'pagelines' ) ) );
-
-	}
 	
 	function section_head() {
 		?>
@@ -203,7 +198,7 @@ class PLNavBar extends PageLinesSection {
 
 	function section_persistent() {
 
-
+		register_nav_menus( array( 'main_nav' => __( 'Main Nav Section', 'pagelines' ) ) );
 		add_filter('pl_settings_array', array( $this, 'add_settings'));
 
 		$option_args = array(
