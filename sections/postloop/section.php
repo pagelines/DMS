@@ -32,7 +32,31 @@ class PageLinesPostLoop extends PageLinesSection {
 				'help'		=> __( 'This section uses WordPress posts. Edit post information using WordPress admin.', 'pagelines' ),
 				'classes'	=> 'btn-primary'
 			),
-			
+			array(
+				'key'		=> 'post_media_hide',
+				'case'		=> 'special',
+				'type'		=> 'check',
+				'default'	=> false,
+				'title'		=> __( 'Hide Media on archives', 'pagelines' ),
+			),
+			array(
+				'type'		=> 'select',
+				'key'		=> 'media_align',
+				'default'	=> 'left',
+				'opts'	=> array(
+					'left'			=> array( 'name' => __( 'Left Justified', 'pagelines' ) ),
+					'right'			=> array( 'name' => __( 'Right Justifiied', 'pagelines' ) ),
+					'center'		=> array( 'name' => __( 'Top', 'pagelines' ) ),
+					),
+				'title'		=> __( 'Thumbnail alignment', 'pagelines' ),
+			),
+			array(
+					'key'			=> 'thumb_size',
+					'type' 			=> 'select_imagesizes',
+					'default'		=> 'thumb',
+					'label' 		=> __( 'Select Thumb Size', 'pagelines' )
+				),
+
 			array(
 				'key'			=> 'metabar_standard',
 				'default'		=> 'On [post_date] | [post_comments] [post_edit]',
@@ -55,7 +79,7 @@ class PageLinesPostLoop extends PageLinesSection {
 			),
 		);
 		global $post;
-		$id = ( isset( $post->ID ) ) ? $post->ID : null; 
+		$id = ( isset( $post->ID ) ) ? $post->ID : null;
 		if( true == apply_filters( 'pl_legacy_postloop', pl_setting( 'post_loop_legacy'), $id ) )
 			$opts = $this->get_old_options();
 
@@ -75,22 +99,22 @@ class PageLinesPostLoop extends PageLinesSection {
 	* Section template.
 	*/
    function section_template() {
-	
+
 		// if using non pagelines template
 		if( do_special_content_wrap() ) {
-	
+
 			global $integration_out;
 			echo $integration_out;
-			
+
 		} else {
-			
+
 			if( pl_standard_post_page() )
 				$this->get_loop();
 			else
 				$this->standard_loop();
-		}	
+		}
 	}
-	
+
 	/*
 	 * Decide which loop we need and load it.
 	 */
@@ -112,72 +136,72 @@ class PageLinesPostLoop extends PageLinesSection {
 	function standard_loop() {
 
 		if( have_posts() )
-			while ( have_posts() ) : the_post(); 
+			while ( have_posts() ) : the_post();
 			the_content();
 			endwhile;
 	}
-	
+
 	function loop(){
-		
-		$count = 0; 
-		global $plpg; 
-						
+
+		$count = 0;
+		global $plpg;
+
 		if( have_posts() )
-			while ( have_posts() ) : the_post(); 
-		
+			while ( have_posts() ) : the_post();
+
 			$count++;
-			
+
 			$format = get_post_format();
-			
+
 			$linkbox = ($format == 'quote' || $format == 'link') ? true : false;
-			
-			$class = array(); 
-			
+
+			$class = array();
+
 			$postlist = ( $plpg->is_blog_page_type() ) ? true : false;
-		
+
 			$class[ ] = ( is_archive() || is_search() || is_home() ) ? 'multi-post' : '';
-			
+
 			$class[ ] = ( ! $postlist ) ? 'standard-page' : '';
-			
+
 			$class[ ] = ( is_single() ) ? 'single-post' : '';
-			
-			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true); 
-			
+
+			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true);
+
 			$class[ ] = ( ! empty( $gallery_format ) ) ? 'use-flex-gallery' : '';
-			
+
 			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
-			?>	
+			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-		
+
 				<?php
-				
+
 					if( $postlist && get_post_type() != 'page' )
 						echo do_shortcode( '<div class="metahead">[pl_author_avatar size="80"][post_author_posts_link][pl_love]</div>' );
-				
-					if( ! is_single() ){
-						
+
+					if( ! is_singular() && ! $this->opt( 'post_media_hide' ) ){
+
 						printf( '<div class="metamedia">%s</div>', pagelines_media() );
-						
+
 					}
-					
-				
+
+
 					?>
-				
+
 				<?php if( ! $linkbox ): ?>
 					<header class="entry-header">
-						<?php 
+						<?php
 
 							if ( is_single() ) :
 								the_title( '<h2 class="entry-title">', '</h2>' );
-							elseif( ! is_page() ) :	
+							elseif( ! is_page() ) :
 								the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 							endif;
 
-							$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]'; 
-						
+							$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]';
+
 							if( $meta && ! is_page() && get_post_type() != 'page' )
 								printf( '<div class="metabar"> %s </div>', do_shortcode( $meta ) );
-						
+
 						?>
 					</header><!-- .entry-header -->
 				<?php endif; ?>
@@ -186,11 +210,11 @@ class PageLinesPostLoop extends PageLinesSection {
 					<?php
 
 					if( is_single() || is_page() ){
-						
-						printf( '<div class="metamedia">%s</div>', pagelines_media() );
-						
+
+						printf( '<div class="metamedia align%s">%s</div>', $this->opt( 'media_align' ), pagelines_media( array( 'thumb-size' => $this->opt('thumb_size' ) ) ) );
+
 						the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pagelines' ) );
-						
+
 						wp_link_pages( array(
 							'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'pagelines' ) . '</span>',
 							'after'       => '</div>',
@@ -214,12 +238,12 @@ class PageLinesPostLoop extends PageLinesSection {
 			</article><!-- #post-## -->
 			<?php
 
-			 
+
 		endwhile;
-	else 
+	else
 		$this->posts_404();
 	}
-	
+
 	function posts_404(){
 
 		$head = ( is_search() ) ? sprintf(__('No results for &quot;%s&quot;', 'pagelines'), get_search_query()) : __('Nothing Found', 'pagelines');
@@ -231,13 +255,13 @@ class PageLinesPostLoop extends PageLinesSection {
 		printf( '<section class="billboard">%s <div class="center fix">%s</div></section>', apply_filters('pagelines_posts_404', $the_text), pagelines_search_form( false ));
 
 	}
-	
+
 	function get_old_options(){
-		
+
 		$opts = array(
-			
+
 			array(
-				
+
 				'title' 	=> __( 'Layout <span class="spamp">&amp;</span> Config', 'pagelines' ),
 				'type'		=> 'multi',
 				'col'		=> 2,
@@ -328,7 +352,7 @@ class PageLinesPostLoop extends PageLinesSection {
 				'type'		=> 'multi',
 				'col'		=> 2,
 				'opts'		=> array(
-					
+
 
 					array(
 						'type'		=> 'select',
@@ -344,7 +368,7 @@ class PageLinesPostLoop extends PageLinesSection {
 						'help'		=> __( 'Use this option to configure how thumbs will be shown in full-width posts on your blog page.', 'pagelines' )
 
 					),
-					
+
 					array(
 						'case'		=> 'special',
 						'type'		=> 'select',
@@ -414,12 +438,12 @@ class PageLinesPostLoop extends PageLinesSection {
 					)
 				)
 			)
-			
-			
+
+
 		);
 		return $opts;
 	}
 
-	
+
 
 }
