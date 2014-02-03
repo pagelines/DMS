@@ -23,7 +23,7 @@
 		text-decoration: none;
 		background-color: @btnBackgroundHighlight;
 		background-position: 0 -25px;
-
+		color: #000;
 		// transition is only when going to hover, otherwise the background
 		// behind the gradient (there for IE<=9 fallback) gets mismatched
 		.transition(background-position .1s linear);
@@ -76,6 +76,9 @@
 
 a.btn{
 	color:#333;
+	&:hover{
+		color: #000;
+	}
 }
 
 // Hover state
