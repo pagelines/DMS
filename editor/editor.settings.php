@@ -585,8 +585,9 @@ function pl_settings( $mode = 'draft', $metaID = false ){
 
 function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 
-	$default = array( 'draft' => array(), 'live' => array() );
+	global $has_run;
 
+	$default = array( 'draft' => array(), 'live' => array() );
 
 	if( $metaID )
 		$settings = pl_get_meta_settings( $metaID );
@@ -640,6 +641,11 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 		pl_meta_update( $metaID, PL_SETTINGS, $settings );
 	else
 		pl_update_global_settings( $settings );
+
+	if( $mode == 'draft' && true == pl_setting( 'no_draft_mode' ) && ! $has_run ) {
+		$has_run = true;
+		pl_settings_update( $new_settings, 'live', $metaID );
+	}
 
 	return $settings;
 }

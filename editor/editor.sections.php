@@ -8,23 +8,23 @@ class PageLinesSectionsHandler{
 
 	function __construct(){
 		$this->url = PL_PARENT_URL . '/editor';
-		
-		
+
+
 		add_filter( 'pl_ajax_set_user_section', array( $this, 'edit_custom_section' ), 10, 2 );
-		
+
 		add_filter( 'pl_load_page_settings', array( $this, 'add_user_section_settings_to_page') );
-		
-		
+
+
 		$this->custom = new PLCustomSections;
 	}
-	
 
-	
+
+
 	function load_ui_actions(){
-	
+
 		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
 		add_action('pagelines_editor_scripts', array( $this, 'scripts'));
-		
+
 	}
 
 	function scripts(){
@@ -32,7 +32,7 @@ class PageLinesSectionsHandler{
 	}
 
 	function toolbar( $toolbar ){
-		
+
 		$panel = array(
 			'heading'	=> __( "<i class='icon-random'></i> Drag to Add", 'pagelines' ),
 			'add_section'	=> array(
@@ -50,9 +50,9 @@ class PageLinesSectionsHandler{
 				'flag'	=> 'link-storefront'
 			),
 			'heading2'	=> __( "<i class='icon-filter'></i> Filters", 'pagelines' ),
-			
+
 		);
-		
+
 		$sorted_panel = array(
 			'components'		=> array(
 				'name'	=> __( 'Components', 'pagelines' ),
@@ -61,7 +61,7 @@ class PageLinesSectionsHandler{
 				'filter'=> '.component',
 				'icon'	=> 'icon-circle-blank'
 			),
-			
+
 			'layouts'		=> array(
 				'name'	=> __( 'Layouts', 'pagelines' ),
 				'href'	=> '#add_section',
@@ -112,7 +112,7 @@ class PageLinesSectionsHandler{
 			),
 			'custom'	=> array(
 				'name'	=> __( 'Custom', 'pagelines' ),
-				
+
 				'href'	=> '#add_section',
 				'filter'=> '.custom-section',
 				'icon'	=> 'icon-dropbox'
@@ -125,29 +125,29 @@ class PageLinesSectionsHandler{
 				'pos'	=> 150
 			),
 		);
-		
+
 		$default = array(
 			'icon'		=> 'icon-edit',
 			'pos'		=> 100,
 			'filter'	=> '*'
 		);
-		
+
 		if( empty( $this->custom->objects ) )
 			unset( $sorted_panel['custom'] );
-		
+
 		$sorted_panel = apply_filters('pl_section_filters', $sorted_panel );
-		
-		
-		
-		$pos = 90; 
+
+
+
+		$pos = 90;
 		foreach( $sorted_panel as $key => &$info ){
 			if( ! isset( $info['pos'] ) )
 				$info['pos'] = $pos++;
 		}
 		unset( $info);
-		
+
 		uasort( $sorted_panel, "cmp_by_position" );
-		
+
 		$toolbar['add-new'] = array(
 			'name'	=> __( 'Add To Page', 'pagelines' ),
 			'icon'	=> 'icon-plus-sign',
@@ -162,7 +162,7 @@ class PageLinesSectionsHandler{
 		$this->xlist = new EditorXList;
 		//$this->extensions = new EditorExtensions;
 		$this->page = new PageLinesPage;
-		
+
 		$filter_local = array(
 		    'component' => __( 'Components', 'pagelines' ),
 			'layout'    => __( 'Layouts', 'pagelines' ),
@@ -197,35 +197,35 @@ class PageLinesSectionsHandler{
 
 			$full_width_classes = 'pl-area-sortable area-tag';
 			$content_width_classes = 'pl-sortable span12 sortable-first sortable-last';
-			
+
 			$full_width = ( strpos($s->filter,'full-width') !== false ) ? true : false;
 			$content_width = ( strpos($s->filter,'content-width') !== false ) ? true : false;
 			$dual_loading = ( strpos($s->filter,'dual-width') !== false ) ? true : false;
-			
+
 			$section_classes = ( $full_width ) ? $full_width_classes : $content_width_classes;
-			
-			
-			
-			$name = stripslashes( $s->name ); 
-		
+
+
+
+			$name = stripslashes( $s->name );
+
 			$desc = array();
-			
+
 			// Start Class Array (all classes on section icon)
 			$class = array('x-add-new');
-			
-			$class['section'] = $section_classes; 
+
+			$class['section'] = $section_classes;
 			$class['special'] = $special_class;
 
 			$filters = explode(',', $s->filter);
-			
+
 			foreach($filters as $f){
-				
+
 				$class[ 'filter-'.$f ] = $f;
-				
+
 				$desc[] = ( isset($filter_local[trim($f)]) ) ? $filter_local[trim($f)] : ucwords(trim($f));
-				
+
 			}
-			
+
 			$desc = join( ', ', $desc );
 
 			$number = $count++;
@@ -248,16 +248,16 @@ class PageLinesSectionsHandler{
 				}
 
 			}
-			
+
 			if( !pl_is_pro() && !empty($s->sinfo['edition']) && !empty($s->sinfo['edition']) == 'pro' ){
-				
+
 				$class['disable'] = 'x-disable';
-				$desc = __( '<span class="badge badge-important">PRO ONLY</span>', 'pagelines' ); 
+				$desc = __( '<span class="badge badge-important">PRO ONLY</span>', 'pagelines' );
 			}
 
-			
-			
-			
+
+
+
 			$data_array = array(
 				'object' 	=> $s->class_name,
 				'sid'		=> $s->id,
@@ -266,19 +266,19 @@ class PageLinesSectionsHandler{
 				'clone'		=> pl_new_clone_id(),
 				'number' 	=> $number,
 			);
-			
+
 			if( !empty($s->loading) )
 				$class['loading'] = 'loading-'.$s->loading;
-			
+
 			if( !empty( $s->ctemplate ) ){
 				$class['custom'] = 'custom-section';
 				$data_array['custom-section'] = $s->ctemplate;
 			}
-			
+
 			if( !empty( $map ) ){
 				$data_array['template'] = $map;
 			}
-				
+
 
 			$args = array(
 				'id'			=> $s->id,
@@ -291,7 +291,7 @@ class PageLinesSectionsHandler{
 
 
 			$list .= $this->xlist->get_x_list_item( $args );
-			
+
 			if( $dual_loading ){
 				$args['class_array']['section'] = $full_width_classes;
 				$args['class_array'][] = 'full-width';
@@ -304,28 +304,28 @@ class PageLinesSectionsHandler{
 		printf('<div class="x-list x-sections" data-panel="x-sections">%s</div>', $list);
 
 	}
-	
+
 	function get_available_sections(){
 
-		global $pl_section_factory;	
+		global $pl_section_factory;
 		return array_merge( $pl_section_factory->sections, $this->layout_sections(), $this->custom->render_user_sections() );
 	}
-	
+
 	function edit_custom_section( $response, $data ){
-		
+
 		if( $data['run'] == 'create' ){
-			
+
 			$response['key'] = $this->custom->create( $data['config'] );
-			
-			
+
+
 		} elseif( $data['run'] == 'delete'){
 			$response['delete'] = $this->custom->delete( $data['key'] );
 		}
-	
-		
+
+
 		return $response;
 	}
-	
+
 
 
 	/*
@@ -333,17 +333,17 @@ class PageLinesSectionsHandler{
 	 * Replaces them with the appropriate map, and sets up a settings array for use with page settings.
 	 */
 	function replace_user_sections( $map ){
-		
+
 		$this->all_user_section_settings = array();
-		
+
 		foreach( $map as &$region ){
 			if( is_array( $region) ){
-			
+
 					foreach( $region as $area_index => &$area){
 
 						if( isset($area['ctemplate']) && $area['ctemplate'] != ''  ){
 
-							$ctemplate = $this->custom->retrieve( $area['ctemplate'] ); 
+							$ctemplate = $this->custom->retrieve( $area['ctemplate'] );
 
 
 							if( ! empty($ctemplate) ){
@@ -356,7 +356,7 @@ class PageLinesSectionsHandler{
 
 							} else {
 								// if usection isn't defined, then its been deleted or something.
-								unset( $region[ $area_index ] ); 
+								unset( $region[ $area_index ] );
 							}
 
 
@@ -364,39 +364,39 @@ class PageLinesSectionsHandler{
 
 					}
 					unset($area);
-				
+
 			}
-		
+
 		}
 		unset($region);
-		
+
 		return $map;
-		
+
 	}
-	
+
 	function get_user_section_settings(){
-		
+
 		return $this->all_user_section_settings;
-		
+
 	}
-	
+
 	/*
 	 * Called via pl_load_page_settings filter in main settings class.
 	 * Adds the compiled list of section settings created when parsing the map for user sections.
-	 */ 
+	 */
 	function add_user_section_settings_to_page( $page_settings ){
 		$new_page_settings = wp_parse_args( $this->get_user_section_settings(), $page_settings );
-		
+
 		return $new_page_settings;
-		
+
 	}
 
 
 
-	
-	
+
+
 	function layout_sections(){
-		
+
 		$the_layouts = array(
 			array(
 				'id'			=> 'pl_split_column',
@@ -444,16 +444,16 @@ class PageLinesSectionsHandler{
 		);
 
 		return pl_array_to_object( $the_layouts, pl_section_config_default() );
-		
+
 	}
-	
-	
+
+
 
 }
 
 function pl_custom_section_name( $key ){
-	global $sections_handler; 
-	
+	global $sections_handler;
+
 	return $sections_handler->custom->retrieve_field( $key, 'name' );
 }
 
@@ -469,28 +469,28 @@ function pl_section_config_default(){
 		'map'			=> ''
 
 	);
-	
+
 	return $defaults;
 }
 class PLCustomSections extends PLCustomObjects{
-	
+
 	function __construct(  ){
-		
+
 		$this->slug = 'pl-user-sections';
-		
+
 		$this->objects = $this->get_all();
 	}
-	
-	
+
+
 	function render_user_sections(){
-	
+
 		$rendered = array();
-		
+
 		foreach( $this->objects as $key => $i){
-			
+
 			$name = ( isset($i['name']) ) ? $i['name'] : __( 'No Name', 'pagelines' );
 			$desc = ( isset($i['desc']) ) ? $i['desc'] : __( 'No Description Entered.', 'pagelines' );
-			
+
 			$rendered[ $key ] = array(
 				'id'			=> $key,
 				'name'			=> $name,
@@ -501,13 +501,13 @@ class PLCustomSections extends PLCustomObjects{
 				'screenshot'	=>  PL_IMAGES . '/section-user.png',
 				'thumb'			=>  PL_IMAGES . '/section-user.png',
 			);
-			
+
 		}
-		
-		
-		return pl_array_to_object( $rendered, pl_section_config_default() ); 
+
+
+		return pl_array_to_object( $rendered, pl_section_config_default() );
 	}
-	
+
 }
 
 
