@@ -587,6 +587,8 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 
 	$default = array( 'draft' => array(), 'live' => array() );
 
+	if( defined( 'DMS_BYPASS_DRAFT' ) )
+		$mode = 'live';
 
 	if( $metaID )
 		$settings = pl_get_meta_settings( $metaID );
