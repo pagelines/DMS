@@ -708,6 +708,7 @@
 				,	sizeMode = o.sizemode || 'width'
 				,	remove = sprintf('<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">%s</a>', $.pl.lang("Remove") )
 				,	thm = (o.value != '') ? sprintf('<div class="img-wrap"><img src="%s" /></div>', o.value) : ''
+				,	has_alt = o.has_alt || false
 
 				oHTML += '<div class="upload-box image-uploader">'
 
@@ -732,6 +733,17 @@
 				oHTML += '</div>'
 				
 				oHTML += sprintf( '<div class="opt-upload-thumb-%s opt-upload-thumb" >%s</div>', o.key, pl_do_shortcode(thm) );
+			if( has_alt ){
+				var alt = o.name.replace(']', '_alt]')
+				,	id = o.inputID + '_alt'
+				,	data = $.pl.data.list
+				,	name = o.name.substring(0,7)				
+				,	opt_data = data[name]			
+				,	img_alt = data[name][id] || ''
+				
+				oHTML += sprintf('<label for="%s">Image alt/title text</label>', id)
+				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn" placeholder="%4$s" value="%3$s" />', id, alt, img_alt, img_alt)
+			}
 				
 				oHTML += '</div>'
 
@@ -1635,11 +1647,7 @@
 				var selector = inputSelector || '.fineupload'
 				, 	sizeLimit = sizeLimit || 512000 // 500 kB
 				,	extension = extension || null
-				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png', 'ico']
-
-				if(extension) {
-					allowedExtensions = extension.split(',')
-				}
+				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png', 'ico', 'svg']
 
 				$( selector ).fineUploader({
 					request: {
