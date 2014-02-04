@@ -128,6 +128,8 @@ class PLSectionArea extends PageLinesSection {
 	
 	function before_section_template( $location = '' ) {
 
+		$this->alt_standard_title = true;
+
 		$scroll_effect = $this->opt('pl_area_parallax');
 		
 		if( $scroll_effect && $scroll_effect == 1 ){
@@ -151,6 +153,10 @@ class PLSectionArea extends PageLinesSection {
 		
 		$style = '';
 		$inner_style = '';
+		
+		
+		// Use alt mode for this
+		$title = ( $this->opt('pl_standard_title') ) ? sprintf( '<h2 class="pl-section-title pla-from-bottom pl-animation">%s</h2>', $this->opt('pl_standard_title') ) : '';
 		
 		$inner_style .= ($this->opt('pl_area_height')) ? sprintf('min-height: %spx;', $this->opt('pl_area_height')) : '';
 		
@@ -201,6 +207,7 @@ class PLSectionArea extends PageLinesSection {
 	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
 		<?php echo $video; ?>
 		<div class="pl-content <?php echo $content_class;?>">
+			<?php echo $title; ?>
 			<div class="pl-inner area-region pl-sortable-area editor-row" style="<?php echo $inner_style;?>">
 				<?php  echo $section_output; ?>
 			</div>
