@@ -14,7 +14,8 @@ class PageLinesSave {
 	
 	
 	function fast_save( $response, $data ){
-			
+		
+		do_action( 'pl_settings_update_action' );	
 	
 		if( $data['run'] == 'map' ){
 			
