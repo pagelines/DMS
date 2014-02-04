@@ -1,32 +1,32 @@
 <?php
 
-/* 
- * Enables and disables funcationality primarily of interest to advanced and developer users. 
- */ 
+/*
+ * Enables and disables funcationality primarily of interest to advanced and developer users.
+ */
 class PLDeveloperTools {
-	
-	
+
+
 	function __construct(){
 
 		if( ! is_pl_debug() )
 			return;
 
-		// Add tab to toolbar 
+		// Add tab to toolbar
 		add_filter('pl_toolbar_config', array( $this, 'toolbar'));
-		
+
 		// Add developer settings to JSON blob
 		add_filter('pl_json_blob_objects', array( $this, 'add_to_blob'));
-		
+
 		add_action('wp_footer', array( $this, 'draw_developer_data'), 200);
 
 		$this->url = PL_PARENT_URL . '/editor';
-		
-		global $pl_perform; 
-		$pl_perform = array(); 
+
+		global $pl_perform;
+		$pl_perform = array();
 	}
-	
+
 	function draw_developer_data(){
-	
+
 			?><script>
 				!function ($) {
 
@@ -40,67 +40,67 @@ class PLDeveloperTools {
 			<?php
 
 	}
-	
+
 	function pl_performance_object(){
-		
+
 		// blob objects to add to json blob // format: array( 'name' => array() )
-		$blob_objects = apply_filters('pl_performance_object', $this->basic_performance() ); 
-		
+		$blob_objects = apply_filters('pl_performance_object', $this->basic_performance() );
+
 		$output = '';
 		if( ! empty($blob_objects) ){
-			
+
 			foreach( $blob_objects as $name => $array ){
 				$output .= sprintf('%s:%s, %s', $name, json_encode( pl_arrays_to_objects( $array ) ), "\n\n");
 			}
 		}
-		
+
 		return $output;
-		
+
 	}
-	
+
 	function basic_performance(){
-		
+
 		global $pl_start_time, $pl_start_mem, $pl_perform;
-		
-		
-		
+
+
+
 		$pl_perform['memory'] = array(
 			'num'		=> round( (memory_get_usage() - $pl_start_mem) / (1024 * 1024), 3 ),
 			'label'		=> 'MB',
 			'title'		=> __( 'Editor Memory', 'pagelines' ),
 			'info'		=> __( 'Amount of memory used by the DMS editor in MB during this page load.', 'pagelines' )
 		);
-		
+
 		$pl_perform['queries'] = array(
 			'num'		=> get_num_queries(),
 			'label'		=> __( 'Queries', 'pagelines' ),
 			'title'		=> __( 'Total Queries', 'pagelines' ),
 			'info'		=> __( 'The number of database queries during the WordPress/Editor execution.', 'pagelines' )
 		);
-		
+
 		$pl_perform['total_time'] = array(
 			'num'		=> timer_stop( 0 ),
 			'label'		=> __( 'Seconds', 'pagelines' ),
 			'title'		=> __( 'Total Time', 'pagelines' ),
 			'info'		=> __( 'Total time to render this page including WordPress and DMS editor.', 'pagelines' )
 		);
-		
+
 		$pl_perform['time'] = array(
 			'num'		=> round( microtime(TRUE) - $pl_start_time, 3),
 			'label'		=> __( 'Seconds', 'pagelines' ),
 			'title'		=> __( 'Editor Time', 'pagelines' ),
 			'info'		=> __( 'Amount of time it took to load this page once DMS had started.', 'pagelines' )
 		);
-		
+
 		return $pl_perform;
-		
+
 	}
-	
+
 	function add_to_blob( $objects ){
-		
+
 		$objects['dev'] = $this->get_set();
 		return $objects;
-		
+
 	}
 
 	function toolbar( $toolbar ){
@@ -111,13 +111,13 @@ class PLDeveloperTools {
 		//	'type'	=> 'btn',
 			'pos'	=> 105,
 			'panel'	=> $this->get_settings_tabs()
-		
+
 		);
 
 
 		return $toolbar;
 	}
-	
+
 	function get_settings_tabs(){
 
 		$tabs = array();
@@ -132,18 +132,18 @@ class PLDeveloperTools {
 				'icon'	=> isset($tab['icon']) ? $tab['icon'] : ''
 			);
 		}
-	
+
 		return $tabs;
 
 	}
-	
+
 
 	function get_set( ){
 
-		$settings = array(); 
-		
-		
-		
+		$settings = array();
+
+
+
 		$settings['dev_log'] = array(
 			'name' 	=> __( 'Logging', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
@@ -157,7 +157,7 @@ class PLDeveloperTools {
 			),
 			'class'	=> 'dev_logging'
 		);
-		
+
 		$settings['dev-page'] = array(
 			'name' 	=> __( 'Performance', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
@@ -169,7 +169,7 @@ class PLDeveloperTools {
 				),
 			),
 		);
-		
+
 		$settings['devopts'] = array(
 			'name' 	=> __( 'Options', 'pagelines' ),
 			'icon'	=> 'icon-wrench',
@@ -199,7 +199,7 @@ class PLDeveloperTools {
 			$settings = array(
 				array(
 					'key'		=> 'less_dev_mode',
-					'col'		=> 1, 
+					'col'		=> 1,
 					'type' 		=> 'check',
 					'label' 	=> __( 'Enable LESS dev mode', 'pagelines' ),
 					'title' 	=> __( 'LESS Developer Mode', 'pagelines' ),
@@ -207,17 +207,24 @@ class PLDeveloperTools {
 				),
 				array(
 					'key'		=> 'no_cache_mode',
-					'col'		=> 2, 
+					'col'		=> 2,
 					'type' 		=> 'check',
 					'label' 	=> __( 'Enable no cache mode', 'pagelines' ),
 					'title' 	=> __( 'No Cache Mode', 'pagelines' ),
 					'help' 		=> __( 'Disables all caching including all CSS/LESS.', 'pagelines' )
 				),
+				array(
+				'key'		=> 'no_draft_mode',
+				'default'	=> false,
+				'type'		=> 'check',
+				'col'		=> 2,
+				'label'		=> __( 'Bypass draft mode.', 'pagelines' ),
+			)
 			);
-			
+
 		return $settings;
 	}
-	
+
 	function get_api_key() {
 
 		$key = md5( site_url() );
@@ -228,9 +235,9 @@ class PLDeveloperTools {
 
 function pl_add_perform_data( $data_point, $title, $label, $description){
 	global $pl_perform;
-	
+
 	$pl_perform[$label] = array(
-		'title'		=> $title, 
+		'title'		=> $title,
 		'num'		=> $data_point,
 		'label'		=> $label,
 		'info'		=> $description
