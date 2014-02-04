@@ -982,18 +982,6 @@ class PageLinesTemplateHandler {
 	function in_factory( $section ){
 		return ( isset($this->factory[ $section ]) && is_object($this->factory[ $section ]) ) ? true : false;
 	}
-	
-	function image( $image, $default = '' ) {
-		$alt ='';
-		if( '' == $image )
-			$image = $default;
-		if( '' != $this->opt( $image . '_alt' ) )
-			$alt = sprintf( ' alt="%s" title="%s"', $this->opt( $image . '_alt' ), $this->opt( $image . '_alt' ) );
-		return sprintf( '<img src="%s"%s />',
-			$this->opt( $image ),
-			$alt
-		);
-	}
 
 }
 
