@@ -413,7 +413,7 @@
 
 		init: function(){
 			var that = this
-			that.setHeight()
+			that.setFixedHeight()
 
 		//	$.resize.delay = 100 // resize throttle
 
@@ -473,7 +473,7 @@
 			
 		}
 
-		, setHeight: function(){
+		, setFixedHeight: function(){
 
 			var height = $('.pl-fixed-top').height()
 

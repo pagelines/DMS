@@ -64,7 +64,7 @@
 			
 			that.toggleGrid( true )
 
-
+			$.plCommon.setFixedHeight()
 
 
 		}
@@ -190,6 +190,8 @@
 				$('.ui-sortable').sortable( "enable" )
 				
 			}
+			
+			$.plCommon.setFixedHeight()
 
 		}
 		
@@ -710,7 +712,7 @@
 			,	templateMode = $.pl.config.templateMode || 'local'
 			,	map = that.updatePage( obj )
 			
-			
+			$.plCommon.setFixedHeight()
 			
 			if( storeMap ){
 				
