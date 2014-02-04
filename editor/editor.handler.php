@@ -799,6 +799,9 @@ class PageLinesTemplateHandler {
 				
 				$s->wrapper_styles['user'] = $s->opt('pl_standard_styles');
 				
+				// set to true if standard title is to be placed non standard 
+				$s->alt_standard_title = false;
+				
 				$s->before_section_template( );
 
 				$this->before_section( $s );
@@ -925,10 +928,10 @@ class PageLinesTemplateHandler {
 
 		$video = pl_standard_video_bg( $s );
 		
-		$title = $s->opt('pl_standard_title');
+		$title = ( ! $s->alt_standard_title ) ? $s->opt('pl_standard_title') : false;
 		
 		if( $title ){
-			$title = ( $s->level == 0 ) ? sprintf( '<h2 class="pl-section-title">%s</h2>', $title ) : sprintf( '<h3 class="pl-section-title">%s</h3>', $title );
+			$title = ( $s->level == 0 ) ? sprintf( '<h2 class="pl-section-title pla-from-botton pl-animation">%s</h2>', $title ) : sprintf( '<h3 class="pl-section-title pla-from-left pl-animation">%s</h3>', $title );
 		}
 		
 		printf(
