@@ -606,6 +606,18 @@ class PageLinesSection {
 		$this->tset = $this->oset;
 		$this->tset['translate'] = true;
 	}
+	
+	function image( $image, $default = '' ) {
+		$alt ='';
+		if( '' == $image )
+			$image = $default;
+		if( '' != $this->opt( $image . '_alt' ) )
+			$alt = sprintf( ' alt="%s" title="%s"', $this->opt( $image . '_alt' ), $this->opt( $image . '_alt' ) );
+		return sprintf( '<img src="%s"%s />',
+			$this->opt( $image ),
+			$alt
+		);
+	}
 
 }
 /********** END OF SECTION CLASS  **********/
