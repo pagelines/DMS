@@ -260,6 +260,14 @@ function pl_animation_array(){
 	return $animations;
 }
 
+function pl_get_all_taxonomies(){
+	$args = array(
+	  'public'   => true,
+
+	);
+	return get_taxonomies( $args,'names');
+}
+
 function pl_icon_array(){
 
 	$icons = array(

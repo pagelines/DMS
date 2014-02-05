@@ -180,6 +180,7 @@ class PageLinesTemplateHandler {
 						, themes: <?php echo json_encode( pl_arrays_to_objects( pl_theme_classes() ) ); ?>
 						, imgSizes: <?php echo json_encode( pl_arrays_to_objects( pl_get_image_sizes() ) ); ?>
 						, animations: <?php echo json_encode( pl_arrays_to_objects( pl_animation_array() ) ); ?>
+						, taxes: <?php echo json_encode( pl_arrays_to_objects( pl_get_all_taxonomies() ) ); ?>
 						, urls: {
 							adminURL: '<?php echo admin_url(); ?>'
 							, editPost: '<?php echo $this->edit_post_link(); ?>'

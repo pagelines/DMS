@@ -859,6 +859,7 @@
 				|| o.type == 'count_select_same'
 				|| o.type == 'select_same'
 				|| o.type == 'select_taxonomy'
+				|| o.type == 'select_wp_tax'
 				|| o.type == 'select_icon'
 				|| o.type == 'select_animation'
 				|| o.type == 'select_multi'
@@ -896,7 +897,16 @@
 
 				}
 				
-				if(o.type == 'select_padding'){
+				
+				if(o.type == 'select_wp_tax'){
+
+					var taxes = $.pl.config.taxes
+					o.opts = {}
+					$.each(taxes, function(key, s){
+						o.opts[ s ] = {name: s}
+					})
+
+				} else if(o.type == 'select_padding'){
 
 					var icons = $.pl.config.icons
 					o.opts = {}
