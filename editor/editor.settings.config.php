@@ -202,9 +202,14 @@ class EditorSettings {
 
 	function social(){
 
-
-
 		$settings = array(
+			array(
+				'key'		=> 'love_icon',
+				'label'		=> __( 'Select icon for Social Counter', 'pagelines' ),
+				'default'	=> 'icon-love',
+				'title'		=> 'Social Counter',
+				'type'		=> 'select_icon'
+			),
 			array(
 				'key'		=> 'twittername',
 				'type' 		=> 'text',

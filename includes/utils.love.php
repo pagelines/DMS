@@ -79,10 +79,11 @@ class PLLove {
 			$title = __('You already love this!', 'pagelines');
 		}
 		
-		return sprintf('<a href="#" class="%s" id="pl-love-%s" title="%s"> <i class="icon-heart pl-love-heart"></i> %s</a>', 
+		return sprintf('<a href="#" class="%s" id="pl-love-%s" title="%s"> <i class="icon-%s pl-love-heart"></i> %s</a>', 
 						$class, 
 						$id,
 						$title,
+						pl_setting( 'love_icon' ),
 						$output
 					);
 		
