@@ -188,10 +188,21 @@ $.plSections = {
 			
 		} else {
 
-			element
-				.find( '.banner-content' ).append('<div><i class="icon-refresh"></i> Refresh To Load.</div>')
+			var Text = $.pl.lang("Loading")
 			
-			var loadArgs = {	refresh: true
+			element
+				.html('<div class="pl-refresh-banner"><i class="icon-spinner icon-spin"></i> '+Text+'</div>')
+				
+			setTimeout(function() {
+				element
+					.html('<div class="pl-refresh-banner"><i class="icon-thumb-up"></i> Section added! Refresh page to view.</div>')
+					
+			}, 700);
+			var img = element.find( '.banner-content' ).html()
+			
+			
+			
+			var loadArgs = {	refresh: false
 								, refreshText: 'Congrats! <br/> Section added. Reloading page to add scripts.'
 								, location: 'passive load'
 								, load: 'section'

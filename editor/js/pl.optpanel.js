@@ -1040,8 +1040,9 @@
 				oHTML += o.template
 			}
 
-			else if( o.type == 'help' ){
-
+			else if( o.type == 'help'  || o.type == 'help_important' ){
+			
+				
 			} else {
 
 				oHTML += sprintf('<div class="needed">%s %s</div>', o.type, $.pl.lang( "Type Still Needed" ) )
@@ -1049,8 +1050,16 @@
 			}
 
 			// Add help block
-			if ( o.help )
-				oHTML += sprintf('<div class="help-block">%s</div>', o.help)
+			if ( o.help ){
+				
+				var beforeHelp = ( o.type == 'help'  || o.type == 'help_important' ) ? sprintf('<label for="%s">%s</label>', o.inputID, o.label ) : ''
+				
+				oHTML += sprintf('<div class="help-block %s">%s %s</div>',  o.type, beforeHelp, o.help)
+				
+			}
+				
+				
+			
 
 			// Add help block
 			if ( o.ref )
