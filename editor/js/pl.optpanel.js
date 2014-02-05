@@ -594,7 +594,7 @@
 			
 
 			if( o.scope == 'global')
-				optLabel += ' <i class="icon-globe" title="Global Setting"></i> '
+				optLabel += ' ( <i class="icon-globe" title="Global Setting"></i> Global Option )'
 
 		//	o.classes = o.classes || ''
 			//o.label = o.label || o.title
@@ -739,8 +739,10 @@
 				,	data = $.pl.data.list
 				,	name = o.name.substring(0,7)				
 				,	opt_data = data[name]			
-				,	img_alt = data[name][id] || ''
-				
+				,	img_alt = ''
+				if(plIsset(data[name]) && plIsset(data[name][id])) {
+					img_alt = data[name][id] 
+				}
 				oHTML += sprintf('<label for="%s">Image alt/title text</label>', id)
 				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn" placeholder="%4$s" value="%3$s" />', id, alt, img_alt, img_alt)
 			}
