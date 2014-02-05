@@ -923,7 +923,6 @@
 					$.each(icons, function(key, s){
 						o.opts[ s ] = {name: s}
 					})
-
 				} else if( o.type == 'select_animation' ){
 
 					var anims = $.pl.config.animations
@@ -1002,6 +1001,9 @@
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
 				oHTML += sprintf('<select id="%s" name="%s" class="%s lstn" data-type="%s" %s>%s</select>', o.inputID, o.name, o.classes, o.type, multi, select_opts)
 
+				if( o.type == 'select_icon' ) {
+					oHTML += sprintf('&nbsp;&nbsp;<i class="icon-preview icon-2x icon-%s" id="preview-icon" data-name="%s" style=""></i>', o.value, o.name )
+				}
 				if(o.type == 'select_taxonomy' && o.post_type)
 					oHTML += sprintf(
 						'<div style="margin-bottom: 10px;"><a href="%sedit.php?post_type=%s" target="_blank" class="btn btn-mini btn-info"><i class="icon-edit"></i> %s</a></div>',
@@ -1379,6 +1381,18 @@
 				that.loadFontPreview( selector )
 
 			})
+			
+			
+			$('select').change(function(){						
+				var type = $(this).attr('data-type') || false
+				if ( type == 'select_icon' ) {
+					var name = $(this).attr('name')
+					,	new_class = 'icon-preview icon-2x icon-' + $(this).val();				
+					$(sprintf('i[data-name="%s"]',name)).removeAttr('class')
+					$(sprintf('i[data-name="%s"]',name)).addClass( new_class )
+				}
+			})
+			
 			$('.font-selector, .font-style').on('change', function(){
 
 				var selector = $(this).closest('.opt').find('.font-selector')
