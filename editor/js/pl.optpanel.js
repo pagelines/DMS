@@ -594,7 +594,7 @@
 			
 
 			if( o.scope == 'global')
-				optLabel += ' <i class="icon-globe" title="Global Setting"></i> '
+				optLabel += ' ( <i class="icon-globe" title="Global Setting"></i> Global Option )'
 
 		//	o.classes = o.classes || ''
 			//o.label = o.label || o.title
