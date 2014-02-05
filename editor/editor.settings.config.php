@@ -204,9 +204,9 @@ class EditorSettings {
 
 		$settings = array(
 			array(
-				'key'		=> 'love_icon',
+				'key'		=> 'karma_icon',
 				'label'		=> __( 'Select icon for Social Counter', 'pagelines' ),
-				'default'	=> 'icon-love',
+				'default'	=> 'icon-sun',
 				'title'		=> 'Social Counter',
 				'type'		=> 'select_icon'
 			),

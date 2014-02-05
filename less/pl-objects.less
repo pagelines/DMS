@@ -46,7 +46,8 @@
 	.pla-from-bottom{
 		opacity: 0;
 		.transition(all 1s ease-in-out);
-		&.animation-loaded{
+		&.animation-loaded,
+		&.animation-loaded.subtle{
 			opacity: 1;
 			.translate3d(0,0,0);
 			.scale(1);
@@ -58,16 +59,27 @@
 	}
 	.pla-from-left{
 		.translate3d(-50px, 0, 0);
-
+		&.subtle{
+			.translate3d(-20px, 0, 0);
+		}
 	}
 	.pla-from-right{
 		.translate3d(50px, 0, 0);
+		&.subtle{
+			.translate3d(20px, 0, 0);
+		}
 	}
 	.pla-from-bottom{
 		.translate3d(0, 50px, 0);
+		&.subtle{
+			.translate3d(0, 20px, 0);
+		}
 	}
 	.pla-from-top{
 		.translate3d(0, -50px, 0);
+		&.subtle{
+			.translate3d(0, -20px, 0);
+		}
 	}
 	
 	.pl-slidedown{
@@ -143,30 +155,94 @@
 }
 
 /*
- * @ PageLines Love
+ * @ PageLines Karma
  **********************************************************************/
-.pl-love{
+.pl-social-counters{
+	
+	.pl-social-counter{
+		border-right: 1px solid @baseContrastMore;
+		padding: 0 10px;
+		&:last-child{
+			border-right: none;
+			padding-right: none;
+		}
+	}
+	
+}
+
+.pl-social-counter{
 	color: inherit;
 	font-family: @defaultFont;
 	font-weight: 600;
-	line-height: 1em;
-	.pl-love-count{
+	margin: 1 auto;
+	line-height: 11px;
+	font-size: 12px;
+	display: inline-block;
+	
+	vertical-align: middle;
+	cursor: pointer;
+	.pl-social-count{
 		opacity:.6;
 		font-size: 11px;
-		vertical-align: top;
+		vertical-align: middle;
 	}
-	.pl-love-heart{
-		vertical-align: top;
-		opacity: .3;
-	}
-	&:hover,
-	&.loved {
-		.pl-love-heart{
-			opacity: 1;
-			color: @pl-link;
+	.pl-social-icon{
+		margin-right: 2px;
+
+		font-size: 17px;
+		vertical-align: middle;
+		
+		i{ 
+			color: @baseContrastDark;
+			display: inline-block; 
+			.transition(color .35s);
+		}
+		.icon-facebook{
+			font-size: 20px;
+		}
+		.icon-twitter{
+			font-size: 22px;
+			margin-top: -2px;
+		}
+		.icon-linkedin{
+			font-size: 20px;
+			margin-top: -1px;
+		}
+		.icon-pinterest{
+			font-size: 22px;
+			margin-top: -1px;
 		}
 	}
+	
+	&.hovered,
+	&:hover,
+	&.loved{
+		.pl-social-icon{
+			i{
+				color: @pl-link;
+				&.icon-facebook{
+						color: #337eff;
+				}
+				&.icon-twitter{
+						color: #50eaf6;
+				}
+				&.icon-linkedin{
+						color: #509df6;
+				}
+				&.icon-pinterest{
+						color: #ff535b;
+				}
+			}
+			
+		} 
+	
+	}
+	
+	
+	
 }
+
+
 
 .pl-center-table{
 	display:table;

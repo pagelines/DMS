@@ -56,7 +56,7 @@ require_once( PL_INCLUDES . '/lib.head.php' );
 require_once( PL_INCLUDES . '/lib.body.php' );
 
 // Utility Functions -- Theming
-require_once( PL_INCLUDES . '/utils.love.php' );
+require_once( PL_INCLUDES . '/utils.karma.php' );
 require_once( PL_INCLUDES . '/lib.theming.php' );
 
 // Post Media Functions

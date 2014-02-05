@@ -2,6 +2,26 @@
 
 
 
+function pl_get_social_button( $args = array() ){
+	
+	$defaults = array(
+		'url'		=> get_permalink(),
+		'btn'		=> 'facebook',
+		'classes'	=> '',
+		'count'		=> '',
+		'atts'		=> ''
+	);
+	
+	$atts = wp_parse_args( $args, $defaults );
+	
+	$icon = sprintf('<span class="pl-social-icon"><i class="icon-%s"></i> </span><span class="pl-social-count">%s</span>', $atts['btn'], $atts['count']);
+
+	$btn = sprintf('<span class="pl-social-counter pl-social-%s %s" data-social="%s" %s>%s</span>', $atts['btn'], $atts['classes'], $atts['btn'], $atts['atts'], $icon );
+		
+	return $btn;
+	
+}
+
 function pl_default_thumb(){
 	return PL_IMAGES.'/default-thumb.jpg';
 }

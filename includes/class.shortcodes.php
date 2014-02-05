@@ -128,7 +128,7 @@ class PageLines_ShortCodes {
 			'pl_parent_url'				=>	array( 'function' => 'get_coreurl' ),
 			'pl_theme_url'				=>	array( 'function' => 'get_themeurl' ),
 			'pl_author_avatar'			=> 	array( 'function' => 'pl_author_avatar' ),
-			'pl_love'					=> 	array( 'function' => 'pl_love_shortcode' )
+			'pl_karma'					=> 	array( 'function' => 'pl_karma_shortcode' )
 			);
 
 		return $core;
@@ -521,11 +521,11 @@ class PageLines_ShortCodes {
 	}
 	
 	/**
-	 * Produces a love counter for post
+	 * Produces a karma counter for post
 	 *
-	 * @example <code>[pl_love]</code> is the default usage
+	 * @example <code>[pl_karma]</code> is the default usage
 	 */
-	function pl_love_shortcode( $atts ) {
+	function pl_karma_shortcode( $atts ) {
 
 		global $post;
 
@@ -533,11 +533,12 @@ class PageLines_ShortCodes {
 			return;
 
 		$defaults = array(
-			'size' => '100'
+			'classes' => '',
+			'post'	  => ''
 		);
 		$atts = shortcode_atts( $defaults, $atts );
 
-		return pl_love( );
+		return pl_karma( false, $atts );
 	}
 
 	function pl_child_url() {

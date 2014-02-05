@@ -177,7 +177,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 					if( $postlist && get_post_type() != 'page' ){
 						echo '<div class="metahead">';
-							echo do_shortcode( '[pl_author_avatar size="80"][post_author_posts_link][pl_love]' );
+							echo do_shortcode( '[pl_author_avatar size="80"][post_author_posts_link][pl_karma]' );
 						echo '</div>';
 					}
 						

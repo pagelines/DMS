@@ -19,13 +19,17 @@
 		
 		$.plParallax.init()
 		
-		$.plLove.init()
+		$.plKarma.init()
 		
 		$.plGallery.init()
 		
 		$.plVideos.init()
 		
+		$.plSocial.init()
+		
 		$.plAnimate.initAnimation()
+		
+		
 		
 		$('.pl-credit').show()
 		
@@ -129,8 +133,8 @@
 
 					gallery.flexslider({
 				        animation: transition
-						, smoothHeight: false
-						, slideshow: animate
+						, smoothHeight: true
+						, slideshow: false
 				    })
 					
 					if( gallery.find('.slides li').length <= 1 ){
@@ -152,41 +156,41 @@
 	
 
 	
-	$.plLove = {
+	$.plKarma = {
 		
 		init: function(){
 			
-			$('body').on('click','.pl-love', function() {
+			$('body').on('click','.pl-karma', function() {
 
-					var loveLink = $(this)
-					,	id = loveLink.attr('id')
+					var karmaLink = $(this)
+					,	id = karmaLink.attr('id')
 
-					if( loveLink.hasClass('loved') ) 
+					if( karmaLink.hasClass('loved') ) 
 						return false
 
-					if( loveLink.hasClass('inactive') ) 
+					if( karmaLink.hasClass('inactive') ) 
 						return false;
 
 					var passData = {
-						action: 'pl_love', 
-						loves_id: id
+						action: 'pl_karma', 
+						karma_id: id
 					}
 
-					$.post( plLove.ajaxurl, passData, function( data ){
+					$.post( plKarma.ajaxurl, passData, function( data ){
 
-						loveLink
-							.find( 'span' )
+						karmaLink
+							.find( '.pl-social-count' )
 							.html( data )
 							.end()
 								.addClass( 'loved' )
-								.attr( 'title', 'You already love this!' )
+								.attr( 'title', 'You already gave karma!' )
 							.end()
 								.find( 'span')
 								.css({ 'opacity': 1, 'width':'auto' } )
 
 					});
 
-					loveLink
+					karmaLink
 						.addClass('inactive')
 
 					return false
@@ -315,6 +319,182 @@
 		
 	}
 
+	$.plSocial = {
+		
+		init: function(){
+			
+			var that = this
+			
+			that.shareTitle = encodeURI( $(".entry-title").first().text() )
+			that.shareDesc = '' // TODO - add something good here
+			that.shareImg = $(".wp-post-image").first().attr('src')  // TODO - Add fallback(s)
+			that.shareLocation = window.location
+			
+			that.loadSocialCounts()
+			
+			// $('.pl-social-counters').each(function() {
+			// 
+			// 			$(this).appear(function() {
+			// 
+			// 
+			// 				$(this).find('.pl-social-counter').each(function(i){
+			// 
+			// 					var $that = $(this)
+			// 
+			// 					setTimeout(function(){ 
+			// 
+			// 						$that.delay(i*100).queue(function(){ 
+			// 
+			// 							var $that = $(this); $(this).addClass('hovered'); 
+			// 
+			// 							setTimeout(function(){ 
+			// 								$that.removeClass('hovered');
+			// 							}, 300); 
+			// 
+			// 						});
+			// 
+			// 					},450);
+			// 				});
+			// 
+			// 			});
+			// 
+			// 		});
+		}
+		
+		, loadSocialCounts: function(){
+			var that = this
+			
+			that.facebook()
+			that.twitter()
+			that.pinterest()
+			that.linkedin()
+			
+		}
+		, pinterest: function(){
+			
+			var that = this
+			,	url = 'http://api.pinterest.com/v1/urls/count.json?url='+that.shareLocation+'&callback=?'
+			,	shareBtn = $('[data-social="pinterest"]')
+
+
+			that.fetchCount(url, shareBtn)
+			
+			shareBtn.click( function(){
+				
+				var shareUrl = 'http://pinterest.com/pin/create/button/?url='+that.shareLocation+'&media='+that.shareImg+'&description='+that.shareTitle
+				
+				that.openWindow( shareUrl, 'pinterestShare')
+				
+				return false;
+				
+			})
+			
+		}
+		
+		, twitter: function(){
+			
+			var that = this
+			,	url = 'http://urls.api.twitter.com/1/urls/count.json?url='+that.shareLocation+'&callback=?'
+			,	shareBtn = $('[data-social="twitter"]')
+
+
+			that.fetchCount(url, shareBtn)
+			
+			
+			shareBtn.click( function(){
+				
+				var shareUrl = 'http://twitter.com/intent/tweet?text='+ that.shareTitle +' '+that.shareLocation
+				
+				that.openWindow( shareUrl, 'twitterShare')
+				
+				return false;
+				
+			})
+		
+			
+		}
+		
+		, linkedin: function(){
+			
+			var that = this
+			,	url = 'http://www.linkedin.com/countserv/count/share?url='+that.shareLocation+'&callback=?'
+			,	shareBtn = $('[data-social="linkedin"]')
+
+
+			that.fetchCount(url, shareBtn)
+			
+			
+			shareBtn.click( function(){
+				
+				var shareUrl = 'http://www.linkedin.com/shareArticle?url='+that.shareLocation+'&title='+that.shareTitle+'&summary='+that.shareDesc
+			
+				
+				that.openWindow( shareUrl, 'linkedInShare')
+				
+				return false;
+				
+			})
+		
+			
+		}
+		
+		, facebook: function(){
+			
+			var that = this
+			,	url = "http://graph.facebook.com/?id="+ that.shareLocation +'&callback=?'
+			,	shareBtn = $('[data-social="facebook"]')
+
+
+			that.fetchCount(url, shareBtn)
+			
+			shareBtn.click( function(){
+				
+				var shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='+that.shareLocation
+				
+				that.openWindow( shareUrl, 'fbShare')
+				
+				return false;
+				
+			})
+			
+		}
+		
+		, openWindow: function( url, name ){
+			
+			var setup = "height=380,width=660,resizable=0,toolbar=0,menubar=0,status=0,location=0,scrollbars=0"
+			
+			window.open( url, name, setup ) 
+			
+		}
+			
+		, fetchCount: function( url, btn ){
+			
+			var that = this
+			
+			// SHARE COUNT
+			$.getJSON( url, function( data ) {
+				
+				var theCount = ( (data.count != 0) && (data.count != undefined) && (data.count != null) ) ? data.count : 0
+				
+				theCount = ( (data.shares != 0) && (data.shares != undefined) && (data.shares != null) ) ? data.shares : theCount
+				
+				btn
+					.find('.pl-social-count')
+					.html( theCount )
+				
+				that.loadInButton()
+			
+			})
+			
+		}
+		
+		
+		
+		, loadInButton: function(){
+			
+		}
+	}
+
 	$.plAnimate = {
 		
 		initAnimation: function(){
@@ -343,12 +523,17 @@
 				var element = $(this)
 				
 
+						
+
+				
+
 				element.appear(function() {
 					
 					var animationNum = $(this).find('.pl-animation').size()
 					,	randomLoad = plRandSort(animationNum)
 					
-
+					
+					
 				   	$(this)
 						.find('.pl-animation')
 						.each( function(i){
@@ -356,7 +541,12 @@
 							
 							setTimeout(
 								function(){ 
-									element.addClass('animation-loaded') 
+									element
+										.addClass('animation-loaded hovered')
+									
+									setTimeout(function(){ 
+										element.removeClass('hovered');
+									}, 700); 
 								}
 								, (i * 350)
 							);
