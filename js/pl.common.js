@@ -142,8 +142,8 @@
 					}
 
 					////gallery slider add arrows
-					$('.flex-gallery .flex-direction-nav li a.flex-next').html('<i class="icon-angle-right"></i>')
-					$('.flex-gallery .flex-direction-nav li a.flex-prev').html('<i class="icon-angle-left"></i>')
+					$('.flex-gallery .flex-direction-nav li a.flex-next').html('<i class="icon icon-angle-right"></i>')
+					$('.flex-gallery .flex-direction-nav li a.flex-prev').html('<i class="icon icon-angle-left"></i>')
 
 				});
 
@@ -218,7 +218,7 @@
 				$(this).addClass("dropdown-menu");
 
 				if( $(this).siblings("a").children("i").length===0 ){
-					b = ' <i class="icon-caret-down"></i>'
+					b = ' <i class="icon icon-caret-down"></i>'
 				}
 
 				$(this).siblings("a")

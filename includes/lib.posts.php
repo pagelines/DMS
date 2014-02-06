@@ -55,7 +55,7 @@ function pagelines_media( $args = array() ){
 	
 		$quote = ( $args['quote'] ) ? $args['quote'] : get_the_content();
 	
-		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="author">%s</span><span class="linkbox-icon"><i class="icon-quote-right icon-2x"></i></span></h2>', $quote, get_the_title());
+		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="author">%s</span><span class="linkbox-icon"><i class="icon icon-quote-right icon-2x"></i></span></h2>', $quote, get_the_title());
 		
 		$wrapped = ( is_single()) ? sprintf('<div class="pl-linkbox pl-quote fix">%s</div>', $content ) : sprintf('<a href="%s" class="pl-linkbox pl-quote">%s</a>', get_permalink(), $content );
 		
@@ -70,7 +70,7 @@ function pagelines_media( $args = array() ){
 		$link = str_replace( 'http://', '', $link );
 		$link = str_replace( 'https://', '', $link );
 	
-		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="destination">%s</span><span class="linkbox-icon"><i class="icon-link icon-2x"></i></span></h2>', get_the_title(), $link );
+		$content = sprintf( '<h2 class="entry-title">%s</h2> <span class="destination">%s</span><span class="linkbox-icon"><i class="icon icon-link icon-2x"></i></span></h2>', get_the_title(), $link );
 		
 		$wrapped = sprintf('<a href="http://%s" class="pl-linkbox pl-quote fix">%s</a>', $link, $content );
 		

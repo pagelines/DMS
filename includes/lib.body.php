@@ -51,7 +51,7 @@ function pagelines_after_footer_elements() {
 	
 	if( ! pl_is_pro() && ! pl_draft_mode() ): ?>
 	<a class="pl-credit" href="http://www.pagelines.com/" title="Built with PageLines DMS [basic]" target="_blank">
-		<i class="icon-pagelines pl-transit"></i> <span class="fademein">DMS</span>
+		<i class="icon icon-pagelines pl-transit"></i> <span class="fademein">DMS</span>
 	</a>
 	<?php endif; 
 	

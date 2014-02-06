@@ -34,12 +34,12 @@ class PageLinesSectionsHandler{
 	function toolbar( $toolbar ){
 
 		$panel = array(
-			'heading'	=> __( "<i class='icon-random'></i> Drag to Add", 'pagelines' ),
+			'heading'	=> __( "<i class='icon icon-random'></i> Drag to Add", 'pagelines' ),
 			'add_section'	=> array(
 				'name'	=> __( 'Your Sections', 'pagelines' ),
 				'icon'	=> 'icon-random',
 				'clip'	=> __( 'Drag on to page to add', 'pagelines' ),
-				'tools'	=> sprintf( '<button class="btn btn-mini btn-reload-sections"><i class="icon-repeat"></i> %s</button>', __( 'Reload Sections', 'pagelines' ) ),
+				'tools'	=> sprintf( '<button class="btn btn-mini btn-reload-sections"><i class="icon icon-repeat"></i> %s</button>', __( 'Reload Sections', 'pagelines' ) ),
 				'type'	=> 'call',
 				'call'	=> array( $this, 'add_new_callback'),
 				'filter'=> '*'
@@ -49,7 +49,7 @@ class PageLinesSectionsHandler{
 				'icon'	=> 'icon-download',
 				'flag'	=> 'link-storefront'
 			),
-			'heading2'	=> __( "<i class='icon-filter'></i> Filters", 'pagelines' ),
+			'heading2'	=> __( "<i class='icon icon-filter'></i> Filters", 'pagelines' ),
 
 		);
 

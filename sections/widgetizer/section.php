@@ -37,7 +37,7 @@ class PageLinesWidgetizer extends PageLinesSection {
 				'type'	=> 'link',
 				'url'	=> admin_url( 'widgets.php' ),
 				'title'	=> 'Widgetized Areas Help',
-				'label'		=>	'<i class="icon-retweet"></i> Edit Widgetized Areas',
+				'label'		=>	'<i class="icon icon-retweet"></i> Edit Widgetized Areas',
 				'help'		=> "This section uses widgetized areas that are created and edited in inside your admin.",
 				'col'		=> 2
 			)
@@ -49,7 +49,7 @@ class PageLinesWidgetizer extends PageLinesSection {
 				'type'	=> 'link',
 				'url'	=> 'http://wordpress.org/extend/plugins/custom-sidebars/',
 				'title'	=> 'Get Custom Sidebars',
-				'label'		=>	'<i class="icon-external-link"></i> Check out plugin',
+				'label'		=>	'<i class="icon icon-external-link"></i> Check out plugin',
 				'help'		=> "We have detected that you don't have the Custom Sidebars plugin installed. We recommend you install this plugin to create custom widgetized areas on demand.",
 				'col'		=> 2
 			);

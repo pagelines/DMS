@@ -78,7 +78,7 @@ function pagelines_default_widget($id, $default){
 			<p class="fix">This is your <?php echo $name;?> but it needs some widgets!<br/> Easy! Just add some content to it in your <a href="<?php echo admin_url('widgets.php');?>">widgets panel</a>.
 			</p>
 			<p>
-				<a href="<?php echo admin_url('widgets.php');?>" class="btn"><i class="icon-retweet"></i> <?php _e('Add Widgets &rarr;', 'pagelines');?></a>
+				<a href="<?php echo admin_url('widgets.php');?>" class="btn"><i class="icon icon-retweet"></i> <?php _e('Add Widgets &rarr;', 'pagelines');?></a>
 			</p>
 
 		</div>
@@ -173,7 +173,7 @@ function pl_get_comments_template(){
  */
 function pagelines_search_form( $echo = true, $class = 'searchform' ){
 
-	$searchfield = sprintf('<span class="btn-search"><i class="icon-search"></i></span><input type="text" value="" name="s" class="searchfield" placeholder="%s" />', __('Search', 'pagelines'));
+	$searchfield = sprintf('<span class="btn-search"><i class="icon icon-search"></i></span><input type="text" value="" name="s" class="searchfield" placeholder="%s" />', __('Search', 'pagelines'));
 
 	$searchform = sprintf(
 						'<form method="get" class="%s pl-searcher" onsubmit="this.submit();return false;" action="%s/" ><fieldset>%s</fieldset></form>', 

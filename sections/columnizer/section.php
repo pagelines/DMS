@@ -77,7 +77,7 @@ class PageLinesColumnizer extends PageLinesSection {
 				'type'	=> 'link',
 				'url'	=> admin_url( 'widgets.php' ),
 				'title'	=> __( 'Widgetized Areas Help', 'pagelines' ),
-				'label'		=>	sprintf( '<i class="icon-retweet"></i> %s', __( 'Edit Widgetized Areas', 'pagelines' ) ),
+				'label'		=>	sprintf( '<i class="icon icon-retweet"></i> %s', __( 'Edit Widgetized Areas', 'pagelines' ) ),
 				'help'		=> __( "This section uses widgetized areas that are created and edited in inside your admin.", 'pagelines' ),
 			),
 			array(
@@ -98,7 +98,7 @@ class PageLinesColumnizer extends PageLinesSection {
 				'col'	=> 3,
 				'url'	=> 'http://wordpress.org/plugins/sidebar-manager-light/screenshots/',
 				'title'	=> __( 'Get A Sidebars Plugin', 'pagelines' ),
-				'label'		=> __( '<i class="icon-external-link"></i> Check out Sidebar Manager plugin', 'pagelines' ),
+				'label'		=> __( '<i class="icon icon-external-link"></i> Check out Sidebar Manager plugin', 'pagelines' ),
 				'help'		=> __( "We have detected that you don't either the Custom Sidebars or Sidebar Manager plugins installed. We recommend you install a plugin that allows you to create custom widgetized areas on demand.", 'pagelines' ),
 			);
 		}

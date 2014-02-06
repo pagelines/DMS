@@ -180,7 +180,7 @@ $.plSections = {
 				,	beforeSend: function( ){
 						var Text = $.pl.lang("Loading")
 						element
-							.html('<div class="pl-refresh-banner"><i class="icon-spinner icon-spin"></i> '+Text+'</div>')
+							.html('<div class="pl-refresh-banner"><i class="icon icon-spinner icon-spin"></i> '+Text+'</div>')
 					}
 			}
 
@@ -191,11 +191,11 @@ $.plSections = {
 			var Text = $.pl.lang("Loading")
 			
 			element
-				.html('<div class="pl-refresh-banner"><i class="icon-spinner icon-spin"></i> '+Text+'</div>')
+				.html('<div class="pl-refresh-banner"><i class="icon icon-spinner icon-spin"></i> '+Text+'</div>')
 				
 			setTimeout(function() {
 				element
-					.html('<div class="pl-refresh-banner"><i class="icon-thumb-up"></i> Section added! Refresh page to view.</div>')
+					.html('<div class="pl-refresh-banner"><i class="icon icon-thumb-up"></i> Section added! Refresh page to view.</div>')
 					
 			}, 700);
 			var img = element.find( '.banner-content' ).html()

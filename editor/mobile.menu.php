@@ -72,10 +72,10 @@ class PageLinesMobileMenu {
 					<?php 
 					
 						if($facebook)
-							printf('<a href="http://www.facebook.com/%s"><i class="mm-icon icon-large icon-facebook"></i></a>', $facebook);
+							printf('<a href="http://www.facebook.com/%s"><i class="mm-icon icon icon-large icon-facebook"></i></a>', $facebook);
 						
 						if($twitter)
-							printf('<a href="http://www.twitter.com/%s"><i class="mm-icon icon-large icon-twitter"></i></a>', $twitter); 
+							printf('<a href="http://www.twitter.com/%s"><i class="mm-icon icon icon-large icon-twitter"></i></a>', $twitter); 
 							
 						?>
 				</div>

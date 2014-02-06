@@ -164,7 +164,7 @@ class pliBox extends PageLinesSection {
 	
 				$text = sprintf('<div data-sync="ibox_array_item%s_text">%s</div>', $count, $text );
 				$title = sprintf('<h4 data-sync="ibox_array_item%s_title">%s</h4>', $count, $title );
-				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
+				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
 				$text_color = ( $color ) ? sprintf( 'color: %s;', $color ) : ''; 
@@ -183,7 +183,7 @@ class pliBox extends PageLinesSection {
 					}
 					
 					$background = ($color) ? sprintf('<span class="invert-icon" style="background-color: %s;"></span>', $color) : '';
-					$media_html = sprintf( '<i class="iii icon-3x icon-%s " style="%s"></i>%s', $icon, $text_color, $background );
+					$media_html = sprintf( '<i class="iii icon icon-3x icon-%s " style="%s"></i>%s', $icon, $text_color, $background );
 
 				} elseif( $media_type == 'image' ){
 				
@@ -289,7 +289,7 @@ class pliBox extends PageLinesSection {
 
 				// LINK
 				$link = $this->opt('ibox_link_'.$i);
-				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
+				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
 				$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
@@ -304,7 +304,7 @@ class pliBox extends PageLinesSection {
 						$icons = pl_icon_array();
 						$media = $icons[ array_rand($icons) ];
 					}
-					$media_html = sprintf('<i class="icon-3x icon-%s"></i>', $media);
+					$media_html = sprintf('<i class="icon icon-3x icon-%s"></i>', $media);
 
 				} elseif( $media_type == 'image' ){
 

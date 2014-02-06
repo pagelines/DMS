@@ -33,7 +33,7 @@ class PageLinesPostAuthor extends PageLinesSection {
 				'type'	=> 'link',
 				'url'	=> admin_url( 'user-edit.php?user_id='.$author_id ),
 				'title'	=> __( 'Author Setup', 'pagelines' ),
-				'label'		=> '<i class="icon-edit"></i> Edit Author Info',
+				'label'		=> '<i class="icon icon-edit"></i> Edit Author Info',
 				'help'		=> __( "This section uses the author's profile information. Set that in your admin.", 'pagelines' ),
 			)
 		);
@@ -74,10 +74,10 @@ class PageLinesPostAuthor extends PageLinesSection {
 					<?php
 
 					if( $link != '' )
-						printf( '<a href="%s" class="btn" target="_blank"><i class="icon-external-link"></i> %s</a> ', $link, __( 'Visit Authors Website &rarr;', 'pagelines') );
+						printf( '<a href="%s" class="btn" target="_blank"><i class="icon icon-external-link"></i> %s</a> ', $link, __( 'Visit Authors Website &rarr;', 'pagelines') );
 
 					if ( $google_profile )
-						printf( '<a href="%s" class="btn" rel="me"><i class="icon-google-plus"></i> %s</a>',  $google_profile, __( 'Authors Google Profile &rarr;', 'pagelines' ) );
+						printf( '<a href="%s" class="btn" rel="me"><i class="icon icon-google-plus"></i> %s</a>',  $google_profile, __( 'Authors Google Profile &rarr;', 'pagelines' ) );
 
 					?>
 				</p>

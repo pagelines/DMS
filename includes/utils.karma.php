@@ -105,7 +105,7 @@ class PLKarma {
 		
 		$karma_icon = ( '' != pl_setting( 'karma_icon' ) ) ? pl_setting( 'karma_icon' ) : 'sun';
 		
-		return sprintf('<a href="#" class="%s %s" id="pl-karma-%s" title="%s" data-social="pagelines" %s> <span class="pl-social-icon"><i class="icon-%s"></i></span> <span class="pl-social-count">%s</span></a>', 
+		return sprintf('<a href="#" class="%s %s" id="pl-karma-%s" title="%s" data-social="pagelines" %s> <span class="pl-social-icon"><i class="icon icon-%s"></i></span> <span class="pl-social-count">%s</span></a>', 
 						$class, 
 						$atts['classes'],
 						$id,

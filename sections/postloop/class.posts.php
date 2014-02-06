@@ -170,7 +170,7 @@ class PageLinesPosts {
 			 
 			<p class="hidden-sm hidden-phone">In [post_categories]</p>
 			<hr/>
-			<p class="tag-comments hidden-sm hidden-phone"><i class="icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
+			<p class="tag-comments hidden-sm hidden-phone"><i class="icon icon-comment"></i> [post_comments zero="Add Comment" one="1" more="%"]</p>
 		
 		<?php
 		}

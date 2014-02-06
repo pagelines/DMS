@@ -33,10 +33,10 @@ $.plTemplates = {
 			theRegion
 				.find('.btn-region')
 					.addClass('region-unlock')
-					.html(sprintf('"%s" Template (<i class="icon-unlock"></i> Unlock)',templateName ))
+					.html(sprintf('"%s" Template (<i class="icon icon-unlock"></i> Unlock)',templateName ))
 					.end()
 				.find('.linked-tpl')
-					.html(sprintf('&mdash; <i class="icon-file-text"></i> Linked to "%s" template',templateName ))
+					.html(sprintf('&mdash; <i class="icon icon-file-text"></i> Linked to "%s" template',templateName ))
 					.end()
 		}
 		
@@ -52,7 +52,7 @@ $.plTemplates = {
 					.attr('title', sprintf('Break link to "%s" section', sectionName))
 					.end()
 					.find('.linked-section')
-					.html(sprintf('&mdash; <i class="icon-dropbox"></i> Linked to "%s" Section',sectionName ))
+					.html(sprintf('&mdash; <i class="icon icon-dropbox"></i> Linked to "%s" Section',sectionName ))
 					.end()
 			}
 		})

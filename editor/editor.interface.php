@@ -246,7 +246,7 @@ class EditorInterface {
 		}
 		?>
 			<span id="toolbox-activate" data-href="<?php echo $activate_url;?>" class="toolbox-activate pl-make-link" <?php echo $target;?>>
-				<i class="icon-pagelines"></i> <span class="txt"><?php echo $text; ?></span></span>
+				<i class="icon icon-pagelines"></i> <span class="txt"><?php echo $text; ?></span></span>
 			</span>
 
 		<?php
@@ -298,7 +298,7 @@ class EditorInterface {
 		<div class="toolbox-handle fix">
 
 			<ul class="unstyled controls">
-				<li class="el-closer" ><span class="btn-toolbox btn-closer" title="Close [esc]"><i class="icon-remove"></i></span></li>
+				<li class="el-closer" ><span class="btn-toolbox btn-closer" title="Close [esc]"><i class="icon icon-remove"></i></span></li>
 
 				<?php
 
@@ -325,7 +325,7 @@ class EditorInterface {
 						if($tab['type'] == 'dropup' && !empty($tab['panel'])){
 
 							$data = 'data-toggle="dropdown"';
-							$suffix = ' <i class="uxi icon-caret-right"></i>';
+							$suffix = ' <i class="uxi icon icon-caret-right"></i>';
 							$li_class[] = 'dropup';
 							$menu = '';
 
@@ -357,7 +357,7 @@ class EditorInterface {
 						$the_name = (isset($tab['name']) && $tab['type'] != 'btn-panel') ? $tab['name'] : '';
 
 						$name = sprintf('<span class="txt">%s</span>', $the_name);
-						$icon = (isset($tab['icon'])) ? sprintf('<i class="uxi %s"></i> ', $tab['icon']) : '';
+						$icon = (isset($tab['icon'])) ? sprintf('<i class="uxi icon %s"></i> ', $tab['icon']) : '';
 						
 						$tip = (isset($tab['tip']) && $tab['tip'] != '') ? $tab['tip'] : $the_name;
 						
@@ -387,17 +387,17 @@ class EditorInterface {
 			<ul class="unstyled controls send-right">
 				
 				<li class="li-refresh type-btn"><span class="btn-toolbox btn-save btn-refresh" data-mode="pagerefresh" title="<?php _e( 'Refresh needed to view changes.', 'pagelines' ); ?>
-				"><i class="icon-refresh"></i></li>
+				"><i class="icon icon-refresh"></i></li>
 				<li class="li-publish"><span class="btn-toolbox btn-save btn-publish" data-mode="publish" title="<?php _e( 'Publish Live', 'pagelines' ); ?>
-				 (alt+s)"><i class="icon-ok"></i> <span class="txt"><?php _e( 'Publish', 'pagelines' ); ?>
+				 (alt+s)"><i class="icon icon-ok"></i> <span class="txt"><?php _e( 'Publish', 'pagelines' ); ?>
 				 </span></li>
 
 			</ul>
 			<ul class="unstyled controls not-btn send-right">
-				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon-refresh icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
+				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon icon-refresh icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
 				</span></li>
 				<li class="switch-btn btn-layout-resize"><span class="btn-toolbox  not-btn">
-					<i class="icon-fullscreen"></i> <span class="txt"><?php _e( 'Width', 'pagelines' ); ?>
+					<i class="icon icon-fullscreen"></i> <span class="txt"><?php _e( 'Width', 'pagelines' ); ?>
 					: <span class="resize-px"></span> / <span class="resize-percent"></span></span>
 				</li>
 			</ul>
@@ -413,7 +413,7 @@ class EditorInterface {
 							if(isset($tab['panel']) && !empty($tab['panel']))
 								$this->panel($key, $tab['panel']);
 							else
-								printf('<div class="panel-%s tabbed-set error-panel"><i class="icon-spinner icon-spin"></i></div>', $key);
+								printf('<div class="panel-%s tabbed-set error-panel"><i class="icon icon-spinner icon-spin"></i></div>', $key);
 
 						}
 							 ?>
@@ -478,7 +478,7 @@ class EditorInterface {
 
 								$class = ($t['class'] != '') ? $t['class'] : 'tab-'.$tab_key;
 
-								$icon = ($t['icon'] != '') ? sprintf('<i class="%s"></i> ', $t['icon']) : '';
+								$icon = ($t['icon'] != '') ? sprintf('<i class="icon %s"></i> ', $t['icon']) : '';
 								
 								$link_tab = ($t['tab'] != '') ? sprintf('data-tab-link="%s"', $t['tab']) : '';
 								
@@ -533,7 +533,7 @@ class EditorInterface {
 						call_user_func($t['call']);
 						$content = ob_get_clean();
 					} else {
-						$content = sprintf('<div class="error-panel"><i class="icon-refresh icon-spin"></i></div>', rand());
+						$content = sprintf('<div class="error-panel"><i class="icon icon-refresh icon-spin"></i></div>', rand());
 					}
 
 					$clip = ( isset($t['clip']) ) ? sprintf('<span class="clip-desc">%s</span>', $t['clip']) : '';
@@ -577,20 +577,20 @@ class EditorInterface {
 		?>
 		<div class="pl-section-controls fix" >
 			<div class="controls-left">
-				<a title="<?php _e( 'Decrease Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-decrease"><i class="icon-caret-left"></i></a>
+				<a title="<?php _e( 'Decrease Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-decrease"><i class="icon icon-caret-left"></i></a>
 				<span title="<?php _e( 'Column Width', 'pagelines' ) ?>" class="s-control section-size"></span>
-				<a title="<?php _e( 'Increase Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-increase"><i class="icon-caret-right"></i></a>
-				<a title="<?php _e( 'Offset Left', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-reduce <?php echo pl_pro_disable_class();?>"><i class="icon-angle-left"></i></a>
+				<a title="<?php _e( 'Increase Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-increase"><i class="icon icon-caret-right"></i></a>
+				<a title="<?php _e( 'Offset Left', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-reduce <?php echo pl_pro_disable_class();?>"><i class="icon icon-angle-left"></i></a>
 				<span title="<?php _e( 'Offset Amount', 'pagelines' ) ?>" class="s-control offset-size"></span>
-				<a title="<?php _e( 'Offset Right', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-increase <?php echo pl_pro_disable_class();?>"><i class="icon-angle-right"></i></a>
-				<a title="<?php _e( 'Force to New Row', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-start-row <?php echo pl_pro_disable_class();?>"><i class="icon-double-angle-left"></i></a>
+				<a title="<?php _e( 'Offset Right', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-increase <?php echo pl_pro_disable_class();?>"><i class="icon icon-angle-right"></i></a>
+				<a title="<?php _e( 'Force to New Row', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-start-row <?php echo pl_pro_disable_class();?>"><i class="icon icon-double-angle-left"></i></a>
 			</div>
 			<div class="controls-right">
-				<a title="<?php _e( 'Edit', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-edit s-loaded"><i class="icon-pencil"></i></a>
-				<a title="<?php _e( 'Clone', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-clone s-loaded <?php echo pl_pro_disable_class();?>"><i class="icon-copy"></i></a>
-				<a title="<?php _e( 'Delete', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-delete"><i class="icon-remove"></i></a>
+				<a title="<?php _e( 'Edit', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-edit s-loaded"><i class="icon icon-pencil"></i></a>
+				<a title="<?php _e( 'Clone', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-clone s-loaded <?php echo pl_pro_disable_class();?>"><i class="icon icon-copy"></i></a>
+				<a title="<?php _e( 'Delete', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-delete"><i class="icon icon-remove"></i></a>
 			</div>
-			<div class="controls-title"><span class="ctitle"><?php echo $s->name;?></span> <span class="linked-section">&mdash; <i class="icon-link"></i> Linked to Custom</span> <span class="linked-tpl"><i class="icon-link"></i> Linked to Template</span></div>
+			<div class="controls-title"><span class="ctitle"><?php echo $s->name;?></span> <span class="linked-section">&mdash; <i class="icon icon-link"></i> Linked to Custom</span> <span class="linked-tpl"><i class="icon icon-link"></i> Linked to Template</span></div>
 		</div>
 		<?php
 

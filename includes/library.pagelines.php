@@ -19,11 +19,11 @@ function pagelines_check_pro_nag( $note ) {
 	?>
 	<div class="alert editor-alert">
 		<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-	  	<strong><i class="icon-star"></i> <?php _e( 'Upgrade to Pro!', 'pagelines' ); ?>
+	  	<strong><i class="icon icon-star"></i> <?php _e( 'Upgrade to Pro!', 'pagelines' ); ?>
 	  	</strong> <br/>
 		<?php _e( 'You are currently using the basic DMS version. Pro activate this site for tons more features and support.', 'pagelines' ); ?>
 		
-		<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon-thumbs-up"></i> <?php _e( 'Learn More About Pro', 'pagelines' ); ?>
+		<a href="http://www.pagelines.com/DMS" class="btn btn-mini" target="_blank"><i class="icon icon-thumbs-up"></i> <?php _e( 'Learn More About Pro', 'pagelines' ); ?>
 		</a>
 		</div>
 		<?php

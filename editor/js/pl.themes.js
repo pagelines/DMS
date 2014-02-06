@@ -30,13 +30,13 @@ $.plThemes = {
 		var buttons = ''
 		,	theme = sprintf('data-stylesheet="%s"', data.stylesheet)
 
-		buttons += sprintf('<a href="#" class="btn btn-primary btn-theme-activate x-remove" %s><i class="icon-bolt"></i> %s</a> ', theme, $.pl.lang("Activate"))
+		buttons += sprintf('<a href="#" class="btn btn-primary btn-theme-activate x-remove" %s><i class="icon icon-bolt"></i> %s</a> ', theme, $.pl.lang("Activate"))
 
 
 		// Can't get this to work because of a PHP loading issue
 		// Must move to a plugin that loads before the 'stylesheet' is set for a child theme.
 		//
-		// buttons += sprintf('<a href="#" class="btn btn-theme-preview" %s><i class="icon-eye-open"></i> Preview</a> ', theme)
+		// buttons += sprintf('<a href="#" class="btn btn-theme-preview" %s><i class="icon icon-eye-open"></i> Preview</a> ', theme)
 
 		return buttons
 	}

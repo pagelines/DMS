@@ -30,7 +30,7 @@ class PageLinesExtendPanel{
 					'call'	=> array($this, 'the_store_callback'),
 					'icon'	=> 'icon-gears'
 				),
-				'heading2'	=> "<i class='icon-filter'></i> Filters",
+				'heading2'	=> "<i class='icon icon-filter'></i> Filters",
 
 				'featured'		=> array(
 					'name'	=> __( 'Featured', 'pagelines' ),
@@ -144,13 +144,13 @@ class PageLinesExtendPanel{
 						
 						if(demo) {
 							demo = sprintf( ' <a href="%s" class="btn btn-mini"><?php _e( 'Demo ', 'pagelines' ); ?>
-							<i class="icon-picture" target="_blank"></i></a>', demo)
+							<i class="icon icon-picture" target="_blank"></i></a>', demo)
 						} else {
 							demo = ''
 						}
 						
 						var btns = sprintf('<br/><a href="%s" class="btn btn-mini"><?php _e( 'Overview ', 'pagelines' ); ?>
-						<i class="icon-external-link" target="_blank"></i></a>%s', field.overview, demo)
+						<i class="icon icon-external-link" target="_blank"></i></a>%s', field.overview, demo)
 						
 						var output = sprintf('<div class="img" style="max-width: 130px;"><img src="%s" /></div><div class="bd"><h4>%s</h4><p>%s %s</p></div>', field.thumb, field.name, field.description, btns)
 						
@@ -189,7 +189,7 @@ class PageLinesExtendPanel{
 			if($item['price'] == '0')
 				$sub = __('Free!', 'pagelines'); 
 			elseif( $item['price'] == '' )
-				$sub = __('<i class="icon-sun"></i> Karma', 'pagelines'); 
+				$sub = __('<i class="icon icon-sun"></i> Karma', 'pagelines'); 
 			else 
 				$sub = '$'.$item['price'];
 				

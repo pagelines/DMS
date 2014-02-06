@@ -204,7 +204,7 @@ class PageLinesInstall{
 							'pagelines_masthead_tagline'	=> __( 'You are up and running with PageLines DMS.', 'pagelines' ),
 							'pagelines_masthead_img'		=> '[pl_parent_url]/images/getting-started-pl-logo.png',
 							'masthead_button_link_1'		=> home_url(),
-							'masthead_button_text_1'		=> __( 'View Your Blog <i class="icon-angle-right"></i>', 'pagelines' ),
+							'masthead_button_text_1'		=> __( 'View Your Blog <i class="icon icon-angle-right"></i>', 'pagelines' ),
 						)
 					),
 				)
