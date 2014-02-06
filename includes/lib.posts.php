@@ -41,7 +41,7 @@ function pagelines_media( $args = array() ){
 		
 	    if( !empty( $args['embed'] ) ) {
 			
-			$media = sprintf( '<div class="video">%s</div>', do_shortcode( $args['vid_embed'] ) );	
+			$media = sprintf( '<div class="video">%s</div>', do_shortcode( $args['embed'] ) );	
 
 		} else {
 
