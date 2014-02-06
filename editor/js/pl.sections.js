@@ -87,7 +87,7 @@ $.plSections = {
 		var name = element.data('name')
 		, 	image = element.data('image')
 		, 	imageHTML = sprintf('<div class="pl-touchable banner-frame"><div class="pl-vignette pl-touchable-vignette"><img class="section-thumb" src="%s" /></div></div>', image )
-		, 	theHTML = sprintf('<div class="pl-refresh-banner"><div class="banner-content">%s</div></div>', imageHTML	)
+		, 	theHTML = sprintf('<div class="pl-refresh-banner pl-contrast"><div class="banner-content">%s</div></div>', imageHTML	)
 
 
 		$.pageTools.toggleGrid(false, 'show')
@@ -180,7 +180,7 @@ $.plSections = {
 				,	beforeSend: function( ){
 						var Text = $.pl.lang("Loading")
 						element
-							.html('<div class="pl-refresh-banner"><i class="icon icon-spinner icon-spin"></i> '+Text+'</div>')
+							.html('<div class="pl-refresh-banner pl-contrast"><i class="icon icon-spinner icon-spin"></i> '+Text+'</div>')
 					}
 			}
 
@@ -191,11 +191,11 @@ $.plSections = {
 			var Text = $.pl.lang("Loading")
 			
 			element
-				.html('<div class="pl-refresh-banner"><i class="icon icon-spinner icon-spin"></i> '+Text+'</div>')
+				.html('<div class="pl-refresh-banner pl-contrast"><i class="icon icon-spinner icon-spin"></i> '+Text+'</div>')
 				
 			setTimeout(function() {
 				element
-					.html('<div class="pl-refresh-banner"><i class="icon icon-thumb-up"></i> Section added! Refresh page to view.</div>')
+					.html('<div class="pl-refresh-banner pl-contrast"><i class="icon icon-thumb-up"></i> Section added! Refresh page to view.</div>')
 					
 			}, 700);
 			var img = element.find( '.banner-content' ).html()

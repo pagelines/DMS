@@ -505,7 +505,6 @@
 			// global settings are always related to 'global'
 			if (that.config.mode == 'settings' || that.config.mode == 'panel' || scope == 'global_setting'){
 				
-				console.log('GLOBAL SCOPE HERE')
 				scope = 'global'
 
 				// Set option value
@@ -720,10 +719,16 @@
 
 					oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.inputID, o.name, o.value )
 				
-				
+					that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
+					
+					
+					
 					var attach_key = o.key + "_attach_id"
-					,	attach_value =  that.optValue( tabIndex, attach_key )
+					,	oAttach = that.addOptionObjectMeta( tabIndex, {key: attach_key}, optLevel, parent )
+					,	attach_value =  oAttach.value
 					,	attach_name = (optLevel == 3) ? sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, attach_key ) : sprintf('%s[%s]', that.uniqueID, attach_key )
+					
+					console.log(oAttach)
 
 					oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
 
