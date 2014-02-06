@@ -82,7 +82,7 @@ class EditorSettings {
 
 				array(
 					'key'			=> 'set_homepage',
-					'label'			=> __( '<i class="icon-home"></i> Set Site Homepage', 'pagelines' ),
+					'label'			=> __( '<i class="icon icon-home"></i> Set Site Homepage', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'options-reading.php' ), 
@@ -90,7 +90,7 @@ class EditorSettings {
 				),
 				array(
 					'key'			=> 'perm_management',
-					'label'			=> __( '<i class="icon-link"></i> Permalinks', 'pagelines' ),
+					'label'			=> __( '<i class="icon icon-link"></i> Permalinks', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'options-permalink.php' ), 
@@ -99,7 +99,7 @@ class EditorSettings {
 
 				array(
 					'key'			=> 'manage_menus',
-					'label'			=> __( '<i class="icon-reorder"></i> Manage Menus', 'pagelines' ),
+					'label'			=> __( '<i class="icon icon-reorder"></i> Manage Menus', 'pagelines' ),
 					'type' 			=> 	'link',
 					'col' 			=> 	2,
 					'classes'		=> 'btn-primary btn-block',
@@ -110,7 +110,7 @@ class EditorSettings {
 				array(
 					'key'			=> 'edit_widgets',
 					'col' 			=> 	2,
-					'label'			=> __( '<i class="icon-retweet"></i> Manage Widgets', 'pagelines' ),
+					'label'			=> __( '<i class="icon icon-retweet"></i> Manage Widgets', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'widgets.php' ), 
@@ -120,7 +120,7 @@ class EditorSettings {
 				array(
 					'key'			=> 'site_settings_admin',
 					'col' 			=> 	3,
-					'label'			=> __( '<i class="icon-cog"></i> Site Settings', 'pagelines' ),
+					'label'			=> __( '<i class="icon icon-cog"></i> Site Settings', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'options-general.php' ), 
@@ -129,7 +129,7 @@ class EditorSettings {
 				array(
 					'key'			=> 'plugins_management',
 					'col' 			=> 	3,
-					'label'			=> __( '<i class="icon-download"></i> Plugins Admin', 'pagelines' ),
+					'label'			=> __( '<i class="icon icon-download"></i> Plugins Admin', 'pagelines' ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
 					'url'			=> admin_url( 'plugins.php' ), 
@@ -142,7 +142,7 @@ class EditorSettings {
 			if( pl_setting( 'enable_debug' ) ) {
 				$settings[] = array(
 						'key'			=> 'debug_info',
-						'label'			=> __( '<i class="icon-ambulance"></i> View Debug Info', 'pagelines' ),
+						'label'			=> __( '<i class="icon icon-ambulance"></i> View Debug Info', 'pagelines' ),
 						'type' 			=> 	'link',
 						'classes'		=> 'btn-important btn-block',
 						'url'			=> site_url( '?pldebug=1' ), 
@@ -326,7 +326,7 @@ class EditorSettings {
 					'key'		=> 'reset_global',
 					'type'		=> 'action_button',
 					'classes'	=> 'btn-important',
-					'label'		=> __( '<i class="icon-undo"></i> Reset Global Settings', 'pagelines' ),
+					'label'		=> __( '<i class="icon icon-undo"></i> Reset Global Settings', 'pagelines' ),
 					'title'		=> __( 'Reset Global Site Settings', 'pagelines' ),
 					'help'		=> __( "Use this button to reset all global settings to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
 			),
@@ -334,7 +334,7 @@ class EditorSettings {
 					'key'		=> 'reset_local',
 					'type'		=> 'action_button',
 					'classes'	=> 'btn-important',
-					'label'		=> __( '<i class="icon-undo"></i> Reset Current Page Settings', 'pagelines' ),
+					'label'		=> __( '<i class="icon icon-undo"></i> Reset Current Page Settings', 'pagelines' ),
 					'title'		=> __( 'Reset Current Page Settings', 'pagelines' ),
 					'help'		=> __( "Use this button to reset all settings on the current page back to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
 			),
@@ -342,7 +342,7 @@ class EditorSettings {
 					'key'		=> 'reset_type',
 					'type'		=> 'action_button',
 					'classes'	=> 'btn-important',
-					'label'		=> __( '<i class="icon-undo"></i> Reset Current Post Type Settings', 'pagelines' ),
+					'label'		=> __( '<i class="icon icon-undo"></i> Reset Current Post Type Settings', 'pagelines' ),
 					'title'		=> __( 'Reset Current Post Type Settings', 'pagelines' ),
 					'help'		=> __( "Use this button to reset all settings on the current post type back to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
 			),
@@ -351,7 +351,7 @@ class EditorSettings {
 					'col'		=> 2,
 					'type'		=> 'action_button',
 					'classes'	=> 'btn-info',
-					'label'		=> __( '<i class="icon-trash"></i> Flush Caches', 'pagelines' ),
+					'label'		=> __( '<i class="icon icon-trash"></i> Flush Caches', 'pagelines' ),
 					'title'		=> __( 'Clear all CSS/LESS cached data.', 'pagelines' ),
 					'help'		=> __( "Use this button to purge the stored LESS/CSS data. This will also clear cached pages if wp-super-cache or w3-total-cache are detected.", 'pagelines' )
 			),

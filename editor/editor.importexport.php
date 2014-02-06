@@ -71,7 +71,7 @@ class PLImportExport{
 		</label>
 		
 		<span class="btn btn-success fileinput-button import-button">
-	        <i class="icon-plus"></i>
+	        <i class="icon icon-plus"></i>
 	        <span><?php _e( 'Select config file (.json)', 'pagelines' ); ?>
 	        </span>
 	        <!-- The file input field used as target for the file upload widget -->
@@ -85,7 +85,7 @@ class PLImportExport{
 			</label>
 
 			<div class="child-import">
-				<a href="#" data-action="reset_global_child" class="btn settings-action btn-warning"><i class="icon-download"></i> <?php _e( 'Load Child Theme Config', 'pagelines' ); ?></a>
+				<a href="#" data-action="reset_global_child" class="btn settings-action btn-warning"><i class="icon icon-download"></i> <?php _e( 'Load Child Theme Config', 'pagelines' ); ?></a>
 
 				<div class="help-block">
 					<?php _e( 'Reset theme settings using custom config file from child theme.<br />
@@ -111,8 +111,8 @@ class PLImportExport{
 		
 		$btns = sprintf(
 			'<div class="checklist-btns">
-				<button class="btn btn-mini checklist-tool" data-action="checkall"><i class="icon-ok"></i> %s</button> 
-				<button class="btn btn-mini checklist-tool" data-action="uncheckall"><i class="icon-remove"></i> %s</button>
+				<button class="btn btn-mini checklist-tool" data-action="checkall"><i class="icon icon-ok"></i> %s</button> 
+				<button class="btn btn-mini checklist-tool" data-action="uncheckall"><i class="icon icon-remove"></i> %s</button>
 			</div>', __( 'Select All', 'pagelines' ), __( 'Deselect All', 'pagelines' ) );
 		
 		$tpl_selects = ''; 

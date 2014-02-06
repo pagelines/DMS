@@ -327,28 +327,28 @@ class EditorTemplates {
 						<div class="btn-group dropup">
 						  <a class="btn btn-mini dropdown-toggle actions-toggle" data-toggle="dropdown" href="#">
 						    <?php _e( 'Actions', 'pagelines' ); ?>
-						    	<i class="icon-caret-down"></i>
+						    	<i class="icon icon-caret-down"></i>
 						  </a>
 							<ul class="dropdown-menu">
 								<li ><a class="update-template">
-								<i class="icon-edit"></i> <?php _e( 'Update Template with Current Configuration', 'pagelines' ); ?>
+								<i class="icon icon-edit"></i> <?php _e( 'Update Template with Current Configuration', 'pagelines' ); ?>
 
 								</a></li>
 
 								<li><a class="set-tpl" data-run="global">
-								<i class="icon-globe"></i> <?php _e( 'Set as Page Global Default', 'pagelines' ); ?>
+								<i class="icon icon-globe"></i> <?php _e( 'Set as Page Global Default', 'pagelines' ); ?>
 
 								</a></li>
 
 								<li><a class="delete-template">
-								<i class="icon-remove"></i> <?php _e( 'Delete This Template', 'pagelines' ); ?>
+								<i class="icon icon-remove"></i> <?php _e( 'Delete This Template', 'pagelines' ); ?>
 
 								</a></li>
 
 							</ul>
 						</div>
-						<button class="btn btn-mini tpl-tag global-tag tt-top" title="Current Sitewide Default"><i class="icon-globe"></i></button>
-						<button class="btn btn-mini tpl-tag posttype-tag tt-top" title="Current Post Type Default"><i class="icon-pushpin"></i></button>
+						<button class="btn btn-mini tpl-tag global-tag tt-top" title="Current Sitewide Default"><i class="icon icon-globe"></i></button>
+						<button class="btn btn-mini tpl-tag posttype-tag tt-top" title="Current Post Type Default"><i class="icon icon-pushpin"></i></button>
 					</div>
 				</div>
 				<div class="span6 list-desc">

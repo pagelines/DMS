@@ -371,7 +371,7 @@ function setup_section_notify( $section, $text = '', $user_url = null, $ltext = 
 
 	if(current_user_can('edit_theme_options')){
 
-		$banner_title = sprintf('<strong><i class="icon-pencil"></i> %s</strong>', $section->name);
+		$banner_title = sprintf('<strong><i class="icon icon-pencil"></i> %s</strong>', $section->name);
 		$extra = '';
 		
 		$url = (isset($user_url)) ? $user_url : '#';
@@ -385,7 +385,7 @@ function setup_section_notify( $section, $text = '', $user_url = null, $ltext = 
 
 
 
-		$link_text = (isset($ltext)) ? $ltext : sprintf(__('Configure %s <i class="icon-arrow-right"></i>', 'pagelines'), $section->name);
+		$link_text = (isset($ltext)) ? $ltext : sprintf(__('Configure %s <i class="icon icon-arrow-right"></i>', 'pagelines'), $section->name);
 
 		$link = sprintf('</br><a href="%s" class="btn btn-mini %s" %s>%s</a>', $url, $class, $extra, $link_text);
 

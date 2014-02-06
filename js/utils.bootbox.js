@@ -338,7 +338,7 @@ var bootbox = window.bootbox || (function(document, $) {
             }
 
             if (handlers[i]['icon']) {
-                icon = "<i class='"+handlers[i]['icon']+"'></i> ";
+                icon = "<i class='icon "+handlers[i]['icon']+"'></i> ";
             }
 
             if (handlers[i]['href']) {

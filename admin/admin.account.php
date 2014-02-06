@@ -43,7 +43,7 @@ class PLAccountAdmin {
 		$disabled = '';
 		$email = '';
 		$key = '';
-		$activate_text = '<i class="icon-star"></i> Activate Pro';
+		$activate_text = '<i class="icon icon-star"></i> Activate Pro';
 		$activate_btn_class = 'btn-primary'; 
 		
 		
@@ -248,7 +248,7 @@ class PLAccountAdmin {
 			
 			$response['deactivation_response'] = $rsp; 
 			
-			$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon-remove"></i> Deactivated!';
+			$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon icon-remove"></i> Deactivated!';
 			$response['messages'][] = (isset($rsp['message'])) ? $rsp['message'] : '';
 			$message = ( isset( $rsp[ 'message' ] ) ) ? $rsp[ 'message' ] : '';
 			$instance = ( isset( $rsp[ 'instance' ] ) ) ? $rsp[ 'instance' ] : '';
@@ -292,7 +292,7 @@ class PLAccountAdmin {
 		
 			$response[ 'user_data' ] = $updated_user;
 			
-			$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon-user"></i> User Updated!';
+			$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon icon-user"></i> User Updated!';
 			$response['messages'][] = (isset($rsp['message'])) ? $rsp['message'] : '';
 		
 			// SET KEY
@@ -320,7 +320,7 @@ class PLAccountAdmin {
 				$instance = ( isset( $rsp[ 'instance' ] ) ) ? $rsp[ 'instance' ] : '';
 				
 				// Set messages for quick JS response 
-				$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon-star"></i> Site Activated!';
+				$response['messages'][] = (isset($rsp['error'])) ? $rsp['error'] : '<i class="icon icon-star"></i> Site Activated!';
 				$response['messages'][] = (isset($rsp['message'])) ? $rsp['message'] : '';
 				
 				

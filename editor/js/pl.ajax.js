@@ -239,7 +239,7 @@
 			
 			$( '.btn-refresh' ).on('click.saveButton', function(){
 				
-				$(this).find('i').addClass('icon-spin')
+				$(this).find('i').addClass('icon icon-spin')
 				
 				window.onbeforeunload = null
 

@@ -66,23 +66,23 @@ $.plExtend = {
 
 
 		if(!Owned && !Status)
-			buttons = sprintf('<a href="https://www.pagelines.com/api/paypal/button.php?paypal=%s" class="btn btn-primary x-remove"><i class="icon-money"></i> Purchase</a> ', payLink)
+			buttons = sprintf('<a href="https://www.pagelines.com/api/paypal/button.php?paypal=%s" class="btn btn-primary x-remove"><i class="icon icon-money"></i> Purchase</a> ', payLink)
 
 		// if(Status == 'active' )
-		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-remove"></i> Deactivate</a> ', Deactivate )
+		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon icon-remove"></i> Deactivate</a> ', Deactivate )
 		// if(Status == 'installed' )
-		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-ok"></i> Activate</a> ', Activate)
+		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon icon-ok"></i> Activate</a> ', Activate)
 		// if(Owned && !Status)
-		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon-cloud-download"></i> Install</a> ', InstallLink)
+		// 	buttons = sprintf('<a href="%s" class="btn btn-primary x-remove"><i class="icon icon-cloud-download"></i> Install</a> ', InstallLink)
 
 		if(overviewLink)
-			buttons += sprintf('<a href="%s" class="btn btn-primary x-remove" target="_blank">View &amp; Download &nbsp;<i class="icon-chevron-sign-right"></i></a> ', overviewLink)
+			buttons += sprintf('<a href="%s" class="btn btn-primary x-remove" target="_blank">View &amp; Download &nbsp;<i class="icon icon-chevron-sign-right"></i></a> ', overviewLink)
 
 		if(demoLink)
-			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-desktop"></i> Demo</a> ', demoLink)
+			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon icon-desktop"></i> Demo</a> ', demoLink)
 			
 		if(authorURL && author)
-			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon-external-link"></i> Author</a> ', authorURL )
+			buttons += sprintf('<a href="%s" class="btn x-remove" target="_blank"><i class="icon icon-external-link"></i> Author</a> ', authorURL )
 
 		return buttons
 	}

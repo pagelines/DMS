@@ -308,7 +308,7 @@ function pagelines_check_folders_dms( $note ) {
 
 			<div class="alert editor-alert">
 				<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-			  	<strong><i class="icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
+			  	<strong><i class="icon icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
 
 			</div>
 			<?php 
@@ -325,7 +325,7 @@ function pagelines_check_dms_plugin( $note ) {
 
 			<div class="editor-alert alert">
 				
-			  	<strong><i class="icon-cogs"></i> <?php _e( 'Install DMS Utilities', 'pagelines' ); ?>
+			  	<strong><i class="icon icon-cogs"></i> <?php _e( 'Install DMS Utilities', 'pagelines' ); ?>
 			  	</strong><p><?php _e( 'Your site is "Pro activated" but we have detected that the DMS Pro Tools plugin is not activated. Grab this plugin if you have not installed it yet on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
 			  	</p>
 
@@ -345,7 +345,7 @@ function pagelines_check_updater( $note ) {
 	
 	if( ! pl_check_updater_exists() ) { // need to install...
 		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
-		$message = '<a class="btn btn-mini btn-warning" href="' . esc_url( $install_url ) . '"><i class="icon-download"></i> Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
+		$message = '<a class="btn btn-mini btn-warning" href="' . esc_url( $install_url ) . '"><i class="icon icon-download"></i> Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
 	} else {
 		// must be installed..maybe its not active?
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );

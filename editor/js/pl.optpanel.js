@@ -124,7 +124,7 @@
 			$.each(cascade, function( i, scope ){
 
 				var sel = sprintf("[data-panel='%s']", scope)
-				, 	clone_text = sprintf('<i class="icon-screenshot"></i> %s <i class="icon-map-marker"></i> %s %s', uniqueID, scope, $.pl.lang( "scope" ) )
+				, 	clone_text = sprintf('<i class="icon icon-screenshot"></i> %s <i class="icon icon-map-marker"></i> %s %s', uniqueID, scope, $.pl.lang( "scope" ) )
 				, 	clone_desc = sprintf(' <span class="clip-desc"> &rarr; %s</span>', clone_text)
 
 				tab = $(sel)
@@ -594,13 +594,13 @@
 			
 
 			if( o.scope == 'global')
-				optLabel += ' ( <i class="icon-globe" title="Global Setting"></i> Global Option )'
+				optLabel += ' ( <i class="icon icon-globe" title="Global Setting"></i> Global Option )'
 
 		//	o.classes = o.classes || ''
 			//o.label = o.label || o.title
 
 			if( o.type != 'edit_post' && o.type != 'link' && o.type != 'action_button' ){
-				optLabel += sprintf(' <span data-key="%s" class="pl-help-text btn btn-mini pl-tooltip sync-btn-%s" title="%s"><i class="icon-%s"></i></span>', o.key, syncType, syncTooltip, syncIcon)
+				optLabel += sprintf(' <span data-key="%s" class="pl-help-text btn btn-mini pl-tooltip sync-btn-%s" title="%s"><i class="icon icon-%s"></i></span>', o.key, syncType, syncTooltip, syncIcon)
 			}
 
 			if( o.type == 'multi' ){
@@ -640,7 +640,7 @@
 
 					o.itemNumber = 'item'+itemNumber
 
-					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'><span class='bar-title'>%s %s</span> <span class='btn btn-mini remove-item' style='%s'><i class='icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber, removeShow )
+					oHTML += sprintf("<div class='opt-group' data-item-num='%s'><h4 class='opt-name'><span class='bar-title'>%s %s</span> <span class='btn btn-mini remove-item' style='%s'><i class='icon icon-remove'></i></span></h4><div class='opt-accordion-opts'>", itemNumber, itemType, itemNumber, removeShow )
 
 					if( o.opts ){
 						$.each( o.opts , function(index, osub) {
@@ -659,7 +659,7 @@
 					itemNumber++
 				})
 
-				oHTML += sprintf("</div><div class='accordion-tools'><span class='btn btn-mini add-accordion-item' data-uid='' data-scope='' data-key=''><i class='icon-plus-sign'></i> Add %s</span></div>", itemType)
+				oHTML += sprintf("</div><div class='accordion-tools'><span class='btn btn-mini add-accordion-item' data-uid='' data-scope='' data-key=''><i class='icon icon-plus-sign'></i> Add %s</span></div>", itemType)
 
 			}
 			
@@ -691,7 +691,7 @@
 
 			else if( o.type == 'color' ){
 
-				var prepend = '<span class="btn add-on trigger-color"> <i class="icon-tint"></i> </span>'
+				var prepend = '<span class="btn add-on trigger-color"> <i class="icon icon-tint"></i> </span>'
 				,	colorVal = (o.value != '') ? o.value : optDefault
 				,	cssCompile = o.compile || ""
 
@@ -768,7 +768,7 @@
 				
 				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2')
 
-				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About HTML5 Video"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
+				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About HTML5 Video"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
 				
 
 				oHTML += '</div>'
@@ -812,7 +812,7 @@
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
 				oHTML += sprintf('<select id="%s" name="%s" class="lstn"><option value="">%s</option>%s</select>', o.inputID, o.name, $.pl.lang("Default"), select_opts)
 
-				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon-edit"></i> %s</a>', configure, $.pl.lang( "Configure Menus") )
+				oHTML += sprintf('<br/><a href="%s" class="btn btn-mini" ><i class="icon icon-edit"></i> %s</a>', configure, $.pl.lang( "Configure Menus") )
 			}
 
 			else if( o.type == 'action_button' ){
@@ -960,7 +960,7 @@
 						})
 
 						if ( ! o.ref )
-							oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"), $.pl.lang("Select which registered thumbnail size to use for the images. To add new sizes see: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>The Codex</a>"))
+							oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"), $.pl.lang("Select which registered thumbnail size to use for the images. To add new sizes see: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>The Codex</a>"))
 					}
 
 				if(o.opts){
@@ -1002,11 +1002,11 @@
 				oHTML += sprintf('<select id="%s" name="%s" class="%s lstn" data-type="%s" %s>%s</select>', o.inputID, o.name, o.classes, o.type, multi, select_opts)
 
 				if( o.type == 'select_icon' ) {
-					oHTML += sprintf('&nbsp;&nbsp;<i class="icon-preview icon-2x icon-%s" id="preview-icon" data-name="%s" style=""></i>', o.value, o.name )
+					oHTML += sprintf('&nbsp;&nbsp;<i class="icon icon-preview icon-2x icon-%s" id="preview-icon" data-name="%s" style=""></i>', o.value, o.name )
 				}
 				if(o.type == 'select_taxonomy' && o.post_type)
 					oHTML += sprintf(
-						'<div style="margin-bottom: 10px;"><a href="%sedit.php?post_type=%s" target="_blank" class="btn btn-mini btn-info"><i class="icon-edit"></i> %s</a></div>',
+						'<div style="margin-bottom: 10px;"><a href="%sedit.php?post_type=%s" target="_blank" class="btn btn-mini btn-info"><i class="icon icon-edit"></i> %s</a></div>',
 						$.pl.config.urls.adminURL,
 						o.post_type,
 						$.pl.lang("Edit Sets")
@@ -1063,7 +1063,7 @@
 
 			// Add help block
 			if ( o.ref )
-				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"),o.ref)
+				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"),o.ref)
 
 			if(level == 2 || level == 3)
 				return sprintf('<div class="input-wrap">%s</div>', oHTML)
@@ -1082,8 +1082,8 @@
 
 			theOption += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', inputID, inputName, inputValue )
 			
-			theOption += sprintf(' <a class="btn btn-mini btn-primary" href="%s"><i class="icon-plus"></i> Add</a>', $.pl.config.urls.addMedia)
-			theOption += '<a class="btn btn-mini pl-load-media-lib" data-mimetype="video">Library</a> <div class="btn  btn-mini rmv-upload"><i class="icon-remove"></i></div>'
+			theOption += sprintf(' <a class="btn btn-mini btn-primary" href="%s"><i class="icon icon-plus"></i> Add</a>', $.pl.config.urls.addMedia)
+			theOption += '<a class="btn btn-mini pl-load-media-lib" data-mimetype="video">Library</a> <div class="btn  btn-mini rmv-upload"><i class="icon icon-remove"></i></div>'
 			
 			theOption += '</div>'
 			
@@ -1396,7 +1396,7 @@
 				var type = $(this).attr('data-type') || false
 				if ( type == 'select_icon' ) {
 					var name = $(this).attr('name')
-					,	new_class = 'icon-preview icon-2x icon-' + $(this).val();				
+					,	new_class = 'icon icon-preview icon-2x icon-' + $(this).val();				
 					$(sprintf('i[data-name="%s"]',name)).removeAttr('class')
 					$(sprintf('i[data-name="%s"]',name)).addClass( new_class )
 				}
@@ -1499,13 +1499,13 @@
 
 
 				// Add Actions
-				btn.find('i').addClass('icon-spin')
+				btn.find('i').addClass('icon icon-spin')
 				el.removeClass('stop-focus').addClass('pl-focus')
 
 				// Remove Actions
 				setTimeout(function () {
 				    el.addClass('stop-focus')
-					btn.find('i').removeClass('icon-spin')
+					btn.find('i').removeClass('icon icon-spin')
 				}, 1000);
 
 				// Scroll Page
@@ -1520,7 +1520,7 @@
 
 				var $that = $(this)
 
-				$that.find('i').addClass('icon-spin')
+				$that.find('i').addClass('icon icon-spin')
 				window.onbeforeunload = null
 
 				plCallWhenSet( 'saving', function(){
@@ -1535,7 +1535,7 @@
 
 			$( '.btn-refresh' ).on('click.saveButton', function(){
 
-				$(this).find('i').addClass('icon-spin')
+				$(this).find('i').addClass('icon icon-spin')
 
 				window.onbeforeunload = null
 				location.reload()
@@ -1698,13 +1698,13 @@
 							sizeLimit: sizeLimit
 						}
 					,	text: {
-							uploadButton: sprintf( '<i class="icon-upload"></i> %s', $.pl.lang("Upload") )
+							uploadButton: sprintf( '<i class="icon icon-upload"></i> %s', $.pl.lang("Upload") )
 						}
 					// , 	debug: true
 					,	template: '<div class="qq-uploader span12">' +
 					                      '<pre class="qq-upload-drop-area span12 hidden"><span>{dragZoneText}</span></pre>' +
-					                      sprintf( '<div class="qq-upload-button btn btn-primary btn-mini" style="width: auto;">{uploadButtonText}</div> <div class="pl-load-media-lib btn btn-mini" >%s</div>  <div class="btn  btn-mini rmv-upload"><i class="icon-remove"></i></div>', $.pl.lang("Library") ) +
-					                      '<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="icon-spinner icon-spin spin-fast"></span></span>' +
+					                      sprintf( '<div class="qq-upload-button btn btn-primary btn-mini" style="width: auto;">{uploadButtonText}</div> <div class="pl-load-media-lib btn btn-mini" >%s</div>  <div class="btn  btn-mini rmv-upload"><i class="icon icon-remove"></i></div>', $.pl.lang("Library") ) +
+					                      '<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="icon icon-spinner icon-spin spin-fast"></span></span>' +
 					                      '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
 					                    '</div>'
 

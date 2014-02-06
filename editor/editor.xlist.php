@@ -56,7 +56,7 @@ class EditorXList{
 
 		$thumb = ($args['thumb'] != '') ? sprintf("<div class='x-item-frame'><div class='pl-vignette'>%s</div></div>", $img) : '';
 
-		$icon = ($args['format'] == 'media' && $args['icon'] != '') ? sprintf("<div class='img rtimg'><i class='icon-3x %s'></i></div>", $args['icon']) : '';
+		$icon = ($args['format'] == 'media' && $args['icon'] != '') ? sprintf("<div class='img rtimg'><i class='icon icon-3x %s'></i></div>", $args['icon']) : '';
 
 		$pad_class = ($args['format'] == 'media') ? 'media fix' : '';
 

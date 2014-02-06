@@ -18,7 +18,7 @@ class EditorLessHandler{
 	var $draft;
 	var $pless;
 	var $lessfiles;
-	
+
 	function __construct( PageLinesLess $pless ) {
 
 		if( pl_less_dev() )
@@ -39,7 +39,7 @@ class EditorLessHandler{
 	}
 
 	function check_last_error() {
-		
+
 		if( ! current_user_can('manage_options' ) || false ===  get_theme_mod( 'less_last_error' ) || true == pl_setting( 'disable_less_errors' ) )
 			return;
 
@@ -60,15 +60,15 @@ class EditorLessHandler{
 	static function dequeue_live_css() {
 		wp_deregister_style( 'pagelines-less' );
 	}
-	
+
 	/**
 	 * Output raw core less into footer for use with less.js
 	 * Will output the same LESS that is used when compiling with PHP
 	 * Allows for all custom variables, mixins, as well as any filtered/overriden files
 	 */
 	function print_core_less() {
-		
-		$core_less = $this->pless->add_constants(''); 
+
+		$core_less = $this->pless->add_constants('');
 		$core_less .= $this->pless->add_bootstrap();
 
 		printf('<div id="pl_core_less" style="display:none;">%s</div>', $core_less );
@@ -94,10 +94,10 @@ class EditorLessHandler{
 				echo pl_file_get_contents( $this->draft_less_file );
 			} else {
 				$core = $this->get_draft_core();
-			
+
 				$css = pl_css_minify( $core['compiled_core'] );
 				$css .= pl_css_minify( $core['compiled_sections'] );
-				
+
 				$this->write_draft_less_file( $css );
 				echo $css;
 			}
@@ -113,16 +113,16 @@ class EditorLessHandler{
 	 *  @since 3.0
 	 */
 	static function enqueue_draft_css() {
-		
-		// make url safe.		
+
+		// make url safe.
 		global $post;
-		
+
 		$url = ( is_object( $post ) && ! is_front_page() ) ? trailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
-		
+
 		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
-		
+
 		wp_enqueue_style( 'pagelines-draft' );
-		
+
 	}
 
 
@@ -138,7 +138,7 @@ class EditorLessHandler{
 				'sections'	=> get_all_active_sections(),
 				'core'		=> get_core_lesscode( $this->lessfiles )
 			);
-		
+
 			return $data;
 	}
 
@@ -186,10 +186,10 @@ class EditorLessHandler{
 			// force recompile
 			$dms_cache->purge('draft');
 		}
-		
-		
+
+
 		if( pl_draft_mode() )  {
-			
+
 			if( defined( 'PL_LESS_DEV' ) && false == PL_LESS_DEV )
 				return;
 
@@ -210,7 +210,7 @@ class EditorLessHandler{
 					$dms_cache->purge('draft');
 			}
 		}
-	}	
+	}
 
 	/**
 	 *
@@ -224,7 +224,7 @@ class EditorLessHandler{
 		return $this->pless->raw_less( $data );
 	}
 
-	
+
 
 	function write_draft_less_file($css) {
 		$folder = pl_get_css_dir( 'path' );
@@ -275,7 +275,7 @@ class PageLinesLess {
 
 		if( pl_less_dev() )
 			return;
-			
+
 		global $less_vars;
 
 		// PageLines Variables
@@ -344,9 +344,9 @@ class PageLinesLess {
 	}
 
 	// private function add_core_less($pless){
-	// 
+	//
 	// 	global $disabled_settings;
-	// 
+	//
 	// 	$add_color = (isset($disabled_settings['color_control'])) ? false : true;
 	// 	$color = ($add_color) ? pl_get_core_less() : '';
 	// 	return $pless . $color;
@@ -372,7 +372,7 @@ class PageLinesRenderCSS {
 	var $blog_id;
 
 	function __construct() {
-		
+
 		if( pl_less_dev() )
 			return;
 
@@ -397,16 +397,16 @@ class PageLinesRenderCSS {
 		add_action( 'template_redirect', array( $this, 'less_file_mode' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_less_css' ) );
 		add_action( 'pagelines_head_last', array( $this, 'draw_inline_custom_css' ) , 25 );
-	
+
 		add_action( 'extend_flush', array( $this, 'flush_version' ), 1 );
 		add_filter( 'pagelines_insert_core_less', array( $this, 'pagelines_insert_core_less_callback' ) );
 		add_action( 'admin_notices', array( $this,'less_error_report') );
 		add_action( 'wp_before_admin_bar_render', array( $this, 'less_css_bar' ) );
-		
+
 		if ( defined( 'PL_CSS_FLUSH' ) )
 			do_action( 'extend_flush' );
 		do_action( 'pagelines_max_mem' );
-		
+
 	}
 
 	function minify( $css ){
@@ -440,7 +440,7 @@ class PageLinesRenderCSS {
 		$out = '';
 		$out .= pl_css_minify( $a['core'] );
 		$out .= pl_css_minify( $b['sections'] );
-		
+
 		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
 		if ( is_multisite() )
 			$blog = sprintf( ' on blog [%s]', $blog_id );
@@ -483,7 +483,7 @@ class PageLinesRenderCSS {
 			$url = pl_get_css_dir( 'url' );
 
 			define( 'DYNAMIC_FILE_URL', sprintf( '%s/%s', $url, $file ) );
-			
+
 			pl_less_save_last_error( '', true );
 	}
 
@@ -562,9 +562,9 @@ class PageLinesRenderCSS {
 		$version = sprintf( '%s_%s', $id, $version );
 
 		$parent = apply_filters( 'pl_parent_css_url', PL_PARENT_URL );
-		
+
 		$url = add_query_arg( 'pageless', $version, trailingslashit( site_url() ) );
-		
+
 		if ( defined( 'DYNAMIC_FILE_URL' ) )
 			$url = DYNAMIC_FILE_URL;
 
@@ -616,6 +616,7 @@ class PageLinesRenderCSS {
 				set_transient( 'pagelines_core_css_backup', $a, $this->btimeout );
 				return $a;
 			} else {
+				pl_less_save_last_error( $core_less, false );
 				return get_transient( 'pagelines_core_css_backup' );
 			}
 		}
@@ -651,6 +652,7 @@ class PageLinesRenderCSS {
 				set_transient( 'pagelines_sections_css_backup', $a, $this->btimeout );
 				return $a;
 			} else {
+				pl_less_save_last_error( $sections, false );
 				return get_transient( 'pagelines_sections_css_backup' );
 			}
 		}
@@ -671,7 +673,7 @@ class PageLinesRenderCSS {
 		} else {
 
 			$start_time = microtime(true);
-			
+
 			$custom = stripslashes( pl_setting( 'custom_less' ) );
 
 			$pless = new PagelinesLess();
@@ -687,6 +689,8 @@ class PageLinesRenderCSS {
 				set_transient( 'pagelines_custom_css_backup', $a, $this->btimeout );
 				return $a;
 			} else {
+
+				pl_less_save_last_error( $custom, false );
 				return get_transient( 'pagelines_custom_css_backup' );
 			}
 		}
@@ -700,9 +704,9 @@ class PageLinesRenderCSS {
 
 	function pagelines_less_trigger() {
 		global $blog_id;
-		
+
 		if( intval( get_query_var( 'pageless' ) ) ) {
-			
+
 			pl_set_css_headers();
 
 			$defaults = array(
@@ -713,27 +717,27 @@ class PageLinesRenderCSS {
 			$a = $this->get_compiled_core();
 			$a = wp_parse_args( $a, $defaults );
 			$b = $this->get_compiled_sections();
-			
-			
-			
+
+
+
 			$gfonts = preg_match( '#(@import[^;]*;)#', $a['type'], $g );
 
 			if ( $gfonts ) {
 				$a['core'] = sprintf( "%s\n%s", $g[1], $a['core'] );
 				$a['type'] = str_replace( $g[1], '', $a['type'] );
 			}
-			
+
 			echo pl_css_minify( $a['core'] );
 			echo pl_css_minify( $b['sections'] );
 			echo pl_css_minify( $a['type'] );
 			echo pl_css_minify( $a['dynamic'] );
-			
+
 			$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
-			
+
 			$blog = ( is_multisite() ) ? sprintf( ' on blog [%s]', $blog_id ) : '';
-				
+
 			echo sprintf( __( '%s/* CSS was compiled in legacy mode at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'],  $mem, $blog );
-			
+
 			die();
 		}
 	}
@@ -764,7 +768,7 @@ class PageLinesRenderCSS {
         	prune_super_cache( $cache_path . 'supercache/', true );
         	prune_super_cache( $cache_path, true );
 		}
-		
+
 
 		if( $rules )
 			flush_rewrite_rules( true );
@@ -800,7 +804,7 @@ class PageLinesRenderCSS {
 		return $code;
 	}
 
-	
+
 
 } //end of PageLinesRenderCSS
 

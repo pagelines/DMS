@@ -101,13 +101,13 @@
 			,	theArea = btn.closest('.pl-area')
 			,	theID = theArea.attr('id')
 		
-			var message = sprintf('<h4><i class="icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="name" placeholder="Section Name..." type="text" val="" /><textarea name="desc" placeholder="Description"></textarea></form>', theID)
+			var message = sprintf('<h4><i class="icon icon-save"></i> Save New Custom Section</h4><form class="modal-form" data-area="%s"><input name="name" placeholder="Section Name..." type="text" val="" /><textarea name="desc" placeholder="Description"></textarea></form>', theID)
 		
 		
 			bootbox.confirm(
 				message
-				, '<i class="icon-remove"></i> Cancel'
-				, '<i class="icon-save"></i> Save'
+				, '<i class="icon icon-remove"></i> Cancel'
+				, '<i class="icon icon-save"></i> Save'
 				, function( result ){
 					if( result == true ){
 

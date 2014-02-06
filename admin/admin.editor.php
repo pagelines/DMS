@@ -100,7 +100,7 @@ class EditorAdmin {
 		$disabled = '';
 		$email = '';
 		$key = '';
-		$activate_text = '<i class="icon-star"></i> Activate Pro';
+		$activate_text = '<i class="icon icon-star"></i> Activate Pro';
 		$activate_btn_class = 'btn-primary'; 
 		
 		
@@ -116,7 +116,7 @@ class EditorAdmin {
 		
 		<div class="account-details alert alert-warning" style="<?php if(! $active) echo 'display: block;';?>">
 			<?php if( ! $active || $active == ''):  ?>
-				<strong><i class="icon-star-half-empty"></i> <?php _e( 'Site Not Activated', 'pagelines' ); ?>
+				<strong><i class="icon icon-star-half-empty"></i> <?php _e( 'Site Not Activated', 'pagelines' ); ?>
 				</strong>
 			<?php endif; ?>
 		</div>
@@ -125,13 +125,13 @@ class EditorAdmin {
 			<div class="account-field alert">
 		
 				<label for="pl_activation">
-					<i class="icon-star"></i> <?php _e( 'Pro Activated!', 'pagelines' ); ?>
+					<i class="icon icon-star"></i> <?php _e( 'Pro Activated!', 'pagelines' ); ?>
 					 
 					<small><?php printf($activation_message);  ?></small>
 				</label>
-				<button class="btn settings-action refresh-user btn-primary" data-action="pagelines_account"><i class="icon-refresh" ></i> <?php _e( 'Update Info', 'pagelines' ); ?>
+				<button class="btn settings-action refresh-user btn-primary" data-action="pagelines_account"><i class="icon icon-refresh" ></i> <?php _e( 'Update Info', 'pagelines' ); ?>
 				</button>
-				<button class="btn settings-action deactivate-key" data-action="pagelines_account"><i class="icon-remove" style="color: #ff0000;"></i> <?php _e( 'Deactivate', 'pagelines' ); ?>
+				<button class="btn settings-action deactivate-key" data-action="pagelines_account"><i class="icon icon-remove" style="color: #ff0000;"></i> <?php _e( 'Deactivate', 'pagelines' ); ?>
 				</button>
 		
 			</div>
@@ -154,7 +154,7 @@ class EditorAdmin {
 				<div class="submit-area account-field">
 					<button class="button button-primary settings-action" data-action="pagelines_account">
 					<?php _e( 'Update Account', 'pagelines' ); ?>
-					 <i class="icon-chevron-sign-right"></i></button>
+					 <i class="icon icon-chevron-sign-right"></i></button>
 			
 				</div>
 			</div>

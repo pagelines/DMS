@@ -162,7 +162,7 @@ class PLNavBar extends PageLinesSection {
 		
 	    	<?php if($navbartitle) printf( '<span class="navbar-title">%s</span>',$navbartitle ); ?>
 	
-	      <a href="javascript:void(0)" class="nav-btn nav-btn-navbar mm-toggle"> <?php _e('MENU', 'pagelines'); ?> <i class="icon-reorder"></i> </a>
+	      <a href="javascript:void(0)" class="nav-btn nav-btn-navbar mm-toggle"> <?php _e('MENU', 'pagelines'); ?> <i class="icon icon-reorder"></i> </a>
 			<?php 
 				if( $brand ){
 					printf( '<a class="plbrand" href="%s" title="%s">%s</a>',

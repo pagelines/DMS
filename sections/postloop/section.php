@@ -28,7 +28,7 @@ class PageLinesPostLoop extends PageLinesSection {
 				'key'		=> 'post_content',
 				'type'		=> 'edit_post',
 				'title'		=> __( 'Edit Post Content', 'pagelines' ),
-				'label'		=>	__( '<i class="icon-edit"></i> Edit Post Info', 'pagelines' ),
+				'label'		=>	__( '<i class="icon icon-edit"></i> Edit Post Info', 'pagelines' ),
 				'help'		=> __( 'This section uses WordPress posts. Edit post information using WordPress admin.', 'pagelines' ),
 				'classes'	=> 'btn-primary'
 			),
@@ -233,7 +233,7 @@ class PageLinesPostLoop extends PageLinesSection {
 							get_permalink(),
 							__("Read More", 'pagelines'),
 							the_title_attribute(array('echo'=> 0)),
-							__('Read More <i class="icon-angle-right"></i>', 'pagelines')
+							__('Read More <i class="icon icon-angle-right"></i>', 'pagelines')
 						);
 					}
 
