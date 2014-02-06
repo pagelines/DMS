@@ -18,6 +18,8 @@ class PLDeveloperTools {
 		add_filter('pl_json_blob_objects', array( $this, 'add_to_blob'));
 
 		add_action('wp_footer', array( $this, 'draw_developer_data'), 200);
+		
+		add_action( 'wp_before_admin_bar_render', array( $this, 'admin_bar' ) );
 
 		$this->url = PL_PARENT_URL . '/editor';
 
@@ -223,6 +225,35 @@ class PLDeveloperTools {
 			);
 
 		return $settings;
+	}
+
+	
+	function admin_bar() {
+		
+		if( is_admin() )
+			return;
+
+		global $wp_admin_bar;
+		$message = '';
+		if ( 1 == pl_setting( "less_dev_mode" ) ) {				
+			$message = sprintf( '&nbsp;<span class="label label-info pl-admin-bar-label">%s</span>', __( 'DMS LESS Dev', 'pagelines' ) );
+		}
+			
+		if ( 1 == pl_setting( "no_cache_mode" ) ) {
+			$message .= sprintf( '&nbsp;<span class="label label-warning pl-admin-bar-label">%s</span>', __( 'DMS No Cache Mode!', 'pagelines' ) );
+		}
+		
+		if( ! $message )
+			return;
+			
+		$wp_admin_bar->add_menu( array(
+				'parent' => false,
+				'id' => 'no_cache_mode',
+				'title' => $message,
+				'href' => site_url(),
+				'meta' => false
+			));				
+
 	}
 
 	function get_api_key() {
