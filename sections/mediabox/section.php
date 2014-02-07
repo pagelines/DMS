@@ -23,6 +23,7 @@ class PageLinesMediaBox extends PageLinesSection {
 						'type' 			=> 'image_upload',
 						'key'			=> 'mediabox_image',
 						'label' 		=> __( 'MediaBox Image', 'pagelines' ),
+						'has_alt'		=> true
 					),
 					array(
 						'type' 			=> 'text',
@@ -111,7 +112,7 @@ class PageLinesMediaBox extends PageLinesSection {
 
 
 		if( $image || $media_html )
-			$img = ($image) ? sprintf('<img data-sync="mediabox_image" src="%s" />', $image) : '';
+			$img = ( $this->opt( 'mediabox_image' ) ) ? $this->image( 'mediabox_image', $this->base_url.'/default.png' ) : '';
 		elseif(!$bg)
 			$img = sprintf('<img data-sync="mediabox_image" src="%s" />', $this->base_url.'/default.png'); // DEFAULT
 		else 
