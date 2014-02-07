@@ -614,7 +614,11 @@ class PageLinesSection {
 		$alt ='';
 		
 		if( '' != $opt && '' != $this->opt( $opt . '_alt' ) )
-			$alt = sprintf( ' alt="%s" title="%s"', $this->opt( $opt . '_alt' ), $this->opt( $opt . '_alt' ) );
+			$alt = sprintf( ' data-sync= "%s" alt="%s" title="%s"',
+			$opt,
+			$this->opt( $opt . '_alt' ),
+			$this->opt( $opt . '_alt' )
+			);
 		return sprintf( '<img src="%s"%s />',
 			$image,
 			$alt
