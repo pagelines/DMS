@@ -195,8 +195,8 @@ class PageLinesSave {
 		
 		pl_update_global_settings( $settings['global'] );
 
-		global $post;		
-		clean_post_cache( $post->ID );
+		
+		clean_post_cache( $pageID );
 
 		// Flush less
 		$dms_cache->purge('live_css');
