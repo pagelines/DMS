@@ -61,6 +61,7 @@
 	$.plVideos = {
 		init: function(){
 			
+			
 			$(window).resize(function () { 
 				
 				$(".bg-video").each(function () {
@@ -71,11 +72,22 @@
 					, 	canvas = vid.closest('.bg-video-canvas')
 					,	viewport = vid.parent()
 					
-					var vW = this.videoWidth
-					, 	vH = this.videoHeight
+					if( plIsset( this.videoWidth ) ){
+						
+						var width = parseInt( this.videoWidth )
+						, 	height = parseInt( this.videoHeight )
+						
+						canvas.attr('data-height', height)
+						canvas.attr('data-width', width)
 					
+					} else {
+						
+						var width = parseInt( canvas.attr('data-width') )
+						, 	height = parseInt( canvas.attr('data-height') )
+						
+					}
 				
-					$.plVideos.resizeToCover( vid, canvas, viewport, vH, vW )
+					$.plVideos.resizeToCover( vid, canvas, viewport, height, width )
 						
 					
 
@@ -101,14 +113,21 @@
 		    viewport.height( canvasHeight )
 
 		    var scale_h = canvasWidth / vW
-		    var scale_v = canvasWidth / vH
+		    var scale_v = canvasHeight / vH
 		    var scale = scale_h > scale_v ? scale_h : scale_v
 
 		    // don't allow scaled width < minimum video width
 		    if (scale * vW < 300) {
 				scale = 300 / vW 
 			} 
-
+			
+			// console.log('scale ' + scale )
+			// 		console.log('canvasWidth ' + canvasWidth )
+			// 		console.log('canvasHeight ' + canvasHeight )
+			// 		console.log('vW ' + scale * vW )
+			// 		console.log('vH ' + scale * vH )
+			// 
+			// 		vid.css('border', '5px solid red')
 		    // now scale the video
 		    vid.width(scale * vW);
 		    vid.height(scale * vH);
