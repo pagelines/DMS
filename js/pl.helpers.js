@@ -1,3 +1,13 @@
+// =============================
+// = PAGELINES DEFINED HELPERS =
+// =============================
+
+function plIsset( variable ){
+	if(typeof(variable) != "undefined" && variable !== null)
+		return true
+	else
+		return false
+}
 
 // =====================
 // = Parallax Handling =

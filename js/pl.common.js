@@ -567,7 +567,7 @@
 										element.removeClass('hovered');
 									}, 700); 
 								}
-								, (i * 350)
+								, (i * 200)
 							);
 						})
 

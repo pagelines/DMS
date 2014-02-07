@@ -33,12 +33,7 @@ function plUniqueID( length ) {
   return 'u'+Math.random().toString(36).substr(2, length);
 }
 
-function plIsset( variable ){
-	if(typeof(variable) != "undefined" && variable !== null)
-		return true
-	else
-		return false
-}
+
 
 function plPrint(variable){
 	if( true == jQuery.pl.config.devMode )
