@@ -1395,13 +1395,23 @@
 				}
 				
 				input[type="text"],
+				textarea, 
+				select,
+				.input-prepend .add-on{
+					
+					font-size: 12px;
+					line-height: 1.5em;
+					height: auto;
+					padding: 2px 4px;
+				}
+				input[type="text"],
 				textarea{
 					width: 100%;
 					max-width: 500px;
 					background:#f7f7f7;
-					font-size: 14px;
-					line-height: 1.5em;
-					height: auto;
+				}
+				.input-prepend .add-on{
+					padding: 2px 8px;
 				}
 				input[type="text"].pl-text-small{
 					width: 100px;
@@ -1414,11 +1424,7 @@
 						line-height: 14px;
 					}
 				}
-				.input-append .add-on, .input-prepend .add-on {
-					height: auto;
-					font-size: 14px; 
-					line-height: 1.5em;
-				}
+			
 				
 				.opt-box{
 					padding: 15px;
