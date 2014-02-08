@@ -770,14 +770,16 @@ function pl_get_area_classes( $section, $set = array(), $namespace = false ){
 	$namespace = ( $namespace ) ? $namespace : $section->id;
 
 	$class = array(
-		'theme'		=> is_array( $section->opt($namespace.'_theme') ) ? $section->opt($namespace.'_theme')[0] : $section->opt($namespace.'_theme'),
+		'theme'		=> $section->opt($namespace.'_theme'),
 		'scroll'	=> $section->opt($namespace.'_scroll'),
 		'video'		=> ( $section->opt($namespace.'_video') ) ? 'bg-video-canvas' : '',
 		'repeat'	=> ( $section->opt($namespace.'_repeat') ) ? 'pl-bg-repeat' : 'pl-bg-cover'
 	);
 	
-	$class = wp_parse_args( $set, $class );	
+	$class = wp_parse_args( $set, $class );
+	
 	return join(' ', $class);
+
 }
 
 function pl_get_area_styles( $section, $namespace = false ){
