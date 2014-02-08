@@ -277,6 +277,10 @@
 				// Also stop formdata from containing empty values and sending them. This clutters things up.
 				$.each( formData, function(i, o){
 					$.each( o, function(i2, o2){
+
+						if( ! plIsset(o2) )	// added by simon
+							return			// fixes null being passed as an array by multi_select
+
 						if( typeof(o2) == 'object' ){
 							
 							$.pl.data[scope][i][i2] = o2
