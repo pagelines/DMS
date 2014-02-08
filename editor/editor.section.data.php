@@ -45,6 +45,8 @@ class PLSectionData{
 	   $rows_affected = $wpdb->insert( $this->table_name, array( 'uid'	=> 'u12345', 'draft' => '' ) );
 	}
 	
+	
+	
 	function update_or_insert( $data ){
 		
 		$uid = $data['uid']; 
@@ -117,6 +119,41 @@ class PLSectionData{
 		$result = $this->wpdb->query( $query );
 		
 		return $result;
+		
+	}
+	
+	function update_section_option( $uid, $key, $value ){
+		
+		$query = $this->wpdb->prepare( "SELECT * FROM $this->table_name WHERE uid = %s", $uid );
+		
+		$result = $this->wpdb->get_results( $query );
+
+		// no result returns empty array
+		
+		if( ! empty( $result ) ){
+			
+			foreach( $result as $section ){
+
+				$draft_settings = stripslashes_deep( unserialize( $section->draft ) );
+
+				$draft_settings[ $key ] = $value;
+
+				$new_draft_settings = serialize( $draft_settings );
+				
+				$query = $this->wpdb->prepare("UPDATE $this->table_name SET draft = %s WHERE uid = %s", $new_draft_settings, $uid);
+				
+				$this->wpdb->query( $query );
+				
+				
+			}
+			
+		}
+		
+		
+	
+	}
+	
+	function delete_section_option( $uid, $key ){
 		
 	}
 	

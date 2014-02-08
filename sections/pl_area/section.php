@@ -12,6 +12,18 @@
 
 class PLSectionArea extends PageLinesSection {
 
+	function section_persistent(){
+		$upgrade_options = array(
+			'pl_area_image'		=> $this->id.'_background',
+			'pl_area_bg_repeat'	=> $this->id.'_repeat',
+			'pl_area_bg'		=> $this->id.'_theme',
+			'pl_area_bg_color_enable'	=> $this->id.'_color_enable',
+			'pl_area_bg_color'	=> $this->id.'_color',
+		); 
+
+		$this->upgrade_section_options( $upgrade_options );
+	
+	}
 	
 	function section_opts(){
 
@@ -67,81 +79,36 @@ class PLSectionArea extends PageLinesSection {
 						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
 					),
 					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
-				),
-				array(
-
-					'key'			=> 'pl_area_bg',
-					'type' 			=> 'select_theme',
-					
-					'label' 	=> __( 'Area Theme', 'pagelines' ),
-
-				),
+				),	
 				
-				array(
-					'key'			=> 'pl_area_bg_color_enable',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Use Custom Background Color?', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'pl_area_bg_color',
-					'type' 			=> 'color',
-					'label' 	=> __( 'Select Custom Background Color', 'pagelines' ),
-				)
 			),
-			'help' => __( 'Use a combination of the area color theme (which sets text color and base background color) along with images or a custom background color to create completely custom effects.', 'pagelines' ),
 
 		);
 		
-		$options[] = array(
-
-			'key'			=> 'pl_area_bg',
-			'col'			=> 2,
-			'type' 			=> 'multi',
-			'label' 	=> __( 'Area Background', 'pagelines' ),
-			'opts'	=> array(
-				array(
-
-					'key'			=> 'pl_area_image',
-					'type' 			=> 'image_upload',
-					'sizelimit'		=> 800000,
-					'label' 	=> __( 'Background Image', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'pl_area_bg_repeat',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Repeat Background Image', 'pagelines' ),
-				),
-				array(
-
-					'key'			=> 'pl_area_video',
-					'type' 			=> 'media_select_video',
-					'label' 	=> __( 'Video Background', 'pagelines' ),
-				),
-				
-			),
-			
-
-		);
+	
 		
 		return $options;
 	}
+	
+	
 	
 	function before_section_template( $location = '' ) {
 
 		$this->alt_standard_title = true;
 
+
+
+		
 		$scroll_effect = $this->opt('pl_area_parallax');
 		
 		if( $scroll_effect && $scroll_effect == 1 ){
 			$scroll_effect = 'pl-parallax';
 		}
 		
+	
 
-		$this->wrapper_classes['background'] = $this->opt('pl_area_bg');
 		$this->wrapper_classes['scroll'] = $scroll_effect;
 		
-		if( $this->opt('pl_area_video') )
-			$this->wrapper_classes['special'] = 'bg-video-canvas';
 
 	}
 
@@ -160,13 +127,8 @@ class PLSectionArea extends PageLinesSection {
 		
 		$inner_style .= ($this->opt('pl_area_height')) ? sprintf('min-height: %spx;', $this->opt('pl_area_height')) : '';
 		
-		$style .= ($this->opt('pl_area_image')) ? sprintf('background-image: url(%s);', $this->opt('pl_area_image')) : '';
 		
 		$classes = '';
-		
-		$style .= ( $this->opt('pl_area_bg_color_enable') && $this->opt('pl_area_bg_color') ) ? sprintf( 'background: %s;', pl_sanitize_color( $this->opt('pl_area_bg_color') ) ) : '';	
-		
-		$classes .= ($this->opt('pl_area_bg_repeat')) ? ' pl-bg-repeat' : ' pl-bg-cover';
 		
 		// If there is no output, there should be no padding or else the empty area will have height.
 		if ( $section_output ) {
@@ -191,21 +153,10 @@ class PLSectionArea extends PageLinesSection {
 			$content_class = '';
 		}
 		
-		$video = '';
-		if( $this->opt('pl_area_video') ){
-			
-			$videos = pl_get_video_sources( array( $this->opt('pl_area_video'), $this->opt('pl_area_video_2') ) );
-			$video = sprintf(
-				'<div class="bg-video-contain"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
-				$this->opt('pl_area_image'), 
-				$videos
-			);
-
-		}
 		
 	?>
 	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
-		<?php echo $video; ?>
+		
 		<div class="pl-content <?php echo $content_class;?>">
 			<?php echo $title; ?>
 			<div class="pl-inner area-region pl-sortable-area editor-row" style="<?php echo $inner_style;?>">

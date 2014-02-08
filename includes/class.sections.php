@@ -240,10 +240,22 @@ class PageLinesSection {
 		}
 	}
 	
-	function opt_update( $key, $value, $scope = 'global' ){
+	function upgrade_section_options( $array ){
+		foreach( $array as $old => $new ){
+			
+			if( $this->opt( $old ) && ! $this->opt( $new ) ){
+				$this->opt_update( $new, $this->opt( $old ) );
+			}
+			
+		}
+	}
+	
+	function opt_update( $key, $value ){
 		
 		
 		global $plpg;
+		global $sections_data_handler; 
+		
 		
 		if( is_array( $value ) ){
 			foreach( $value as $sxi => $setindex){
@@ -259,15 +271,9 @@ class PageLinesSection {
 		
 		}
 		
-		$args = array(
-			'key'	=> $key, 
-			'val'	=> $value, 
-			'scope'	=> $scope, 
-			'uid'	=> $this->meta[ 'clone' ]
-		);
 		
-		pl_setting_update( $args );
-		
+		$sections_data_handler->update_section_option( $this->meta[ 'clone' ], $key, $value );
+	
 		
 	}
 	
