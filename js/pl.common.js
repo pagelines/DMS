@@ -581,10 +581,15 @@
 				
 				element.appear(function() {
 
-				  	if( $(this).hasClass('pl-slidedown') ){
-						var endHeight = $(this).find('.pl-end-height').outerHeight()
-						console.log(endHeight+'end height')
-						$(this).css('height', endHeight)
+				  	if( element.hasClass('pl-slidedown') ){
+						
+						var endHeight = element.find('.pl-end-height').outerHeight()
+						console.log(endHeight+' end height')
+						
+						setTimeout( function(){
+							element.css('height', endHeight)
+						}, 500)
+						
 					}
 					
 				
