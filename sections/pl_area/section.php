@@ -12,7 +12,8 @@
 
 class PLSectionArea extends PageLinesSection {
 
-	function section_persistent(){
+	function section_head(){
+		
 		$upgrade_options = array(
 			'pl_area_image'		=> $this->id.'_background',
 			'pl_area_bg_repeat'	=> $this->id.'_repeat',
@@ -79,7 +80,27 @@ class PLSectionArea extends PageLinesSection {
 						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
 					),
 					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
-				),	
+				),
+				array(
+
+					'key'			=> 'pl_area_bg',
+					'type' 			=> 'select_theme',
+					
+					'label' 	=> __( 'Area Theme', 'pagelines' ),
+
+				),
+				
+				array(
+					'key'			=> 'pl_area_bg_color_enable',
+					'type' 			=> 'check',
+					'label' 	=> __( 'Use Custom Background Color?', 'pagelines' ),
+				),
+				array(
+					'key'			=> 'pl_area_bg_color',
+					'type' 			=> 'color',
+					'label' 	=> __( 'Select Custom Background Color', 'pagelines' ),
+				)
+				
 				
 			),
 
