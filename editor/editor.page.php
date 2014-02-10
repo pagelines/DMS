@@ -203,8 +203,8 @@ class PageLinesPage {
 	}
 	
 	function pl_standard_post_page(){
-		
-		if( is_post_type_archive() || pl_is_cpt() || $this->type == 'other')
+
+		if( $this->type == 'other' || false !== ( strpos( $this->type, 'forum') ) )
 			return false;
 		else 
 			return true;
