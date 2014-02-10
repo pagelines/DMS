@@ -537,14 +537,32 @@
 				.find('.pl-animation')
 				.addClass('pla-group')
 				
+			$('.pl-animation:not(.pla-group)').each(function(){
+
+				var element = $(this)
+
+				element.appear(function() {
+
+				  	if( element.hasClass('pl-slidedown') ){
+
+						var endHeight = element.find('.pl-end-height').outerHeight()
+						
+						element.css('height', endHeight)
+
+					}
+
+
+				 	$(this)
+						.addClass('animation-loaded')
+						.trigger('animation_loaded')
+
+				})
+
+			})
+				
 			$('.pl-animation-group').each(function(){
 				
 				var element = $(this)
-				
-
-						
-
-				
 
 				element.appear(function() {
 					
@@ -575,31 +593,7 @@
 
 			})
 
-			$('.pl-animation:not(.pla-group)').each(function(){
-				
-				var element = $(this)
-				
-				element.appear(function() {
-
-				  	if( element.hasClass('pl-slidedown') ){
-						
-						var endHeight = element.find('.pl-end-height').outerHeight()
-						console.log(endHeight+' end height')
-						
-						setTimeout( function(){
-							element.css('height', endHeight)
-						}, 500)
-						
-					}
-					
-				
-				 	$(this)
-						.addClass('animation-loaded')
-						.trigger('animation_loaded')
-
-				})
 			
-			})
 			
 			$('.pl-counter').each(function(){
 				
