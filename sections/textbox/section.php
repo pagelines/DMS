@@ -122,9 +122,8 @@ class PageLinesTextBox extends PageLinesSection {
 
 //		$title = $this->opt('textbox_title');
 		
-		if( ! $text && ! $title ){
-			$title = 'Textbox Section';
-			$text = "Add Content!";
+		if( ! $text ){
+			$text = 'Textbox Section';
 		} 
 		
 		// if( 'strong' == $title_wrap )
