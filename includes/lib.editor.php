@@ -769,6 +769,9 @@ function pl_get_area_classes( $section, $set = array(), $namespace = false ){
 
 	$namespace = ( $namespace ) ? $namespace : $section->id;
 
+	if( 'navbar' == $namespace )
+		$namespace = 'navbar_area';
+
 	$class = array(
 		'theme'		=> $section->opt($namespace.'_theme'),
 		'scroll'	=> $section->opt($namespace.'_scroll'),
