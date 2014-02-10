@@ -264,7 +264,7 @@ h3.pl-section-title{
 	background: @pl-link;
 }
 .pl-border{
-	border-color: @baseDarkerMore; 
+	border-color: @baseContrastDark; 
 }
 .pl-contrast{
 	.hex_to_rgb_bg( @pl-text, .03 );
@@ -442,9 +442,13 @@ body{margin: 0;}
 	}
 	&.pl-loader-element{
 		position: absolute; 
-		background: @baseContrastSlight;
+		background: @baseContrastDark;
+	//	#pattern > .striped(@pl-base);
 		.pl-loader-content{
-			padding-top: 100px;
+			position: absolute; 
+			top: 50%;
+			left: 50%; 
+			margin: -30px 0 0 -30px;
 		}
 	}
 	
