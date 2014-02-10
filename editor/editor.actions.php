@@ -345,7 +345,7 @@ function pagelines_check_updater( $note ) {
 	
 	if( ! pl_check_updater_exists() ) { // need to install...
 		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
-		$message = '<a class="btn btn-mini btn-warning" href="' . esc_url( $install_url ) . '"><i class="icon icon-download"></i> Install the PageLines Updater plugin</a> to activate this site and get updates for your PageLines themes and plugins.';
+		$message = sprintf( '<a class="btn btn-mini btn-warning" href="%s" class="icon icon-download"></i> %s</a> %s', esc_url( $install_url ), __( 'Install the PageLines Updater plugin', 'pagelines' ), __( 'to activate this site and get updates for your PageLines themes and plugins.', 'pagelines' ) );
 	} else {
 		// must be installed..maybe its not active?
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
