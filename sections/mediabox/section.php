@@ -11,6 +11,17 @@
 
 class PageLinesMediaBox extends PageLinesSection {
 
+	function section_head(){
+		
+		// Upgrade title options from 1.1 > 1.2
+		$upgrade_options = array(
+			'mediabox_title'		=> 'pl_standard_title',
+		); 
+
+		$this->upgrade_section_options( $upgrade_options );
+	
+	}
+
 	function section_opts(){
 		$opts = array(
 	
@@ -25,11 +36,11 @@ class PageLinesMediaBox extends PageLinesSection {
 						'label' 		=> __( 'MediaBox Image', 'pagelines' ),
 						'has_alt'		=> true
 					),
-					array(
-						'type' 			=> 'text',
-						'key'			=> 'mediabox_title',
-						'label' 		=> __( 'Title', 'pagelines' ),
-					),
+					// array(
+					// 						'type' 			=> 'text',
+					// 						'key'			=> 'mediabox_title',
+					// 						'label' 		=> __( 'Title', 'pagelines' ),
+					// 					),
 					array(
 						'type' 			=> 'textarea',
 						'key'			=> 'mediabox_html',
@@ -103,7 +114,7 @@ class PageLinesMediaBox extends PageLinesSection {
 		$media_html = $this->opt('mediabox_html');
 		$disable_center = $this->opt('disable_centering');
 
-		$title = ( $this->opt('mediabox_title') ) ? sprintf('<h3 data-sync="mediabox_title">%s</h3>', $this->opt('mediabox_title')) : '';
+		//$title = ( $this->opt('mediabox_title') ) ? sprintf('<h3 data-sync="mediabox_title">%s</h3>', $this->opt('mediabox_title')) : '';
 		$bg = ( $this->opt('mediabox_background') ) ? sprintf('background-image: url(%s);', $this->opt('mediabox_background')) : '';
 		
 		$set_height = ( $this->opt('mediabox_height') )  ? $this->opt('mediabox_height') : 30;
@@ -144,7 +155,7 @@ class PageLinesMediaBox extends PageLinesSection {
 		printf(
 			'<div class="mediabox-wrap %s pl-animation fix" %s style="%s%s">
 				<div class="the-media fitvids pl-centered %s hentry">
-					%s%s
+					%s
 					<div class="the-media-html">%s</div>
 				</div>
 			</div>', 
@@ -154,7 +165,6 @@ class PageLinesMediaBox extends PageLinesSection {
 			$height, 
 			$align_class,
 			$img, 
-			$title,
 			$html
 		);
 	

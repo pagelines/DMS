@@ -14,6 +14,7 @@ class PLSectionArea extends PageLinesSection {
 
 	function section_head(){
 		
+		// Upgrade area background options from 1.1 > 1.2
 		$upgrade_options = array(
 			'pl_area_image'		=> $this->id.'_background',
 			'pl_area_bg_repeat'	=> $this->id.'_repeat',
@@ -81,25 +82,6 @@ class PLSectionArea extends PageLinesSection {
 					),
 					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
 				),
-				array(
-
-					'key'			=> 'pl_area_bg',
-					'type' 			=> 'select_theme',
-					
-					'label' 	=> __( 'Area Theme', 'pagelines' ),
-
-				),
-				
-				array(
-					'key'			=> 'pl_area_bg_color_enable',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Use Custom Background Color?', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'pl_area_bg_color',
-					'type' 			=> 'color',
-					'label' 	=> __( 'Select Custom Background Color', 'pagelines' ),
-				)
 				
 				
 			),
@@ -144,7 +126,7 @@ class PLSectionArea extends PageLinesSection {
 		
 		
 		// Use alt mode for this
-		$title = ( $this->opt('pl_standard_title') ) ? sprintf( '<h2 class="pl-section-title pla-from-bottom pl-animation">%s</h2>', $this->opt('pl_standard_title') ) : '';
+		$title = ( $this->opt('pl_standard_title') ) ? sprintf( '<h2 class="pl-section-title pla-from-top subtle pl-animation">%s</h2>', $this->opt('pl_standard_title') ) : '';
 		
 		$inner_style .= ($this->opt('pl_area_height')) ? sprintf('min-height: %spx;', $this->opt('pl_area_height')) : '';
 		

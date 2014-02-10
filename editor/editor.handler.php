@@ -932,7 +932,7 @@ class PageLinesTemplateHandler {
 		$title = ( ! $s->alt_standard_title ) ? $s->opt('pl_standard_title') : false;
 		
 		if( $title ){
-			$attr = 'class="pl-section-title pla-from-botton pl-animation" data-sync="pl_standard_title"';
+			$attr = 'class="pl-section-title pla-from-top subtle pl-animation" data-sync="pl_standard_title"';
 			$title = ( $s->level == 0 ) ? sprintf( '<h2 %s>%s</h2>', $attr, $title ) : sprintf( '<h3 %s>%s</h3>', $attr, $title );
 		}
 		
