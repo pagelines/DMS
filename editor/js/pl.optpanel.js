@@ -732,7 +732,7 @@
 					,	attach_value =  oAttach.value
 					,	attach_name = (optLevel == 3) ? sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, attach_key ) : sprintf('%s[%s]', that.uniqueID, attach_key )
 					
-					console.log(oAttach)
+				//	console.log(oAttach)
 
 					oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
 
