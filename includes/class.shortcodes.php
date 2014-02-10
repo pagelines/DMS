@@ -324,7 +324,8 @@ class PageLines_ShortCodes {
 
 		$defaults = array(
 			'before' => '',
-			'after' => ''
+			'after' => '', 
+			'class'	=> ''
 		);
 		$atts = shortcode_atts( $defaults, $atts );
 
@@ -333,7 +334,7 @@ class PageLines_ShortCodes {
 		the_author_posts_link();
 		$author = ob_get_clean();
 
-		$output = sprintf( '<span class="author vcard sc">%2$s<span class="fn">%1$s</span>%3$s</span>', $author, $atts['before'], $atts['after'] );
+		$output = sprintf( '<span class="author vcard sc %4$s">%2$s<span class="fn">%1$s</span>%3$s</span>', $author, $atts['before'], $atts['after'], $atts['class'] );
 
 		return apply_filters( 'pagelines_post_author_shortcode', $output, $atts );
 	}
