@@ -40,16 +40,21 @@ class EditorLessHandler{
 
 	function check_last_error() {
 
-		if( ! current_user_can('manage_options' ) || false ===  get_theme_mod( 'less_last_error' ) || true == pl_setting( 'disable_less_errors' ) )
+		$error = get_theme_mod( 'less_last_error' );
+		if( ! current_user_can('manage_options' ) || false ===  get_theme_mod( 'less_last_error' ) )
 			return;
+		
+		if( false === ( strpos( $error, 'filesystem' ) ) ) {
+			// css error...
+			$message = sprintf( 'DMS Less System encountered an error<br /><kbd>%s</kbd>', $error ); 
+		} else {
+			// this mssage can be suppressed.
+			if( true === pl_setting( 'disable_less_errors' ) )
+				return;
 
-		ob_start();
-		?>
-		<div id="message" class="updated below-h2 fade">
-		  	<p>It appears your WordPress install can't write to your servers file system. This may adversely affect your sites performance. Check with your host about resolving this issue.<br />To hide these notices, visit PageLines options panel.</p>
-		</div>
-		<?php
-		echo ob_get_clean();
+			$message = sprintf( "It appears your WordPress install can't write to your servers file system. This may adversely affect your sites performance. Check with your host about resolving this issue.<br />To hide these notices, visit PageLines options panel.<br /><i>%s</i>", $error );
+		}
+		printf( '<div class="updated fade"><p>%s</p></div>', $message );
 	}
 
 	/**
@@ -84,7 +89,7 @@ class EditorLessHandler{
 	function pagelines_draft_render() {
 
 		if( isset( $_GET['pagedraft'] ) ) {
-
+			pl_less_save_last_error( '', true );
 			global $post;
 			$this->compare_less();
 
