@@ -128,8 +128,14 @@ class EditorFileOpts {
 		if( isset( $file_data['pl-user-templates'] ) && 'checked' == $opts['page_tpl_import'] ) {
 
 			$existing_templates = get_option( 'pl-user-templates');
-
-			$new_templates = wp_parse_args($file_data['pl-user-templates'], $existing_templates);
+			
+			$new = array(
+				'draft'	=> $file_data['pl-user-templates'],
+				'live'	=> $file_data['pl-user-templates']
+			);
+			
+			
+			$new_templates = wp_parse_args($new, $existing_templates);
 
 			$parsed['imported_data'] = $file_data['pl-user-templates'];
 			$parsed['existing'] = $existing_templates;
@@ -165,13 +171,16 @@ class EditorFileOpts {
 		// $option['pl-template_map'] = get_option( 'pl-template-map', array() );
 
 		// grab user templates
+		
+		
+		
 		if( isset( $this->data->templates ) ) {
 
 			$templates =  get_option( 'pl-user-templates', array() );
 
 			foreach( $this->data->templates as $t => $s ) {
-				if( isset( $templates[$t] ) )
-					$option['pl-user-templates'][$t] = $templates[$t];
+				if( isset( $templates['live'][$t] ) )
+					$option['pl-user-templates'][$t] = $templates['live'][$t];
 			}
 		}
 
