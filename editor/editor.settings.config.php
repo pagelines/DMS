@@ -206,7 +206,7 @@ class EditorSettings {
 			array(
 				'key'		=> 'karma_icon',
 				'label'		=> __( 'Select icon for Social Counter', 'pagelines' ),
-				'default'	=> 'icon-sun',
+				'default'	=> 'sun',
 				'title'		=> 'Social Counter',
 				'type'		=> 'select_icon'
 			),

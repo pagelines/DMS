@@ -14,7 +14,7 @@ function pl_get_social_button( $args = array() ){
 	
 	$atts = wp_parse_args( $args, $defaults );
 	
-	$icon = sprintf('<span class="pl-social-icon"><i class="icon-%s"></i> </span><span class="pl-social-count">%s</span>', $atts['btn'], $atts['count']);
+	$icon = sprintf('<span class="pl-social-icon"><i class="icon icon-%s"></i> </span><span class="pl-social-count">%s</span>', $atts['btn'], $atts['count']);
 
 	$btn = sprintf('<span class="pl-social-counter pl-social-%s %s" data-social="%s" %s>%s</span>', $atts['btn'], $atts['classes'], $atts['btn'], $atts['atts'], $icon );
 		
