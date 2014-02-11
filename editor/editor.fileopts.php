@@ -155,6 +155,18 @@ class EditorFileOpts {
 			$parsed[] = 'meta-data';
 		}
 
+		if( isset( $file_data['section_data'] ) ) {
+
+			$section_opts = $file_data['section_data'];
+			global $sections_data_handler;
+		
+			$section_data = array();
+			foreach( $section_opts as $data ) {
+				$section_data[$data['uid']] = unserialize( $data['live'] );
+			}
+			$sections = $sections_data_handler->create_items($section_data);
+			$parsed['section_data'] = $section_data;
+		}
 		return json_encode( pl_arrays_to_objects( $parsed ) );
 	}
 
@@ -217,6 +229,11 @@ class EditorFileOpts {
 			}
 			$option['post_meta'] = $meta;
 		}
+
+		// do section data
+		global $sections_data_handler;
+		$option['section_data'] = $sections_data_handler->dump_opts();
+
 
 		$contents = json_encode( $option );
 		$contents .= $this->get_file_headers();

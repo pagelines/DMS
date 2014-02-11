@@ -158,6 +158,14 @@ class PLSectionData{
 	
 	}
 	
+	function dump_opts() {
+		$query = $this->wpdb->prepare( "SELECT * FROM $this->table_name" );
+		
+		$result = $this->wpdb->get_results( $query );
+		
+		return $result;
+	}
+	
 	function delete_section_option( $uid, $key ){
 		
 	}
