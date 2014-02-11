@@ -41,6 +41,7 @@ class EditorLessHandler{
 	function check_last_error() {
 
 		$error = get_theme_mod( 'less_last_error' );
+
 		if( ! current_user_can('manage_options' ) || false ===  get_theme_mod( 'less_last_error' ) )
 			return;
 		
@@ -89,7 +90,7 @@ class EditorLessHandler{
 	function pagelines_draft_render() {
 
 		if( isset( $_GET['pagedraft'] ) ) {
-			pl_less_save_last_error( '', true );
+
 			global $post;
 			$this->compare_less();
 
