@@ -255,9 +255,6 @@ class PageLinesSectionsHandler{
 				$desc = __( '<span class="badge badge-important">PRO ONLY</span>', 'pagelines' );
 			}
 
-
-
-
 			$data_array = array(
 				'object' 	=> $s->class_name,
 				'sid'		=> $s->id,
@@ -286,7 +283,7 @@ class PageLinesSectionsHandler{
 				'data_array'	=> $data_array,
 				'thumb'			=> $s->screenshot,
 				'name'			=> $name,
-				'sub'			=> $desc
+				'sub'			=> ( $full_width ) ? __( 'Full Width', 'pagelines' ) : __( 'Content Width', 'pagelines' )
 			);
 
 
@@ -296,6 +293,8 @@ class PageLinesSectionsHandler{
 				$args['class_array']['section'] = $full_width_classes;
 				$args['class_array'][] = 'full-width';
 				$args['name'] = $name.' (Full)';
+			
+				$args['sub'] = __( 'Full Width', 'pagelines' );
 				$list .= $this->xlist->get_x_list_item( $args );
 			}
 
