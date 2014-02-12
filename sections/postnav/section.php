@@ -15,9 +15,17 @@
 
 class PageLinesPostNav extends PageLinesSection {
 
-	/**
-	* Section template.
-	*/
+	function section_persistent(){
+		add_filter('previous_post_link', array($this, 'add_btn_class' ) );
+		add_filter('next_post_link', array($this, 'add_btn_class') );
+	
+	}
+
+	function add_btn_class( $out ) {
+		$out = str_replace( '<a', '<a class="btn btn-mini"', $out );
+	    return $out;
+	}
+	
    function section_template() {
 
 		pagelines_register_hook( 'pagelines_section_before_postnav' ); // Hook ?>
