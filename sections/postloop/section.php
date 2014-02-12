@@ -164,6 +164,8 @@ class PageLinesPostLoop extends PageLinesSection {
 			$class[ ] = ( ! $postlist ) ? 'standard-page' : '';
 
 			$class[ ] = ( is_single() ) ? 'single-post' : '';
+			
+			$class[ ] = 'pl-border';
 
 			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true);
 
@@ -180,7 +182,7 @@ class PageLinesPostLoop extends PageLinesSection {
 							if( get_post_type() != 'page' )
 								echo do_shortcode( '[pl_author_avatar size="80"][post_author_posts_link class="pl-border"][pl_karma]' );
 							else 
-								printf('<div class="metaicon"><i class="icon-file icon-3x"></i></div>');
+								printf('<div class="metaicon"><i class="icon icon-file icon-3x"></i></div>');
 						echo '</div>';
 					}
 						
