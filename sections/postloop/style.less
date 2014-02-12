@@ -24,40 +24,7 @@
 		margin:0;
 	}
 
-	.metahead{
-
-		width: 70px;
-		position: absolute;
-		left: 0;
-		top: 0;
-		font-size: 85%;
-		line-height: 1.2em;
-		.metaicon{
-			float: right;
-			margin-top: 17px;
-		}
-		.author{
-			font-weight: 600;
-			border-style: solid;
-			border-bottom-width: 1px;
-			display: block;
-			margin-bottom: 10px;
-		}
-		a{
-			color: @pl-text;
-
-			display: block;
-			text-align: right;
-			margin-bottom: 8px;
-			.avatar{
-				max-width: 50px;
-			}
-			&:last-child{
-				border-bottom: none;
-			}
-		}
-
-	}
+	
 
 	.metamedia{
 		margin-bottom: 15px;
@@ -84,10 +51,45 @@
 
 }
 
+.metahead{
+
+	width: 70px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 85%;
+	line-height: 1.2em;
+	.metaicon{
+		float: right;
+		margin-top: 6px;
+	}
+	.author{
+		font-weight: 600;
+		border-style: solid;
+		border-bottom-width: 1px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	a{
+		color: @pl-text;
+
+		display: block;
+		text-align: right;
+		margin-bottom: 8px;
+		.avatar{
+			max-width: 50px;
+		}
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+
+}
 
 .multi-post {
 	.hentry {
-		border-bottom: 1px solid @baseContrast;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
 		padding-bottom: 50px;
 		margin-bottom: 50px;
 	}

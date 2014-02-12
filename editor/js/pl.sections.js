@@ -213,7 +213,7 @@ $.plSections = {
 		}
 		
 
-		if(!element.hasClass('ui-draggable-dragging'))
+		if( ! element.hasClass('ui-draggable-dragging') )
 			element.show()
 
 
