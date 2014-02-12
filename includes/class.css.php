@@ -12,7 +12,6 @@
  */
 class PageLinesCSS {
 
-
 	/**
 	*
 	* @TODO document
@@ -33,6 +32,8 @@ class PageLinesCSS {
 	*
 	*/
 	function typography(){
+		if( ! isset( $this->css ) )
+			$this->css = '';
 
 		$foundry = new PageLinesFoundry;
 		$this->css .= $foundry->render_css();
@@ -45,6 +46,10 @@ class PageLinesCSS {
 	*
 	*/
 	function layout(){
+		
+		if( ! isset( $this->css ) )
+			$this->css = '';
+
 		global $pagelines_layout;
 		$this->css .= $pagelines_layout->get_layout_inline();
 	}
