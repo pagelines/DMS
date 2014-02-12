@@ -4,6 +4,11 @@
   (wporg version)
 
 ********************************************************
+
+Version 1.0.3.6
+
+	- CORE - Fix undefined index.
+
 Version 1.0.3.5
 
 	- CORE - Backported option filters.
