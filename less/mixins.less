@@ -672,7 +672,8 @@
 
 		.row,
 		.row-fluid,
-		.editor-row {
+		.editor-row,
+		.row-no-response{
 			width: 100%;
 			.clearfix();
 			> [class*="span"] {
@@ -682,7 +683,8 @@
 
 
 			}
-			&.row-closed{
+			&.row-closed,
+			&.row-set{
 				> [class*="span"]{
 					margin-left: 0;
 					margin-bottom: 0;
@@ -692,7 +694,8 @@
 						padding: 10px;
 					}
 				}
-				
+			}
+			&.row-closed{
 				.span1{ width: 8.333333333%;}
 				.span2{ width: 16.666666666%;}
 				.span3{ width: 25%;}
