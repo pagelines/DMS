@@ -65,6 +65,10 @@ class EditorFileOpts {
 
 	function make_download(){
 
+		if( ! current_user_can( 'edit_theme_options' ) ) {
+			wp_die( __( 'Cheatin’ uh?' ) );
+		}
+
 		$timestamp = date("Y-m-d_H:i:s");
 		$filename = sprintf( 'pl-config_%s.json', $timestamp );
 		header('Cache-Control: public, must-revalidate');
