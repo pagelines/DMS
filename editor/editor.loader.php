@@ -13,12 +13,15 @@ class PageLinesPageLoader{
 		if( pl_less_dev() ){
 			add_action('pagelines_head', array( $this, 'load_time_tracker_start')); 
 			add_action('wp_footer', array( $this, 'load_time_tracker_stop'));
+		} else {
+			
+			add_action('wp_footer', array( $this, 'loader_ready_script'), 20 );
+			add_action('pagelines_head_last', array( $this, 'loader_inline_style') );
+			add_action('pagelines_before_site', array( $this, 'loader_html') );
 		}
 		
 		
-		add_action('wp_footer', array( $this, 'loader_ready_script'), 20 );
-		add_action('pagelines_head_last', array( $this, 'loader_inline_style') );
-		add_action('pagelines_before_site', array( $this, 'loader_html') );
+		
 	}
 	
 	function load_time_tracker_start(){
