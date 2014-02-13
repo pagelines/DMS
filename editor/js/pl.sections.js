@@ -200,15 +200,7 @@ $.plSections = {
 			}, 700);
 			var img = element.find( '.banner-content' ).html()
 			
-			
-			
-			var loadArgs = {	refresh: false
-								, refreshText: 'Congrats! <br/> Section added. Reloading page to add scripts.'
-								, location: 'passive load'
-								, load: 'section'
-							}
-			
-			$.pageBuilder.reloadConfig( loadArgs )
+			$.pageBuilder.reloadAllEvents()
 			
 		}
 		
