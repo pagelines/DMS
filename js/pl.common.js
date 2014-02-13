@@ -146,14 +146,18 @@
 
 				var gallery = $(this)
 				,	animate = gallery.data('animate') || true
+				,	smoothHeight = gallery.data('smoothheight') || true
 				,	transition = gallery.data('transition') || 'fade'
+				
 
 				gallery.imagesLoaded( function(instance){
 
+					
+
 					gallery.flexslider({
 				        animation: transition
-						, smoothHeight: true
-						, slideshow: false
+						, smoothHeight: smoothHeight
+						, slideshow: animate
 				    })
 					
 					if( gallery.find('.slides li').length <= 1 ){
