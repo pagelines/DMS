@@ -20,11 +20,17 @@ class PageLinesWidgetizer extends PageLinesSection {
 
 	function change_markup( $params ){
 
+
+		// failsafe if sidebar registered w no params
+		if( $params[0]['before_widget'] == '' ){
+			
+			$params[0]['before_widget'] = sprintf('<li id="%1$s" class="widget widget_%1$s">', $params[0]['widget_id']);
+			$params[0]['after_widget']  = '</li>';
+			$params[0]['before_title']  = '<h2 class="widgettitle">';
+			$params[0]['after_title']   = '</h2>';
+			
+		}
 		
-		$params[0]['before_widget'] = sprintf('<li id="%1$s" class="widget widget_%1$s">', $params[0]['widget_id']);
-		$params[0]['after_widget']  = '</li>';
-		$params[0]['before_title']  = '<h2 class="widgettitle">';
-		$params[0]['after_title']   = '</h2>'; 
 			
 		return $params;
 	}
