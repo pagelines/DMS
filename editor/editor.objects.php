@@ -91,6 +91,9 @@ class PLCustomObjects{
 		
 		$key = ( $args['key'] ) ? $args['key'] : pl_create_id( $args['name'] );
 
+		if( isset( $this->objects[$key] ) )
+			$key = $key . '_' . pl_new_clone_id();
+
 		$new = array( $key => $args );
 
 		// turns out you can add arrays, puts new templates at front
