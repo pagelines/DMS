@@ -105,8 +105,7 @@ function pagelines_register_js() {
 	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), pl_get_cache_key(), true );
 
 	// Load Supersize BG Script
-	if( get_post_format() == 'gallery' )
-		wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), pl_get_cache_key(), true );
+	wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), pl_get_cache_key(), true );
 
 }
 
