@@ -247,13 +247,16 @@ h3.pl-section-title{
 }
 
 .nav-theme li {
-	a{
+	> a, 
+	> span{
 		border-color: @pl-text; 
 	}
-	
-	&:hover a,
-	&.active a{
-		background-color: @pl-text;
+	&:hover,
+	&.active{
+		> a,
+		> span{
+			background-color: @pl-text;
+		}
 	}
 }
 
@@ -301,13 +304,16 @@ h3.pl-section-title{
 		border-color: #eee;
 	}
 	.nav-theme li {
-		a{
+		> a, 
+		> span{
 			border-color: #000; 
 		}
-		
-		&:hover a,
-		&.active a{
-			background-color: #000;
+		&:hover,
+		&.active{
+			> a,
+			> span{
+				background-color: #000;
+			}
 		}
 	}
 	.pl-contrast,
@@ -336,13 +342,16 @@ h3.pl-section-title{
 		color:#fff; 
 	}
 	.nav-theme li {
-		a{
-			border-color: rgba(255,255,255,.7); 
+		> a, 
+		> span{
+			border-color: #fff; 
 		}
-		
-		&:hover a,
-		&.active a{
-			background-color: rgba(255,255,255,.7);
+		&:hover,
+		&.active{
+			> a,
+			> span{
+				background-color: #fff;
+			}
 		}
 	}
 	.widget li,
@@ -384,6 +393,7 @@ h3.pl-section-title{
 }
 
 .pl-dark-img{
+	color: #fff;
 	background-color:#000; 
 	.pl-base{
 		background-color: #000; 
@@ -393,7 +403,7 @@ h3.pl-section-title{
 }
 
 .pl-light-img{
-
+	color: #000;
 	text-shadow: 0 1px 0 rgba(255,255,255,.5);
 	
 }
