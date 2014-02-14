@@ -1,5 +1,26 @@
 <?php
 
+// failsafe if sidebar registered w no params
+// this is set to nothing in custom sidebars so we fix here.
+add_filter('init', 'pl_check_sidebar_markup');
+function pl_check_sidebar_markup( ){
+
+	global $wp_registered_sidebars;
+	
+	foreach( $wp_registered_sidebars as &$sb ){
+		if( $sb['before_widget'] == '' ){
+			
+			$sb['before_widget'] = '<li id="%1$s" class="widget %2$s">';
+			$sb['after_widget']  = '</li>';
+			$sb['before_title']  = '<h2 class="widgettitle">';
+			$sb['after_title']   = '</h2>';
+			
+		}
+	}
+	unset($sb);
+
+}
+
 add_action( 'pagelines_hook_init', 'load_pagelines_admin' ); 
 function load_pagelines_admin(){
 			
