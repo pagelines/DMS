@@ -813,7 +813,7 @@ function pl_standard_video_bg( $section, $namespace = false ){
 		
 		$videos = pl_get_video_sources( array( $section->opt( $namespace.'_video'), $section->opt( $namespace.'_video_2') ) );
 		$video = sprintf(
-			'<div class="bg-video-contain"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
+			'<div class="bg-video-viewport"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
 			pl_transparent_image(), 
 			$videos
 		);
