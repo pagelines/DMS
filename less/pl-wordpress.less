@@ -9,14 +9,24 @@
 
 .woocommerce , 
 .woocommerce-page  {
+	#content div.product div.images img{
+		&, &:hover{
+				box-shadow: none;	
+		}
+	
+	}
 	ul.products {
 		a.add_to_cart_button{
 			margin-bottom: 10px;
 		}
 		li.product {
-
+			border-bottom: none;
 			> a {
 				color: inherit;
+				&:hover img, 
+				img{
+					box-shadow: none;
+				}
 			}
 			h3{
 				font-size: 19px;

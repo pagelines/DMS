@@ -62,6 +62,7 @@ require_once( PL_INCLUDES . '/lib.theming.php' );
 // Post Media Functions
 require_once( PL_INCLUDES . '/lib.posts.php' );
 
+
 // Shortcodes
 require_once( PL_INCLUDES . '/class.shortcodes.php');
 
@@ -74,6 +75,9 @@ require_once( PL_INCLUDES . '/init.editor.php' );
 
 // V3 Editor functions --- > always load
 require_once( PL_INCLUDES . '/lib.editor.php' );
+
+// Commerce Stuff
+require_once( PL_INCLUDES . '/lib.commerce.php' );
 
 // LESS Functions
 require_once( PL_INCLUDES . '/less.functions.php' );

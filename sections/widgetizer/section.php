@@ -18,6 +18,17 @@
 class PageLinesWidgetizer extends PageLinesSection {
 
 
+	function change_markup( $params ){
+
+		
+		$params[0]['before_widget'] = sprintf('<li id="%1$s" class="widget widget_%1$s">', $params[0]['widget_id']);
+		$params[0]['after_widget']  = '</li>';
+		$params[0]['before_title']  = '<h2 class="widgettitle">';
+		$params[0]['after_title']   = '</h2>'; 
+			
+		return $params;
+	}
+
 	function section_opts(){
 
 
@@ -65,9 +76,11 @@ class PageLinesWidgetizer extends PageLinesSection {
    function section_template() {
 	$area = $this->opt('widgetizer_area');
 
-	if($area)
+	if($area){
+		add_filter('dynamic_sidebar_params', array( $this, 'change_markup'));
 		pagelines_draw_sidebar( $area );
-	else
+		remove_filter('dynamic_sidebar_params', array( $this, 'change_markup'));
+	}else
 		echo setup_section_notify( $this );
 
 	}
