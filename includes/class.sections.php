@@ -277,6 +277,38 @@ class PageLinesSection {
 		
 	}
 	
+	function get_posts(){
+		
+		$post_type = ( $this->opt( 'post_type' ) ) ? $this->opt( 'post_type' ) : 'post';
+
+		$pt = get_post_type_object($post_type);
+
+		$total = ( $this->opt('post_total') ) ? $this->opt( $this->opt('post_total') ) : '10';
+
+		$sorting = ( $this->opt('post_sort') ) ? $ $this->opt('post_sort')  : 'DESC';
+
+		$orderby = ( 'rand' == $this->opt('post_sort') ) ? 'rand' : 'date'; 
+
+		$the_query = array(
+			'posts_per_page' 	=> $total,
+			'post_type' 		=> $post_type,
+			'orderby'          => $orderby,
+			'order'            => $sorting,
+		);
+
+		if( $this->opt( 'meta_key' ) && $this->opt( 'meta_key' ) != '' && $this->opt( 'meta_value' ) ){
+			$the_query['meta_key'] = $this->opt( 'meta_key' );
+			$the_query['meta_value'] = $this->opt( 'meta_value' );
+		}
+		
+		
+		$filter_tax = ( $this->opt( 'category' ) ) ? $this->opt( 'category' ) : 'category';
+		
+		$posts = get_posts( $the_query );
+		
+		return $posts;
+	}
+	
 	/*
 	 * Upgrade options from old one off option format to a new array format
 	 * All parameters are required and care should be taken to make sure its non destructive
