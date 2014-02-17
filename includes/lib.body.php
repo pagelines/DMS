@@ -96,10 +96,9 @@ function pagelines_special_content_wrap_top(){
  */
 function pagelines_body_classes(){
 
-	global $pagelines_addclasses, $plpg;
-
+	global $pagelines_addclasses, $plpg, $pl_custom_template;
+	
 	$special_body_class = (pl_setting('special_body_class')) ? pl_setting('special_body_class') : '';
-
 	
 	$classes = array();
 	
@@ -117,9 +116,9 @@ function pagelines_body_classes(){
 	if ( isset( $pagelines_addclasses ) && $pagelines_addclasses )
 		$classes = array_merge( $classes, (array) explode( ' ', $pagelines_addclasses ) );
 
-	// Add last imported template for styling
-	if( is_object( $plpg ) && false != $plpg->template && '' != $plpg->template )
-		$classes[] = sprintf( 'last-imported-%s', $plpg->template );
+	$template = ( isset( $pl_custom_template['key'] ) ) ? $pl_custom_template['key'] : 'none';
+	
+	$classes[] = sprintf( 'template-%s', $template );
 
 	// ensure no duplicates or empties
 	$classes = array_unique( array_filter( $classes ) );
