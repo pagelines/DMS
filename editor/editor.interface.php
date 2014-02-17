@@ -140,12 +140,13 @@ class EditorInterface {
 		if( is_file( $core_lang_file ) )
 			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $core_lang_url );
 
-		$theme_lang_url = sprintf( '%s/%s.po', PAGELINES_THEME_LANG_URL, $locale );
-		$theme_lang_file = sprintf( '%s/%s.po', PAGELINES_THEME_LANG_DIR, $locale );
+		if( defined( 'PAGELINES_THEME_LANG_DIR' ) ) {
+			$theme_lang_url = sprintf( '%s/%s.po', PAGELINES_THEME_LANG_URL, $locale );
+			$theme_lang_file = sprintf( '%s/%s.po', PAGELINES_THEME_LANG_DIR, $locale );
 
-		if( is_file( $theme_lang_file ) )
-			$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $theme_lang_url );
-
+			if( is_file( $theme_lang_file ) )
+				$text = sprintf( "\n<link rel='gettext' type='application/x-po' href='%s' />", $theme_lang_url );
+		}
 		echo $text;
 	}
 	function toolbar_config(){
