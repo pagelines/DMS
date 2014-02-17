@@ -200,11 +200,12 @@ $.plSections = {
 			}, 700);
 			var img = element.find( '.banner-content' ).html()
 			
-			var loadArgs = { 
+			var loadArgs = {
 				refresh: false
-			}
-						
-			$.pageBuilder.reloadConfig( loadArgs )
+				, load: 'section'
+				}
+
+				$.pageBuilder.reloadConfig( loadArgs )
 			
 		}
 		
