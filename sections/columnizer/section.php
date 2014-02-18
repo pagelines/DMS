@@ -23,7 +23,7 @@ class PageLinesColumnizer extends PageLinesSection {
 
 	function change_markup( $params ){
 
-		$cols = ($this->opt('columnizer_cols')) ? $this->opt('columnizer_cols') : 3;
+		$cols = $this->opt( 'columnizer_cols', array( 'default' => 3 ) );
 
 
 		$params[0]['before_widget'] = sprintf('<div class="span%s">%s', $cols, $params[0]['before_widget']);
