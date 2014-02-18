@@ -12,7 +12,7 @@ $(document).ready(function(){
 	if($("#pl-dms-less").length){
 	
 		var cm_mode = jQuery("#pl-dms-less").data('mode')
-		,	cm_config = jQuery.extend( cm_base_config, { cm_mode : cm_mode } )
+		,	cm_config = jQuery.extend( {}, cm_base_config, { mode : cm_mode } )
 		,	editor3 = CodeMirror.fromTextArea(jQuery("#pl-dms-less").get(0), cm_config)
 		
 	}
@@ -20,7 +20,7 @@ $(document).ready(function(){
 	if(jQuery("#pl-dms-scripts").length){
 		
 		var cm_mode = jQuery("#pl-dms-scripts").data('mode')
-		,	cm_config = jQuery.extend( cm_base_config, { cm_mode : cm_mode } )
+		,	cm_config = jQuery.extend( {}, cm_base_config, { mode : cm_mode } )
 		,	editor4 = CodeMirror.fromTextArea(jQuery("#pl-dms-scripts").get(0), cm_config);
 	}
 	
