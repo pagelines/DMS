@@ -66,9 +66,6 @@ class EditorCode{
 	function custom_less(){
 		?>
 		<div class="opt codetext">
-			<div class="opt-name">
-				<?php _e( 'Custom LESS/CSS', 'pagelines' ); ?>
-			</div>
 			<div class="opt-box">
 				<div class="codetext-meta fix">
 					<label class="codetext-label"><?php _e( 'Custom LESS/CSS', 'pagelines' ); ?></label>
@@ -83,9 +80,6 @@ class EditorCode{
 	function custom_scripts(){
 		?>
 		<div class="opt codetext">
-			<div class="opt-name">
-				<?php _e( 'Custom Scripts', 'pagelines' ); ?>
-			</div>
 			<div class="opt-box">
 				<div class="codetext-meta fix">
 					<label class="codetext-label"><?php _e( 'Custom Javascript or Header HTML', 'pagelines' ); ?></label>
