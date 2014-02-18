@@ -95,9 +95,9 @@ class PageLinesHighlight extends PageLinesSection {
 		$h_subhead = $this->opt('_highlight_subhead', $this->tset);
 
 		$h_splash = $this->opt('_highlight_splash', $this->tset);
-		$h_splash_position = $this->opt('_highlight_splash_position', $this->oset);
+		$h_splash_position = $this->opt('_highlight_splash_position');
 
-		$frame_class = ($this->opt('_highlight_image_frame', $this->oset)) ? 'pl-imageframe' : '';
+		$frame_class = ($this->opt('_highlight_image_frame')) ? 'pl-imageframe' : '';
 
 		if(!$h_head && !$h_subhead && !$h_splash){
 			$h_head = __("Here's to the crazy ones...", 'pagelines');
