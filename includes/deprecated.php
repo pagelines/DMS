@@ -41,7 +41,7 @@ function pl_link_color() {
 */
 function register_metatab($settings, $option_array, $section = '', $location = 'bottom'){
 
-
+	_pl_deprecated_function( __FUNCTION__, '1.2', 'section_opts()' );
 
 	// Have to hack around this for version 3
 	if(has_action('override_metatab_register')){
