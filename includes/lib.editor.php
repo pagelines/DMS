@@ -357,6 +357,7 @@ function pl_icon_array(){
 		'circle-arrow-up',
 		'circle-blank',
 		'clipboard',
+		'clock-o',
 		'cloud',
 		'cloud-download',
 		'cloud-upload',
