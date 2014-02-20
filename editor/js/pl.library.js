@@ -146,3 +146,13 @@ function pl_url_refresh(url,timeout){
 }
 
 jQuery.fn.getInputType = function(){ return this[0].tagName == "INPUT" ? jQuery(this[0]).attr("type").toLowerCase() : this[0].tagName.toLowerCase(); }
+
+function localStorageSpace() {
+	var allStrings = '';
+	for(var key in window.localStorage){
+		if(window.localStorage.hasOwnProperty(key)){
+			allStrings += window.localStorage[key]
+		}
+	}
+	return allStrings ? 3 + ((allStrings.length*16)/(8*1024)).toFixed(2) + ' KB' : 'Empty (0 KB)';
+}

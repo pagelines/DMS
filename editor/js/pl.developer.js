@@ -7,9 +7,8 @@
 	$.plDev = {
 		
 		init: function(){
-			
+						
 			$('.plprint-container').hide()
-		
 			
 			$( "body" ).on( "pl-tab-build", function( event, tab ) {
 				
@@ -40,10 +39,13 @@
 							var obj = $.plDevData[key];
 
 
-							tbl += sprintf( '<tr><th>%s</th><td>%s %s</td><td>%s</td></tr>', obj.title, obj.num, obj.label, obj.info )
+							tbl += sprintf( '<tr><th>%s</th><td>%s</td><td>%s</td></tr>', obj.title, obj.num, obj.info )
 
 						}
 					}
+					
+					// localstorage
+					tbl += sprintf( '<tr><th>LocalStorage</th><td>%s</td><td>How much space is used.</td></tr>', localStorageSpace() )
 					
 					output += sprintf( '<table class="data-table" >%s</table>', tbl )
 					
