@@ -239,6 +239,8 @@ class PageLinesSectionsHandler{
 						$disable = false;
 					} elseif ( $isolation == 'single' && !$this->page->is_special() ){
 						$disable = false;
+					} elseif ( $isolation == 'author' && 'author' == $this->page->type() ){
+						$disable = false;
 					}
 				}
 
