@@ -44,13 +44,13 @@ class EditorCode{
 					'user_less'	=> array(
 						'name'	=> __( 'Custom LESS/CSS', 'pagelines' ),
 						'call'	=> array( $this, 'custom_less'),
-						'icon'	=> 'icon-circle'
+						'icon'	=> 'icon-css3'
 					),
 					'user_scripts'	=> array(
 						'name'	=> __( 'Custom Scripts', 'pagelines' ),
 						'call'	=> array( $this, 'custom_scripts'),
 						'flag'	=> 'custom-scripts',
-						'icon'	=> 'icon-circle-blank'
+						'icon'	=> 'icon-code'
 					),
 				)
 			);
