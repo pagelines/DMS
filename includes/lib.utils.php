@@ -932,13 +932,15 @@ function improved_trim_excerpt($text) {
  * @param string $excerpt_more the text that is applied to the end of the excerpt if we algorithically snip it
  * @return string the snipped excerpt or the manual excerpt if it exists
  */
-function pl_short_excerpt($post_or_id, $words = 10, $excerpt_more = ' [...]') {
+function pl_short_excerpt($post_or_id, $number_words = 10, $excerpt_more = ' [...]') {
 
 	if ( is_object( $post_or_id ) )
 		$postObj = $post_or_id;
-	else $postObj = get_post($post_or_id);
+	else 
+		$postObj = get_post($post_or_id);
 
 	$raw_excerpt = $text = $postObj->post_excerpt;
+	
 	if ( '' == $text ) {
 		$text = $postObj->post_content;
 
@@ -949,17 +951,21 @@ function pl_short_excerpt($post_or_id, $words = 10, $excerpt_more = ' [...]') {
 		$text = apply_filters('the_content', $text);
 		$text = str_replace(']]>', ']]&gt;', $text);
 		$text = strip_tags($text);
-		$excerpt_length = $words;
 
-		$words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
-		if ( count($words) > $excerpt_length ) {
+		
+		$words = preg_split("/[\s,]+/", $text, $number_words + 1, PREG_SPLIT_NO_EMPTY);
+		
+		if ( count($words) > $number_words ) {
 			array_pop($words);
 			$text = implode(' ', $words);
 			$text = $text . $excerpt_more;
 		} else {
 			$text = implode(' ', $words);
 		}
+		
+		//$text .= serialize($words);
 	}
+	
 	return $text;
 }
 
