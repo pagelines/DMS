@@ -206,7 +206,13 @@ function pagelines_meta_tags(){
 	// Removes viewport scaling on Phones, Tablets, etc.
 	if(!pl_setting('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
-
+		
+	
+	printf( "\n<meta property='pl-share-title' content='%s' />\n", get_the_title($pagelines_ID));
+	printf( "<meta property='pl-share-url' content='%s' />\n", get_permalink($pagelines_ID));
+	printf( "<meta property='pl-share-desc' content='%s' />\n", pl_short_excerpt( $pagelines_ID, 15 ));
+	printf( "<meta property='pl-share-img' content='%s' />\n", pl_the_thumbnail_url( $pagelines_ID ));
+	
 }
 
 
