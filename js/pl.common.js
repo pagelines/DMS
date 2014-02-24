@@ -274,8 +274,11 @@
 
 			if( $('.pl-parallax').length >= 1){
 				
-				$('.pl-parallax .pl-area-wrap').each(function(element){
-					$(this).parallax('50%', .3, true, 'background')
+				$('.pl-parallax').each( function( element ){
+				
+				
+					$(this).parallax( '50%', .3, true, 'background' )
+					
 				})
 			}
 			

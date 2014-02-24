@@ -20,6 +20,7 @@ http://www.gnu.org/licenses/gpl.html
 	});
 
 	$.fn.parallax = function(xpos, speedFactor, outerHeight, theMode) {
+		alert('hi')
 		var $this = $(this);
 		var getHeight;
 		var firstTop;
@@ -50,13 +51,13 @@ http://www.gnu.org/licenses/gpl.html
 		// function to be called whenever the window is scrolled or resized
 		function update(){
 			var pos = $window.scrollTop();				
-
+			
 			$this.each(function(){
 				var $element = $(this);
 				var top = $element.parent().offset().top;
 				var height = getHeight($element);
 				var fixedHeight = $('.pl-fixed-top').height()
-
+				$this.css('border', '5px solid red')
 				// Check if totally above or totally below viewport
 				if (top + height < pos || top > pos + windowHeight) {
 					return;

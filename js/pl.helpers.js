@@ -103,9 +103,9 @@ http://www.gnu.org/licenses/gpl.html
 				}
 				
 				
-				if(  theMode == 'background' && (trns + wHeight) > 0  && (trns + wHeight) <200){
-					
-					$this.css('backgroundPosition', xpos + " " + Math.round((-200 + trns + wHeight) * speedFactor) + "px");
+				if(  theMode == 'background' ){
+				
+					$this.css('backgroundPosition', xpos + " " + Math.round((-100 - pos) * speedFactor) + "px");
 					
 				}
 					
