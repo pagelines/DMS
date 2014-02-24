@@ -82,7 +82,7 @@ function pagelines_media( $args = array() ){
 	
 		$audio_output = sprintf('[audio mp3="%s" ogg="%s"]', $args['mp3'], $args['ogg']);
 		
-		$media = do_shortcode($audio_output);
+		$media = sprintf( '<div class="pl-audio-player">%s</div>', do_shortcode( $audio_output ) );
 	}
 	
 	// GALLERY
