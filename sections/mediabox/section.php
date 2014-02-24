@@ -115,8 +115,7 @@ class PageLinesMediaBox extends PageLinesSection {
 		$disable_center = $this->opt('disable_centering');
 
 		$title = ( $this->opt('mediabox_title') ) ? sprintf('<h3 data-sync="mediabox_title">%s</h3>', $this->opt('mediabox_title')) : '';
-		$bg = ( $this->opt('mediabox_background') ) ? sprintf('background-image: url(%s);', $this->opt('mediabox_background')) : '';
-		
+			
 		$set_height = ( $this->opt('mediabox_height') )  ? $this->opt('mediabox_height') : 30;
 		$height = sprintf('min-height: %spx', $set_height);
 		
@@ -124,7 +123,7 @@ class PageLinesMediaBox extends PageLinesSection {
 
 		if( $image || $media_html )
 			$img = ( $this->opt( 'mediabox_image' ) ) ? $this->image( 'mediabox_image', $this->base_url.'/default.png' ) : '';
-		elseif(!$bg)
+		elseif( ! $this->opt('mediabox_background') )
 			$img = sprintf('<img data-sync="mediabox_image" src="%s" />', $this->base_url.'/default.png'); // DEFAULT
 		else 
 			$img = '';
@@ -153,7 +152,7 @@ class PageLinesMediaBox extends PageLinesSection {
 		$height_sync_data = (pl_draft_mode()) ? 'data-sync="mediabox_height" data-sync-mode="css" data-sync-target="min-height" data-sync-post="px"' : '';
 		
 		printf(
-			'<div class="mediabox-wrap %s pl-animation fix" %s style="%s%s">
+			'<div class="mediabox-wrap %s pl-animation fix" %s style="%s">
 				<div class="the-media fitvids pl-centered %s hentry">
 					%s %s
 					<div class="the-media-html">%s</div>
@@ -161,7 +160,6 @@ class PageLinesMediaBox extends PageLinesSection {
 			</div>', 
 			join(' ', $classes), 
 			$height_sync_data,
-			$bg, 
 			$height, 
 			$align_class,
 			$img, 
