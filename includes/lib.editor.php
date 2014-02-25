@@ -934,6 +934,53 @@ function pl_get_background_options( $section, $column = 3 ){
 }
 
 
+function pl_get_post_type_options( ){
+	
+
+	$opts = array(
+			array(
+				'key'			=> 'post_type',
+				'type' 			=> 'select',
+				'opts'			=> pl_get_thumb_post_types( false ),
+				'label' 	=> __( 'Select Post Type', 'pagelines' ),
+			),
+			array(
+				'key'			=> 'post_total',
+				'type' 			=> 'count_select',
+				'count_start'	=> 5,
+				'count_number'	=> 20,
+				'default'		=> 10,
+				'label' 		=> __( 'Total Posts Loaded', 'pagelines' ),
+			),
+			array(
+				'key'		=> 'post_sort',
+				'type'		=> 'select',
+				'label'		=> __( 'Element Sorting', 'pagelines' ),
+				'default'	=> 'DESC',
+				'opts'			=> array(
+					'DESC'		=> array('name' => __( 'Date Descending (default)', 'pagelines' ) ),
+					'ASC'		=> array('name' => __( 'Date Ascending', 'pagelines' ) ),
+					'rand'		=> array('name'	=> __( 'Random', 'pagelines' ) )
+				)
+			),
+			array(
+				'key'			=> 'meta_key',
+				'type' 			=> 'text_small',
+				'label' 	=> __( 'Meta Key', 'pagelines' ),	
+			),
+			array(
+				'key'			=> 'meta_value',
+				'type' 			=> 'text_small',
+				'label' 	=> __( 'Meta Key Value', 'pagelines' ),
+				'help'		=> __( 'Select only posts which have a certain meta key and corresponding meta value. Useful for featured posts, or similar.', 'pagelines' ),
+			),
+		);
+	
+	
+	return $opts;
+}
+
+
 
 function get_sidebar_select(){
 
