@@ -212,18 +212,29 @@ function pl_sanitize_color( $color ){
 
 }
 
-function pl_get_thumb_post_types(){
+function pl_get_thumb_post_types( $thumb = true ){
 	$pt_objects = get_post_types( array(), 'objects');
 
 	$pts = array();
 
 	foreach($pt_objects as $key => $pt){
 
-		if(post_type_supports( $key, 'thumbnail' ) && $pt->public){
+		if( $thumb ){
+			
+			if(post_type_supports( $key, 'thumbnail' ) && $pt->public){
+				$pts[ $key ] = array(
+					'name' => $pt->label
+				);
+			}
+			
+		} else {
+			
 			$pts[ $key ] = array(
 				'name' => $pt->label
 			);
+			
 		}
+		
 
 	}
 	return $pts;
@@ -941,30 +952,28 @@ function pl_short_excerpt($post_or_id, $number_words = 10, $excerpt_more = ' [..
 
 	$raw_excerpt = $text = $postObj->post_excerpt;
 	
-	if ( '' == $text ) {
-		$text = $postObj->post_content;
+	$text = ( '' == $postObj->post_excerpt ) ? $postObj->post_content : $postObj->post_excerpt;
 
-		$text = strip_shortcodes( $text );
+	$text = strip_shortcodes( $text );
 
-		$text = sanitize_text_field( $text );
+	$text = sanitize_text_field( $text );
 
-		$text = apply_filters('the_content', $text);
-		$text = str_replace(']]>', ']]&gt;', $text);
-		$text = strip_tags($text);
+	$text = apply_filters('the_content', $text);
+	$text = str_replace(']]>', ']]&gt;', $text);
+	$text = strip_tags($text);
 
-		
-		$words = preg_split("/[\s,]+/", $text, $number_words + 1, PREG_SPLIT_NO_EMPTY);
-		
-		if ( count($words) > $number_words ) {
-			array_pop($words);
-			$text = implode(' ', $words);
-			$text = $text . $excerpt_more;
-		} else {
-			$text = implode(' ', $words);
-		}
-		
-		//$text .= serialize($words);
+	
+	$words = preg_split("/[\s,]+/", $text, $number_words + 1, PREG_SPLIT_NO_EMPTY);
+	
+	if ( count($words) > $number_words ) {
+		array_pop($words);
+		$text = implode(' ', $words);
+		$text = $text . $excerpt_more;
+	} else {
+		$text = implode(' ', $words);
 	}
+	
+
 	
 	return $text;
 }
