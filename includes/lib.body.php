@@ -55,7 +55,8 @@ function pagelines_after_footer_elements() {
 	</a>
 	<?php endif; 
 	
-	if( pl_setting('supersize_bg') ) echo '<div id="supersized"></div>';
+	if( pl_setting('supersize_bg') && pl_setting( 'page_background_image_url' ) )
+		echo '<div id="supersized"></div>';
 
 }
 
