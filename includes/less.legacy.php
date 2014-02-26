@@ -445,20 +445,20 @@ class PageLinesRenderCSS {
 		$b = $this->get_compiled_sections();
 		$out = '';
 		$out .= pl_css_minify( $a['core'] );
-		$out .= pl_css_minify( $b['sections'] );
-
-		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
 		if ( is_multisite() )
 			$blog = sprintf( ' on blog [%s]', $blog_id );
 		else
 			$blog = '';
-		$out .= sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'], $mem, $blog );
-		$this->write_css_file( $out );
+			
+		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
+		$out .= sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'], $mem, $blog );		
+		
+		$this->write_css_file( 'core', $out );
+				
+		$this->write_css_file( 'sections', $b['sections'] );
 	}
 
-	function write_css_file( $txt ){
-
-
+	function write_css_file( $area, $txt ){
 
 		add_filter('request_filesystem_credentials', '__return_true' );
 
@@ -466,7 +466,7 @@ class PageLinesRenderCSS {
 		$url = 'themes.php?page=pagelines';
 
 		$folder = pl_get_css_dir( 'path' );
-		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
+		$file = sprintf( 'compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
 
 		if( !is_dir( $folder ) ) {
 			if( true !== wp_mkdir_p( $folder ) )
@@ -487,8 +487,8 @@ class PageLinesRenderCSS {
 			else
 				return pl_less_save_last_error( 'Unable to access filesystem. Possible permission issue on ' . $folder, false );;
 			$url = pl_get_css_dir( 'url' );
-
-			define( 'DYNAMIC_FILE_URL', sprintf( '%s/%s', $url, $file ) );
+			if( ! defined( 'DYNAMIC_FILE_URL') )
+				define( 'DYNAMIC_FILE_URL', true );
 
 			pl_less_save_last_error( '', true );
 	}
@@ -551,11 +551,22 @@ class PageLinesRenderCSS {
 	 */
 	function load_less_css() {
 
-		wp_enqueue_style( 'pagelines-less',  $this->get_dynamic_url(), false, null, 'all' );
+		$area = 'core';
+
+		$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+		$url = pl_get_css_dir( 'url' ) . $file;
+
+		wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, null, 'all' );
+
+		$area = 'sections';
+
+		$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+		$url = pl_get_css_dir( 'url' ) . $file;
+		wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, null, 'all' );
 
 	}
 
-	function get_dynamic_url() {
+	function get_dynamic_url( $url ) {
 
 		global $blog_id;
 		$version = get_theme_mod( "pl_save_version" );
@@ -568,12 +579,10 @@ class PageLinesRenderCSS {
 		$version = sprintf( '%s_%s', $id, $version );
 
 		$parent = apply_filters( 'pl_parent_css_url', PL_PARENT_URL );
-
-		$url = add_query_arg( 'pageless', $version, trailingslashit( site_url() ) );
-
-		if ( defined( 'DYNAMIC_FILE_URL' ) )
-			$url = DYNAMIC_FILE_URL;
-
+		
+		if ( ! defined( 'DYNAMIC_FILE_URL' ) )
+			$url = add_query_arg( 'pageless', $version, trailingslashit( site_url() ) );
+			
 		if ( has_action( 'pl_force_ssl' ) )
 			$url = str_replace( 'http://', 'https://', $url );
 
@@ -761,7 +770,12 @@ class PageLinesRenderCSS {
 
 		$folder = trailingslashit( pl_get_css_dir( 'path' ) );
 
-		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
+		$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );
+
+		if( is_file( $folder . $file ) )
+			@unlink( $folder . $file );
+
+		$file = sprintf( 'compiled-css-sections-%s.css', get_theme_mod( 'pl_save_version' ) );
 
 		if( is_file( $folder . $file ) )
 			@unlink( $folder . $file );
