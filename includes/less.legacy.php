@@ -64,7 +64,9 @@ class EditorLessHandler{
 	 *
 	 */
 	static function dequeue_live_css() {
-		wp_deregister_style( 'pagelines-less' );
+		wp_deregister_style( 'pagelines-less-sections' );
+		wp_deregister_style( 'pagelines-less-core' );
+		wp_deregister_style( 'pagelines-less-legacy' );
 	}
 
 	/**
@@ -434,10 +436,10 @@ class PageLinesRenderCSS {
 		$folder = pl_get_css_dir( 'path' );
 		$url = pl_get_css_dir( 'url' );
 
-		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
+		$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );
 
 		if( file_exists( trailingslashit( $folder ) . $file ) ){
-			define( 'DYNAMIC_FILE_URL', trailingslashit( $url ) . $file );
+			define( 'DYNAMIC_FILE_URL', trailingslashit( $url ) );
 			return;
 		}
 
@@ -488,7 +490,7 @@ class PageLinesRenderCSS {
 				return pl_less_save_last_error( 'Unable to access filesystem. Possible permission issue on ' . $folder, false );;
 			$url = pl_get_css_dir( 'url' );
 			if( ! defined( 'DYNAMIC_FILE_URL') )
-				define( 'DYNAMIC_FILE_URL', true );
+				define( 'DYNAMIC_FILE_URL', $url );
 
 			pl_less_save_last_error( '', true );
 	}
@@ -551,18 +553,23 @@ class PageLinesRenderCSS {
 	 */
 	function load_less_css() {
 
-		$area = 'core';
+		if( defined( 'DYNAMIC_FILE_URL' ) ) {
 
-		$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
-		$url = pl_get_css_dir( 'url' ) . $file;
+			$area = 'core';
 
-		wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, null, 'all' );
+			$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+			$url = pl_get_css_dir( 'url' ) . $file;
 
-		$area = 'sections';
+			wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, null, 'all' );
 
-		$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
-		$url = pl_get_css_dir( 'url' ) . $file;
-		wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, null, 'all' );
+			$area = 'sections';
+
+			$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+			$url = pl_get_css_dir( 'url' ) . $file;
+			wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, null, 'all' );
+		} else {
+			wp_enqueue_style( 'pagelines-less-legacy',  $this->get_dynamic_url( null ), false, null, 'all' );
+		}
 
 	}
 
