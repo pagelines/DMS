@@ -204,7 +204,7 @@ $.plSections = {
 			// We were having 
 			
 			var img = element.find( '.banner-content' ).html()
-			,	load = ( element.closest('.custom-section').length != 0 ) ? 'custom' : 'section'
+			,	load = ( element.closest('.custom-section').length && ! element.hasClass('custom-section')) ? 'custom' : 'section'
 			, 	loadArgs = {
 					refresh: false
 					, 	load: load
