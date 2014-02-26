@@ -80,70 +80,6 @@ class PageLinesHighlight extends PageLinesSection {
 		return $opts;
 
 	}
-	/**
-	*
-	* @TODO document
-	*
-	*/
-	function section_optionator( $settings ){
-
-		$settings = wp_parse_args($settings, $this->optionator_default);
-
-		$metatab_array = array(
-
-			'hl_options' => array(
-				'version' 		=> 'pro',
-				'type' 			=> 'multi_option',
-				'title' 		=> __( 'Highlight Header Text (Optional)', 'pagelines' ),
-				'shortexp' 		=> __( 'Add the main header text for the highlight section.', 'pagelines' ),
-				'selectvalues'	=> array(
-					'_highlight_head' => array(
-						'version' 		=> 'pro',
-						'type' 			=> 'text',
-						'size'			=> 'big',
-						'inputlabel' 	=> __( 'Highlight Header Text (Optional)', 'pagelines' ),
-					),
-					'_highlight_subhead' => array(
-						'version' 		=> 'pro',
-						'type' 			=> 'text',
-						'size'			=> 'big',
-						'inputlabel' 	=> __( 'Highlight Subheader Text (Optional)', 'pagelines' ),
-					),
-
-					'_highlight_splash' => array(
-						'version' 		=> 'pro',
-						'type' 			=> 'image_upload',
-						'inputlabel'	=> __( 'Upload Splash Image', 'pagelines' )
-					),
-					'_highlight_splash_position' => array(
-						'version' 		=> 'pro',
-						'type' 			=> 'select',
-						'inputlabel' 		=> __( 'Highlight Image Style', 'pagelines' ),
-						'selectvalues'=> array(
-							'top'			=> array( 'name' => __( 'Image on top of text', 'pagelines' ) ),
-							'bottom'	 	=> array( 'name' => __( 'Image on bottom of text', 'pagelines' ) ),
-							'notext'	 	=> array( 'name' => __( 'No text, just the image', 'pagelines' ) )
-						),
-					),
-					'_highlight_image_frame' => array(
-						'type' 				=> 'check',
-						'inputlabel' 		=> __( 'Add frame to image?', 'pagelines' )
-					),
-				)
-			)
-
-		);
-
-		$metatab_settings = array(
-				'id' 		=> $this->tabID,
-				'name' 		=> 'Highlight',
-				'icon' 		=> $this->icon,
-				'clone_id'	=> $settings['clone_id'],
-				'active'	=> $settings['active']
-			);
-
-		register_metatab($metatab_settings, $metatab_array);
-	}
 
 	/**
 	*
@@ -159,9 +95,9 @@ class PageLinesHighlight extends PageLinesSection {
 		$h_subhead = $this->opt('_highlight_subhead', $this->tset);
 
 		$h_splash = $this->opt('_highlight_splash', $this->tset);
-		$h_splash_position = $this->opt('_highlight_splash_position', $this->oset);
+		$h_splash_position = $this->opt('_highlight_splash_position');
 
-		$frame_class = ($this->opt('_highlight_image_frame', $this->oset)) ? 'pl-imageframe' : '';
+		$frame_class = ($this->opt('_highlight_image_frame')) ? 'pl-imageframe' : '';
 
 		if(!$h_head && !$h_subhead && !$h_splash){
 			$h_head = __("Here's to the crazy ones...", 'pagelines');

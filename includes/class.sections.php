@@ -285,7 +285,7 @@ class PageLinesSection {
 
 		$total = ( $this->opt('post_total') ) ? $this->opt( $this->opt('post_total') ) : '10';
 
-		$sorting = ( $this->opt('post_sort') ) ? $ $this->opt('post_sort')  : 'DESC';
+		$sorting = ( $this->opt('post_sort') ) ? $this->opt('post_sort')  : 'DESC';
 
 		$orderby = ( 'rand' == $this->opt('post_sort') ) ? 'rand' : 'date'; 
 

@@ -197,15 +197,23 @@ $.plSections = {
 				element
 					.html('<div class="pl-refresh-banner pl-contrast"><i class="icon icon-thumb-up"></i> Section added! Refresh page to view.</div>')
 					
-			}, 700);
-			var img = element.find( '.banner-content' ).html()
+			}, 700)
 			
-			var loadArgs = {
-				refresh: false
-				, load: 'section'
+			
+			// As for the loading argument, this is needed for the saving to process the area as a custom section. 
+			// We were having 
+			
+			var img = element.find( '.banner-content' ).html()
+			,	load = ( element.closest('.custom-section').length != 0 ) ? 'custom' : 'section'
+			, 	loadArgs = {
+					refresh: false
+					, 	load: load
+					,	object: object
+					, 	uniqueID: newUniqueID
+					,	draw: type
 				}
 
-				$.pageBuilder.reloadConfig( loadArgs )
+			$.pageBuilder.reloadConfig( loadArgs )
 			
 		}
 		

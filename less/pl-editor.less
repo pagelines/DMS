@@ -211,7 +211,7 @@
 		&.ui-sortable-helper {
 			
 			cursor: move;
-			background: rgba(0,0,0,.05);
+			background-color: rgba(0,0,0,.05);
 			> .pl-section-controls{
 				display: block;
 			}
@@ -652,7 +652,7 @@
 	font-size: 13px;
 	line-height: 21px;
 	width: 100%;
-	z-index: @zindexEditor;
+	z-index: 1040;
 	min-width: 760px;
 	font-family: @defaultFont;
 	h1, h2, h3, h4, h5, h6{
@@ -954,6 +954,7 @@
 	}
 	.toolbox-panel-wrap{
 		overflow: hidden;
+		direction: ltr; /* overide ltr */
 	}
 
 	.toolbox-panel{

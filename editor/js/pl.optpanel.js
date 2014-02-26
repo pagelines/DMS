@@ -947,6 +947,11 @@
 
 					o.opts = {}
 					$.each(btns, function(key, s){
+
+						// we cant use a string of '0' as a default key here, as it stops the option engine from using a default :/
+						if( '0' == key )
+							key = ''
+
 						o.opts[ key ] = {name: s}
 					})
 

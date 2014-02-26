@@ -134,7 +134,7 @@ class PLSectionArea extends PageLinesSection {
 		$classes = '';
 		
 		// If there is no output, there should be no padding or else the empty area will have height.
-		if ( $section_output ) {
+		if ( $section_output || $title != '' ) {
 			
 			// global
 			$default_padding = pl_setting('section_area_default_pad', array('default' => '20'));

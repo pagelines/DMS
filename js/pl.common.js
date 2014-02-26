@@ -274,8 +274,11 @@
 
 			if( $('.pl-parallax').length >= 1){
 				
-				$('.pl-parallax .pl-area-wrap').each(function(element){
-					$(this).parallax('50%', .3, true, 'background')
+				$('.pl-parallax').each( function( element ){
+				
+				
+					$(this).parallax( '50%', .3, true, 'background' )
+					
 				})
 			}
 			
@@ -348,40 +351,16 @@
 			
 			var that = this
 			
-			that.shareTitle = encodeURI( $(".entry-title").first().text() )
-			that.shareDesc = '' // TODO - add something good here
-			that.shareImg = $(".wp-post-image").first().attr('src')  // TODO - Add fallback(s)
+			var title = $('title')
+			
+			that.shareTitle = encodeURI( $("meta[property='pl-share-title']").attr('content') )
+			that.shareDesc = encodeURI( $("meta[property='pl-share-desc']").attr('content') )
+			that.shareImg = encodeURI( $("meta[property='pl-share-img']").attr('content') )
 			that.shareLocation = window.location
 			
 			that.loadSocialCounts()
 			
-			// $('.pl-social-counters').each(function() {
-			// 
-			// 			$(this).appear(function() {
-			// 
-			// 
-			// 				$(this).find('.pl-social-counter').each(function(i){
-			// 
-			// 					var $that = $(this)
-			// 
-			// 					setTimeout(function(){ 
-			// 
-			// 						$that.delay(i*100).queue(function(){ 
-			// 
-			// 							var $that = $(this); $(this).addClass('hovered'); 
-			// 
-			// 							setTimeout(function(){ 
-			// 								$that.removeClass('hovered');
-			// 							}, 300); 
-			// 
-			// 						});
-			// 
-			// 					},450);
-			// 				});
-			// 
-			// 			});
-			// 
-			// 		});
+		
 		}
 		
 		, loadSocialCounts: function(){

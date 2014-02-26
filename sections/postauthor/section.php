@@ -5,10 +5,9 @@
 	Author URI: http://www.pagelines.com
 	Description: Adds author information to pages and posts.
 	Class Name: PageLinesPostAuthor
-	Workswith: main-single, author
-	Failswith: archive, category, posts, tags, search, 404_page
+	Isolate: single, author
 	Filter: component
-	Loading: active
+
 */
 
 /**
