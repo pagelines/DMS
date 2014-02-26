@@ -121,23 +121,15 @@ class PageLinesSection {
 		/*
 		 * STANDARD IMAGES
 		 */
-		$this->icon = $this->settings['icon'] = ( is_file( sprintf( '%s/icon.png', $this->base_dir ) ) ) ? sprintf( '%s/icon.png', $this->base_url ) : PL_ADMIN_ICONS . '/leaf.png';
 
 		if( is_file( sprintf( '%s/thumb.png', $this->base_dir ) ) ){
 			$this->screenshot = $this->settings['screenshot'] = sprintf( '%s/thumb.png', $this->base_url );
+		} elseif( is_file( sprintf( '%s/splash.png', $this->base_dir ) ) ) {
+			$this->screenshot = $this->settings['screenshot'] = sprintf( '%s/splash.png', $this->base_url );
 		} else {
-		
-			if( 'theme' == $this->sinfo['type'] ) {
-				$scrn_url = PL_CHILD_URL; 
-			} else {
-				$scrn_url = ($this->sinfo['type'] == 'custom' && is_child_theme()) ? PL_CHILD_URL : PL_PARENT_URL; 
-			}
-			
-			
-			$this->screenshot = $this->settings['screenshot'] = sprintf( '%s/screenshot.png', $scrn_url );
-		
+			$this->screenshot = $this->settings['screenshot'] = PL_IMAGES . '/thumb-missing.png';
 		}
-
+		
 		$this->thmb = $this->screenshot;
 
 		if( is_file( sprintf( '%s/splash.png', $this->base_dir ) ) ){
