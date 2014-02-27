@@ -261,12 +261,22 @@ h3.pl-section-title{
 	}
 }
 
-.pl-hover .pl-link-invert{
-	color: @pl-base; 
+.theme-list-nav li{
+	a {
+		color: @pl-text;
+	}
+	&:hover a,
+	&.current-menu-item a{
+		border-right-style: solid; 
+		border-right-width: 5px;
+		border-color: @pl-link;
+		background-color: fadeout(@pl-text, 95% );
+	}
+	&:active a{
+		background-color: fadeout(@pl-text, 93% );
+	}
 }
-.pl-hover .pl-link-bg{
-	background: @pl-link;
-}
+
 .pl-border{
 	border-color: @baseContrastDark; 
 }
@@ -431,6 +441,13 @@ h3.pl-section-title{
 		display: none;
 	}
 
+}
+
+.column-boxed {
+	border-style: solid; 
+	border-width: 1px; 
+	box-sizing: border-box; 
+	margin-bottom: 20px;
 }
 
 
