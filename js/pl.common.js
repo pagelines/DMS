@@ -33,6 +33,8 @@
 		
 		$('.pl-credit').show()
 		
+		// throw all resize actions at end... 
+		$(window).trigger('resize')
 		
 	})
 	
