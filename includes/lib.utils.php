@@ -950,6 +950,9 @@ function pl_short_excerpt($post_or_id, $number_words = 10, $excerpt_more = ' [..
 	else 
 		$postObj = get_post($post_or_id);
 
+	if( ! is_object( $postObj ) )
+		return false;
+
 	$raw_excerpt = $text = $postObj->post_excerpt;
 	
 	$text = ( '' == $postObj->post_excerpt ) ? $postObj->post_content : $postObj->post_excerpt;
