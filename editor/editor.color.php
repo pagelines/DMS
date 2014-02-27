@@ -148,17 +148,10 @@ class EditorColor{
 			
 		wp_enqueue_script( 'pagelines-supersize', PL_JS . '/script.supersize.min.js', array( 'jquery' ), '3.1.3', false );
 		
-		add_action('pl_scripts_on_ready', array( $this, 'run_background_fit'), 20);
+		wp_localize_script( 'pagelines-supersize', 'supersize_image', array( 'url' => $this->background ) );
 	}
 
-	function run_background_fit(){
-	
-		
-		$image = $this->background;
-		?>
-		jQuery.supersized({ slides: [{ image : '<?php echo $image; ?>' }]})
-<?php
-	}
+
 
 
 	function hash( $color ){

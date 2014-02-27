@@ -13,7 +13,7 @@
 	
 		$(".fitvids").fitVids(); // fit videos
 	
-		
+		$.plSupersized.init()
 		
 		$.plNavigation.init()
 		
@@ -36,6 +36,8 @@
 		
 	})
 	
+
+	
 	function shuffle(o){ //v1.0
 		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 		return o;
@@ -57,6 +59,15 @@
 		// 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		// 		})
 	})
+	
+	$.plSupersized = {
+		init: function(){
+			if ($("#supersized").length > 0){			
+				$(".site-wrap").addClass('supersized')
+				jQuery.supersized({ slides: [{ image : supersize_image.url }]})
+			}
+		}
+	}
 	
 	$.plVideos = {
 		init: function(){
