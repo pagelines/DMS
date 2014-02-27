@@ -55,7 +55,7 @@ class PLSectionData{
 		$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft) 
 										VALUES ( %s, %s)
 										ON DUPLICATE KEY UPDATE
-										draft = %s", $uid, $draft, $draft); 
+										draft = VALUES(draft)", $uid, $draft); 
 								
 		      
 		$result = $this->wpdb->query( $query );
@@ -69,7 +69,7 @@ class PLSectionData{
 			foreach( $items as $uid => $dat ){
 				
 				$result = array();
-				$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft, live) VALUES ( %s, %s, %s );", $uid, serialize( $dat ), serialize( $dat ));
+				$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft, live) VALUES ( %s, %s, %s ) ON DUPLICATE KEY UPDATE draft = VALUES(draft), live = VALUES(live);", $uid, serialize( $dat ), serialize( $dat ));
 				
 				$result[] = $this->wpdb->query( $query );
 			}
