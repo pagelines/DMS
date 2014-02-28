@@ -236,10 +236,6 @@ h3.pl-section-title{
  * STANDARD COLORING
  ***********************************/
 
-.pl-inverter{
-	color: @pl-link;
-	.hex_to_rgb_bg( @pl-text, .04 );
-}
 
 .pl-link{
 	color: @pl-link;
@@ -264,20 +260,21 @@ h3.pl-section-title{
 	}
 }
 
-.theme-list-nav li{
-	a {
-		color: @pl-text;
+.theme-list-nav{
+	li, 
+	lh{
+		
+		a {
+			color: @pl-text;
+			display: block;
+			padding: 4px 20px;
+		}
+		&:hover a,
+		&.current-menu-item a{
+			background-color: fadeout(@pl-text, 95% );
+		}
 	}
-	&:hover a,
-	&.current-menu-item a{
-		border-right-style: solid; 
-		border-right-width: 5px;
-		border-color: @pl-link;
-		background-color: fadeout(@pl-text, 95% );
-	}
-	&:active a{
-		background-color: fadeout(@pl-text, 93% );
-	}
+
 }
 
 .pl-border{
@@ -286,9 +283,6 @@ h3.pl-section-title{
 .pl-contrast{
 	background-color: fadeout(@pl-text, 95% );
 	.pl-contrast,
-	.pl-inverter{
-		background-color: fadeout(@pl-text, 90% );
-	}
 	.widget li,
 	.pl-border{
 		border-color: fadeout( @pl-text, 90%); 
@@ -330,21 +324,16 @@ h3.pl-section-title{
 			}
 		}
 	}
-	.pl-contrast,
-	.pl-inverter{
+	
+	.pl-contrast{
 		
 		color: #000;
 		border-color: #000;
 	}
-	.pl-inverter,
 	.pl-link{
 		color:#000;
 	}
-	.pl-hover .pl-inverter,
-	.pl-inverter:hover{
-		color: #fff; 
-		background-color: #000;
-	}
+
 }
 
 .pl-black,
@@ -370,25 +359,33 @@ h3.pl-section-title{
 	}
 	.widget li,
 	.pl-border{
-		border-color: rgba(255,255,255,.1);
+		border-color: rgba(255,255,255,.2);
 	}
 	a:hover{
 		opacity: .7;
 		color:inherit;
 	}
 	
-	.pl-contrast,
-	.pl-inverter{
+	.theme-list-nav{
+		li, 
+		lh{
+			a {
+				color: #fff;
+			}
+			&:hover a,
+			&.current-menu-item a{
+				background-color: rgba(255,255,255,.2); 
+			}
+		}
+
+	}
+	
+	.pl-contrast{
 		background-color: rgba(255,255,255,.2); 
 	}
-	.pl-inverter,
+	
 	.pl-link{
 		color:#fff;
-	}
-	.pl-hover .pl-inverter,
-	.pl-inverter:hover{
-		color: #000; 
-		background-color: #FFF;
 	}
 	
 }
