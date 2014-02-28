@@ -72,12 +72,15 @@
 		}
 
 	,	checkLoop: function(){
-			var vids = document.querySelectorAll('.bg-video');
-			$.each(vids, function(i,video){
+
+			$('.bg-video').each( function(){
+				var video = this
+				$(video).hide()
 				var intervalId = setInterval(function() {
 					if (video.readyState === 4) {
 						$(window).trigger('resize')
 						clearInterval(intervalId)
+						$(video).fadeIn('slow')
 						return false
 					} else {
 						console.log('nope')
