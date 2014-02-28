@@ -1,73 +1,89 @@
 !function ($) {
 
 
-	
-
 	// --> Initialize
 	$(document).ready(function() {
-		
+
 		$(document).trigger( 'sectionStart' )
-		
+
 		$.plCommon.init()
 		$.plMobilizer.init()
-	
-		$(".fitvids").fitVids(); // fit videos
-	
-		$.plSupersized.init()
-		
-		$.plNavigation.init()
-		
-		$.plParallax.init()
-		
-		$.plKarma.init()
-		
-		$.plGallery.init()
-		
-		$.plVideos.init()
-		
-		$.plSocial.init()
-		
-		$.plAnimate.initAnimation()
-		
-		
-		
-		$('.pl-credit').show()
-		
-		// throw all resize actions at end... 
-		$(window).trigger('resize')
-		
-	})
-	
 
-	
+		$(".fitvids").fitVids(); // fit videos
+
+		$.plSupersized.init()
+
+		$.plNavigation.init()
+
+		$.plParallax.init()
+
+		$.plKarma.init()
+
+		$.plGallery.init()
+
+		$.plVideos.init()
+
+		$.plSocial.init()
+
+		$.plAnimate.initAnimation()
+
+		$('.pl-credit').show()
+
+		$.ResizeCanvasVids.init()
+
+	})
+
+
+
 	function shuffle(o){ //v1.0
 		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 		return o;
 	};
-	
+
 	function plRandSort(c) {
 	    var o = new Array();
 	    for (var i = 0; i < c; i++) {
 			o.push(i);
-		
+
 	    }
 	    return shuffle(o);
 	}
-	
-	
+
+
 	$(window).load(function() {
 		$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		// $('.pl-section').on('plresize', function(){
 		// 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		// 		})
 	})
-	
+
 	$.plSupersized = {
 		init: function(){
-			if ($("#supersized").length > 0){			
+			if ($("#supersized").length > 0){
 				$(".site-wrap").addClass('supersized')
 				jQuery.supersized({ slides: [{ image : supersize_image.url }]})
 			}
+		}
+	}
+
+	$.ResizeCanvasVids = {
+		init: function(){
+			$.ResizeCanvasVids.checkLoop()
+		}
+
+	,	checkLoop: function(){
+			var vids = document.querySelectorAll('.bg-video');
+			$.each(vids, function(i,video){
+				var intervalId = setInterval(function() {
+					if (video.readyState === 4) {
+						$(window).trigger('resize')
+						clearInterval(intervalId)
+						return false
+					} else {
+						console.log('nope')
+					}
+				}, 100);
+			})
 		}
 	}
 	
