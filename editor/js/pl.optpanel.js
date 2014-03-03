@@ -1141,7 +1141,7 @@
 			$('#fileupload').fileupload({
 				url: ajaxurl
 				, dataType: 'json'
-				, formData: { }
+				, formData: {}
 				, add: function(e, data){
 					var toolBoxOpen = $.toolbox('open')
 
@@ -1169,10 +1169,31 @@
 
 				}
 				, complete: function (response) {
+					
+					console.log(response)
+					var result = $.parseJSON(response.responseText)
+					,	error = result.import_error || false
+				
+				if( error ) {
 					window.onbeforeunload = null
-					bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
-					var url = $.pl.config.siteURL
-					pl_url_refresh(url, 2000)
+					
+					var txt = sprintf( '<h3>%s</h3>%s%s',
+					sprintf('<h3>%s</h3>', $.pl.lang("Import Failed!") ),
+					sprintf( '%s %s', $.pl.lang("Looks like you tried to upload"), error ),
+					sprintf( '<br />The proper file naming format has to look like this<br />pl-config_2014-02-27_20-00-51.json' )
+					 )
+					bootbox.confirm( txt )
+				} else {
+						window.onbeforeunload = null
+						bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
+						var url = $.pl.config.siteURL
+						pl_url_refresh(url, 2000)
+				}
+					
+				//	window.onbeforeunload = null
+				//	bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
+				//	var url = $.pl.config.siteURL
+				//	pl_url_refresh(url, 2000)
 				}
 			})
 

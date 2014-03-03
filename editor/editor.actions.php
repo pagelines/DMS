@@ -243,7 +243,7 @@ function pl_upload_config_file(){
 		$response['import_file'] = $file;
 		$response['post'] = $_POST;
 	} else {
-		$reponse['import_error'] = 'filename?';
+		$response['import_error'] = $filename;
 	}
 
 	echo json_encode(  pl_arrays_to_objects( $response ) );
