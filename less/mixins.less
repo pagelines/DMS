@@ -6,11 +6,6 @@
 // UTILITY MIXINS
 // --------------------------------------------------
 
-
-.hex_to_rgb_bg( @color: #ffffff, @alpha: 1 ) {
-	background: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-}
-
 // Clearfix
 // --------
 // For clearing floats like a boss h5bp.com/q
@@ -436,18 +431,14 @@
 		background-image: -o-linear-gradient(left, @startColor, @endColor); // Opera 11.10
 		background-image: linear-gradient(left, @startColor, @endColor); // Le standard
 		background-repeat: repeat-x;
-		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor)); // IE9 and down
 	}
 	.vertical(@startColor: #555, @endColor: #333) {
 		background-color: mix(@startColor, @endColor, 60%);
 		background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
 		background-image: -ms-linear-gradient(top, @startColor, @endColor); // IE10
-		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
 		background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
-		background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
 		background-image: linear-gradient(top, @startColor, @endColor); // The standard
 		background-repeat: repeat-x;
-		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
 	}
 	.directional(@startColor: #555, @endColor: #333, @deg: 45deg) {
 		background-color: @endColor;
@@ -467,7 +458,6 @@
 		background-image: -o-linear-gradient(@startColor, @midColor @colorStop, @endColor);
 		background-image: linear-gradient(@startColor, @midColor @colorStop, @endColor);
 		background-repeat: no-repeat;
-		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down, gets no color-stop at all for proper fallback
 	}
 	.radial(@innerColor: #555, @outerColor: #333)  {
 		 background-color: @outerColor;
@@ -498,26 +488,7 @@
   }
 }
 
-// Gradients
-#pattern {
-  .striped(@color: #555, @angle: -45deg, @bgSize: 40px, @alt: rgba(255, 255, 255, .2) ) {
-   	background-size: @bgSize @bgSize;
-	background-color: @color;
-	background-image: -webkit-linear-gradient(@angle, @alt 25%, transparent 25%,
-	                  transparent 50%, @alt 50%, @alt 75%,
-	                  transparent 75%, transparent);
-	background-image: -moz-linear-gradient(@angle, @alt 25%, transparent 25%,
-	                  transparent 50%, @alt 50%, @alt 75%,
-	                  transparent 75%, transparent);
-	background-image: -ms-linear-gradient(@angle, @alt 25%, transparent 25%,
-	                  transparent 50%, @alt 50%, @alt 75%,
-	                  transparent 75%, transparent);
-	background-image: -o-linear-gradient(@angle, @alt 25%, transparent 25%,
-	                  transparent 50%, @alt 50%, @alt 75%,
-	                  transparent 75%, transparent);
-  }
 
-}
 
 // Reset filters for IE
 .reset-filter() {
