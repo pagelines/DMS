@@ -983,6 +983,7 @@
 
 						var optValue = (o.type == 'select_same') ? s : key
 						,	optName = (o.type == 'select_same') ? s : s.name
+						,	selected = ''
 
 						// Multi Select
 						if(typeof o.value == 'object'){
