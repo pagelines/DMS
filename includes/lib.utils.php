@@ -213,7 +213,8 @@ function pl_sanitize_color( $color ){
 }
 
 function pl_get_thumb_post_types( $thumb = true ){
-	$pt_objects = get_post_types( array(), 'objects');
+	
+	$pt_objects = get_post_types( array( 'public' => true ), 'objects' );
 
 	$pts = array();
 
