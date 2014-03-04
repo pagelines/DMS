@@ -140,8 +140,7 @@ class PageLinesTemplates {
 			
 			$d = array( 
 					array( 
-						'object' 	=> 'PLNavBar',
-						'settings'	=> $this->upgrade_navbar_settings()
+						'object' 	=> 'PLNavi',
 					) 
 				);
 			
