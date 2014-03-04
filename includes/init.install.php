@@ -17,8 +17,10 @@ class PageLinesInstall{
 		
 		add_filter( 'pl_default_template_handler', array($this, 'default_template_handling') );
 		
+		add_action( 'wp', array($this, 'pagelines_check_install'), 15 );
+		add_action( 'admin_init', array( $this, 'pagelines_check_install' ), 10);
 		// MUST COME AFTER FILTERS!
-		$this->pagelines_check_install();
+	//	$this->pagelines_check_install();
 		
 	}
 	
