@@ -2,25 +2,30 @@
 
 function pl_navigation( $args = array() ){
 	
+	$respond = ( isset( $args['respond'] ) && ! $args['respond'] ) ? '' : 'respond';
+	
+	$menu_classes = sprintf('menu-toggle mm-toggle %s', $respond);
+	
+	
 	if( ( ! isset( $args['menu'] ) || empty( $args['menu'] ) ) && ! has_nav_menu( $args['theme_location'] ) ){
 		
-		$out = sprintf('<ul class="inline-list pl-nav"><li class="popup-nav"><a class="menu-toggle mm-toggle"><i class="icon icon-reorder"></i></a></li></ul>');
+		$out = sprintf('<ul class="inline-list pl-nav"><li class="popup-nav"><a class="menu-toggle mm-toggle show-me"><i class="icon icon-reorder"></i></a></li></ul>');
 		
 	} else {
 		
 		// allow inline styles on nav ( offsets! )
 		if( isset( $args['attr'] ) ){
-			$args['items_wrap'] = '<ul id="%1$s" class="%2$s" '.$args['attr'].'>%3$s<li class="popup-nav"><a class="menu-toggle mm-toggle respond"><i class="icon icon-reorder"></i></a></li></ul>'; 
+			$args['items_wrap'] = '<ul id="%1$s" class="%2$s" '.$args['attr'].'>%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>'; 
 		}
 		
 		$defaults = array(
-			'menu_class'		=> 'inline-list pl-nav',
+			'menu_class'		=> 'inline-list pl-nav '.$respond,
 			'menu'				=> pl_setting( 'primary_navigation_menu' ),
 			'container'			=> null,
 			'container_class'	=> '',
 			'depth'				=> 3,
 			'fallback_cb'		=> '',
-			'items_wrap'      	=> '<ul id="%1$s" class="%2$s" style="">%3$s<li class="popup-nav"><a class="menu-toggle mm-toggle respond"><i class="icon icon-reorder"></i></a></li></ul>',
+			'items_wrap'      	=> '<ul id="%1$s" class="%2$s" style="">%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>',
 			'style'				=> false, 
 			'echo'				=> false,
 			'pl_behavior'		=> 'standard'
