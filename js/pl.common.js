@@ -30,6 +30,8 @@
 		$('.pl-credit').show()
 
 		$.ResizeCanvasVids.init()
+		
+		$.BodyClass.init()
 
 	})
 
@@ -56,6 +58,26 @@
 		// 			$.plCommon.plVerticalCenter('.pl-centerer', '.pl-centered')
 		// 		})
 	})
+
+	$.BodyClass = {
+		init: function(){
+			$(window).resize(function () {
+				$.BodyClass.doResize()
+			})
+			$.BodyClass.doResize()
+		}
+		,	doResize: function(){
+			$(document.body).removeClass('pl-res-phone pl-res-tablet pl-res-desktop')
+			var width = $(window).width()		
+			if( width < 480 ) {
+				$(document.body).addClass('pl-res-phone')
+			} else if( width < 1024 ){
+				$(document.body).addClass('pl-res-tablet')
+			} else {
+				$(document.body).addClass('pl-res-desktop')
+			}
+		} 
+	}
 
 	$.plSupersized = {
 		init: function(){
