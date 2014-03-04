@@ -332,7 +332,7 @@
 				}
 				.caret, &:hover .caret{
 				  border-top:   4px solid #fff;
-				  .opacity(60);
+				  opacity: .6;
 				  content: "";
 				}
 				&.s-control-icon{
@@ -421,7 +421,7 @@
 		margin: 0 0 1em 0;
 		padding: 0;
 		.box-sizing(border-box);
-		.border-radius(5px);
+		border-radius: 5px;
 		#gradient > .vertical(rgba(182, 242, 253, .2), rgba(125, 233, 253, .2));
 		outline: 1px solid @editorBorderTrans;
 		// Used in nested columns
@@ -442,11 +442,11 @@
 	.cant-offset .section-offset-reduce,
 	.cant-offset .offset-size,
 	.sortable-first .section-start-row{
-		.opacity(50);
+		opacity: .5;
 	}
 
 	.force-start-row .s-control.s-control-icon.section-start-row{
-		.opacity(100);
+		opacity: 1;
 		color: @editorBorder;
 		background: rgba(0,0,0,.7);
 	}
@@ -1068,6 +1068,7 @@
 			
 			.editor-alert{
 				border: none;
+				background-color: #eee;
 				font-size: 86%;
 				line-height: 1.4em;
 				
