@@ -133,7 +133,7 @@ class PageLinesInstall{
 	// It will automatically load and/or update templates
 	function page_templates( ){
 		$templates = array(
-			$this->template_welcome()
+			'welcome'	=> $this->template_welcome()
 		);
 				
 		return $templates;
@@ -157,14 +157,30 @@ class PageLinesInstall{
 			'header'	=> array(), 
 			'footer'	=> array(
 				array(
+					'settings'	=> array(
+						'pl_area_theme' 	=> 'pl-black',
+					),
 					'content'	=> array(
-						array( 'object'	=> 'SimpleNav' ),
-						array( 'object'	=> 'PLWatermark' )
+						array( 
+							'object'	=> 'PageLinesColumnizer',
+							
+						),
+					)
+				),
+				array(
+					'settings'	=> array(
+						'pl_area_theme' 	=> 'pl-grey',
+					),
+					'content'	=> array(
+						array( 
+							'object'	=> 'PLSocialinks',
+							
+						),
 					)
 				)
 			),
 			'fixed'	=> array(
-				array( 'object'	=> 'PLNavBar' )
+				array( 'object'	=> 'PLNavi' )
 			)
 		);
 		
@@ -190,8 +206,8 @@ class PageLinesInstall{
 			array(
 				'object'	=> 'PLSectionArea',
 				'settings'	=> array(
-					'pl_area_bg' 		=> 'pl-dark-img',
-					'pl_area_image'		=> '[pl_parent_url]/images/getting-started-mast-bg.jpg',
+					'pl_area_theme' 		=> 'pl-dark-img',
+					'pl_area_background'	=> '[pl_parent_url]/images/getting-started-mast-bg.jpg',
 					'pl_area_pad'		=> '80px',
 					'pl_area_parallax'	=> 'pl-parallax'
 				),
