@@ -288,16 +288,25 @@ ul.inline-list {
 		
 		}
 	}
-	.menu-toggle.respond{
+	
+	.menu-toggle{
 		display: none;
-	}
-	@media (max-width: @resPortraitTablet) {
-		.menu-toggle.respond{
+		&.show-me{
 			display: block;
 		}
-		.menu-item{
-			display: none;
+	}
+	@media (max-width: @resPortraitTablet) {
+		&.respond{
+			.menu-toggle{
+				display: block;
+			}
+			
+			.menu-item{
+				display: none;
+			}
 		}
+	
+	
 
 	}
 }

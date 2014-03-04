@@ -65,7 +65,8 @@ http://www.gnu.org/licenses/gpl.html
 		// function to be called whenever the window is scrolled or resized
 		function update(){
 			var pos = $window.scrollTop();	
-			var wHeight = $window.height()				
+			var wHeight = $window.height()	
+			var wWidth = $window.width()				
 
 			$this.each(function(){
 				var $element = $(this);
@@ -79,36 +80,59 @@ http://www.gnu.org/licenses/gpl.html
 				}
 
 				var trns = pos + fixedHeight - top
-			
-				if( theMode == 'translate' && trns > 0){
-					
-						var diff =  (trns + height) / (trns * 6);
+				
+				// for mobile set to 0
+				if( wWidth <= 767 ){
+					console.log('mobile')
+					if( theMode == 'translate' ){
 						
-						
- 						if (diff > 1) 
-							diff = 1;
-			            else if (diff < 0) 
-							diff = 0;
-
 						$this
-							.css('transform', 'translate(0, ' + Math.round( .6 * trns ) + 'px)' )
+							.css('transform', 'translate(0, 0)' )
 							.find('.pl-content')
-								.css('opacity', diff)
+								.css('opacity', 1)
+								
+					} else {
 						
-				} else if( theMode == 'translate' ){
-					$this
-						.css( 'transform', 'translate(0, 0)' )
-						.find('.pl-content')
-							.css('opacity', 1)
-				}
-				
-				
-				if(  theMode == 'background' ){
-				
-					$this.css('backgroundPosition', xpos + " " + Math.round((-100 - pos) * speedFactor) + "px");
+						$this.css('backgroundPosition', '0px 0px');
+						
+					}
+					
+					
+				} else {
+					
+					if( theMode == 'translate' && trns > 0){
+
+							var diff =  (trns + height) / (trns * 6);
+
+
+	 						if (diff > 1) 
+								diff = 1;
+				            else if (diff < 0) 
+								diff = 0;
+
+							$this
+								.css('transform', 'translate(0, ' + Math.round( .6 * trns ) + 'px)' )
+								.find('.pl-content')
+									.css('opacity', diff)
+
+					} else if( theMode == 'translate' ){
+						$this
+							.css( 'transform', 'translate(0, 0)' )
+							.find('.pl-content')
+								.css('opacity', 1)
+					}
+
+
+					if(  theMode == 'background' ){
+
+						$this.css('backgroundPosition', xpos + " " + Math.round((-100 - pos) * speedFactor) + "px");
+
+					}
+					
 					
 				}
-					
+			
+				
 				
 			
 			});

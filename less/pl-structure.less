@@ -181,6 +181,9 @@ body {
 	}
 	@media (max-width: 767px) {
 		padding: 11px;
+		.row:last-child > [class*="span"]{
+			margin-bottom: 15px;
+		}
 	}
 }
 
@@ -204,6 +207,12 @@ body .pl-area .pl-section{
 
 .pl-scroll-translate{
 	overflow:hidden;
+}
+@media (max-width: 767px) {
+	.pl-scroll-translate .pl-area-wrap{
+		-webkit-transform: translate(0, 0) !important;
+		transform: translate(0, 0) !important;
+	}
 }
 .pl-area-wrap{
 	background-position: 50% 0;
