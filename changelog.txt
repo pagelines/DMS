@@ -3,6 +3,15 @@
   DMS Release Notes:
 
 ********************************************************
+
+Version 1.1.7
+
+	- CORE - Add responsive classes to body tag
+	- CORE - Imported shows error message if filename is wrong
+	- CORE - Only show supersize div if there is an image - Fixes issues with mobile nav
+	- CORE - Make sure editor is always displayed in ltr format
+	- BUG - Fix possible issue with Chrome - FitVids.js updated
+
 Version 1.1.6
 
 	- CORE - Fix media uploader being destroyed by nextgen gallery js.
