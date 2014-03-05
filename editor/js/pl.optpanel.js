@@ -526,7 +526,7 @@
 			if( value != '' && index && subkey ){
 
 				if( value[index] && value[index][subkey] ){
-					value = value[index][subkey]
+					value = pl_html_input(value[index][subkey])
 				} else
 					value = ''
 

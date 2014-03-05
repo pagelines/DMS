@@ -47,7 +47,7 @@ function pl_html_input( text ) {
 	if( typeof text != 'string')
 		return text
 	else 	
-		return jQuery.trim( pl_htmlEntities( pl_stripSlashes( text ) ) )
+		return jQuery.trim( pl_htmlEntities( pl_stripSlashes( pl_urldecode( text ) ) ) )
 }	
 
 function getURLParameter(name) {
@@ -155,4 +155,8 @@ function localStorageSpace() {
 		}
 	}
 	return allStrings ? 3 + ((allStrings.length*16)/(8*1024)).toFixed(2) + ' KB' : 'Empty (0 KB)';
+}
+
+function pl_urldecode(str) {
+	return decodeURIComponent(str+'');
 }
