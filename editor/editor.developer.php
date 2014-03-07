@@ -148,7 +148,7 @@ class PLDeveloperTools {
 
 		$settings['dev_log'] = array(
 			'name' 	=> __( 'Logging', 'pagelines' ),
-			'icon'	=> 'icon-wrench',
+			'icon'	=> 'icon-copy',
 			'opts' 	=> array(
 
 				array(
@@ -162,7 +162,7 @@ class PLDeveloperTools {
 
 		$settings['dev-page'] = array(
 			'name' 	=> __( 'Performance', 'pagelines' ),
-			'icon'	=> 'icon-wrench',
+			'icon'	=> 'icon-tachometer',
 			'opts' 	=> array(
 				array(
 					'key'		=> 'fill-in',
