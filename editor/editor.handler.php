@@ -535,7 +535,7 @@ class PageLinesTemplateHandler {
 		unset($i);
 
 
-		return $opts_config;
+		return apply_filters( 'get_options_config', $opts_config );
 	}
 
 
