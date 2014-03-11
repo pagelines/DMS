@@ -235,6 +235,11 @@ function pl_dms_admin_actions(){
 	die();
 }
 
+function pl_tmp_mime_overide ( $existing_mimes = array() ) {
+	$existing_mimes['svg'] = 'image/svg+xml';
+	return $existing_mimes;
+}
+
 
 add_action( 'wp_ajax_pl_up_image', 'pl_up_image' );
 function pl_up_image (){
@@ -243,12 +248,12 @@ function pl_up_image (){
 
 	$files_base = $_FILES[ 'qqfile' ];
 
+	add_filter( 'upload_mimes', 'pl_tmp_mime_overide' );
 	$arr_file_type = wp_check_filetype( basename( $files_base['name'] ));
-
 	$uploaded_file_type = $arr_file_type['type'];
 
 	// Set an array containing a list of acceptable formats
-	$allowed_file_types = array( 'image/jpg','image/jpeg','image/gif','image/png', 'image/x-icon');
+	$allowed_file_types = array( 'image/jpg','image/jpeg','image/gif','image/png', 'image/x-icon', 'image/svg+xml');
 
 	if( in_array( $uploaded_file_type, $allowed_file_types ) ) {
 
@@ -289,7 +294,7 @@ function pl_up_image (){
 		echo json_encode( array( 'url' => $url, 'success' => TRUE, 'attach_id' => $attach_id ) );
 
 	}
-	
+	remove_filter( 'upload_mimes', 'pl_tmp_mime_overide' );
 	die(); // don't forget this, always returns 0 w/o
 	
 }
