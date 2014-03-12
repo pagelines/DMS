@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 1.1.8
+
+	- CORE - Added an alternative CSS URL method (advanced options)
+			 Will help on hosts with uber aggressive cache systems like WPEngine
+
 Version 1.1.7
 
 	- CORE - Add responsive classes to body tag

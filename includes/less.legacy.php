@@ -432,8 +432,11 @@ class PageLinesRenderCSS {
 		$folder = pl_get_css_dir( 'path' );
 		$url = pl_get_css_dir( 'url' );
 
-		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
-
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = 'compiled-css.css';
+		else 
+			$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
+			
 		if( file_exists( trailingslashit( $folder ) . $file ) ){
 			define( 'DYNAMIC_FILE_URL', trailingslashit( $url ) . $file );
 			return;
@@ -464,8 +467,12 @@ class PageLinesRenderCSS {
 		$url = 'themes.php?page=pagelines';
 
 		$folder = pl_get_css_dir( 'path' );
-		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
-
+		
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = 'compiled-css.css';
+		else
+			$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
+			
 		if( !is_dir( $folder ) ) {
 			if( true !== wp_mkdir_p( $folder ) )
 				return false;
@@ -549,8 +556,14 @@ class PageLinesRenderCSS {
 	 */
 	function load_less_css() {
 
-		wp_enqueue_style( 'pagelines-less',  $this->get_dynamic_url(), false, null, 'all' );
-
+		if( defined( 'DYNAMIC_FILE_URL' ) ) {
+			if( '1' == pl_setting( 'alternative_css' ) )
+				wp_enqueue_style( 'pagelines-less',  $this->get_dynamic_url(), false, get_theme_mod( "pl_save_version" ), 'all' );
+			else
+				wp_enqueue_style( 'pagelines-less',  $this->get_dynamic_url(), false, null, 'all' );
+		} else {
+			wp_enqueue_style( 'pagelines-less',  $this->get_dynamic_url(), false, null, 'all' );
+		}
 	}
 
 	function get_dynamic_url() {
@@ -755,8 +768,11 @@ class PageLinesRenderCSS {
 
 		$folder = trailingslashit( pl_get_css_dir( 'path' ) );
 
-		$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
-
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = 'compiled-css.css';
+		else
+			$file = sprintf( 'compiled-css-%s.css', get_theme_mod( 'pl_save_version' ) );
+			
 		if( is_file( $folder . $file ) )
 			@unlink( $folder . $file );
 

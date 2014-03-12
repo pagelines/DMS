@@ -345,8 +345,14 @@ class EditorSettings {
 					'title'		=> __( 'Current Install Class', 'pagelines' ),
 					'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
 			),
-			
-			
+			array(
+				'key'		=> 'alternative_css',
+				'default'	=> false,
+				'type'		=> 'check',
+				'col'		=> 1,
+				'label'		=> __( 'Enable Alternative CSS URLS', 'pagelines' ),
+				'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.')				
+				)		
 		);
 		return $settings;
 	}
