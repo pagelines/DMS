@@ -158,5 +158,7 @@ function localStorageSpace() {
 }
 
 function pl_urldecode(str) {
+	
+	return unescape(str)
 	return decodeURIComponent(str+'');
 }
