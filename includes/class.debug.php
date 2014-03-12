@@ -175,9 +175,10 @@ class PageLinesDebug {
 				'title'	=> 'OS',
 				'value' => PHP_OS,
 			);
-
-			if ( pl_is_activated() ) {
-				$status = get_option( 'dms_activation' );
+			
+			$status = get_option( 'dms_activation' );
+			if ( pl_is_activated() && isset( $status['email'] ) ) {
+				
 				$this->debug_info[] = array(
 					'title'	=> 'Licence OK',
 					'value' => $status['email'],
