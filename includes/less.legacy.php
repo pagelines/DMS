@@ -436,8 +436,11 @@ class PageLinesRenderCSS {
 		$folder = pl_get_css_dir( 'path' );
 		$url = pl_get_css_dir( 'url' );
 
-		$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );
-
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = 'compiled-css-core.css';
+		else
+			$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );;
+						
 		if( file_exists( trailingslashit( $folder ) . $file ) ){
 			define( 'DYNAMIC_FILE_URL', trailingslashit( $url ) );
 			return;
@@ -468,7 +471,11 @@ class PageLinesRenderCSS {
 		$url = 'themes.php?page=pagelines';
 
 		$folder = pl_get_css_dir( 'path' );
-		$file = sprintf( 'compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+		
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = sprintf( 'compiled-css-%s.css', $area );
+		else
+			$file = sprintf( 'compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
 
 		if( !is_dir( $folder ) ) {
 			if( true !== wp_mkdir_p( $folder ) )
@@ -556,17 +563,32 @@ class PageLinesRenderCSS {
 		if( defined( 'DYNAMIC_FILE_URL' ) ) {
 
 			$area = 'core';
-
-			$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+			
+			if( '1' == pl_setting( 'alternative_css' ) )
+				$file = sprintf( '/compiled-css-%s.css', $area );
+			else
+				$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+			
 			$url = pl_get_css_dir( 'url' ) . $file;
 
-			wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, null, 'all' );
+			if( '1' == pl_setting( 'alternative_css' ) )
+				wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, get_theme_mod( 'pl_save_version' ), 'all' );
+			else
+				wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, null, 'all' );
+				
+
 
 			$area = 'sections';
-
-			$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+			if( '1' == pl_setting( 'alternative_css' ) )
+				$file = sprintf( '/compiled-css-%s.css', $area );
+			else
+				$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
+				
 			$url = pl_get_css_dir( 'url' ) . $file;
-			wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, null, 'all' );
+			if( '1' == pl_setting( 'alternative_css' ) )
+				wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, get_theme_mod( 'pl_save_version' ), 'all' );
+			else
+				wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, null, 'all' );
 		} else {
 			wp_enqueue_style( 'pagelines-less-legacy',  $this->get_dynamic_url( null ), false, null, 'all' );
 		}
@@ -777,12 +799,18 @@ class PageLinesRenderCSS {
 
 		$folder = trailingslashit( pl_get_css_dir( 'path' ) );
 
-		$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );
 
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = 'compiled-css-core.css';
+		else
+			$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );
 		if( is_file( $folder . $file ) )
 			@unlink( $folder . $file );
 
-		$file = sprintf( 'compiled-css-sections-%s.css', get_theme_mod( 'pl_save_version' ) );
+		if( '1' == pl_setting( 'alternative_css' ) )
+			$file = 'compiled-css-sections.css';
+		else
+			$file = sprintf( 'compiled-css-sections-%s.css', get_theme_mod( 'pl_save_version' ) );
 
 		if( is_file( $folder . $file ) )
 			@unlink( $folder . $file );

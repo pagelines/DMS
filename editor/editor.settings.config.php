@@ -312,6 +312,14 @@ class EditorSettings {
 				'col'		=> 2,
 				'label'		=> __( 'Enable Legacy PostLoop Options', 'pagelines' ),
 				'help'		=> __( 'The Legacy loop has more options but is not as compatible with 3rd party plugins like forums etc.')				
+			),
+			array(
+				'key'		=> 'alternative_css',
+				'default'	=> false,
+				'type'		=> 'check',
+				'col'		=> 1,
+				'label'		=> __( 'Enable Alternative CSS URLS', 'pagelines' ),
+				'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.')				
 			)
 			
 			
