@@ -230,7 +230,7 @@ function pl_dms_admin_actions(){
 	echo json_encode(  pl_arrays_to_objects( $response ) );
 	if( $lessflush ) {
 		global $dms_cache;
-		$dms_cache->purge('draft');
+		$dms_cache->purge_all();
 	}
 	die();
 }
