@@ -18,6 +18,13 @@ class PLSectionData{
 			$this->install_table();
 	}
 	
+	function unserialize( $data ) {
+		if( is_serialized( $data ) )
+			return unserialize( $data );
+		else
+			return json_decode( $data, true );
+	}
+	
 	function install_table(){
 
 		global $wpdb;
@@ -50,7 +57,7 @@ class PLSectionData{
 	function update_or_insert( $data ){
 		
 		$uid = $data['uid']; 
-		$draft = serialize( $data['draft'] );
+		$draft = json_encode( $data['draft'] );
 		
 		$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft) 
 										VALUES ( %s, %s)
@@ -69,7 +76,7 @@ class PLSectionData{
 			foreach( $items as $uid => $dat ){
 				
 				$result = array();
-				$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft, live) VALUES ( %s, %s, %s ) ON DUPLICATE KEY UPDATE draft = VALUES(draft), live = VALUES(live);", $uid, serialize( $dat ), serialize( $dat ));
+				$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft, live) VALUES ( %s, %s, %s ) ON DUPLICATE KEY UPDATE draft = VALUES(draft), live = VALUES(live);", $uid, json_encode( $dat ), json_encode( $dat ));
 				
 				$result[] = $this->wpdb->query( $query );
 			}
@@ -134,11 +141,11 @@ class PLSectionData{
 			
 			foreach( $result as $section ){
 
-				$draft_settings = stripslashes_deep( unserialize( $section->draft ) );
+				$draft_settings = stripslashes_deep( $this->unserialize( $section->draft ) );
 
 				$draft_settings[ $key ] = $value;
 
-				$new_draft_settings = serialize( $draft_settings );
+				$new_draft_settings = json_encode( $draft_settings );
 				
 				$query = $this->wpdb->prepare("UPDATE $this->table_name SET draft = %s WHERE uid = %s", $new_draft_settings, $uid);
 				
@@ -204,7 +211,7 @@ class PLSectionData{
 					
 					$num_rows++;
 					
-					$config[ $uid ] = stripslashes_deep( unserialize( $set->$mode ) );
+					$config[ $uid ] = stripslashes_deep( $this->unserialize( $set->$mode ) );
 				
 				}
 					
@@ -226,8 +233,8 @@ class PLSectionData{
 				
 				$upgrade_settings['live'] = $live->get_set( $uid );
 				
-				$encoded_draft = serialize( $upgrade_settings['draft'] );
-				$encoded_live = serialize( $upgrade_settings['live'] );
+				$encoded_draft = json_encode( $upgrade_settings['draft'] );
+				$encoded_live = json_encode( $upgrade_settings['live'] );
 				
 				$set = array( 'uid'	=> $uid, 'draft' => $encoded_draft, 'live' => $encoded_live );
 				$num_rows++;
