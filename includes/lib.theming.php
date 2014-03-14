@@ -19,7 +19,7 @@ function pl_navigation( $args = array() ){
 		}
 		
 		$defaults = array(
-			'menu_class'		=> 'inline-list pl-nav '.$respond,
+			'menu_class'		=> 'inline-list pl-nav',
 			'menu'				=> pl_setting( 'primary_navigation_menu' ),
 			'container'			=> null,
 			'container_class'	=> '',
@@ -34,7 +34,7 @@ function pl_navigation( $args = array() ){
 		$args = wp_parse_args( $args, $defaults );
 		
 		
-		
+		$args['menu_class'] .= ' '. $respond;
 		
 		$out = str_replace("\n","", wp_nav_menu( $args ));
 	}	
