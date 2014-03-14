@@ -170,7 +170,7 @@
 			                jQuery('#' + relid ).val(attachment.attributes.url).trigger('change');
 
 
-						    jQuery('#_nectar_video_embed').trigger('keyup');
+						    jQuery('#_pagelines_video_embed').trigger('keyup');
 
 			                jQuery('.redux-opts-media-upload',activeFileUploadContext).hide();
 			                jQuery('.redux-opts-upload-media-remove',activeFileUploadContext).show();
@@ -181,8 +181,9 @@
 			
 			
 				jQuery(".redux-opts-upload-media-remove").click( function( event ) {
-				    var activeFileUploadContext = jQuery(this).parent();
-				    var relid = jQuery(this).attr('rel-id');
+					
+				    var activeFileUploadContext = jQuery(this).parent()
+				    var relid = jQuery(this).attr('rel-id')
 
 				    event.preventDefault();
 
