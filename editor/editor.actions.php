@@ -268,7 +268,10 @@ function pl_up_image (){
 
 		// ( if applicable-Update option here)
 
-		$name = 'PageLines- ' . addslashes( $files_base['name'] );
+		$name = sprintf( '%s%s',
+			apply_filters( 'pl_up_image_prefix', 'PageLines-' ),
+			addslashes( $files_base['name'] )
+		);
 
 		$attachment = array(
 						'guid'				=> $uploaded_file['url'],
@@ -295,8 +298,7 @@ function pl_up_image (){
 
 	}
 	remove_filter( 'upload_mimes', 'pl_tmp_mime_overide' );
-	die(); // don't forget this, always returns 0 w/o
-	
+	die(); // don't forget this, always returns 0 w/o	
 }
 
 add_filter( 'pagelines_global_notification', 'pagelines_check_folders_dms');
