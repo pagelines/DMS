@@ -136,13 +136,14 @@ function dms_suggest_plugin( $name, $slug, $desc = false ) {
 	);	
 }
 
-add_action( 'admin_notices', 'pagelines_recommended_plugins' );
+add_action( 'admin_notices', 'pagelines_recommended_plugins', 11 );
 function pagelines_recommended_plugins() {
+
+	global $dms_suggest_plugins, $pagenow;	
 	if( isset( $_REQUEST['dms_suggest_plugins'] ) )
 		set_theme_mod( 'dms_suggest_plugins', (bool) $_REQUEST['dms_suggest_plugins'] );
 
-	global $dms_suggest_plugins;
-	if( ! is_array( $dms_suggest_plugins ) || empty( $dms_suggest_plugins ) )
+	if( 'index.php' != $pagenow || ! is_array( $dms_suggest_plugins ) || empty( $dms_suggest_plugins ) )
 		return false;
 
 	// Already dismissed.
