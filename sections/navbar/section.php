@@ -144,8 +144,7 @@ class PLNavBar extends PageLinesSection {
 	$pull = ( $align ) ? 'right' : 'left';
 	$align_class = sprintf( 'pull-%s', $pull );
 
-
-	$class[] = ( is_array( $theme ) ) ? sprintf( 'pl-color-%s', $theme[0] ) : 'pl-color-black-trans';
+	$class[] = ( $theme ) ? sprintf( 'pl-color-%s', $theme ) : 'pl-color-black-trans';
 
 	$classes = join(' ', $class);
 
