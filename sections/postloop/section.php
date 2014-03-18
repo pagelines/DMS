@@ -40,26 +40,16 @@ class PageLinesPostLoop extends PageLinesSection {
 				'title'		=> __( 'Hide Media on archives', 'pagelines' ),
 			),
 			array(
-				'type'		=> 'select',
-				'key'		=> 'media_align',
-				'default'	=> 'left',
-				'opts'	=> array(
-					'left'			=> array( 'name' => __( 'Left Justified', 'pagelines' ) ),
-					'right'			=> array( 'name' => __( 'Right Justifiied', 'pagelines' ) ),
-					'center'		=> array( 'name' => __( 'Top', 'pagelines' ) ),
-					'none'			=> array( 'name' => __( 'No Thumb', 'pagelines' ) ),
-					),
-				'title'		=> __( 'Thumbnail alignment', 'pagelines' ),
+				'key'			=> 'pl_loop_thumb_size',
+				'type' 			=> 'select_imagesizes',
+				'scope'			=> 'global',
+				'default'		=> 'aspect-thumb',
+				'label' 		=> __( 'Select Thumb Size', 'pagelines' )
 			),
-			array(
-					'key'			=> 'thumb_size',
-					'type' 			=> 'select_imagesizes',
-					'default'		=> 'thumb',
-					'label' 		=> __( 'Select Thumb Size', 'pagelines' )
-				),
 
 			array(
 				'key'			=> 'metabar_standard',
+				'scope'			=> 'global',
 				'default'		=> 'On [post_date] | [post_comments] [post_edit]',
 				'type'			=> 'text',
 				'col'			=> 2,
@@ -171,6 +161,8 @@ class PageLinesPostLoop extends PageLinesSection {
 			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true);
 
 			$class[ ] = ( ! empty( $gallery_format ) ) ? 'use-flex-gallery' : '';
+			
+			$thumb_size = ( pl_setting('thumb_size' ) ) ? pl_setting('thumb_size' ) : 'landscape-thumb'; 
 
 			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
 			?>
@@ -190,7 +182,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 					if( ! is_singular() && ! $this->opt( 'post_media_hide' ) ){
 
-						printf( '<div class="metamedia">%s</div>', pagelines_media() );
+						printf( '<div class="metamedia">%s</div>', pagelines_media( array( 'thumb-size' => $thumb_size ) ) );
 
 					}
 
@@ -207,7 +199,7 @@ class PageLinesPostLoop extends PageLinesSection {
 								the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 							endif;
 
-							$meta = ( $this->opt('metabar_standard') ) ? $this->opt('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]';
+							$meta = ( pl_setting('metabar_standard') ) ? pl_setting('metabar_standard') : 'Posted [post_date] &middot; [post_comments] [post_edit]';
 
 							if( $meta && ! is_page() && get_post_type() != 'page' )
 								printf( '<div class="metabar"> %s </div>', do_shortcode( $meta ) );
@@ -216,14 +208,13 @@ class PageLinesPostLoop extends PageLinesSection {
 					</header><!-- .entry-header -->
 				<?php endif; ?>
 				<div class="entry-content">
-
 					<?php
 
 					if( is_single() || is_page() ){
 						
-						$align = $this->opt( 'media_align', array( 'default' => 'left' ) );
-						if( 'none' != $align )
-							printf( '<div class="metamedia %s">%s</div>', $align, pagelines_media( array( 'thumb-size' => $this->opt('thumb_size' ) ) ) );
+						
+						
+						printf( '<div class="metamedia">%s</div>', pagelines_media( array( 'thumb-size' => $thumb_size ) ) );
 
 						the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pagelines' ) );
 

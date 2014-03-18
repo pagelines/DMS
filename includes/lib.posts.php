@@ -99,12 +99,13 @@ function pagelines_media( $args = array() ){
 				foreach( $gallery_ids as $image_id ) {
 					
 					$attachment = get_post( $image_id );
-					
-					$image = wp_get_attachment_image( $image_id, 'aspect-thumb', false  );
+					  
+					$image = wp_get_attachment_image( $image_id, $args['thumb-size'], false  );
 					
 					$caption = ( $attachment->post_excerpt != '' ) ? sprintf('<p class="flex-caption">%s</p>', $attachment->post_excerpt) : '';
 					
 					printf( '<li>%s %s</li>', $image, $caption);
+					
 				} ?>
 			</ul>
 		</div><!--/gallery-->
@@ -162,4 +163,3 @@ function pl_get_attachment_ids_from_gallery() {
 
 }
 
-	
