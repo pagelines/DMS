@@ -153,10 +153,7 @@ class PLSectionData{
 				
 				$query = $this->wpdb->prepare( "SELECT * FROM $this->table_name WHERE uid = %s", $uid );
 
-				$result = $this->wpdb->get_results( $query );
-				
-				plprint($result);
-				
+				$result = $this->wpdb->get_results( $query );				
 			}
 			
 		}

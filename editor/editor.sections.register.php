@@ -42,6 +42,8 @@ class PLSectionsRegister {
 		foreach ( $section_dirs as $type => $dir )
 			$sections[ $type ] = $this->get_sections_data( $dir, $type );
 
+		$sections['editor'] = $this->get_all_plugins();
+
 		return $sections;
 	}
 
@@ -168,7 +170,7 @@ class PLSectionsRegister {
 					continue;
 				
 				if ( ! class_exists( $section['class'] ) && is_file( $section['base_file'] ) ) {
-					include_once( $section['base_file'] );
+					include( $section['base_file'] );
 					$pl_section_factory->register( $section['class'], $section_data );
 				}
 			} // /type			
