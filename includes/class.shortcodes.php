@@ -278,7 +278,7 @@ class PageLines_ShortCodes {
 		$defaults = array(
 			'zero' => __( "Add Comment", 'pagelines' ),
 			'one' => __( "1 Comment", 'pagelines' ),
-			'more' => __( "%s Comments", 'pagelines' ),
+			'more' => __( "% Comments", 'pagelines' ),
 			'hide_if_off' => 'disabled',
 			'before' 	=> '',
 			'after' 	=> '',
