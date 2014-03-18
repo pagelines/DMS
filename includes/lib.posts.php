@@ -100,7 +100,7 @@ function pagelines_media( $args = array() ){
 					
 					$attachment = get_post( $image_id );
 					
-					$image = wp_get_attachment_image( $image_id, '', false  );
+					$image = wp_get_attachment_image( $image_id, 'aspect-thumb', false  );
 					
 					$caption = ( $attachment->post_excerpt != '' ) ? sprintf('<p class="flex-caption">%s</p>', $attachment->post_excerpt) : '';
 					
