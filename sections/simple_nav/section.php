@@ -66,9 +66,9 @@ class SimpleNav extends PageLinesSection {
 
 		$menu = ( $this->opt( 'simple_nav_menu' ) ) ? $this->opt( 'simple_nav_menu' ) : null;
 
-		$align = ( $this->opt( 'simple_nav_align' ) ) ? 'align-'.$this->opt( 'simple_nav_align' ) : 'center';
+		$align = $this->opt( 'simple_nav_align', array( 'default' => 'center' ) );
 
-		$classes = sprintf('inline-list simplenav font-sub %s', $align);
+		$classes = sprintf('inline-list simplenav font-sub align%s', $align);
 
 		$args = array(
 			'theme_location'	=> 'simple_nav',
