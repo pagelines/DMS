@@ -47,6 +47,7 @@ class PageLinesPostLoop extends PageLinesSection {
 					'left'			=> array( 'name' => __( 'Left Justified', 'pagelines' ) ),
 					'right'			=> array( 'name' => __( 'Right Justifiied', 'pagelines' ) ),
 					'center'		=> array( 'name' => __( 'Top', 'pagelines' ) ),
+					'none'			=> array( 'name' => __( 'No Thumb', 'pagelines' ) ),
 					),
 				'title'		=> __( 'Thumbnail alignment', 'pagelines' ),
 			),
@@ -219,8 +220,10 @@ class PageLinesPostLoop extends PageLinesSection {
 					<?php
 
 					if( is_single() || is_page() ){
-
-						printf( '<div class="metamedia align%s">%s</div>', $this->opt( 'media_align' ), pagelines_media( array( 'thumb-size' => $this->opt('thumb_size' ) ) ) );
+						
+						$align = $this->opt( 'media_align', array( 'default' => 'left' ) );
+						if( 'none' != $align )
+							printf( '<div class="metamedia %s">%s</div>', $align, pagelines_media( array( 'thumb-size' => $this->opt('thumb_size' ) ) ) );
 
 						the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pagelines' ) );
 
