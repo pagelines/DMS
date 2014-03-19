@@ -36,6 +36,7 @@ class PageLinesPostLoop extends PageLinesSection {
 				'key'		=> 'post_media_hide',
 				'case'		=> 'special',
 				'type'		=> 'check',
+				'col'			=> 3,
 				'default'	=> false,
 				'title'		=> __( 'Hide Media on archives', 'pagelines' ),
 			),
@@ -43,6 +44,7 @@ class PageLinesPostLoop extends PageLinesSection {
 				'key'			=> 'pl_loop_thumb_size',
 				'type' 			=> 'select_imagesizes',
 				'scope'			=> 'global',
+				'col'			=> 3,
 				'default'		=> 'aspect-thumb',
 				'label' 		=> __( 'Select Thumb Size', 'pagelines' )
 			),
