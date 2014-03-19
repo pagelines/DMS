@@ -490,6 +490,8 @@ class EditorTemplates {
 	 * Adds PageLines Template selector when creating page/post
 	 */
 	function page_attributes_meta_box( $post ){
+		global $pl_custom_template;
+
 		$post_type_object = get_post_type_object($post->post_type);
 
 		///// CUSTOM PAGE TEMPLATE STUFF /////
@@ -498,7 +500,7 @@ class EditorTemplates {
 			
 			$set = pl_meta($post->ID, PL_SETTINGS);
 
-			$current = ( is_array( $set ) && isset( $set['live']['page-template'] ) ) ? $set['live']['page-template'] : '';
+			$current = ( is_array( $set ) && isset( $set['live']['custom-map']['template']['ctemplate'] ) ) ? $set['live']['custom-map']['template']['ctemplate'] : '';
 
 			$custom_template_handler = new PLCustomTemplates;
 
