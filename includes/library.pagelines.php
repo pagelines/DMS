@@ -624,7 +624,7 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
 		$atts = shortcode_atts( $defaults, $atts );
 
-		$out = sprintf( '<blockquote class="pull-%1$s"><p>%3$s<small>%2$s</small></p></blockquote>',
+		$out = sprintf( '<blockquote class="side-%1$s"><p>%3$s<small>%2$s</small></p></blockquote>',
 					$atts['pull'],
 					$atts['cite'],
 					do_shortcode( $content )
