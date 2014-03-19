@@ -214,14 +214,14 @@ class PLDeveloperTools {
 					'label' 	=> __( 'Enable no cache mode', 'pagelines' ),
 					'title' 	=> __( 'No Cache Mode', 'pagelines' ),
 					'help' 		=> __( 'Disables all caching including all CSS/LESS.', 'pagelines' )
-				),
-				array(
-				'key'		=> 'no_draft_mode',
-				'default'	=> false,
-				'type'		=> 'check',
-				'col'		=> 2,
-				'label'		=> __( 'Bypass draft mode.', 'pagelines' ),
-			)
+				)// ,
+				// 				array(
+				// 				'key'		=> 'no_draft_mode',
+				// 				'default'	=> false,
+				// 				'type'		=> 'check',
+				// 				'col'		=> 2,
+				// 				'label'		=> __( 'Bypass draft mode.', 'pagelines' ),
+				// 			)
 			);
 
 		return $settings;
