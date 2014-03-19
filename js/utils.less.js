@@ -6268,7 +6268,7 @@ var fileCache = {};
 
 function log(str, level) {
     if (less.env == 'development' && typeof(console) !== 'undefined' && less.logLevel >= level) {
-        console.log('less: ' + str);
+        plPrint('less: ' + str);
     }
 }
 

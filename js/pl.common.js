@@ -105,7 +105,7 @@
 						$(video).fadeIn('slow')
 						return false
 					} else {
-						console.log('nope')
+						plPrint('nope')
 					}
 				}, 100);
 			})

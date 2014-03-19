@@ -83,7 +83,7 @@ http://www.gnu.org/licenses/gpl.html
 				
 				// for mobile set to 0
 				if( wWidth <= 767 ){
-					console.log('mobile')
+					plPrint('mobile')
 					if( theMode == 'translate' ){
 						
 						$this

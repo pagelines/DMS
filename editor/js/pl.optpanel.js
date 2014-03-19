@@ -1366,7 +1366,7 @@
 				}
 				, complete: function (response) {
 					
-					console.log(response)
+					plPrint(response)
 					var result = $.parseJSON(response.responseText)
 					,	error = result.import_error || false
 				
