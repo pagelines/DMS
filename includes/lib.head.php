@@ -205,7 +205,7 @@ function pagelines_meta_tags(){
 
 	// Removes viewport scaling on Phones, Tablets, etc.
 	if(!pl_setting('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
-		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
+		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />';
 		
 	
 	printf( "\n<meta property='pl-share-title' content='%s' />\n", get_the_title($pagelines_ID));
