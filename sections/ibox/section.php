@@ -167,7 +167,7 @@ class pliBox extends PageLinesSection {
 				$text_link = ($link) ? sprintf('<div class="ibox-link"><a href="%s">%s <i class="icon icon-angle-right"></i></a></div>', $link, __('More', 'pagelines')) : '';
 
 
-				$text_color = ( $color ) ? sprintf( 'color: %s;', $color ) : ''; 
+				$text_color = ( $color && $color != '' ) ? sprintf( 'color: %s;', $color ) : ''; 
 
 				$format_class = ($media_format == 'left') ? 'media left-aligned' : 'top-aligned';
 				$media_class = 'media-type-'.$media_type;
@@ -198,7 +198,7 @@ class pliBox extends PageLinesSection {
 
 				}
 				
-				
+				$wrap_class = 'wrap-'.$media_type;
 
 				$media_link = '';
 				$media_link_close = '';
@@ -213,7 +213,7 @@ class pliBox extends PageLinesSection {
 
 				
 				$output .= sprintf(
-					'<div class="span%s ibox %s %s fix">
+					'<div class="span%s ibox %s %s %s fix">
 						<div class="ibox-media img">
 							%s
 							<span class="ibox-icon-border pl-animation pl-appear pl-link pl-link-invert %s" style="%s">
@@ -232,6 +232,7 @@ class pliBox extends PageLinesSection {
 					$cols,
 					$format_class,
 					$user_class,
+					$wrap_class,
 					$media_link,
 					$media_class,
 					$style,
