@@ -3,23 +3,20 @@
 
 // Parent container
 .accordion {
-  margin-bottom: @baseLineHeight;
+  margin-bottom: 15px;
 }
 
 // Group == heading + body
 .accordion-group {
-  background:darken(@pl-base,2);
-  margin-bottom: 2px;
-  border: 1px solid darken(@pl-base, 6);
-  border-radius: 4px;
+  margin-bottom: 5px;
 }
 .accordion-heading {
-  background:darken(@pl-base,5);
+
   border-bottom: 0;
 
    &:hover {
-   	border-radius: 4px;
-	   background: @dark-base;
+   		border-radius: 4px;
+	  	opacity: .8;
 	}
    a:hover {
 		text-decoration:none;
@@ -34,5 +31,4 @@
 // Inner needs the styles because you can't animate properly with any styles on the element
 .accordion-inner {
   padding: 9px 15px;
-  border-top: 1px solid darken(@pl-base, 6);
 }
