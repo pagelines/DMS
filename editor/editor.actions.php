@@ -506,3 +506,24 @@ class PLImageUploader{
 		);
 	}
 }
+
+
+
+add_filter('manage_edit-page_columns', 'pl_add_new_page_columns' );
+add_action('manage_page_posts_custom_column', 'pl_manage_page_columns', 10, 2);
+
+function pl_manage_page_columns($column_name, $id) {
+
+	switch ($column_name) {
+		case 'template':
+			$set = pl_meta($id, PL_SETTINGS);
+			echo ( is_array( $set ) && isset( $set['live']['custom-map']['template']['ctemplate'] ) ) ? $set['live']['custom-map']['template']['ctemplate'] : 'None Set';
+		break;
+	} // end switch
+}
+	
+function pl_add_new_page_columns($columns) {
+	$columns['template'] = __( 'Template', 'pagelines' );
+	return $columns;
+}
+	

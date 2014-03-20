@@ -40,7 +40,7 @@
 			
 			this.saveCSS( CSS )
 			
-			console.log(new Date() - start);
+			plPrint(new Date() - start);
 			
 			$('#pagelines-draft-css').text( CSS )
 	
@@ -56,7 +56,7 @@
 				newVarsLESS += sprintf('@%s:%s;', name, value)
 			
 		    })
-			console.log(newVarsLESS)
+			plPrint(newVarsLESS)
 		    return newVarsLESS
 		}
 		
@@ -76,7 +76,7 @@
 				var compiled = ''
 				this.compiler.parse( code, function ( err, tree ) {
 					if ( err )
-						return console.log( err )
+						return plPrint( err )
 					
 					
 					compiled = tree.toCSS()
