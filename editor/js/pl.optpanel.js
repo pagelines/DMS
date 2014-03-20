@@ -267,9 +267,13 @@
 				,	key = thePanel.data('key')
 				,	uniqueID = (thePanel.attr('data-clone')) ? thePanel.attr('data-clone') : false
 				,	formData = that.activeForm.formParams()
+				,	myValue = pl_do_shortcode(theInput.val())
 				
 				
-
+				// need to extend list data on page for consistency
+				$.pl.data.list = $.extend(true, $.pl.data.list, formData)
+				
+				// this comes from old scope system, should reconcile between these two
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], formData)
 
 				
@@ -324,7 +328,7 @@
 						,	syncPost = el.data('sync-post') || ''
 						,	syncTarget = el.data('sync-target') || ''
 						,	tagName = el.prop('tagName')
-						, 	myValue = pl_do_shortcode(theInput.val())
+						
 
 						if( tagName == 'IMG'){
 
