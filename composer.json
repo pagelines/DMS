@@ -1,6 +1,6 @@
 {
   "name": "pagelines/dms",
-  "type": "wordpress-plugin",
+  "type": "wordpress-theme",
   "description": "Pagelines DMS",
   "keywords": ["pagelines","wordpress","DMS","framework"],
   "require": {
