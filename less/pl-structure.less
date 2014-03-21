@@ -342,7 +342,19 @@ h3.pl-section-title{
 	.pl-link{
 		color:#000;
 	}
-
+	.pl-social-counter{
+		border-right-color: rgba(0,0,0,.4);
+		.pl-social-icon i{
+			color: #000;
+			opacity: .5;
+		}
+		&:hover, 
+		&.loved{
+			.pl-social-icon i{
+				opacity: 1;
+			}
+		}
+	}
 }
 
 .pl-black,
@@ -388,7 +400,19 @@ h3.pl-section-title{
 		}
 
 	}
-	
+	.pl-social-counter{
+		border-right-color: rgba(255,255,255,.5);
+		.pl-social-icon i{
+			color: #fff;
+			opacity: .5;
+		}
+		&:hover, 
+		&.loved{
+			.pl-social-icon i{
+				opacity: 1;
+			}
+		}
+	}
 	.pl-contrast{
 		background-color: rgba(255,255,255,.2); 
 	}
@@ -438,7 +462,7 @@ h3.pl-section-title{
 	width: 100%;
 }
 .fixed-top-pusher{
-	.transition(all 0.1s linear);
+	.transition(height 0.4s linear);
 }
 
 @media (max-width: @resPortraitTablet) {
