@@ -700,7 +700,7 @@
 		
 		, handleSearchfield: function(){
 			
-			$('.pl-searcher').on('click', function(e){
+			$('.pl-searcher').on('click touchstart', function(e){
 				
 				$(this).parent().find( '.searchfield' ).focus()
 				
