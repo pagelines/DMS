@@ -66,7 +66,11 @@
 
 			$.plCommon.setFixedHeight()
 
-
+			// run after transition
+			setTimeout(function(){
+				$.plCommon.setFixedHeight()
+			}, 500)
+			
 		}
 		
 		
@@ -499,8 +503,7 @@
 
 			$.widthResize.startUp()
 
-
-
+			
 		}
 		
 		, reloadAllEvents: function(){
