@@ -30,12 +30,12 @@
 				panel.find('.x-list').isotope({
 					itemSelector : '.x-item'
 					, layoutMode : layout
-					, sortBy: 'number'
+					, sortBy: 'name'
 					, filter: filter
 					, containerStyle: { position: 'relative', overflow: 'visible' }
 					, getSortData : {
-						number : function ( $elem ) {
-							return $elem.data('number');
+						name : function ( $elem ) {
+							return $elem.data('sid');
 						}
 					}
 				})
