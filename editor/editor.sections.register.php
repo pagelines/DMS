@@ -455,6 +455,12 @@ class PLSectionsRegister {
 
 		return $sections;
 	}
+	// backwards compatability 
+	function pagelines_register_sections( $a = false, $b = false ) {
+		_pl_deprecated_function( __FUNCTION__, '2.0', '$editorsections->get_sections()' );
+		return $this->get_sections();
+	}
 }
-global $editorsections;
-$editorsections = new PLSectionsRegister;
+
+global $editorsections, $load_sections;
+$load_sections = $editorsections = new PLSectionsRegister;
