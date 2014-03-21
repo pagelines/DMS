@@ -9,6 +9,12 @@ function plIsset( variable ){
 		return false
 }
 
+function plPrint(variable){
+	if( true == jQuery.pl.config.devMode )
+		console.log( variable )
+}
+
+
 // =====================
 // = Parallax Handling =
 // =====================
