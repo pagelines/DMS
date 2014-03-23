@@ -32,10 +32,18 @@
 		$.ResizeCanvasVids.init()
 		
 		$.BodyClass.init()
+		
+		// Master resize trigger
+		$(window).trigger('resize')
 
 	})
 
 
+	function getPLFixedHeight(){
+		
+		return $('.pl-fixed-top').height() + $('#wpadminbar').height() + $('.pl-toolbox-pusher').height()
+		
+	}
 
 	function shuffle(o){ //v1.0
 		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -149,7 +157,7 @@
 				
 			})
 			
-			$(window).trigger('resize')
+			
 			
 			// $('.bg-video-canvas').on('plresize', function(){
 			// 			$(window).trigger('resize')
@@ -344,8 +352,34 @@
 				})
 			}
 			
+			that.windowSizer()
 			
 
+		}
+		
+		, windowSizer: function(){
+			
+			if( $('.pl-window-height').length >= 1 ){
+			
+				$(window).resize(function () { 
+
+					$('.pl-window-height').each(function(element){
+
+						var theArea = $(this)
+						, 	windowHeight = $(window).height() - getPLFixedHeight()
+						,	theContent = theArea.find('.pl-area-wrap')
+						,	contentHeight = theContent.height()
+						, 	offsetMargin = (contentHeight / 2) * -1
+
+						theArea.height(windowHeight)
+
+						theContent.css('margin-top', offsetMargin)
+
+					})
+
+				})
+		
+			}
 		}
 	
 	}

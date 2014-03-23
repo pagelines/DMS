@@ -79,8 +79,9 @@ class PLSectionArea extends PageLinesSection {
 						''						=> array('name' => "No Scroll Effect"),
 						'pl-parallax'			=> array('name' => "Parallaxed Background Image"),
 						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
+						'pl-window-height'		=> array('name' => "Set to height of window"),
 					),
-					'label' 	=> __( 'Scrolling effects and parallax.', 'pagelines' ),
+					'label' 	=> __( 'Scrolling effects and sizing.', 'pagelines' ),
 				),
 				
 				
