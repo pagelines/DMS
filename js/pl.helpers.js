@@ -10,7 +10,7 @@ function plIsset( variable ){
 }
 
 function plPrint(variable){
-	if( true == jQuery.pl.config.devMode )
+	if( plIsset(jQuery.pl) && plIsset(jQuery.pl.config) && true == jQuery.pl.config.devMode )
 		console.log( variable )
 }
 
