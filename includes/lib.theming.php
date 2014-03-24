@@ -41,6 +41,28 @@ function pl_navigation( $args = array() ){
 	return $out;
 }
 
+// Adds arrows and classes
+class PageLines_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+
+  		$id_field = $this->db_fields['id'];
+
+        if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent == 0) {
+	
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon icon-angle-down"></i></span>';
+			$element->classes[] = 'sf-with-ul';
+
+        }
+
+		if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent != 0) {
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon icon-angle-right"></i></span>';
+        }
+
+        Walker_Nav_Menu::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+    }
+}
+
 
 function pl_posts_404(){
 
