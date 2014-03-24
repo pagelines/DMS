@@ -100,15 +100,7 @@ function pl_set_css_headers(){
 	header( 'Cache-Control: max-age=604100, public' );
 }
 
-function pl_get_css_dir( $type = '' ) {
 
-	$folder = apply_filters( 'pagelines_css_upload_dir', wp_upload_dir() );
-
-	if( 'path' == $type )
-		return trailingslashit( $folder['basedir'] ) . 'pagelines';
-	else
-		return trailingslashit( $folder['baseurl'] ) . 'pagelines';
-}
 
 /**
  *
