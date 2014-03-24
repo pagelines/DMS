@@ -771,6 +771,20 @@ class PageLinesTemplateHandler {
 			$s->level = $level;
 
 			$s->setup_oset( $meta['clone'] ); // refactor
+			
+			
+			// Hiding section on specific page.
+			$hide_on_pages = $s->opt( 'pl_hide_on_page' );
+			
+			$hide_section = false;
+			
+			if( $hide_on_pages != false ){
+				$hide_on_pages_ids = explode( ',', $hide_on_pages );
+				
+				if(  in_array( $this->page->id, $hide_on_pages_ids ) )
+					$hide_section = true;
+			}
+				
 
 			if( has_filter( 'pagelines_render_section' ) ) {
 				$output = apply_filters( 'pagelines_render_section', $s, $this );
@@ -780,10 +794,10 @@ class PageLinesTemplateHandler {
 				$output = ob_get_clean();	
 			}
 	
-			$render = (!isset($output) || $output == '') ? false : true;
+			$render = ( ! isset($output) || $output == '' || $hide_section ) ? false : true;
 
 			if( ! $render && current_user_can( 'edit_theme_options' ) ){
-				$output = pl_blank_template(); 
+				$output = pl_blank_template( $s->name ); 
 				$render = true;
 			}
 
@@ -799,6 +813,8 @@ class PageLinesTemplateHandler {
 				$s->wrapper_styles = pl_get_area_styles( $s ); 
 				
 				$s->wrapper_styles['user'] = $s->opt('pl_standard_styles');
+				
+				
 				
 				// set to true if standard title is to be placed non standard 
 				$s->alt_standard_title = false;

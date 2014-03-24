@@ -403,6 +403,12 @@ function pl_standard_section_options( $section ){
 				'type' 		=> 'text',
 				'label' 	=> __( 'Inline CSS Styling', 'pagelines' ),
 				'help'		=> __( 'Use sparingly. Example: "text-transform:uppercase; font-size: 80%;"', 'pagelines' ),
+			),
+			array(
+				'key'		=> 'pl_hide_on_page',
+				'type' 		=> 'text',
+				'label' 	=> __( 'Hide on specific pages? (Page IDs Comma Separated)', 'pagelines' ),
+				'help'		=> __( 'Applicable in global regions. Enter Page IDs (comma separated) to hide this section only on those pages.', 'pagelines' ),
 			)
 		)
 	);	
