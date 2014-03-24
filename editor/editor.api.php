@@ -224,44 +224,6 @@ class PageLinesAPI {
 // API wrapper functions.
 
 /**
- *  Get data from cache.
- *
- *	@since 3.0
- */
-function pl_cache_get( $id, $callback = false, $args = array(), $timeout = 3600 ) {
-	global $storeapi;
-	if( ! is_object( $storeapi ) )
-		$storeapi = new EditorStoreFront;
-
-	if( is_object( $storeapi ) )
-		return $storeapi->get( $id, $callback, $args, $timeout );
-	else
-		return false;
-}
-
-/**
- *  Write data to cache.
- *
- *	@since 3.0
- */
-function pl_cache_put( $data, $id, $time = 3600 ) {
-	global $storeapi;
-	if( ! is_object( $storeapi ) )
-		$storeapi = new EditorStoreFront;
-	if( $id && $data && is_object( $storeapi ) )
-		$storeapi->put( $data, $id, $time );
-}
-
-/**
- *  Delete from cache.
- *
- *	@since 3.0
- */
-function pl_cache_del( $id ) {
-	delete_transient( sprintf( 'plapi_%s', $id ) );
-}
-
-/**
  *  Search the store.
  *
  *	@since 3.0
