@@ -372,16 +372,16 @@ class EditorSettings {
 
 function pl_standard_section_options( $section ){
 	$options = array();
-
+	global $plpg;
 
 	if( $section->meta['draw'] == 'area' ){
 		
 		$options['background'] = pl_get_background_options( $section );
 	}
-	
-	
-	$options['standard'] = array(
 
+	$options['standard'] = array(
+	
+	
 		'key'			=> 'pl_section_styling',
 		'type' 			=> 'multi',
 		'col'			=> 1,
@@ -390,25 +390,26 @@ function pl_standard_section_options( $section ){
 			array(
 				'key'		=> 'pl_standard_title',
 				'type' 		=> 'text',
-				'label' 	=> __( 'Standard Title', 'pagelines' ),
+				'label' 	=> __( 'Standard Title', 'pagelines' )
 			),
 			array(
 
 				'key'		=> 'pl_area_class',
 				'type' 		=> 'text',
-				'label' 	=> __( 'Custom Styling Classes', 'pagelines' ),
+				'label' 	=> __( 'Custom Styling Classes', 'pagelines' )
 			),	
 			array(
 				'key'		=> 'pl_standard_styles',
 				'type' 		=> 'text',
 				'label' 	=> __( 'Inline CSS Styling', 'pagelines' ),
-				'help'		=> __( 'Use sparingly. Example: "text-transform:uppercase; font-size: 80%;"', 'pagelines' ),
+				'help'		=> __( 'Use sparingly. Example: "text-transform:uppercase; font-size: 80%;"', 'pagelines' )
 			),
 			array(
 				'key'		=> 'pl_hide_on_page',
 				'type' 		=> 'text',
-				'label' 	=> __( 'Hide on specific pages? (Page IDs Comma Separated)', 'pagelines' ),
-				'help'		=> __( 'Applicable in global regions. Enter Page IDs (comma separated) to hide this section only on those pages.', 'pagelines' ),
+				'label' 	=> __( 'Hide on specific pages or posts? (IDs Comma Separated)', 'pagelines' ),
+				'help'		=> sprintf( __( 'Applicable in global regions. Enter Page IDs (comma separated) to hide this section only on those pages.%s' , 'pagelines' ) ,
+							( isset( $plpg->id ) ) ? ' The ID for this page/post is: ' . $plpg->id : '' )
 			)
 		)
 	);	
