@@ -637,11 +637,10 @@ class PageLinesSection {
 		$this->tset['translate'] = true;
 	}
 	
-	function image( $opt, $default = '', $classes = array() ) {
+	function image( $opt, $default = '', $classes = array(), $alt = '' ) {
 
 		$default = ( '' != $default ) ? $default : PL_IMAGES . '/dms.png';
 		$image = ( '' != $this->opt( $opt ) ) ? $this->opt( $opt ) : $default;
-		$alt ='';
 		
 		if( ! empty( $classes ) )
 			$classes = implode( ' ', $classes );
