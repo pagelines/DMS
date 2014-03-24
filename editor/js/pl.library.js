@@ -33,13 +33,6 @@ function plUniqueID( length ) {
   return 'u'+Math.random().toString(36).substr(2, length);
 }
 
-
-
-function plPrint(variable){
-	if( true == jQuery.pl.config.devMode )
-		console.log( variable )
-}
-
 /* Data cleanup and handling
  * ============================================= */
 function pl_html_input( text ) {

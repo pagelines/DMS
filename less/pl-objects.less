@@ -173,7 +173,9 @@
 .pl-social-counters{
 	
 	.pl-social-counter{
-		border-right: 1px solid @baseContrastMore;
+		border-right-style: solid; 
+		border-right-width: 1px;
+	
 		padding: 0 10px;
 		&:last-child{
 			border-right: none;
@@ -182,6 +184,9 @@
 	}
 	
 }
+
+
+
 
 .pl-social-counter{
 	color: inherit;
@@ -206,7 +211,7 @@
 		vertical-align: middle;
 		
 		i{ 
-			color: @baseContrastDark;
+			
 			display: inline-block; 
 			.transition(color .35s);
 		}
@@ -232,7 +237,6 @@
 	&.loved{
 		.pl-social-icon{
 			i{
-				color: @pl-link;
 				&.icon-facebook{
 						color: #337eff;
 				}
@@ -251,10 +255,20 @@
 	
 	}
 	
-	
-	
 }
 
+.pl-social-counter{
+	border-right-color: @baseContrastMore;
+	.pl-social-icon i{
+		color: @baseContrastMore;
+	}
+	&:hover, 
+	&.loved{
+		.pl-social-icon i{
+			color: @pl-link;
+		}
+	}
+}
 
 
 .pl-center-table{

@@ -446,7 +446,7 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
 			$shortcode_js['facebook'] = $facebook_js;
 				
-			return sprintf( '<div class="fb-like" data-href="%s" data-width="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
+			return sprintf( '<div class="fb-like" style="vertical-align: top;" data-href="%s" data-width="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
 					$a['url'],
 					$a['width']
 				);

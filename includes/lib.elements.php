@@ -14,7 +14,7 @@
  * @param   $total - total items in grid
  *
  */
-function pl_grid_tool( $mode, $item_cols, $count = false, $total = false ){
+function pl_grid_tool( $mode, $item_cols, $count = false, $total = false, $class = '' ){
 	
 	$per_row = 12 / $item_cols;
 	
@@ -24,7 +24,7 @@ function pl_grid_tool( $mode, $item_cols, $count = false, $total = false ){
 		
 		if( $count == 1 || ( $count - 1 ) % $per_row == 0 ){
 			
-			$output .= '<div class="row fix">';
+			$output .= sprintf('<div class="row %s">', $class);
 		}
 		
 	} elseif( $mode == 'row_end' ){

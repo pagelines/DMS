@@ -1032,9 +1032,9 @@ function pl_add_theme_tab( $array ){
 
 
 
-function pl_blank_template(){
+function pl_blank_template( $name = '' ){
 	if ( current_user_can( 'edit_theme_options' ) )
-		return sprintf('<div class="alert pl-editor-only"><strong>Admin Notice:</strong><br/>This template returned blank and visitors will not see it. Refresh, settings, or data changes may be needed for output.</div>');
+		return sprintf('<div class="blank-section-template pl-editor-only"><strong>%s</strong> is hidden or returned no output.</div>', $name);
 	else 
 		return '';
 	

@@ -221,8 +221,12 @@ class PageLinesInstall{
 							'pagelines_masthead_title'		=> __( 'Congratulations!', 'pagelines' ),
 							'pagelines_masthead_tagline'	=> __( 'You are up and running with PageLines DMS.', 'pagelines' ),
 							'pagelines_masthead_img'		=> '[pl_parent_url]/images/getting-started-pl-logo.png',
-							'masthead_button_link_1'		=> home_url(),
-							'masthead_button_text_1'		=> __( 'View Your Blog <i class="icon icon-angle-right"></i>', 'pagelines' ),
+							'masthead_button_link_2'		=> home_url(),
+							'masthead_button_text_2'		=> __( 'View Your Blog Page <i class="icon icon-angle-right"></i>', 'pagelines' ),
+							'masthead_button_theme_2'		=> 'btn-ol-white',
+							'masthead_button_link_1'		=> '#user-guide',
+							'masthead_button_text_1'		=> __( 'View User Guide <i class="icon icon-angle-down"></i>', 'pagelines' ),
+							'masthead_button_theme_1'		=> 'btn-primary'
 						)
 					),
 				)
@@ -234,10 +238,9 @@ class PageLinesInstall{
 						'settings'	=> array(
 							'ibox_array'	=> array(
 								array(
-									'title'	=> __( 'Quick Start', 'pagelines' ),
-									'text'	=> __( 'New to PageLines? Get started fast with PageLines DMS Quick Start guide...', 'pagelines' ),
-									'icon'	=> 'rocket',
-									'link'	=> 'http://www.pagelines.com/quickstart/'
+									'title'	=> __( 'Stay in Touch', 'pagelines' ),
+									'text'	=> __( 'New to PageLines? Stay in touch by following us on Facebook and Twitter.<p>[like_button url="http://www.facebook.com/pagelines/" ] [twitter_button type="follow" handle="pagelines"]</p>', 'pagelines' ),
+									'icon'	=> 'thumbs-up'
 								),
 								array(
 									'title'	=> __( 'Forum', 'pagelines' ),
@@ -252,6 +255,65 @@ class PageLinesInstall{
 									'link'	=> 'http://docs.pagelines.com/'
 								),
 							)
+						)
+					),
+				)
+			), 
+			array(
+				'settings'	=> array(
+					'pl_area_theme'	=> 'pl-black'
+				),
+				'content'	=> array(
+					array(
+						'object'	=> 'PageLinesHighlight',
+						'settings'	=> array(
+							'_highlight_head'		=> '<span id="user-guide">PageLines DMS User Guide</span>',
+							'_highlight_subhead'	=> 'The fastest &amp; easiest way to get started.'
+						)
+					),
+					array(
+						'object'	=> 'PageLinesMediaBox',
+						'span'		=> 10, 
+						'offset'	=> 1,
+						'settings'	=> array(
+							'mediabox_html'	=> '<iframe  class="scribd_iframe_embed" src="//www.scribd.com/embeds/213323278/content?start_page=1&view_mode=slideshow&access_key=key-1dzmy27btqjwamjd0dye&show_recommendations=false" data-auto-height="false" data-aspect-ratio="0.772922022279349" scrolling="no" id="doc_40327" width="100%" height="1000" frameborder="0"></iframe>'
+						)
+					),
+				)
+			),
+			array(
+				'content'	=> array(
+					array(
+						'object'	=> 'PageLinesHighlight',
+						'settings'	=> array(
+							'_highlight_head'		=> '<span id="user-guide">Getting Started Video</span>',
+							'_highlight_subhead'	=> 'A 5-minute overview of DMS.'
+						)
+					),
+					array(
+						'object'	=> 'PageLinesMediaBox',
+						'span'		=> 10, 
+						'offset'	=> 1,
+						'settings'	=> array(
+							'mediabox_html'	=> "<iframe width='700' height='420' src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
+						)
+					),
+				)
+			),
+			array(
+				'settings'	=> array(
+					'pl_area_theme'	=> 'pl-black',
+					'pl_area_color'	=> '#337EFF',
+					'pl_area_color_enable'	=> 1
+				),
+				'content'	=> array(
+					array(
+						'object'	=> 'PLICallout',
+						'settings'	=> array(
+							'icallout_text'		=> 'Thanks for using PageLines!',
+							'icallout_link'		=> 'http://www.pagelines.com/',
+							'icallout_link_text'	=> 'Visit PageLines.com',
+							'icallout_btn_theme'	=> 'btn-ol-white'
 						)
 					),
 				)

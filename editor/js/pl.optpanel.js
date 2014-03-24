@@ -1101,8 +1101,9 @@
 
 			theOption += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', inputID, inputName, inputValue )
 			
-			theOption += sprintf(' <a class="btn btn-mini btn-primary" href="%s"><i class="icon icon-plus"></i> Add</a>', $.pl.config.urls.addMedia)
-			theOption += '<a class="btn btn-mini pl-load-media-lib" data-mimetype="video">Library</a> <div class="btn  btn-mini rmv-upload"><i class="icon icon-remove"></i></div>'
+			theOption += '<a class="btn btn-mini btn-primary pl-load-media-lib" data-mimetype="video"><i class="icon icon-edit"></i> Select</a> '
+			theOption += sprintf(' <a class="btn btn-mini" href="%s"><i class="icon icon-upload"></i> Upload</a> <div class="btn  btn-mini rmv-upload"><i class="icon icon-remove"></i></div>', $.pl.config.urls.addMedia)
+			
 			
 			theOption += '</div>'
 			
