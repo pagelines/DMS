@@ -77,7 +77,7 @@ class PageLinesPostLoop extends PageLinesSection {
 							'scope'		=> 'global',
 							'title'		=> __( 'Enable Legacy Mode', 'pagelines' ),
 							'label'		=>	__( 'Enable Legacy', 'pagelines' ),
-							'help'		=> __( 'The Legacy loop (< DMS 1.2) has more options but is not as compatible with 3rd party plugins like forums etc.', 'pagelines')
+							'help'		=> __( 'The Legacy loop (< DMS 1.2) useful for upgrading. Unsupported in future releases.', 'pagelines')
 						);
 
 		return $opts;
