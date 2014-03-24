@@ -1227,7 +1227,7 @@
 						var export_global = formDataObject.export_global || false
 						var templates = formDataObject.templates || false
 						var export_types = formDataObject.export_types || false
-						var url = $.pl.config.siteURL + '?pl_exp'
+						var url = $.pl.config.urls.siteURL + '?pl_exp'
 
 						var endpoint = ''
 
@@ -1387,7 +1387,7 @@
 				} else {
 						window.onbeforeunload = null
 						bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
-						var url = $.pl.config.siteURL
+						var url = $.pl.config.urls.siteURL
 						pl_url_refresh(url, 2000)
 				}
 					
