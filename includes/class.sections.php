@@ -641,9 +641,11 @@ class PageLinesSection {
 
 		$default = ( '' != $default ) ? $default : PL_IMAGES . '/dms.png';
 		$image = ( '' != $this->opt( $opt ) ) ? $this->opt( $opt ) : $default;
-		
+	
 		if( ! empty( $classes ) )
 			$classes = implode( ' ', $classes );
+		else
+			$classes = false;
 		
 		if( '' != $opt && '' != $this->opt( $opt . '_alt' ) )
 			$alt = sprintf( ' data-sync="%s" alt="%s" title="%s" %s',
