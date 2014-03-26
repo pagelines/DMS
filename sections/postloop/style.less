@@ -85,7 +85,36 @@
 			border-bottom: none;
 		}
 	}
-
+	
+}
+@media (max-width: 600px){
+	.pl-new-loop .hentry{
+		&.post,
+		&.multi-post{
+			padding-left: 0px;
+		}
+	}
+	
+	.metahead{
+		position: relative; 
+		width: 100%;
+		margin-bottom: 10px;
+		a, .author{
+			text-align: left; 
+			display: inline-block;
+			border: none;
+			margin: 0 10px 0;
+			font-size: 16px;
+		}
+		.pl-social-pagelines{
+			text-align: right;
+			position: absolute; 
+			right: 0;
+			top: 50%;
+			margin-top: -8px;
+		}
+	}
+	
 }
 
 .multi-post {
