@@ -4,6 +4,11 @@
 add_action('add_meta_boxes', 'pagelines_metabox_posts');
 function pagelines_metabox_posts(){
 	
+	$type = pl_get_current_post_type();
+	
+	if( ! post_type_supports( $type, 'post-formats' ) )
+		return false;
+	
 	$meta_box = array(
 		'id' => 'pagelines-metabox-post-gallery',
 		'title' =>  __('Gallery', 'pagelines'),
