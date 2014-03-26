@@ -179,7 +179,7 @@ body {
 	.row:last-child > [class*="span"]{
 		margin-bottom: 0;
 	}
-	@media (max-width: 767px) {
+	@media (max-width: @resPortraitTablet) {
 		padding: 11px;
 		.row:last-child > [class*="span"]{
 			margin-bottom: 15px;
@@ -208,7 +208,7 @@ body .pl-area .pl-section{
 .pl-scroll-translate{
 	overflow:hidden;
 }
-@media (max-width: 767px) {
+@media (max-width: @resPortraitTablet) {
 	.pl-scroll-translate .pl-area-wrap{
 		-webkit-transform: translate(0, 0) !important;
 		transform: translate(0, 0) !important;
