@@ -371,7 +371,8 @@
 						,	contentHeight = theContent.height()
 						, 	offsetMargin = (contentHeight / 2) * -1
 
-						theArea.height(windowHeight)
+						if( windowHeight > (contentHeight + 20) )
+							theArea.height(windowHeight)
 
 						theContent.css('margin-top', offsetMargin)
 
@@ -677,8 +678,17 @@
 					cntr.countTo({
 							from: 0
 						,	to: the_number
-						,	speed: 1500
+						,	speed: 2000
 						,	refreshInterval: 30
+						, 	formatter: function( value, options){
+							
+							value = Math.round( value )
+							var n =  value.toString()
+							
+							n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+						
+							return n
+						}
 					})
 				
 				})
