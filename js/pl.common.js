@@ -707,7 +707,7 @@
 		//	$.resize.delay = 100 // resize throttle
 
 			var fixedTop = $('.pl-fixed-top')
-			, 	fixedOffset = fixedTop[0].offsetTop
+			, 	fixedOffset = ( plIsset( fixedTop[0] ) ) ? fixedTop[0].offsetTop : 0
 			
 			// fixedTop.on('plresize', function(){
 			// 				that.setHeight()

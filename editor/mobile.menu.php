@@ -7,7 +7,7 @@ class PageLinesMobileMenu {
 	
 	
 	function __construct(){
-		
+				
 		add_action( 'pagelines_before_site', array( $this, 'menu_template' ) );
 		register_nav_menus( array( 'mobile_nav' => __( 'Mobile Navigation', 'pagelines' ) ) );
 	}
@@ -18,6 +18,9 @@ class PageLinesMobileMenu {
 	}
 	
 	function menu_template(){
+		
+		if( has_action( 'pl_no_mobile_menu' ) )
+			return;
 		
 		$menu = ( pl_setting( 'primary_navigation_menu' ) ) ? pl_setting( 'primary_navigation_menu' ) : false;
 		$menu2 = ( pl_setting( 'secondary_navigation_menu' ) ) ? pl_setting( 'secondary_navigation_menu' ) : false;
