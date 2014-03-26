@@ -637,22 +637,31 @@ class PageLinesSection {
 		$this->tset['translate'] = true;
 	}
 	
-	function image( $opt, $default = '', $classes = array() ) {
+	function image( $opt, $default = '', $classes = array(), $alt = '' ) {
 
 		$default = ( '' != $default ) ? $default : PL_IMAGES . '/dms.png';
 		$image = ( '' != $this->opt( $opt ) ) ? $this->opt( $opt ) : $default;
-		$alt ='';
-		
+	
 		if( ! empty( $classes ) )
 			$classes = implode( ' ', $classes );
+		else
+			$classes = false;
 		
-		if( '' != $opt && '' != $this->opt( $opt . '_alt' ) )
+		if( '' != $opt && '' != $this->opt( $opt . '_alt' ) ) {
 			$alt = sprintf( ' data-sync="%s" alt="%s" title="%s" %s',
 			$opt,
 			$this->opt( $opt . '_alt' ),
 			$this->opt( $opt . '_alt' ),
 			( '' != $classes ) ? sprintf( 'class="%s"', $classes ) : ''
 			);
+		} else {
+			$alt = sprintf( ' data-sync="%s" %s alt="%s" title="%s"',
+			$opt,
+			( '' != $classes ) ? sprintf( 'class="%s"', $classes ) : '',
+			$alt,
+			$alt
+			);
+		}
 		return sprintf( '<img src="%s"%s />',
 			$image,
 			$alt

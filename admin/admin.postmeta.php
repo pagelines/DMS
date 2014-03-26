@@ -8,7 +8,7 @@ function pagelines_metabox_posts(){
 		'id' => 'pagelines-metabox-post-gallery',
 		'title' =>  __('Gallery', 'pagelines'),
 		'description' => 'Insert a WP gallery using the "Add Media" button above, use the gallery slider checkbox below to transform your images into a slider.',
-		'post_type' => 'post',
+		'post_type' => pl_get_current_post_type(),
 		'context' => 'normal',
 		'priority' => 'high',
 		'fields' => array(
@@ -33,7 +33,7 @@ function pagelines_metabox_posts(){
 		'id' => 'pagelines-metabox-post-quote',
 		'title' =>  __('Quote Settings', 'pagelines'),
 		'description' => '',
-		'post_type' => 'post',
+		'post_type' => pl_get_current_post_type(),
 		'context' => 'normal',
 		'priority' => 'high',
 		'fields' => array(
@@ -56,7 +56,7 @@ function pagelines_metabox_posts(){
 		'id' => 'pagelines-metabox-post-link',
 		'title' =>  __('Link Settings', 'pagelines'),
 		'description' => '',
-		'post_type' => 'post',
+		'post_type' => pl_get_current_post_type(),
 		'context' => 'normal',
 		'priority' => 'high',
 		'fields' => array(
@@ -78,7 +78,7 @@ function pagelines_metabox_posts(){
 		'id' => 'pagelines-metabox-post-video',
 		'title' => __('Video Settings', 'pagelines'),
 		'description' => '',
-		'post_type' => 'post',
+		'post_type' => pl_get_current_post_type(),
 		'context' => 'normal',
 		'priority' => 'high',
 		'fields' => array(
@@ -121,7 +121,7 @@ function pagelines_metabox_posts(){
 		'id' => 'pagelines-metabox-post-audio',
 		'title' =>  __('Audio Settings', 'pagelines'),
 		'description' => '',
-		'post_type' => 'post',
+		'post_type' => pl_get_current_post_type(),
 		'context' => 'normal',
 		'priority' => 'high',
 		'fields' => array(
@@ -425,6 +425,29 @@ function pagelines_save_meta_box( $post_id ) {
 		update_post_meta( $post_id, $key, $val );
 	}
 
+}
+
+function pl_get_current_post_type() {
+	global $post, $typenow, $current_screen;
+	
+	//we have a post so we can just get the post type from that
+	if ( $post && $post->post_type )
+		return $post->post_type;
+    
+	//check the global $typenow - set in admin.php
+	elseif( $typenow )
+		return $typenow;
+    
+	//check the global $current_screen object - set in sceen.php
+	elseif( $current_screen && $current_screen->post_type )
+		return $current_screen->post_type;
+  
+	//lastly check the post_type querystring
+	elseif( isset( $_REQUEST['post_type'] ) )
+		return sanitize_key( $_REQUEST['post_type'] );
+	
+	//we do not know the post type!
+	return null;
 }
 
 

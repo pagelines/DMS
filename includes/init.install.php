@@ -372,10 +372,8 @@ class PageLinesInstall{
 		ob_start(); 
 		
 		?>
-		<h3><?php _e( 'Welcome to DMS!', 'pagelines' ); ?>
-		</h3>
-		<p><?php _e( 'A cutting-edge drag & drop design management system for your website. <br/>Watch the video below for help getting started.', 'pagelines' ); ?></p>
-		<iframe width='700' height='420' src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>
+		<h3 class="center"><?php _e( 'Welcome to DMS!', 'pagelines' ); ?></h3>
+		<iframe  class="scribd_iframe_embed" src="//www.scribd.com/embeds/213323278/content?start_page=1&view_mode=slideshow&access_key=key-1dzmy27btqjwamjd0dye&show_recommendations=false" data-auto-height="false" data-aspect-ratio="0.772922022279349" scrolling="no" id="doc_40327" width="100%" height="1000" frameborder="0"></iframe>
 		
 		<?php 
 		

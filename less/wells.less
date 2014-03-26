@@ -5,7 +5,7 @@
 	min-height: 20px;
 	padding: 19px;
 	margin: @baseLineHeight 0;
-	#gradient > .vertical(darken(@pl-base,5%), darken(@pl-base,3%));
+	background: @baseContrast;
 	border: 1px solid rgba(0,0,0,.1);
 	.box-sizing(border-box);
 	border-radius: 1px;
@@ -15,6 +15,12 @@
 	blockquote {
 		border-color: darken(@dark-base,8);
 		border-color: rgba(0,0,0,.15);
+	}
+	h2, h3, h4{
+		margin-top: 0;
+	}
+	p:last-child{
+		margin-bottom: 0;
 	}
 }
 
