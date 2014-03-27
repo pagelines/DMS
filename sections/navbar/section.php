@@ -136,6 +136,10 @@ class PLNavBar extends PageLinesSection {
 	}
 	
 	$theme = ( $this->opt( 'navbar_theme' ) ) ? $this->opt( 'navbar_theme' ) : false;
+
+	if( is_array( $theme ) )
+		$theme = reset( $theme );
+	
 	$align = ( $this->opt('navbar_alignment' ) ) ? $this->opt( 'navbar_alignment' ) : false;
 	$hidesearch = ( $this->opt( 'navbar_hidesearch' ) ) ? $this->opt( 'navbar_hidesearch' ) : false;
 	$menu = ( $this->opt( 'navbar_menu' ) ) ? $this->opt( 'navbar_menu' ) : null;
