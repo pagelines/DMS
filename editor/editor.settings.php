@@ -612,7 +612,7 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 				}
 				
 				// if a numeric index was set (bug)
-				if( strlen( (string) $setting_key) < 4){
+				if ( is_numeric( $setting_key ) ) {
 					unset( $the_settings[ $setting_key ] );
 				}
 			
