@@ -37,6 +37,11 @@ class PageLinesMediaBox extends PageLinesSection {
 						'has_alt'		=> true
 					),
 					array(
+						'type'			=> 'text',
+						'key'			=> 'link',
+						'label'			=> __( 'MediaBox Link (Optional)', 'pagelines' ),
+					),
+					array(
 						'type' 			=> 'text',
 						'key'			=> 'mediabox_title',
 						'label' 		=> __( 'Title', 'pagelines' ),
@@ -113,6 +118,7 @@ class PageLinesMediaBox extends PageLinesSection {
 		$image = $this->opt('mediabox_image');
 		$media_html = $this->opt('mediabox_html');
 		$disable_center = $this->opt('disable_centering');
+		$link = $this->opt('link');
 
 		$title = ( $this->opt('mediabox_title') ) ? sprintf('<h3 data-sync="mediabox_title">%s</h3>', $this->opt('mediabox_title')) : '';
 			
@@ -127,6 +133,11 @@ class PageLinesMediaBox extends PageLinesSection {
 			$img = sprintf('<img data-sync="mediabox_image" src="%s" />', $this->base_url.'/default.png'); // DEFAULT
 		else 
 			$img = '';
+
+		if ( $link ){
+			$media_link = sprintf('<a href="%s">',$link);
+			$media_link_close = '</a>';
+		}
 		
 		$classes = array(); 
 		$align_class = array(); 
@@ -154,15 +165,17 @@ class PageLinesMediaBox extends PageLinesSection {
 		printf(
 			'<div class="mediabox-wrap %s pl-animation fix" %s style="%s">
 				<div class="the-media fitvids pl-centered %s hentry">
-					%s %s
+					%s %s %s %s
 					<div class="the-media-html">%s</div>
 				</div>
 			</div>', 
 			join(' ', $classes), 
 			$height_sync_data,
 			$height, 
-			$align_class,
+			$align_class, 
+			$media_link, 
 			$img, 
+			$media_link_close, 
 			$title,
 			$html
 		);
