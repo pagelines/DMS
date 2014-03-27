@@ -587,7 +587,6 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 
 	do_action( 'pl_settings_update_action' );
 
-	$default = array( 'draft' => array(), 'live' => array() );
 
 	if( $metaID )
 		$settings = pl_get_meta_settings( $metaID );
