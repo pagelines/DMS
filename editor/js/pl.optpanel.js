@@ -1720,8 +1720,9 @@
 		}
 
 		, theImageUploader: function( inputSelector, sizeLimit, extension ){
+
 				var selector = inputSelector || '.fineupload'
-				, 	sizeLimit = sizeLimit || 512000 // 500 kB
+				, 	sizeLimit = sizeLimit || 2097152 // 2M
 				,	extension = extension || null
 				,	allowedExtensions = ['jpeg', 'jpg', 'gif', 'png', 'ico', 'svg']
 
