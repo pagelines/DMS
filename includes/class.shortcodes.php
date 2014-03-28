@@ -428,15 +428,16 @@ class PageLines_ShortCodes {
 	
 	function print_shortcode_js(){
 		
-		global $shortcode_js;
-		
+		global $shortcode_js, $shortcode_js_run;
+		if( isset( $shortcode_js_run ) )
+			return;
 		if( isset($shortcode_js) && is_array($shortcode_js) ){
+			$shortcode_js = array_unique( $shortcode_js );
 			foreach( $shortcode_js as $js_set ){
 				echo $js_set;
 			}
 		}
-		
-		
+		$shortcode_js_run = true;	
 	}
 
 		function print_carousel_js() {
