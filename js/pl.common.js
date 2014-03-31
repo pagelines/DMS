@@ -464,7 +464,7 @@
 		, pinterest: function(){
 			
 			var that = this
-			,	url = 'http://api.pinterest.com/v1/urls/count.json?url='+that.shareLocation+'&callback=?'
+			,	url = '//api.pinterest.com/v1/urls/count.json?url='+that.shareLocation+'&callback=?'
 			,	shareBtn = $('[data-social="pinterest"]')
 
 
@@ -472,7 +472,7 @@
 			
 			shareBtn.click( function(){
 				
-				var shareUrl = 'http://pinterest.com/pin/create/button/?url='+that.shareLocation+'&media='+that.shareImg+'&description='+that.shareTitle
+				var shareUrl = '//pinterest.com/pin/create/button/?url='+that.shareLocation+'&media='+that.shareImg+'&description='+that.shareTitle
 				
 				that.openWindow( shareUrl, 'pinterestShare')
 				
@@ -485,7 +485,7 @@
 		, twitter: function(){
 			
 			var that = this
-			,	url = 'http://urls.api.twitter.com/1/urls/count.json?url='+that.shareLocation+'&callback=?'
+			,	url = '//urls.api.twitter.com/1/urls/count.json?url='+that.shareLocation+'&callback=?'
 			,	shareBtn = $('[data-social="twitter"]')
 
 
@@ -494,7 +494,7 @@
 			
 			shareBtn.click( function(){
 				
-				var shareUrl = 'http://twitter.com/intent/tweet?text='+ that.shareTitle +' '+that.shareLocation
+				var shareUrl = '//twitter.com/intent/tweet?text='+ that.shareTitle +' '+that.shareLocation
 				
 				that.openWindow( shareUrl, 'twitterShare')
 				
@@ -508,7 +508,7 @@
 		, linkedin: function(){
 			
 			var that = this
-			,	url = 'http://www.linkedin.com/countserv/count/share?url='+that.shareLocation+'&callback=?'
+			,	url = '//www.linkedin.com/countserv/count/share?url='+that.shareLocation+'&callback=?'
 			,	shareBtn = $('[data-social="linkedin"]')
 
 
@@ -517,7 +517,7 @@
 			
 			shareBtn.click( function(){
 				
-				var shareUrl = 'http://www.linkedin.com/shareArticle?url='+that.shareLocation+'&title='+that.shareTitle+'&summary='+that.shareDesc
+				var shareUrl = '//www.linkedin.com/shareArticle?url='+that.shareLocation+'&title='+that.shareTitle+'&summary='+that.shareDesc
 			
 				
 				that.openWindow( shareUrl, 'linkedInShare')
@@ -532,7 +532,7 @@
 		, facebook: function(){
 			
 			var that = this
-			,	url = "http://graph.facebook.com/?id="+ that.shareLocation +'&callback=?'
+			,	url = "//graph.facebook.com/?id="+ that.shareLocation +'&callback=?'
 			,	shareBtn = $('[data-social="facebook"]')
 
 
@@ -540,7 +540,7 @@
 			
 			shareBtn.click( function(){
 				
-				var shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='+that.shareLocation
+				var shareUrl = '//www.facebook.com/sharer/sharer.php?u='+that.shareLocation
 				
 				that.openWindow( shareUrl, 'fbShare')
 				
