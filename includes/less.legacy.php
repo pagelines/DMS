@@ -424,8 +424,9 @@ class PageLinesRenderCSS {
 	function less_file_mode() {
 
 		global $blog_id;
-		if ( ! get_theme_mod( 'pl_save_version' ) )
-			return pl_less_save_last_error( 'No save version set.', false );
+		if ( ! get_theme_mod( 'pl_save_version' ) ) {
+			set_theme_mod( 'pl_save_version', time() );
+		}
 
 		if( defined( 'LESS_FILE_MODE' ) && false == LESS_FILE_MODE )
 			return pl_less_save_last_error( 'LESS_FILE_MODE is set to false', false );

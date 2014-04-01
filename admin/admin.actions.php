@@ -143,7 +143,7 @@ function pagelines_recommended_plugins() {
 	if( isset( $_REQUEST['dms_suggest_plugins'] ) )
 		set_theme_mod( 'dms_suggest_plugins', (bool) $_REQUEST['dms_suggest_plugins'] );
 
-	if( 'index.php' != $pagenow || ! is_array( $dms_suggest_plugins ) || empty( $dms_suggest_plugins ) )
+	if( 'index.php' != $pagenow || ! is_array( $dms_suggest_plugins ) || empty( $dms_suggest_plugins ) || ! is_super_admin() )
 		return false;
 
 	// Already dismissed.

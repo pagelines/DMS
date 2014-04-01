@@ -327,7 +327,7 @@ function pagelines_check_folders_dms( $note ) {
 
 function pagelines_check_dms_plugin( $note ) {
 	
-	if( pl_is_activated() && ! pl_has_dms_plugin() ){
+	if( pl_is_activated() && ! pl_has_dms_plugin() && is_super_admin() ){
 		ob_start(); ?>
 
 			<div class="editor-alert alert">
@@ -349,6 +349,9 @@ function pagelines_check_updater( $note ) {
 	// check for updater...
 	$slug = 'pagelines-updater';
 	$message = '';
+	
+	if( ! is_super_admin() )
+		return false;
 	
 	if( ! pl_check_updater_exists() ) { // need to install...
 		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );

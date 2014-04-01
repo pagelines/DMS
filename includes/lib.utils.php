@@ -16,7 +16,7 @@ function pl_get_social_button( $args = array() ){
 	
 	$icon = sprintf('<span class="pl-social-icon"><i class="icon icon-%s"></i> </span><span class="pl-social-count">%s</span>', $atts['btn'], $atts['count']);
 
-	$btn = sprintf('<span class="pl-social-counter pl-social-%s %s" data-social="%s" %s>%s</span>', $atts['btn'], $atts['classes'], $atts['btn'], $atts['atts'], $icon );
+	$btn = sprintf('<span title="%s" class="pl-social-counter pl-social-%s %s" data-social="%s" %s>%s</span>', ucwords( $atts['btn'] ), $atts['btn'], $atts['classes'], $atts['btn'], $atts['atts'], $icon );
 		
 	return $btn;
 	

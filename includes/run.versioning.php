@@ -22,7 +22,8 @@ if ( version_compare( $actual, $installed ) > 0 ) {
 }
 
 function dms_update_two_point_ohh() {
-		
+	if( ! is_user_logged_in() )
+		return false;
 	// run the 2.0 install routine.
 	$install = new PageLinesInstall;
 	$url = $install->run_installation_routine();

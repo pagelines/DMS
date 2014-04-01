@@ -4,75 +4,23 @@
 
 ********************************************************
 
-Version 1.1.4
+Version 2.0.1
 
-	- CORE - Properly place icon on PageLines menu item.
-	- CORE - Only show update notifications where needed.
-	- CORE - Added missing image to assets folder for RevSlider.
-	- CORE - Trigger settings to save if user clicks edit in another section.
-	- BUG - CSS was sometimes broken on a static homepage.
-	- BUG - Tweaks to settings system. Fixes some issues when saving.
-	- BUG - Fixed Watermark Section sharing options.
+	- CORE - Various responsive fixes.
+	- CORE - Allow mobile menu to be disabled with 'pl_no_mobile_menu' action.
+	- CORE - Editor upload filesize set to 2M instead of 500k.
+	- CORE - Use // URLS for shares etc.
+	- CORE - Add titles to sharebar.
+	- BUG - Fixed search on Safari Desktop.
+	- BUG - Fixed broken mobile menu on Android =< 4.3
+	- BUG - Shortcode JS was being included more than once.
+	- BUG - Watermark section - Scripts being inserted where not needed.
+	- BUG - Fixed old navbar theme select.
+	- BUG - Fixed broken image alt code.
+	- BUG - Only show the post-format meta panels if the post has post-formats capabilities.
 	
 
-Version 1.1.3
+Version 2.0
 
-	- CORE - Allow span1 to be selected in sections.
-	- CORE - Few more javascript translations added.
-	- BUG - Fix BBPress and BuddyPress PHP notice.
-	- BUG - Fixed a bug if plugins loaded an admin page inside an iframe DMS would attempt to display frontend footer, affected nextgen file uploader.
-	- BUG - Various settings fixes, including media uploader and cloning issues.
-	
-Version 1.1.2
+	Standalone DMS2 Released
 
-	- CORE - Editor is now fully translatable.
-	- BUG - Fixed the ico file upload bug.
-
-Version 1.1.1
-	
-	33 commits to github including a lot of translation fixes.
-	https://github.com/pagelines/DMS/compare/a7e601390d9d6c893c4201e7c116d3968dc18b05...83b4d4dbdbd1fd9178b29f7ef37e45bcc15cbc5d
-
-
-Version 1.1
-
-	This release has 227 commits with 387 file changes.
-	To help optimize your sites we have reduced the amount of code in this release by a massive 18427 lines!
-	A full changelog can be viewed on Github
-	https://github.com/pagelines/DMS/compare/1.0.4...a7e601390d9d6c893c4201e7c116d3968dc18b05
-	
-	
-
-Version 1.0.4
-
-	- CORE - Full changelogs: https://github.com/pagelines/DMS/compare/1.0.3...1.0.4
-
-Version 1.0.3
-
-	- CORE - https://github.com/pagelines/DMS/compare/1.0.2...1.0.3
-	- CORE - Refresh store meta data when core updates page is loaded.
-	- BUG - Fixed excerpt length and allowed tags settings not applying on posts.
-	- BUG - Fixed the load order for sections folders. This was preventing other section classes overriding core sections.
-	
-Version 1.0.2
-	- CORE - Fixed 3 Github issues. https://github.com/pagelines/DMS/compare/9b1a5e2394...3736e00
-	- CORE - Various fixes for themecheck.
-
-Version 1.0.1
-	
-	- CORE - Remove debugging symbol.
-
-Version 1.0
-
-	- CORE - Fixed 13 Github issues and included 8 pull requests. https://github.com/pagelines/DMS/compare/43495ef685...7580ca6cc9
-	- CORE - New updates system included to 3rd party themes/plugins.
-	
-
-Version 0.9.7
-
-	- CORE - New accounts and karma system
-	- CORE - Stability enhancements
-
-Version 0.9.6
-
-	- CORE - Hello DMS!
