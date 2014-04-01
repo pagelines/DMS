@@ -119,7 +119,7 @@
 
 			})
 			
-			$("[data-tab-link]").on("click.tabLink", function(e) {
+			$(document).on("click.tabLink", "[data-tab-link]", function(e) {
 
 				e.preventDefault()
 				
