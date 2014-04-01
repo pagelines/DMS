@@ -400,9 +400,7 @@
 			,	siteWrap = $('.site-wrap')
 			, 	mobileMenu = $('.pl-mobile-menu')
 			
-		//	mobileMenu.css('max-height', siteWrap.height()-10)
-			
-			menuToggle.on('click.mmToggle', function(e){
+			menuToggle.on('click.mmToggle touchstart.mmToggle', function(e){
 				
 				e.stopPropagation()
 			//	mobileMenu.css('max-height', siteWrap.height())
@@ -744,11 +742,7 @@
 		
 		, handleSearchfield: function(){
 			
-			$('.pl-searcher').on('click touchstart', function(e){
-				
-				$(this).parent().find( '.searchfield' ).focus()
-				
-			})
+		
 			
 			$('.searchfield').on('focus', function(e){
 				
@@ -758,6 +752,19 @@
 				
 				$(this).parent().parent().removeClass('has-focus')
 			
+			})
+			
+			$('.pl-searcher').on('click touchstart', function(e){
+				
+				e.stopPropagation()
+				
+				var searchForm = $(this)
+				
+				$(this).addClass('has-focus').parent().find( '.searchfield' ).focus()
+				
+				$('body').on('click touchstart', function(e){
+					searchForm.removeClass('has-focus')
+				})
 			})
 			
 		}
