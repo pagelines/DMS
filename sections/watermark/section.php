@@ -65,9 +65,7 @@ class PLWatermark extends PageLinesSection {
 
 
    function section_template() {
-	
-		add_action('wp_footer', array( $this, 'socializer_scripts'));
-	
+		
 		$home = home_url();
 		$twitter = $this->opt('twittername'); 
 		$facebook = $this->opt('facebook_name');
@@ -106,13 +104,13 @@ class PLWatermark extends PageLinesSection {
 
 			<?php 
 			
-				if( pl_setting( 'share_facebook' ) )
+				if( pl_setting( 'facebook_name' ) )
 					echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
 			
-				if( pl_setting( 'share_google' ) ) 
+				if( ! has_action( 'pl_watermark_no_gplus' ) ) 
 					echo do_shortcode('[googleplus]');
 				
-				if( pl_setting( 'share_twitter' ) )
+				if( pl_setting( 'twittername' ) )
 					echo do_shortcode('[twitter_button type="follow"]');
 			
 			?>
@@ -121,42 +119,5 @@ class PLWatermark extends PageLinesSection {
 		<?php echo $watermark; ?>
 	</div>
 	<?php
-	
-	
-	
-
-
 	}
-	
-	function socializer_scripts(){
-		
-		$app_id = '';
-		if( $this->opt( 'facebook_app_id' ) )
-			$app_id = sprintf( '&appId=%s', $this->opt( 'facebook_app_id' ) );
-		?>
-
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1<?php echo $app_id; ?>";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-
-
-		<!-- Place this render call where appropriate -->
-		<script type="text/javascript">
-		  (function() {
-		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		    po.src = 'https://apis.google.com/js/plusone.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
-
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-		<?php 
-	}
-
 }

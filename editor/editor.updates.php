@@ -79,6 +79,9 @@ class PageLinesEditorUpdates {
 
 	function updater_install() {
 		
+		if( ! is_super_admin() )
+			return false;
+		
 		//normal
 		$active_plugins = apply_filters( 'active_plugins', get_option('active_plugins' ) );
 		if ( in_array( 'pagelines-updater/pagelines-updater.php', $active_plugins ) )
