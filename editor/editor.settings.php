@@ -598,15 +598,14 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 
 	do_action( 'pl_settings_update_action' );
 
-	$default = array( 'draft' => array(), 'live' => array() );
 
-	if( $metaID )
+	if ( $metaID )
 		$settings = pl_get_meta_settings( $metaID );
 	else
 		$settings = pl_get_global_settings();
 
 	// in case of empty, use live/draft default
-	$settings = wp_parse_args($settings, pl_settings_default());
+	$settings = wp_parse_args( $settings, pl_settings_default() );
 
 	// forgot why we stripslashes, if you remember, comment!
 	$settings[ $mode ] = stripslashes_deep( $new_settings );
@@ -614,41 +613,40 @@ function pl_settings_update( $new_settings, $mode = 'draft', $metaID = false ){
 	// lets do some clean up
 	// Gonna clear out all the empty values and arrays
 	// Also, needs to be array or... deletehammer
-	foreach($settings[$mode] as $uniqueID => &$the_settings){
-		
-		if(is_array($the_settings)){
-			foreach($the_settings as $setting_key => &$val){
-				if( $val === '' && $val !== 0 ){
-					unset( $the_settings[ $setting_key ] );
-				}
-				
-				// if a numeric index was set (bug)
-				if( strlen( (string) $setting_key) < 4){
-					unset( $the_settings[ $setting_key ] );
-				}
-			
-				// accordion prevent null values from being saved and bloating things
-				if( is_array($val) ){
-					foreach( $val as $val_key => &$val_val ){
-						if( $val_val == 'false' || empty($val_val) ){
-							if( isset( $val[ $val_key ] ))
-								unset( $val[ $val_key ] );
-						}
-							
-					}
-					unset( $val_val );
-					
-				}
-					
+	foreach ( $settings[ $mode ] as $uniqueID => &$the_settings )
+	{	
+		if ( !is_array( $the_settings ) )
+			continue;
+
+		foreach ( $the_settings as $setting_key => &$val )
+		{
+			if ( $val === '' ) {
+				unset( $the_settings[ $setting_key ] );
 			}
-			unset( $val );
+			
+			// if a numeric index was set (bug)
+			if ( is_numeric( $setting_key ) ) {
+				unset( $the_settings[ $setting_key ] );
+			}
+		
+			// accordion prevent null values from being saved and bloating things
+			if ( is_array( $val ) )
+			{
+				foreach ( $val as $val_key => &$val_val )
+				{
+					if ( $val_val == 'false' || empty( $val_val ) ) {
+						unset( $val[ $val_key ] );
+					}
+				}
+				unset( $val_val );
+			}
+				
 		}
-		
-		
+		unset( $val );
 	}
 	unset( $the_settings );
 
-	if( $metaID )
+	if ( $metaID )
 		pl_meta_update( $metaID, PL_SETTINGS, $settings );
 	else
 		pl_update_global_settings( $settings );
