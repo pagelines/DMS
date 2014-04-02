@@ -20,7 +20,7 @@ function pl_setting( $key, $args = array() ){
 		$plopts = new PageLinesOpts;
 	}
 
-	$setting = $plopts->get_setting( $key, $args );
+	$setting = $plopts->get_global_setting( $key, $args );
 
 	if( is_array( $setting) )
 		return $setting; 
@@ -433,6 +433,17 @@ class PageLinesOpts extends PageLinesSettings {
 
 		return $this->get_by_mode($set);
 
+	}
+	
+	function get_global_setting( $key, $args = array() ){
+		$settings = $this->global; 
+		
+		$not_set = (isset($args['default'])) ? $args['default'] : false;
+		
+		$index = ( isset( $args['clone_id']) ) ? $args['clone_id'] : 'settings';
+
+		return ( isset( $settings[ $index ][ $key ] ) ) ? $settings[ $index ][ $key ] : $not_set;
+		
 	}
 
 	function get_setting( $key, $args = array() ){
