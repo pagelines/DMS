@@ -4,6 +4,13 @@
 
 ********************************************************
 
+
+Version 2.0.2
+
+	- BUG - pl_setting() should only fetch global settings. This fixes the weird post level css issues.
+	- BUG - Watermark section - user settings being ignored.
+	
+
 Version 2.0.1
 
 	- CORE - Various responsive fixes.
