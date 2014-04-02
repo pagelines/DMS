@@ -67,8 +67,8 @@ class PLWatermark extends PageLinesSection {
    function section_template() {
 		
 		$home = home_url();
-		$twitter = $this->opt('twittername'); 
-		$facebook = $this->opt('facebook_name');
+		$twitter = pl_setting('twittername'); 
+		$facebook = pl_setting('facebook_name');
 		
 		$twitter = ($twitter) ? $twitter : 'pagelines';
 		$facebook = ($facebook) ? $facebook : 'pagelines';
@@ -104,13 +104,13 @@ class PLWatermark extends PageLinesSection {
 
 			<?php 
 			
-				if( pl_setting( 'facebook_name' ) )
+				if( ! has_action( 'pl_watermark_no_facebook' ) )
 					echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
 			
 				if( ! has_action( 'pl_watermark_no_gplus' ) ) 
 					echo do_shortcode('[googleplus]');
 				
-				if( pl_setting( 'twittername' ) )
+				if( ! has_action( 'pl_watermark_no_twitter' ) )
 					echo do_shortcode('[twitter_button type="follow"]');
 			
 			?>
