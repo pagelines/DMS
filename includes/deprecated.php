@@ -1512,7 +1512,7 @@ class PageLinesPostType {
 				'hierarchical' 		=> false,
 				'rewrite' 			=> false,
 				'supports' 			=> array( 'title', 'editor', 'thumbnail', 'revisions' ),
-				'menu_icon' 		=> PL_ADMIN_IMAGES . '/favicon-pagelines.ico',
+				'menu_icon' 		=> PL_IMAGES . '/favicon-pagelines.ico',
 				'taxonomies'		=> array(),
 				'menu_position'		=> 20,
 				'featured_image'	=> false,

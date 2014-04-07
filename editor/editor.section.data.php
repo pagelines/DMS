@@ -58,11 +58,13 @@ class PLSectionData{
 		
 		$uid = $data['uid']; 
 		$draft = json_encode( $data['draft'] );
+		$live = json_encode( array() );
 		
-		$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft) 
-										VALUES ( %s, %s)
+			
+		$query = $this->wpdb->prepare( "INSERT INTO $this->table_name (uid, draft, live) 
+										VALUES ( %s, %s, %s)
 										ON DUPLICATE KEY UPDATE
-										draft = VALUES(draft)", $uid, $draft); 
+										draft = VALUES(draft)", $uid, $draft, $live); 
 								
 		      
 		$result = $this->wpdb->query( $query );

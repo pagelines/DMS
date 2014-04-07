@@ -136,10 +136,6 @@ class PageLinesColumnizer extends PageLinesSection {
 
 	function get_default(){
 		ob_start();
-
-
-		$twitter = $this->opt('twittername');
-		$facebook = $this->opt('facebook_name');
 		?>
 
 		<li id="the_default_widget_latest" class="span3 widget">

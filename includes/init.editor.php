@@ -78,9 +78,7 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.areas.php' );
 		require_once( PL_EDITOR . '/editor.page.php' );
 		require_once( PL_EDITOR . '/editor.handler.php' );
-			require_once( PL_EDITOR . '/editor.developer.php' );
-		require_once( PL_EDITOR . '/editor.loader.php' );
-		
+		require_once( PL_EDITOR . '/editor.loader.php' );		
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
 		require_once( PL_EDITOR . '/editor.sections.register.php' );
@@ -153,19 +151,12 @@ class PageLinesEditor {
 
 		// Interfaces
 		$this->xlist = new EditorXList;
-		
 		$sections_handler = new PageLinesSectionsHandler;
 		$sections_handler->load_ui_actions();
-		
 		$this->settings_panel = new PageLinesSettingsPanel;
-		
-		$this->devtools = new PLDeveloperTools;
-
 		$this->themer = new EditorThemeHandler;
 		$this->code = new EditorCode( $this->draft );
 		$this->areas = new PageLinesAreas;
-
-
 
 		// Editor UX Elements
 		$this->interface = new EditorInterface( $this->page, $this->siteset, $this->draft, $templates_handler, $this->map, $this->extensions, $this->themer );
