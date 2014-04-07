@@ -41,7 +41,7 @@
 
 	function getPLFixedHeight(){
 		
-		return $('.pl-fixed-top').height() + $('#wpadminbar').height() + $('.pl-toolbox-pusher').height()
+		return $('.pl-fixed-top').height() + $('#wpadminbar').height() + $('.pl-toolbox').height()
 		
 	}
 
@@ -368,14 +368,20 @@
 						var theArea = $(this)
 						, 	windowHeight = $(window).height() - getPLFixedHeight()
 						,	theContent = theArea.find('.pl-area-wrap')
-						,	contentHeight = theContent.height()
+						,	contentHeight = theContent.outerHeight()
 						, 	offsetMargin = (contentHeight / 2) * -1
 
-						if( windowHeight > (contentHeight + 20) )
+						if( windowHeight > (contentHeight + 20) ){
+							
 							theArea.height(windowHeight)
-
-						theContent.css('margin-top', offsetMargin)
-
+							
+							
+						} else {
+							theArea.height(contentHeight + 20)
+						}
+						
+						theContent.css('margin-top', offsetMargin)	
+					
 					})
 
 				})
