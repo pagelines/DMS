@@ -4,6 +4,12 @@
 
 ********************************************************
 
+Version 2.0.3
+
+	- CORE - Fix possible settings issue on certain configs of MYSQL if strict mode is enabled.
+	- CORE - Fix non translatable string 'on' props kakadong.
+	- CORE - Fix unreadable chars in recent comments widget props kakadong.
+	- CORE - Dev Panel moved to Developer plugin.
 
 Version 2.0.2
 
