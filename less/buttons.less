@@ -51,7 +51,8 @@
 		}
 	}
 	&.btn-ol-white,
-	&.btn-ol-black{
+	&.btn-ol-black, 
+	&.btn-ol-link{
 		background: transparent; 
 		border: 1px solid transparent;
 		&.btn-large{
@@ -77,7 +78,16 @@
 			border-color: rgba(0, 0, 0, .7);
 		}
 	}
-	
+	&.btn-ol-link{
+		color: @pl-link; 
+		border-color: @pl-link;
+		&:hover{
+			background: fadeout(@pl-link, 90%);
+		}
+		&:active{
+			background: fadeout(@pl-link, 80%);
+		}
+	}
 	
 	
 	

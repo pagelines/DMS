@@ -688,12 +688,13 @@
 				$.pageBuilder.alignGrid( this )
 			})
 			
-			var mapConfig = $.plMapping.getCurrentMap()
-			
+			var mapConfig = $.plMapping.getCurrentMap()	
 			
 			$.pl.data[templateMode]['custom-map'] = $.extend({}, { template: mapConfig.template.map })
 			
 			$.pl.data.global.regions = $.extend({}, { header: mapConfig.header.map, footer: mapConfig.footer.map })
+
+			$(window).trigger('resize')
 
 			return mapConfig
 			
