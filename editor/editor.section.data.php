@@ -49,7 +49,7 @@ class PLSectionData{
 	function install_data() {
 	   global $wpdb;
 
-	   $rows_affected = $wpdb->insert( $this->table_name, array( 'uid'	=> 'u12345', 'draft' => '' ) );
+	   $rows_affected = $wpdb->insert( $this->table_name, array( 'uid'	=> 'u12345', 'draft' => '', 'live' => '' ) );
 	}
 	
 	
