@@ -507,10 +507,8 @@ class EditorTemplates {
 			foreach( $custom_template_handler->get_all() as $index => $t){
 
 				$sel = '';
-				
-				$template = explode( ' ', $t['name'] );
-				
-				$sel = ( $current === strtolower( $template[0] ) ) ? 'selected' : '';
+
+				$sel = ( $current === $index ) ? 'selected' : '';
 				
 				$options .= sprintf('<option value="%s" %s>%s</option>', $index, $sel, $t['name']);
 			}
