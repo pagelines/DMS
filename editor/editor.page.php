@@ -75,7 +75,7 @@ class PageLinesPage {
 
 	function id(){
 		global $post;
-		if(!$this->is_special() && isset($post) && is_object($post))
+		if(!$this->is_special() && isset($post) && is_object($post) && 0 != $post->ID)
 			return $post->ID;
 		else
 			return $this->special_id();
