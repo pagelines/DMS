@@ -165,9 +165,8 @@ class PLSectionData{
 	}
 	
 	function dump_opts() {
-		$query = $this->wpdb->prepare( "SELECT * FROM $this->table_name" );
-		
-		$result = $this->wpdb->get_results( $query );
+				
+		$result = $this->wpdb->get_results( "SELECT * FROM $this->table_name");
 		
 		return $result;
 	}
