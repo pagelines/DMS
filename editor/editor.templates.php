@@ -630,7 +630,13 @@ function pl_default_template( $standard = false ){
 	// 404 Page
 	if( is_404() ){
 
-		$content = array( 'object' => 'PageLinesNoPosts' );
+		$content = array(
+			array(
+				'object'	=> 'PageLinesNoPosts',
+				'span' 		=> 10,
+				'offset'	=> 1
+			)
+		);
 
 	} 
 	
