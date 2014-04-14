@@ -9,6 +9,7 @@ Version 2.0.4
 	- CORE - Tweaks full window section code.
 	- CORE - Added new btn-ol-link class.
 	- CORE - Remove text shadow from labels/badges.
+	- BUG - Fix for Chrome Aw Snap with count_select props Evan Mattson.
 	- BUG - Fix for illegal offset 'clone' error.
 	- BUG - Fix template drop down on post edit page.
 	- BUG - Fix pl_video links with SSL props Dave Moppert.
