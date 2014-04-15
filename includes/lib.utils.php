@@ -1475,3 +1475,7 @@ function pl_add_perform_data( $data_point, $title, $label, $description){
 		'info'		=> $description
 	);
 }
+
+function pl_is_wporg() {
+	return ( defined( 'IS_WPORG' ) ) ? true : false;
+}
