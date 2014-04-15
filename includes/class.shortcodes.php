@@ -551,23 +551,21 @@ class PageLines_ShortCodes {
 		return home_url();
 	}
 
-	function filters() {
-
-		/**
-		 *  Prevent AUTOP inside of shortcodes (breaking shortcodes - removed)
-		 */
-		remove_filter( 'the_content', 'wpautop' );
-		add_filter( 'the_content', 'wpautop' , 12);
-		remove_filter( 'the_content', 'wptexturize' );
-		add_filter( 'the_content', 'wptexturize' , 12);
-	}
-
 	private function register_shortcodes( $shortcodes ) {
 
 		foreach ( $shortcodes as $shortcode => $data ) {
 			add_shortcode( $shortcode, array( $this, $data['function']) );
 		}
 	}
+
+	// for wporg version we need to return blank .. so we dont show broken shortcodes.
+	
+	function pl_pinterest_button($args) { return false; }
+	function pl_googleplus_button($args) { return false; }
+	function pl_linkedinshare_button($args) { return false; }
+	function pl_twitter_button($args) { return false; }
+	function pl_facebook_shortcode($args) { return false; }
+	
 //
 } // end of class
 //
