@@ -66,7 +66,7 @@ class EditorFileOpts {
 	function make_download(){
 
 		if( ! current_user_can( 'edit_theme_options' ) ) {
-			wp_die( __( 'Cheatin’ uh?' ) );
+			wp_die( __( 'Cheatin’ uh?', 'pagelines' ) );
 		}
 
 		$timestamp = date("Y-m-d_H:i:s");
