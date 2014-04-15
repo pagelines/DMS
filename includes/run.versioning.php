@@ -16,7 +16,7 @@ if ( version_compare( $actual, $installed ) > 0 ) {
 	$dms_cache->purge_all();
 	
 	// special function that runs once during upgrade from 1.x to 2.x series.
-	if( version_compare( $installed, '1.5.0', '<' ) ) {
+	if( version_compare( $installed, '1.5.0', '<' ) && ! pl_is_wporg() ) {
 		add_action( 'after_setup_theme', 'dms_update_two_point_ohh' );
 	}
 }
