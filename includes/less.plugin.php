@@ -117,7 +117,7 @@ class plessc {
 
 		$this->addParsedFile($realPath);
 		$parser = $this->makeParser($realPath);
-		$root = $parser->parse(file_get_contents($realPath));
+		$root = $parser->parse(pl_file_get_contents($realPath));
 
 		// set the parents of all the block props
 		foreach ($root->props as $prop) {
