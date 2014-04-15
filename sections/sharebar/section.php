@@ -53,9 +53,9 @@ class PageLinesShareBar extends PageLinesSection {
 						'key'	=> 'align',
 						'label'	=> __( 'Alignment', 'pagelines' ),
 						'opts'	=> array(
-							'right'		=> array( 'name' => __( 'Social links on right'), 'pagelines' ),
-							'center'	=> array( 'name' => __( 'Social links in center'), 'pagelines' ),
-							'left'		=> array( 'name' => __( 'Social links on left', 'pagelines' )),
+							'right'		=> array( 'name' => __( 'Social links on right', 'pagelines' ) ),
+							'center'	=> array( 'name' => __( 'Social links in center', 'pagelines' ) ),
+							'left'		=> array( 'name' => __( 'Social links on left', 'pagelines' ) ),
 						),
 					),
 				)
