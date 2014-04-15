@@ -312,7 +312,7 @@ class EditorSettings {
 				'type'		=> 'check',
 				'col'		=> 1,
 				'label'		=> __( 'Enable Alternative CSS URLS', 'pagelines' ),
-				'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.')				
+				'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.', 'pagelines' )				
 			)
 			
 			

@@ -140,12 +140,12 @@ class EditorAdmin {
 		
 		<div class="pl-input-field">
 
-			<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?> /> &nbsp; <span class="description"><?php _e( "Your PageLines account email."); ?></span>
+			<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?> /> &nbsp; <span class="description"><?php _e( "Your PageLines account email.", 'pagelines' ); ?></span>
 			
 		</div>
 	
 		<div class="pl-input-field">	 
-			<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> /> &nbsp; <span class="description"><?php _e( "PageLines Updates and Support Activation Key."); ?></span>
+			<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> /> &nbsp; <span class="description"><?php _e( "PageLines Updates and Support Activation Key.", 'pagelines' ); ?></span>
 		
 		</div>
 		
