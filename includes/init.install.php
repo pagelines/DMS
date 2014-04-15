@@ -28,22 +28,41 @@ class PageLinesInstall{
 
 		$install = false;
 
-		if( isset($_GET['pl-install-theme']) ){
+		if( isset($_REQUEST['pl-install-theme'] ) && ! pl_is_wporg() ){
 			$install = true;
 		}
 
 		if( is_admin() ){
 			global $pagenow;
 
-
-			if( $pagenow == 'customize.php' || ( isset($_GET['activated'] ) && $pagenow == "themes.php" ) ){
-				$install = true;
-			
+			if( $pagenow == 'customize.php' ){
 				
+				if( pl_is_wporg() ) {
+					// customizer wont work, so just redirect to front page.
+					wp_safe_redirect( site_url() );
+					exit();
+				} else {
+					$install = true;
+				}						
+			} 
+			
+			if( isset($_REQUEST['activated'] ) && $pagenow == "themes.php" && ! pl_is_wporg() ) {
+				$install = true;
 			}
+			
+			if( isset($_REQUEST['activated'] ) && $pagenow == "themes.php" && pl_is_wporg() ) {
+				add_action( 'admin_notices', array( $this, 'install_notice' ) );
+				$install = false;
+			}			
+
+
+		if( pl_is_wporg() && isset( $_REQUEST['i-love-wporg'] ) )
+			$install = true;
+
+
 		}
-		
-		if( $install == true ){
+				
+		if( $install == true  ){
 			$url = $this->run_installation_routine();
 
 			wp_redirect( $url ); 
@@ -53,6 +72,17 @@ class PageLinesInstall{
 			
 			
 	}
+	
+	function install_notice() {
+		?>
+		<div class="updated fade">
+			<p>Hey there! Looks like you just activated PageLines DMS. Remember all the editing tools are on the frontend of your site.
+				<br />Click <a  href="<?php echo site_url(); ?>">here to go straight there.</a><br />Or why not let us create a draft page and apply a simple template to get you started? <a href="<?php echo admin_url( 'index.php?i-love-wporg=true' ); ?>">Yes please!<a>
+					</p>
+					</div>
+					<?php 
+	}
+	
 	
 	function run_installation_routine( $url = '' ){
 		

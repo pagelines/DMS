@@ -69,6 +69,8 @@ require_once( PL_INCLUDES . '/class.shortcodes.php');
 // Removed in Free/WPORG Version
 if ( is_file( PL_INCLUDES . '/library.pagelines.php' ) )
 	require_once( PL_INCLUDES . '/library.pagelines.php');
+else
+	define( 'IS_WPORG', true );
 
 // Start the editor
 require_once( PL_INCLUDES . '/init.editor.php' );

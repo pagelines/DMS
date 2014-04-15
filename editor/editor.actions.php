@@ -346,29 +346,9 @@ function pagelines_check_dms_plugin( $note ) {
 }
 	
 function pagelines_check_updater( $note ) {
-	// check for updater...
-	$slug = 'pagelines-updater';
-	$message = '';
 	
-	if( ! is_super_admin() )
-		return false;
+	$message = pl_updater_txt();
 	
-	if( ! pl_check_updater_exists() ) { // need to install...
-		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug );
-		$message = sprintf( '<a class="btn btn-mini btn-warning" href="%s" class="icon icon-download"></i> %s</a> %s', esc_url( $install_url ), __( 'Install the PageLines Updater plugin', 'pagelines' ), __( 'to activate this site and get updates for your PageLines themes and plugins.', 'pagelines' ) );
-	} else {
-		// must be installed..maybe its not active?
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		if( ! is_plugin_active( 'pagelines-updater/pagelines-updater.php' ) ) {
-			$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
-			$message = '<a href="' . esc_url( self_admin_url( $activate_url ) ) . '">Activate the PageLines Updater plugin</a> to activate your site and get updates for your PageLines themes and plugins.';
-		} else {
-			if( ! pl_is_activated() ) {
-				$url = 'index.php?page=pagelines_updater';
-				$message = '<a href="' . esc_url( self_admin_url( $url ) ) . '">Add your key now</a> to activate this site and get updates for your PageLines themes and plugins.';
-			}
-		}
-	}
 	if( $message ) {
 		ob_start();
 		?>

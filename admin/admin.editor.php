@@ -28,15 +28,6 @@ class EditorAdmin {
 													)
 									),
 					array(
-						'title'	=> __( 'Your PageLines Account', 'pagelines' ), 
-						'opts'	=> array(
-							'intro'		=> array(
-								'type'		=> 'pagelines_account',
-								'title'		=> __( 'Activate Your Account', 'pagelines' ),
-							),
-						)
-					),
-					array(
 						'title'	=> __( 'DMS Fallbacks', 'pagelines' ),
 						'desc'	=> __( 'Below are secondary fallbacks to the DMS code editors. You may need these if you create errors or issues on the front end.', 'pagelines' ),
 						'opts'	=> array(

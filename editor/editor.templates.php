@@ -138,9 +138,11 @@ class PageLinesTemplates {
 			
 		} elseif( $region == 'fixed' ){
 			
+			$nav = ( pl_is_wporg() ) ? 'PLNavBar' : 'PLNavi';
+			
 			$d = array( 
 					array( 
-						'object' 	=> 'PLNavi',
+						'object' 	=> $nav,
 					) 
 				);
 			

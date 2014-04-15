@@ -1475,3 +1475,44 @@ function pl_add_perform_data( $data_point, $title, $label, $description){
 		'info'		=> $description
 	);
 }
+
+function pl_is_wporg() {
+	return ( defined( 'IS_WPORG' ) ) ? true : false;
+}
+
+function pl_updater_txt() {
+	
+	if( ! is_super_admin() )
+		return false;
+	
+	$install_txt = __( 'Install the PageLines Updater plugin</a> to activate a key and get updates for your PageLines themes and plugins.', 'pagelines' );
+	$activate_txt = __( 'Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.', 'pagelines' );
+	
+	if( pl_is_wporg() ) {
+		$install_txt = __( 'Install the PageLines Updater plugin</a> to upgrade to the Pro edition and get updates direct from PageLines.', 'pagelines' );
+		$activate_txt = __( 'Activate the PageLines Updater plugin</a> to upgrade to the Pro edition and get updates direct from PageLines.', 'pagelines' );
+	}
+		
+	//normal
+	$active_plugins = apply_filters( 'active_plugins', get_option('active_plugins' ) );
+	if ( in_array( 'pagelines-updater/pagelines-updater.php', $active_plugins ) )
+		return false;
+	// ms
+	if ( ! function_exists( 'is_plugin_active_for_network' ) )
+	    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+	
+	if ( is_plugin_active_for_network( 'pagelines-updater/pagelines-updater.php' ) )
+		return false;
+	
+	if( ! pl_check_updater_exists() ) {
+		$install_url = wp_nonce_url( network_admin_url( 'update.php?action=install-plugin&plugin=pagelines-updater' ), 'install-plugin_pagelines-updater' );
+		$message = sprintf( '<a class="btn btn-mini btn-warning" href="%s"> %s', esc_url( $install_url ), $install_txt );
+		
+	} else {
+		// installed...
+		$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
+		$message = sprintf( '<a class="btn btn-mini btn-warning" href="%s">%s', esc_url( network_admin_url( $activate_url ) ), $activate_txt );
+	}
+	
+	return $message;
+}

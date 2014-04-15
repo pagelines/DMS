@@ -56,7 +56,7 @@ class PageLinesEditorUpdates {
 			add_filter( 'plugins_api', array( $this, 'pagelines_updater_install' ), 10, 3 );			
 		}
 		// if installed but not activated, lets activate it.
-		add_action( 'admin_notices', array( $this, 'updater_install' ) );
+		add_action( 'admin_notices', array( $this, 'updater_install' ), 9);
 	}
 
 
@@ -79,34 +79,14 @@ class PageLinesEditorUpdates {
 
 	function updater_install() {
 		
-		if( ! is_super_admin() )
+		$screen = get_current_screen();
+			
+		if( pl_is_wporg() && 'appearance_page_PageLines-Admin' != $screen->id )
 			return false;
 		
-		//normal
-		$active_plugins = apply_filters( 'active_plugins', get_option('active_plugins' ) );
-		if ( in_array( 'pagelines-updater/pagelines-updater.php', $active_plugins ) )
-			return;
-		// ms
-		if ( ! function_exists( 'is_plugin_active_for_network' ) )
-		    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-		
-		if ( is_plugin_active_for_network( 'pagelines-updater/pagelines-updater.php' ) )
-			return
-		
-		$slug = 'pagelines-updater';
-		$install_url = wp_nonce_url( network_admin_url( 'update.php?action=install-plugin&plugin=pagelines-updater' ), 'install-plugin_pagelines-updater' );
-		$activate_url = 'plugins.php?action=activate&plugin=' . urlencode( 'pagelines-updater/pagelines-updater.php' ) . '&plugin_status=all&paged=1&s&_wpnonce=' . urlencode( wp_create_nonce( 'activate-plugin_pagelines-updater/pagelines-updater.php' ) );
-
-		$message = sprintf( '<a class="btn btn-mini" href="%s"> %s', esc_url( $install_url ), __( 'Install the PageLines Updater plugin</a> to activate a key and get updates for your PageLines themes and plugins.', 'pagelines' ) );
-		$is_downloaded = false;
-		$plugins = array_keys( get_plugins() );
-		foreach ( $plugins as $plugin ) {
-			if ( strpos( $plugin, 'pagelines-updater.php' ) !== false ) {
-				$is_downloaded = true;
-				$message = sprintf( '<a class="btn btn-mini" href="%s">%s', esc_url( network_admin_url( $activate_url ) ), __( 'Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.', 'pagelines' ) );
-			}
-		}
-		echo '<div class="updated fade"><p>' . $message . '</p></div>' . "\n";
+		$message = pl_updater_txt();
+		if( $message )
+			echo '<div class="updated fade"><p>' . $message . '</p></div>' . "\n";
 	}
 }
 
