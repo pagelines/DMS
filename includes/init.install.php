@@ -185,6 +185,7 @@ class PageLinesInstall{
 	// Override this function in core/child themes
 	function global_region_map(){
 		
+		$nav = ( pl_is_wporg() ) ? 'PLNavBar' : 'PLNavi';
 		$map = array(
 			'header'	=> array(), 
 			'footer'	=> array(
@@ -212,7 +213,7 @@ class PageLinesInstall{
 				)
 			),
 			'fixed'	=> array(
-				array( 'object'	=> 'PLNavi' )
+				array( 'object'	=> $nav )
 			)
 		);
 		
@@ -228,6 +229,8 @@ class PageLinesInstall{
 	
 	
 	function template_welcome(){
+		
+		$social = ( pl_is_wporg() ) ? '' : '<p>[like_button url="http://www.facebook.com/pagelines/" ] [twitter_button type="follow" handle="pagelines"]</p>';
 		
 		$template['name'] = 'Welcome';
 		
@@ -269,7 +272,7 @@ class PageLinesInstall{
 							'ibox_array'	=> array(
 								array(
 									'title'	=> __( 'Stay in Touch', 'pagelines' ),
-									'text'	=> __( 'New to PageLines? Stay in touch by following us on Facebook and Twitter.<p>[like_button url="http://www.facebook.com/pagelines/" ] [twitter_button type="follow" handle="pagelines"]</p>', 'pagelines' ),
+									'text'	=> sprintf( __( 'New to PageLines? Stay in touch by following us on Facebook and Twitter.%s', 'pagelines' ), $social ),
 									'icon'	=> 'thumbs-up'
 								),
 								array(
