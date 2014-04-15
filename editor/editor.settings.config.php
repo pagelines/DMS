@@ -17,12 +17,14 @@ class EditorSettings {
 
 	function __construct(){
 
-		$this->settings['basic_settings'] = array(
-			'name' 	=> __( 'Site Images', 'pagelines' ),
-			'icon'	=> 'icon-picture',
-			'pos'	=> 2,
-			'opts' 	=> $this->basic()
-		);
+		if( ! pl_is_wporg() ) {
+			$this->settings['basic_settings'] = array(
+				'name' 	=> __( 'Site Images', 'pagelines' ),
+				'icon'	=> 'icon-picture',
+				'pos'	=> 2,
+				'opts' 	=> $this->basic()
+				);
+			}
 
 		$this->settings['social_media'] = array(
 			'name' 	=> __( 'Social <span class="spamp">&amp;</span> Local', 'pagelines' ),
