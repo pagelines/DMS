@@ -5,7 +5,6 @@
 	Author URI: http://www.pagelines.com
 	Description: A responsive full width splash and text area. Great for getting big ideas across quickly.
 	Class Name: PLMasthead
-	Edition: pro
 	Workswith: templates, main, header, morefoot
 	Filter: component
 	Loading: active
