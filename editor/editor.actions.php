@@ -397,17 +397,32 @@ class PLImageUploader{
 	}
 	// dequeue scripts that break the image uploader.
 	function dequeue_offending_scripts() {
-		
+		wp_enqueue_style( 'dashicons' );
 		// nextgen gallery destroys media uploader. 
 		wp_dequeue_script( 'frame_event_publisher' );
 	}
 
 	function media_css() {
 
-		echo '<style type="text/css">
+		?>
+		<style type="text/css">
 		#media-upload #filter, #media-upload #media-items {
 		width: 770px;
-		}</style>';
+		}
+		.pl_uploader_close { float:right;}
+		.pl_uploader_close:before {
+			font-family: "dashicons";
+		    content: "\f158";
+		}
+		</style>
+		
+		<script>
+		jQuery(document).ready(function() {
+			jQuery( '#sidemenu' ).append('<li class="pl_uploader_close"></li>')
+
+		})
+		</script>
+		<?php
 	}
 
 	function the_js(){
@@ -428,9 +443,11 @@ class PLImageUploader{
 				thePreview.html( '<div class="img-wrap"><img style="max-width:150px;max-height: 100px;" src="'+ imgURL +'" /></div>' )
 				
 				
-				parent.eval('jQuery(".bootbox").modal("hide")')
+				parent.eval('jQuery(".bootbox").modal("hide")')				
+			})
 			
-				
+			jQuery( '.pl_uploader_close' ).click(function() {
+				parent.eval('jQuery(".bootbox").modal("toggle")')	
 			})
 		})
 		</script>
