@@ -897,7 +897,7 @@ class LessSystem_ShutdownProcess
     {
     	if (!is_callable($callback))
     	{
-			throw new \Exception('Callback must be of a callable type');
+			throw new Exception('Callback must be of a callable type');
     	} 
     	$this->callback = $callback;
     }
