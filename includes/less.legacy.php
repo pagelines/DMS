@@ -310,10 +310,17 @@ class PageLinesLess {
 		return $this->raw_parse($lesscode, $type);
 	}
 
+	function show_error() {
+		$mem = ( function_exists('memory_get_usage') ) ? sprintf( '<p>They only allocated %sMB for you to use, which is kind of lame.</p>', round( memory_get_usage() / 1024 / 1024, 2 ) ) : '';
+		wp_die( sprintf( '<h2>Ooops</h2><p><br />Looks like your hosting providers are a shower of bastards!</p>%s<p>Anyway at least the fix is easy, just like their mothers. Just add the following to wp-config.php and we should be good to go.</p><h3><kbd>define( \'WP_MEMORY_LIMIT\', \'128M\' );</kbd></h3>', $mem ) );
+	}
+
 	private function raw_parse( $pless, $type ) {
 
 		require_once( PL_INCLUDES . '/less.plugin.php' );
-
+		
+		$sd = new LessSystem_ShutdownProcess(array( $this, 'show_error' ) );
+		$sd->register();
 		if( ! $this->lparser )
 			$this->lparser = new plessc();
 
@@ -325,7 +332,7 @@ class PageLinesLess {
 			plupop( "pl_less_error_{$type}", $e->getMessage() );
 			return sprintf( "/* LESS PARSE ERROR in your %s CSS: %s */\r\n", ucfirst( $type ), $e->getMessage() );
 		}
-
+		$sd->unregister();
 		// we're good!
 		plupop( "pl_less_error_{$type}", false );
 		return $css;
@@ -865,4 +872,74 @@ class PageLinesRenderCSS {
 } //end of PageLinesRenderCSS
 
 
-
+/**
+ * Shutdown process handler, allows you to unregister a process (not supported natively in PHP)
+ * Usage:
+ * $sd = new System_ShutdownProcess($callable);
+ * $sd->register() /// $sd->unregister()
+ * or via factory
+ * $sd = System_ShutdownProcess::factory($callable)->register()
+ */
+class LessSystem_ShutdownProcess 
+{
+ 
+	/**
+	 * Callback to be executed by the shutdown function
+	 * @var callble $callback
+	 */
+    private $callback;
+ 
+	/**
+	 * Create a shutdown process
+	 * @param callable $callback
+	 */
+    public function __construct($callback)
+    {
+    	if (!is_callable($callback))
+    	{
+			throw new \Exception('Callback must be of a callable type');
+    	} 
+    	$this->callback = $callback;
+    }
+ 
+	/**
+	 * Executed by the register_shutdown_function
+	 */
+    public function call()
+    {
+        if ($this->callback)
+        {
+	        $callback = $this->callback;
+	        $callback();
+        }
+    }
+ 
+    /**
+     * Unregister the callback
+     */
+    public function unregister()
+    {
+        $this->callback = null;
+    }
+    
+    /**
+     * Register the callback
+     * @return System_ShutdownProcess $this instance
+     */
+    public function register()
+    {
+    	register_shutdown_function(array($this, 'call'));
+    	return $this;
+    }
+    
+    /**
+     * Factory method for shutdown process
+     * @param callable $callback
+     * @return System_ShutdownProcess $sd_process
+     */
+    public static function factory($callback)
+    {
+    	$obj = new self($callback);
+    	return $obj;
+    }
+}
