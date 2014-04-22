@@ -131,21 +131,7 @@ class EditorFileOpts {
 		// IMPORT USER MAPS
 		if( isset( $file_data['pl-user-templates'] ) && 'checked' == $opts['page_tpl_import'] ) {
 
-			$existing_templates = get_option( 'pl-user-templates');
-			
-			$new = array(
-				'draft'	=> $file_data['pl-user-templates'],
-				'live'	=> $file_data['pl-user-templates']
-			);
-			
-			
-			$new_templates = wp_parse_args($new, $existing_templates);
-
-			$parsed['imported_data'] = $file_data['pl-user-templates'];
-			$parsed['existing'] = $existing_templates;
-			$parsed['merged'] = $new_templates;
-
-			update_option( 'pl-user-templates', $new_templates);
+			update_option( 'pl-user-templates', $file_data['pl-user-templates']);
 
 			$parsed[] = 'user_templates';
 		}
@@ -166,12 +152,19 @@ class EditorFileOpts {
 		
 			$section_data = array();
 			foreach( $section_opts as $data ) {
-				$section_data[$data['uid']] = unserialize( $data['live'] );
+				$section_data[$data['uid']] = stripslashes_deep( $this->unserialize( $data['live'] ) );
 			}
 			$sections = $sections_data_handler->create_items($section_data);
 			$parsed['section_data'] = $section_data;
 		}
 		return json_encode( pl_arrays_to_objects( $parsed ) );
+	}
+
+	function unserialize( $data ) {
+		if( is_serialized( $data ) )
+			return unserialize( $data );
+		else
+			return json_decode( $data, true );
 	}
 
 	function getopts() {
@@ -180,8 +173,10 @@ class EditorFileOpts {
 
 
 		// do globals
-		if( isset( $this->data->export_global ) )
+		if( isset( $this->data->export_global ) ) {
 			$option['pl-settings'] = pl_get_global_settings();
+		}
+			
 
 		// grab the map
 		// $option['pl-template_map'] = get_option( 'pl-template-map', array() );
@@ -194,10 +189,7 @@ class EditorFileOpts {
 
 			$templates =  get_option( 'pl-user-templates', array() );
 
-			foreach( $this->data->templates as $t => $s ) {
-				if( isset( $templates['live'][$t] ) )
-					$option['pl-user-templates'][$t] = $templates['live'][$t];
-			}
+			$option['pl-user-templates'] = $templates;
 		}
 
 		if( isset( $this->data->export_types ) ) {
@@ -222,15 +214,35 @@ class EditorFileOpts {
 			$output = 'names'; // names or objects, note names is the default
 			$operator = 'and'; // 'and' or 'or'
 			$post_types = get_post_types( $args,$output,$operator );
+					
 			$meta = array();
 			$master = array_unique( array_merge( $post_types, $lookup_array ) );
 
 			foreach( $master as $t => $type ) {
-				$key = pl_create_int_from_string( $type ) + 70000000;
+				
+				$key = array_search( $type, $lookup_array );
+				if( ! $key ){
+					$key = pl_create_int_from_string( $type ) + 70000000;	
+				} else {
+					$key = $key + 70000000;
+				}
+			//	$option[$type] = $key;
 				$meta[$key] = get_post_meta( $key, 'pl-settings' );
 				if( empty( $meta[$key] ) )
 					unset( $meta[$key] );
 			}
+			
+			$post_ids = get_posts(array(
+			    'numberposts'   => -1, // get all posts.
+			    'fields'        => 'ids', // Only get post IDs
+			));
+			
+			foreach( $post_ids as $k => $p ) {
+				$meta[$p] = get_post_meta( $p, 'pl-settings' );
+				if( empty( $meta[$p] ) )
+					unset( $meta[$p] );
+			}
+			
 			$option['post_meta'] = $meta;
 		}
 
