@@ -146,15 +146,9 @@ class EditorFileOpts {
 		}
 
 		if( isset( $file_data['custom'] ) ) {
-
-			
 			
 			$parsed[] =  'custom';
-			$sections = array( 
-				'draft' => $file_data['custom'],
-				'live' => $file_data['custom']
-				);
-				update_option( 'pl-user-sections', $sections ); 
+			update_option( 'pl-user-sections', $file_data['custom'] ); 
 		}
 
 
@@ -258,9 +252,8 @@ class EditorFileOpts {
 			
 			$option['post_meta'] = $meta;
 		}
-		
-		$sections = new PLCustomSections;
-		$option['custom'] = $sections->objects;
+
+		$option['custom'] = get_option( 'pl-user-sections');
 		// do section data
 		global $sections_data_handler;
 		$option['section_data'] = $sections_data_handler->dump_opts();
