@@ -168,6 +168,10 @@ class EditorFileOpts {
 	}
 
 	function unserialize( $data ) {
+		
+		if( is_array( $data ) || is_object( $data ) )
+			return $data;
+
 		if( is_serialized( $data ) )
 			return unserialize( $data );
 		else
@@ -196,7 +200,7 @@ class EditorFileOpts {
 
 			$templates =  get_option( 'pl-user-templates', array() );
 
-			$option['pl-user-templates'] = $templates;
+			$option['pl-user-templates'] = stripslashes_deep( $templates );
 		}
 
 		if( isset( $this->data->export_types ) ) {
@@ -234,7 +238,7 @@ class EditorFileOpts {
 					$key = $key + 70000000;
 				}
 			//	$option[$type] = $key;
-				$meta[$key] = get_post_meta( $key, 'pl-settings' );
+				$meta[$key] = stripslashes_deep( get_post_meta( $key, 'pl-settings' ) );
 				if( empty( $meta[$key] ) )
 					unset( $meta[$key] );
 			}
@@ -245,7 +249,7 @@ class EditorFileOpts {
 			));
 			
 			foreach( $post_ids as $k => $p ) {
-				$meta[$p] = get_post_meta( $p, 'pl-settings' );
+				$meta[$p] = stripslashes_deep( get_post_meta( $p, 'pl-settings' ) );
 				if( empty( $meta[$p] ) )
 					unset( $meta[$p] );
 			}
@@ -256,7 +260,15 @@ class EditorFileOpts {
 		$option['custom'] = get_option( 'pl-user-sections');
 		// do section data
 		global $sections_data_handler;
-		$option['section_data'] = $sections_data_handler->dump_opts();
+		
+		$section_data = $sections_data_handler->dump_opts();
+		
+		foreach( $section_data as $k => $data ) {
+			$section_data[$k]->draft = $this->unserialize( $data->draft );
+			$section_data[$k]->live = $this->unserialize( $data->live );
+		}
+		
+		$option['section_data'] = $section_data;
 
 
 		$contents = json_encode( $option );
