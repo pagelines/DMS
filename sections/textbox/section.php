@@ -5,7 +5,7 @@
 	Author URI: http://www.pagelines.com
 	Description: A simple box for text and HTML.
 	Class Name: PageLinesTextBox
-	Filter: component
+	Filter: component, dual-width
 	Loading: active
 */
 
