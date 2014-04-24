@@ -28,7 +28,8 @@ function pl_navigation( $args = array() ){
 			'items_wrap'      	=> '<ul id="%1$s" class="%2$s" style="">%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>',
 			'style'				=> false, 
 			'echo'				=> false,
-			'pl_behavior'		=> 'standard'
+			'pl_behavior'		=> 'standard',
+			'walker' 			=> new PageLines_Walker_Nav_Menu
 		); 
 
 		$args = wp_parse_args( $args, $defaults );
