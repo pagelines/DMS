@@ -1,6 +1,65 @@
 // NAVIGATIONS
 // -----------
 /*** ESSENTIAL STYLES ***/
+
+.dd-theme-dark{
+	li.megamenu{
+		> ul.sub-menu{
+			background-color: #1F1F1F;	
+		}	
+		> ul > li {
+			border-right: 1px solid rgba(255, 255, 255, 0.1);
+		}
+	}
+	ul{
+		background-color: #1F1F1F;
+		li a{
+			border-bottom: 1px solid rgba(255,255,255,0.1); 
+			color: #ccc;
+		}
+		li.sfHover > a,
+		li:hover > a {
+			color: #fff;	
+		}
+		li > a:focus ,
+		li > a:hover ,
+		li > a:active ,
+		li.current-menu-item > a{
+			background-color: rgba(255,255,255,.1);
+			color: #FFF;	
+		}
+	}
+} 
+.dd-theme-light{
+	li.megamenu{
+		> ul.sub-menu{
+			background-color: #fff;	
+		}	
+		> ul > li {
+			border-right: 1px solid rgba(255, 255, 255, 0.1);
+		}
+	}
+	ul{
+		background-color: #fff;
+		li a{
+			border-bottom: 1px solid rgba(0,0,0,0.1); 
+			color: #444;
+		}
+		li.sfHover > a,
+		li:hover > a {
+			color: #000;	
+		}
+		li > a:focus ,
+		li > a:hover ,
+		li > a:active ,
+		li.current-menu-item > a{
+			background-color: rgba(0,0,0,0.1); 
+			color: #000;	
+		}
+	}
+}
+
+
 .sf-menu, 
 .sf-menu * {
 	margin: 0;
@@ -16,7 +75,7 @@
 				width: 100%;	
 				left: 0px;
 				padding: 15px 0px;
-				background-color: #1F1F1F;
+			
 			}	
 			
 			> ul > li {
@@ -28,7 +87,6 @@
 				padding: 0px 15px;
 				width: 33.33%;
 				
-				border-right: 1px solid rgba(255, 255, 255, 0.1);
 				> a {
 					font-family: @defaultFont;
 					font-weight: 600;
@@ -70,7 +128,7 @@
 		z-index: 1049;
 		width: 15em;
 		
-		background-color: #1F1F1F;
+		
 		li{
 			width: 100%;
 			a {
@@ -78,26 +136,12 @@
 				line-height: 13px;
 			    margin: 0;
 			    padding: 14px;
-			    border-bottom: 1px solid rgba(255,255,255,0.1); 
-				color: #ccc;
+			    
 				transition: none;
 				
 			}
 		}
 		
-		li.sfHover > a,
-		li:hover > a {
-			color: #fff;	
-		}
-		
-		li > a:focus ,
-		li > a:hover ,
-		li > a:active ,
-		li.current-menu-item > a{
-			background-color: rgba(255,255,255,.1);
-			color: #FFF;	
-			outline: 0 none;
-		}
 		
 		li.current_page_ancestor > a{
 			background: transparent;

@@ -6,6 +6,10 @@ function pl_navigation( $args = array() ){
 	
 	$menu_classes = sprintf('menu-toggle mm-toggle %s', $respond);
 	
+	$dropdown_theme = ( pl_setting('nav_dropdown_bg') ) ? sprintf('dd-theme-', pl_setting('nav_dropdown_bg')) : 'dd-theme-dark';
+	$dropdown_toggle = ( pl_setting('nav_dropdown_toggle') ) ? sprintf('dd-toggle-', pl_setting('nav_dropdown_toggle')) : 'dd-toggle-hover';
+	
+	$top_classes = $dropdown_theme . ' ' . $dropdown_toggle;
 	
 	if( ( ! isset( $args['menu'] ) || empty( $args['menu'] ) ) && ! has_nav_menu( $args['theme_location'] ) ){
 		
@@ -25,7 +29,7 @@ function pl_navigation( $args = array() ){
 			'container_class'	=> '',
 			'depth'				=> 3,
 			'fallback_cb'		=> '',
-			'items_wrap'      	=> '<ul id="%1$s" class="%2$s" style="">%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>',
+			'items_wrap'      	=> '<ul id="%1$s" class="%2$s '.$top_classes.'" style="">%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>',
 			'style'				=> false, 
 			'echo'				=> false,
 			'pl_behavior'		=> 'standard',
