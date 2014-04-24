@@ -173,3 +173,99 @@ add_action('admin_enqueue_scripts', 'pagelines_enqueue_expander');
 function pagelines_enqueue_expander() {
 	wp_enqueue_script( 'expander', PL_JS .'/utils.expander.min.js', array('jquery'), pl_get_cache_key() );
 }
+
+add_action('admin_footer-edit.php', 'pl_custom_bulk_admin_footer');
+ 
+function pl_custom_bulk_admin_footer() {
+ 
+	global $post_type;
+	$custom_template_handler = new PLCustomTemplates;
+	if($post_type == 'page') {
+	
+	$templates = $custom_template_handler->get_all();
+	
+	ob_start(); ?>
+	
+	<select id="pl-template-selecter">
+		<?php
+		printf('<option class="pl-template-select" value="none">%s</option>', __( 'Select a PageLines Template', 'pagelines' ) );
+		printf('<option class="pl-template-select" value="none">%s</option>', __( 'Unset Current Template', 'pagelines' ) );
+		foreach( $custom_template_handler->get_all() as $index => $t){				
+			printf('<option class="pl-template-select" data-nicename="%s" value="%s">%s</option>', $t['name'], $index, $t['name']);			
+		}
+		?>
+	</select>	
+	<?php 
+	$select = str_replace( "\n", '', ob_get_clean() );
+    ?>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery('<option>').val('pl-template').text('<?php _e( 'Apply Template', 'pagelines' );?>').appendTo("select[name='action']");
+       	jQuery('<option>').val('pl-template').text('<?php _e( 'Apply Template', 'pagelines' );?>').appendTo("select[name='action2']");
+		jQuery('<input type="hidden" id="selected-template" name="selected-template" value="none" />').appendTo( '#posts-filter')
+		jQuery('<input type="hidden" id="selected-template-name" name="selected-template-name" value="none" />').appendTo( '#posts-filter')
+      });
+	jQuery('.bulkactions').after('<?php echo $select; ?>')
+
+	jQuery( '#pl-template-selecter').on('change', function() {
+		var sel = jQuery(this).val()
+		var name = jQuery('#pl-template-selecter option:selected').attr('data-nicename');
+		jQuery('#selected-template').val(sel)
+		jQuery('#selected-template-name').val(name)
+	})
+    </script>
+    <?php
+  }
+}
+
+add_action('load-edit.php', 'pl_custom_bulk_action');
+ 
+function pl_custom_bulk_action() {
+	
+	$wp_list_table = _get_list_table('WP_Posts_List_Table');
+	$action = $wp_list_table->current_action();
+ 
+	switch($action) {
+
+    case 'pl-template': 
+		$done = 0;
+		$post_ids = $_REQUEST['post'];
+		$template = $_REQUEST['selected-template'];
+		if( ! $post_ids || ! $template )
+			return false;
+		
+		foreach( $post_ids as $post_id ) {
+			$set = pl_meta($post_id, PL_SETTINGS);
+			$set['live']['custom-map']['template']['ctemplate'] = $template;
+			$set['draft']['custom-map']['template']['ctemplate'] = $template;
+			update_post_meta( $post_id, PL_SETTINGS, $set );
+			$done++;
+		}
+		$sendback = add_query_arg( array('pl-template' => $done, 'selected-template-name' => $_REQUEST['selected-template-name'], 'ids' => join(',', $post_ids) ), admin_url( 'edit.php?post_type=page' ) );
+		break;
+	default: return;
+	}
+	wp_redirect($sendback);
+	exit();
+}
+
+add_action('admin_notices', 'pl_custom_bulk_admin_notices');
+ 
+function pl_custom_bulk_admin_notices() {
+ 
+	global $post_type, $pagenow;
+ 
+	if($pagenow == 'edit.php' && $post_type == 'page' && isset($_REQUEST['pl-template']) && (int) $_REQUEST['pl-template']) {
+		
+		if( ! isset( $_REQUEST['selected-template-name'] ) || '' == $_REQUEST['selected-template-name'] ) {
+			$message = sprintf( __( 'The PageLines DMS Template has been reset on <strong>%s</strong> pages.', 'pagelines' ), number_format_i18n( $_REQUEST['pl-template'] ) );
+		} else {
+			$name = $_REQUEST['selected-template-name'];
+			$message = sprintf( __( 'The PageLines DMS Template <strong>"%s"</strong> has been applied to <strong>%s</strong> pages.', 'pagelines' ), $name, number_format_i18n( $_REQUEST['pl-template'] ) );
+		}
+		
+
+		
+		echo "<div class='updated'><p>{$message}</p></div>";
+	}
+}
