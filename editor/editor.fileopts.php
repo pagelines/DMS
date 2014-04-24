@@ -238,18 +238,21 @@ class EditorFileOpts {
 					$key = $key + 70000000;
 				}
 			//	$option[$type] = $key;
-				$meta[$key] = stripslashes_deep( get_post_meta( $key, 'pl-settings' ) );
+				$meta[$key] = get_post_meta( $key, 'pl-settings' );
 				if( empty( $meta[$key] ) )
 					unset( $meta[$key] );
 			}
 			
 			$post_ids = get_posts(array(
 			    'numberposts'   => -1, // get all posts.
-			    'fields'        => 'ids', // Only get post IDs
+			    'fields'        => 'ids',
+				'post_type'		=> 'any'
 			));
 			
+			$option['post_ids'] = $post_ids;
+			
 			foreach( $post_ids as $k => $p ) {
-				$meta[$p] = stripslashes_deep( get_post_meta( $p, 'pl-settings' ) );
+				$meta[$p] = get_post_meta( $p, 'pl-settings' );
 				if( empty( $meta[$p] ) )
 					unset( $meta[$p] );
 			}
