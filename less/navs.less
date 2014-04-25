@@ -30,6 +30,9 @@
 		}
 	}
 	&.dd-theme-light{
+		li > ul.sub-menu{
+			display: table;
+		}
 		li.megamenu{
 			> ul.sub-menu{
 				background-color: #fff;	
@@ -39,9 +42,12 @@
 				border-right: 1px solid #ddd;
 			}
 		}
+		> li > ul{
+			box-shadow: 1px 1px 0 rgba(0,0,0,.2), -1px -1px 0 rgba(0,0,0,.2);
+		}
 		ul{
 			background-color: #fff;
-			box-shadow: 1px 1px 0 rgba(0,0,0,.2), -1px -1px 0 rgba(0,0,0,.2);
+			
 			li a{
 				border-bottom: 1px solid #ddd; 
 				color: #444;
@@ -73,15 +79,12 @@
 .sf-menu {
 	li {
 		position: relative;
-		&.megamenu {
+		&.megamenu, 
+		&.panelmenu{
 			position: inherit;
 			> ul.sub-menu {
-				width: 100%;	
-				left: 0px;
 				padding: 15px 0px;
-			
-			}	
-			
+			}
 			> ul > li {
 				.sub-indicator {
 					display: none;
@@ -89,7 +92,6 @@
 				
 				display: table-cell;
 				padding: 0px 15px;
-				width: 33.33%;
 				
 				> a {
 					font-family: @defaultFont;
@@ -113,6 +115,30 @@
 					}
 				}
 			}
+		}
+		&.panelmenu {
+			> ul.sub-menu {
+				width: auto;	
+			}
+		
+			> ul > li {
+				width: 200px;
+			}
+		}
+		
+		&.megamenu {
+			
+			> ul.sub-menu {
+				
+				width: 100%;	
+				left: 0px;
+				
+			}	
+			
+			> ul > li {
+				width: 33.33%;
+			}
+			
 			&.mega-col-1 > ul > li { width: 100%; }
 			&.mega-col-2 > ul > li { width: 50%; }
 			&.mega-col-3 > ul > li { width: 33.33%; }

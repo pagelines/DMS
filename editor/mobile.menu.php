@@ -41,7 +41,7 @@ class PageLinesMobileMenu {
 							'menu'				=> $menu,
 							'container'			=> null,
 							'container_class'	=> '',
-							'depth'				=> 2,
+							'depth'				=> 3,
 							'fallback_cb'		=> '',
 							'theme_location'	=> 'mobile_nav'
 						)
@@ -58,7 +58,7 @@ class PageLinesMobileMenu {
 							'menu'				=> $menu2,
 							'container'			=> null,
 							'container_class'	=> '',
-							'depth'				=> 1,
+							'depth'				=> 3,
 							'fallback_cb'		=> ''
 						)
 					);
