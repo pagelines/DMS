@@ -300,12 +300,22 @@
 		, initSFMenu: function(){
 			$('.sf-menu').each(function(){
 
-				$(this).superfish({
-					 delay: 800,
-					 speed: 'fast',
-					 speedOut: 'fast',             
-					 animation:   {opacity:'show'}
-				});
+				if( $(this).hasClass('dd-toggle-click') ){
+					$(this).superclick({
+						 delay: 300,
+						 speed: 'fast',
+						 speedOut: 'fast',             
+						 animation:   {opacity:'show'}
+					});
+				} else {
+					$(this).superfish({
+						 delay: 800,
+						 speed: 'fast',
+						 speedOut: 'fast',             
+						 animation:   {opacity:'show'}
+					});
+				}
+				
 
 				var offset = $(this).data('offset') || false
 

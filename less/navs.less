@@ -2,7 +2,7 @@
 // -----------
 /*** ESSENTIAL STYLES ***/
 
-.dd-theme-dark{
+.sf-menu{
 	li.megamenu{
 		> ul.sub-menu{
 			background-color: #1F1F1F;	
@@ -29,35 +29,39 @@
 			color: #FFF;	
 		}
 	}
+	&.dd-theme-light{
+		li.megamenu{
+			> ul.sub-menu{
+				background-color: #fff;	
+
+			}	
+			> ul > li {
+				border-right: 1px solid #ddd;
+			}
+		}
+		ul{
+			background-color: #fff;
+			box-shadow: 1px 1px 0 rgba(0,0,0,.2), -1px -1px 0 rgba(0,0,0,.2);
+			li a{
+				border-bottom: 1px solid #ddd; 
+				color: #444;
+			}
+			li.sfHover > a,
+			li:hover > a {
+				color: #000;	
+			}
+			li > a:focus ,
+			li > a:hover ,
+			li > a:active ,
+			li.current-menu-item > a{
+				background-color: #f7f7f7; 
+				color: #000;	
+			}
+		}
+
+	}
+	
 } 
-.dd-theme-light{
-	li.megamenu{
-		> ul.sub-menu{
-			background-color: #fff;	
-		}	
-		> ul > li {
-			border-right: 1px solid rgba(255, 255, 255, 0.1);
-		}
-	}
-	ul{
-		background-color: #fff;
-		li a{
-			border-bottom: 1px solid rgba(0,0,0,0.1); 
-			color: #444;
-		}
-		li.sfHover > a,
-		li:hover > a {
-			color: #000;	
-		}
-		li > a:focus ,
-		li > a:hover ,
-		li > a:active ,
-		li.current-menu-item > a{
-			background-color: rgba(0,0,0,0.1); 
-			color: #000;	
-		}
-	}
-}
 
 
 .sf-menu, 
@@ -117,9 +121,7 @@
 			&.mega-col-6 > ul > li { width: 16.66%%; }
 		}
 	}
-	> ul{
-		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-	}
+
 	ul {
 		position: absolute;
 		display: none;

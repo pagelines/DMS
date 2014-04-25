@@ -6,8 +6,8 @@ function pl_navigation( $args = array() ){
 	
 	$menu_classes = sprintf('menu-toggle mm-toggle %s', $respond);
 	
-	$dropdown_theme = ( pl_setting('nav_dropdown_bg') ) ? sprintf('dd-theme-', pl_setting('nav_dropdown_bg')) : 'dd-theme-dark';
-	$dropdown_toggle = ( pl_setting('nav_dropdown_toggle') ) ? sprintf('dd-toggle-', pl_setting('nav_dropdown_toggle')) : 'dd-toggle-hover';
+	$dropdown_theme = ( pl_setting('nav_dropdown_bg') ) ? sprintf('dd-theme-%s', pl_setting('nav_dropdown_bg')) : 'dd-theme-dark';
+	$dropdown_toggle = ( pl_setting('nav_dropdown_toggle') ) ? sprintf('dd-toggle-%s', pl_setting('nav_dropdown_toggle')) : 'dd-toggle-hover';
 	
 	$top_classes = $dropdown_theme . ' ' . $dropdown_toggle;
 	
@@ -19,7 +19,7 @@ function pl_navigation( $args = array() ){
 		
 		// allow inline styles on nav ( offsets! )
 		if( isset( $args['attr'] ) ){
-			$args['items_wrap'] = '<ul id="%1$s" class="%2$s" '.$args['attr'].'>%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>'; 
+			$args['items_wrap'] = '<ul id="%1$s" class="%2$s '.$top_classes.'" '.$args['attr'].'>%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>'; 
 		}
 		
 		$defaults = array(
