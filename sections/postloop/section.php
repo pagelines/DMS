@@ -194,7 +194,10 @@ class PageLinesPostLoop extends PageLinesSection {
 
 					if( ! is_singular() && ! $this->opt( 'post_media_hide' ) ){
 
-						printf( '<div class="metamedia">%s</div>', pagelines_media( array( 'thumb-size' => $thumb_size ) ) );
+						$media = pagelines_media( array( 'thumb-size' => $thumb_size ) ); 
+						
+						if( ! empty( $media ) )
+							printf( '<div class="metamedia">%s</div>', $media );
 
 					}
 
