@@ -83,7 +83,7 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), pl_get_cache_key(), true );
 			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), pl_get_cache_key(), true );
 		
-			
+			wp_enqueue_script( 'pl-configdata', $this->url . '/js/pl.configdata.js', array( 'jquery' ), pl_get_cache_key(), true );
 		
 			// Saving 
 			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), pl_get_cache_key(), true );
