@@ -81,7 +81,7 @@
 		position: relative;
 		&.megamenu, 
 		&.panelmenu{
-			position: inherit;
+			
 			> ul.sub-menu {
 				padding: 15px 0px;
 			}
@@ -118,16 +118,16 @@
 		}
 		&.panelmenu {
 			> ul.sub-menu {
-				width: auto;	
+				width: 540px;	
 			}
 		
 			> ul > li {
-				width: 200px;
+				width: 180px;
 			}
 		}
 		
 		&.megamenu {
-			
+			position: inherit;
 			> ul.sub-menu {
 				
 				width: 100%;	
@@ -192,6 +192,16 @@
 			}
 		}
 	
+	}
+	> .panelmenu.menu-item{
+		ul{
+			left: 0; 
+			right: auto;
+		}
+		&.panel-right ul{
+			left: auto; 
+			right: 0;
+		}
 	}
 	> li:last-child 
 	
