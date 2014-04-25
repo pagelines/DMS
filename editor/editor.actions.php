@@ -137,6 +137,10 @@ function pl_editor_actions(){
 
 		} elseif( 'reset_cache' == $run ) {
 			$settings->reset_caches();
+		} elseif( $run == 'import_from_child' ) {
+			$settings->import_from_child();
+		} elseif( $run == 'import_from_child_cancelled' ) {
+			$settings->import_from_child_cancelled();
 		}
 
 	} else {
@@ -525,5 +529,4 @@ function pl_manage_page_columns($column_name, $id) {
 function pl_add_new_page_columns($columns) {
 	$columns['template'] = __( 'Template', 'pagelines' );
 	return $columns;
-}
-	
+}	

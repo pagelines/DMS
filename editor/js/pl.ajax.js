@@ -27,6 +27,7 @@
 					,	beforeSend: ''
 					, 	postSuccess: ''
 					,	load: false
+					,	onFalse: ''
 
 				}
 
@@ -39,6 +40,12 @@
 					$.toolbox('hide')
 
 				bootbox.confirm( theData.confirmText, function( result ){
+
+					if( false == result && theData.onFalse ) {
+						if ( $.isFunction( theData.onFalse ) )
+							theData.onFalse.call()
+					}
+
 
 					if(result == true){
 						that.runAction( theData )
