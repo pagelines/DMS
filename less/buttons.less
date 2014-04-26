@@ -50,6 +50,15 @@
 			background-color: @baseContrast;
 		}
 	}
+	&.btn-overlay{
+		background: rgba(0, 0, 0, .5); 
+		border: none;
+		color: #fff; 
+		&:hover{
+			color: @pl-base; 
+			background: fadeout( @pl-link, 20% );
+		}
+	}
 	&.btn-ol-white,
 	&.btn-ol-black, 
 	&.btn-ol-link{

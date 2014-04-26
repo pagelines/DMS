@@ -6,9 +6,27 @@
  * WOOCOMMERCE
  */
 
+.buttons_added{
+	input[type="button"]{
+		.box-sizing( content-box );
+	}
+	input[type="number"]{
+		margin-bottom: 0;
+	}
+}
+
+.woocommerce .product-thumb-wrap {
+	overflow: hidden;
+	position: relative;
+}
+
 
 .woocommerce , 
 .woocommerce-page  {
+	
+	
+	
+	
 	#content div.product div.images img{
 		&, &:hover{
 				box-shadow: none;	
@@ -16,11 +34,43 @@
 	
 	}
 	ul.products {
-		a.add_to_cart_button{
-			margin-bottom: 10px;
-		}
+		
 		li.product {
 			border-bottom: none;
+			
+			// fix z-index
+			.onsale{
+				position: absolute;
+				z-index: 10;
+			}
+			// Thumb hovers.
+			.product-thumb-wrap{
+				overflow: hidden;
+				position: relative;
+				a img{
+					margin: 0;
+				}
+				.add_to_cart_button, 
+				.product_type_variable, 
+				.product_type_grouped, 
+				a.btn {
+					position: absolute;
+					bottom: -40px;
+					top: auto;
+					right: 0px;
+					border-radius: 0;
+					.transition(all .5s)
+				}
+				&:hover{
+					.add_to_cart_button, 
+					.product_type_variable, 
+					.product_type_grouped, 
+					a.btn {
+						bottom: 0px;
+					}
+				}
+			}
+			
 			> a {
 				color: inherit;
 				&:hover img, 
@@ -614,14 +664,4 @@ p.form-allowed-tags{
 	overflow:hidden;
 }
 
-// ----------------------------------------------------------------------
-// WooCommerce Tweaks
-// ----------------------------------------------------------------------
-.buttons_added{
-	input[type="button"]{
-		.box-sizing( content-box );
-	}
-	input[type="number"]{
-		margin-bottom: 0;
-	}
-}
+
