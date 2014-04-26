@@ -63,8 +63,12 @@ class PageLinesInstall{
 		}
 				
 		if( $install == true  ){
+			
+			if( get_theme_mod( 'pl_installed' ) )
+				return false;
+			
 			$url = $this->run_installation_routine();
-
+			
 			wp_redirect( $url ); 
 
 			exit;
@@ -85,6 +89,8 @@ class PageLinesInstall{
 	
 	
 	function run_installation_routine( $url = '' ){
+		
+		set_theme_mod( 'pl_installed', true );
 		
 		$settings = pl_get_global_settings(); 
 		

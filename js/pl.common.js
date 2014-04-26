@@ -330,6 +330,26 @@
 
 					$(this).addClass('mega-col-'+cols)
 				})
+				
+				$(this).find('.panelmenu').each(function(){
+					var cols = $(this).find('> .sub-menu > li').length
+					,	colWidth = 180
+					,	menuWidth = cols * colWidth
+					,	fromLeft = $(this).offset().left
+					,	winWidth = $(window).width()
+					,	setClass
+					
+					if( fromLeft > (winWidth / 2) ){
+						setClass = 'panel-right'
+					} else 
+						setClass = 'panel-left'
+
+					$(this)
+						.addClass( setClass )
+						.find('> .sub-menu')
+							.css('width', menuWidth)
+						
+				})
 
 			})
 		}

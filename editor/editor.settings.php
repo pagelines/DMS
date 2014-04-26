@@ -198,6 +198,17 @@ class PageLinesSettings extends PageLinesData {
 			$fileOpts->import( $fileOpts->file_exists() , $opts);
 	}
 
+	function import_from_child() {
+		$fileOpts = new EditorFileOpts;
+		$fileOpts->import( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json', array() );
+		
+		// only do this once!! The user will still have the option to import again under import/export menus.
+		set_theme_mod( 'import_from_child', true );
+	}
+
+	function import_from_child_cancelled() {
+		set_theme_mod( 'import_from_child', true );
+	}
 
 	/*
 	 *  Resets all cached data including any detected cache plugins.
