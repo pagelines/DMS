@@ -198,13 +198,16 @@
 		}
 	}
 
-	&.display-boxed .pl-area .pl-area-controls{
-		opacity: .5;
-		margin-left: -70px;
-	
-		&:hover{
-			opacity: 1;
-			margin-left: -70px;
+	&.display-boxed .page-canvas .pl-area {
+		overflow-x: hidden;
+		.pl-area-controls{
+
+		//	margin-left: 0;
+
+			&:hover{
+				opacity: 1;
+			//	margin-left: -92px;
+			}
 		}
 	}
 
