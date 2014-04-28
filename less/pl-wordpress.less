@@ -24,8 +24,46 @@
 .woocommerce , 
 .woocommerce-page  {
 	
-	
-	
+	input.button, 
+	a.button{
+		box-shadow: none;
+	}
+	table.cart td.actions .coupon .input-text{
+		height: 25px; // mismatched height to buttons.
+	}
+	table.shop_table{
+		border: none;
+	}
+	#payment div.payment_box{
+		box-shadow: none;
+	}
+	.woocommerce-message, 
+	.woocommerce-error, 
+	.woocommerce-info {
+		padding: 5px 10px !important; 
+		font-weight: 400;
+		font-size: 12px;
+		
+		border: 1px solid #e1e1e1;
+		background: #fafafa;
+		box-shadow: none;
+		.border-radius(0px);
+		.button{
+			padding: 4px 7px;
+			font-size: 10px;
+		}
+		&:before{
+			padding-top: 10px;
+			display: none;
+		}
+	}
+	h3 label, 
+	.payment_methods label{
+		font-size: inherit; 
+		font-weight: inherit;
+		display: inline;
+		padding: 0;
+	}
 	
 	#content div.product div.images img{
 		&, &:hover{
