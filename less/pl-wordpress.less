@@ -132,6 +132,8 @@ body.woocommerce-page #content{
 	div.product .price{
 		color: @pl-link;
 	}
+	
+	
 	ul.products {
 		
 		li.product {
@@ -177,6 +179,32 @@ body.woocommerce-page #content{
 			}
 		}
 	}
+	
+	div.product .woocommerce-tabs ul.tabs{
+		&:before{border: none;}
+		padding: 0;
+		
+		li,
+		li.active{
+			&:before, 
+			&:after{ 
+				border: none; box-shadow: none; border-radius: 0;
+			}
+			box-shadow: none;
+			border: none;
+			border-radius: 0;
+			margin: 0;
+			transition: all .3s;
+		}
+		
+		li{
+			background: @baseContrast;
+			&.active{
+				background: @pl-link;
+				color: @pl-base;
+			}
+		}
+	} 
 	
 }
 /* 
