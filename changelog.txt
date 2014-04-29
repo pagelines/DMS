@@ -4,6 +4,21 @@
 
 ********************************************************
 
+
+Version 2.0.5
+
+	- CORE - Now possible to bulk apply templates in wp-admin.
+	- CORE - Various woocommerce tweaks.
+	- CORE - Various import/export fixes.
+	- CORE - Add close button to media uploader.
+	- CORE - Add 'pl_theme_classes' filter.
+	- CORE - Navigation themes added.
+	- CORE - New shortcode [pl_themename] returns active themes 'nice' name.
+	- CORE - Load pl-config.json if exists on activation.
+	- CORE - Added missing row-closed spans props Cliff.
+	- BUG - Fixed section controls in boxed site mode.
+	
+
 Version 2.0.4
 	
 	- CORE - Tweaks full window section code.
