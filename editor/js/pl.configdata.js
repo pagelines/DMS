@@ -27,7 +27,7 @@ $.plConfigData = {
 	
 ,	show: function() {
 		
-		var confirmText = '<h3>Holy Shit!</h3><p>Looks like this theme author was kind enough to include some demo data!!<br />Click OK to import it right now!</p>'
+		var confirmText = '<h3>Get The Demo?</h3><p>Looks like this theme includes demo data. This may include page templates and other page information.<br />Click OK to import it right now!</p>'
 		,	savingText = $.pl.lang("Importing From Child Theme")
 		,	refreshText = $.pl.lang("Successfully Imported. Refreshing page")
 		,	theAction = 'import_from_child'
