@@ -156,6 +156,9 @@ class EditorFileOpts {
 
 			$section_opts = $file_data['section_data'];
 			global $sections_data_handler;
+			
+			if( ! is_object( $sections_data_handler ) )
+				$sections_data_handler = new PLSectionData;
 		
 			$section_data = array();
 			foreach( $section_opts as $data ) {
