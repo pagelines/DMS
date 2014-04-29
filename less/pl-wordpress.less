@@ -23,6 +23,9 @@
 
 .woocommerce , 
 .woocommerce-page  {
+	.widget_shopping_cart .total{
+		border-top: none;
+	}
 	.shipping-calculator-button{
 		font-size: 20px;
 		&:after{
@@ -32,6 +35,19 @@
 	input.button, 
 	a.button{
 		box-shadow: none;
+		background: #eee;
+		border: 1px solid #cdcdcd;
+		&:hover{
+			background: #ddd; 
+			border: 1px solid #ccc;
+		}
+		&.alt{
+			background: @pl-link;
+			border: 1px solid darken( @pl-link, 10% );
+			&:hover{
+				background: lighten( @pl-link, 5% );
+			}
+		}
 	}
 	table.cart td.actions .coupon .input-text{
 		height: 25px; // mismatched height to buttons.
@@ -48,14 +64,16 @@
 		padding: 5px 10px !important; 
 		font-weight: 400;
 		font-size: 12px;
-		
-		border: 1px solid #e1e1e1;
-		background: #fafafa;
+		text-shadow: none;
+		border: none;
+		background: @pl-link;
+		color: @pl-base;
 		box-shadow: none;
 		.border-radius(0px);
 		.button{
 			padding: 4px 7px;
 			font-size: 10px;
+			border: 1px solid transparent;
 		}
 		&:before{
 			padding-top: 10px;
@@ -85,6 +103,10 @@
 			.onsale{
 				position: absolute;
 				z-index: 10;
+				background: @pl-link;
+			}
+			.price{
+				color: @pl-link;
 			}
 			// Thumb hovers.
 			.product-thumb-wrap{
