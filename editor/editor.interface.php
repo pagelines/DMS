@@ -242,10 +242,10 @@ class EditorInterface {
 			$text = __( 'Activate PageLines Editor', 'pagelines' );
 
 			$target = "";
-		} else {
+		} else {	
 			$target = "target='_blank'";
 			$activate_url = 'http://www.google.com/chrome';
-			$text = __( 'Please use Google Chrome to edit with DMS', 'pagelines' );
+			$text = __( 'Use Google Chrome to edit with DMS', 'pagelines' );
 
 		}
 		?>
