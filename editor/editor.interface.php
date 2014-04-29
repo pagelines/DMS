@@ -131,8 +131,8 @@ class EditorInterface {
 				$ajax_url = str_replace( 'http://', 'https://', $ajax_url );
 			wp_localize_script( 'pl-editor-js', 'ajaxurl', array( $ajax_url ) );
 		
-			if( is_front_page() && get_theme_mod( 'pl_installed' ) && true != get_theme_mod( 'import_from_child' ) && is_file( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json' ) )
-				wp_localize_script( 'pl-editor-js', 'plconfigfile', array( true ) );
+			//if( is_front_page() && get_theme_mod( 'pl_installed' ) && true != get_theme_mod( 'import_from_child' ) && is_file( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json' ) )
+			//	wp_localize_script( 'pl-editor-js', 'plconfigfile', array( true ) );
 	}
 
 	function lang_head() {
