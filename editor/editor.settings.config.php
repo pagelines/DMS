@@ -46,6 +46,14 @@ class EditorSettings {
 			'pos'	=> 55,
 			'opts' 	=> $this->resets()
 		);
+		
+		$this->settings['help'] = array(
+			'name' 	=> __( 'Help', 'pagelines' ),
+			'icon'	=> 'icon-book',
+			'pos'	=> 60,
+			'opts' 	=> $this->help_links()
+		);
+		
 	}
 	
 
@@ -78,80 +86,37 @@ class EditorSettings {
 			return 0;
 	}
 	
-	function config(){
+	function help_links(){
 	
 			$settings = array(
 
 				array(
-					'key'			=> 'set_homepage',
-					'label'			=> __( '<i class="icon icon-home"></i> Set Site Homepage', 'pagelines' ),
+					'key'			=> 'pl_userguide',
+					'label'			=> sprintf( '<i class="icon icon-home"></i> %s', __( 'UserGuide', 'pagelines' ) ),
 					'type' 			=> 	'link',
 					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'options-reading.php' ), 
-					'title' 		=> 	__( 'Site Homepage', 'pagelines' ),
+					'url'			=> 'http://www.pagelines.com/user-guide/', 
+					'title' 		=> 	__( 'The DMS User Guide', 'pagelines' ),
 				),
 				array(
-					'key'			=> 'perm_management',
-					'label'			=> __( '<i class="icon icon-link"></i> Permalinks', 'pagelines' ),
+					'key'			=> 'pl_forums',
+					'label'			=> sprintf( '<i class="icon icon-hand-o-right"></i> %s', __( 'Forums', 'pagelines' ) ),
 					'type' 			=> 	'link',
+					'col'			=> 2,
 					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'options-permalink.php' ), 
-					'title' 		=> 	__( 'Manage Permalinks', 'pagelines' ),
-				),
-
-				array(
-					'key'			=> 'manage_menus',
-					'label'			=> __( '<i class="icon icon-reorder"></i> Manage Menus', 'pagelines' ),
-					'type' 			=> 	'link',
-					'col' 			=> 	2,
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'nav-menus.php' ), 
-					'title' 		=> 	__( 'Manage Menus', 'pagelines' ),
-				),
-				
-				array(
-					'key'			=> 'edit_widgets',
-					'col' 			=> 	2,
-					'label'			=> __( '<i class="icon icon-retweet"></i> Manage Widgets', 'pagelines' ),
-					'type' 			=> 	'link',
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'widgets.php' ), 
-					'title' 		=> 	__( 'Manage Widgetized Areas', 'pagelines' ),
-				),
-				
-				array(
-					'key'			=> 'site_settings_admin',
-					'col' 			=> 	3,
-					'label'			=> __( '<i class="icon icon-cog"></i> Site Settings', 'pagelines' ),
-					'type' 			=> 	'link',
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'options-general.php' ), 
-					'title' 		=> 	__( 'Site Settings', 'pagelines' ),
+					'url'			=> 'http://forum.pagelines.com',
+					'title' 		=> 	__( 'PageLines Community Forums', 'pagelines' ),
 				),
 				array(
-					'key'			=> 'plugins_management',
-					'col' 			=> 	3,
-					'label'			=> __( '<i class="icon icon-download"></i> Plugins Admin', 'pagelines' ),
+					'key'			=> 'pl_docs',
+					'label'			=> sprintf( '<i class="icon icon-book"></i> %s', __( 'Docs', 'pagelines' ) ),
 					'type' 			=> 	'link',
+					'col'			=> 3,
 					'classes'		=> 'btn-primary btn-block',
-					'url'			=> admin_url( 'plugins.php' ), 
-					'title' 		=> 	__( 'Manage Extensions', 'pagelines' ),
-				),
-				
-			
+					'url'			=> 'http://docs.pagelines.com',
+					'title' 		=> 	__( 'PageLines DMS Documentation', 'pagelines' ),
+				)
 			);
-
-			if( pl_setting( 'enable_debug' ) ) {
-				$settings[] = array(
-						'key'			=> 'debug_info',
-						'label'			=> __( '<i class="icon icon-ambulance"></i> View Debug Info', 'pagelines' ),
-						'type' 			=> 	'link',
-						'classes'		=> 'btn-important btn-block',
-						'url'			=> site_url( '?pldebug=1' ), 
-						'title' 		=> 	__( 'Debug Enabled', 'pagelines' ),
-				);
-			}
-
 			return $settings;
 		
 	}
