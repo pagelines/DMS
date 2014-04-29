@@ -825,7 +825,7 @@ function pl_theme_classes(){
 		'pl-light-img'	=> 'White Background, Black Text w Shadow',
 		'pl-base'		=> 'Base Color Background',
 	); 
-	return $array;
+	return apply_filters( 'pl_theme_classes', $array );
 }
 
 function pl_get_area_classes( $section, $set = array(), $namespace = false ){

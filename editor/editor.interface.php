@@ -83,7 +83,7 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), pl_get_cache_key(), true );
 			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), pl_get_cache_key(), true );
 		
-			
+			wp_enqueue_script( 'pl-configdata', $this->url . '/js/pl.configdata.js', array( 'jquery' ), pl_get_cache_key(), true );
 		
 			// Saving 
 			wp_enqueue_script( 'pl-ajax', $this->url . '/js/pl.ajax.js', array( 'jquery' ), pl_get_cache_key(), true );
@@ -130,6 +130,9 @@ class EditorInterface {
 			if ( has_action( 'pl_force_ssl' ) )
 				$ajax_url = str_replace( 'http://', 'https://', $ajax_url );
 			wp_localize_script( 'pl-editor-js', 'ajaxurl', array( $ajax_url ) );
+		
+			//if( is_front_page() && get_theme_mod( 'pl_installed' ) && true != get_theme_mod( 'import_from_child' ) && is_file( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json' ) )
+			//	wp_localize_script( 'pl-editor-js', 'plconfigfile', array( true ) );
 	}
 
 	function lang_head() {
@@ -239,10 +242,10 @@ class EditorInterface {
 			$text = __( 'Activate PageLines Editor', 'pagelines' );
 
 			$target = "";
-		} else {
+		} else {	
 			$target = "target='_blank'";
 			$activate_url = 'http://www.google.com/chrome';
-			$text = __( 'Please use Google Chrome to edit with DMS', 'pagelines' );
+			$text = __( 'Use Google Chrome to edit with DMS', 'pagelines' );
 
 		}
 		?>
@@ -395,7 +398,7 @@ class EditorInterface {
 
 			</ul>
 			<ul class="unstyled controls not-btn send-right">
-				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon icon-refresh icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
+				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon icon-refresh"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
 				</span></li>
 				<li class="switch-btn btn-layout-resize"><span class="btn-toolbox  not-btn">
 					<i class="icon icon-fullscreen"></i> <span class="txt"><?php _e( 'Width', 'pagelines' ); ?>

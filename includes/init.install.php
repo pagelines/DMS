@@ -63,8 +63,12 @@ class PageLinesInstall{
 		}
 				
 		if( $install == true  ){
+			
+			if( get_theme_mod( 'pl_installed' ) )
+				return false;
+			
 			$url = $this->run_installation_routine();
-
+			
 			wp_redirect( $url ); 
 
 			exit;
@@ -86,10 +90,18 @@ class PageLinesInstall{
 	
 	function run_installation_routine( $url = '' ){
 		
+		set_theme_mod( 'pl_installed', true );
+		
 		$settings = pl_get_global_settings(); 
 		
 		// Only sets defaults if they are null
 		set_default_settings();
+		
+		if( is_file( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json' ) ) {
+			$settings_handler = new PageLinesSettings;
+			$settings_handler->import_from_child();
+		}
+
 		
 		if( ! $settings ){
 			
@@ -249,7 +261,7 @@ class PageLinesInstall{
 						'object'	=> 'PLMasthead',
 						'settings'	=> array(
 							'pagelines_masthead_title'		=> __( 'Congratulations!', 'pagelines' ),
-							'pagelines_masthead_tagline'	=> __( 'You are up and running with PageLines DMS.', 'pagelines' ),
+							'pagelines_masthead_tagline'	=> sprintf( __( 'You are up and running with PageLines %s.', 'pagelines' ), PL_NICETHEMENAME ),
 							'pagelines_masthead_img'		=> '[pl_parent_url]/images/getting-started-pl-logo.png',
 							'masthead_button_link_2'		=> home_url(),
 							'masthead_button_text_2'		=> __( 'View Your Blog Page <i class="icon icon-angle-right"></i>', 'pagelines' ),

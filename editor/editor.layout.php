@@ -95,6 +95,28 @@ class EditorLayout {
 				
 				),
 				
+				array(
+					'key'		=> 'nav_dropdown_bg',
+					'type' 		=> 'select',
+					'label' 	=> __( 'Standard Nav Dropdown Background', 'pagelines' ),
+					'default'	=> 'dark',
+					'opts' 		=> array(
+						'dark' 		=> array('name' => __( 'Dark Dropdowns', 'pagelines' )),
+						'light' 	=> array('name' => __( 'Light Dropdowns', 'pagelines' ))
+					),
+				),
+				
+				array(
+					'key'		=> 'nav_dropdown_toggle',
+					'type' 		=> 'select',
+					'label' 	=> __( 'Standard Nav Dropdown Toggle', 'pagelines' ),
+					'default'	=> 'hover',
+					'opts' 		=> array(
+						'hover' 	=> array('name' => __( 'On Hover', 'pagelines' )),
+						'click' 	=> array('name' => __( 'On Click', 'pagelines' ))
+					),
+				),
+				
 			),
 		);
 		

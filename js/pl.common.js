@@ -290,7 +290,68 @@
 			
 			var that = this
 			
+			// Bootstrap style dropdowns
 			that.initDrops()
+			
+			// Superfish style dropdowns
+			that.initSFMenu()
+			
+		}
+		, initSFMenu: function(){
+			$('.sf-menu').each(function(){
+
+				if( $(this).hasClass('dd-toggle-click') ){
+					$(this).superclick({
+						 delay: 300,
+						 speed: 'fast',
+						 speedOut: 'fast',             
+						 animation:   {opacity:'show'}
+					});
+				} else {
+					$(this).superfish({
+						 delay: 800,
+						 speed: 'fast',
+						 speedOut: 'fast',             
+						 animation:   {opacity:'show'}
+					});
+				}
+				
+
+				var offset = $(this).data('offset') || false
+
+				if( offset ){
+					$(this)
+						.find('> li > ul')
+						.css('top', offset)
+				}
+
+				$(this).find('.megamenu').each(function(){
+					var cols = $(this).find('> .sub-menu > li').length
+
+					$(this).addClass('mega-col-'+cols)
+				})
+				
+				$(this).find('.panelmenu').each(function(){
+					var cols = $(this).find('> .sub-menu > li').length
+					,	colWidth = 180
+					,	menuWidth = cols * colWidth
+					,	fromLeft = $(this).offset().left
+					,	winWidth = $(window).width()
+					,	setClass
+					
+					if( fromLeft > (winWidth / 2) ){
+						setClass = 'panel-right'
+					} else 
+						setClass = 'panel-left'
+
+					$(this)
+						.addClass( setClass )
+						.find('> .sub-menu')
+							.css('width', menuWidth)
+						
+				})
+
+			})
 		}
 		, initDrops: function(){
 			

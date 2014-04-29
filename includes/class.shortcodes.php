@@ -128,7 +128,8 @@ class PageLines_ShortCodes {
 			'pl_parent_url'				=>	array( 'function' => 'get_coreurl' ),
 			'pl_theme_url'				=>	array( 'function' => 'get_themeurl' ),
 			'pl_author_avatar'			=> 	array( 'function' => 'pl_author_avatar' ),
-			'pl_karma'					=> 	array( 'function' => 'pl_karma_shortcode' )
+			'pl_karma'					=> 	array( 'function' => 'pl_karma_shortcode' ),
+			'pl_themename'				=>	array( 'function' => 'pl_themename')
 			);
 
 		return $core;
@@ -549,6 +550,10 @@ class PageLines_ShortCodes {
 	
 	function pl_site_url() {
 		return home_url();
+	}
+
+	function pl_themename() {
+		return PL_NICETHEMENAME;
 	}
 
 	private function register_shortcodes( $shortcodes ) {

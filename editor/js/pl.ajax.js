@@ -27,6 +27,7 @@
 					,	beforeSend: ''
 					, 	postSuccess: ''
 					,	load: false
+					,	onFalse: ''
 
 				}
 
@@ -39,6 +40,12 @@
 					$.toolbox('hide')
 
 				bootbox.confirm( theData.confirmText, function( result ){
+
+					if( false == result && theData.onFalse ) {
+						if ( $.isFunction( theData.onFalse ) )
+							theData.onFalse.call()
+					}
+
 
 					if(result == true){
 						that.runAction( theData )
@@ -71,10 +78,11 @@
 				, 	data: theData
 				//,	dataType: 'json'
 				, 	beforeSend: function(){
-					
-						plPrint('--> Sending Ajax -->')
 
-						$('.btn-saving').addClass('active')
+						$('.btn-saving')
+							.addClass('active')
+							.find('.icon')
+								.addClass('icon-spin')
 
 						if ( $.isFunction( theData.beforeSend ) )
 							theData.beforeSend.call( this )
@@ -285,7 +293,10 @@
 
 				var state = response.state || false
 
-				$('.btn-saving').removeClass('active')
+				$('.btn-saving')
+					.removeClass('active')
+					.find('.icon')
+						.removeClass('icon-spin')
 
 				$('#stateTool').attr('class', 'dropup')
 
