@@ -134,8 +134,8 @@ function pl_get_attachment_ids_from_gallery() {
 	$attachment_ids = array();  
 	$pattern = get_shortcode_regex();
 	$ids = array();
-
-		if (preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches ) ) {   //finds the "gallery" shortcode and puts the image ids in an associative array at $matches[3]
+		//finds the "gallery" shortcode, puts the image ids in an associative array: $matches[3]
+		if (preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches ) ) {   
 		
 			$count = count( $matches[3] );      //in case there is more than one gallery in the post.
 		

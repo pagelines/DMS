@@ -242,10 +242,10 @@ class EditorInterface {
 			$text = __( 'Activate PageLines Editor', 'pagelines' );
 
 			$target = "";
-		} else {
+		} else {	
 			$target = "target='_blank'";
 			$activate_url = 'http://www.google.com/chrome';
-			$text = __( 'Please use Google Chrome to edit with DMS', 'pagelines' );
+			$text = __( 'Use Google Chrome to edit with DMS', 'pagelines' );
 
 		}
 		?>
@@ -398,7 +398,7 @@ class EditorInterface {
 
 			</ul>
 			<ul class="unstyled controls not-btn send-right">
-				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon icon-refresh icon-spin"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
+				<li class="switch-btn btn-saving"><span class="btn-toolbox not-btn"><i class="icon icon-refresh"></i> <span class="txt"><?php _e( 'Saving', 'pagelines' ); ?>
 				</span></li>
 				<li class="switch-btn btn-layout-resize"><span class="btn-toolbox  not-btn">
 					<i class="icon icon-fullscreen"></i> <span class="txt"><?php _e( 'Width', 'pagelines' ); ?>

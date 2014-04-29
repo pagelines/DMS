@@ -78,10 +78,11 @@
 				, 	data: theData
 				//,	dataType: 'json'
 				, 	beforeSend: function(){
-					
-						plPrint('--> Sending Ajax -->')
 
-						$('.btn-saving').addClass('active')
+						$('.btn-saving')
+							.addClass('active')
+							.find('.icon')
+								.addClass('icon-spin')
 
 						if ( $.isFunction( theData.beforeSend ) )
 							theData.beforeSend.call( this )
@@ -292,7 +293,10 @@
 
 				var state = response.state || false
 
-				$('.btn-saving').removeClass('active')
+				$('.btn-saving')
+					.removeClass('active')
+					.find('.icon')
+						.removeClass('icon-spin')
 
 				$('#stateTool').attr('class', 'dropup')
 

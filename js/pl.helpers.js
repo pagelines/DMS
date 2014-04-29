@@ -76,7 +76,9 @@ http://www.gnu.org/licenses/gpl.html
 
 			$this.each(function(){
 				var $element = $(this);
-				var top = $element.parent().offset().top;
+				
+				var top = ( plIsset( $element.parent().offset() ) ) ? $element.parent().offset().top : 0
+				
 				var height = getHeight($element);
 				var fixedHeight = $('.pl-fixed-top').height()
 
@@ -89,7 +91,7 @@ http://www.gnu.org/licenses/gpl.html
 				
 				// for mobile set to 0
 				if( wWidth <= 767 ){
-					plPrint('mobile')
+					
 					if( theMode == 'translate' ){
 						
 						$this
