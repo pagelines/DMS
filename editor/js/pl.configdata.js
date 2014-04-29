@@ -1,8 +1,8 @@
 !function ($) {
 
-	$(document).ready(function() {
-		$.plConfigData.init()
-	})
+	// $(document).ready(function() {
+	// 	$.plConfigData.init()
+	// })
 
 $.plConfigData = {
 	init: function() {
