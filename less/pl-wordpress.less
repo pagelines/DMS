@@ -22,7 +22,9 @@
 
 
 .woocommerce , 
-.woocommerce-page  {
+.woocommerce-page,
+body.woocommerce #content, 
+body.woocommerce-page #content{
 	.widget_shopping_cart .total{
 		border-top: none;
 	}
@@ -32,8 +34,32 @@
 			font-size: 12px;
 		}
 	}
+	.quantity {
+		width: auto;
+		input.qty{
+			border: 0;
+			border-top: 1px solid #cdcdcd;
+			border-bottom: 1px solid #cdcdcd;
+		}
+		.minus,
+		input.qty, 
+		.plus{
+			display: inline!important;
+			height: 28px;
+			width: 28px;
+			line-height: 28px;
+			position: relative;
+			float: none;
+			vertical-align: top;
+			box-sizing: border-box;
+			text-align: center;
+		}
+	}
 	input.button, 
-	a.button{
+	a.button,
+	button.button, 
+	.quantity .minus,
+	.quantity .plus{
 		box-shadow: none;
 		background: #eee;
 		border: 1px solid #cdcdcd;
@@ -94,20 +120,22 @@
 		}
 	
 	}
+	// fix z-index
+	ul.products li.product .onsale,
+	span.onsale{
+		position: absolute;
+		z-index: 10;
+		background: @pl-link;
+	}
+	ul.products li.product .price, 
+	div.product .price{
+		color: @pl-link;
+	}
 	ul.products {
 		
 		li.product {
 			border-bottom: none;
 			
-			// fix z-index
-			.onsale{
-				position: absolute;
-				z-index: 10;
-				background: @pl-link;
-			}
-			.price{
-				color: @pl-link;
-			}
 			// Thumb hovers.
 			.product-thumb-wrap{
 				overflow: hidden;
