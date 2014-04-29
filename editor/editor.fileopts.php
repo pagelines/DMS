@@ -130,8 +130,17 @@ class EditorFileOpts {
 
 		// IMPORT USER MAPS
 		if( isset( $file_data['pl-user-templates'] ) && 'checked' == $opts['page_tpl_import'] ) {
-
-			update_option( 'pl-user-templates', $file_data['pl-user-templates']);
+			
+			$new = array( 'draft' => array(), 'live' => array() );
+			
+			$old = get_option( 'pl-user-templates', array( 'draft' => array(), 'live' => array() ) );
+			
+			$import = $file_data['pl-user-templates'];
+			
+			$new['draft'] = array_merge( $old['draft'], $import['draft'] );
+			$new['live'] = array_merge( $old['live'], $import['live'] );
+			
+			update_option( 'pl-user-templates', $new );
 
 			$parsed[] = 'user_templates';
 		}
