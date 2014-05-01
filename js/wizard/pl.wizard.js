@@ -11,6 +11,8 @@
 
 		init: function( ){
 			
+			$.toolbox('hide')
+			
 			// alright, lets run this thing.
 				/*
 				the json config obj.
@@ -37,7 +39,18 @@
 					{
 						"name" 		: ".btn-pagelines-home",
 						"position"	: "BL",
-						"text"		: "<strong>DMS Toolbar</strong><br/> Hello! Welcome to the PageLines DMS tour. This is the DMS toolbar, let's get started with it's basic editing buttons.",
+						"text"		: "<strong>Welcome to the Tour!</strong><br/> Hello! Welcome to the PageLines DMS tour. First you may want to read the user guide as it provides a lot of context for these tools.<br/><br/><a class='btn btn-mini btn-primary' href='http://www.pagelines.com/user-guide' target='_blank'>Read User Guide First &raquo;</a><br/><br/> <strong>Already read it?</strong> Cool, use the tour controls on the right side of the page and let's do your walk through!",
+						beforeSend	: function(){
+							$.toolbox('hide')
+							$('body').removeClass('drag-drop-editing width-resize')
+							
+							
+						}
+					},
+					{
+						"name" 		: ".btn-pagelines-home",
+						"position"	: "BL",
+						"text"		: "<strong>DMS Toolbar</strong><br/>This is the DMS toolbar, let's get started with it's basic editing buttons.",
 						beforeSend	: function(){
 							$.toolbox('hide')
 							$('body').removeClass('drag-drop-editing width-resize')
@@ -69,9 +82,58 @@
 					{
 						"name" 		: ".el-pl-toggle",
 						"position"	: "BL",
-						"text"		: "<strong>Close/Deactivation Tool</strong><br/> Use this button to close the toolbox, then deactivate the editor completely.<br/><br/><strong>Tip:</strong> Deactivating the editor is useful for testing performance, since none of the editing scripts are loaded, it's much faster.",
+						"text"		: "<strong>Close/Deactivation Tool</strong><br/> Use this button to close the toolbox, then deactivate the editor completely.<br/><br/><strong>Tip:</strong> Deactivating the editor is useful for testing performance, since none of the editing scripts are loaded, it's much faster.<br/><br/><strong>Tip:</strong> Use the keyboard shortcut [esc] to close the toolbox when open.",
 						beforeSend	: function(){
 							$.toolbox('hide')
+						}
+					},
+					{
+						"name" 		: ".el-add-new",
+						"text"		: "<strong>The Toolbox</strong><br/> Some actions, like clicking this button, open up what we call the 'toolbox'.",
+						"position"	: "BL",
+						'to'		: 600,
+						beforeSend	: function(){
+							$('body').removeClass('resize-hover')
+							$('.btn-add-new').trigger('click')
+						}
+					},
+					{
+						"name" 		: ".resizer-handle",
+						"text"		: "<strong>Resize Toolbox</strong><br/> Resize the toolbox by dragging the top edge when it's open.",
+						"position"	: "B",
+						beforeSend	: function(){
+							$('.resizer-handle').addClass('resizing')
+							$('.btn-add-new').trigger('click')
+						}
+					},
+					{
+						"name" 		: ".tab-add_section",
+						"text"		: "<strong>Add New Sections</strong><br/> Use this panel to drag new section to the page.",
+						"position"	: "BL",
+						'to'		: 600,
+						beforeSend	: function(){
+							$('.resizer-handle').removeClass('resizing')
+							$('.tab-add_section a').trigger('click')
+						}
+					},
+					{
+						"name" 		: ".tab-components",
+						"text"		: "<strong>Filter Sections</strong><br/> Filter your sections using this nav.",
+						"position"	: "BL",
+						'to'		: 600,
+						beforeSend	: function(){
+							$('.btn-add-new').trigger('click')
+							$('.tab-components a').trigger('click')
+						}
+					},
+					{
+						"name" 		: ".x-item[data-object='PLNavBar']",
+						"text"		: "<strong>Add Section By Dragging</strong><br/> To add a section just drag it to the page. Note: Content sections must be dragged to an area that supports them. <br/><br/> <strong>Tip:</strong> In this panel you can click the section icon for more information.",
+						"position"	: "BL",
+						'to'		: 600,
+						beforeSend	: function(){
+							$('.btn-add-new').trigger('click')
+							$(".x-item[data-object='PLNavBar']").trigger('click')
 						}
 					},
 					{
@@ -90,6 +152,7 @@
 								.first()
 								.addClass('section-hover')
 								.find('.pl-section-controls')
+								.first()
 								.addClass('el-section-controls')
 						}
 					},
@@ -105,7 +168,7 @@
 							$.toolbox('hide')
 							
 							$('.template-region-wrap')
-								.find('.level1')
+								.find('.level1:visible')
 								.first()
 								.addClass('section-hover')
 								.find('.pl-section-controls')
@@ -294,36 +357,7 @@
 							
 						}
 					},
-					{
-						"name" 		: ".el-add-new",
-						"text"		: "<strong>Add New Sections</strong><br/> Use this panel to drag new section to the page.",
-						"position"	: "BL",
-						'to'		: 600,
-						beforeSend	: function(){
-							$('body').removeClass('resize-hover')
-							$('.btn-add-new').trigger('click')
-						}
-					},
-					{
-						"name" 		: ".tab-components",
-						"text"		: "<strong>Filter Sections</strong><br/> Filter your sections using this nav.",
-						"position"	: "BL",
-						'to'		: 600,
-						beforeSend	: function(){
-							$('.btn-add-new').trigger('click')
-							$('.tab-components a').trigger('click')
-						}
-					},
-					{
-						"name" 		: ".x-item[data-object='PLNavBar']",
-						"text"		: "<strong>Add Section By Dragging</strong><br/> To add a section just drag it to the page. Note: Content sections must be dragged to an area that supports them. <br/><br/> <strong>Tip:</strong> In this panel you can click the section icon for more information.",
-						"position"	: "BL",
-						'to'		: 600,
-						beforeSend	: function(){
-							$('.btn-add-new').trigger('click')
-							$(".x-item[data-object='PLNavBar']").trigger('click')
-						}
-					},
+					
 					{
 						"name" 		: ".btn-page-setup",
 						"text"		: "<strong>Page Setup and Templates</strong><br/> Use this panel to save and apply page templates. You can also use it to view page information.",
@@ -522,7 +556,8 @@
 					
 					var step_config		= config[step-1];
 					var timeDelay		= ( plIsset(step_config.to) ) ? step_config.to : 0
-					
+					var totalItems 		= config.length
+					$('.tourcontrol-title').html('Viewing '+step+' of '+totalItems)
 					
 					if ( $.isFunction( step_config.beforeSend ) )
 						step_config.beforeSend.call( this )
@@ -679,7 +714,7 @@
 						case 'B'	:
 							properties = {
 								'left'	: e_l + e_w/2 - $wiztip.width()/2 + 'px',
-								'top'	: e_t - $wiztip.height() + 'px'
+								'top'	: e_t - $wiztip.height() - 12 + 'px'
 							};
 							$wiztip.find('span.wiztip_arrow').removeClass().addClass('wiztip_arrow wiztip_arrow_B');
 							break;
@@ -750,11 +785,11 @@
 					and also navigate through the steps
 					 */
 					var $tourcontrols  = '<div id="tourcontrols" class="tourcontrols">';
-					$tourcontrols += '<p>Getting Started? Try the tour!</p>';
+					$tourcontrols += '<p class="tourcontrol-title">Getting Started with PageLines?</p>';
 					$tourcontrols += '<p><span class="btn btn-primary btn-large" id="activatetour">Start the tour</span></p>';
 						if(!autoplay){
-							$tourcontrols += '<div class="tour-nav" style="display: none;"><span class="btn btn-mini btn-primary disabled" id="prevstep">< Previous</span>';
-							$tourcontrols += '&nbsp;&nbsp;<span class="btn btn-mini btn-primary disabled" id="nextstep" >Next ></span></div>';
+							$tourcontrols += '<div class="tour-nav" style="display: none;"><span class="btn btn-primary disabled" id="prevstep"><i class="icon icon-caret-left"></i> Previous</span>';
+							$tourcontrols += '&nbsp;&nbsp;<span class="btn btn-primary disabled" id="nextstep" >Next <i class="icon icon-caret-right"></i></span></div>';
 						}
 						$tourcontrols += '<a id="restarttour" style="display:none;">Restart the tour</span>';
 						$tourcontrols += '<a id="endtour" style="display:none;">End the tour</a>';

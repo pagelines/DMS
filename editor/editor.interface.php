@@ -97,9 +97,10 @@ class EditorInterface {
 			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.min.js', array( 'jquery'), pl_get_cache_key() );
 			
 			
-			if( isset( $_GET['pl-installed-theme'] ) ){
+			if( isset( $_GET['pl-installed-theme'] ) || isset( $_GET['pl-view-tour'] ) || ! get_option('pl_seen_tour') ){
 				wp_enqueue_style( 'pl-wizard-css', sprintf( '%s/wizard/wizard.css', PL_JS ), null, pl_get_cache_key() );
 				wp_enqueue_script( 'pl-wizard', PL_JS . '/wizard/pl.wizard.js', array( 'jquery'), pl_get_cache_key(),  true );
+				update_option('pl_seen_tour', 1);
 			}
 				
 
@@ -186,7 +187,7 @@ class EditorInterface {
 				'type'	=> 'btn',
 				'pos'	=> 199
 			),
-
+			
 			'pagelines-home' => array(
 				'icon'	=> 'icon-pagelines',
 				'tip'	=> __( 'PageLines.com', 'pagelines' ),
@@ -317,6 +318,9 @@ class EditorInterface {
 
 						if(!isset($tab['type']))
 							$tab['type'] = 'panel';
+							
+						$tab['vtype'] = ( isset( $tab['vtype'] ) ) ? $tab['vtype'] : 'text';
+	
 
 						if( $tab['type'] == 'hidden' || ( $tab['type'] == 'dropup' && empty($tab['panel']) ) )
 							continue;
@@ -332,6 +336,7 @@ class EditorInterface {
 						$li_class = array();
 						$li_class[] = 'type-'.$tab['type'];
 						$li_class[] = 'el-'.$key;
+						$li_class[] = 'view-'.$tab['vtype'];
 
 						if($tab['type'] == 'dropup' && !empty($tab['panel'])){
 

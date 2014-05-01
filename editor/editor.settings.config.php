@@ -47,13 +47,6 @@ class EditorSettings {
 			'opts' 	=> $this->resets()
 		);
 		
-		$this->settings['help'] = array(
-			'name' 	=> __( 'Help', 'pagelines' ),
-			'icon'	=> 'icon-book',
-			'pos'	=> 60,
-			'opts' 	=> $this->help_links()
-		);
-		
 	}
 	
 
@@ -84,41 +77,6 @@ class EditorSettings {
 			return $a['pos'] - $b['pos'];
 		else
 			return 0;
-	}
-	
-	function help_links(){
-	
-			$settings = array(
-
-				array(
-					'key'			=> 'pl_userguide',
-					'label'			=> sprintf( '<i class="icon icon-home"></i> %s', __( 'UserGuide', 'pagelines' ) ),
-					'type' 			=> 	'link',
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> 'http://www.pagelines.com/user-guide/', 
-					'title' 		=> 	__( 'The DMS User Guide', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'pl_forums',
-					'label'			=> sprintf( '<i class="icon icon-hand-o-right"></i> %s', __( 'Forums', 'pagelines' ) ),
-					'type' 			=> 	'link',
-					'col'			=> 2,
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> 'http://forum.pagelines.com',
-					'title' 		=> 	__( 'PageLines Community Forums', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'pl_docs',
-					'label'			=> sprintf( '<i class="icon icon-book"></i> %s', __( 'Docs', 'pagelines' ) ),
-					'type' 			=> 	'link',
-					'col'			=> 3,
-					'classes'		=> 'btn-primary btn-block',
-					'url'			=> 'http://docs.pagelines.com',
-					'title' 		=> 	__( 'PageLines DMS Documentation', 'pagelines' ),
-				)
-			);
-			return $settings;
-		
 	}
 
 	function basic(){
