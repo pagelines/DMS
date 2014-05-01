@@ -97,10 +97,10 @@ class EditorInterface {
 			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.min.js', array( 'jquery'), pl_get_cache_key() );
 			
 			
-			if( isset( $_GET['pl-installed-theme'] ) || isset( $_GET['pl-view-tour'] ) || ! get_option('pl_seen_tour') ){
+			if( isset( $_GET['pl-installed-theme'] ) || isset( $_GET['pl-view-tour'] ) || ! get_theme_mod( 'pl_seen_tour' ) ){
 				wp_enqueue_style( 'pl-wizard-css', sprintf( '%s/wizard/wizard.css', PL_JS ), null, pl_get_cache_key() );
 				wp_enqueue_script( 'pl-wizard', PL_JS . '/wizard/pl.wizard.js', array( 'jquery'), pl_get_cache_key(),  true );
-				update_option('pl_seen_tour', 1);
+				set_theme_mod( 'pl_seen_tour', true );
 			}
 				
 
