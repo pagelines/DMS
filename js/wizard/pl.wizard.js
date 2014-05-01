@@ -47,6 +47,7 @@
 							
 						}
 					},
+					
 					{
 						"name" 		: ".btn-pagelines-home",
 						"position"	: "BL",
@@ -361,6 +362,7 @@
 					{
 						"name" 		: ".btn-page-setup",
 						"text"		: "<strong>Page Setup and Templates</strong><br/> Use this panel to save and apply page templates. You can also use it to view page information.",
+						'to'		: 600,
 						"position"	: "BL",
 						beforeSend	: function(){
 							$(".btn-page-setup").trigger('click')
@@ -412,7 +414,7 @@
 					},
 					{
 						"name" 		: ".btn-pl-design",
-						"text"		: "<strong>Custom LESS/CSS</strong><br/> Use this panel to add custom CSS/LESS.<br/><br/><strong>Tip:</strong> You can preview your changes live by hitting cmd/cntl+return.<br/><br/><strong>Note:</strong> If you create an error in customization your site may break. We've provided a fallback in the admin for fixing this.",
+						"text"		: "<strong>Custom LESS/CSS</strong><br/> Standard options not cutting it? Use this panel to customize using CSS/LESS.<br/><br/><strong>Tip:</strong> You can preview your changes live by hitting cmd/ctrl+return.<br/><br/><strong>Note:</strong> If you create an error in customization your site may break. We've provided a fallback in the admin for fixing this.",
 						"position"	: "BL",
 						beforeSend	: function(){
 							$(".btn-pl-design").trigger('click')
@@ -445,7 +447,26 @@
 						"name" 		: ".btn-pagelines-home",
 						"position"	: "BL",
 						'to'		: 600,
-						"text"		: "<strong>That's It!</strong><br/> Congrats! You finished the tour. Hopefully you have a good understanding of your tools now. <br/><br/><strong>More Questions?</strong><br/>Please join the community, we can't wait to help you out!",
+						"text"		: "<strong>Notes On Performance</strong><br/><br/><strong>Why Chrome?</strong><br/> PageLines uses advanced Javascript to allow rich editing. We require Chrome for editing as it provides you the best possible experience and workflow.<br/><br/><strong>Editor vs Live Speed</strong><br/> The editor requires many scripts that are NOT loaded when visitors view your site. For them, your site will always be optimized for speed. To edit faster, you may want to consider high quality hosting.",
+						beforeSend	: function(){
+							$.toolbox('hide')
+						}
+					},
+					{
+						"name" 		: ".btn-pagelines-help",
+						"position"	: "BL",
+						'to'		: 600,
+						"text"		: "<strong>More Questions?</strong><br/>Please join the community, we can't wait to help you out!",
+						beforeSend	: function(){
+							$(".btn-pagelines-help").trigger('click')
+						
+						}
+					},
+					{
+						"name" 		: ".btn-pagelines-home",
+						"position"	: "BL",
+						'to'		: 600,
+						"text"		: "<strong>That's It!</strong><br/> Congrats! You finished the tour. Hopefully now you know everything you need to get started. <br/><br/>We missing something? Please <a class='link' href='mailto:hello@pagelines.com'>email us</a> and let us know.",
 						beforeSend	: function(){
 							$.toolbox('hide')
 						
