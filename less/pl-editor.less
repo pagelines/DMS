@@ -152,21 +152,22 @@
 			margin-left: -74px;
 
 			
-			&:hover{
+			&:hover,
+			&.area-control-hover{
 				opacity: 1;
 				margin-left: 0;
 				z-index: @zindexTooltip;
 			}
 			&::after{
-							content: '';
-							display: block;
-							width: 200px;
-							height: 160%;
-							position: absolute;
-							top: -5%;
-							right: -50px;
-							z-index: -100;
-						}
+				content: '';
+				display: block;
+				width: 200px;
+				height: 160%;
+				position: absolute;
+				top: -5%;
+				right: -50px;
+				z-index: -100;
+			}
 
 
 			.area-control{
@@ -215,6 +216,7 @@
 		.box-sizing(border-box);
 		position: relative;
 		.transition(all 0.1s linear);
+		&.section-hover,
 		&:hover,
 		&.ui-sortable-helper {
 			

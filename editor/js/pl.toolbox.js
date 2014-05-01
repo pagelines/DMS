@@ -90,7 +90,11 @@
 		this.closer
 			.css('display', 'block')
 
-
+		// throw resize event 
+		setTimeout(function(){
+			$(window).trigger('resize')
+		}, 500)
+		
 
 		return that // chaining
 	}
@@ -129,6 +133,11 @@
 
 		that.$pusher
 			.height(that.handleHeight)
+			
+		// throw resize event 
+		setTimeout(function(){
+			$(window).trigger('resize')
+		}, 500)
 
       }
 

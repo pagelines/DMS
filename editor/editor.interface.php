@@ -95,6 +95,13 @@ class EditorInterface {
 			wp_enqueue_script( 'pl-layout', $this->url . '/js/pl.layout.js', array( 'jquery' ), pl_get_cache_key(), true );
 			
 			wp_enqueue_script( 'js-hotkeys', PL_JS . '/utils.hotkeys.min.js', array( 'jquery'), pl_get_cache_key() );
+			
+			
+			if( isset( $_GET['pl-installed-theme'] ) ){
+				wp_enqueue_style( 'pl-wizard-css', sprintf( '%s/wizard/wizard.css', PL_JS ), null, pl_get_cache_key() );
+				wp_enqueue_script( 'pl-wizard', PL_JS . '/wizard/pl.wizard.js', array( 'jquery'), pl_get_cache_key(),  true );
+			}
+				
 
 
 			// i18n test
