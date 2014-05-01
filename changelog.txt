@@ -4,6 +4,10 @@
 
 ********************************************************
 
+Version 2.0.6
+
+	- CORE - Introducing the new DMS Wizard!
+	- BUG - Fix label font color.
 
 Version 2.0.5
 
