@@ -142,13 +142,18 @@
 	margin: 0 0 10px;
 }
 .tourcontrols a,
-.wiztip a{
+.wiztip a.link{
 	font-size:11px;
 	color:#f0f0f0;
 	cursor:pointer;
 	font-weight:normal;
 	text-decoration:underline;
-	margin:10px;
+}
+.tourcontrols a{
+	margin-right: 10px;
+}
+.wiztip a.btn{
+	
 }
 .tourcontrols a:hover{
 	color:#fff;

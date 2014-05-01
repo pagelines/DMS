@@ -675,6 +675,27 @@
 		line-height: 1.5em;
 	}
 	button{font-weight: 600;}
+	.big-icon-button{
+		display: block;
+		text-align: center;
+		padding: 30px;
+		background: #f7f7f7;
+		border: 1px solid #ddd;
+		font-size: 18px;
+		font-weight: 600;
+		border-radius: 4px;
+		color: #000;
+		letter-spacing: -1px;
+		.the-icon{
+			font-size: 60px;
+			margin-bottom: 8px;
+		}
+		&:hover{
+			background: @btnPrimaryBackground;
+			border:1px solid darken( @btnPrimaryBackground, 10%);
+			color: #fff;
+		}
+	}
 	.type-textarea{
 		font-size: 12px;
 		line-height: 1.5em;
@@ -784,6 +805,7 @@
 				}
 			}
 			> li {
+				&.view-btn,
 				&.type-btn,
 				&.type-dropup, 
 				&.type-btn-panel {
@@ -829,6 +851,7 @@
 					&.btn-link{
 						color: #AAA;
 						border-left-color: #AAA;
+						padding: 0 8px;
 						&:hover{
 							background: transparent;
 						}
