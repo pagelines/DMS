@@ -807,14 +807,14 @@
 					 */
 					var $tourcontrols  = '<div id="tourcontrols" class="tourcontrols">';
 					$tourcontrols += '<p class="tourcontrol-title">Getting Started with PageLines?</p>';
-					$tourcontrols += '<p><span class="btn btn-primary btn-large" id="activatetour">Start the tour</span></p>';
+					$tourcontrols += '<p><span class="btn btn-primary btn-large" id="activatetour"><i class="icon icon-magic"></i> Start the tour</span></p>';
 						if(!autoplay){
 							$tourcontrols += '<div class="tour-nav" style="display: none;"><span class="btn btn-primary disabled" id="prevstep"><i class="icon icon-caret-left"></i> Previous</span>';
 							$tourcontrols += '&nbsp;&nbsp;<span class="btn btn-primary disabled" id="nextstep" >Next <i class="icon icon-caret-right"></i></span></div>';
 						}
 						$tourcontrols += '<a id="restarttour" style="display:none;">Restart the tour</span>';
 						$tourcontrols += '<a id="endtour" style="display:none;">End the tour</a>';
-						$tourcontrols += '<span class="close" id="canceltour"></span>';
+						$tourcontrols += '<span class="close-tour" id="canceltour"><i class="icon icon-remove"></i></span>';
 					$tourcontrols += '</div>';
 					
 					$('BODY').prepend($tourcontrols);

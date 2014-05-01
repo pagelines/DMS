@@ -158,15 +158,17 @@
 .tourcontrols a:hover{
 	color:#fff;
 }
-.close{
+.close-tour{
+	color: #fff;
+	opacity: .5;
 	position:absolute;
 	top:6px;
-	right:7px;
+	right:15px;
 	width:10px;
 	height:10px;
-	background:#000 url(images/close.gif) no-repeat center center;
 	cursor:pointer;
 }
+.close-tour:hover{opacity: 1;}
 
 .button{
 	white-space: nowrap;
