@@ -132,37 +132,62 @@ class PageLinesDebug {
 
 			$this->debug_info[] = array(
 				'title'	=> 'PHP Open basedir restriction',
-				'value' => ( (bool) ini_get('open_basedir') ) ? 'Yes! This can cause issues if it is not setup correctly':'',
+				'value' => ( (bool) ini_get('open_basedir') ) ? 'This can cause issues with uploads if it is not setup correctly' : '',
 				'extra'	=> ini_get('open_basedir')
 			);
 
 			$this->debug_info[] = array(
-				'title'	=> 'PHP Register Globals',
-				'value' => ( (bool) ini_get('register_globals') ) ? 'Yes! Deprecated as of PHP 5.3 and removed in PHP 5.4':'',
+				'title'	=> 'WP_DEBUG',
+				'value' => (defined( 'WP_DEBUG' ) && WP_DEBUG ) ? 'Yes' : 'No',
 			);
 
 			$this->debug_info[] = array(
-				'title'	=> 'PHP Magic Quotes gpc',
-				'value' => ( (bool) ini_get('magic_quotes_gpc') ) ? 'Yes! Deprecated as of PHP 5.3 and removed in PHP 5.4':'',
+				'title'	=> 'WP memory limit',
+				'value' => size_format( $this->let_to_num( WP_MEMORY_LIMIT ) ),
 			);
-
+			
 			$this->debug_info[] = array(
-				'title'	=> 'PHP memory',
-				'value' => intval(ini_get('memory_limit') ),
+				'title'	=> 'WP MAX memory limit',
+				'value' => size_format( $this->let_to_num( WP_MAX_MEMORY_LIMIT ) ),
+			);
+			
+			$this->debug_info[] = array(
+				'title'	=> 'PHP memory limit',
+				'value' => size_format( ini_get('memory_limit') ),
 			);
 
 			$this->debug_info[] = array(
 				'title'	=> 'Mysql version',
-				'value' => ( version_compare( $wpdb->get_var("SELECT VERSION() AS version"), '6' ) < 0  ) ? $wpdb->get_var("SELECT VERSION() AS version"):'',
+				'value' => $wpdb->db_version(),
 			);
 
+
+			$this->debug_info[] = array(
+				'title'	=> 'WP Max Upload Size',
+				'value' => size_format( wp_max_upload_size() ),
+			);
+			
+			$this->debug_info[] = array(
+				'title'	=> 'PHP POST Max Size',
+				'value' => size_format( wc_let_to_num( ini_get('post_max_size') ) ),
+			);
+			
+			$this->debug_info[] = array(
+				'title'	=> 'PHP Max Execution Time',
+				'value' => ini_get('max_execution_time') . 's',
+			);
 
 			$this->debug_info[] = array(
 				'title'	=> 'PHP type',
 				'value' => php_sapi_name(),
 			);
+			
+			$this->debug_info[] = array(
+				'title'	=> 'WebServer software',
+				'value' => esc_html( $_SERVER['SERVER_SOFTWARE'] ),
+			);
 
-			$processUser = ( ! function_exists( 'posix_geteuid') || ! function_exists( 'posix_getpwuid' ) ) ? 'posix functions are disabled on this host!' : posix_getpwuid(posix_geteuid());
+			$processUser = ( ! function_exists( 'posix_geteuid') || ! function_exists( 'posix_getpwuid' ) ) ? 'Posix functions are disabled on this host. Not necessarily a problem, but if the user needs FTP/SFTP to install plugins/themes then creating CSS files might be an issue.' : posix_getpwuid(posix_geteuid());
 			if ( is_array( $processUser ) )
 				$processUser = $processUser['name'];
 
@@ -215,6 +240,24 @@ class PageLinesDebug {
 			}
 			return ( isset( $plugins_list ) ) ? "{$plugins_list}" : '';
 		}
+	}
+	
+	function let_to_num( $size ) {
+	    $l 		= substr( $size, -1 );
+	    $ret 	= substr( $size, 0, -1 );
+	    switch( strtoupper( $l ) ) {
+		    case 'P':
+		        $ret *= 1024;
+		    case 'T':
+		        $ret *= 1024;
+		    case 'G':
+		        $ret *= 1024;
+		    case 'M':
+		        $ret *= 1024;
+		    case 'K':
+		        $ret *= 1024;
+	    }
+	    return $ret;
 	}
 //-------- END OF CLASS --------//
 }
