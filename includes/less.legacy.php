@@ -655,7 +655,8 @@ class PageLinesRenderCSS {
 
 			$start_time = microtime(true);
 
-
+			unset( $this->lessfiles[ array_search( 'pl-editor', $this->lessfiles ) ] );
+			
 			$core_less = get_core_lesscode( $this->lessfiles );
 
 			$pless = new PagelinesLess();
