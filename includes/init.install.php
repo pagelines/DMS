@@ -17,10 +17,10 @@ class PageLinesInstall{
 		
 		add_filter( 'pl_default_template_handler', array($this, 'default_template_handling') );
 		
-		add_action( 'wp', array($this, 'pagelines_check_install'), 15 );
-		add_action( 'admin_init', array( $this, 'pagelines_check_install' ), 10);
+	//	add_action( 'wp', array($this, 'pagelines_check_install'), 15 );
+	//	add_action( 'admin_init', array( $this, 'pagelines_check_install' ), 10);
 		// MUST COME AFTER FILTERS!
-	//	$this->pagelines_check_install();
+		$this->pagelines_check_install();
 		
 	}
 	
@@ -102,20 +102,13 @@ class PageLinesInstall{
 			$settings_handler->import_from_child();
 		}
 
-		
-		if( ! $settings ){
-			
-			$this->load_page_templates();
 
-			$this->apply_page_templates();
+		$this->apply_page_templates();
 
-			
+		// Publish New Templates
+		$tpl_handler = new PLCustomTemplates;
+		$tpl_handler->update_objects( 'publish' );
 
-			// Publish New Templates
-			$tpl_handler = new PLCustomTemplates;
-			$tpl_handler->update_objects( 'publish' );
-			
-		}
 		
 		// Add Templates
 		$id = $this->page_on_activation();
