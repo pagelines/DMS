@@ -584,72 +584,7 @@
 }
 
 
-.pl-credit,
-.toolbox-activate{
-	
-	position: fixed; 
-	bottom: 0; 
-	background: rgba(0,0,0,.9); 
-	font-family: @buttonFontFamily;
-	font-weight: 300;
-	color: #fff; 
-	text-shadow: 0 -1px 0 #000;
-	opacity: .6;
-	padding: 0 8px 0px 10px;
-	font-size: 15px;
-	height: 29px; 
-	line-height: 29px;
-	text-align: center;
-	.transition(all .5s ease);
-	cursor: pointer;
-	.transit{
-		.transition(all .5s ease);
-	}
-	.fademein{
-		opacity: 0;
-		.transition(all .7s ease);
-	}
-	&:hover{
-		.fademein{
-			opacity: 1;
-		}
-		
-		color: #fff;
-		opacity: 1;
-		i{
-			color: #35eafd;
-			
-		}
-		
-	}
-}
 
-.pl-credit{
-	.border-top-left-radius(3px);
-	right: -33px; 
-	box-shadow: -1px -1px 0 rgba(255,255,255,.2);
-	display: block !important;
-	visibility: visible !important;
-	opacity: 1 !important;
-	&:hover{
-		right:0;
-	}
-	&::after{
-		content: '';
-		display: block;
-		width: 200px;
-		height: 160%;
-		position: absolute;
-		top: -20px;
-		right: 0;
-		z-index: -100;
-	}
-}
-.toolbox-activate{
-	.border-top-right-radius(3px);
-	left: 0;
-	box-shadow: 1px -1px 0 rgba(255,255,255,.2);
-}
 
 
 // Toolbox/Toolbar
