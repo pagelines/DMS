@@ -148,7 +148,7 @@
 							
 							$.toolbox('hide')
 							
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1')
 								.first()
 								.addClass('section-hover')
@@ -168,7 +168,7 @@
 							
 							$.toolbox('hide')
 							
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1:visible')
 								.first()
 								.addClass('section-hover')
@@ -186,7 +186,7 @@
 							
 							$.toolbox('hide')
 							
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1')
 								.first()
 								.addClass('section-hover')
@@ -204,7 +204,7 @@
 							
 							$.toolbox('hide')
 							
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1')
 								.first()
 								.addClass('section-hover')
@@ -222,7 +222,7 @@
 							
 							$.toolbox('hide')
 							
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1')
 								.first()
 								.addClass('section-hover')
@@ -240,7 +240,7 @@
 							
 							$.toolbox('hide')
 							
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1')
 								.first()
 								.addClass('section-hover')
@@ -257,7 +257,7 @@
 
 							$('body').addClass('drag-drop-editing width-resize')
 
-							$('.template-region-wrap')
+							$('body')
 								.find('.level1')
 								.first()
 								.addClass('section-hover')
