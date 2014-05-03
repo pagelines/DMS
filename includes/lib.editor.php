@@ -801,6 +801,7 @@ function pl_icon_array(){
 function pl_button_classes(){
 	$array = array(
 		''			 		=> 'Default',
+		'btn-link-color'	=> 'Link Color',
 		'btn-ol-white'		=> 'Outline White',
 		'btn-ol-black'		=> 'Outline Black',
 		'btn-primary'		=> 'Dark Blue',
