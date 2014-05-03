@@ -61,11 +61,12 @@ class PageLinesInstall{
 
 
 		}
-				
+
 		if( $install == true  ){
-			
-			if( get_theme_mod( 'pl_installed' ) )
-				return false;
+		
+		// Simon why do we need this?? 	
+		//	if( get_theme_mod( 'pl_installed' ) )
+		//		return false;
 			
 			$url = $this->run_installation_routine();
 			
