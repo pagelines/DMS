@@ -88,7 +88,7 @@ class EditorColor{
 		$g = hexdec(substr($hex,2,2));
 		$b = hexdec(substr($hex,4,2));
 
-		if($r + $g + $b > 750){
+		if($r + $g + $b > 600){
 
 			// Light
 		    return 1;
