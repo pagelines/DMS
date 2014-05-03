@@ -42,6 +42,7 @@ class EditorColor{
 		$vars['pl-base'] 				= $this->hash( $base );
 		$vars['pl-text']				= $this->hash( $text );
 		$vars['pl-link']				= $this->hash( $link );
+		$vars['pl-link-inverse']		= ( $this->color_detect($vars['pl-link']) == 1 ) ? '#000000' : '#FFFFFF';
 		$vars['pl-background']			= $this->background( $vars['pl-base'] );
 		$vars['invert-dark']			= $this->invert();
 		$vars['invert-light']			= $this->invert( 'light' );
@@ -53,19 +54,19 @@ class EditorColor{
 
 		if($mode == 'light'){
 
-			if($this->color_detect() == -2)
+			if($this->color_detect( $this->base ) == -2)
 				return 2*$delta;
-			elseif($this->color_detect() == -1)
+			elseif($this->color_detect( $this->base ) == -1)
 				return 1.5*$delta;
-			elseif($this->color_detect() == 1)
+			elseif($this->color_detect( $this->base ) == 1)
 				return -1.7*$delta;
 			else
 				return $delta;
 
 		}else{
-			if($this->color_detect() == -2)
+			if($this->color_detect( $this->base ) == -2)
 				return -(2*$delta);
-			elseif($this->color_detect() == -1)
+			elseif($this->color_detect( $this->base ) == -1)
 				return -$delta;
 			else
 				return $delta;
@@ -79,9 +80,9 @@ class EditorColor{
      *
      * @return bool|int - a numeric value used in invert()
      */
-	function color_detect(){
+	function color_detect( $color ){
 
-		$hex = str_replace( '#', '', $this->base );
+		$hex = str_replace( '#', '', $color );
 
 		$r = hexdec(substr($hex,0,2));
 		$g = hexdec(substr($hex,2,2));
@@ -106,7 +107,7 @@ class EditorColor{
 		}else{
 
 			// Meh
-		    return false;
+		    return 0;
 
 		}
 	}
