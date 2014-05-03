@@ -208,6 +208,18 @@ a.btn-edit{
 
 // Set the backgrounds
 // -------------------------
+.btn-link-color,
+a.btn-link-color {
+
+  	border: none;
+	background: @pl-link;
+	color: @pl-link-inverse;
+	&:hover{
+		color: @pl-link-inverse;
+		opacity: .8;
+	}
+}
+
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 }
