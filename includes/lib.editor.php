@@ -804,6 +804,7 @@ function pl_button_classes(){
 		'btn-link-color'	=> 'Link Color',
 		'btn-ol-white'		=> 'Outline White',
 		'btn-ol-black'		=> 'Outline Black',
+		'btn-ol-link'		=> 'Outline Link',
 		'btn-primary'		=> 'Dark Blue',
 		'btn-info'			=> 'Light Blue',
 		'btn-success'		=> 'Green',
