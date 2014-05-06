@@ -935,6 +935,7 @@ class PageLinesTemplateHandler {
 			$class[] = $offset;
 			$class[] = $newrow;
 			$controls = $this->editor->section_controls( $s );
+			
 			$pad_class = 'pl-section-pad';
 		}
 
@@ -974,10 +975,12 @@ class PageLinesTemplateHandler {
  	}
 
 	function after_section( $s ){
+		
+		$controls_foot = ''; // ( $s->level == 0 ) ? '' : $this->editor->section_controls_footer( $s );
 
 		pagelines_register_hook('pagelines_inside_bottom_'.$s->id, $s->id);
 
-		printf('</div></section>');
+		printf('</div>%s</section>', $controls_foot);
 
 		pagelines_register_hook('pagelines_after_'.$s->id, $s->id);
 	}
