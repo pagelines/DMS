@@ -582,6 +582,32 @@ class EditorInterface {
 		<?php
 	}
 
+	function section_controls_footer( $s ){
+
+		if( ! $this->draft->show_editor() )
+			return;
+
+		$sid = $s->id;
+		ob_start();
+		
+		?>
+		<div class="pl-section-controls section-controls-footer fix" >
+			<div class="controls-left">
+				<a title="<?php _e( 'Pad Top', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-pad-top"><i class="icon icon-long-arrow-up"></i></a>
+				<a title="<?php _e( 'Pad Right', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-pad-right"><i class="icon icon-long-arrow-right"></i></a>
+				<a title="<?php _e( 'Pad Bottom', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-pad-bottom"><i class="icon icon-long-arrow-down"></i></a>
+				<a title="<?php _e( 'Pad Left', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-pad-left"><i class="icon icon-long-arrow-left"></i></a>
+				<a title="<?php _e( 'Pad Reset', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-pad-left"><i class="icon icon-undo"></i></a>
+			
+			</div>
+		</div>
+		<?php
+
+		return ob_get_clean();
+
+	}
+	
+	
 	function section_controls( $s ){
 
 		if(!$this->draft->show_editor())
@@ -596,10 +622,10 @@ class EditorInterface {
 				<a title="<?php _e( 'Decrease Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-decrease"><i class="icon icon-caret-left"></i></a>
 				<span title="<?php _e( 'Column Width', 'pagelines' ) ?>" class="s-control section-size"></span>
 				<a title="<?php _e( 'Increase Width', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-increase"><i class="icon icon-caret-right"></i></a>
-				<a title="<?php _e( 'Offset Left', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-reduce <?php echo pl_pro_disable_class();?>"><i class="icon icon-angle-left"></i></a>
+				<a title="<?php _e( 'Offset Left', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-reduce <?php echo pl_pro_disable_class();?>"><i class="icon icon-angle-double-left"></i></a>
 				<span title="<?php _e( 'Offset Amount', 'pagelines' ) ?>" class="s-control offset-size"></span>
-				<a title="<?php _e( 'Offset Right', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-increase <?php echo pl_pro_disable_class();?>"><i class="icon icon-angle-right"></i></a>
-				<a title="<?php _e( 'Force to New Row', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-start-row <?php echo pl_pro_disable_class();?>"><i class="icon icon-double-angle-left"></i></a>
+				<a title="<?php _e( 'Offset Right', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-offset-increase <?php echo pl_pro_disable_class();?>"><i class="icon icon-angle-double-right"></i></a>
+				<a title="<?php _e( 'Force to New Row', 'pagelines' ) ?> <?php echo pl_pro_text();?>" href="#" class="s-control s-control-icon section-start-row <?php echo pl_pro_disable_class();?>"><i class="icon icon-level-down"></i></a>
 			</div>
 			<div class="controls-right">
 				<a title="<?php _e( 'Edit', 'pagelines' ) ?>" href="#" class="s-control s-control-icon section-edit s-loaded"><i class="icon icon-pencil"></i></a>
