@@ -80,6 +80,11 @@ class PageLinesMediaBox extends PageLinesSection {
 						'label'			=> __( 'Disable Media Vertical Centering?', 'pagelines' )
 					),
 					array(
+						'type'			=> 'check',
+						'key'			=> 'no_pad', 
+						'label'			=> __( 'Set Media Box padding to 0?', 'pagelines' )
+					),
+					array(
 						'type' 			=> 'select_animation',
 						'key'			=> 'mediabox_animation',
 						'label' 		=> __( 'Viewport Animation', 'pagelines' ),
@@ -105,6 +110,14 @@ class PageLinesMediaBox extends PageLinesSection {
 		);
 
 		return $opts;
+
+	}
+	
+	function before_section_template( $location = '' ) {
+
+
+		$this->wrapper_classes['pad-set'] = ($this->opt('no_pad')) ? 'no-pad' : '';
+		
 
 	}
 
@@ -145,6 +158,8 @@ class PageLinesMediaBox extends PageLinesSection {
 		
 		$classes[] = ($disable_center) ? '' : 'pl-centerer';
 		$classes[] = ($this->opt('mediabox_animation')) ? $this->opt('mediabox_animation') : 'pla-fade';
+		
+		
 		
 		
 		$html = do_shortcode( wpautop( $media_html ) );
