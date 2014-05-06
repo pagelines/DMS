@@ -82,7 +82,7 @@ class PageLinesMediaBox extends PageLinesSection {
 					array(
 						'type'			=> 'check',
 						'key'			=> 'no_pad', 
-						'label'			=> __( 'Set Media Box padding to 0?', 'pagelines' )
+						'label'			=> __( 'Remove Media Box padding (Set to 0px)?', 'pagelines' )
 					),
 					array(
 						'type' 			=> 'select_animation',
