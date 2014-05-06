@@ -91,10 +91,9 @@
 		color: @pl-link; 
 		border-color: @pl-link;
 		&:hover{
-			background: fadeout(@pl-link, 90%);
-		}
-		&:active{
-			background: fadeout(@pl-link, 80%);
+			color: @pl-link; 
+			border-color: @pl-link;
+			opacity: .8;
 		}
 	}
 	
@@ -254,6 +253,22 @@ a.btn-link-color {
 	}
 }
 
+@media (max-width: @resPortraitTablet) {
+	.btn.btn-large,
+	a.btn.btn-large{
+		padding: 5px 12px;
+		font-size: 12px;
+		letter-spacing: 0;
+		&.btn-ol-white,
+		&.btn-ol-black, 
+		&.btn-ol-link{
+			border-width: 1px;
+			padding: 3px 10px;
+		
+		}
+	}
+	
+}
 
 
 
