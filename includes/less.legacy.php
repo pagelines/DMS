@@ -31,7 +31,7 @@ class EditorLessHandler{
 		if( pl_draft_mode() ){
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_draft_css' ) );
 			add_action( 'wp_print_styles', array( $this, 'dequeue_live_css' ), 12 );
-			add_action( 'template_redirect', array( $this, 'pagelines_draft_render' ) , 15);
+			add_action( 'template_redirect', array( $this, 'pagelines_draft_render' ) , 9);
 			add_action( 'wp_footer', array( $this, 'print_core_less') );
 			add_action( 'admin_notices', array( $this, 'check_last_error' ) );
 		}
