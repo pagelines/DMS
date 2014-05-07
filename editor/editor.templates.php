@@ -290,7 +290,13 @@ class EditorTemplates {
 
 		$custom_template_handler = new PLCustomTemplates;
 
-		foreach( $custom_template_handler->get_all() as $index => $template){
+		$all_templates = $custom_template_handler->get_all();
+		
+		$count = 1;
+		$cols = 6;
+		$num = count( $all_templates );
+		
+		foreach( $all_templates as $index => $template){
 
 
 			$classes = array( sprintf('template_key_%s', $index) );
@@ -308,15 +314,19 @@ class EditorTemplates {
 			
 
 			ob_start();
+			
+			echo pl_grid_tool('row_start', $cols, $count, $num, 'pl-list-row');
 			?>
 			
-			<div class="pl-list-row row pl-template-row <?php echo join(' ', $classes); ?>" data-key="<?php echo $index;?>">
+			<div class="row span<?php echo $cols;?> pl-template-row <?php echo join(' ', $classes); ?>" data-key="<?php echo $index;?>">
 				
-				<div class="span3 list-head">
+				<div class="span8 list-head">
 					<div class="list-title"><?php echo stripslashes( $template['name'] ); ?></div>
-					
+					<div class="list-desc">
+						<?php echo stripslashes( $template['desc'] ); ?>
+					</div>
 				</div>
-				<div class="span3 list-actions">
+				<div class="span4 list-actions">
 					<div class="<?php echo join(' ', $action_classes);?>">
 
 						<button class="btn btn-mini btn-primary load-template"><?php _e( 'Load', 'pagelines' ); ?>
@@ -327,8 +337,7 @@ class EditorTemplates {
 
 						<div class="btn-group dropup">
 						  <a class="btn btn-mini dropdown-toggle actions-toggle" data-toggle="dropdown" href="#">
-						    <?php _e( 'Actions', 'pagelines' ); ?>
-						    	<i class="icon icon-caret-down"></i>
+						    <i class="icon icon-caret-down"></i>
 						  </a>
 							<ul class="dropdown-menu">
 								<li ><a class="update-template">
@@ -352,12 +361,13 @@ class EditorTemplates {
 						<button class="btn btn-mini tpl-tag posttype-tag tt-top" title="Current Post Type Default"><i class="icon icon-pushpin"></i></button>
 					</div>
 				</div>
-				<div class="span6 list-desc">
-					<?php echo stripslashes( $template['desc'] ); ?>
-				</div>
 			</div>
 
 			<?php
+			
+			echo pl_grid_tool('row_end', $cols, $count, $num);
+			
+			$count++;
 
 			$list .= ob_get_clean();
 
@@ -394,7 +404,7 @@ class EditorTemplates {
 		
 		$form = ob_get_clean();
 		
-		printf('<div class="row"><div class="span7"><div class="pl-list-contain">%s</div></div><div class="span5">%s</div></div>', $list, $form);
+		printf('<div class="row"><div class="span8"><div class="pl-list-contain">%s</div></div><div class="span4">%s</div></div>', $list, $form);
 	}
 	
 	function page_information(){
