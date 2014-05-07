@@ -10,8 +10,7 @@ Version 2.0.7
 	- CORE - Various installer tweaks.
 	- CORE - Various tour/wizard tweaks.
 	- CORE - New LESS variable: pl-link-inverse.
-	- CORE - Introduce new padding system.
-	- CORE - MediaBox tweaked to use new no-pad option.
+	- CORE - MediaBox tweaked added no-pad option.
 	- CORE - Templates panel layout tweaked.
 	- BUG - Draft LESS file priority changed, fixes no CSS with wp-property plugin.
 
