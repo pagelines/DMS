@@ -1529,7 +1529,20 @@
 			}
 			.pl-list-row{
 				border-bottom: 1px solid #e6e6e6;
-				
+				display: table;
+				.pl-template-row {
+					display: table-cell;
+					float: none; 
+					width: 50%;
+					vertical-align: top;
+					&:first-child{
+						border-right: 1px solid #e6e6e6;
+					}
+					> [class*="span"]{
+						margin-bottom: 0;
+
+					}
+				}
 				.list-title{
 					font-weight: 600;
 				}
