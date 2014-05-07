@@ -169,7 +169,7 @@ class PageLinesDebug {
 			
 			$this->debug_info[] = array(
 				'title'	=> 'PHP POST Max Size',
-				'value' => size_format( wc_let_to_num( ini_get('post_max_size') ) ),
+				'value' => size_format( $this->let_to_num( ini_get('post_max_size') ) ),
 			);
 			
 			$this->debug_info[] = array(
