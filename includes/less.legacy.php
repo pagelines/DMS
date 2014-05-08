@@ -316,8 +316,8 @@ class PageLinesLess {
 	}
 
 	function show_error() {
-		$mem = ( function_exists('memory_get_usage') ) ? sprintf( '<p>They only allocated %sMB for you to use, which is kind of lame.</p>', round( memory_get_usage() / 1024 / 1024, 2 ) ) : '';
-		wp_die( sprintf( '<h2>Ooops</h2><p><br />Looks like your hosting providers are a shower of bastards!</p>%s<p>Anyway at least the fix is easy, just like their mothers. Just add the following to wp-config.php and we should be good to go.</p><h3><kbd>define( \'WP_MEMORY_LIMIT\', \'128M\' );</kbd></h3>', $mem ) );
+		$mem = ( function_exists('memory_get_usage') ) ? sprintf( '<p>You are only allocated %sMB.</p>', round( memory_get_usage() / 1024 / 1024, 2 ) ) : '';
+		wp_die( sprintf( '<h2>Ooops!</h2><p><br />Looks like your hosting providers have limited the amount of memory you can use for PHP</p>%s<p>Anyway at least the fix is easy. Just add the following to wp-config.php and we should be good to go.</p><h3><kbd>define( \'WP_MEMORY_LIMIT\', \'128M\' );</kbd></h3>', $mem ) );
 	}
 
 	private function raw_parse( $pless, $type ) {
