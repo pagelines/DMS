@@ -317,7 +317,7 @@ class PageLinesLess {
 
 	function show_error() {
 		$mem = ( function_exists('memory_get_usage') ) ? sprintf( '<p>You are only allocated %sMB.</p>', round( memory_get_usage() / 1024 / 1024, 2 ) ) : '';
-		wp_die( sprintf( '<h2>Ooops!</h2><p><br />Looks like your hosting providers have limited the amount of memory you can use for PHP</p>%s<p>Anyway at least the fix is easy. Just add the following to wp-config.php and we should be good to go.</p><h3><kbd>define( \'WP_MEMORY_LIMIT\', \'128M\' );</kbd></h3>', $mem ) );
+		wp_die( sprintf( '<h2>Ooops!</h2><p><br />Looks like your hosting providers have limited the amount of memory you can use for PHP</p>%s<p>Anyway at least the fix is easy. Just add the following to wp-config.php and we should be good to go.</p><kbd>define( \'WP_MEMORY_LIMIT\', \'128M\' );</kbd><p>For help with getting DMS up and running don\'t hesitate to email us at hello@pagelines.com</p>', $mem ) );
 	}
 
 	private function raw_parse( $pless, $type ) {
