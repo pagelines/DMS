@@ -83,6 +83,11 @@ class PLSectionArea extends PageLinesSection {
 					),
 					'label' 	=> __( 'Scrolling effects and sizing.', 'pagelines' ),
 				),
+				array(
+					'key'	=> 'pl_area_rowclosed',
+					'type' 	=> 'check',
+					'label'	=> __('Remove margin between columns and rows within this Canvas Area?', 'pagelines'),
+				),
 				
 				
 			),
@@ -163,7 +168,10 @@ class PLSectionArea extends PageLinesSection {
 		
 		<div class="pl-content <?php echo $content_class;?>">
 			<?php echo $title; ?>
-			<div class="pl-inner area-region pl-sortable-area editor-row" style="<?php echo $inner_style;?>">
+			<div class="pl-inner area-region pl-sortable-area editor-row
+				<?php if( $this->opt('pl_area_rowclosed') )
+					echo ' row-closed'; ?>
+			" style="<?php echo $inner_style;?>">
 				<?php  echo $section_output; ?>
 			</div>
 		</div>
