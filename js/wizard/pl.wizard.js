@@ -10,7 +10,7 @@
 	$.plWizard = {
 
 		init: function( ){
-			
+						
 			$.toolbox('hide')
 			
 			// alright, lets run this thing.
@@ -179,7 +179,8 @@
 					{
 						"name" 		: ".el-section-controls .offset-size",
 						"text"		: "<strong>Edit Column Offset</strong><br/> Adjust number of columns you want to offset the section. Note: It must be less than 12 columns wide (full width).",
-						"position"	: "TL", 
+						"position"	: "TL",
+						'pro'		: true,
 						beforeSend	: function(){
 							
 							$('body').addClass('drag-drop-editing width-resize')
@@ -197,7 +198,8 @@
 					{
 						"name" 		: ".el-section-controls .section-start-row",
 						"text"		: "<strong>Force To New Row</strong><br/> Force this section to a new row. This is useful if you're using complicated multi-section layouts.",
-						"position"	: "TL", 
+						"position"	: "TL",
+						'pro'		: true,
 						beforeSend	: function(){
 							
 							$('body').addClass('drag-drop-editing width-resize')
@@ -233,7 +235,8 @@
 					{
 						"name" 		: ".el-section-controls .section-clone",
 						"text"		: "<strong>Clone Section</strong><br/> Duplicate the section and its settings with one click!",
-						"position"	: "TR", 
+						"position"	: "TR",
+						'pro'		: true,
 						beforeSend	: function(){
 							
 							$('body').addClass('drag-drop-editing width-resize')
@@ -309,7 +312,8 @@
 					{
 						"name" 		: ".area-control-hover .area-save",
 						"text"		: "<strong>Custom User Sections</strong><br/> You can save full width sections as custom sections using this button. This allows you to store and reuse this section as well as its nested sections and all their settings.",
-						"position"	: "TL", 
+						"position"	: "TL",
+						'pro'		: true,
 						beforeSend	: function(){
 
 							$('body').addClass('drag-drop-editing width-resize')
@@ -586,7 +590,9 @@
 					var $elem			= $( step_config.name );
 					
 					var moveOnScroll	= ( elementOrParentIsFixed( $elem ) ) ? true : false
-						
+										
+					var extra = ( ! jQuery.pl.config.isPro && step_config.pro ) ? "<br/><br/><a class='btn btn-mini btn-primary' href='http://www.pagelines.com/pricing' target='_blank'>Pro Only: Get the full version &raquo;</a>" : ''
+
 					// timeout needed for some callback actions
 					setTimeout(function(){
 				
@@ -623,7 +629,7 @@
 					
 					
 						$wiztip
-							.html('<p>'+step_config.text+'</p><span class="wiztip_arrow"></span>')
+							.html('<p>'+step_config.text+extra+'</p><span class="wiztip_arrow"></span>')
 
 						setTheTipPosition( step_config, $elem, $wiztip )
 						

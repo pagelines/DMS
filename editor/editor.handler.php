@@ -169,6 +169,7 @@ class PageLinesTemplateHandler {
 						, devMode: <?php echo $this->get_dev_mode();?>
 						, CacheKey: '<?php echo pl_get_cache_key(); ?>'
 						, isSpecial: '<?php echo $this->page->is_special(); ?>'
+						, isPro: <?php echo ( pl_is_wporg() ) ? "false\n" : "true\n"; ?>
 						, opts: <?php echo json_encode( pl_arrays_to_objects( $this->get_options_config() ) ); ?>
 						, settings: <?php echo json_encode( pl_arrays_to_objects( $this->siteset->get_set('site') ) ); ?>
 						, panels: <?php echo json_encode( pl_arrays_to_objects( $this->get_panels_settings() ) ); ?>
