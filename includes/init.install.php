@@ -80,8 +80,9 @@ class PageLinesInstall{
 	function install_notice() {
 		?>
 		<div class="updated fade">
-			<p>Hey there! Looks like you just activated PageLines DMS. Remember all the editing tools are on the frontend of your site.
-				<br />Click <a  href="<?php echo site_url(); ?>">here to go straight there.</a><br />Or why not let us create a draft page and apply a simple template to get you started? <a href="<?php echo admin_url( 'index.php?i-love-wporg=true' ); ?>">Yes please!<a>
+			<p>Hey there! Looks like you just activated PageLines DMS. Remember all the editing tools are on the frontend of your site.</p>
+			<p><a class="button button-primary" style="text-decoration: none;" href="<?php echo site_url(); ?>">Start Building Your Site</a></p>
+			<p>Quick start: Why not let us create a draft page and apply a simple template to get you started? <a href="<?php echo admin_url( 'index.php?i-love-wporg=true' ); ?>">Yes please!<a>
 					</p>
 					</div>
 					<?php 
