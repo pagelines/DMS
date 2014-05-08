@@ -11,9 +11,6 @@
 
 class PLWatermark extends PageLinesSection {
 
-	function section_persistent(){
-	
-	}
 
 	function section_opts(){
 		$opts = array(
@@ -51,13 +48,53 @@ class PLWatermark extends PageLinesSection {
 
 			),
 			array(
-				'type' 	=> 	'help',
-				'col'	=> 2,
-				'title' 		=> __( 'Setting Up Social Shares', 'pagelines' ),
-				'help' 		=> __( 'To set up social, you need to set your global social user names under "options" > "social &amp; local"<br/><br/> After you have done that, these values will fill automatically.', 'pagelines' ),
+ 				'type' 	=> 	'help',
+ 				'type' 	=> 	'multi',
+ 				'title' => __( 'Follow Buttons', 'pagelines' ),
+  				'col'	=> 2,
+	 			'opts'	=> array(
+			  		array(
+			  			'key'			=> 'pl_watermark_no_facebook',
+			  			'type' 			=> 'check',
+			  			'label'			=> __( 'Hide Facebook?', 'pagelines' ),
+			  			'imgsize'			=> '44'
+			  		),
+			  		array(
+			  			'key'			=> 'pl_watermark_no_gplus',
+			  			'type' 			=> 'check',
+			  			'label'			=> __( 'Hide Google Plus?', 'pagelines' ),
+			  			'default' 		=> '1'
+			  		),
+			  		array(
+			  			'key'			=> 'pl_watermark_no_twitter',
+			  			'type' 			=> 'check',
+			  			'label'			=> __( 'Hide Twitter?', 'pagelines' ),
+			  		),
+			  	),
 
+  			),
+			array(
+				'type'	=> 'multi',
+				'key'	=> 'sl_config', 
+				'title'	=> 'Global Social Handles',
+				'col'	=> 3,
+				'opts'	=> array(
+					array(
+						'type'	=> 'text',
+						'key'	=> 'twittername', 
+						'label'	=> 'Twitter Handle (Username)',
+						'scope'	=> 'global'
+					),
+					array(
+						'type'	=> 'text',
+						'key'	=> 'facebook_name', 
+						'label'	=> 'Facebook Handle (Username)',
+						'scope'	=> 'global'
+					),
+				)
 
 			),
+ 
 		); 
 		
 		return $opts;
@@ -103,15 +140,15 @@ class PLWatermark extends PageLinesSection {
 		<div class="pl_global_social stack-element">
 
 			<?php 
-			
-				if( ! has_action( 'pl_watermark_no_facebook' ) )
-					echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
-			
-				if( ! has_action( 'pl_watermark_no_gplus' ) ) 
-					echo do_shortcode('[googleplus]');
-				
-				if( ! has_action( 'pl_watermark_no_twitter' ) )
-					echo do_shortcode('[twitter_button type="follow"]');
+
+				if( ! $this->opt('pl_watermark_no_facebook') && ! has_action( 'pl_watermark_no_facebook' ) )
+		  			echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
+
+				if( ! $this->opt('pl_watermark_no_gplus') && ! has_action( 'pl_watermark_no_gplus' ) ) 
+		  			echo do_shortcode('[googleplus]');
+
+				if( ! $this->opt('pl_watermark_no_twitter') && ! has_action( 'pl_watermark_no_twitter' ) )
+		  			echo do_shortcode('[twitter_button type="follow"]');
 			
 			?>
 		</div>
