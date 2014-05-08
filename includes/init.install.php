@@ -201,6 +201,7 @@ class PageLinesInstall{
 					'content'	=> array(
 						array( 
 							'object'	=> 'PageLinesColumnizer',
+							'object'	=> 'PLWatermark'
 							
 						),
 					)
