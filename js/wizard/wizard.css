@@ -138,6 +138,10 @@
 	font-weight:bold;
 	z-index:9999;
 }
+.tourcontrol-title{
+	font-weight: 500;
+	font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial;
+}
 .tourcontrols p{
 	margin: 0 0 10px;
 }
