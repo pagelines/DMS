@@ -915,7 +915,7 @@ class LessSystem_ShutdownProcess
         if ($this->callback)
         {
 	        $callback = $this->callback;
-	        $callback();
+			call_user_func( $callback );
         }
     }
  
