@@ -1489,8 +1489,8 @@ function pl_updater_txt() {
 	$activate_txt = __( 'Activate the PageLines Updater plugin</a> to activate your key and get updates for your PageLines themes and plugins.', 'pagelines' );
 	
 	if( pl_is_wporg() ) {
-		$install_txt = __( 'Install the PageLines Updater plugin</a> to upgrade to the Pro edition and get updates direct from PageLines.', 'pagelines' );
-		$activate_txt = __( 'Activate the PageLines Updater plugin</a> to upgrade to the Pro edition and get updates direct from PageLines.', 'pagelines' );
+		$install_txt = __( 'Install the PageLines Updater plugin</a> to upgrade to the Pro edition and get updates direct from PageLines. <a href="http://www.pagelines.com/pricing/" class="btn btn-mini" target="_blank"><i class="icon icon-thumbs-up"></i> Learn More About Pro</a>', 'pagelines' );
+		$activate_txt = __( 'Activate the PageLines Updater plugin</a> to upgrade to the Pro edition and get updates direct from PageLines. <a href="http://www.pagelines.com/pricing/" class="btn btn-mini" target="_blank"><i class="icon icon-thumbs-up"></i> Learn More About Pro</a>', 'pagelines' );
 	}
 		
 	//normal
