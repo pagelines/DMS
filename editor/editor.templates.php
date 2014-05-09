@@ -697,7 +697,10 @@ function pl_default_template( $standard = false ){
 						'content'	=> array(
 							array(
 								'object'	=> 'PageLinesPostLoop'
-							),
+								),
+							array(
+								'object'	=> 'PageLinesPagination'
+								)
 						)
 					),
 					$sidebar
