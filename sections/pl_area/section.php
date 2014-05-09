@@ -130,7 +130,7 @@ class PLSectionArea extends PageLinesSection {
 		$title = ( $this->opt('pl_standard_title') ) ? sprintf( '<h2 class="pl-section-title pla-from-top subtle pl-animation">%s</h2>', $this->opt('pl_standard_title') ) : '';
 		
 		$inner_style .= ($this->opt('pl_area_height')) ? sprintf('min-height: %spx;', $this->opt('pl_area_height')) : '';
-		
+		$inner_classes = 'pl-inner area-region pl-sortable-area editor-row';
 		
 		$classes = '';
 		
@@ -156,14 +156,12 @@ class PLSectionArea extends PageLinesSection {
 			$pad_css = ''; 
 			$content_class = '';
 		}
-		
-		
 	?>
 	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
 		
 		<div class="pl-content <?php echo $content_class;?>">
 			<?php echo $title; ?>
-			<div class="pl-inner area-region pl-sortable-area editor-row" style="<?php echo $inner_style;?>">
+			<div class="<?php echo apply_filters( 'pl-area-inner-classes', $inner_classes ); ?>" style="<?php echo apply_filters( 'pl-area-inner-style', $inner_style );?>">
 				<?php  echo $section_output; ?>
 			</div>
 		</div>
