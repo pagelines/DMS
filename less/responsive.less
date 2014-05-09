@@ -40,7 +40,7 @@
 }
 
 // Tablets & small desktops only
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: @resPortraitTablet) and (max-width: @resDesktop) {
   // Show
   .visible-tablet    { display: block; }
   // Hide
@@ -100,7 +100,7 @@
 // UP TO LANDSCAPE PHONE
 // ---------------------
 
-@media (max-width: 480px) {
+@media (max-width: @resPhoneLandscape) {
 
   // Smooth out the collapsing/expanding nav
   .nav-collapse {
@@ -248,7 +248,7 @@
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: @resPortraitTablet) and (max-width: @resDesktop) {
 
   // Fixed grid
   //--// #grid > .core(42px, 20px);
@@ -267,7 +267,7 @@
 // LARGE DESKTOP & UP
 // ------------------
 
-@media (min-width: 1200px) {
+@media (min-width: @resLargeDesktop) {
 
   // Fixed grid
 /*  #grid > .core(70px, 30px);
