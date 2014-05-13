@@ -117,12 +117,12 @@ function pagelines_standard_sidebar($name, $description){
 
 
 function pl_get_comments_template(){
-	if( have_comments() && ! comments_open() ){
-
-		printf('<p class="nocomments">%s</p>', __('Comments are closed.', 'pagelines'));
-		return;
-
-	}
+	// if( ! have_comments() && ! comments_open() ){
+	// 
+	// 	printf('<p class="nocomments">%s</p>', __('Comments are closed.', 'pagelines'));
+	// 	return;
+	// 
+	// }
 
 	?>
 	<div id="comments" class="wp-comments">
@@ -154,7 +154,12 @@ function pl_get_comments_template(){
 			<?php endif; // check for comment navigation 
 
 			endif; // end have_comments()
-		comment_form(); ?>
+			if ( comments_open() )
+				comment_form();
+			elseif( ! is_page() )
+				printf('<p class="nocomments">%s</p>', __('Comments are closed.', 'pagelines'));
+
+			?>
 		</div>
 	</div><?php 
 }
