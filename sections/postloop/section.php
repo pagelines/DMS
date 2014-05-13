@@ -20,12 +20,11 @@ class PageLinesPostLoop extends PageLinesSection {
 
 	function section_opts(){
 
-
-
+		
 		$opts = array(
-
 			array(
 				'key'		=> 'post_content',
+				'col'		=> 1,
 				'type'		=> 'edit_post',
 				'title'		=> __( 'Edit Post Content', 'pagelines' ),
 				'label'		=>	__( '<i class="icon icon-edit"></i> Edit Post Info', 'pagelines' ),
@@ -33,33 +32,62 @@ class PageLinesPostLoop extends PageLinesSection {
 				'classes'	=> 'btn-primary'
 			),
 			array(
-				'key'		=> 'post_media_hide',
-				'case'		=> 'special',
-				'type'		=> 'check',
-				'col'			=> 3,
-				'default'	=> false,
-				'title'		=> __( 'Hide Media on archives', 'pagelines' ),
-			),
-			array(
-				'key'			=> 'pl_loop_thumb_size',
-				'type' 			=> 'select_imagesizes',
-				'scope'			=> 'global',
-				'col'			=> 3,
-				'default'		=> 'aspect-thumb',
-				'label' 		=> __( 'Select Thumb Size', 'pagelines' )
-			),
+				'type'	=> 'multi',
+				'key'	=> 'page_ops',
+				'title'	=> __( 'Page Loop Settings', 'pagelines' ),
+				'col'	=> 2,
+				'opts'	=> array(
+					array(
+						'key'		=> 'post_media_hide',
+						'type'		=> 'check',
+						'title'		=> __( 'Hide Media?', 'pagelines' ),
+					),
+					array(
+						'key'		=> 'metahead_hide',
+						'type'		=> 'check',
+						'title'		=> __( 'Hide Author info?', 'pagelines' ),
+					),
+				)
 
+			),
 			array(
-				'key'			=> 'metabar_standard',
-				'scope'			=> 'global',
-				'default'		=> 'On [post_date] | [post_comments] [post_edit]',
-				'type'			=> 'text',
-				'col'			=> 2,
-				'label'			=> __( 'Enter Meta Information', 'pagelines' ),
-				'title'			=> __( 'Meta Information', 'pagelines' ),
-				'ref'			=> __( 'Use shortcodes to control the dynamic information in your metabar. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' )
-			)
+				'type'	=> 'multi',
+				'key'	=> 'global_ops',
+				'title'	=> __( 'Global Loop Settings', 'pagelines' ),
+				'col'	=> 3,
+				'opts'	=> array(
+					array(
+						'key'			=> 'pl_loop_thumb_size',
+						'type' 			=> 'select_imagesizes',
+						'scope'			=> 'global',
+						'col'			=> 3,
+						'default'		=> 'aspect-thumb',
+						'label' 		=> __( 'Select Thumb Size', 'pagelines' )
+					),
+
+					array(
+						'key'			=> 'metabar_standard',
+						'scope'			=> 'global',
+						'default'		=> 'On [post_date] | [post_comments] [post_edit]',
+						'type'			=> 'text',
+						'col'			=> 2,
+						'label'			=> __( 'Enter Meta Information', 'pagelines' ),
+						'title'			=> __( 'Meta Information', 'pagelines' ),
+						'ref'			=> __( 'Use shortcodes to control the dynamic information in your metabar. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' )
+					)
+				)
+
+			),
 		);
+
+		return $opts;
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -158,11 +186,11 @@ class PageLinesPostLoop extends PageLinesSection {
 
 			$class = array();
 
-			$postlist = ( $plpg->is_blog_page_type() ) ? true : false;
+			$postlist = ( $plpg->is_blog_page_type() && ! $this->opt('metahead_hide') ) ? true : false;
 
 			$class[ ] = ( is_archive() || is_search() || is_home() ) ? 'multi-post' : '';
 
-			$class[ ] = ( ! $postlist ) ? 'standard-page' : '';
+			$class[ ] = ( ! $postlist ) ? 'standard-page' : 'metahead-page';
 
 			$class[ ] = ( is_single() ) ? 'single-post' : '';
 			
@@ -177,6 +205,8 @@ class PageLinesPostLoop extends PageLinesSection {
 			$thumb_size = ( pl_setting('thumb_size' ) ) ? pl_setting('thumb_size' ) : 'landscape-thumb'; 
 
 			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
+			
+			$hide_post_media = $this->opt( 'post_media_hide' );
 			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 
@@ -192,7 +222,7 @@ class PageLinesPostLoop extends PageLinesSection {
 					}
 						
 
-					if( ! is_singular() && ! $this->opt( 'post_media_hide' ) ){
+					if( ! is_singular() && ! $hide_post_media ){
 
 						$media = pagelines_media( array( 'thumb-size' => $thumb_size ) ); 
 						
@@ -228,8 +258,8 @@ class PageLinesPostLoop extends PageLinesSection {
 					if( is_single() || is_page() ){
 						
 						
-						
-						printf( '<div class="metamedia">%s</div>', pagelines_media( array( 'thumb-size' => $thumb_size ) ) );
+						if( ! $hide_post_media )
+							printf( '<div class="metamedia">%s</div>', pagelines_media( array( 'thumb-size' => $thumb_size ) ) );
 
 						the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pagelines' ) );
 
