@@ -96,16 +96,18 @@ class PageLinesPage {
 		
 		if( isset( $wp_query->query_vars ) ){
 			$vars = $wp_query->query_vars;
-			if( isset( $vars['year'] ) )
+			if( isset( $vars['year'] ) && ! empty( $vars['year'] ) )
 				$type .= $vars['year'];
 			
-			if( isset( $vars['monthnum'] ) )
+			if( isset( $vars['monthnum'] ) && ! empty( $vars['monthnum'] ) )
 				$type .= $vars['monthnum'];
 			
-			if( isset( $vars['day'] ) )
+			if( isset( $vars['day'] ) && ! empty( $vars['day'] ) )
 				$type .= $vars['day'];
 			
 		} 
+		
+		
 		
 		return $this->special_index_lookup( $type );
 	}
