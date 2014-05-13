@@ -967,8 +967,8 @@
 							o.opts[ s ] = {name: s}
 						})
 
-						if ( ! o.ref )
-							oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("More Info"), $.pl.lang("Select which registered thumbnail size to use for the images. To add new sizes see: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>The Codex</a>"))
+						
+							
 					}
 
 				if(o.opts){
@@ -1013,13 +1013,20 @@
 				if( o.type == 'select_icon' ) {
 					oHTML += sprintf('&nbsp;&nbsp;<i class="icon icon-preview icon-2x icon-%s" id="preview-icon" data-name="%s" style=""></i>', o.value, o.name )
 				}
-				if(o.type == 'select_taxonomy' && o.post_type)
+				
+				if(o.type == 'select_taxonomy' && o.post_type){
+					
 					oHTML += sprintf(
 						'<div style="margin-bottom: 10px;"><a href="%sedit.php?post_type=%s" target="_blank" class="btn btn-mini btn-info"><i class="icon icon-edit"></i> %s</a></div>',
 						$.pl.config.urls.adminURL,
 						o.post_type,
 						$.pl.lang("Edit Sets")
 					)
+				}
+				
+				if ( ! o.ref && o.type == 'select_imagesizes' ){
+					oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About Image Sizes"), $.pl.lang("Select which registered thumbnail size to use for the images. To add new sizes see: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>The Codex</a>"))
+				}
 
 			}
 
