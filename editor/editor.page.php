@@ -91,8 +91,8 @@ class PageLinesPage {
 		$type = $this->type();
 		
 		$obj = get_queried_object();
-		if(is_object($obj))
-			$type .= get_queried_object()->term_id;
+		if( is_object( $obj ) && isset( $obj->term_id ) )
+			$type .= $obj->term_id;
 		
 		if( isset( $wp_query->query_vars ) ){
 			$vars = $wp_query->query_vars;
