@@ -79,17 +79,6 @@ class PageLinesPostLoop extends PageLinesSection {
 
 			),
 		);
-
-		return $opts;
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		global $post;
 		
