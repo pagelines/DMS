@@ -651,8 +651,10 @@
 				float: left;
 				margin-left: @fluidGridGutterWidth;
 				margin-bottom:@gridRowSpace;
-
-
+				
+			}
+			&.no-row-space > [class*="span"] {
+				margin-bottom: 0;
 			}
 			&.row-closed,
 			&.row-set{
