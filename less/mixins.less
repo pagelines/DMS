@@ -668,6 +668,19 @@
 					}
 				}
 			}
+			&.row-squared{
+				.spanX ( @gridColumns );
+				.spanX (@index) when (@index > 0) {
+				  .span@{index} { .span(@index); }
+				  .spanX(@index - 1);
+				}
+				.spanX (0) {}
+
+				.span (@columns) {
+					//height: 0;
+					padding-bottom: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
+				}
+			}
 			&.row-closed{
 				.span1{ width: 8.333333333%;}
 				.span2{ width: 16.666666666%;}
@@ -681,6 +694,21 @@
 				.span10{ width: 83.3333333%;}
 				.span11{ width: 91.6666666%;}
 				.span12{ width: 100%;}
+
+				&.row-squared{
+					.span1{ padding-bottom: 8.333333333%;}
+					.span2{ padding-bottom: 16.666666666%;}
+					.span3{ padding-bottom: 25%;}
+					.span4{ padding-bottom: 33.33333333%;}
+					.span5{ padding-bottom: 41.6666666%;}
+					.span6{ padding-bottom: 50%;}
+					.span7{ padding-bottom: 58.3333333%;}
+					.span8{ padding-bottom: 66.6666666%;}
+					.span9{ padding-bottom: 75%;}
+					.span10{ padding-bottom: 83.3333333%;}
+					.span11{ padding-bottom: 91.6666666%;}
+					.span12{ padding-bottom: 100%;}
+				}
 			}
 			
 			> [class*="span"]:first-child,
