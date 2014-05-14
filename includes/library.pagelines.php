@@ -1096,15 +1096,15 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
 
 	    		case 'vimeo':
-	    			$out = sprintf( '<div class="pl-video vimeo"><iframe src="//player.vimeo.com/video/%s" width="%s" height="%s"  frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen wmode="transparent"></iframe></div>',$id, $width, $height );
+	    			$out = sprintf( '<div class="pl-video vimeo"><iframe src="//player.vimeo.com/video/%s" width="%s" height="%s"  frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen wmode="opaque"></iframe></div>',$id, $width, $height );
 	    			break;
 
 	    		case 'dailymotion':
-	    			$out = sprintf( '<div class="pl-video dailymotion"><iframe src="//www.dailymotion.com/embed/video/%s" width="%s" height="%s"  frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen wmode="transparent"></iframe></div>',$id, $width, $height );
+	    			$out = sprintf( '<div class="pl-video dailymotion"><iframe src="//www.dailymotion.com/embed/video/%s" width="%s" height="%s"  frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen wmode="opaque"></iframe></div>',$id, $width, $height );
 	    			break;
 
 	    		default:
-	    			$out = sprintf('<div class="pl-video youtube"><iframe src="//www.youtube.com/embed/%s%s" width="%s" height="%s" frameborder="0" allowfullscreen wmode="transparent"></iframe></div>', $id, $related, $width, $height);
+	    			$out = sprintf('<div class="pl-video youtube"><iframe src="//www.youtube.com/embed/%s%s" width="%s" height="%s" frameborder="0" allowfullscreen wmode="opaque"></iframe></div>', $id, $related, $width, $height);
 	    	}
 		    return $out;
 	    }
