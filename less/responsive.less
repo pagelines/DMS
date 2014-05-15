@@ -40,7 +40,7 @@
 }
 
 // Tablets & small desktops only
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: @resPortraitTablet) and (max-width: @resDesktop) {
   // Show
   .visible-tablet    { display: block; }
   // Hide
@@ -59,6 +59,9 @@
 	.row.row-set > [class*="span"]{
 		width: 19.98%;
 	}
+	.row.row-set.row-squared > [class*="span"]{
+		padding-bottom: 19.98%;
+	}
 }
 @media only screen and (min-width: 1300px) and (max-width: 1600px) {
 	body:after {
@@ -67,6 +70,9 @@
 	}
 	.row.row-set > [class*="span"]{
 		width: 24.98%;
+	}
+	.row.row-set.row-squared > [class*="span"]{
+		padding-bottom: 24.98%;
 	}
 }
 @media only screen and (min-width: 990px) and (max-width: 1300px) {
@@ -77,6 +83,9 @@
 	.row.row-set > [class*="span"]{
 		width: 33.3%;
 	}
+	.row.row-set.row-squared > [class*="span"]{
+		padding-bottom: 33.3%;
+	}
 }
 @media only screen and (min-width: 470px) and (max-width: 990px) {
 	body:after {
@@ -85,6 +94,9 @@
 	}
 	.row.row-set > [class*="span"]{
 		width: 49.98%;
+	}
+	.row.row-set.row-squared > [class*="span"]{
+		padding-bottom: 49.98%;
 	}
 }
 @media only screen and (max-width: 470px) {
@@ -95,12 +107,15 @@
 	.row.row-set > [class*="span"]{
 		width: 99.98%;
 	}
+	.row.row-set.row-squared > [class*="span"]{
+		padding-bottom: 99.98%;
+	}
 }
 
 // UP TO LANDSCAPE PHONE
 // ---------------------
 
-@media (max-width: 480px) {
+@media (max-width: @resPhoneLandscape) {
 
   // Smooth out the collapsing/expanding nav
   .nav-collapse {
@@ -155,6 +170,10 @@
     position: static;
   }
 
+  .row.row-squared > [class*="span"],
+  .row.row-closed.row-squared > [class*="span"]{
+    padding-bottom: 100%;
+  }
 }
 
 
@@ -163,7 +182,7 @@
 // --------------------------------------------------
 
 @media (max-width: 767px) {
-	
+
 	body:after {
 		content: 'four';
 		display: none;
@@ -196,7 +215,7 @@
 	.editor-row > [class*="span"],
 	.row > [class*="offset"],
 	.row-grid > [class*="offset"],
-	.editor-row > [class*="offset"], 
+	.editor-row > [class*="offset"],
 	.row.row-closed > [class*="span"]{
 		float: none;
 		display: block;
@@ -204,8 +223,12 @@
 		margin-left: 0;
 		margin-bottom: 10px;
 	}
-	
-	
+	.row.row-squared > [class*="span"],
+	.row.row-closed.row-squared > [class*="span"]{
+		//padding-bottom: 100%; //likely too tall for browser, but 100% is in effect for narrower width media query
+	}
+
+
 	.row > [class*="offset"]:first-child,
 	.editor-row > [class*="offset"].sortable-first{
 		margin-left: 0;
@@ -248,7 +271,7 @@
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: @resPortraitTablet) and (max-width: @resDesktop) {
 
   // Fixed grid
   //--// #grid > .core(42px, 20px);
@@ -267,7 +290,7 @@
 // LARGE DESKTOP & UP
 // ------------------
 
-@media (min-width: 1200px) {
+@media (min-width: @resLargeDesktop) {
 
   // Fixed grid
 /*  #grid > .core(70px, 30px);

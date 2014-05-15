@@ -64,7 +64,6 @@ class PageLinesPostLoop extends PageLinesSection {
 						'default'		=> 'aspect-thumb',
 						'label' 		=> __( 'Select Thumb Size', 'pagelines' )
 					),
-
 					array(
 						'key'			=> 'metabar_standard',
 						'scope'			=> 'global',
@@ -74,22 +73,17 @@ class PageLinesPostLoop extends PageLinesSection {
 						'label'			=> __( 'Enter Meta Information', 'pagelines' ),
 						'title'			=> __( 'Meta Information', 'pagelines' ),
 						'ref'			=> __( 'Use shortcodes to control the dynamic information in your metabar. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' )
+					),
+					array(
+						'key'			=> 'pl_loop_disable_karma',
+						'type' 			=> 'check',
+						'scope'			=> 'global',
+						'col'			=> 3,
+						'label' 		=> __( 'Disable Karma Button', 'pagelines' )
 					)
 				)
-
-			),
+			)
 		);
-
-		return $opts;
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		global $post;
 		
@@ -216,10 +210,15 @@ class PageLinesPostLoop extends PageLinesSection {
 
 					if( $postlist ){
 						echo '<div class="metahead">';
-							if( get_post_type() != 'page' )
-								echo do_shortcode( '[pl_author_avatar size="80"][post_author_posts_link class="pl-border"][pl_karma]' );
-							else 
+							if( get_post_type() != 'page' ) {
+								
+								$karma = ( ! pl_setting( 'pl_loop_disable_karma') ) ? '[pl_karma]' : '';
+								
+								$sc = sprintf( '[pl_author_avatar size="80"][post_author_posts_link class="pl-border"]%s', $karma );
+								echo do_shortcode( apply_filters( 'pl_newloop_author_shortcodes', $sc ) );
+							} else {
 								printf('<div class="metaicon"><i class="icon icon-file icon-3x"></i></div>');
+							} 								
 						echo '</div>';
 					}
 						
