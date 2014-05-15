@@ -196,6 +196,8 @@ class PageLinesPostLoop extends PageLinesSection {
 			
 			$class[ ] = 'pl-border';
 			
+			$class[ ] = 'hentry';
+			
 			$class[ ] = 'pl-new-loop';
 
 			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true);
