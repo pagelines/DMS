@@ -12,7 +12,7 @@ function pagelines_metabox_posts(){
 	$meta_box = array(
 		'id' => 'pagelines-metabox-post-gallery',
 		'title' =>  __('Gallery', 'pagelines'),
-		'description' => 'Insert a WP gallery using the "Add Media" button above, use the gallery slider checkbox below to transform your images into a slider.',
+		'description' => __( 'Insert a WP gallery using the "Add Media" button above, use the gallery slider checkbox below to transform your images into a slider.', 'pagelines' ),
 		'post_type' => pl_get_current_post_type(),
 		'context' => 'normal',
 		'priority' => 'high',
@@ -337,7 +337,7 @@ function pl_create_meta_box( $post, $meta_box )
 			case 'slider_button_text':
 				if($field['extra'] == 'first'){
 					$count++;
-					echo '<tr><td><label><strong>Button #'.$count.'</strong> <span>Configure your button here.</span> </label></td>';
+					printf( '<tr><td><label><strong>Button #%s</strong> <span>%s</span> </label></td>', $count,  __( 'Configure your button here.', 'pagelines' ) );
 				}
 				echo '<td class="inline">';
 				if($inline != null) {
@@ -350,7 +350,7 @@ function pl_create_meta_box( $post, $meta_box )
 			case 'slider_button_textarea':
 				if($field['extra'] == 'first'){
 					$count++;
-					echo '<tr><td><label><strong>Button #'.$count.'</strong> <span>Configure your button here.</span> </label></td>';
+					printf( '<tr><td><label><strong>Button #%s</strong> <span>%s</span> </label></td>', $count,  __( 'Configure your button here.', 'pagelines' ) );
 				}
 				echo '<td class="inline">';
 				if($inline != null) {
