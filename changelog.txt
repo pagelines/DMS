@@ -1,51 +1,15 @@
 ********************************************************
 
-  DMS Release Notes:
+  DMS Release Notes: (wporg)
 
 ********************************************************
 
-Version 2.0.4
-	
-	- CORE - Tweaks full window section code.
-	- CORE - Added new btn-ol-link class.
-	- CORE - Remove text shadow from labels/badges.
-	- BUG - Fix for Chrome Aw Snap with count_select props Evan Mattson.
-	- BUG - Fix for illegal offset 'clone' error.
-	- BUG - Fix template drop down on post edit page.
-	- BUG - Fix pl_video links with SSL props Dave Moppert.
-	- BUG - Fix buddypress/bbpress error on multisite props Margaret Saizan.
-	
+Version 1.1.1
 
-Version 2.0.3
+	Fixed various translation issues and removed old account code ( no longer used )
+	Disabled WaterMark section on new install, user can always add it if required as per ticket.
 
-	- CORE - Fix possible settings issue on certain configs of MYSQL if strict mode is enabled.
-	- CORE - Fix non translatable string 'on' props kakadong.
-	- CORE - Fix unreadable chars in recent comments widget props kakadong.
-	- CORE - Dev Panel moved to Developer plugin.
+Version 1.1.0
 
-Version 2.0.2
-
-	- BUG - pl_setting() should only fetch global settings. This fixes the weird post level css issues.
-	- BUG - Watermark section - user settings being ignored.
-	
-
-Version 2.0.1
-
-	- CORE - Various responsive fixes.
-	- CORE - Allow mobile menu to be disabled with 'pl_no_mobile_menu' action.
-	- CORE - Editor upload filesize set to 2M instead of 500k.
-	- CORE - Use // URLS for shares etc.
-	- CORE - Add titles to sharebar.
-	- BUG - Fixed search on Safari Desktop.
-	- BUG - Fixed broken mobile menu on Android =< 4.3
-	- BUG - Shortcode JS was being included more than once.
-	- BUG - Watermark section - Scripts being inserted where not needed.
-	- BUG - Fixed old navbar theme select.
-	- BUG - Fixed broken image alt code.
-	- BUG - Only show the post-format meta panels if the post has post-formats capabilities.
-	
-
-Version 2.0
-
-	Standalone DMS2 Released
+	(Synced with latest DMS2 branch)
 
