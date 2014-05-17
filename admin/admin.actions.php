@@ -97,7 +97,12 @@ function pagelines_check_folders() {
 			return;
 
 		echo '<div class="updated">';
-		printf( "<p><h3>Install Error!</h3><br />PageLines DMS must be installed in a folder called 'dms' to work with child themes and extensions.<br /><br />Current path: %s<br /></p>", get_template_directory() );
+		printf( "<p><h3>%s</h3>%s<br /><br />%s: %s<br /></p>", 
+			__( 'Install Error!', 'pagelines' ),
+			__( "PageLines DMS must be installed in a folder called 'dms' to work with child themes and extensions.", 'pagelines' ),
+			__( 'Current path', 'pagelines' ),
+			get_template_directory()
+		);
 		echo '</div>';
 }
 
