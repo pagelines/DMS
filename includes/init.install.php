@@ -81,12 +81,11 @@ class PageLinesInstall{
 	function install_notice() {
 		?>
 		<div class="updated fade">
-			<p>Hey there! Looks like you just activated PageLines DMS. Remember all the editing tools are on the frontend of your site.</p>
-			<p><a class="button button-primary" style="text-decoration: none;" href="<?php echo site_url(); ?>">Start Building Your Site</a></p>
-			<p>Quick start: Why not let us create a draft page and apply a simple template to get you started? <a href="<?php echo admin_url( 'index.php?i-love-wporg=true' ); ?>">Yes please!<a>
-					</p>
-					</div>
-					<?php 
+			<p><?php _e( 'Hey there! Looks like you just activated PageLines DMS. Remember all the editing tools are on the frontend of your site.', 'pagelines' ); ?></p>
+			<p><a class="button button-primary" style="text-decoration: none;" href="<?php echo site_url(); ?>"><?php _e( 'Start Building Your Site', 'pagelines' ); ?></a></p>
+			<p><?php _e( 'Quick start: Why not let us create a draft page and apply a simple template to get you started? ', 'pagelines' ); ?><a href="<?php echo admin_url( 'index.php?i-love-wporg=true' ); ?>"><?php _e( 'Yes please!', 'pagelines' ); ?><a></p>
+		</div>
+		<?php 
 	}
 	
 	
@@ -202,7 +201,7 @@ class PageLinesInstall{
 					'content'	=> array(
 						array( 
 							'object'	=> 'PageLinesColumnizer',
-							'object'	=> 'PLWatermark'
+						//	'object'	=> 'PLWatermark'
 							
 						),
 					)
@@ -237,9 +236,9 @@ class PageLinesInstall{
 	
 	function template_welcome(){
 		
-		$template['name'] = 'Welcome';
+		$template['name'] = __( 'Welcome', 'pagelines' );
 		
-		$template['desc'] = 'Getting started guide &amp; template.';
+		$template['desc'] = __( 'Getting started guide &amp; template.', 'pagelines' );
 		
 		$template['map'] = array(
 			
@@ -305,8 +304,8 @@ class PageLinesInstall{
 					array(
 						'object'	=> 'PageLinesHighlight',
 						'settings'	=> array(
-							'_highlight_head'		=> '<span id="user-guide">PageLines DMS User Guide</span>',
-							'_highlight_subhead'	=> 'The fastest &amp; easiest way to get started.'
+							'_highlight_head'		=> sprintf( '<span id="user-guide">%s</span>', __( 'PageLines DMS User Guide', 'pagelines' ) ),
+							'_highlight_subhead'	=> __( 'The fastest &amp; easiest way to get started.', 'pagelines' )
 						)
 					),
 					array(
@@ -324,8 +323,8 @@ class PageLinesInstall{
 					array(
 						'object'	=> 'PageLinesHighlight',
 						'settings'	=> array(
-							'_highlight_head'		=> '<span id="user-guide">Getting Started Video</span>',
-							'_highlight_subhead'	=> 'A 5-minute overview of DMS.'
+							'_highlight_head'		=> sprintf( '<span id="user-guide">%s</span>', __( 'Getting Started Video', 'pagelines' ) ),
+							'_highlight_subhead'	=> __( 'A 5-minute overview of DMS.', 'pagelines' )
 						)
 					),
 					array(
@@ -348,9 +347,9 @@ class PageLinesInstall{
 					array(
 						'object'	=> 'PLICallout',
 						'settings'	=> array(
-							'icallout_text'		=> 'Thanks for using PageLines!',
+							'icallout_text'		=> __( 'Thanks for using PageLines!', 'pagelines' ),
 							'icallout_link'		=> 'http://www.pagelines.com/',
-							'icallout_link_text'	=> 'Visit PageLines.com',
+							'icallout_link_text'	=> __( 'Visit PageLines.com', 'pagelines' ),
 							'icallout_btn_theme'	=> 'btn-ol-white'
 						)
 					),
