@@ -6,8 +6,9 @@
 
 Version 1.1.1
 
-	Fixed various translation issues and removed old account code ( no longer used )
+	Fixed various translation issues and removed old account code ( no longer used ).
 	Disabled WaterMark section on new install, user can always add it if required as per ticket.
+	Disabled pl_karma shortcode.
 
 Version 1.1.0
 
