@@ -319,11 +319,12 @@ function pagelines_check_folders_dms( $note ) {
 
 			<div class="alert editor-alert">
 				<button type="button" class="close" data-dismiss="alert" href="#">&times;</button>
-			  	<strong><i class="icon icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
-
-			</div>
-			<?php 
-
+			  	<?php printf( "<strong><i class='icon icon-warning-sign'></i> %s %s<br />%s: %s</div>", 
+					__( 'Install Problem!', 'pagelines' ),
+					__( "PageLines DMS must be installed in a folder called 'dms' to work with child themes and extensions.", 'pagelines' ),
+					__( 'Current path', 'pagelines' ),
+					get_template_directory()
+				);
 		$note .= ob_get_clean();
 	}
 	return $note;
