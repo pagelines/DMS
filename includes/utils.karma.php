@@ -125,6 +125,9 @@ $pl_karma = new PLKarma();
 
 function pl_karma( $id = false, $args = array() ) {
 	
+	if( pl_is_wporg() )
+		return false;
+	
 	global $pl_karma;
 
 	return $pl_karma->add_karma( $id, $args ); 
