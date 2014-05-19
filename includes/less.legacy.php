@@ -240,23 +240,11 @@ class EditorLessHandler{
 
 
 	function write_draft_less_file($css) {
+		
 		$folder = pl_get_css_dir( 'path' );
 		$file = 'editor-draft.css';
-		if( !is_dir( $folder ) ) {
-			if( true !== wp_mkdir_p( $folder ) )
-				return false;
-		}
-		include_once( ABSPATH . 'wp-admin/includes/file.php' );
-		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials( site_url() );
-			if ( ! WP_Filesystem($creds) )
-				return false;
-		}
-		global $wp_filesystem;
-		if( is_object( $wp_filesystem ) )
-			$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $css, FS_CHMOD_FILE);
-		else
-			return false;
+		
+		pl_css_write_file( $folder, $file, $css );
 	}
 }
 
@@ -469,12 +457,7 @@ class PageLinesRenderCSS {
 		$this->write_css_file( 'sections', $b['sections'] );
 	}
 
-	function write_css_file( $area, $txt ){
-
-		add_filter('request_filesystem_credentials', '__return_true' );
-
-		$method = 'direct';
-		$url = 'themes.php?page=pagelines';
+	function write_css_file( $area, $css ){
 
 		$folder = pl_get_css_dir( 'path' );
 		
@@ -483,33 +466,16 @@ class PageLinesRenderCSS {
 		else
 			$file = sprintf( 'compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
 
-		if( !is_dir( $folder ) ) {
-			if( true !== wp_mkdir_p( $folder ) )
-				return false;
-		}
+		$check = pl_css_write_file( $folder, $file, $css );
 
-		include_once( ABSPATH . 'wp-admin/includes/file.php' );
-
-		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials($url);
-			if ( ! WP_Filesystem($creds) )
-				return pl_less_save_last_error( 'Unable to set filesystem credentials', false );
-		}
-
-			global $wp_filesystem;
-			if( is_object( $wp_filesystem ) )
-				$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $txt, FS_CHMOD_FILE);
-			else
-				return pl_less_save_last_error( 'Unable to access filesystem. Possible permission issue on ' . $folder, false );;
+		if( $check ) {
 			$url = pl_get_css_dir( 'url' );
 			if( ! defined( 'DYNAMIC_FILE_URL') )
 				define( 'DYNAMIC_FILE_URL', $url );
-
+				
 			pl_less_save_last_error( '', true );
+		}
 	}
-
-
-
 
 	function less_css_bar() {
 		foreach ( $this->types as $t ) {

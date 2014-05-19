@@ -9,8 +9,6 @@
  *	// shortcodes extended
  */
 
-
-
 add_filter( 'pagelines_global_notification', 'pagelines_check_pro_nag' );
 function pagelines_check_pro_nag( $note ) {
 	if( pl_is_pro_check() )
@@ -102,6 +100,42 @@ function pagelines_add_admin_menu() {
  		add_menu_page( 'PageLines', 'PageLines', 'edit_theme_options', PL_MAIN_DASH, 'pagelines_build_account_interface', PL_PARENT_URL . '/images/admin-icon.png', '2.996' );
 }
 
+/**
+ * Full version CSS File Write Function
+ * Same as the version in less.functions used by the free version
+ * Difference is if this function fails with WP_Filesystem it will fall back to regular file_put_contents()
+ */
+function pl_css_write_file( $folder, $file, $css ) {
+	
+	$failed = false;
+	
+	if( !is_dir( $folder ) ) {
+		if( true !== wp_mkdir_p( $folder ) )
+			return false;
+	}
+	add_filter('request_filesystem_credentials', '__return_true' );
+	include_once( ABSPATH . 'wp-admin/includes/file.php' );
+	if ( is_writable( $folder ) ){
+		$creds = request_filesystem_credentials( site_url() );
+		if ( ! WP_Filesystem($creds) )
+			$failed = true;
+	}
+	global $wp_filesystem;
+	if( is_object( $wp_filesystem ) && ! $failed ) {
+		$c = $wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $css, FS_CHMOD_FILE);
+		if( ! $c )
+			$failed = true;
+	}
+	
+	if( $failed ) {
+		//lets try file_put_contents then!
+		$c = file_put_contents( trailingslashit( $folder ) . $file, $css );
+		if( ! $c )
+			return pl_less_save_last_error( 'Unable to access filesystem. Check file permissions on uploads dir. Even file_put_contents() failed on: ' . $folder, false );
+	}
+			
+	return true; // file written
+	}
 
 /**
  *  The bulk of the PL Shortcodes.

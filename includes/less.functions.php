@@ -221,3 +221,28 @@ function pl_less_save_last_error( $error_text, $return = false ) {
 
 	return $return;
 }
+
+if( ! function_exists( 'pl_css_write_file' ) ) {
+	
+	function pl_css_write_file( $folder, $file, $css ) {
+		
+		if( !is_dir( $folder ) ) {
+			if( true !== wp_mkdir_p( $folder ) )
+				return false;
+		}
+		add_filter('request_filesystem_credentials', '__return_true' );
+		include_once( ABSPATH . 'wp-admin/includes/file.php' );
+		if ( is_writable( $folder ) ){
+			$creds = request_filesystem_credentials( site_url() );
+			if ( ! WP_Filesystem($creds) )
+				return pl_less_save_last_error( 'Unable to set filesystem credentials', false );
+		}
+		global $wp_filesystem;
+		if( is_object( $wp_filesystem ) )
+			$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $css, FS_CHMOD_FILE);
+		else
+			return pl_less_save_last_error( 'Unable to access filesystem. Possible permission issue on ' . $folder, false );
+			
+		return true; // file written
+	}
+}
