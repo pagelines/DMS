@@ -288,7 +288,9 @@ function pl_up_image (){
 		$attach_id = wp_insert_attachment( $attachment, $uploaded_file['file'] );
 		$attach_data = wp_generate_attachment_metadata( $attach_id, $uploaded_file['file'] );
 		wp_update_attachment_metadata( $attach_id,  $attach_data );
-
+		
+		do_action( 'after_pl_up_image', $attach_id, $attach_data );
+		
 	} else
 		$uploaded_file['error'] = __( 'Unsupported file type!', 'pagelines' );
 

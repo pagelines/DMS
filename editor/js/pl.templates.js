@@ -164,6 +164,24 @@ $.plTemplates = {
 		})
 
 
+		$(".template-mode-selector-update").on("click", function(e) {
+
+			e.preventDefault()
+	
+	
+			var theValue = $('.template-mode-selector-select').val() || ''
+			,	args = {
+						run: 'template_mode'
+					,	value: theValue
+					,	refresh: true
+				}
+		
+			args = $.extend({}, that.defaultArgs(), args)
+		
+			$.plAJAX.run( args )
+
+		})
+
 		$(".update-template").on("click", function(e) {
 
 			e.preventDefault()

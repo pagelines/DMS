@@ -1,5 +1,9 @@
 <?php
 
+function pl_faux_browser( $get = 'buttons' ){
+	return '<div class="pl-browser-header"><div class="browser-btns"><span class="bbtn-red"></span><span class="bbtn-orange"></span><span class="bbtn-green"></span></div></div>';
+}
+
 function pl_navigation( $args = array() ){
 	
 	$respond = ( isset( $args['respond'] ) && ! $args['respond'] ) ? '' : 'respond';

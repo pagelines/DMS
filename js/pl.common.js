@@ -306,16 +306,18 @@
 						 speed: 'fast',
 						 speedOut: 'fast',             
 						 animation:   {opacity:'show'}
-					});
+					})
 				} else {
 					$(this).superfish({
 						 delay: 800,
 						 speed: 'fast',
 						 speedOut: 'fast',             
 						 animation:   {opacity:'show'}
-					});
+					})
 				}
 				
+				// needs display: table for appro rendering. so we use visible
+				$(this).find('.sub-menu').css('visibility', 'visible')
 
 				var offset = $(this).data('offset') || false
 
