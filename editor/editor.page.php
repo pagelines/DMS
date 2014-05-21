@@ -253,7 +253,7 @@ function pl_type_slug(){
 function pl_special_id( $type = false ){
 	
 	$page_handler = new PageLinesPage; 
-	return $page_handler->special_id( $type ); 
+	return $page_handler->special_index_lookup( $type ); 
 	
 }
 
