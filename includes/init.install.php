@@ -263,7 +263,7 @@ class PageLinesInstall{
 							'masthead_button_theme_2'		=> 'btn-ol-white',
 							'masthead_button_link_1'		=> '#user-guide',
 							'masthead_button_text_1'		=> __( 'View User Guide <i class="icon icon-angle-down"></i>', 'pagelines' ),
-							'masthead_button_theme_1'		=> 'btn-primary'
+							'masthead_button_theme_1'		=> 'btn-ol-white'
 						)
 					),
 				)
