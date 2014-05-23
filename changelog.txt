@@ -4,6 +4,24 @@
 
 ********************************************************
 
+Version 2.1
+
+	- CORE - New Page/Post template modes (local/type).
+	- CORE - Updated Font Awesome to latest 4.1
+	- CORE - Tweaked CSS file writing code, might help a bit with real cheap hosts.
+	- CORE - Tweak to menus CSS to fix flicker.
+	- CORE - Tour/Wizard Font tweaked.
+	- CORE - PHPUnit tests added ( very basic tests, will be iterated later ).
+	- CORE - Watermark and Pagination sections added to new installs.
+	- CORE - variables.less - Use variables not hardcoded widths, props Tourkick.
+	- CORE - New filters: pl-area-inner-classes and pl-area-inner-style.
+	- CORE - PostLoop Section - New settings to disable Media and Author meta, and Karma.
+	- CORE - Add new attribute to pl_video shortcode 'wmode' props Tourkick.
+	- CORE - Added new .row-squared class props Tourkick.
+	- CORE - Hook added to editor image uploader: after_pl_up_image.
+	- CORE - Tweak IE version detection function to properly find IE11.
+	- CORE - You can now enable debug mode via the PageLines settings in wp-admin.
+
 Version 2.0.7
 
 	- CORE - IE9 has a selector limit of 4096, so optimise LESS files.
