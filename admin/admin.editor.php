@@ -8,7 +8,7 @@ class EditorAdmin {
 		add_action( 'pagelines_options_dms_less', array( $this, 'dms_tools_less') );
 		add_action( 'pagelines_options_dms_scripts', array( $this, 'dms_scripts_template') );
 		add_action( 'pagelines_options_dms_intro', array( $this, 'dms_intro') );
-		
+		add_action( 'pagelines_options_dms_debug', array( $this, 'dms_debug') );
 	}
 	
 	function admin_array(){
@@ -38,7 +38,11 @@ class EditorAdmin {
 							'tools2'		=> array(
 								'type'		=> 'dms_scripts',
 								'title'		=> __( 'DMS Header Scripts Fallback', 'pagelines' ),
-							), 
+							),
+							'debug'		=> array(
+								'type'	=> 'dms_debug',
+								'title'	=> __( 'Enable DMS Debug Mode.', 'pagelines' )
+							)
 						)
 					)
 				)
@@ -81,6 +85,17 @@ class EditorAdmin {
 				<p><input class="button button-primary" type="submit" value="<?php _e( 'Save Scripts', 'pagelines' ); ?>
 				" /><span class="saving-confirm"></span></p>
 			</form>
+		<?php
+	}
+	
+	function dms_debug() {
+		?>
+		<form id="pl-dms-debug-form" class="dms-update-setting" data-setting="enable_debug" data-type="check">
+			
+			<input type="checkbox" name="enable_debug" class="input_enable_debug" <?php checked( pl_setting( 'enable_debug' ), 1 ); ?> />
+			<input class="button button-primary" type="submit" value="<?php _e( 'Update', 'pagelines' ); ?>
+			" /><span class="saving-confirm"></span>
+		</form>
 		<?php
 	}
 }
