@@ -6,7 +6,7 @@ function pl_editor_regions(){
 	$regions = array(
 		'fixed', 'header', 'footer', 'template'
 	);
-	
+
 	return $regions;
 
 }
@@ -15,13 +15,13 @@ function pl_editor_regions(){
  *	Get index value in array, does shortcodes or default
  */
 function pl_array_get( $key, $array, $default = false ){
-	
-	if( isset( $array[$key] ) && $array[$key] != '' )
-		$val = $array[$key];
+
+	$val = isset( $array[$key] ) ? $array[$key] : $default;
+
+	if ( is_string( $val ) && $val )
+		return do_shortcode( $val );
 	else
-		$val = $default;
-	
-	return do_shortcode( $val );
+		return $val;
 }
 
 /*
@@ -40,7 +40,7 @@ function pl_deprecate_v2(){
 
 	if(pl_setting('enable_v2'))
 		return false;
-	else 
+	else
 		return true;
 
 }
@@ -50,32 +50,32 @@ function pl_use_editor(){
 	return true;
 }
 
-function pl_less_dev(){	
+function pl_less_dev(){
 	if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV )
-		return false; 
+		return false;
 	else
 		return false;
-	
+
 }
 
-function pl_has_dms_plugin(){	
-	
+function pl_has_dms_plugin(){
+
 	if( class_exists( 'DMSPluginPro' ) )
 		return true;
-	else 
-		return false;	
+	else
+		return false;
 }
 
 function pl_is_pro(){
 	return apply_filters( 'pl_is_pro', false );
 }
 
-function pl_pro_text(){	
+function pl_pro_text(){
 	return apply_filters( 'pl_pro_text', '' );
 }
 
 function pl_pro_disable_class(){
-	return apply_filters( 'pl_pro_disable_class', 'hidden' );	
+	return apply_filters( 'pl_pro_disable_class', 'hidden' );
 }
 
 function pl_is_activated(){
@@ -140,7 +140,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		$type = 'color';
 	} elseif($old['type'] == 'check_multi'){
 		$type = 'multi';
-		
+
 		foreach($old['selectvalues'] as $key => &$info){
 			$info['type'] = 'check';
 		}
@@ -160,7 +160,7 @@ function process_old_opt( $key, $old, $otop = array()){
 
 	if ( isset( $old['scope'] ) )
 		$new['scope'] = $old['scope'];
-	
+
 	if ( isset( $old['template'] ) )
 		$new['template'] = $old['template'];
 
@@ -171,11 +171,11 @@ function process_old_opt( $key, $old, $otop = array()){
 
 	if($old['taxonomy_id'] != ''){
 		$new['taxonomy_id'] = $old['taxonomy_id'];
-	}	
+	}
 
 	if($old['post_type'] != '')
 		$new['post_type'] = $old['post_type'];
-		
+
 	if($old['default'] != '')
 		$new['default'] = $old['default'];
 
@@ -187,9 +187,9 @@ function pl_create_id( $string ){
 	if( ! empty($string) ){
 		$string = str_replace( ' ', '_', trim( strtolower( $string ) ) );
 		$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
-	} else 
+	} else
 		$string = pl_new_clone_id();
-	
+
 	return ( ! is_int($string) ) ? $string : 's'.$string;
 }
 
@@ -199,7 +199,7 @@ function pl_new_clone_id(){
 
 
 function pl_create_int_from_string( $str ){
-	
+
 	return (int) substr( preg_replace("/[^0-9,.]/", "", md5( $str )), -6);
 }
 
@@ -252,11 +252,11 @@ function pl_animation_array(){
 		'pla-fade'			=> __( 'Fade', 'pagelines' ),
 		'pla-scale'			=> __( 'Scale', 'pagelines' ),
 		'pla-from-left'		=> __( 'From Left', 'pagelines' ),
-		'pla-from-right'	=> __( 'From Right', 'pagelines' ), 
-		'pla-from-bottom'	=> __( 'From Bottom', 'pagelines' ), 
-		'pla-from-top'		=> __( 'From Top', 'pagelines' ), 
-	); 
-	
+		'pla-from-right'	=> __( 'From Right', 'pagelines' ),
+		'pla-from-bottom'	=> __( 'From Bottom', 'pagelines' ),
+		'pla-from-top'		=> __( 'From Top', 'pagelines' ),
+	);
+
 	return $animations;
 }
 
@@ -882,11 +882,11 @@ function pl_icon_array(){
 		'upload-alt',
 		'warning-sign',
 		'youtube-sign'
-	);	
+	);
 	asort($icons);
-	
+
 	$icons = array_values($icons);
-	
+
 	return apply_filters( 'pl_icon_array', $icons );
 }
 
@@ -903,7 +903,7 @@ function pl_button_classes(){
 		'btn-warning'		=> 'Orange',
 		'btn-important'		=> 'Red',
 		'btn-inverse'		=> 'Black',
-	); 
+	);
 	return $array;
 }
 
@@ -918,7 +918,7 @@ function pl_theme_classes(){
 		'pl-dark-img'	=> 'Black Background, White Text w Shadow',
 		'pl-light-img'	=> 'White Background, Black Text w Shadow',
 		'pl-base'		=> 'Base Color Background',
-	); 
+	);
 	return apply_filters( 'pl_theme_classes', $array );
 }
 
@@ -935,9 +935,9 @@ function pl_get_area_classes( $section, $set = array(), $namespace = false ){
 		'video'		=> ( $section->opt($namespace.'_video') ) ? 'bg-video-canvas' : '',
 		'repeat'	=> ( $section->opt($namespace.'_repeat') ) ? 'pl-bg-repeat' : 'pl-bg-cover'
 	);
-	
+
 	$class = wp_parse_args( $set, $class );
-	
+
 	return join(' ', $class);
 
 }
@@ -947,44 +947,44 @@ function pl_get_area_styles( $section, $namespace = false ){
 	$namespace = ( $namespace ) ? $namespace : $section->id;
 
 	$bg = $section->opt($namespace.'_background');
-	
+
 	$color = $section->opt($namespace.'_color');
-	
+
 	$color_enable = $section->opt($namespace.'_color_enable');
 
 	$style = array(
 		'background' => ( $bg ) ? sprintf('background-image: url(%s);', $bg) : '',
 		'color'		=> ( $color_enable ) ? sprintf('background-color: %s;', pl_hash($color)) : '',
-	); 
-	
+	);
+
 	return $style;
-	
-	
+
+
 }
 
 function pl_standard_video_bg( $section, $namespace = false ){
-	
+
 	$namespace = ( $namespace ) ? $namespace : $section->id;
 	$video = '';
 	if( $section->opt( $namespace.'_video') ){
-		
+
 		$videos = pl_get_video_sources( array( $section->opt( $namespace.'_video'), $section->opt( $namespace.'_video_2') ) );
 		$video = sprintf(
-			'<div class="bg-video-viewport"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
-			pl_transparent_image(), 
+			'<div class="bg-video-viewport"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>',
+			pl_transparent_image(),
 			$videos
 		);
 
 		return $video;
 	} else
 		return '';
-		
+
 }
 
 function pl_get_background_options( $section, $column = 3 ){
-	
+
 	$namespace = $section->id;
-	
+
 	$options = array(
 		'title' => __( 'Background Options', 'pagelines' ),
 		'type'	=> 'multi',
@@ -1022,14 +1022,14 @@ function pl_get_background_options( $section, $column = 3 ){
 			),
 		)
 	);
-	
-	
+
+
 	return $options;
 }
 
 
 function pl_get_post_type_options( ){
-	
+
 
 	$opts = array(
 			array(
@@ -1060,7 +1060,7 @@ function pl_get_post_type_options( ){
 			array(
 				'key'			=> 'meta_key',
 				'type' 			=> 'text_small',
-				'label' 	=> __( 'Meta Key', 'pagelines' ),	
+				'label' 	=> __( 'Meta Key', 'pagelines' ),
 			),
 			array(
 				'key'			=> 'meta_value',
@@ -1069,8 +1069,8 @@ function pl_get_post_type_options( ){
 				'help'		=> __( 'Select only posts which have a certain meta key and corresponding meta value. Useful for featured posts, or similar.', 'pagelines' ),
 			),
 		);
-	
-	
+
+
 	return $opts;
 }
 
@@ -1103,24 +1103,24 @@ function pl_count_sidebar_widgets( $sidebar_id ){
 }
 
 function pl_enqueue_script(  $handle, $src = false, $deps = array(), $ver = false, $in_footer = false ){
-	
+
 	global $wp_scripts;
-	
+
 	wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 }
 
 function pl_add_theme_tab( $array ){
-	
+
 	global $pl_user_theme_tabs;
-	
+
 	if(!isset($pl_user_theme_tabs) || !is_array($pl_user_theme_tabs))
-		$pl_user_theme_tabs = array(); 
-		
-		
-	$pl_user_theme_tabs = array_merge($array, $pl_user_theme_tabs); 
-	
-	
-	
+		$pl_user_theme_tabs = array();
+
+
+	$pl_user_theme_tabs = array_merge($array, $pl_user_theme_tabs);
+
+
+
 }
 
 
@@ -1129,15 +1129,15 @@ function pl_add_theme_tab( $array ){
 function pl_blank_template( $name = '' ){
 	if ( current_user_can( 'edit_theme_options' ) )
 		return sprintf('<div class="blank-section-template pl-editor-only"><strong>%s</strong> is hidden or returned no output.</div>', $name);
-	else 
+	else
 		return '';
-	
+
 }
 
 
 function pl_shortcodize_url( $full_url ){
 	$url = str_replace(home_url(), '[pl_site_url]', $full_url);
-	
+
 	return $url;
 }
 
