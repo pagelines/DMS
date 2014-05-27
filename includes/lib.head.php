@@ -107,6 +107,8 @@ function pagelines_register_js() {
 	// Load Supersize BG Script
 	wp_enqueue_script( 'flexslider', PL_JS . '/script.flexslider.js', array( 'jquery' ), pl_get_cache_key(), true );
 
+	wp_register_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
+	wp_register_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
 }
 
 add_action( 'wp_print_styles', 'pagelines_get_childcss', 99);
