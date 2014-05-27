@@ -436,14 +436,14 @@
 
 						if( windowHeight > (contentHeight + 20) ){
 							
-							theArea.height(windowHeight)
+							theArea.height(windowHeight).css('min-height', 'auto')
 							
 							
 						} else {
-							theArea.height(contentHeight + 20)
+							theArea.height(contentHeight + 20).css('min-height', 'auto')
 						}
 						
-						theContent.css('margin-top', offsetMargin)	
+						theContent.css('margin-top', offsetMargin).fadeIn(1000)
 					
 					})
 
