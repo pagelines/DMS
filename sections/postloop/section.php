@@ -198,7 +198,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 			$class[ ] = ( ! empty( $gallery_format ) ) ? 'use-flex-gallery' : '';
 			
-			$thumb_size = ( pl_setting('thumb_size' ) ) ? pl_setting('thumb_size' ) : 'landscape-thumb'; 
+			$thumb_size = ( pl_setting('pl_loop_thumb_size' ) ) ? pl_setting('pl_loop_thumb_size' ) : 'landscape-thumb'; 
 
 			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
 			
