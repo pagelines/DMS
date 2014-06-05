@@ -4,6 +4,13 @@
 
 ********************************************************
 
+Version 2.1.1
+
+	- CORE - Moved bulk edit for pages to Pro Plugin, along with bulk edit for posts.
+	- CORE - pl-area-inner-classes and pl-area-inner-style filters now have section meta array passed as a 2nd variable.
+	- BUG - Use correct option in postloop for thumb image.
+	- BUG - Fixed pl_setting filter running at wrong time.
+
 Version 2.1
 
 	- CORE - New Page/Post template modes (local/type).
