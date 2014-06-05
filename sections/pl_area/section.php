@@ -161,7 +161,7 @@ class PLSectionArea extends PageLinesSection {
 		
 		<div class="pl-content <?php echo $content_class;?>">
 			<?php echo $title; ?>
-			<div class="<?php echo apply_filters( 'pl-area-inner-classes', $inner_classes ); ?>" style="<?php echo apply_filters( 'pl-area-inner-style', $inner_style );?>">
+			<div class="<?php echo apply_filters( 'pl-area-inner-classes', $inner_classes, $this->meta ); ?>" style="<?php echo apply_filters( 'pl-area-inner-style', $inner_style, $this->meta );?>">
 				<?php  echo $section_output; ?>
 			</div>
 		</div>
