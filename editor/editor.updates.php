@@ -13,7 +13,24 @@ class PageLinesEditorUpdates {
 	function __construct() {
 		$this->register_core();
 		add_action( 'init', array( $this, 'check_updater_status' ) );
-			
+		add_filter( 'http_request_args', array( $this, 'pagelines_plugins_remove' ), 10, 2 );	
+	}
+
+	function pagelines_plugins_remove( $r, $url ) {
+
+		if ( 0 === strpos( $url, 'https://api.wordpress.org/plugins/update-check/' ) ) {
+			$installed = get_plugins();
+			$plugins = json_decode( $r['body']['plugins'] );
+			foreach ( $installed as $path => $plugin ) {
+			//	var_dump( $plugin );
+				$data = get_file_data( sprintf( '%s/%s', WP_PLUGIN_DIR, $path ), $default_headers = array( 'pagelines' => 'PageLines' ) );
+				if ( !empty( $data['pagelines'] ) ) {
+					unset( $plugins->plugins->$path );
+				}
+			}
+			$r['body']['plugins'] = json_encode( $plugins );
+		}
+	return $r;
 	}
 
 	function register_core() {
