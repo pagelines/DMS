@@ -124,7 +124,7 @@ class PageLinesTextBox extends PageLinesSection {
 		$title = $this->opt('textbox_title');
 		
 		if( ! $text ){
-			$text = 'Textbox Section';
+			$text = sprintf( '<div class="pl-editor-only">%s</div>', __( 'Textbox Section', 'pagelines' ) );
 		} 
 		
 		if( 'strong' == $title_wrap )
