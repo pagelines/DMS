@@ -121,7 +121,9 @@ class PLWatermark extends PageLinesSection {
 		); 
 		
 		$watermark_image = $this->opt('watermark_image') ? $this->opt('watermark_image') : $this->base_url.'/default-watermark.png'; 
-		$watermark_link = $this->opt('watermark_link') ? $this->opt('watermark_link') : 'http://www.pagelines.com'; 
+		$watermark_link = $this->opt('watermark_link') ? $this->opt('watermark_link') : 'http://www.pagelines.com';
+		if( pl_setting( 'partner_link' ) )
+			$watermark_link = pl_setting( 'partner_link' );
 		$watermark_alt = $this->opt('watermark_alt') ? $this->opt('watermark_alt') : 'Build a website with PageLines'; 
 		
 		if(!$this->opt('watermark_hide')){
