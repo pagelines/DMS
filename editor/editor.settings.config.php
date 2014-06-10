@@ -220,7 +220,7 @@ class EditorSettings {
 					'type'		=> 'text',
 					'label'		=> __( 'Enter Partner Link', 'pagelines' ),
 					'title'		=> __( 'PageLines Affiliate/Partner Link', 'pagelines' ),
-					'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
+					'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com/partners/'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
 			),
 			array(
 					'col'		=> 2,
