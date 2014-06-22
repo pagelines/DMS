@@ -789,11 +789,11 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 
 		global $shortcode_js; 
 
-		$shortcode_js['tooltips'] = '<script> jQuery(function(){ jQuery("a[rel=tooltip]").tooltip();}); </script>';
+		$shortcode_js['tooltips'] = '<script> jQuery(function(){ jQuery(".pl-tooltip").tooltip();}); </script>';
 
 			ob_start();
 
-			printf( '<a href="#" rel="tooltip" title="%s" data-placement="%s">%s</a>',
+			printf( '<span class="pl-tooltip" title="%s" data-placement="%s">%s</span>',
 				$atts['tip'],
 				$atts['position'],
 				do_shortcode( $content )
