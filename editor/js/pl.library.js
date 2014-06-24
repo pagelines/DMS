@@ -105,6 +105,10 @@ function basename (path, suffix) {
  */
 function pl_do_shortcode(opt) {
 	
+	/* If we are not a string, bail out! */
+	if( 'string' !== typeof opt || ! opt.length )
+		return opt
+
 	var match = opt.match( /\[([^\]]*)/ ) || false
 	var shortcode = (match) ? match[1] : false
 	
