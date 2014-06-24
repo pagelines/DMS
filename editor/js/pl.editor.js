@@ -692,8 +692,12 @@
 			
 			$.pl.data[templateMode]['custom-map'] = $.extend({}, { template: mapConfig.template.map })
 			
-			$.pl.data.global.regions = $.extend({}, { header: mapConfig.header.map, footer: mapConfig.footer.map })
-
+			if( plIsset(mapConfig.header) )
+				$.pl.data.global.regions = $.extend( $.pl.data.global.regions, { header: mapConfig.header.map })
+				
+			if( plIsset(mapConfig.footer) )
+				$.pl.data.global.regions = $.extend( $.pl.data.global.regions, { footer: mapConfig.footer.map })
+			
 			$(window).trigger('resize')
 
 			return mapConfig

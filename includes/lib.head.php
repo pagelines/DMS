@@ -36,11 +36,57 @@ function pl_js_wrap( $js ){
 }
 
 /**
- * Fixed element area at top of site page.
- *
+ * SITE REGION: Footer
  **/
-add_action('pagelines_site_wrap', 'pl_fixed_top_area');
-function pl_fixed_top_area(){
+add_action('pagelines_after_page', 'pl_region_footer');
+function pl_region_footer(){
+	
+	// allow users to disable
+	if( pl_setting('region_disable_footer') )
+		return; 
+		
+	pagelines_register_hook('pagelines_before_footer'); // Hook ?>
+	<footer id="footer" class="footer pl-region" data-region="footer">
+		<div class="page-area outline pl-area-container fix">
+		<?php pagelines_template_area('pagelines_footer', 'footer'); // Hook ?>
+		</div>
+	</footer>
+	
+	<?php 
+}
+
+
+/**
+ * SITE REGION: Header
+ **/
+add_action('pagelines_before_main', 'pl_region_header');
+function pl_region_header(){
+	
+	// allow users to disable
+	if( pl_setting('region_disable_header') )
+		return; 
+		
+	pagelines_register_hook('pagelines_before_header');	?>
+	<header id="header" class="header pl-region" data-region="header">
+		<div class="outline pl-area-container">
+			<?php pagelines_template_area('pagelines_header', 'header'); // Hook ?>
+		</div>
+	</header>
+	
+	<?php 
+}
+
+
+/**
+ * SITE REGION: Fixed Top
+ **/
+add_action('pagelines_site_wrap', 'pl_region_fixed');
+function pl_region_fixed(){
+	
+	// allow users to disable
+	if( pl_setting('region_disable_fixed') )
+		return; 
+		
 	?>
 	<div id="fixed-top" class="pl-fixed-top is-not-fixed" data-region="fixed-top">
 		
