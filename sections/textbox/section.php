@@ -7,6 +7,7 @@
 	Class Name: PageLinesTextBox
 	Filter: component
 	Loading: active
+	Docs: http://www.pagelines.com/docs/
 */
 
 class PageLinesTextBox extends PageLinesSection {

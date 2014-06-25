@@ -264,6 +264,7 @@ class PageLinesSectionsHandler{
 				'image'		=> $s->screenshot,
 				'clone'		=> pl_new_clone_id(),
 				'number' 	=> $number,
+				
 			);
 
 			if( !empty($s->loading) )
@@ -285,7 +286,8 @@ class PageLinesSectionsHandler{
 				'data_array'	=> $data_array,
 				'thumb'			=> $s->screenshot,
 				'name'			=> $name,
-				'sub'			=> ( $full_width ) ? __( 'Full Width', 'pagelines' ) : __( 'Content Width', 'pagelines' )
+				'sub'			=> ( $full_width ) ? __( 'Full Width', 'pagelines' ) : __( 'Content Width', 'pagelines' ),
+				'docs_url'			=> ( isset( $s->docs_url ) ) ? $s->docs_url : false
 			);
 
 
@@ -467,8 +469,8 @@ function pl_section_config_default(){
 		'screenshot'	=>  PL_IMAGES . '/thumb-missing.png',
 		'splash'		=>  PL_IMAGES . '/splash-missing.png',
 		'class_name'	=> '',
-		'map'			=> ''
-
+		'map'			=> '',
+		'docs_url'			=> false
 	);
 
 	return $defaults;
