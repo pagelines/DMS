@@ -27,7 +27,7 @@ class PageLinesInstall{
 	function pagelines_check_install() {
 
 		$install = false;
-
+		$url = add_query_arg( array( 'edtr' => 'on', 'toolbox' => 'open' ), site_url() );
 		if( isset($_REQUEST['pl-install-theme'] ) && ! pl_is_wporg() ){
 			$install = true;
 		}
@@ -64,18 +64,16 @@ class PageLinesInstall{
 
 		if( $install == true  ){
 		
-		// Simon why do we need this?? 	
-		//	if( get_theme_mod( 'pl_installed' ) )
-		//		return false;
-			
-			$url = $this->run_installation_routine();
-			
-			wp_redirect( $url ); 
-
-			exit;
+			// Simon why do we need this?? 	
+			if( get_theme_mod( 'pl_installed' ) ) {
+				wp_redirect( $url );
+				exit();
+			} else {
+				$url = $this->run_installation_routine();
+				wp_redirect( $url ); 
+				exit();
+			}	
 		}
-			
-			
 	}
 	
 	function install_notice() {
