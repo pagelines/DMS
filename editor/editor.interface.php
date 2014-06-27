@@ -79,7 +79,7 @@ class EditorInterface {
 		// PageLines Developer Panel
 			wp_enqueue_script( 'pl-dev', $this->url . '/js/pl.developer.js', array( 'jquery' ), pl_get_cache_key(), true );
 			
-			wp_enqueue_script( 'pl-editor-js', $this->url . '/js/pl.editor.js', array( 'jquery' ), pl_get_cache_key() , true);
+			wp_enqueue_script( 'pl-editor-js', $this->url . '/js/pl.editor.js', array( 'jquery', 'pl-library' ), pl_get_cache_key() , true);
 			wp_enqueue_script( 'pl-toolbox-js', $this->url . '/js/pl.toolbox.js', array('pagelines-bootstrap-all' ), pl_get_cache_key(), true );
 			wp_enqueue_script( 'pl-optpanel', $this->url . '/js/pl.optpanel.js', array( 'jquery' ), pl_get_cache_key(), true );
 		
