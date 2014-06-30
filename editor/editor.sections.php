@@ -182,7 +182,7 @@ class PageLinesSectionsHandler{
 		$count = 1;
 		foreach($sections as $key => $s){
 
-			$img = sprintf('<img src="%s" style=""/>', $s->screenshot);
+			//$img = sprintf('<img src="%s" style=""/>', $s->screenshot);
 
 			if($s->map != ''){
 				$map = json_encode( $s->map );
@@ -227,6 +227,8 @@ class PageLinesSectionsHandler{
 			}
 
 			$desc = join( ', ', $desc );
+			
+			$icon = 'circle-o';
 
 			$number = $count++;
 
@@ -245,6 +247,7 @@ class PageLinesSectionsHandler{
 				}
 
 				if( $disable ) {
+					continue;
 					$class['disable'] = 'x-disable';
 					$number += 100;
 				}
@@ -261,15 +264,16 @@ class PageLinesSectionsHandler{
 				'object' 	=> $s->class_name,
 				'sid'		=> $s->id,
 				'name'		=> $name,
-				'image'		=> $s->screenshot,
 				'clone'		=> pl_new_clone_id(),
 				'number' 	=> $number,
+				'icon'		=> $icon
 			);
 
 			if( !empty($s->loading) )
 				$class['loading'] = 'loading-'.$s->loading;
 
 			if( !empty( $s->ctemplate ) ){
+				$icon = 'pencil';
 				$class['custom'] = 'custom-section';
 				$data_array['custom-section'] = $s->ctemplate;
 			}
@@ -283,9 +287,9 @@ class PageLinesSectionsHandler{
 				'id'			=> $s->id,
 				'class_array' 	=> $class,
 				'data_array'	=> $data_array,
-				'thumb'			=> $s->screenshot,
 				'name'			=> $name,
-				'sub'			=> ( $full_width ) ? __( 'Full Width', 'pagelines' ) : __( 'Content Width', 'pagelines' )
+				'sub'			=> ( $full_width ) ? 'full-width' : 'content-width',
+				'icon'			=> $icon
 			);
 
 
@@ -296,7 +300,7 @@ class PageLinesSectionsHandler{
 				$args['class_array'][] = 'full-width';
 				$args['name'] = $name.' (Full)';
 			
-				$args['sub'] = __( 'Full Width', 'pagelines' );
+				$args['sub'] = 'full-width';
 				$list .= $this->xlist->get_x_list_item( $args );
 			}
 

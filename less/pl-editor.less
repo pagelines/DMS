@@ -382,15 +382,14 @@
 
 	.pl-sortable-area,
 	.pl-sortable-column{
-		min-height: 35px;
-		.transition(.5s);
+		min-height: 25px;
+		.transition(.3s);
 	}
 	&.pl-dragging{
 		.pl-sortable-column{
 			padding-top: 0px;
 		}
 		.section-plcolumn{
-			background: @pl-base;
 			outline: 1px dashed #35eafd;
 		}
 		.ui-sortable-helper{
@@ -561,17 +560,14 @@
 	.banner-content{
 		width: 160px;
 		margin: 0 auto;
-		.btn,
-		.banner-frame{
-			box-shadow: inset 1px 1px 0 rgba(255,255,255,.2), 1px 1px 0 rgba(255,255,255,.4);
-			border:1px solid rgba(0,0,0,.3);
-		}
+	
 		.banner-frame{
 			max-width: 80px;
-			margin-bottom: 8px;
 			display: inline-block;
-			img{
-				max-width: 100%;
+			i{
+				font-size: 40px;
+				line-height: 40px;
+				vertical-align: bottom;
 			}
 		}
 	}
@@ -1580,20 +1576,59 @@
 
 				}
 			}
-
+			.x-sections{
+				background: #eee;
+				border: 1px solid #ccc; 
+				padding: 15px;
+			}
 			.x-list .x-item{
-				width: 75px;
+				width: 200px;
+				background: #fafafa;
+				box-shadow: inset 1px 1px 0 #fff; 
+				border: 1px solid #ccc;
+				border-radius: 2px;
 				margin: 5px 10px 3px 5px;
 				float: left;
 				font-size: 10px;
 				line-height: 1.2em;
-				
-				
-				&.x-disable{
-					.x-item-frame{
-						opacity: .4;
+				&:hover{
+					z-index: 100;
+					cursor: pointer;
+				}
+				.x-item-els{
+					.item-el{
+						height: 15px;
+						width: 15px;
+						text-align: center;
+						float: left;
+						line-height: 15px;
+						border-right: 1px solid #ddd;
+						padding: 7px;
+						&:hover{
+							background: #f1f1f1;
+						}
+						i{
+							color: #bbb;
+							font-size: 16px;
+							
+						}
+						&.el-name,
+						&.el-icon{cursor: move;}
+						&.el-name{
+							width: 95px;
+							font-weight: 500;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+						}
+						&:last-child{
+							border-right: none;
+						}
+						
 					}
-
+				}
+				&.x-disable{
+					opacity: .4;
 					&:hover{ cursor: not-allowed; }
 				}
 				&.x-pane{
@@ -1630,79 +1665,19 @@
 				&.x-item-larger{
 					width: 200px;
 				}
-				
-				.x-item-frame{
-					.border-radius(10px);
-					box-shadow: 0 1px 2px rgba(0,0,0,.4);
-					overflow: hidden;
-				
-					&:hover{
-						cursor: pointer;
-						box-shadow: 0 1px 2px rgba(0,0,0,.6);
-						.pl-vignette:after{
-							#gradient > .vertical(rgba(255,255,255,.05), rgba(0,0,0,.15));
-							box-shadow: inset -1px -1px rgba(255,255,255,.2);
-						}
-					}
-				
-					&:active{
-
-						box-shadow: none;
-						.pl-vignette:after{
-							#gradient > .vertical(rgba(0,0,0,.2), rgba(0,0,0,.1));
-						}
-					}
-				
-					.pl-vignette{.border-radius( 10px ); overflow: hidden;}
-				
-					.pl-vignette:after{
-
-						.border-radius( 10px );
-						box-shadow: inset 1px 1px 0 rgba(255,255,255,.5), inset -1px -1px 0 rgba(255,255,255,.5);
-						#gradient > .vertical(rgba(0,0,0,0), rgba(0,0,0,.1));
-
-					}
-				}
 			
 				.x-item-text{
-					padding: 6px 0 2px 4px;
 					font-weight: 600;
 					font-size: 10px;
-					line-height: 1.4em;
-					text-align: center;
+					line-height: 1.5em;
+				
+					.x-name, 
 					.x-item-sub{
-						color: #BBB;
-						font-weight: normal;
-						.badge{
-							padding-right: 5px;
-							padding-left: 5px;
-							font-size: 8px;
-						}
-					}
-					.x-name, .x-item-sub{
 						display: block;
 						white-space: nowrap;
 						overflow: hidden;
 						text-overflow: ellipsis;
 					}
-				}
-				img{
-					max-width: 100%;
-				}
-				.title{
-					font-weight: 600;
-				}
-				&.x-item-size-5{
-					width: 120px;
-					margin: 10px;
-				}
-				&.x-item-size-10{
-					width: 210px;
-					margin: 10px;
-				}
-				&.x-item-size-15{
-					width: 270px;
-					margin: 10px;
 				}
 
 			}

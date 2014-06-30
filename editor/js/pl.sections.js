@@ -27,6 +27,8 @@ $.plSections = {
 			var response = $.plAJAX.run( args )
 
 		})
+		
+		$('.tt-top').tooltip({placement: 'top'})
 
 	}
 	, makeDraggable: function( ){
@@ -71,7 +73,6 @@ $.plSections = {
 						.css('width', '100%')
 						.css('height', 'auto')
 
-
 				}
 			, 	stop: function(event, ui){
 					$('body')
@@ -85,8 +86,8 @@ $.plSections = {
 
 
 		var name = element.data('name')
-		, 	image = element.data('image')
-		, 	imageHTML = sprintf('<div class="pl-touchable banner-frame"><div class="pl-vignette pl-touchable-vignette"><img class="section-thumb" src="%s" /></div></div>', image )
+		, 	image = element.data('icon')
+		, 	imageHTML = sprintf('<div class="banner-frame"><i class="icon icon-%s"></i></div>', image )
 		, 	theHTML = sprintf('<div class="pl-refresh-banner pl-contrast"><div class="banner-content">%s</div></div>', imageHTML	)
 
 

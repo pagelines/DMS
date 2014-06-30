@@ -43,38 +43,40 @@ class EditorXList{
 
 		$classes = join(' ', $args['class_array']);
 
-		$popover_content = sprintf('<img src="%s" />', $args['splash']);
-
-		$img = sprintf('<img width="300" height="225" src="%s" />', $args['thumb']);
-
 		$datas = '';
 		foreach($args['data_array'] as $field => $val){
 			$datas .= sprintf("data-%s='%s' ", $field, $val);
 		}
 
-		$sub = ($args['sub']) ? sprintf('<div class="x-item-sub">%s</div>', stripslashes( $args['sub'] ) ) : '';
-
-		$thumb = ($args['thumb'] != '') ? sprintf("<div class='x-item-frame'><div class='pl-vignette'>%s</div></div>", $img) : '';
-
-		$icon = ($args['format'] == 'media' && $args['icon'] != '') ? sprintf("<div class='img rtimg'><i class='icon icon-3x %s'></i></div>", $args['icon']) : '';
-
-		$pad_class = ($args['format'] == 'media') ? 'media fix' : '';
-
+		$sub = ($args['sub'] == 'full-width') ? 'icon-arrows-h' : 'icon-square-o';
+		$sub_title = ($args['sub'] == 'full-width') ? 'Full Width Section' : 'Content Width Section';
+		$drag_to = ($args['sub'] == 'full-width') ? 'Drag To Page as Full-Width Section' : 'Drag Into Canvas or Column Area';
+		
 		$xID = ($args['id'] != '') ? sprintf("data-extend-id='%s'", $args['id']) : '';
+		
+		$pad_class = 'x-item-els fix';
+
+		$icon = sprintf('<div class="item-el"><i class="icon icon-check icon-2x"></i></div>');
+		
+		$elements = sprintf(
+			'<div class="item-el el-icon tt-top" title="%s"><i class="icon icon-%s"></i></div>
+			<div class="item-el el-name tt-top" title="%s">%s</div>
+			<div class="item-el el-type tt-top" title="%s"><i class="icon %s"></i></div>
+			<div class="item-el el-info tt-top" title="Documentation"><i class="icon icon-link"></i></div>',
+			$drag_to,
+			$args['icon'],
+			$drag_to,
+			$args['name'],
+			$sub_title,
+			$sub
+		);
 
 		$list_item = sprintf(
 			"<section id='%s_%s' class='x-item x-extension %s %s' %s %s>
 				<div class='x-item-pad'>
-					<div class='%s'>
+					<div class='x-item-els fix'>
 						%s
-						%s
-						<div class='x-item-text bd'>
-							<span class='x-name'>%s</span>
-							%s
-						</div>
-
 					</div>
-					%s
 				</div>
 			</section>",
 			$args['id'],
@@ -83,13 +85,7 @@ class EditorXList{
 			$classes,
 			$datas,
 			$xID,
-			$pad_class,
-			$thumb,
-			$icon,
-			$args['name'],
-			$sub,
-
-			$args['actions']
+			$elements
 		);
 
 		return $list_item;

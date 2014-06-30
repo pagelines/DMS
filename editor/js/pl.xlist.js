@@ -140,6 +140,7 @@
 		, extensionActions: function(){
 
 			var that = this
+			return
 			$('.x-extension').on('click.extensionItem', function(){
 				
 				
