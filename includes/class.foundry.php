@@ -43,6 +43,13 @@ class PageLinesFoundry {
 	function get_type_foundry(){
 
 		$thefoundry = array(
+			'alegreya' => array(
+				'name' => 'Alegreya',
+				'family' => '"Alegreya", palatino, serif',
+				'web_safe' => true,
+				'google' => array('400italic', '700italic', '900italic', '400', '700', '900'),
+				'monospace' => false
+			),
 			'anton' => array(
 				'name' => 'Anton',
 				'family' => '"Anton", arial, serif',
@@ -280,6 +287,14 @@ class PageLinesFoundry {
 				'family' => '"Open Sans", "Helvetica Neue", Helvetica, sans-serif',
 				'web_safe' => true,
 				'google' => array('400','300','600','800'),
+				'monospace' => false,
+				'free'		=> true
+			),
+			'pt_serif' => array(
+				'name' => 'PT Serif',
+				'family' => '"PT Serif", palatino, serif',
+				'web_safe' => true,
+				'google' => array('400','700','400italic','700italic'),
 				'monospace' => false,
 				'free'		=> true
 			),
