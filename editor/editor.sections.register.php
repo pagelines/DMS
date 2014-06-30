@@ -14,8 +14,9 @@
 class PLSectionsRegister {
 	
 	function __construct() {
-		if( defined( 'DMS_CORE' ) )
-			add_filter( 'pl_section_filters', array( $this, 'add_theme_section_filter' ) );
+	
+	//	if( defined( 'DMS_CORE' ) )
+	//		add_filter( 'pl_section_filters', array( $this, 'add_theme_section_filter' ) );
 	}
 
 	function add_theme_section_filter( $items ) {
