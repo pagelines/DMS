@@ -205,6 +205,7 @@ class PLSectionsRegister {
 			'PageLines'		=> 'PageLines',
 			'Section'		=> 'Section',
 			'Plugin Name'	=> 'Plugin Name',
+			'Docs'	=> 'Docs',
 		);
 
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -235,6 +236,7 @@ class PLSectionsRegister {
 						'author'		=> $data['author'],
 						'version'		=> $data['version'],
 						'authoruri'		=> ( isset( $data['authoruri'] ) ) ? $data['authoruri'] : '',
+						'docs'			=> ( isset( $data['docs'] ) ) ? $data['docs'] : '',
 						'description'	=> $data['description'],
 						'name'			=> $data['Plugin Name'],
 						'base_url'		=> $base_url,
@@ -305,7 +307,8 @@ class PLSectionsRegister {
 			'format'		=> 'Format',
 			'classes'		=> 'Classes',
 			'filter'		=> 'Filter',
-			'loading'		=> 'Loading'
+			'loading'		=> 'Loading',
+			'docs'			=> 'Docs',
 		);
 
 		$sections = array();
@@ -450,7 +453,8 @@ class PLSectionsRegister {
 				'purchased'		=> $purchased,
 				'uid'			=> $uid,
 				'filter'		=> $filters,
-				'loading'		=> $headers['loading']
+				'loading'		=> $headers['loading'],
+				'docs'			=> ( isset( $headers['docs'] ) ) ? $headers['docs'] : false,
 			);
 		}
 

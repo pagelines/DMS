@@ -107,7 +107,7 @@ class PageLinesSection {
 		$this->settings['format'] = ( !empty( $this->sinfo['format'] ) ) ? $this->sinfo['format'] : $this->settings['format'];
 		$this->settings['classes'] = ( !empty( $this->sinfo['classes'] ) ) ? $this->format_classes( $this->sinfo['classes'] ) : $this->settings['classes'];
 		$this->settings['p_ver'] = $this->sinfo['version'];
-
+		$this->docs_url = $this->sinfo['docs'];
 
 		/*
 		 * SECTION PAGE ISOLATION

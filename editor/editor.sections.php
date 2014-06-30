@@ -289,7 +289,9 @@ class PageLinesSectionsHandler{
 				'data_array'	=> $data_array,
 				'name'			=> $name,
 				'sub'			=> ( $full_width ) ? 'full-width' : 'content-width',
-				'icon'			=> $icon
+				'icon'			=> $icon,
+				'docs_url'			=> ( isset( $s->docs_url ) ) ? $s->docs_url : false
+
 			);
 
 
@@ -471,8 +473,8 @@ function pl_section_config_default(){
 		'screenshot'	=>  PL_IMAGES . '/thumb-missing.png',
 		'splash'		=>  PL_IMAGES . '/splash-missing.png',
 		'class_name'	=> '',
-		'map'			=> ''
-
+		'map'			=> '',
+		'docs_url'			=> false
 	);
 
 	return $defaults;
