@@ -4,6 +4,18 @@
 
 ********************************************************
 
+Version 2.1.2
+	
+	- CORE - Add the ability to totally turn of template areas, fixed, header and footer.
+	- CORE - Make sure google fonts url is encoded properly so page validates.
+	- CORE - Fixed the partner link in footer if user has added an affiliate link.
+	- CORE - Unregister any plugins that have the PageLines header from the WP update queue, stops WP trying to update them from wp.org
+	- CORE - TextBox - Add pl-editor-only if there is no content.
+	- CORE - Updated POT file.
+	- CORE - Fix bug in pl_do_shortcode()
+	- CORE - Only run installer once. Code added to intercept WP customizer and redirect to front page with the editor open.
+	- CORE - Added inline docs links for sections ( not fully implemented yet )
+
 Version 2.1.1
 
 	- CORE - Moved bulk edit for pages to Pro Plugin, along with bulk edit for posts.
