@@ -49,7 +49,7 @@ class EditorTypography{
 			$gcss .= $added;
 			
 		if($gcss != '' )
-			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", $gcss );
+			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", urlencode( $gcss ) );
 			
 		
 	}
