@@ -178,7 +178,7 @@ function pl_get_comments_template(){
  */
 function pagelines_search_form( $echo = true, $class = 'searchform' ){
 
-	$searchfield = sprintf('<span class="btn-search"><i class="icon icon-search"></i></span><input type="text" value="" name="s" class="searchfield" placeholder="%s" />', __('Search', 'pagelines'));
+	$searchfield = sprintf('<span class="btn-search"><i class="icon icon-search"></i></span><input type="text" value="" name="s" class="searchfield" />');
 
 	$searchform = sprintf(
 						'<form method="get" class="%s pl-searcher" onsubmit="this.submit();return false;" action="%s/" ><fieldset>%s</fieldset></form>', 
