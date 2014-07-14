@@ -407,7 +407,7 @@ class PageLinesInstall{
 		ob_start(); 
 		
 		?>
-		<h3 class="center"><?php _e( 'Welcome to DMS!', 'pagelines' ); ?></h3>
+		<h3 class="center"><?php printf( __( 'Welcome to PageLines %s.', 'pagelines' ), PL_NICETHEMENAME ) ?></h3>
 		<iframe  class="scribd_iframe_embed" src="//www.scribd.com/embeds/213323278/content?start_page=1&view_mode=slideshow&access_key=key-1dzmy27btqjwamjd0dye&show_recommendations=false" data-auto-height="false" data-aspect-ratio="0.772922022279349" scrolling="no" id="doc_40327" width="100%" height="1000" frameborder="0"></iframe>
 		
 		<?php 
