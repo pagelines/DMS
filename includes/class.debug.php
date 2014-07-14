@@ -153,7 +153,7 @@ class PageLinesDebug {
 			
 			$this->debug_info[] = array(
 				'title'	=> 'PHP memory limit',
-				'value' => size_format( ini_get('memory_limit') ),
+				'value' => size_format( $this->let_to_num( ini_get('memory_limit') ) ),
 			);
 
 			$this->debug_info[] = array(
