@@ -62,6 +62,9 @@ function pagelines_theme_settings_scripts() {
 	
 	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), array( 'dashicons' ), pl_get_cache_key() );
 	
+	wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
+	wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
+	
 	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
 	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library' ), pl_get_cache_key() );
 	

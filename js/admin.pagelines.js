@@ -17,7 +17,17 @@ $(document).ready(function(){
 			that = this
 			
 			that.imageUploaders()
+			
+			that.specialOptions()
 
+		}
+		
+		, 	specialOptions: function(){
+			
+			$('.chosen-select').chosen()
+			
+			$('.chosen-select').css('margin', '50px')
+			
 		}
 		,	imageUploaders: function(){
 		

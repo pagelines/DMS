@@ -204,6 +204,10 @@ class DMSOptEngine {
 				$this->option_select( $o, 'menu' );
 			break;
 			
+			case 'select_icon':
+				$this->option_select( $o, 'icon' );
+			break;
+			
 			case 'text':
 				$this->option_text( $o );
 			break;
@@ -232,9 +236,46 @@ class DMSOptEngine {
 	}
 	
 	function option_select( $o, $type = '' ){
+		
+		$select_opts = array();
+		
+		if( $type == 'menu' ){
+			$items = wp_get_nav_menus( array( 'orderby' => 'name' ) );
+			
+			if( is_array( $items ) ){
+				foreach( $items as $m ){
+					$select_opts[ $m->slug ] = array( 'name' => $m->name );
+				}
+			}
+			
+		} elseif( $type == 'icon' ){
+		
+			$items = pl_icon_array( );
+
+			if( is_array( $items ) ){
+				foreach( $items as $m ){
+					$select_opts[ $m ] = array( 'name' => $m );
+				}
+			}
+			
+		} else {
+			
+			if( is_array( $o['opts'] ) )
+				$select_opts = $o['opts'];
+			
+			
+		}
 		?>
 		<label for="upload_image" class="image_uploader"></label>
-		<p><input class="pl-opt" type="text" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></p>
+		<p>
+			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
+				<option value="">Default</option>
+				<?php foreach( $select_opts as $key => $s )
+							printf('<option value="%s">%s</option>', $key, $s['name']); 
+				?>
+			</select> 
+			<span class="description"><?php echo $o['label'];?></span>
+		</p>
 	
 		<?php
 	}
