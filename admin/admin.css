@@ -1,4 +1,105 @@
 
+
+/* PAGELINES ADMIN SETTINGS *****/
+
+/* OPTIONS */ 
+
+.pl-opt-group-header{
+	font-size: 1.5em;
+	background: rgba(0,0,0,.05);
+	margin: 15px 0;
+	line-height: 1.6em;
+	padding: 10px;
+}
+
+.pl-opt[type=email], 
+.pl-opt[type=number], 
+.pl-opt[type=password], 
+.pl-opt[type=search], 
+.pl-opt[type=tel], 
+.pl-opt[type=text], 
+.pl-opt[type=url], 
+select.pl-opt, 
+textarea.pl-opt {
+	border: 1px solid #bbb;
+	border-radius: 2px;
+	padding: 4px;
+	line-height: 19px;
+	margin: 0;
+}
+
+span.description{
+	margin-left: 10px;
+}
+.pl-help{
+	font-size: 11px;
+	background: #e1e1e1;
+	padding: 8px;
+	width: 400px;
+	margin: 10px 0 0;
+}
+
+
+/* IMAGE UPLOADER */ 
+.image_uploader{
+
+	display: block;
+}
+.image_preview{
+	float: left;
+	margin-right: 15px;
+	width: 115px;
+} 
+.image_input{
+
+	float: left;
+}
+.image_preview_wrap{
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #bbb;
+	display: inline-block;
+}
+.image_preview img{
+	max-height: 100px;
+	max-width: 100px;
+	display: block;
+}
+
+/* DASHICONS */ 
+.pl-di{
+	display: inline-block;
+	font-family: "dashicons";
+	font-style: normal;
+	font-weight: normal;
+	vertical-align: bottom;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.pl-di-upload:before {
+    content: "\f317";
+}
+
+.pl-di-images:before {
+    content: "\f161";
+}
+
+.pl-di-share:before {
+   content: "\f237";
+}
+
+
+.pl-di-facebook:before {
+   content: "\f304";
+}
+
+
+.pl-di-networking:before {
+   content: "\f325";
+}
+
+
+
 /* METABOXES */
 .pagelines-metabox-table th{
 	width: 30%;
