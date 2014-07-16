@@ -229,8 +229,16 @@ function pl_dms_admin_actions(){
 	$field = $postdata['setting'];
 	$value = $postdata['value'];
 
-	pl_setting_update($field, $value);
+	if( 'custom_less' == $field || 'custom_scripts' == $field ) {
+		while( strchr( $value, '\\' ) ) { 
+			$value = stripslashes( $value ); 
+		}
+	}
 
+	pl_setting_update($field, $value, 'global', 'live' );
+
+	$response['value'] = $value;
+	$response['field'] = $field;
 	echo json_encode(  pl_arrays_to_objects( $response ) );
 	if( $lessflush ) {
 		global $dms_cache;

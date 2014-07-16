@@ -61,7 +61,7 @@ $(document).ready(function(){
 				window.clearInterval(interval); // clear dots...
 			
 				saveText.text('Saved!');
-				
+				plPrint(response)
 				saveText
 					.delay(800)
 					.fadeOut('slow')
