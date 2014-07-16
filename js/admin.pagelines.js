@@ -26,7 +26,6 @@ $(document).ready(function(){
 			
 			$('.chosen-select').chosen()
 			
-			$('.chosen-select').css('margin', '50px')
 			
 		}
 		,	imageUploaders: function(){

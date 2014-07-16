@@ -57,6 +57,40 @@ class EditorAdmin {
 						)
 					),
 					array(
+						'title'	=> __( '<i class="pl-di pl-di-networking"></i> Layout Handling', 'pagelines' ), 
+						'opts'	=> array(
+							array(
+								'key'		=> 'layout_opts',
+								'type' 		=> 'multi',
+								'title' 	=> __( 'Layout Configuration', 'pagelines' ),
+								'opts' 		=> array(
+									array(
+										'key'		=> 'layout_mode',
+										'type' 		=> 'select',
+										'label' 	=> __( 'Select Content Width Mode', 'pagelines' ),
+										'title' 	=> __( 'Layout Mode', 'pagelines' ),
+										'opts' 		=> array(
+											'pixel' 	=> array('name' => __( 'Pixel Width Based Layout', 'pagelines' )),
+											'percent' 	=> array('name' => __( 'Percentage Width Based Layout', 'pagelines' ))
+										),
+										'default'	=> 'pixel',
+									),
+									array(
+										'key'		=> 'layout_display_mode',
+										'type' 		=> 'select',
+										'label' 	=> __( 'Select Layout Display', 'pagelines' ),
+										'title' 	=> __( 'Display Mode', 'pagelines' ),
+										'opts' 		=> array(
+											'display-full' 		=> array('name' => __( 'Full Width Display', 'pagelines' )),
+											'display-boxed' 	=> array('name' => __( 'Boxed Display', 'pagelines' ))
+										),
+										'default'	=> 'display-full',
+									),
+								),
+							),
+						)
+					), 
+					array(
 						'title'	=> __( '<i class="pl-di pl-di-networking"></i> Navigation', 'pagelines' ), 
 						'opts'	=> array(
 							array(
@@ -208,18 +242,83 @@ class EditorAdmin {
 					)
 				)
 			),
+			'pagelines_resets' => array( 
+				'title'		=> __( 'Resets', 'pagelines' ),
+				'groups'	=> array(
+					array(
+						'type'	=> 'multi',
+						'col'	=> 3,
+						'title'	=> __( 'Resets', 'pagelines' ),
+						'opts'	=> array(
+							array(
+									'key'		=> 'reset_global',
+									'type'		=> 'action_button',
+									'classes'	=> 'btn-important',
+									'label'		=> __( '<i class="icon icon-undo"></i> Reset Global Settings', 'pagelines' ),
+									'title'		=> __( 'Reset Global Site Settings', 'pagelines' ),
+									'help'		=> __( "Use this button to reset all global settings to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
+							),
+							array(
+									'key'		=> 'reset_local',
+									'type'		=> 'action_button',
+									'classes'	=> 'btn-important',
+									'label'		=> __( '<i class="icon icon-undo"></i> Reset Current Page Settings', 'pagelines' ),
+									'title'		=> __( 'Reset Current Page Settings', 'pagelines' ),
+									'help'		=> __( "Use this button to reset all settings on the current page back to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
+							),
+							array(
+									'key'		=> 'reset_type',
+									'type'		=> 'action_button',
+									'classes'	=> 'btn-important',
+									'label'		=> __( '<i class="icon icon-undo"></i> Reset Current Post Type Settings', 'pagelines' ),
+									'title'		=> __( 'Reset Current Post Type Settings', 'pagelines' ),
+									'help'		=> __( "Use this button to reset all settings on the current post type back to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
+							),
+							array(
+									'key'		=> 'reset_cache',
+									'col'		=> 2,
+									'type'		=> 'action_button',
+									'classes'	=> 'btn-info',
+									'label'		=> __( '<i class="icon icon-trash"></i> Flush Caches', 'pagelines' ),
+									'title'		=> __( 'Clear all CSS/LESS cached data.', 'pagelines' ),
+									'help'		=> __( "Use this button to purge the stored LESS/CSS data. This will also clear cached pages if wp-super-cache or w3-total-cache are detected.", 'pagelines' )
+							),
+						)
+					),
+				)
+			),
+			
 			'pagelines_advanced' => array( 
 				'title'		=> __( 'Advanced', 'pagelines' ),
 				'groups'	=> array(
 								
 					array(
-						'title'	=> __( 'Website Region Controls', 'pagelines' ),
-						'desc'	=> __( 'Enable or disable various regions of your website from view.', 'pagelines' ),
+						'title'	=> __( '<i class="pl-di pl-di-regions"></i> Region Control', 'pagelines' ),
+						
 						'opts'	=> array(
-							'debug'		=> array(
-								'type'	=> 'dms_debug',
-								'title'	=> __( 'Enable DMS Debug Mode.', 'pagelines' )
+							array(
+								'title'	=> 'Region Visibility',
+								'type'	=> 'multi',
+								'help'	=> __( 'Enable or disable various regions of your website from view.', 'pagelines' ),
+								'opts'	=> array(
+									array(
+											'key'		=> 'region_disable_fixed',
+											'type'		=> 'check',
+											'label'		=> __( 'Disable Fixed Region?', 'pagelines' ),							  
+									),
+									array(
+											'key'		=> 'region_disable_header',
+											'type'		=> 'check',
+											'label'		=> __( 'Disable Header Region?', 'pagelines' ),							  
+									),
+									array(
+											'key'		=> 'region_disable_footer',
+											'type'		=> 'check',
+											'label'		=> __( 'Disable Footer Region?', 'pagelines' ),								  
+									),
+								)
 							)
+							
 						)
 					),
 					array(
@@ -243,7 +342,48 @@ class EditorAdmin {
 									'help'		=> __( 'Disable any error notices sent to wp-admin by the less system', 'pagelines' ),								  
 							)
 						)
-					)
+					),
+					array(
+						'key'	=> 'misc_advanced_settings',
+						'type'	=> 'multi',
+						'col'	=> 3,
+						'title'	=> __( 'Miscellaneous Config', 'pagelines' ),
+						'opts'	=> array(
+							array(
+									'key'		=> 'load_prettify_libs',
+									'type'		=> 'check',
+									'label'		=> __( 'Enable Code Prettify?', 'pagelines' ),
+									'title'		=> __( 'Google Prettify Code', 'pagelines' ),
+									'help'		=> __( "Add a class of 'prettyprint' to code or pre tags, or optionally use the [pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if Wordpress inserts line breaks.", 'pagelines' )
+							),
+							array(
+									'col'		=> 2,
+									'key'		=> 'partner_link',
+									'type'		=> 'text',
+									'label'		=> __( 'Enter Partner Link', 'pagelines' ),
+									'title'		=> __( 'PageLines Affiliate/Partner Link', 'pagelines' ),
+									'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com/partners/'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
+							),
+							array(
+									'col'		=> 2,
+									'key'		=> 'special_body_class',
+									'type'		=> 'text',
+									'label'		=> __( 'Install Class', 'pagelines' ),
+									'title'		=> __( 'Current Install Class', 'pagelines' ),
+									'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
+							),
+
+							array(
+								'key'		=> 'alternative_css',
+								'default'	=> false,
+								'type'		=> 'check',
+								'col'		=> 1,
+								'label'		=> __( 'Enable Alternative CSS URLS', 'pagelines' ),
+								'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.', 'pagelines' )				
+							)
+						)
+					),
+					
 				)
 			),
 		);

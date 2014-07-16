@@ -91,7 +91,7 @@ class DMSOptionsUI {
 			$this->get_nav();
 		
 			// The tab container start....
-			printf('<div id="%s" class="tabinfo">', $this->current_tab_slug );
+			printf('<div id="%s" class="pl-admin-settings tabinfo">', $this->current_tab_slug );
 		
 			foreach( $this->current_tab_config['groups'] as $groups ){
 			
@@ -109,9 +109,12 @@ class DMSOptionsUI {
 				
 				}
 			
+				
 				echo '</tbody></table>';
 			
 			}
+			
+			printf('<div class="pl-save"><button class="pl-save-settings button button-primary">Save Changes</button></div>');
 		
 			echo '<div class="clear"></div></div>';
 	
@@ -196,6 +199,10 @@ class DMSOptEngine {
 				$this->option_image_upload( $o );
 			break;
 			
+			case 'check':
+				$this->option_check( $o );
+			break;
+			
 			case 'select':
 				$this->option_select( $o );
 			break;
@@ -206,6 +213,10 @@ class DMSOptEngine {
 			
 			case 'select_icon':
 				$this->option_select( $o, 'icon' );
+			break;
+			
+			case 'action_button':
+				$this->button( $o, 'action' );
 			break;
 			
 			case 'text':
@@ -225,6 +236,22 @@ class DMSOptEngine {
 			$opt = wp_parse_args( $opt, $this->defaults );
 			$this->option_breaker( $opt );
 		}
+	}
+	
+	function button( $o, $type = ''){
+		?>
+		
+		<p><button for="upload_image" class="image_uploader button button-primary"><?php echo $o['label'];?></button></p>
+	
+		<?php
+	}
+	
+	function option_check( $o ){
+		?>
+		
+		<p><label for="upload_image" class="image_uploader"><input class="pl-opt" type="checkbox" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></label></p>
+	
+		<?php
 	}
 	
 	function option_text( $o ){
