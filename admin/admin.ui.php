@@ -288,6 +288,26 @@ class DMSOptEngine {
 				$fonts[ $val ] = array( 'name' => $i['name'] );
 			}
 		}
+		
+		$sizes = array();
+		for( $i = 10; $i <= 30; $i++){
+			$sizes[ $i ] = array('name' => $i.'px');
+		}
+		
+		$weights = array();
+		$items = array(
+			'300' => '300 - Light',
+			'400' => '400 - Semi Light',
+			'500' => '500 - Normal',
+			'600' => '600 - Semi Bold',
+			'800' => '800 - Bold'
+		);
+		
+		if( is_array( $items ) ){
+			foreach( $items as $val => $i ){
+				$weights[ $val ] = array( 'name' => $i );
+			}
+		}
 		?>
 	
 		<p>
@@ -299,13 +319,13 @@ class DMSOptEngine {
 			</select>
 			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
 				<option value="">Default</option>
-				<?php foreach( $select_opts as $key => $s )
+				<?php foreach( $sizes as $key => $s )
 							printf('<option value="%s">%s</option>', $key, $s['name']); 
 				?>
 			</select>
 			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
 				<option value="">Default</option>
-				<?php foreach( $select_opts as $key => $s )
+				<?php foreach( $weights as $key => $s )
 							printf('<option value="%s">%s</option>', $key, $s['name']); 
 				?>
 			</select>
