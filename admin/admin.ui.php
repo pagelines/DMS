@@ -223,6 +223,10 @@ class DMSOptEngine {
 				$this->option_color( $o );
 			break;
 			
+			case 'typography':
+				$this->option_typography( $o );
+			break;
+			
 			case 'text':
 				$this->option_text( $o );
 			break;
@@ -270,6 +274,45 @@ class DMSOptEngine {
 		?>
 		<label for="upload_image" class="image_uploader"></label>
 		<p><input class="pl-opt" type="text" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></p>
+	
+		<?php
+	}
+	
+	function option_typography( $o ){
+		
+		$fonts = array();
+		$items = pl_get_foundry();
+		
+		if( is_array( $items ) ){
+			foreach( $items as $val => $i ){
+				$fonts[ $val ] = array( 'name' => $i['name'] );
+			}
+		}
+		?>
+	
+		<p>
+			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
+				<option value="">Default</option>
+				<?php foreach( $fonts as $key => $s )
+							printf('<option value="%s">%s</option>', $key, $s['name']); 
+				?>
+			</select>
+			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
+				<option value="">Default</option>
+				<?php foreach( $select_opts as $key => $s )
+							printf('<option value="%s">%s</option>', $key, $s['name']); 
+				?>
+			</select>
+			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
+				<option value="">Default</option>
+				<?php foreach( $select_opts as $key => $s )
+							printf('<option value="%s">%s</option>', $key, $s['name']); 
+				?>
+			</select>
+		</p>
+		<p>
+			<textarea class="pl-opt pl-typography-preview" rows="1">The quick brown fox jumps over the lazy dog.</textarea>
+		</p>
 	
 		<?php
 	}

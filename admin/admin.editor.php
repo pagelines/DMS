@@ -53,6 +53,26 @@ class EditorAdmin {
 						)
 					),
 					array(
+						'title'	=> __( '<i class="pl-di pl-di-images"></i> Site Typography', 'pagelines' ), 
+						'opts'	=> array(
+							array(
+								'key'		=> 'canvas_colors',
+								'type' 		=> 'multi',
+								'title' 	=> __( 'Primary Type', 'pagelines' ),
+								'help' 		=> __( 'The "base" colors are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.', 'pagelines' ),
+								'opts'		=> array(
+									array(
+										'key'			=> 'font_primary',
+										'type' 			=> 'typography',
+										'label' 		=> __( 'Select Font Face', 'pagelines' ),
+										'default'		=> 'open_sans',
+
+									),
+								)
+							),
+						)
+					),
+					array(
 						'title'	=> __( '<i class="pl-di pl-di-images"></i> Site Images', 'pagelines' ), 
 						'opts'	=> array(
 							array(

@@ -614,6 +614,12 @@ class PageLinesFoundry {
 }
 
 
+function pl_get_foundry(){
+	$foundry = new PageLinesFoundry;
+	
+	return $foundry->get_foundry();
+}
+
 /**
 *
 * @TODO do
