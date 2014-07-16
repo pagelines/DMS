@@ -4,6 +4,13 @@
 
 ********************************************************
 
+Version 2.1.4
+
+	- CORE - Fixed error when importing json from dms1 child themes.
+	- CORE - Sanitize custom css and scripts in wp-admin, should be no more \\\\\\' now.
+	- BUG - Removed preload from revslider, fixes video not loading in chrome glitch.
+	- BUG - Fixed small typo in debug info.
+
 Version 2.1.3
 
 	- CORE - Fixed bug with googlefont url if extra fonts were added url was malformatted.
