@@ -25,7 +25,7 @@ $(document).ready(function(){
 		, 	specialOptions: function(){
 			
 			$('.chosen-select').chosen()
-			
+			$('.pl-colorpicker').wpColorPicker().addClass('is-ready')
 			
 		}
 		,	imageUploaders: function(){

@@ -18,6 +18,41 @@ class EditorAdmin {
 				'title'		=> __( 'PageLines Settings', 'pagelines' ),
 				'groups'	=> array(
 					array(
+						'title'	=> __( '<i class="pl-di pl-di-images"></i> Site Colors', 'pagelines' ), 
+						'opts'	=> array(
+							array(
+								'key'		=> 'canvas_colors',
+								'type' 		=> 'multi',
+								'title' 	=> __( 'Site Base Colors', 'pagelines' ),
+								'help' 		=> __( 'The "base" colors are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.', 'pagelines' ),
+								'opts'		=> array(
+									array(
+										'key'			=> 'bodybg',
+										'type'			=> 'color',
+										'label' 		=> __( 'Background Base Color', 'pagelines' ),
+										
+										'compile'		=> 'pl-base',
+									),
+									array(
+										'key'			=> 'text_primary',
+										'type'			=> 'color',
+										'label' 		=> __( 'Text Base Color', 'pagelines' ),
+										
+										'compile'		=> 'pl-text',
+
+									),
+									array(
+										'key'			=> 'linkcolor',
+										'type'			=> 'color',
+										'label' 		=> __( 'Link Base Color', 'pagelines' ),
+									
+										'compile'		=> 'pl-link',
+									)
+								)
+							),
+						)
+					),
+					array(
 						'title'	=> __( '<i class="pl-di pl-di-images"></i> Site Images', 'pagelines' ), 
 						'opts'	=> array(
 							array(

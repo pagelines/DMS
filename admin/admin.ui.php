@@ -216,7 +216,11 @@ class DMSOptEngine {
 			break;
 			
 			case 'action_button':
-				$this->button( $o, 'action' );
+				$this->option_button( $o, 'action' );
+			break;
+			
+			case 'color':
+				$this->option_color( $o );
 			break;
 			
 			case 'text':
@@ -238,10 +242,18 @@ class DMSOptEngine {
 		}
 	}
 	
-	function button( $o, $type = ''){
+	function option_button( $o, $type = ''){
 		?>
 		
 		<p><button for="upload_image" class="image_uploader button button-primary"><?php echo $o['label'];?></button></p>
+	
+		<?php
+	}
+	
+	function option_color( $o, $type = ''){
+		?>
+		
+		<p><input class="pl-opt pl-colorpicker" type="text" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></p>
 	
 		<?php
 	}

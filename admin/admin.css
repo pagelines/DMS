@@ -49,6 +49,7 @@ textarea.pl-opt {
 
 span.description{
 	margin-left: 10px;
+	vertical-align: top;
 }
 .pl-help{
 	font-size: 11px;
@@ -58,6 +59,13 @@ span.description{
 	margin: 10px 0 0;
 }
 
+.pl-colorpicker{
+	opacity: 0;
+	transition: opacity .5s;
+}
+.pl-colorpicker.is-ready{
+	opacity: 1;
+}
 
 /* IMAGE UPLOADER */ 
 .image_uploader{
