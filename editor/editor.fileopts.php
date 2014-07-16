@@ -116,7 +116,7 @@ class EditorFileOpts {
 		$parsed['opts'] = $opts;
 		$parsed = array( 'nothing' );
 		$file_contents = pl_file_get_contents( $file ) ;
-
+		$import_defaults = array( 'draft' => array(), 'live' => array() );
 		$file_data = $this->strip_header( $file_contents );
 
 		$file_data = json_decode( $file_data );
@@ -131,11 +131,11 @@ class EditorFileOpts {
 		// IMPORT USER MAPS
 		if( isset( $file_data['pl-user-templates'] ) && 'checked' == $opts['page_tpl_import'] ) {
 			
-			$new = array( 'draft' => array(), 'live' => array() );
+			$new = $import_defaults;
 			
-			$old = get_option( 'pl-user-templates', array( 'draft' => array(), 'live' => array() ) );
-			
-			$import = $file_data['pl-user-templates'];
+			$old = get_option( 'pl-user-templates', $import_defaults );
+						
+			$import = wp_parse_args( $file_data['pl-user-templates'], $import_defaults );
 			
 			$new['draft'] = array_merge( $old['draft'], $import['draft'] );
 			$new['live'] = array_merge( $old['live'], $import['live'] );
