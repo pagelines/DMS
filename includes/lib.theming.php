@@ -39,6 +39,8 @@ function pl_social_links_options(){
 }
 
 function pl_social_links(){
+	
+	$target = "target='_blank'";
 	ob_start(); 
 	?>
 	<div class="sl-links">
