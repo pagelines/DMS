@@ -95,11 +95,12 @@ class DMSOptionsUI {
 		
 			foreach( $this->current_tab_config['groups'] as $groups ){
 			
-				if( isset($groups['title']) && ! empty($groups['title']))
-					printf('<h3 class="pl-opt-group-header">%s</h3>', $groups['title']); 
 				
-				if( isset($groups['desc']) && ! empty($groups['desc']))
-					printf('<p>%s</p>', $groups['desc']);
+					
+				
+				$desc = ( isset($groups['desc']) && ! empty($groups['desc']) ) ? sprintf('<br/><small>%s</small>', $groups['desc']) : '';
+				
+				printf('<h3 class="pl-opt-group-header">%s %s</h3>', $groups['title'], $desc); 
 				
 				echo '<table class="form-table fix"><tbody>';
 			
@@ -114,7 +115,8 @@ class DMSOptionsUI {
 			
 			}
 			
-			printf('<div class="pl-save"><button class="pl-save-settings button button-primary">Save Changes</button></div>');
+			if( ! isset( $this->current_tab_config['hide_save'] ) || empty( $this->current_tab_config['hide_save'] ) )
+				printf('<div class="pl-save"><button class="pl-save-settings button button-primary">Save Changes</button></div>');
 		
 			echo '<div class="clear"></div></div>';
 	
@@ -153,13 +155,27 @@ class DMSOptEngine {
 		);
 		
 	}
+	
+	function set_option_up( $o ){
+		
+		$o = wp_parse_args( $o, $this->defaults );
+		
+		$o['name'] = sprintf( 'settings[%s]', $o['key'] );
+		
+		$o['id'] = $o['key'];
+		
+		$o['val'] = pl_setting( $o['key'] );
+		
+		return $o;
+		
+	}
 
 	/**
 	 * Option generation engine
 	 */
 	function option_engine( $o ){
 		
-		$o = wp_parse_args( $o, $this->defaults );
+		$o = $this->set_option_up( $o );
 
 		
 		if($o['disabled'])
@@ -241,7 +257,7 @@ class DMSOptEngine {
 	
 	function option_multi( $o ){
 		foreach( $o['opts'] as $key => $opt ){
-			$opt = wp_parse_args( $opt, $this->defaults );
+			$opt = $this->set_option_up( $opt );
 			$this->option_breaker( $opt );
 		}
 	}
@@ -256,8 +272,7 @@ class DMSOptEngine {
 	
 	function option_color( $o, $type = ''){
 		?>
-		
-		<p><input class="pl-opt pl-colorpicker" type="text" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></p>
+		<p><input class="pl-opt pl-colorpicker" type="text" name="<?php echo $o['name'];?>" placeholder="" value="<?php echo pl_hashify( $o['val'] );?>"/> <span class="description"><?php echo $o['label'];?></span></p>
 	
 		<?php
 	}
@@ -273,7 +288,7 @@ class DMSOptEngine {
 	function option_text( $o ){
 		?>
 		<label for="upload_image" class="image_uploader"></label>
-		<p><input class="pl-opt" type="text" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></p>
+		<p><input class="pl-opt" type="text" name="<?php echo $o['name'];?>" placeholder="" value="<?php echo $o['val'];?>" /> <span class="description"><?php echo $o['label'];?></span></p>
 	
 		<?php
 	}
@@ -287,6 +302,12 @@ class DMSOptEngine {
 			foreach( $items as $val => $i ){
 				$fonts[ $val ] = array( 'name' => $i['name'] );
 			}
+		}
+		
+		foreach( $fonts as $f => $v ){
+			
+			$fonts[ $f ][ 'val' ] = ( $o['val'] == $f ) ? 'selected' : '';
+			
 		}
 		
 		$sizes = array();
@@ -314,7 +335,7 @@ class DMSOptEngine {
 			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
 				<option value="">Default</option>
 				<?php foreach( $fonts as $key => $s )
-							printf('<option value="%s">%s</option>', $key, $s['name']); 
+							printf('<option value="%s" %s>%s</option>', $key, $s['val'], $s['name']); 
 				?>
 			</select>
 			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
@@ -343,10 +364,10 @@ class DMSOptEngine {
 		
 		if( $type == 'menu' ){
 			$items = wp_get_nav_menus( array( 'orderby' => 'name' ) );
-			
+		
 			if( is_array( $items ) ){
 				foreach( $items as $m ){
-					$select_opts[ $m->slug ] = array( 'name' => $m->name );
+					$select_opts[ $m->term_id ] = array( 'name' => $m->name );
 				}
 			}
 			
@@ -367,13 +388,20 @@ class DMSOptEngine {
 			
 			
 		}
+		
+		foreach( $select_opts as $v => $s ){
+			
+			$select_opts[ $v ][ 'val' ] = ( $o['val'] == $v ) ? 'selected' : '';
+			
+		}
+	
 		?>
-		<label for="upload_image" class="image_uploader"></label>
+	
 		<p>
 			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
 				<option value="">Default</option>
 				<?php foreach( $select_opts as $key => $s )
-							printf('<option value="%s">%s</option>', $key, $s['name']); 
+							printf( '<option value="%s" %s>%s</option>', $key, $s['val'], $s['name'] ); 
 				?>
 			</select> 
 			<span class="description"><?php echo $o['label'];?></span>
@@ -384,7 +412,7 @@ class DMSOptEngine {
 	
 	function option_image_upload( $o ){
 		
-		$val = PL_IMAGES . '/image-preview.jpg';
+		$val = ( !empty( $o['val'] ) ) ? $o['val'] : PL_IMAGES . '/image-preview.jpg';
 		?>
 		<label for="upload_image" class="image_uploader">
 			<div class="image_preview">
@@ -393,7 +421,7 @@ class DMSOptEngine {
 				</div>
 			</div>
 			<div class="image_input">
-		    	<p><input class="upload_image_option pl-opt" type="text" size="36" name="" placeholder="Enter URL or Upload Image" /> <span class="description"><?php echo $o['label'];?></span></p>
+		    	<p><input class="upload_image_option pl-opt" type="text" size="36" name="<?php echo $o['name'];?>" placeholder="Enter URL or Upload Image" value="<?php echo $o['val'];?>" /> <span class="description"><?php echo $o['label'];?></span></p>
 		    	<p><button class="button button-primary image_upload_button"><i class="pl-di pl-di-upload"></i> Upload Image</button></p>
 		    	
 			</div>

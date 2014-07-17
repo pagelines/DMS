@@ -23,12 +23,14 @@
 	font-size: 1.5em;
 	background: rgba(0,0,0,.05);
 	margin: 15px 0;
-	line-height: 1.6em;
+	line-height: 1.1em;
 	padding: 10px;
 	color: rgba(0,0,0,.6);
 }
-.pl-opt-group-header i{
-	
+.pl-opt-group-header small{
+	font-size: 12px;
+	line-height: 1em;
+	font-weight: 300;
 }
 
 .pl-opt[type=email], 
@@ -82,6 +84,7 @@ textarea.pl-typography-preview{
 	float: left;
 	margin-right: 15px;
 	width: 115px;
+	text-align: right;
 } 
 .image_input{
 

@@ -9,6 +9,8 @@ class EditorAdmin {
 		add_action( 'pagelines_options_dms_scripts', array( $this, 'dms_scripts_template') );
 		add_action( 'pagelines_options_dms_intro', array( $this, 'dms_intro') );
 		add_action( 'pagelines_options_dms_debug', array( $this, 'dms_debug') );
+		add_action( 'pagelines_options_pl_import', array( $this, 'pl_import') );
+		add_action( 'pagelines_options_pl_export', array( $this, 'pl_export') );
 	}
 	
 	function admin_array(){
@@ -263,6 +265,7 @@ class EditorAdmin {
 			), 
 			'pagelines_scripts' => array( 
 				'title'		=> __( 'Scripts', 'pagelines' ),
+				'hide_save'	=> true,
 				'groups'	=> array(
 					array(
 						'title'	=> __( 'Website CSS and Scripts', 'pagelines' ),
@@ -282,44 +285,35 @@ class EditorAdmin {
 			),
 			'pagelines_import_export' => array( 
 				'title'		=> __( 'Import / Export', 'pagelines' ),
+				'hide_save'	=> true,
 				'groups'	=> array(
 								
 					array(
-						'title'	=> __( 'Website Region Controls', 'pagelines' ),
-						'desc'	=> __( 'Enable or disable various regions of your website from view.', 'pagelines' ),
+						'title'	=> __( 'Import PageLines Data', 'pagelines' ),
+						'desc'	=> __( 'Import a PageLines configuration for use on this site.', 'pagelines' ),
 						'opts'	=> array(
-							'debug'		=> array(
-								'type'	=> 'dms_debug',
-								'title'	=> __( 'Enable DMS Debug Mode.', 'pagelines' )
+							array(
+								'type'	=> 'pl_import',
+								'title'	=> __( 'Import Data', 'pagelines' )
 							)
 						)
 					),
 					array(
-						'title'	=> __( 'Debug Options', 'pagelines' ),
+						'title'	=> __( 'Export PageLines Data', 'pagelines' ),
+						'desc'	=> __( 'Export data from this site for import elsewhere.', 'pagelines' ),
 						'opts'	=> array(
 							array(
-									'key'		=> 'enable_debug',
-									'type'		=> 'check',
-									'label'		=> __( 'Enable debug?', 'pagelines' ),
-									'title'		=> __( 'PageLines debug', 'pagelines' ),
-									'help'		=> sprintf( __( 'This information can be useful in the forums if you have a problem. %s', 'pagelines' ),
-												   sprintf( '%s', ( pl_setting( 'enable_debug' ) ) ?
-												   sprintf( '<br /><a href="%s" target="_blank">Click here</a> for your debug info.', site_url( '?pldebug=1' ) ) : '' ) )								  
-							),
-							array(
-									'key'		=> 'disable_less_errors',
-									'default'	=> false,
-									'type'		=> 'check',
-									'label'		=> __( 'Disable Error Notices?', 'pagelines' ),
-									'title'		=> __( 'Less Notices', 'pagelines' ),
-									'help'		=> __( 'Disable any error notices sent to wp-admin by the less system', 'pagelines' ),								  
+								'type'	=> 'pl_export',
+								'title'	=> __( 'Export Data', 'pagelines' )
 							)
 						)
-					)
+					),
+					
 				)
 			),
 			'pagelines_resets' => array( 
 				'title'		=> __( 'Resets', 'pagelines' ),
+				'hide_save'	=> true,
 				'groups'	=> array(
 					array(
 						'type'	=> 'multi',
@@ -478,6 +472,14 @@ class EditorAdmin {
 		
 		<?php 
 		
+	}
+		
+	function pl_import(){
+		echo 'import stuff';
+	}	
+	
+	function pl_export(){
+		echo 'export stuff';
 	}
 		
 	function dms_tools_less(){
