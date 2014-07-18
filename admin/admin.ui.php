@@ -278,9 +278,11 @@ class DMSOptEngine {
 	}
 	
 	function option_check( $o ){
+		
+		$val = ( !empty( $o['val'] ) ) ? 'checked' : '';
 		?>
 		
-		<p><label for="upload_image" class="image_uploader"><input class="pl-opt" type="checkbox" name="" placeholder="" /> <span class="description"><?php echo $o['label'];?></span></label></p>
+		<p><label for="<?php echo $o['id'];?>" class="image_uploader"><input type="hidden" class="checkbox-toggle" name="<?php echo $o['name'];?>" value="<?php echo $o['val'];?>"><input id="<?php echo $o['id'];?>" class="pl-opt checkbox-input" type="checkbox" <?php echo $val;?> /> <span class="description"><?php echo $o['label'];?></span></label></p>
 	
 		<?php
 	}

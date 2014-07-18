@@ -26,6 +26,20 @@ $(document).ready(function(){
 			
 			$('.chosen-select').chosen()
 			$('.pl-colorpicker').wpColorPicker().addClass('is-ready')
+		
+			// use hidden inputs for checkboxes (0 or 1)
+			$('.checkbox-input').on('change', function(){
+			
+				var checkToggle = $(this).prev()
+
+				if( $(this).is(':checked') )
+				    checkToggle.val(1)
+				else
+				    checkToggle.val(0)
+			})
+				
+			
+		
 			
 		}
 		,	imageUploaders: function(){
