@@ -69,7 +69,15 @@ span.description{
 	margin: 10px 0 0;
 }
 
-.small-label{
+.label-standard{
+	font-size: 13px;
+	margin: 5px 0;
+	display: block;
+	text-transform: uppercase;
+	opacity: .7;
+}
+
+.label-small{
 	font-size: 11px;
 	display: block;
 	margin-bottom: 3px;
@@ -124,7 +132,7 @@ span.description{
 .checklist-label{
 	background: #e1e1e1;
 	padding: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 .checklist-label .bd .ttl{
 	font-weight: 600;

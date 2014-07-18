@@ -363,7 +363,7 @@ class DMSOptEngine {
 			
 			<?php foreach( $selects as $type => $info): ?>
 				<div class="select-contain">
-					<label class="small-label" for="<?php echo $info['id'];?>"><?php echo ucfirst($type); ?></label>
+					<label class="label-small" for="<?php echo $info['id'];?>"><?php echo ucfirst($type); ?></label>
 					<select id="<?php echo $info['id'];?>" class="pl-opt chosen-select" type="select" name="<?php echo $info['name'];?>"  >
 						<option value="">Default</option>
 						<?php foreach( $info['items'] as $key => $s )

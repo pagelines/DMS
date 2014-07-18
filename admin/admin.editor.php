@@ -512,12 +512,7 @@ class EditorAdmin {
 		</label>
 		
 	
-	
-		
-		<label><?php _e( 'DMS Config Import', 'pagelines' ); ?>
-		</label>
-		
-		<span class="button button-primary fileinput-button import-button">
+		<span class="button button-primary pl-large-button fileinput-button import-button">
 	        <i class="icon icon-plus"></i>
 	        <span><?php _e( 'Select config file (.json)', 'pagelines' ); ?>
 	        </span>
@@ -551,12 +546,12 @@ class EditorAdmin {
 		?>
 		<div class="row">
 		<div class="span6">
-			<label class="small-label"><?php _e( 'Select User Templates', 'pagelines' ); ?></label>
+			<label class="label-standard"><?php _e( 'Select User Templates', 'pagelines' ); ?></label>
 		
 			<?php
 		
 			$btns = sprintf(
-				'<div class="checklist-btns">
+				'<div class="checklist-label checklist-btns">
 					<button class="button checklist-tool" data-action="checkall"><i class="icon icon-ok"></i> %s</button> 
 					<button class="button checklist-tool" data-action="uncheckall"><i class="icon icon-remove"></i> %s</button>
 				</div>', __( 'Select All', 'pagelines' ), __( 'Deselect All', 'pagelines' ) );
@@ -582,7 +577,7 @@ class EditorAdmin {
 			?>
 		</div>
 		<div class="span6">
-			<label class="small-label"><?php _e( 'Global Settings', 'pagelines' ); ?></label>
+			<label class="label-standard"><?php _e( 'Global Settings', 'pagelines' ); ?></label>
 			<label class="checklist-label media" for="export_global" name="export_global">
 				<div class="img"><input name="export_global" id="export_global" type="checkbox" checked /></div>
 				<div class="bd">
@@ -593,7 +588,7 @@ class EditorAdmin {
 				</div>
 			</label>
 		
-			<label class="small-label"><?php _e( 'Post Type Settings', 'pagelines' ); ?>
+			<label class="label-standard"><?php _e( 'Post Type Settings', 'pagelines' ); ?>
 			</label>
 			<label class="checklist-label media" for="export_types">
 				<div class="img"><input name="export_types" id="export_types" type="checkbox" checked /></div>
@@ -605,7 +600,7 @@ class EditorAdmin {
 				</div>
 			</label>
 		
-			<label  class="small-label"><?php _e( 'Theme Config Publishing', 'pagelines' ); ?>
+			<label  class="label-standard"><?php _e( 'Theme Config Publishing', 'pagelines' ); ?>
 			</label>
 			<?php
 			
