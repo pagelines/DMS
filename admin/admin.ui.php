@@ -295,27 +295,52 @@ class DMSOptEngine {
 	
 	function option_typography( $o ){
 		
-		$fonts = array();
-		$items = pl_get_foundry();
+		$size_key = $o['key'] . '_size';
+		$weight_key = $o['key'] . '_weight';
 		
+		$selects = array(
+			'font'	=> array(
+				'key'	=> $o['key'],
+				'val'	=> $o['val'], 
+				'name'	=> $o['name'],
+				'id'	=> $o['id'], 
+				'items'	=> array()
+			), 
+			'size'	=> array(
+				'key'	=> $size_key,
+				'val'	=> pl_setting( $size_key ), 
+				'name'	=> sprintf( 'settings[%s]', $size_key ),
+				'id'	=> $size_key,
+				'items'	=> array()
+			),
+			'weight'	=> array(
+				'key'	=> $weight_key,
+				'val'	=> pl_setting( $weight_key ), 
+				'name'	=> sprintf( 'settings[%s]', $weight_key ),
+				'id'	=> $weight_key,
+				'items'	=> array()
+			)
+		);
+		
+
+		$items = pl_get_foundry();	
 		if( is_array( $items ) ){
 			foreach( $items as $val => $i ){
-				$fonts[ $val ] = array( 'name' => $i['name'] );
+				$selects['font']['items'][ $val ] = array( 
+					'name' 	=> $i['name'], 
+					'val'	=> ( $selects['font']['val'] == $val ) ? 'selected' : ''
+				);
 			}
-		}
-		
-		foreach( $fonts as $f => $v ){
-			
-			$fonts[ $f ][ 'val' ] = ( $o['val'] == $f ) ? 'selected' : '';
-			
 		}
 		
 		$sizes = array();
 		for( $i = 10; $i <= 30; $i++){
-			$sizes[ $i ] = array('name' => $i.'px');
+			$selects['size']['items'][ $i ] = array(
+				'name' => $i.'px',
+				'val'	=> ( $selects['size']['val'] == $i ) ? 'selected' : ''
+			);
 		}
 		
-		$weights = array();
 		$items = array(
 			'300' => '300 - Light',
 			'400' => '400 - Semi Light',
@@ -326,33 +351,28 @@ class DMSOptEngine {
 		
 		if( is_array( $items ) ){
 			foreach( $items as $val => $i ){
-				$weights[ $val ] = array( 'name' => $i );
+				$selects['weight']['items'][ $val ] = array( 
+					'name' => $i,
+					'val'	=> ( $selects['weight']['val'] == $i ) ? 'selected' : ''
+				);
 			}
 		}
 		?>
 	
 		<p>
-			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
-				<option value="">Default</option>
-				<?php foreach( $fonts as $key => $s )
-							printf('<option value="%s" %s>%s</option>', $key, $s['val'], $s['name']); 
-				?>
-			</select>
-			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
-				<option value="">Default</option>
-				<?php foreach( $sizes as $key => $s )
-							printf('<option value="%s">%s</option>', $key, $s['name']); 
-				?>
-			</select>
-			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
-				<option value="">Default</option>
-				<?php foreach( $weights as $key => $s )
-							printf('<option value="%s">%s</option>', $key, $s['name']); 
-				?>
-			</select>
-		</p>
-		<p>
-			<textarea class="pl-opt pl-typography-preview" rows="1">The quick brown fox jumps over the lazy dog.</textarea>
+			
+			<?php foreach( $selects as $type => $info): ?>
+				<div class="select-contain">
+					<label class="small-label" for="<?php echo $info['id'];?>"><?php echo ucfirst($type); ?></label>
+					<select id="<?php echo $info['id'];?>" class="pl-opt chosen-select" type="select" name="<?php echo $info['name'];?>"  >
+						<option value="">Default</option>
+						<?php foreach( $info['items'] as $key => $s )
+									printf('<option value="%s" %s>%s</option>', $key, $s['val'], $s['name']); 
+						?>
+					</select>
+				</div>
+			<?php endforeach; ?>
+		
 		</p>
 	
 		<?php
@@ -417,7 +437,7 @@ class DMSOptEngine {
 		<label for="upload_image" class="image_uploader">
 			<div class="image_preview">
 				<div class="image_preview_wrap">
-					<img src="<?php echo $val;?>" />
+					<img class="the_preview_image" src="<?php echo $val;?>" />
 				</div>
 			</div>
 			<div class="image_input">

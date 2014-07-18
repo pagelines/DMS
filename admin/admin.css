@@ -2,6 +2,13 @@
 
 /* PAGELINES ADMIN SETTINGS *****/
 
+.row .span6{
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	padding: 0 15px;
+}
+
 /* OPTIONS LAYOUT */ 
 .tabinfo .form-table .titledesc{
 	padding: 20px;
@@ -11,7 +18,8 @@
 	padding: 30px 0;
 	border-top: 1px solid #ddd;
 }
-.pl-save .button{
+.pl-save .button, 
+.pl-admin-settings .pl-large-button{
 	padding: 8px 20px;
 	font-size: 17px;
 	height: auto;
@@ -61,10 +69,19 @@ span.description{
 	margin: 10px 0 0;
 }
 
-textarea.pl-typography-preview{
-	width: 100%;
-	padding: 10px;
-	padding: 10px;
+.small-label{
+	font-size: 11px;
+	display: block;
+	margin-bottom: 3px;
+}
+
+.checklist-btns{
+	margin: 0 0 10px;
+}
+
+.select-contain{
+	display: inline-block;
+	margin-right: 5px;
 }
 
 .pl-colorpicker{
@@ -100,6 +117,54 @@ textarea.pl-typography-preview{
 	max-height: 100px;
 	max-width: 100px;
 	display: block;
+}
+
+/* IMPORT / EXPORT */ 
+
+.checklist-label{
+	background: #e1e1e1;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.checklist-label .bd .ttl{
+	font-weight: 600;
+}
+.checklist-label .bd p{
+	font-size: 11px;
+}
+
+/* MEDIA OBJECT */
+.media{
+	overflow:hidden;
+	overflow: visible;
+	zoom: 1;
+	display: block;
+}
+.media > .bd{
+		display:table-cell;
+		vertical-align: top;
+		width: 10000px;
+		*display:block;
+		*width:auto;
+		zoom:1;
+}
+.media > .bd > :first-child{margin-top:0;}
+.media > .bd > :last-child{margin-bottom:0;}
+
+.media > .img{
+		max-width: 25%;
+		float:left;
+		margin-right: 15px;
+		text-align: center;
+}
+
+.media > .img > img{
+	display: inline-block;
+	vertical-align: bottom;
+	max-width: 100%;
+	height: auto;
+	width: auto\9;
+
 }
 
 /* DASHICONS */ 

@@ -37,7 +37,7 @@ $(document).ready(function(){
 					e.preventDefault()
 					
 					var button = $(this)
-					,	theOption = $(this).parent().parent()
+					,	theOption = $(this).parent().parent().parent()
 
 					//If the uploader object has already been created, reopen the dialog
 					if (custom_uploader) {
@@ -59,7 +59,13 @@ $(document).ready(function(){
 					
 						attachment = custom_uploader.state().get('selection').first().toJSON()
 					
-						theOption.find('.upload_image_option').val( attachment.url )
+						theOption
+							.find('.upload_image_option')
+							.val( attachment.url )
+								
+						theOption.find('.the_preview_image')
+							.attr('src', attachment.url)
+							
 					
 					})
 

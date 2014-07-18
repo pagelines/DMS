@@ -67,9 +67,18 @@ function pagelines_theme_settings_scripts() {
 	
 	wp_enqueue_style( 'wp-color-picker' ); 
 
+	
        
 	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
 	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );
+	
+	$translation_array = array( 
+		'CoreURL' 				=> pl_get_template_directory_uri(),
+		'ParentStyleSheetURL' 	=> get_template_directory_uri(),
+		'ChildStyleSheetURL' 	=> get_stylesheet_directory_uri(),
+		'siteURL' 				=> home_url()
+	);
+	wp_localize_script( 'pagelines-admin', 'pl_paths', $translation_array );
 	
 	pl_enqueue_codemirror();
 

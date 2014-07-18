@@ -14,12 +14,26 @@ class EditorTypography{
 		add_filter('pless_vars', array( $this, 'add_less_vars'));
 		add_action('wp_print_styles', array( $this, 'add_google_imports'));
 		
+		// When working on DMS3, decided to upgrade the naming of the size key so that it can be automated
+		// this didn't match the DMS2 convention so we'll upgrade the options here.
+		$this->standardize_size_vars();
+		
+	}
+	
+	function standardize_size_vars(){
+	
+		if( pl_setting('base_font_size') && ! pl_setting('font_primary_size'))
+			pl_setting_update('font_primary_size', pl_setting('base_font_size'));
+			
+		if( pl_setting('header_base_size') && ! pl_setting('font_headers_size'))
+			pl_setting_update('font_headers_size', pl_setting('header_base_size'));
+		
 	}
 
 	function add_less_vars( $vars ){
 
-		$vars['plFontSize'] = (pl_setting('base_font_size')) ? sprintf( '%spx', pl_setting('base_font_size' ) ) : '14px';
-		$vars['plHeaderSize'] = (pl_setting('header_base_size')) ? sprintf( '%spx', pl_setting('header_base_size' ) ) : '14px';
+		$vars['plFontSize'] = (pl_setting('font_primary_size')) ? sprintf( '%spx', pl_setting('font_primary_size' ) ) : '14px';
+		$vars['plHeaderSize'] = (pl_setting('font_headers_size')) ? sprintf( '%spx', pl_setting('font_headers_size' ) ) : '14px';
 
 		// Base Font
 		$primary = $this->import_fonts[] = (pl_setting('font_primary')) ? pl_setting('font_primary') : $this->default_font;
@@ -84,7 +98,7 @@ class EditorTypography{
 						
 					),
 					array(
-						'key'			=> 'base_font_size',
+						'key'			=> 'font_primary_size',
 						'type'			=> 'count_select',
 						'count_start'	=> 10,
 						'count_number'	=> 30,
@@ -125,7 +139,7 @@ class EditorTypography{
 
 					),
 					array(
-						'key'			=> 'header_base_size',
+						'key'			=> 'font_headers_size',
 						'type'			=> 'count_select',
 						'count_start'	=> 10,
 						'count_number'	=> 30,
