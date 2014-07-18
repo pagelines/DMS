@@ -27,7 +27,8 @@ class EditorLessHandler{
 		$this->pless = $pless;
 		$this->lessfiles = get_core_lessfiles();
 		$this->draft_less_file = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'path' ) );
-
+		$this->draft_less_url = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'url' ) );
+		
 		if( pl_draft_mode() ){
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_draft_css' ) );
 			add_action( 'wp_print_styles', array( $this, 'dequeue_live_css' ), 12 );
@@ -120,17 +121,23 @@ class EditorLessHandler{
 	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
-	static function enqueue_draft_css() {
+	function enqueue_draft_css() {
 
-		// make url safe.
-		global $post;
+		if( is_file( $this->draft_less_file ) ) {
+			
+			$url = $this->draft_less_url;
+			wp_register_style( 'pagelines-draft',  $url, false, pl_get_cache_key(), 'all' );
+		} else {
+			// make url safe.
+			global $post;
 
-		$url = ( is_object( $post ) && ! is_front_page() ) ? trailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
+			$url = ( is_object( $post ) && ! is_front_page() ) ? trailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
 
-		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
+			wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
 
+			
+		}
 		wp_enqueue_style( 'pagelines-draft' );
-
 	}
 
 
