@@ -867,7 +867,6 @@ function pl_icon_array(){
 		'resize-vertical',
 		'rss-sign',
 		'screenshot',
-		'share-alt',
 		'share-sign',
 		'sign-blank',
 		'signout',
