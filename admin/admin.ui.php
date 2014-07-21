@@ -176,21 +176,29 @@ class DMSOptEngine {
 	function option_engine( $o ){
 		
 		$o = $this->set_option_up( $o );
-
+		$o['placeholder'] = pl_html( $o['placeholder'] );
+		$o['help'] = pl_html( $o['help'] );
+		$help = false;
 		
 		if($o['disabled'])
 			return;
 			
-	 
-		$o['placeholder'] = pl_html($o['placeholder']);
+		if ( isset( $o['help'] ) && '' !== $o['help'] )
+			$help = sprintf( '<div class="dashicons dashicons-editor-help pl-help-tip" data-tiptip="%s"></div>', $o['help'] );
 		
 		?>
 		
 				<tr valign="top">
-					<th scope="row" class="titledesc"><label for="<?php echo $o['key']; ?>"><?php echo $o['title']; ?></label></th>
+					<th scope="row" class="titledesc"><label for="<?php echo $o['key']; ?>"><?php echo $o['title']; ?></label>
+						<?php if( false !== $help ):
+							echo $help;
+						endif; ?>
+					</th>
 					<td> 
-						<?php $this->option_breaker( $o ); ?> 
+						<?php $this->option_breaker( $o ); ?>
+
 						<?php if($o['help'] != ''): ?><div class="pl-help"><?php echo $o['help'];?></div><?php endif;?>
+
 					</td>
 				</tr>
 
