@@ -8,7 +8,25 @@
 		$.plAdminMedia.init()
 		
 		$.plAdminPlugins.init()
+		
+		$.plTipTip.init()
 	})
+
+	
+	$.plTipTip = {
+		init: function() {
+
+			$( '#tiptip_holder' ).removeAttr( 'style' );
+			$( '#tiptip_arrow' ).removeAttr( 'style' );
+			
+			$( '.pl-help-tip' ).tipTip({
+				'attribute': 'data-tiptip',
+				'fadeIn': 50,
+				'fadeOut': 50,
+				'delay': 200
+			})
+		}
+	}
 
 
 	$.plAdminPlugins = {
