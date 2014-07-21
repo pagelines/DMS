@@ -235,7 +235,7 @@ function pl_dms_admin_actions(){
 		}
 	}
 
-	pl_setting_update($field, $value, 'global', 'live' );
+	pl_setting_update($field, $value );
 
 	$response['value'] = $value;
 	$response['field'] = $field;
