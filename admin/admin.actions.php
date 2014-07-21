@@ -125,10 +125,11 @@ function pagelines_check_folders() {
 		echo '</div>';
 }
 
-add_action('admin_enqueue_scripts', 'pagelines_metabox_scripts');
-function pagelines_metabox_scripts() {
-	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), null, pl_get_cache_key() );
-	wp_enqueue_script( 'pagelines-admin-meta', PL_ADMIN_URI .'/admin.js', array('jquery'));
+add_action('admin_enqueue_scripts', 'pagelines_admin_js_scripts');
+function pagelines_admin_js_scripts() {
+	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), array( 'dashicons' ), pl_get_cache_key() );
+	wp_enqueue_script( 'pagelines-admin-js', PL_ADMIN_URI .'/admin.js', array('pagelines-admin-tiptip'));
+	wp_enqueue_script( 'pagelines-admin-tiptip', PL_ADMIN_URI .'/jquery.tiptip.js', array( 'jquery' ) );
 }
 
 function dms_suggest_plugin( $name, $slug, $desc = false ) {
