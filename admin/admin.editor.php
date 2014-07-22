@@ -5,7 +5,7 @@ class EditorAdmin {
 	
 	function __construct(){
 		
-		add_action( 'pagelines_options_dms_less', array( $this, 'dms_tools_less') );
+		add_action( 'pagelines_options_dms_less', array( $this, 'dms_tools_less'), 10, 2 );
 		add_action( 'pagelines_options_dms_scripts', array( $this, 'dms_scripts_template') );
 		add_action( 'pagelines_options_dms_intro', array( $this, 'dms_intro') );
 		add_action( 'pagelines_options_dms_debug', array( $this, 'dms_debug') );
@@ -78,7 +78,7 @@ class EditorAdmin {
 								'help' 		=> __( 'The "base" colors are a few standard colors used throughout DMS that plugins may use to calculate contrast or other colors to make sure everything looks great.', 'pagelines' ),
 								'opts'		=> array(
 									array(
-										'key'			=> 'font_primary',
+										'key'			=> 'font_headers',
 										'type' 			=> 'typography',
 										'label' 		=> __( 'Select Font Face', 'pagelines' ),
 										'default'		=> 'open_sans',
@@ -265,19 +265,23 @@ class EditorAdmin {
 			), 
 			'pagelines_scripts' => array( 
 				'title'		=> __( 'Scripts', 'pagelines' ),
-				'hide_save'	=> true,
+				
 				'groups'	=> array(
 					array(
 						'title'	=> __( 'Website CSS and Scripts', 'pagelines' ),
 						'desc'	=> __( 'Below are secondary fallbacks to the DMS code editors. You may need these if you create errors or issues on the front end.', 'pagelines' ),
 						'opts'	=> array(
-							'tools'		=> array(
-								'type'		=> 'dms_less',
-								'title'		=> __( 'DMS LESS Fallback', 'pagelines' ),
+							array(
+								'key'		=> 'custom_less',
+								'type'		=> 'script_less',
+								'title'		=> __( 'LESS/CSS Code', 'pagelines' ),
+								'label'		=> __( 'Enter LESS/CSS Code', 'pagelines' ),
 							),
-							'tools2'		=> array(
-								'type'		=> 'dms_scripts',
-								'title'		=> __( 'DMS Header Scripts Fallback', 'pagelines' ),
+							array(
+								'key'		=> 'custom_scripts',
+								'type'		=> 'script_html',
+								'title'		=> __( 'Header Scripts', 'pagelines' ),
+								'label'		=> __( 'Enter Header HTML/JS', 'pagelines' ),
 							),
 						)
 					)
@@ -629,25 +633,23 @@ class EditorAdmin {
 		
 	}
 		
-	function dms_tools_less(){
-
+	function dms_tools_less( $o ){
+		
 		?>
+		<div class="label-standard" for="pl-dms-less-form">Enter LESS/CSS Code</div>
 		<form id="pl-dms-less-form" class="dms-update-setting" data-setting="custom_less">		
 			<textarea id="pl-dms-less" name="pl-dms-less" class="html-textarea code_textarea input_custom_less large-text" data-mode="less"><?php echo pl_setting('custom_less');?></textarea>
-			<p><input class="button button-primary" type="submit" value="<?php _e( 'Save LESS', 'pagelines' ); ?>
-			" /><span class="saving-confirm"></span></p>
 		</form>		
 		<?php 
 		
 	}
 	
-	function dms_scripts_template(){
+	function dms_scripts_template( $o ){
+		
 		?>
-
+		<div class="label-standard" for="pl-dms-scripts-form">Enter Header HTML/JS</div>
 			<form id="pl-dms-scripts-form" class="dms-update-setting" data-setting="custom_scripts">
 				<textarea id="pl-dms-scripts" name="pl-dms-scripts" class="html-textarea code_textarea input_custom_scripts large-text" data-mode="htmlmixed"><?php echo stripslashes( pl_setting( 'custom_scripts' ) );?></textarea>
-				<p><input class="button button-primary" type="submit" value="<?php _e( 'Save Scripts', 'pagelines' ); ?>
-				" /><span class="saving-confirm"></span></p>
 			</form>
 		<?php
 	}

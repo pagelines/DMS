@@ -16,15 +16,33 @@ $(document).ready(function(){
 
 			that = this
 			
-			that.imageUploaders()
-			
 			that.specialOptions()
-
+			
+		//	that.optionSaving()
+			
+		}
+		
+		,	optionSaving: function(){
+			
+			var that = this
+			
+		
+			
+		
+			
 		}
 		
 		, 	specialOptions: function(){
 			
+			var that = this
+			
+			// Use WP image upload script
+			that.imageUploaders()
+			
+			// chosen selectors
 			$('.chosen-select').chosen()
+			
+			// color pickers, using WP colorpicker API
 			$('.pl-colorpicker').wpColorPicker().addClass('is-ready')
 		
 			// use hidden inputs for checkboxes (0 or 1)
@@ -38,7 +56,17 @@ $(document).ready(function(){
 				    checkToggle.val(0)
 			})
 				
+				
+			$('.pl_script_input').each( function(i){
+				
+				var cm_mode = $(this).data('mode')
+				,	cm_config = $.extend( {}, cm_base_config, { mode : cm_mode } )
+				
+				var theEditor = CodeMirror.fromTextArea($(this).get(0), cm_config)
 			
+				$(this).parent().addClass('is-ready')
+			
+			})
 		
 			
 		}

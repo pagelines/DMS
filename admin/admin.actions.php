@@ -3,13 +3,14 @@
 // Load account functions
 $account_handler = new PLAccountAdmin;
 
+$pl_admin_save_handler = new PLAdminRequests();
+
 // ====================================
 // = Build PageLines Option Interface =
 // ====================================
 
 // Add our menus where they belong.
 add_action( 'admin_menu', 'pagelines_add_admin_menu' );
-
 add_action('admin_menu', 'pagelines_add_admin_menus');
 
 if( ! function_exists( 'pagelines_add_admin_menu' ) ) {
@@ -18,6 +19,7 @@ if( ! function_exists( 'pagelines_add_admin_menu' ) ) {
 	
 	function pagelines_add_admin_menu() {
 		global $_pagelines_account_hook;
+		
 		$_pagelines_account_hook = add_theme_page( PL_MAIN_DASH, __( 'DMS Tools', 'pagelines' ), 'edit_theme_options', PL_MAIN_DASH, 'pagelines_build_account_interface' );
 	}
 }
@@ -34,7 +36,7 @@ function pagelines_build_account_interface(){
 	$dms_tools = new EditorAdmin;
 
 	$args = array(
-		'title'			=> __( 'PageLines DMS', 'pagelines' ),
+		'title'			=> __( 'PageLines Settings', 'pagelines' ),
 		'callback'		=> array( $dms_tools, 'admin_array' ),
 	);
 	$optionUI = new DMSOptionsUI( $args );
@@ -46,6 +48,7 @@ function pagelines_build_account_interface(){
  */
 add_action( 'admin_menu', 'pagelines_theme_settings_init' );
 function pagelines_theme_settings_init() {
+	
 	global $_pagelines_account_hook;
 	
 	add_action( "admin_print_scripts-{$_pagelines_account_hook}", 'pagelines_theme_settings_scripts' );
@@ -67,7 +70,8 @@ function pagelines_theme_settings_scripts() {
 	
 	wp_enqueue_style( 'wp-color-picker' ); 
 
-	
+	// for json encoding forms
+	wp_enqueue_script( 'form-params', PL_JS . '/form.params.min.js', array('jquery'), pl_get_cache_key(), true );
        
 	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
 	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );

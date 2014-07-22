@@ -100,6 +100,15 @@ span.description{
 	opacity: 1;
 }
 
+.script_input_wrap{
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.script_input_wrap.is-ready{
+	opacity: 1;
+}
+
 /* IMAGE UPLOADER */ 
 .image_uploader{
 
@@ -209,6 +218,14 @@ span.description{
 
 .pl-di-regions:before{
 	content: "\f164";
+}
+
+.pl-di-save:before{
+	content: "\f464";
+}
+
+.pl-di-saved:before{
+	content: "\f464";
 }
 
 /* METABOXES */

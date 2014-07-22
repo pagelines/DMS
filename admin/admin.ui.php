@@ -36,6 +36,7 @@ class DMSOptionsUI {
 		$this->build_header();
 		$this->build_body();
 		$this->build_footer();
+		
 
 	}
 
@@ -91,12 +92,18 @@ class DMSOptionsUI {
 			$this->get_nav();
 		
 			// The tab container start....
-			printf('<div id="%s" class="pl-admin-settings tabinfo">', $this->current_tab_slug );
+			printf('<form id="%s" class="pl-admin-settings tabinfo" action="%s" method="POST">', $this->current_tab_slug, admin_url( 'admin-post.php' ) );
+		
+			if( isset( $_GET['msg'] ) ){
+				if( $_GET['msg'] == 'updated' ){
+					?>
+					<div class="updated"><p><i class="pl-di pl-di-saved"></i> <?php _e( 'PageLines Settings Updated!', 'pagelines' ); ?></p></div>
+					<?php 
+				}
+			}
 		
 			foreach( $this->current_tab_config['groups'] as $groups ){
 			
-				
-					
 				
 				$desc = ( isset($groups['desc']) && ! empty($groups['desc']) ) ? sprintf('<br/><small>%s</small>', $groups['desc']) : '';
 				
@@ -115,15 +122,94 @@ class DMSOptionsUI {
 			
 			}
 			
-			if( ! isset( $this->current_tab_config['hide_save'] ) || empty( $this->current_tab_config['hide_save'] ) )
-				printf('<div class="pl-save"><button class="pl-save-settings button button-primary">Save Changes</button></div>');
-		
-			echo '<div class="clear"></div></div>';
+			if( ! isset( $this->current_tab_config['hide_save'] ) || empty( $this->current_tab_config['hide_save'] ) ){
+				
+				$redirect = urlencode( remove_query_arg( 'msg', $_SERVER['REQUEST_URI'] ) );
+				$redirect = urlencode( $_SERVER['REQUEST_URI'] );
+				$action = 'pl_admin_save_settings';
+				?>
+				<div class="pl-save">
+					<input type="hidden" name="_wp_http_referer" value="<?php echo $redirect; ?>">
+					<?php wp_nonce_field( $action, 'pl_settings_nonce', FALSE ); ?>
+					<input type="hidden" name="action" value="<?php echo $action;?>">
+					<input type="submit" class="pl-save-settings button button-primary" value="<?php _e('Save Changes', 'pagelines');?>" />
+				</div>
+				<?php 
+				
+			}
+			
+			echo '<div class="clear"></div></form>';
 	
 	}
 
 
 } // End Class
+
+
+
+/**
+ * Admin Requests Class
+ *
+ * Adds actions for saving options and other functions. 
+ * Some are called via AJAX, others via GET and POST
+ *
+ */
+class PLAdminRequests {
+
+	function __construct() {
+	
+		$this->form_action = 'pl_admin_save_settings';
+		
+		add_action( 'admin_post_'.$this->form_action, array($this, 'handle_settings_form') );
+
+		
+		
+	}
+	
+	function handle_settings_form() {
+	    // Handle request then generate response using echo or leaving PHP and using HTML
+
+		if ( ! wp_verify_nonce( $_POST[ 'pl_settings_nonce' ], $this->form_action ) )
+			die( 'Invalid nonce.' . var_export( $_POST, true ) );
+	
+		if( ! isset($_POST['settings']) )
+			die( 'No Settings Posted' . var_export( $_POST, true ) );
+		
+		// save settings
+		$this->save_post_settings( $_POST['settings'] );
+		
+		$msg = 'updated';
+		
+		if ( isset ( $_POST['_wp_http_referer'] ) )
+			$url = add_query_arg( 'msg', $msg, urldecode( $_POST['_wp_http_referer'] ) );
+		else 
+		    die( 'Missing target.' );
+		
+	
+       wp_safe_redirect( $url );
+
+        exit;
+	}
+
+	function save_post_settings( $settings_array ){
+		
+		$settings = pl_get_global_settings( ); 
+		
+	
+		
+		$old_settings = $settings['live']['settings'];
+		$new_settings = wp_parse_args( $settings_array, $old_settings );
+		
+		$settings['live']['settings'] = $new_settings; 
+		$settings['draft']['settings'] = $new_settings; 
+		
+		
+		pl_update_global_settings( $settings ); 
+		
+	}
+
+}
+
 
 /**
  * Option Engine Class
@@ -254,6 +340,14 @@ class DMSOptEngine {
 			case 'text':
 				$this->option_text( $o );
 			break;
+			
+			case 'script_less':
+				$this->option_script( $o, 'less' );
+			break;
+			
+			case 'script_html':
+				$this->option_script( $o, 'html' );
+			break;
 
 			default :
 				do_action( 'pagelines_options_' . $o['type'] , $o);
@@ -275,6 +369,16 @@ class DMSOptEngine {
 		
 		<p><button for="upload_image" class="image_uploader button button-primary"><?php echo $o['label'];?></button></p>
 	
+		<?php
+	}
+	
+	function option_script( $o, $type = ''){
+		
+		$mode = ( $type == 'less' ) ? 'less' : 'htmlmixed';
+		?>
+		<div class="label-standard" for="<?php echo $o['id'];?>"><?php echo $o['label'];?></div>
+		<div class="script_input_wrap"><textarea id="<?php echo $o['id'];?>" name="<?php echo $o['name'];?>" class="html-textarea code_textarea pl_script_input large-text" data-mode="<?php echo $mode;?>"><?php echo $o['val'];?></textarea></div>
+		
 		<?php
 	}
 	
@@ -452,7 +556,7 @@ class DMSOptEngine {
 			</div>
 			<div class="image_input">
 		    	<p><input class="upload_image_option pl-opt" type="text" size="36" name="<?php echo $o['name'];?>" placeholder="Enter URL or Upload Image" value="<?php echo $o['val'];?>" /> <span class="description"><?php echo $o['label'];?></span></p>
-		    	<p><button class="button button-primary image_upload_button"><i class="pl-di pl-di-upload"></i> Upload Image</button></p>
+		    	<p><button class="button button-primary image_upload_button"><i class="pl-di pl-di-upload"></i> Select Image</button></p>
 		    	
 			</div>
 			<div class="clear"></div>
@@ -465,3 +569,5 @@ class DMSOptEngine {
 
 
 } // End of Class
+
+
