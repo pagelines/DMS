@@ -1,4 +1,5 @@
-
+#toplevel_page_PageLines-Admin .wp-menu-image img{ max-width: 18px; }
+#toplevel_page_PageLines-Admin.current  .wp-menu-image img{ opacity: 1; }
 
 /* PAGELINES ADMIN SETTINGS *****/
 

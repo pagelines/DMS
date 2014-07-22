@@ -1,5 +1,6 @@
 <?php
 
+// ALWAYS LOAD REQUESTS HANDLING
 $pl_admin_save_handler = new PLAdminRequests();
 
 // ====================================
@@ -8,20 +9,16 @@ $pl_admin_save_handler = new PLAdminRequests();
 
 // Add our menus where they belong.
 add_action( 'admin_menu', 'pagelines_add_admin_menu' );
-add_action('admin_menu', 'pagelines_add_admin_menus');
+add_action( 'admin_menu', 'pagelines_add_admin_menus');
 
 if( ! function_exists( 'pagelines_add_admin_menu' ) ) {
 	
 	function pagelines_add_admin_menus() {}
 	
 	function pagelines_add_admin_menu() {
-		global $_pagelines_account_hook;
-		
-		$_pagelines_account_hook = add_theme_page( PL_MAIN_DASH, __( 'DMS Tools', 'pagelines' ), 'edit_theme_options', PL_MAIN_DASH, 'pagelines_build_account_interface' );
+		add_theme_page( PL_MAIN_DASH, __( 'DMS Tools', 'pagelines' ), 'edit_theme_options', PL_MAIN_DASH, 'pagelines_build_account_interface' );
 	}
 }
-
-// Build option interface
 
 
 /**
@@ -39,63 +36,40 @@ function pagelines_build_account_interface(){
 	$optionUI = new DMSOptionsUI( $args );
 }
 
+
 /**
- * This is a necessary go-between to get our scripts and css loaded
- * on the theme settings page only, and not the rest of the admin
+ * LOADS ON ALL ADMIN PAGES
  */
-add_action( 'admin_menu', 'pagelines_theme_settings_init' );
-function pagelines_theme_settings_init() {
-	
-	global $_pagelines_account_hook;
-	
-	add_action( "admin_print_scripts-{$_pagelines_account_hook}", 'pagelines_theme_settings_scripts' );
-}
-
-
-
-// JS/CSS
-function pagelines_theme_settings_scripts() {
-
-	// WordPress Scripts
-//	wp_enqueue_script( 'media-upload' )
-	wp_enqueue_media();
-	
+add_action('admin_enqueue_scripts', 'pagelines_admin_js_scripts');
+function pagelines_admin_js_scripts() {
 	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), array( 'dashicons' ), pl_get_cache_key() );
 	
-	wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
-	wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
+	// JS UTILS
+	wp_enqueue_script( 'pagelines-admin-tiptip', PL_JS .'/utils.tiptip.js', array( 'jquery' ) );
 	
-	wp_enqueue_style( 'wp-color-picker' ); 
+	// ONLY LOAD ON SETTINGS PAGES 
+	if( isset( $_GET['page'] ) && $_GET['page'] == 'PageLines-Admin' ){
+		
+		// MEDIA UPLOADER
+		wp_enqueue_media();
 
-	// for json encoding forms
-	wp_enqueue_script( 'form-params', PL_JS . '/form.params.min.js', array('jquery'), pl_get_cache_key(), true );
-       
+		// STYLIZED SELECTS
+		wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
+		wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
+
+		// COLOR PICKERS
+		wp_enqueue_style( 'wp-color-picker' ); 
+
+		// CODEMIRROR for Scripts
+		pl_enqueue_codemirror();
+		
+	}
+	
+	// PageLines JS
 	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
-	wp_enqueue_script( 'pagelines-admin', PL_JS . '/admin.pagelines.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );
-	
-	$translation_array = array( 
-		'CoreURL' 				=> pl_get_template_directory_uri(),
-		'ParentStyleSheetURL' 	=> get_template_directory_uri(),
-		'ChildStyleSheetURL' 	=> get_stylesheet_directory_uri(),
-		'siteURL' 				=> home_url()
-	);
-	wp_localize_script( 'pagelines-admin', 'pl_paths', $translation_array );
-	
-	pl_enqueue_codemirror();
-
+	wp_enqueue_script( 'pagelines-admin', PL_ADMIN_URI . '/admin.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );
 }
 
-add_action('admin_head', 'add_global_admin_css');
-function add_global_admin_css() {
-?>
-<style type="text/css">
-	#toplevel_page_PageLines-Admin .wp-menu-image img{ max-width: 18px; }
-	#toplevel_page_PageLines-Admin.current  .wp-menu-image img{ opacity: 1; }
-</style>
-
-<?php
-
-}
 
 /**
  * Setup Versions and flush caches.
@@ -126,13 +100,10 @@ function pagelines_check_folders() {
 		echo '</div>';
 }
 
-add_action('admin_enqueue_scripts', 'pagelines_admin_js_scripts');
-function pagelines_admin_js_scripts() {
-	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), array( 'dashicons' ), pl_get_cache_key() );
-	wp_enqueue_script( 'pagelines-admin-js', PL_ADMIN_URI .'/admin.js', array('pagelines-admin-tiptip'));
-	wp_enqueue_script( 'pagelines-admin-tiptip', PL_ADMIN_URI .'/jquery.tiptip.js', array( 'jquery' ) );
-}
 
+/* 
+ *  SIMON CLEAN THIS UP, DOCUMENT, ORGANIZE
+ */ 
 function dms_suggest_plugin( $name, $slug, $desc = false ) {
 	global $dms_suggest_plugins;
 
@@ -158,6 +129,9 @@ function dms_suggest_plugin( $name, $slug, $desc = false ) {
 	);	
 }
 
+/* 
+ *  SIMON CLEAN THIS UP, DOCUMENT, ORGANIZE
+ */
 add_action( 'admin_notices', 'pagelines_recommended_plugins', 11 );
 function pagelines_recommended_plugins() {
 
@@ -191,6 +165,10 @@ function pagelines_recommended_plugins() {
 	
 	echo $header . $content . $footer;
 }
+
+/* 
+ *  SIMON CLEAN THIS UP, DOCUMENT, ORGANIZE
+ */
 add_action('admin_enqueue_scripts', 'pagelines_enqueue_expander');
 function pagelines_enqueue_expander() {
 	wp_enqueue_script( 'expander', PL_JS .'/utils.expander.min.js', array('jquery'), pl_get_cache_key() );

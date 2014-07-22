@@ -311,36 +311,6 @@ class PLAdminSettings {
 					
 				)
 			),
-			'pagelines_resets' => array( 
-				'title'		=> __( 'Resets', 'pagelines' ),
-				'hide_save'	=> true,
-				'groups'	=> array(
-					array(
-						'type'	=> 'multi',
-						'col'	=> 3,
-						'title'	=> __( 'Resets', 'pagelines' ),
-						'opts'	=> array(
-							array(
-									'key'		=> 'reset_global',
-									'type'		=> 'action_button',
-									'classes'	=> 'btn-important',
-									'label'		=> __( '<i class="icon icon-undo"></i> Reset Global Settings', 'pagelines' ),
-									'title'		=> __( 'Reset Global Site Settings', 'pagelines' ),
-									'help'		=> __( "Use this button to reset all global settings to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
-							),
-							array(
-									'key'		=> 'reset_cache',
-									'col'		=> 2,
-									'type'		=> 'action_button',
-									'classes'	=> 'btn-info',
-									'label'		=> __( '<i class="icon icon-trash"></i> Flush Caches', 'pagelines' ),
-									'title'		=> __( 'Clear all CSS/LESS cached data.', 'pagelines' ),
-									'help'		=> __( "Use this button to purge the stored LESS/CSS data. This will also clear cached pages if wp-super-cache or w3-total-cache are detected.", 'pagelines' )
-							),
-						)
-					),
-				)
-			),
 			
 			'pagelines_advanced' => array( 
 				'title'		=> __( 'Advanced', 'pagelines' ),
@@ -373,6 +343,30 @@ class PLAdminSettings {
 								)
 							)
 							
+						)
+					),
+					array(
+						'type'	=> 'multi',
+						'col'	=> 3,
+						'title'	=> __( 'Resets', 'pagelines' ),
+						'opts'	=> array(
+							array(
+									'key'		=> 'reset_global',
+									'type'		=> 'action_button',
+									'classes'	=> 'btn-important',
+									'label'		=> __( '<i class="icon icon-undo"></i> Reset Global Settings', 'pagelines' ),
+									'title'		=> __( 'Reset Global Site Settings', 'pagelines' ),
+									'help'		=> __( "Use this button to reset all global settings to their default state. <br/><strong>Note:</strong> Once you've completed this action, you may want to publish these changes to your live site.", 'pagelines' )
+							),
+							array(
+									'key'		=> 'reset_cache',
+									'col'		=> 2,
+									'type'		=> 'action_button',
+									'classes'	=> 'btn-info',
+									'label'		=> __( '<i class="icon icon-trash"></i> Flush Caches', 'pagelines' ),
+									'title'		=> __( 'Clear all CSS/LESS cached data.', 'pagelines' ),
+									'help'		=> __( "Use this button to purge the stored LESS/CSS data. This will also clear cached pages if wp-super-cache or w3-total-cache are detected.", 'pagelines' )
+							),
 						)
 					),
 					array(
