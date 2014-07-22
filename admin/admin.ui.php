@@ -1138,7 +1138,7 @@ class DMSOptEngine {
 		?>
 	
 		<p>
-			<select class="pl-opt chosen-select" type="select" name="" placeholder="" >
+			<select class="pl-opt chosen-select" type="select" name="<?php echo $o['name'];?>" placeholder="" >
 				<option value="">Default</option>
 				<?php foreach( $select_opts as $key => $s )
 							printf( '<option value="%s" %s>%s</option>', $key, $s['val'], $s['name'] ); 
