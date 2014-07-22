@@ -33,11 +33,11 @@ if( ! function_exists( 'pagelines_add_admin_menu' ) ) {
  */
 function pagelines_build_account_interface(){
 	
-	$dms_tools = new EditorAdmin;
+	$admin_settings_config = new PLAdminSettings;
 
 	$args = array(
 		'title'			=> __( 'PageLines Settings', 'pagelines' ),
-		'callback'		=> array( $dms_tools, 'admin_array' ),
+		'callback'		=> array( $admin_settings_config, 'admin_array' ),
 	);
 	$optionUI = new DMSOptionsUI( $args );
 }
