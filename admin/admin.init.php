@@ -3,9 +3,6 @@
 // Load options UI
 require_once( PL_ADMIN . '/admin.ui.php' );
 
-// Load account handling
-require_once( PL_ADMIN . '/admin.account.php' );
-
 // Load option actions
 require_once( PL_ADMIN . '/admin.actions.php' );
 

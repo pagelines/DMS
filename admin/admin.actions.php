@@ -1,8 +1,5 @@
 <?php
 
-// Load account functions
-$account_handler = new PLAccountAdmin;
-
 $pl_admin_save_handler = new PLAdminRequests();
 
 // ====================================
