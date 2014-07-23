@@ -128,26 +128,14 @@ function pagelines_google_author_head() {
  */
 add_action( 'wp_enqueue_scripts', 'pagelines_register_js' );
 function pagelines_register_js() {
-	// Sprintf
-//	wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), pl_get_cache_key(), true );
-	// Images Loaded
-//	wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), pl_get_cache_key(), true);
-	
-	
+
 	
 	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
 	
 	wp_enqueue_script( 'pagelines-helpers', PL_JS . '/pl.helpers.js', array( 'jquery' ), pl_get_cache_key(), true );
-	
-//	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), pl_get_cache_key(), true );
-//	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), pl_get_cache_key(), true );
-	//wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.min.js', array( 'jquery' ), pl_get_cache_key(), true );
-	//wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), pl_get_cache_key(), true );
+
 	wp_enqueue_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), pl_get_cache_key(), true );
 	
-	
-//	wp_enqueue_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), pl_get_cache_key(), true );
-//	wp_enqueue_script( 'pagelines-appear', PL_JS.'/utils.appear.js', array( 'jquery' ), pl_get_cache_key(), true );
 	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), pl_get_cache_key(), true );
 
 	// Load Supersize BG Script
@@ -157,11 +145,12 @@ function pagelines_register_js() {
 	wp_register_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
 }
 
-add_action( 'wp_print_styles', 'pagelines_get_childcss', 99);
-function pagelines_get_childcss() {
-	if ( ! is_admin() && is_child_theme() ){
-		wp_enqueue_style( 'DMS-theme', get_bloginfo('stylesheet_url'), array(), pagelines_get_style_ver(), 'all');
-	}
+/**
+ * Enqueue Main CSS
+ */
+add_action( 'wp_enqueue_scripts', 'pagelines_get_css', 99);
+function pagelines_get_css() {
+	wp_enqueue_style( 'pagelines', get_bloginfo('stylesheet_url'), array(), pagelines_get_style_ver(), 'all');
 }
 
 
@@ -170,8 +159,7 @@ function pagelines_get_childcss() {
  */
 add_action('pagelines_head', 'pagelines_head_common');
 function pagelines_head_common(){
-	global $pagelines_ID;
-	$oset = array('post_id' => $pagelines_ID);
+
 
 	pagelines_register_hook('pagelines_code_before_head'); // Hook
 
