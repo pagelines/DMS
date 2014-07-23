@@ -20,7 +20,8 @@
 
 			that = this
 			
-			that.specialOptions()
+			if( $('.pl-admin-settings').length > 0 )
+				that.specialOptions()
 	
 		}
 		
