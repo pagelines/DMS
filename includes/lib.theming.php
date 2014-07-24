@@ -71,18 +71,12 @@ function pl_navigation( $args = array() ){
 	$respond = ( isset( $args['respond'] ) && ! $args['respond'] ) ? '' : 'respond';
 	
 	$menu_classes = sprintf('menu-toggle mm-toggle %s', $respond);
-	
-	$no_mobile_toggle = ( isset( $args['no_toggle'] ) && $args['no_toggle'] == true ) ? true : false;
-	
-	$mobile_toggle = ( ! $no_mobile_toggle ) ? sprintf('<li class="popup-nav"><a class="%s"><i class="icon icon-reorder"></i></a></li', $menu_classes) : '';
-	
+		
 	$dropdown_theme = ( pl_setting('nav_dropdown_bg') ) ? sprintf('dd-theme-%s', pl_setting('nav_dropdown_bg')) : 'dd-theme-dark';
 	$dropdown_toggle = ( pl_setting('nav_dropdown_toggle') ) ? sprintf('dd-toggle-%s', pl_setting('nav_dropdown_toggle')) : 'dd-toggle-hover';
 	
 	$top_classes = $dropdown_theme . ' ' . $dropdown_toggle;
-	
-	$items_wrap = '<ul id="%1$s" class="%2$s '.$top_classes.'" style="">%3$s'.$mobile_toggle.'</ul>';
-	
+		
 	if( ( ! isset( $args['menu'] ) || empty( $args['menu'] ) ) && ! has_nav_menu( $args['theme_location'] ) ){
 		
 		$out = sprintf('<ul class="inline-list pl-nav"><li class="popup-nav"><a class="menu-toggle mm-toggle show-me"><i class="icon icon-reorder"></i></a></li></ul>');
@@ -101,7 +95,7 @@ function pl_navigation( $args = array() ){
 			'container_class'	=> '',
 			'depth'				=> 3,
 			'fallback_cb'		=> '',
-			'items_wrap'      	=> $items_wrap,
+			'items_wrap'      	=> '<ul id="%1$s" class="%2$s '.$top_classes.'" style="">%3$s<li class="popup-nav"><a class="'.$menu_classes.'"><i class="icon icon-reorder"></i></a></li></ul>',
 			'style'				=> false, 
 			'echo'				=> false,
 			'pl_behavior'		=> 'standard',
