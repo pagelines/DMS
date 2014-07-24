@@ -240,7 +240,7 @@ class PageLinesPostLoop extends PageLinesSection {
 						<?php
 
 							if ( is_single() ) :
-								the_title( '<h2 class="entry-title">', '</h2>' );
+								the_title( '<h1 class="entry-title">', '</h1>' );
 							elseif( ! is_page() ) :
 								the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 							endif;
@@ -299,7 +299,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 		$subhead = ( is_search() ) ? __('Try another search?', 'pagelines') : __("Sorry, what you are looking for isn't here.", 'pagelines');
 
-		$the_text = sprintf('<h2 class="center">%s</h2><p class="subhead center">%s</p>', $head, $subhead);
+		$the_text = sprintf('<h1 class="center">%s</h1><p class="subhead center">%s</p>', $head, $subhead);
 
 		printf( '<section class="billboard">%s <div class="center fix">%s</div></section>', apply_filters('pagelines_posts_404', $the_text), pagelines_search_form( false ));
 
