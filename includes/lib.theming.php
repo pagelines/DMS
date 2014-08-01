@@ -1,5 +1,41 @@
 <?php
 
+function pl_signup_center(){
+	ob_start();?>
+	<div class="signup-center">
+		<?php if( is_user_logged_in() ): 
+					$current_user = wp_get_current_user();
+					$first = $current_user->user_firstname;
+					$welcome = ($first != '') ? sprint('Welcome %s!', $first) : 'Welcome!';
+			    	
+			?>
+			<div class="signup-logged-in messages">
+				<?php echo $welcome;?> You're logged in. Update your <a href="<?php echo admin_url('profile.php');?>">account details here</a>. 
+			</div>
+		<?php else: ?>
+		<div class="signup-form-container">
+			<div class="signup-confirm" style="display: none;">
+				<h3>You've signed up!</h3>
+				<p>Check your email for details. <?php if( ! is_home() ) printf('Go to <a href="%s">home</a>.', home_url()); ?></p>
+				
+			</div>
+			<div class="pl-signup-form the-inputs pl-animation-group" action="#">
+				<div class="messages"></div>
+				<input type="email" class="pl-animation pl-appear signup-input the-email" value="" placeholder="Enter Your Email Address" />
+				<span class="pl-animation pl-appear btn btn-large btn-primary btn-signup signup-input">
+					Signup <i class="icon icon-angle-right"></i>
+				</span>
+				
+			</div>
+		
+		</div>
+		<?php endif;?>
+	</div>
+	<?php 
+	
+	return ob_get_clean();
+}
+
 function pl_faux_browser( $get = 'buttons' ){
 	return '<div class="pl-browser-header"><div class="browser-btns"><span class="bbtn-red"></span><span class="bbtn-orange"></span><span class="bbtn-green"></span></div></div>';
 }
