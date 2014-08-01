@@ -23,7 +23,7 @@ function pl_signup_center(){
 				<div class="messages action-messages"></div>
 				<input type="email" class="pl-animation pl-appear signup-input the-email" value="" placeholder="Enter Your Email Address" />
 				<span class="pl-animation pl-appear btn btn-large btn-primary btn-signup signup-input">
-					Signup <i class="icon icon-angle-right"></i>
+					Get Account <i class="icon icon-angle-right"></i>
 				</span>
 				
 			</div>
