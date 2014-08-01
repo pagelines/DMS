@@ -75,7 +75,7 @@
 
 				var theCenter = $(this)
 				,	button = theCenter.find('.btn-signup')
-				,	theMessages = theCenter.find('.messages')
+				,	theMessages = theCenter.find('.action-messages')
 				,	msg = ''
 
 				button.on('click', function(){

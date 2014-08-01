@@ -10,17 +10,17 @@ function pl_signup_center(){
 			    	
 			?>
 			<div class="signup-logged-in messages">
-				<?php echo $welcome;?> You're logged in. Update your <a href="<?php echo admin_url('profile.php');?>">account details here</a>. 
+				<?php echo $welcome;?> You're logged in.<br/> Update your <a href="<?php echo admin_url('profile.php');?>">account details here</a>. 
 			</div>
 		<?php else: ?>
 		<div class="signup-form-container">
-			<div class="signup-confirm" style="display: none;">
-				<h3>You've signed up!</h3>
-				<p>Check your email for details. <?php if( ! is_home() ) printf('Go to <a href="%s">home</a>.', home_url()); ?></p>
+			<div class="signup-confirm messages" style="display: none;">
+				
+				<p>You've successfully signed up!<br/>Check your email for your account details. <?php if( ! is_home() ) printf('Go to <a href="%s">home</a>.', home_url()); ?></p>
 				
 			</div>
 			<div class="pl-signup-form the-inputs pl-animation-group" action="#">
-				<div class="messages"></div>
+				<div class="messages action-messages"></div>
 				<input type="email" class="pl-animation pl-appear signup-input the-email" value="" placeholder="Enter Your Email Address" />
 				<span class="pl-animation pl-appear btn btn-large btn-primary btn-signup signup-input">
 					Signup <i class="icon icon-angle-right"></i>
