@@ -143,6 +143,9 @@ function pagelines_register_js() {
 
 	wp_register_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
 	wp_register_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
+	
+
+	wp_localize_script( 'pagelines-common', 'plajaxrequest', array( pl_admin_url( 'admin-ajax.php' ) ) );
 }
 
 /**

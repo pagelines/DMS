@@ -1,6 +1,20 @@
 <?php 
 
 
+// URL FUNCTIONS // 
+
+// admin urls with Force SSL
+function pl_admin_url( $slug ){
+	
+	$url = admin_url( $slug );
+	
+	if ( has_action( 'pl_force_ssl' ) )
+		$url = str_replace( 'http://', 'https://', $url );
+		
+	return $url;
+	
+}
+
 
 function pl_get_social_button( $args = array() ){
 	
