@@ -6,7 +6,7 @@ function pl_signup_center(){
 		<?php if( is_user_logged_in() ): 
 					$current_user = wp_get_current_user();
 					$first = $current_user->user_firstname;
-					$welcome = ($first != '') ? sprint('Welcome %s!', $first) : 'Welcome!';
+					$welcome = ($first != '') ? sprintf('Welcome %s!', $first) : 'Welcome!';
 			    	
 			?>
 			<div class="signup-logged-in messages">
