@@ -266,9 +266,11 @@ function pagelines_meta_tags(){
 
 function pagelines_source_attribution() {
 
-	echo "\n\n<!-- ";
-	printf ( "Site Crafted Using PageLines v%s - WordPress - HTML5 ( %s ) - www.PageLines.com ", PL_CORE_VERSION, get_pagelines_credentials( 'licence' ) );
+	$theme = PL_NICECHILDTHEMENAME;
+	$version = PL_CHILD_VERSION;
 
+	echo "\n\n<!-- ";
+	printf ( "Site Crafted Using %s v%s - WordPress - HTML5 - www.PageLines.com ", $theme, PL_CHILD_VERSION );
 	echo "-->\n";
 }
 
