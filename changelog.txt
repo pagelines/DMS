@@ -8,7 +8,7 @@ Version 2.1.5
 
 	CORE - Change the way editor CSS file is loaded, Quite a big speed boost for page refreshes.
 	CORE - Fixed styling issue in editor, Page Templates dropdown option was obscured.
-	CORE - Better support foro 'core' themes in header attribution.
+	CORE - Better support for 'core' themes in header attribution.
 	BUG - Added missing target attribute to social links, fixes undefined index warning.
 	BUG - Fixed share-alt icon, props Mikey.
 
