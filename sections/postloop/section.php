@@ -273,13 +273,15 @@ class PageLinesPostLoop extends PageLinesSection {
 
 					} elseif( ! $linkbox ) {
 						the_excerpt();
-						printf(
+						
+						$link = sprintf(
 							'<div class="continue_reading_link"><a class="btn" href="%s" title="%s %s">%s</a></div>',
 							get_permalink(),
 							__("Read More", 'pagelines'),
 							the_title_attribute(array('echo'=> 0)),
 							__('Read More <i class="icon icon-angle-right"></i>', 'pagelines')
 						);
+						echo apply_filters('continue_reading_link', $link);
 					}
 
 					?>
