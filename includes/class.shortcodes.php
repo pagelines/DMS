@@ -549,7 +549,7 @@ class PageLines_ShortCodes {
 	}
 	
 	function pl_site_url() {
-		return home_url();
+		return str_ireplace( 'http://', '//', home_url() );
 	}
 
 	function pl_themename() {
