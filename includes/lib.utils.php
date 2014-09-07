@@ -1518,3 +1518,11 @@ function pl_updater_txt() {
 	
 	return $message;
 }
+
+function pl_is_localhost() {
+    $whitelist = array( '127.0.0.1', '::1' );
+    if( in_array( $_SERVER['REMOTE_ADDR'], $whitelist) )
+        return true;
+	else
+		return false;
+}
