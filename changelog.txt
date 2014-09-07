@@ -4,6 +4,14 @@
 
 ********************************************************
 
+Version 2.1.6
+
+	CORE - Disable ajax share count when editor is open, speeds up pageload.
+	CORE - Added continue_reading_link filter.
+	CORE - Option added to disable search in mobile menu.
+	CORE - Updated Font Awesome to version 4.2
+	CORE - Add a link to Font Awesome reference page next to icons options.
+
 Version 2.1.5
 
 	CORE - Change the way editor CSS file is loaded, Quite a big speed boost for page refreshes.
