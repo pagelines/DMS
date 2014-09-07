@@ -709,6 +709,12 @@
 		, fetchCount: function( url, btn ){
 			
 			var that = this
+			,	editor = $( 'body' ).hasClass('pl-editor')	
+		
+			// if in the editor, dont do this ... saves loadtime!
+			if( editor ) {				
+				return false	
+			}
 			
 			// SHARE COUNT
 			$.getJSON( url, function( data ) {
@@ -725,10 +731,7 @@
 			
 			})
 			
-		}
-		
-		
-		
+		}		
 		, loadInButton: function(){
 			
 		}
