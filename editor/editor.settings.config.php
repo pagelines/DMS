@@ -133,7 +133,8 @@ class EditorSettings {
 				'label'		=> __( 'Select icon for Social Counter', 'pagelines' ),
 				'default'	=> 'sun',
 				'title'		=> 'Social Counter',
-				'type'		=> 'select_icon'
+				'type'		=> 'select_icon',
+				'help'		=> '<a target="_blank" href="http://fortawesome.github.io/Font-Awesome/icons/">Click here</a> for a complete list of Font Awesome Icons'
 			),
 			array(
 				'key'		=> 'twittername',

@@ -88,7 +88,8 @@ class pliBox extends PageLinesSection {
 				array(
 					'key'		=> 'icon',
 					'label'		=> __( 'Icon (Icon Mode)', 'pagelines' ),
-					'type'		=> 'select_icon'
+					'type'		=> 'select_icon',
+					'help'		=> '<a target="_blank" href="http://fortawesome.github.io/Font-Awesome/icons/">Click here</a> for a complete list of Font Awesome Icons'
 				),
 				array(
 					'key'		=> 'count',
