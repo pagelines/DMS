@@ -139,7 +139,7 @@
 					siteWrap
 						.addClass('show-mm')
 					
-					$('.site-wrap, .mm-close').one('click touchstart', function(){
+					$('.site-wrap, .mm-close').one('click', function(){
 						siteWrap.removeClass('show-mm')
 						setTimeout(function () {
 						    mobileMenu.hide()
