@@ -550,7 +550,7 @@
 			,	siteWrap = $('.site-wrap')
 			, 	mobileMenu = $('.pl-mobile-menu')
 			
-			menuToggle.on('click.mmToggle touchstart.mmToggle', function(e){
+			menuToggle.on('click.mmToggle', function(e){
 				
 				e.stopPropagation()
 			//	mobileMenu.css('max-height', siteWrap.height())
@@ -561,25 +561,16 @@
 					mobileMenu.addClass('show-menu')
 					
 					
-					$('.site-wrap, .mm-close').one('click touchstart', function(){
+					$('.site-wrap, .mm-close').one('click', function(){
 						siteWrap.removeClass('show-mobile-menu')
 						mobileMenu.removeClass('show-menu')
-					})
-					
-					
-					
+					})					
 				} else {
 					siteWrap.removeClass('show-mobile-menu')
-					mobileMenu.removeClass('show-menu')
-					
-				}
-			
-			})
-			
-		
-			
-		}
-		
+					mobileMenu.removeClass('show-menu')					
+				}		
+			})			
+		}	
 	}
 
 	$.plSocial = {
