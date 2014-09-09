@@ -3,6 +3,9 @@
   DMS Release Notes:
 
 ********************************************************
+Version 2.1.6.1
+
+	CORE - Fix for mobile menu, removed touchstart.
 
 Version 2.1.6
 
