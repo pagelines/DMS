@@ -537,8 +537,10 @@ class PageLines_ShortCodes {
 
 		$defaults = array(
 			'classes' => '',
-			'post'	  => ''
+			'post'	  => '',
+			'icon'	  => ''
 		);
+
 		$atts = shortcode_atts( $defaults, $atts );
 
 		return pl_karma( false, $atts );
