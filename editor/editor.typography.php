@@ -41,7 +41,7 @@ class EditorTypography{
 
 		$gcss = $this->foundry->google_import( $this->import_fonts, 'link' );
 		
-		$added = (pl_setting('font_extra')) ? pl_setting('font_extra') : ''; 
+		$added = (pl_setting('font_extra')) ? rawurlencode(pl_setting('font_extra')) : ''; 
 		
 		if($gcss != '')
 			$gcss .= '|'.$added;
