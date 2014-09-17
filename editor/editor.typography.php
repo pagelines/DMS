@@ -41,7 +41,7 @@ class EditorTypography{
 
 		$gcss = $this->foundry->google_import( $this->import_fonts, 'link' );
 		
-		$added = (pl_setting('font_extra')) ? rawurlencode(pl_setting('font_extra')) : ''; 
+		$added = (pl_setting('font_extra')) ? pl_setting('font_extra') : ''; 
 		
 		if($gcss != '')
 			$gcss .= '|'.$added;
@@ -49,7 +49,7 @@ class EditorTypography{
 			$gcss .= $added;
 			
 		if($gcss != '' ) 
-			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", str_replace( '|', '%7C', $gcss ) );
+			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", rawurlencode( $gcss ) );
 			
 		
 	}
