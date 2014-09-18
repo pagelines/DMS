@@ -454,22 +454,25 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 			$defaults = array(
 				'url'	=> get_permalink(),
 				'width'		=> '80',
+				'type'		=> 'like'
 			);
 
 			$a = wp_parse_args( $args, $defaults );
 
 			$app_id = '';
-			if( pl_setting( 'facebook_app_id' ) )
+			if( false !== pl_setting( 'facebook_app_id' ) )
 				$app_id = sprintf( '&appId=%s', pl_setting( 'facebook_app_id' ) );
-
+			else
+				$app_id = sprintf( '&appId=%s', '244419892345248' );
+			
 			ob_start();
 			?>
-			<div id="fb-root" style="display: none;"></div>
+			<div id="fb-root"></div>
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];
 			  if (d.getElementById(id)) return;
 			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1<?php echo $app_id; ?>";
+			  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&<?php echo $app_id; ?>&version=v2.0";
 			  fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
 			<?php
@@ -479,8 +482,9 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 			global $shortcode_js; 
 
 			$shortcode_js['facebook'] = $facebook_js;
-				
-			return sprintf( '<div class="fb-like" style="vertical-align: top;" data-href="%s" data-width="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
+							
+			return sprintf( '<div class="fb-%s" style="vertical-align: top;padding-right:8px" data-href="%s" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>',
+					$a['type'],
 					$a['url'],
 					$a['width']
 				);

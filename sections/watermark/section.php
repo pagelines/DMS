@@ -144,7 +144,7 @@ class PLWatermark extends PageLinesSection {
 			<?php 
 
 				if( ! $this->opt('pl_watermark_no_facebook') && ! has_action( 'pl_watermark_no_facebook' ) )
-		  			echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
+		  			echo do_shortcode( sprintf( '[like_button type="follow" url="http://www.facebook.com/%s"]', $facebook ));
 
 				if( ! $this->opt('pl_watermark_no_gplus') && ! has_action( 'pl_watermark_no_gplus' ) ) 
 		  			echo do_shortcode('[googleplus]');
