@@ -39,6 +39,8 @@ class EditorTypography{
 	
 	function add_google_imports(){
 
+		$base_url = apply_filters( 'pagelines_gfont_baseurl', '//fonts.googleapis.com/css?family=' );
+
 		$gcss = $this->foundry->google_import( $this->import_fonts, 'link' );
 		
 		$added = (pl_setting('font_extra')) ? pl_setting('font_extra') : ''; 
@@ -47,11 +49,15 @@ class EditorTypography{
 			$gcss .= '|'.$added;
 		else 
 			$gcss .= $added;
-			
-		if($gcss != '' ) 
-			printf( "<link id='master_font_import' rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=%s'>\n", str_replace( '|', '%7C', $gcss ) );
-			
 		
+		$url = sprintf( "%s%s", $base_url, rawurlencode( $gcss ) );
+
+		wp_enqueue_style(
+			'master_font_import',
+			$url,
+			false,
+			pl_get_cache_key()
+		);		
 	}
 
 	function add_settings( $settings ){
