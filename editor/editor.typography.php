@@ -44,13 +44,16 @@ class EditorTypography{
 		$gcss = $this->foundry->google_import( $this->import_fonts, 'link' );
 		
 		$added = (pl_setting('font_extra')) ? pl_setting('font_extra') : ''; 
-		
-		if($gcss != '')
-			$gcss .= '|'.$added;
+	
+		if($added != '' && $gcss != '')
+			$gcss .= '|'. $added;
 		else 
 			$gcss .= $added;
 		
-		$url = sprintf( "%s%s", $base_url, rawurlencode( $gcss ) );
+		if( ! $gcss )
+			return false;
+		
+		$url = sprintf( "%s%s", $base_url, $gcss );
 
 		wp_enqueue_style(
 			'master_font_import',
