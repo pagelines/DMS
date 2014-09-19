@@ -498,15 +498,17 @@
 			
 			var that = this
 			
-			var title = $('title')
+			if ( $('.pl-social-counters').length) {
 			
-			that.shareTitle = encodeURI( $("meta[property='pl-share-title']").attr('content') )
-			that.shareDesc = encodeURI( $("meta[property='pl-share-desc']").attr('content') )
-			that.shareImg = encodeURI( $("meta[property='pl-share-img']").attr('content') )
-			that.shareLocation = window.location
+				var title = $('title')
 			
-			that.loadSocialCounts()
+				that.shareTitle = encodeURI( $("meta[property='pl-share-title']").attr('content') )
+				that.shareDesc = encodeURI( $("meta[property='pl-share-desc']").attr('content') )
+				that.shareImg = encodeURI( $("meta[property='pl-share-img']").attr('content') )
+				that.shareLocation = window.location
 			
+				that.loadSocialCounts()
+			}
 		
 		}
 		
