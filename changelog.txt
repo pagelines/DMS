@@ -3,6 +3,17 @@
   DMS Release Notes:
 
 ********************************************************
+
+Version 2.1.7
+
+	CORE - Open Sans google font is enqueued by WordPress by default since WP3.7 so no longer needed.
+	CORE - Various HTML validation fixes in columnizer section default output.
+	CORE - Use wp_enqueue_style for main google fonts.
+	CORE - Fix the Facebook follow button in watermark section.
+	CORE - SEO fixes to postloop section.
+	CORE - Only load shares javascript if the share data is needed on the page - speeds up pageload.
+	CORE - Small position fix for icons when in a <li>.
+
 Version 2.1.6.1
 
 	CORE - Fix for mobile menu, removed touchstart.
