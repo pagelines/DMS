@@ -12,7 +12,7 @@ Version 2.1.7
 	CORE - Fix the Facebook follow button in watermark section.
 	CORE - SEO fixes to postloop section.
 	CORE - Only load shares javascript if the share data is needed on the page - speeds up pageload.
-	CORE - Small position fix for icons when in a <li>.
+	CORE - Small position fix for icons when in an &lt;li&gt; (HTML 'li' tag).
 
 Version 2.1.6.1
 
