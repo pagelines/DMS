@@ -30,23 +30,6 @@ function pl_default_image(){
 	return PL_IMAGES.'/default-image.jpg';
 }
 
-function pl_hash( $color, $default = true ){
-
-	$clean = str_replace('#', '', $color);
-
-	if(preg_match('/^[a-f0-9]{6}$/i', $clean)){
-		// IS A COLOR
-	} elseif (preg_match('/^[a-f0-9]{3}$/i', $clean)){
-		$clean = $clean.$clean;
-	} elseif( $default ) {
-		$clean = 'FFFFFF';
-	}
-
-
-	return sprintf('#%s', $clean);
-
-}
-
 
 // gets the url of an avatar image 
 function pl_get_avatar_url($avatar){
@@ -194,22 +177,6 @@ function pl_get_video_sources( $videos ){
 		$out .= sprintf( '<source src="%s" type="video/%s">', $source, $filetype );
 	}
 	return $out;			
-}
-
-function pl_sanitize_color( $color ){
-
-	$clean = str_replace('#', '', $color);
-
-	if(preg_match('/^[a-f0-9]{6}$/i', $clean)){
-		// IS A COLOR
-	} elseif (preg_match('/^[a-f0-9]{3}$/i', $clean)){
-		$clean = $clean.$clean;
-	} else {
-		$clean = 'FFFFFF';
-	}
-
-	return sprintf('#%s', $clean);
-
 }
 
 function pl_get_thumb_post_types( $thumb = true ){
@@ -486,15 +453,60 @@ function pl_get_post_type_plural( $id = null ){
 // ------------------------------------------
 function pl_hash_strip( $color ){
 
+	if( is_int( $color ) )
+		$color = strval( $color );
+
 	return str_replace('#', '', $color);
 }
 
 function pl_check_color_hash( $color ) {
 
+	if( is_int( $color ) )
+		$color = strval( $color );
+
 	if ( preg_match( '/^#?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $color ) )
 		return true;
 	else
 		return false;
+}
+
+function pl_sanitize_color( $color ){
+
+	if( is_int( $color ) )
+		$color = strval( $color );
+
+	$clean = str_replace('#', '', $color);
+
+	if(preg_match('/^[a-f0-9]{6}$/i', $clean)){
+		// IS A COLOR
+	} elseif (preg_match('/^[a-f0-9]{3}$/i', $clean)){
+		$clean = $clean.$clean;
+	} else {
+		$clean = 'FFFFFF';
+	}
+
+	return sprintf('#%s', $clean);
+
+}
+
+function pl_hash( $color, $default = true ){
+
+	if( is_int( $color ) )
+		$color = strval( $color );
+
+	$clean = str_replace('#', '', $color);
+
+	if(preg_match('/^[a-f0-9]{6}$/i', $clean)){
+		// IS A COLOR
+	} elseif (preg_match('/^[a-f0-9]{3}$/i', $clean)){
+		$clean = $clean.$clean;
+	} elseif( $default ) {
+		$clean = 'FFFFFF';
+	}
+
+
+	return sprintf('#%s', $clean);
+
 }
 
 /**
