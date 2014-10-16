@@ -807,6 +807,7 @@ class PageLinesRenderCSS {
 
 		if( $rules )
 			flush_rewrite_rules( true );
+
 		set_theme_mod( 'pl_save_version', time() );
 
 		$types = array( 'sections', 'core', 'custom' );
