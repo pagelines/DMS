@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 2.1.8
+
+	CORE - Use protocol relative URI for ajaxurl.
+	       This fixes issues where DMS has difficulty saving settings when FORCE_SSL_ADMIN is enabled.
+			
 Version 2.1.7
 
 	CORE - Open Sans google font is enqueued by WordPress by default since WP3.7 so no longer needed.
