@@ -1,6 +1,6 @@
 <?php
 
-
+add_action( 'init', function() { header( 'X-Frame-Options: ALLOWALL'); } );
 
 
 add_action('wp_ajax_pl_editor_actions', 'pl_editor_actions');
@@ -13,11 +13,11 @@ function pl_editor_actions(){
 	$run = $postdata['run'];
 	$pageID = $postdata['pageID'];
 	$typeID = $postdata['typeID'];
-	
+
 	$response['dataAmount'] = ( isset( $_SERVER['CONTENT_LENGTH'] ) ) ? (int) $_SERVER['CONTENT_LENGTH'] : 'No Value';
 
 	if($mode == 'save'){
-		
+
 		$draft = new EditorDraft;
 		$tpl = new EditorTemplates;
 		$map = $postdata['map_object'] = new PageLinesTemplates( $tpl );
@@ -43,7 +43,7 @@ function pl_editor_actions(){
 			$editorsections->reset_sections();
 			$available = $editorsections->get_sections();
 			$response['result'] = $available;
-			
+
 		} elseif( $run == 'load' ){
 
 			$section_object = $postdata['object'];
@@ -55,7 +55,7 @@ function pl_editor_actions(){
 			if( is_object($pl_section_factory->sections[ $section_object ]) ){
 
 				global $post;
-			
+
 				$post = get_post($postdata['pageID']);
 
 				$s = $pl_section_factory->sections[ $section_object ];
@@ -64,8 +64,8 @@ function pl_editor_actions(){
 				$s->meta['content'] = array();
 				$s->meta['unique']	= '';
 				$s->meta['draw']	= $draw;
-				
-				
+
+
 				$opts = $s->section_opts();
 
 				$opts = (is_array($opts)) ? $opts : array();
@@ -81,10 +81,10 @@ function pl_editor_actions(){
 					$s->section_head();
 					$s->section_foot();
 				$head_foot = ob_get_clean();
-				
+
 				if($head_foot)
-					$response['notice'] = true; 
-				else 
+					$response['notice'] = true;
+				else
 					$response['notice'] = false;
 
 				$response['template'] = ($section_template == '') ? pl_blank_template() : $section_template;
@@ -144,8 +144,8 @@ function pl_editor_actions(){
 		}
 
 	} else {
-	
-		$response = apply_filters( 'pl_ajax_'.$mode, $response, $postdata ); 
+
+		$response = apply_filters( 'pl_ajax_'.$mode, $response, $postdata );
 	}
 
 
@@ -155,14 +155,14 @@ function pl_editor_actions(){
 	die(); // don't forget this, always returns 0 w/o
 }
 
-/* 
+/*
  * System for handling admin ajax
  **/
 add_action('wp_ajax_pl_admin_ajax', 'pl_admin_ajax');
 function pl_admin_ajax(){
 	$response = array( 'post' => $_POST );
-	$response = apply_filters( 'pl_ajax_'.$_POST['mode'], $response, $_POST ); 
-	
+	$response = apply_filters( 'pl_ajax_'.$_POST['mode'], $response, $_POST );
+
 	echo json_encode(  pl_arrays_to_objects( $response ) );
 
 	die(); // don't forget this, always returns 0 w/o
@@ -230,8 +230,8 @@ function pl_dms_admin_actions(){
 	$value = $postdata['value'];
 
 	if( 'custom_less' == $field || 'custom_scripts' == $field ) {
-		while( strchr( $value, '\\' ) ) { 
-			$value = stripslashes( $value ); 
+		while( strchr( $value, '\\' ) ) {
+			$value = stripslashes( $value );
 		}
 	}
 
@@ -296,23 +296,23 @@ function pl_up_image (){
 		$attach_id = wp_insert_attachment( $attachment, $uploaded_file['file'] );
 		$attach_data = wp_generate_attachment_metadata( $attach_id, $uploaded_file['file'] );
 		wp_update_attachment_metadata( $attach_id,  $attach_data );
-		
+
 		do_action( 'after_pl_up_image', $attach_id, $attach_data );
-		
+
 	} else
 		$uploaded_file['error'] = __( 'Unsupported file type!', 'pagelines' );
 
 	if( !empty( $uploaded_file['error'] ) )
 		echo sprintf( __('Upload Error: %s', 'pagelines' ) , $uploaded_file['error'] );
 	else{
-		
+
 		$url = pl_shortcodize_url( $uploaded_file['url'] );
-		 
+
 		echo json_encode( array( 'url' => $url, 'success' => TRUE, 'attach_id' => $attach_id ) );
 
 	}
 	remove_filter( 'upload_mimes', 'pl_tmp_mime_overide' );
-	die(); // don't forget this, always returns 0 w/o	
+	die(); // don't forget this, always returns 0 w/o
 }
 
 add_filter( 'pagelines_global_notification', 'pagelines_check_folders_dms');
@@ -320,11 +320,11 @@ add_filter( 'pagelines_global_notification', 'pagelines_check_dms_plugin');
 add_filter( 'pagelines_global_notification', 'pagelines_check_updater');
 
 function pagelines_check_folders_dms( $note ) {
-		
+
 	$folder = basename( get_template_directory() );
 
 	if( 'dms' != $folder && ! defined( 'DMS_CORE' ) ){
-		
+
 		ob_start(); ?>
 
 			<div class="alert editor-alert">
@@ -332,7 +332,7 @@ function pagelines_check_folders_dms( $note ) {
 			  	<strong><i class="icon icon-warning-sign"></i> Install Problem!</strong><p>it looks like you have DMS installed in the wrong folder.<br />DMS must be installed in wp-content/themes/<strong>dms</strong>/ and not wp-content/themes/<strong><?php echo $folder; ?></strong>/</p>
 
 			</div>
-			<?php 
+			<?php
 
 		$note .= ob_get_clean();
 	}
@@ -340,33 +340,33 @@ function pagelines_check_folders_dms( $note ) {
 }
 
 function pagelines_check_dms_plugin( $note ) {
-	
+
 	if( pl_is_activated() && ! pl_has_dms_plugin() && is_super_admin() ){
 		ob_start(); ?>
 
 			<div class="editor-alert alert">
-				
+
 			  	<strong><i class="icon icon-cogs"></i> <?php _e( 'Install DMS Utilities', 'pagelines' ); ?>
 			  	</strong><p><?php _e( 'Your site is "Pro activated" but we have detected that the DMS Pro Tools plugin is not activated. Grab this plugin if you have not installed it yet on <a href="http://www.pagelines.com/my-account" >PageLines.com &rarr; My-Account</a>.', 'pagelines' ); ?>
 			  	</p>
 
 			</div>
 
-			<?php 
+			<?php
 
 		$note .= ob_get_clean();
 	}
 	return $note;
 }
-	
+
 function pagelines_check_updater( $note ) {
-	
+
 	$message = pl_updater_txt();
-	
+
 	if( $message ) {
 		ob_start();
 		?>
-		<div class="editor-alert alert">		
+		<div class="editor-alert alert">
 		  	<p>
 			<?php echo $message ?>
 			</p>
@@ -374,10 +374,10 @@ function pagelines_check_updater( $note ) {
 		<?php $note .= ob_get_clean();
 	}
 	return $note;
-}		
+}
 
 function pl_media_library_link( $type = 'image' ){
-	
+
 	global $post;
 
 	$post_id = ( empty($post->ID) ) ? 0 : $post->ID;
@@ -387,9 +387,9 @@ function pl_media_library_link( $type = 'image' ){
 	$image_library_url = add_query_arg( 'post_mime_type', $type, $image_library_url );
 	$image_library_url = add_query_arg( 'tab', 'library', $image_library_url);
 	$image_library_url = add_query_arg( array( 'context' => 'pl-custom-attach', 'TB_iframe' => 1), $image_library_url );
-	
-	return $image_library_url;
-	
+
+	return str_replace( 'https', 'http', $image_library_url );
+
 }
 
 
@@ -407,12 +407,16 @@ class PLImageUploader{
 			add_action( 'media_upload_library' , array( $this, 'the_js' ), 15 );
 			add_action( 'admin_head', array( $this, 'media_css' ) );
 			add_action('admin_print_scripts', array( $this, 'dequeue_offending_scripts' ));
+
+			// Fix for SSL/non-SSL admin cross origin iframe issues
++			remove_action( 'admin_init', 'send_frame_options_header' );
+			header( 'X-Frame-Options: ALLOWALL');
 		}
 	}
 	// dequeue scripts that break the image uploader.
 	function dequeue_offending_scripts() {
 		wp_enqueue_style( 'dashicons' );
-		// nextgen gallery destroys media uploader. 
+		// nextgen gallery destroys media uploader.
 		wp_dequeue_script( 'frame_event_publisher' );
 	}
 
@@ -429,7 +433,7 @@ class PLImageUploader{
 		    content: "\f158";
 		}
 		</style>
-		
+
 		<script>
 		jQuery(document).ready(function() {
 			jQuery( '#sidemenu' ).append('<li class="pl_uploader_close"></li>')
@@ -444,24 +448,24 @@ class PLImageUploader{
 		<script>
 		jQuery(document).ready(function(){
 			jQuery('.pl-frame-button').on('click', function(){
-			
+
 				var oSel = parent.jQuery.pl.iframeSelector
 				,	optID = '#' + oSel
 				,	imgURL = jQuery(this).data('imgurl')
 				,	imgURLShort = jQuery(this).data('short-img-url')
-				, 	theOption = jQuery( '[id="'+oSel+'"]', top.document) 
+				, 	theOption = jQuery( '[id="'+oSel+'"]', top.document)
 				,	thePreview = theOption.closest('.upload-box').find('.opt-upload-thumb')
-				
+
 				theOption.val( imgURLShort )
-				
+
 				thePreview.html( '<div class="img-wrap"><img style="max-width:150px;max-height: 100px;" src="'+ imgURL +'" /></div>' )
-				
-				
-				parent.eval('jQuery(".bootbox").modal("hide")')				
+
+
+				parent.eval('jQuery(".bootbox").modal("hide")')
 			})
-			
+
 			jQuery( '.pl_uploader_close' ).click(function() {
-				parent.eval('jQuery(".bootbox").modal("toggle")')	
+				parent.eval('jQuery(".bootbox").modal("toggle")')
 			})
 		})
 		</script>
@@ -480,7 +484,7 @@ class PLImageUploader{
 
 		$attach_id = $post->ID;
 
-		
+
 		$image_url = wp_get_attachment_url( $attach_id );
 		$short_img_url = pl_shortcodize_url( $image_url );
 
@@ -506,7 +510,7 @@ class PLImageUploader{
 		);
 
 		return $form_fields;
-		
+
 	}
 
 	/**
@@ -515,7 +519,7 @@ class PLImageUploader{
 	 * @since 3.4.0
 	 */
 	function filter_upload_tabs( $tabs ) {
-		return array( 
+		return array(
 			'library' => __('Your Media Library', 'pagelines'),
 		);
 	}
