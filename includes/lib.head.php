@@ -40,19 +40,19 @@ function pl_js_wrap( $js ){
  **/
 add_action('pagelines_after_page', 'pl_region_footer');
 function pl_region_footer(){
-	
+
 	// allow users to disable
 	if( pl_setting('region_disable_footer') )
-		return; 
-		
+		return;
+
 	pagelines_register_hook('pagelines_before_footer'); // Hook ?>
 	<footer id="footer" class="footer pl-region" data-region="footer">
 		<div class="page-area outline pl-area-container fix">
 		<?php pagelines_template_area('pagelines_footer', 'footer'); // Hook ?>
 		</div>
 	</footer>
-	
-	<?php 
+
+	<?php
 }
 
 
@@ -61,19 +61,19 @@ function pl_region_footer(){
  **/
 add_action('pagelines_before_main', 'pl_region_header');
 function pl_region_header(){
-	
+
 	// allow users to disable
 	if( pl_setting('region_disable_header') )
-		return; 
-		
+		return;
+
 	pagelines_register_hook('pagelines_before_header');	?>
 	<header id="header" class="header pl-region" data-region="header">
 		<div class="outline pl-area-container">
 			<?php pagelines_template_area('pagelines_header', 'header'); // Hook ?>
 		</div>
 	</header>
-	
-	<?php 
+
+	<?php
 }
 
 
@@ -82,27 +82,27 @@ function pl_region_header(){
  **/
 add_action('pagelines_site_wrap', 'pl_region_fixed');
 function pl_region_fixed(){
-	
+
 	// allow users to disable
 	if( pl_setting('region_disable_fixed') )
-		return; 
-		
+		return;
+
 	?>
 	<div id="fixed-top" class="pl-fixed-top is-not-fixed" data-region="fixed-top">
-		
+
 		<div class="pl-fixed-region pl-region" data-region="fixed">
 			<div class="outline pl-area-container">
 				<?php pagelines_template_area('pagelines_fixed_top', 'fixed_top'); // Hook ?>
 				<?php pagelines_template_area('pagelines_fixed', 'fixed'); // Hook ?>
-				
+
 			</div>
 		</div>
-		
+
 	</div>
 	<div class="fixed-top-pusher"></div>
 	<script> jQuery('.fixed-top-pusher').height( jQuery('.pl-fixed-top').height() ) </script>
-	
-	<?php 
+
+	<?php
 }
 
 add_filter( 'user_contactmethods', 'pagelines_add_google_profile', 10, 1);
@@ -132,20 +132,20 @@ function pagelines_register_js() {
 //	wp_enqueue_script( 'js-sprintf', PL_JS . '/utils.sprintf.js', array( 'jquery' ), pl_get_cache_key(), true );
 	// Images Loaded
 //	wp_enqueue_script( 'imagesloaded', PL_JS . '/utils.imagesloaded.min.js', array('jquery'), pl_get_cache_key(), true);
-	
-	
-	
+
+
+
 	wp_enqueue_script( 'pagelines-bootstrap-all', PL_JS . '/script.bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
-	
+
 	wp_enqueue_script( 'pagelines-helpers', PL_JS . '/pl.helpers.js', array( 'jquery' ), pl_get_cache_key(), true );
-	
+
 //	wp_enqueue_script( 'pagelines-resizer', PL_JS . '/script.resize.min.js', array( 'jquery' ), pl_get_cache_key(), true );
 //	wp_enqueue_script( 'pagelines-viewport', PL_JS . '/script.viewport.js', array( 'jquery' ), pl_get_cache_key(), true );
 	//wp_enqueue_script( 'pagelines-waypoints', PL_JS . '/script.waypoints.min.js', array( 'jquery' ), pl_get_cache_key(), true );
 	//wp_enqueue_script( 'pagelines-easing', PL_JS . '/script.easing.js', array( 'jquery' ), pl_get_cache_key(), true );
 	wp_enqueue_script( 'pagelines-fitvids', PL_JS . '/script.fitvids.js', array( 'jquery' ), pl_get_cache_key(), true );
-	
-	
+
+
 //	wp_enqueue_script( 'pagelines-parallax', PL_JS . '/parallax.js', array( 'jquery' ), pl_get_cache_key(), true );
 //	wp_enqueue_script( 'pagelines-appear', PL_JS.'/utils.appear.js', array( 'jquery' ), pl_get_cache_key(), true );
 	wp_enqueue_script( 'pagelines-common', PL_JS . '/pl.common.js', array( 'jquery' ), pl_get_cache_key(), true );
@@ -179,11 +179,10 @@ function pagelines_head_common(){
 
 	pagelines_source_attribution();
 
-	echo pl_source_comment('Title');
-
-	// Draw Page <title> Tag. We use a filter to apply the actual titles.
-
-	printf( '<title>%s</title>', wp_title( '',false ) );
+	// // Auto handle wp_title, added in WP 4.1
+	if ( ! function_exists( '_wp_render_title_tag' ) ) :
+		printf( '<title>%s</title>', wp_title( '',false ) );
+	endif;
 
 	// Allow for extension deactivation of all css
 	if(!has_action('override_pagelines_css_output')){
@@ -191,15 +190,15 @@ function pagelines_head_common(){
 		// RTL Language Support
 
 		// wordpress autoloads from child theme so if child theme has no rtl we need to load ours.
-		if( 
-			( is_rtl() 
-				&& is_child_theme() 
-				&& ! is_file( sprintf( '%s/rtl.css', get_stylesheet_directory() ) ) 
-			) || ( is_rtl() && ! is_child_theme() ) 
+		if(
+			( is_rtl()
+				&& is_child_theme()
+				&& ! is_file( sprintf( '%s/rtl.css', get_stylesheet_directory() ) )
+			) || ( is_rtl() && ! is_child_theme() )
 		){
 			add_action( 'wp_print_styles', create_function( '', 'pagelines_load_css_relative( "rtl.css", "pagelines-rtl" );' ), 99 );
 		}
-			
+
 	}
 
 	if ( pl_setting( 'facebook_headers' ) && ! has_action( 'disable_facebook_headers' ) && VPRO )
@@ -211,7 +210,7 @@ function pagelines_head_common(){
 		wp_enqueue_style( 'prettify', PL_JS . '/prettify/prettify.css' );
 		add_action( 'wp_head', create_function( '',  'echo pl_js_wrap("prettyPrint()");' ), 14 );
 	}
-	
+
 	add_action( 'wp_head', create_function( '',  'echo pl_source_comment("Start >> Meta Tags and Inline Scripts", 2);' ), 0 );
 
 	add_action( 'wp_print_styles', create_function( '',  'echo pl_source_comment("Styles");' ), 0 );
@@ -254,13 +253,13 @@ function pagelines_meta_tags(){
 	// Removes viewport scaling on Phones, Tablets, etc.
 	if(!pl_setting('disable_mobile_view', $oset) && !apply_filters( 'disable_mobile_view', '' ))
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />';
-		
-	
+
+
 	printf( "\n<meta property='pl-share-title' content='%s' />\n", get_the_title($pagelines_ID));
 	printf( "<meta property='pl-share-url' content='%s' />\n", get_permalink($pagelines_ID));
 	printf( "<meta property='pl-share-desc' content='%s' />\n", pl_short_excerpt( $pagelines_ID, 15 ));
 	printf( "<meta property='pl-share-img' content='%s' />\n", pl_the_thumbnail_url( $pagelines_ID ));
-	
+
 }
 
 
@@ -307,10 +306,6 @@ function pagelines_facebook_header() {
 		printf( "\n<meta property='og:image' content='%s' />", $fb_img);
 }
 
-
-
-
-
 /**
 *
 * @TODO do
@@ -335,42 +330,6 @@ function pagelines_runtime_supersize(){
 <?php
 }
 
-
-
-/**
- * PageLines Title Tag ( deprecated )
- *
- * Checks for AIO or WPSEO functionality, if they both do not exist then this will define the HTML <title> tag for the theme.
- *
- * @TODO deleteme
- *
- * @internal filter pagelines_meta_title provided for over-writing the default title text.
- */
-function pagelines_title_tag(){
-	echo "<title>";
-
-	if ( !function_exists( 'aiosp_meta' ) && !function_exists( 'wpseo_get_value' ) ) {
-	// Pagelines seo titles.
-		global $page, $paged;
-		$title = wp_title( '|', false, 'right' );
-
-		// Add the blog name.
-		$title .= get_bloginfo( 'name' );
-
-		// Add the blog description for the home/front page.
-		$title .= ( ( is_home() || is_front_page() ) && get_bloginfo( 'description', 'display' ) ) ? ' | ' . get_bloginfo( 'description', 'display' ) : '';
-
-		// Add a page number if necessary:
-		$title .= ( $paged >= 2 || $page >= 2 ) ? ' | ' . sprintf( __( 'Page %s', 'pagelines' ), max( $paged, $page ) ) : '';
-	} else
-		$title = trim( wp_title( '', false ) );
-
-	// Print the title.
-	echo apply_filters( 'pagelines_meta_title', $title );
-
-	echo "</title>";
-}
-
 /**
  * PageLines Title Tag Filter
  *
@@ -380,7 +339,11 @@ function pagelines_title_tag(){
  *
  * @internal filter pagelines_meta_title provided for over-writing the default title text.
  */
-add_filter( 'wp_title', 'pagelines_filter_wp_title' );
+// // Auto handle wp_title, added in WP 4.1
+if ( ! function_exists( '_wp_render_title_tag' ) ) :
+	add_filter( 'wp_title', 'pagelines_filter_wp_title' );
+endif;
+
 function pagelines_filter_wp_title( $title ) {
 	global $wp_query, $s, $paged, $page;
 	$sep = __( '|','pagelines' );
@@ -403,7 +366,3 @@ function pagelines_filter_wp_title( $title ) {
 	}
     return apply_filters( 'pagelines_meta_title', $new_title );
 }
-
-
-
-
