@@ -236,6 +236,8 @@ class PageLines_ShortCodes {
 		$atts = shortcode_atts( $defaults, $atts );
 
 		$cats = get_the_category_list( trim( $atts['sep'] ) . ' ' );
+		
+		if ( !$cats ) return;
 
 		$output = sprintf( '<span class="categories sc">%2$s%1$s%3$s</span> ', $cats, $atts['before'], $atts['after'] );
 
