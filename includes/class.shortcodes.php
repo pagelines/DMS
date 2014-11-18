@@ -111,6 +111,7 @@ class PageLines_ShortCodes {
 			'post_comments'				=>	array( 'function' => 'pagelines_post_comments_shortcode' ),
 			'post_tags'					=>	array( 'function' => 'pagelines_post_tags_shortcode' ),
 			'post_categories'			=>	array( 'function' => 'pagelines_post_categories_shortcode' ),
+			'post_terms'				=>	array( 'function' => 'pagelines_post_terms_shortcode' ),
 			'post_type'					=>	array( 'function' => 'pagelines_post_type_shortcode' ),
 			'post_edit'					=>	array( 'function' => 'pagelines_post_edit_shortcode' ),
 			'container'					=>	array( 'function' => 'dynamic_container' ),
@@ -186,6 +187,36 @@ class PageLines_ShortCodes {
 		$output = $edit;
 
 		return apply_filters( 'pagelines_post_edit_shortcode', $output, $atts );
+
+	}
+
+	/**
+	 * 41. This function produces the terms link list
+	 *
+	 * @example <code>[post_terms]</code> will output same as using [post_categories] since the default taxonomy is "category"
+	 * @example <code>[post_terms tax="my_people_taxonomy" sep=","]</code> will output the terms assigned to the current post from the People taxonomy
+	 */
+	function pagelines_post_terms_shortcode( $atts ) {
+
+		$defaults = array(
+			'tax' => 'category',
+			'sep' => ', ',
+			'before' => '',
+			'after' => ''
+		);
+		$atts = shortcode_atts( $defaults, $atts );
+		
+		if ( !taxonomy_exists(trim( $atts['tax'] )) ) return;
+
+		global $post;
+		
+		$terms = get_the_term_list( $post->ID, trim( $atts['tax'] ), '', trim( $atts['sep'] ) . ' ', '' );
+
+		if ( !$terms ) return;
+
+		$output = sprintf( '<span class="terms sc">%2$s%1$s%3$s</span> ', $terms, $atts['before'], $atts['after'] );
+
+		return apply_filters( 'pagelines_post_terms_shortcode', $output, $atts );
 
 	}
 
