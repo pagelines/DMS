@@ -4,11 +4,19 @@
 
 ********************************************************
 
+Version 2.1.9
+
+  CORE - Add support for WP 4.1 wp_title. See https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
+  CORE - Load editor CSS with protocol relative URL, fixes an issue with wp-admin being SSL.
+  CORE - Added new shortcode, [post_terms] via pull request from Cliff.
+  CORE - [post_categories] shortcode, if no category assigned, don't output anything. Pull request from Cliff.
+  CORE - flexslider.js slides displaying in wrong order. Patch provided by woothemes, pull request from Cliff.
+
 Version 2.1.8
 
 	CORE - Use protocol relative URI for ajaxurl.
 	       This fixes issues where DMS has difficulty saving settings when FORCE_SSL_ADMIN is enabled.
-			
+
 Version 2.1.7
 
 	CORE - Open Sans google font is enqueued by WordPress by default since WP3.7 so no longer needed.
@@ -51,7 +59,7 @@ Version 2.1.3
 	- CORE - Fixed bug with googlefont url if extra fonts were added url was malformatted.
 
 Version 2.1.2
-	
+
 	- CORE - Add the ability to totally turn of template areas, fixed, header and footer.
 	- CORE - Make sure google fonts url is encoded properly so page validates.
 	- CORE - Fixed the partner link in footer if user has added an affiliate link.
@@ -114,10 +122,10 @@ Version 2.0.5
 	- CORE - Load pl-config.json if exists on activation.
 	- CORE - Added missing row-closed spans props Cliff.
 	- BUG - Fixed section controls in boxed site mode.
-	
+
 
 Version 2.0.4
-	
+
 	- CORE - Tweaks full window section code.
 	- CORE - Added new btn-ol-link class.
 	- CORE - Remove text shadow from labels/badges.
@@ -126,7 +134,7 @@ Version 2.0.4
 	- BUG - Fix template drop down on post edit page.
 	- BUG - Fix pl_video links with SSL props Dave Moppert.
 	- BUG - Fix buddypress/bbpress error on multisite props Margaret Saizan.
-	
+
 
 Version 2.0.3
 
@@ -139,7 +147,7 @@ Version 2.0.2
 
 	- BUG - pl_setting() should only fetch global settings. This fixes the weird post level css issues.
 	- BUG - Watermark section - user settings being ignored.
-	
+
 
 Version 2.0.1
 
@@ -155,9 +163,8 @@ Version 2.0.1
 	- BUG - Fixed old navbar theme select.
 	- BUG - Fixed broken image alt code.
 	- BUG - Only show the post-format meta panels if the post has post-formats capabilities.
-	
+
 
 Version 2.0
 
 	Standalone DMS2 Released
-
