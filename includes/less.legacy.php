@@ -125,7 +125,7 @@ class EditorLessHandler{
 
 		if( is_file( $this->draft_less_file ) ) {
 
-			$url = str_replace( array( 'http:', 'https' ), '', $this->draft_less_url );
+			$url = str_replace( array( 'http://', 'https://' ), '//', $this->draft_less_url );
 			wp_register_style( 'pagelines-draft',  $url, false, pl_get_cache_key(), 'all' );
 		} else {
 			// make url safe.
