@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 2.1.9.1
+
+  CORE - Fix draft url rare 404 issue.
+  CORE - Flipper Section - Shortcodes in meta area were not working correctly.
+
 Version 2.1.9
 
   CORE - Add support for WP 4.1 wp_title. See https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
