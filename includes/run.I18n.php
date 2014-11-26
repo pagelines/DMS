@@ -9,6 +9,6 @@ function dms_run_i18n() {
 	load_theme_textdomain( 'pagelines', PAGELINES_CORE_LANG_DIR );
 
 	if( defined( 'PAGELINES_THEME_LANG_DIR' ) ) {
-		$a = load_theme_textdomain( 'pagelines', 'language' );å
+		load_theme_textdomain( 'pagelines', PAGELINES_THEME_LANG_DIR );
 	}
 }
