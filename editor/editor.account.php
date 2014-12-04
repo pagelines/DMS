@@ -651,15 +651,15 @@ class PLAccountPanel{
 				</div>
 			</div>
 		</div>
-		
+
 		<?php
 
 	}
-	
+
 	function getting_started(){
 		?>
 		<div></div>
-		<?php 
+		<?php
 	}
 
 	function pagelines_welcome(){
@@ -668,7 +668,7 @@ class PLAccountPanel{
 		<h3><i class="icon-pagelines"></i> <?php _e( 'Congratulations!', 'pagelines' ); ?>
 		</h3>
 		<p>
-		 	<strong>Hello! Welcome to DMS.</strong><br/> A drag <span class="spamp">&amp;</span> drop design management system for building, managing, and <em>evolving</em> your website.<br/> To get started please visit the links below &darr; 
+		 	<strong>Hello! Welcome to DMS.</strong><br/> A drag <span class="spamp">&amp;</span> drop design management system for building, managing, and <em>evolving</em> your website.<br/> To get started please visit the links below &darr;
 		</p>
 		<div class="alignleft well welcome-well">
 			<?php if( defined( 'DMS_DISABLE_ACCOUNT_PANEL' ) && DMS_DISABLE_ACCOUNT_PANEL && pl_is_pro() ){} else { ?>
@@ -678,11 +678,11 @@ class PLAccountPanel{
 			<a href="#" class="dms-tab-link btn" data-tab-link="account" data-stab-link="getting_started"><i class="icon-youtube-play"></i> <?php _e( 'Getting Started Video', 'pagelines' ); ?>
 			 <i class="icon-angle-right"></i></a>
 		</div>
-		
+
 
 		<?php
 	}
-	
+
 
 	function pagelines_support(){
 		?>
@@ -692,16 +692,17 @@ class PLAccountPanel{
 			<?php _e( 'We want you to have a most amazing time as a PageLines customer.', 'pagelines' ); ?>
 			 <br/>
 			<?php _e( "That's why we have a ton of people standing by to make you happy.", 'pagelines' ); ?>
-			
+
 		</p>
 		<p>
 			<a href="http://forum.pagelines.com" class="btn" target="_blank"><i class="icon-comments"></i> <?php _e( 'PageLines Forum', 'pagelines' ); ?>
 			</a>
-			<a href="http://docs.pagelines.com" class="btn" target="_blank"><i class="icon-file"></i> <?php _e( 'DMS Documentation', 'pagelines' ); ?>
+			<a href="http://www.pagelines.com/docs/DMS" class="btn" target="_blank"><i class="icon-file"></i> <?php _e( 'DMS Documentation', 'pagelines' ); ?>
+			</a>
+			<a href="http://answers.pagelines.com/" class="btn" target="_blank"><i class="icon-file"></i> <?php _e( 'Customization Answers', 'pagelines' ); ?>
 			</a>
 		</p>
 
 		<?php
 	}
 }
-
