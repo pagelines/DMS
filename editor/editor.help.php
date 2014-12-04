@@ -56,7 +56,7 @@ class EditorHelpPanel {
 </div></a>
 			</div>
 			<div class="span2">
-				<a class="big-icon-button" href="http://docs.pagelines.com/" target="_blank">
+				<a class="big-icon-button" href="http://answers.pagelines.com/" target="_blank">
 				<div class="the-icon"><i class="icon icon-support"></i></div>
 				<div class="the-text">Customization Answers <i class="icon icon-angle-right"></i>
 </div></a>
