@@ -43,28 +43,34 @@ class EditorHelpPanel {
 		$tour = pl_add_query_arg(array('pl-view-tour' => 1)); 
 		?>
 		<div class="row">
-			<div class="span3">
+			<div class="span2">
 				<a class="big-icon-button" href="<?php echo $tour;?>">
 				<div class="the-icon"><i class="icon icon-magic"></i></div>
 				<div class="the-text">View Interactive Tour <i class="icon icon-angle-right"></i>
 </div></a>
 			</div>
-			<div class="span3">
-				<a class="big-icon-button" href="http://www.pagelines.com/user-guide/" target="_blank">
+			<div class="span2">
+				<a class="big-icon-button" href="http://www.pagelines.com/quick-start/" target="_blank">
 				<div class="the-icon"><i class="icon icon-book"></i></div>
-				<div class="the-text">Read User Guide <i class="icon icon-angle-right"></i>
+				<div class="the-text">Quick Start Guide <i class="icon icon-angle-right"></i>
 </div></a>
 			</div>
-			<div class="span3">
+			<div class="span2">
+				<a class="big-icon-button" href="http://answers.pagelines.com/" target="_blank">
+				<div class="the-icon"><i class="icon icon-support"></i></div>
+				<div class="the-text">Customization Answers <i class="icon icon-angle-right"></i>
+</div></a>
+			</div>
+			<div class="span2">
+				<a class="big-icon-button" href="http://pagelines.com/docs/DMS" target="_blank">
+				<div class="the-icon"><i class="icon icon-files-o"></i></div>
+				<div class="the-text">Installation Docs <i class="icon icon-angle-right"></i>
+</div></a>
+			</div>
+			<div class="span2">
 				<a class="big-icon-button" href="http://forum.pagelines.com/" target="_blank">
 				<div class="the-icon"><i class="icon icon-comments"></i></div>
-				<div class="the-text">Support Forums <i class="icon icon-angle-right"></i>
-</div></a>
-			</div>
-			<div class="span3">
-				<a class="big-icon-button" href="http://docs.pagelines.com/" target="_blank">
-				<div class="the-icon"><i class="icon icon-files-o"></i></div>
-				<div class="the-text">Documentation <i class="icon icon-angle-right"></i>
+				<div class="the-text">Technical Support Forums <i class="icon icon-angle-right"></i>
 </div></a>
 			</div>
 		</div>
