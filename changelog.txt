@@ -4,6 +4,12 @@
 
 ********************************************************
 
+Vewrsion 1.1.9
+
+  - CORE - Updated support links.
+  - CORE - Added the debug enable checkbox to css/scripts fallback area.
+  - CORE - Disabled timed key checking. Once DMS1 is activated it will stay activated.
+
 Version 1.1.8
 
 	- CORE - Added an alternative CSS URL method (advanced options)
@@ -30,7 +36,7 @@ Version 1.1.5
 	- BUG - Fixes for login image.
 	- BUG - Make media image selection box slightly bigger.
 	- BUG - Adjust modal load order to remove added p tag, fixes #612
-	- BUG - namespace jquery resize script. 
+	- BUG - namespace jquery resize script.
 
 Version 1.1.4
 
@@ -41,7 +47,7 @@ Version 1.1.4
 	- BUG - CSS was sometimes broken on a static homepage.
 	- BUG - Tweaks to settings system. Fixes some issues when saving.
 	- BUG - Fixed Watermark Section sharing options.
-	
+
 
 Version 1.1.3
 
@@ -50,14 +56,14 @@ Version 1.1.3
 	- BUG - Fix BBPress and BuddyPress PHP notice.
 	- BUG - Fixed a bug if plugins loaded an admin page inside an iframe DMS would attempt to display frontend footer, affected nextgen file uploader.
 	- BUG - Various settings fixes, including media uploader and cloning issues.
-	
+
 Version 1.1.2
 
 	- CORE - Editor is now fully translatable.
 	- BUG - Fixed the ico file upload bug.
 
 Version 1.1.1
-	
+
 	33 commits to github including a lot of translation fixes.
 	https://github.com/pagelines/DMS/compare/a7e601390d9d6c893c4201e7c116d3968dc18b05...83b4d4dbdbd1fd9178b29f7ef37e45bcc15cbc5d
 
@@ -68,8 +74,8 @@ Version 1.1
 	To help optimize your sites we have reduced the amount of code in this release by a massive 18427 lines!
 	A full changelog can be viewed on Github
 	https://github.com/pagelines/DMS/compare/1.0.4...a7e601390d9d6c893c4201e7c116d3968dc18b05
-	
-	
+
+
 
 Version 1.0.4
 
@@ -81,20 +87,20 @@ Version 1.0.3
 	- CORE - Refresh store meta data when core updates page is loaded.
 	- BUG - Fixed excerpt length and allowed tags settings not applying on posts.
 	- BUG - Fixed the load order for sections folders. This was preventing other section classes overriding core sections.
-	
+
 Version 1.0.2
 	- CORE - Fixed 3 Github issues. https://github.com/pagelines/DMS/compare/9b1a5e2394...3736e00
 	- CORE - Various fixes for themecheck.
 
 Version 1.0.1
-	
+
 	- CORE - Remove debugging symbol.
 
 Version 1.0
 
 	- CORE - Fixed 13 Github issues and included 8 pull requests. https://github.com/pagelines/DMS/compare/43495ef685...7580ca6cc9
 	- CORE - New updates system included to 3rd party themes/plugins.
-	
+
 
 Version 0.9.7
 
