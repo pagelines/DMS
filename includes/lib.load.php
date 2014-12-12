@@ -98,6 +98,24 @@ function pl_theme_support(  ){
 	add_theme_support( 'title-tag' );
 }
 
+/**
+* Set WordPress $content_width variable to whatever content_width_px is.
+* Only happens if layout_mode is no set to percent.
+*/
+add_action('after_setup_theme', 'pl_theme_content_width' );
+function pl_theme_content_width() {
+	if( pl_setting( 'layout_mode' ) != 'percent' ) { // == 'pixel'
+		$contentpxwidth = pl_setting( 'content_width_px' );
+		$contentpxwidth = str_replace( 'px', '', $contentpxwidth ); //only allow numbers so 1100px changes to 1100
+		if( is_numeric( $contentpxwidth ) && ! empty( $contentpxwidth ) ) {
+			$contentpxwidth = intval( $contentpxwidth );
+		} else {
+			$contentpxwidth = 1100; //DMS' default if is not set yet by user
+		}
+		global $content_width;
+		$content_width = $contentpxwidth;
+	}
+}
 
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
 function pagelines_check_lessdev(){
