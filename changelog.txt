@@ -7,6 +7,7 @@
 Version 2.1.9.2
 
   CORE - $content_width global now synced with DMS content width (pixel mode only). Fixes embed video widths.
+  CORE - Update support links for http://answers.pagelines.com
   CORE - Flipper Section - Added 'suppress_filters' to query. Allows translated pages to be found.
          ( See http://forum.pagelines.com/topic/36869-flipper-sections-does-not-filter-for-post-language/ )
 
