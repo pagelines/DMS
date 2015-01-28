@@ -7,7 +7,7 @@
 	Class Name: PageLinesPostLoop
 	Workswith: main
 	Failswith: 404_page
-	Filter: component
+	Filter: component, full-width
 */
 
 /**
@@ -20,7 +20,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 	function section_opts(){
 
-		
+
 		$opts = array(
 			array(
 				'key'		=> 'post_content',
@@ -84,11 +84,11 @@ class PageLinesPostLoop extends PageLinesSection {
 				)
 			)
 		);
-		
+
 		global $post;
-		
+
 		$id = ( isset( $post->ID ) ) ? $post->ID : null;
-		
+
 		if( true == apply_filters( 'pl_legacy_postloop', pl_setting( 'post_loop_legacy'), $id ) )
 			$opts = $this->get_old_options();
 
@@ -187,21 +187,21 @@ class PageLinesPostLoop extends PageLinesSection {
 			$class[ ] = ( ! $postlist ) ? 'standard-page' : 'metahead-page';
 
 			$class[ ] = ( is_single() ) ? 'single-post' : '';
-			
+
 			$class[ ] = 'pl-border';
-			
+
 			$class[ ] = 'hentry';
-			
+
 			$class[ ] = 'pl-new-loop';
 
 			$gallery_format = get_post_meta( get_the_ID(), '_pagelines_gallery_slider', true);
 
 			$class[ ] = ( ! empty( $gallery_format ) ) ? 'use-flex-gallery' : '';
-			
-			$thumb_size = ( pl_setting('pl_loop_thumb_size' ) ) ? pl_setting('pl_loop_thumb_size' ) : 'landscape-thumb'; 
+
+			$thumb_size = ( pl_setting('pl_loop_thumb_size' ) ) ? pl_setting('pl_loop_thumb_size' ) : 'landscape-thumb';
 
 			$classes = apply_filters( 'pagelines_get_article_post_classes', join( " ", $class) );
-			
+
 			$hide_post_media = $this->opt( 'post_media_hide' );
 			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
@@ -211,22 +211,22 @@ class PageLinesPostLoop extends PageLinesSection {
 					if( $postlist ){
 						echo '<div class="metahead">';
 							if( get_post_type() != 'page' ) {
-								
+
 								$karma = ( ! pl_setting( 'pl_loop_disable_karma') ) ? '[pl_karma]' : '';
-								
+
 								$sc = sprintf( '[pl_author_avatar size="80"][post_author_posts_link class="pl-border"]%s', $karma );
 								echo do_shortcode( apply_filters( 'pl_newloop_author_shortcodes', $sc ) );
 							} else {
 								printf('<div class="metaicon"><i class="icon icon-file icon-3x"></i></div>');
-							} 								
+							}
 						echo '</div>';
 					}
-						
+
 
 					if( ! is_singular() && ! $hide_post_media ){
 
-						$media = pagelines_media( array( 'thumb-size' => $thumb_size ) ); 
-						
+						$media = pagelines_media( array( 'thumb-size' => $thumb_size ) );
+
 						if( ! empty( $media ) )
 							printf( '<div class="metamedia">%s</div>', $media );
 
@@ -257,8 +257,8 @@ class PageLinesPostLoop extends PageLinesSection {
 					<?php
 
 					if( is_single() || is_page() ){
-						
-						
+
+
 						if( ! $hide_post_media )
 							printf( '<div class="metamedia">%s</div>', pagelines_media( array( 'thumb-size' => $thumb_size ) ) );
 
@@ -273,7 +273,7 @@ class PageLinesPostLoop extends PageLinesSection {
 
 					} elseif( ! $linkbox ) {
 						the_excerpt();
-						
+
 						$link = sprintf(
 							'<div class="continue_reading_link"><a class="btn" href="%s" title="%s %s">%s</a></div>',
 							get_permalink(),
