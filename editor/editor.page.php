@@ -182,15 +182,12 @@ class PageLinesPage {
 
 		else{
 			$type = 'other';
-		
+
 		}
-			
-
-		return $type;
-
+		return apply_filters( 'pl_breaker_type', $type );
 	}
-	
-	
+
+
 	function is_special(){
 
 		if ( is_404() || is_home() || is_search() || is_archive() )
@@ -202,20 +199,21 @@ class PageLinesPage {
 
 	function is_blog_page_type(){
 
-		if ( $this->type == 'blog' 
-			|| $this->type == 'category' 
-			|| $this->type == 'post' 
-			|| $this->type == 'archive' 
-			|| $this->type == 'author' 
-			|| $this->type == 'tag' 
-			|| $this->type == 'search' 
+		if ( $this->type == 'blog'
+			|| $this->type == 'category'
+			|| $this->type == 'post'
+			|| $this->type == 'archive'
+			|| $this->type == 'author'
+			|| $this->type == 'tag'
+			|| $this->type == 'search'
+			|| $this->type == 'tax'
 		)
 			return true;
 		else
 			return false;
 
 	}
-	
+
 	function is_posts_page(){
 
 		if ( is_home() || is_search() || is_archive() || is_category() )
@@ -224,12 +222,12 @@ class PageLinesPage {
 			return false;
 
 	}
-	
+
 	function pl_standard_post_page(){
 
 		if( $this->type == 'other' || false !== ( strpos( $this->type, 'forum') ) )
 			return false;
-		else 
+		else
 			return true;
 	}
 
@@ -237,27 +235,27 @@ class PageLinesPage {
 }
 
 function pl_page_id(){
-	global $plpg; 
-	return $plpg->id; 
+	global $plpg;
+	return $plpg->id;
 }
 
 function pl_type_id(){
-	global $plpg; 
-	return $plpg->typeid; 
+	global $plpg;
+	return $plpg->typeid;
 }
 
 function pl_type_slug(){
-	global $plpg; 
-	return $plpg->type; 
+	global $plpg;
+	return $plpg->type;
 }
 function pl_special_id( $type = false ){
-	
-	$page_handler = new PageLinesPage; 
-	return $page_handler->special_index_lookup( $type ); 
-	
+
+	$page_handler = new PageLinesPage;
+	return $page_handler->special_index_lookup( $type );
+
 }
 
 function pl_standard_post_page(){
-	global $plpg; 
+	global $plpg;
 	return $plpg->pl_standard_post_page();
 }
