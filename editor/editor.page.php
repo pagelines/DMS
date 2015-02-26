@@ -155,6 +155,9 @@ class PageLinesPage {
 		elseif( is_tag() )
 			$type = 'tag';
 
+		elseif( is_tax() )
+			$type = pl_get_taxonomy();
+
 		elseif( is_search() )
 			$type = 'search';
 
@@ -218,7 +221,7 @@ class PageLinesPage {
 	
 	function is_posts_page(){
 
-		if ( is_home() || is_search() || is_archive() || is_category() )
+		if ( is_home() || is_search() || is_archive() || is_category() || is_tax())
 			return true;
 		else
 			return false;

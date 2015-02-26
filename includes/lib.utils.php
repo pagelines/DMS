@@ -480,6 +480,21 @@ function pl_get_post_type_plural( $id = null ){
 		return $post_type.'_archive';
 }
 
+/**
+ * Get taxonomy for archive template
+ *
+ */
+
+function pl_get_taxonomy( $id = null ){
+
+	$taxonomy = get_query_var( 'taxonomy' );
+
+	if(isset($id))
+		return $id.'_archive';
+	else
+		return $taxonomy.'_archive';
+}
+
 
 // ------------------------------------------
 // COLOR HELPERS
