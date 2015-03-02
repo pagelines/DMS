@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 2.1.9.3
+
+  CORE - Update FontAwesome to version 4.3, http://fortawesome.github.io/Font-Awesome/whats-new/
+  CORE - New filter 'pl_breaker_type', allows developers to set page types at will.
+
 Version 2.1.9.2
 
   CORE - $content_width global now synced with DMS content width (pixel mode only). Fixes embed video widths.
