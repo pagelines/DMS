@@ -25,7 +25,7 @@ class EditorFileOpts {
 
 				$t = explode( '|', $_GET['templates'] );
 
-				foreach( $t as $k =>$template)
+				foreach( $t as $k => $template)
 					$this->data->templates[$template] = 'on';
 			}
 			$this->make_download();
@@ -130,16 +130,16 @@ class EditorFileOpts {
 
 		// IMPORT USER MAPS
 		if( isset( $file_data['pl-user-templates'] ) && 'checked' == $opts['page_tpl_import'] ) {
-			
+
 			$new = $import_defaults;
-			
+
 			$old = get_option( 'pl-user-templates', $import_defaults );
-						
+
 			$import = wp_parse_args( $file_data['pl-user-templates'], $import_defaults );
-			
+
 			$new['draft'] = array_merge( $old['draft'], $import['draft'] );
 			$new['live'] = array_merge( $old['live'], $import['live'] );
-			
+
 			update_option( 'pl-user-templates', $new );
 
 			$parsed[] = 'user_templates';
@@ -155,9 +155,9 @@ class EditorFileOpts {
 		}
 
 		if( isset( $file_data['custom'] ) ) {
-			
+
 			$parsed[] =  'custom';
-			update_option( 'pl-user-sections', $file_data['custom'] ); 
+			update_option( 'pl-user-sections', $file_data['custom'] );
 		}
 
 
@@ -165,10 +165,10 @@ class EditorFileOpts {
 
 			$section_opts = $file_data['section_data'];
 			global $sections_data_handler;
-			
+
 			if( ! is_object( $sections_data_handler ) )
 				$sections_data_handler = new PLSectionData;
-		
+
 			$section_data = array();
 			foreach( $section_opts as $data ) {
 				$section_data[$data['uid']] = stripslashes_deep( $this->unserialize( $data['live'] ) );
@@ -180,7 +180,7 @@ class EditorFileOpts {
 	}
 
 	function unserialize( $data ) {
-		
+
 		if( is_array( $data ) || is_object( $data ) )
 			return $data;
 
@@ -199,20 +199,31 @@ class EditorFileOpts {
 		if( isset( $this->data->export_global ) ) {
 			$option['pl-settings'] = pl_get_global_settings();
 		}
-			
+
 
 		// grab the map
 		// $option['pl-template_map'] = get_option( 'pl-template-map', array() );
 
 		// grab user templates
-		
-		
-		
+
+
+
 		if( isset( $this->data->templates ) ) {
 
-			$templates =  get_option( 'pl-user-templates', array() );
+			$templates = get_option( 'pl-user-templates', array( 'draft' => array(), 'live' => array() ) );
 
-			$option['pl-user-templates'] = stripslashes_deep( $templates );
+			$draft = array();
+			$live = array();
+
+			foreach( $this->data->templates as $k => $data ) {
+				if( isset( $templates['draft'][$k] ) )
+					$draft[$k] = $templates['draft'][$k];
+
+				if( isset( $templates['live'][$k] ) )
+					$live[$k] = $templates['live'][$k];
+			}
+
+			$option['pl-user-templates'] = stripslashes_deep( array( 'draft' => $draft, 'live' => $live ) );
 		}
 
 		if( isset( $this->data->export_types ) ) {
@@ -237,15 +248,15 @@ class EditorFileOpts {
 			$output = 'names'; // names or objects, note names is the default
 			$operator = 'and'; // 'and' or 'or'
 			$post_types = get_post_types( $args,$output,$operator );
-					
+
 			$meta = array();
 			$master = array_unique( array_merge( $post_types, $lookup_array ) );
 
 			foreach( $master as $t => $type ) {
-				
+
 				$key = array_search( $type, $lookup_array );
 				if( ! $key ){
-					$key = pl_create_int_from_string( $type ) + 70000000;	
+					$key = pl_create_int_from_string( $type ) + 70000000;
 				} else {
 					$key = $key + 70000000;
 				}
@@ -254,35 +265,35 @@ class EditorFileOpts {
 				if( empty( $meta[$key] ) )
 					unset( $meta[$key] );
 			}
-			
+
 			$post_ids = get_posts(array(
 			    'numberposts'   => -1, // get all posts.
 			    'fields'        => 'ids',
 				'post_type'		=> 'any'
 			));
-			
+
 			$option['post_ids'] = $post_ids;
-			
+
 			foreach( $post_ids as $k => $p ) {
 				$meta[$p] = get_post_meta( $p, 'pl-settings' );
 				if( empty( $meta[$p] ) )
 					unset( $meta[$p] );
 			}
-			
+
 			$option['post_meta'] = $meta;
 		}
 
 		$option['custom'] = get_option( 'pl-user-sections');
 		// do section data
 		global $sections_data_handler;
-		
+
 		$section_data = $sections_data_handler->dump_opts();
-		
+
 		foreach( $section_data as $k => $data ) {
 			$section_data[$k]->draft = $this->unserialize( $data->draft );
 			$section_data[$k]->live = $this->unserialize( $data->live );
 		}
-		
+
 		$option['section_data'] = $section_data;
 
 
