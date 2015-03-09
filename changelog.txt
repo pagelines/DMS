@@ -10,6 +10,7 @@ Version 2.1.9.3
   CORE - Template Exports: You can now select which templates to export rather than all of them exporting every time.
   CORE - New filter 'pl_breaker_type', allows developers to set page types at will.
   CORE - Small CSS fix for Woocommerce product quantity selector.
+  CORE - Mediabox Section cross browser CSS fix.
 
 Version 2.1.9.2
 
