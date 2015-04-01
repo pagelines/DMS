@@ -50,25 +50,25 @@ class EditorHelpPanel {
 </div></a>
 			</div>
 			<div class="span2">
-				<a class="big-icon-button" href="http://www.pagelines.com/quick-start/" target="_blank">
+				<a class="big-icon-button" href="http://www.pagelines.com/quick-start/?utm_source=wordpress_org&utm_medium=resources&utm_campaign=dmslite" target="_blank">
 				<div class="the-icon"><i class="icon icon-book"></i></div>
 				<div class="the-text">Quick Start Guide <i class="icon icon-angle-right"></i>
 </div></a>
 			</div>
 			<div class="span2">
-				<a class="big-icon-button" href="http://answers.pagelines.com/" target="_blank">
+				<a class="big-icon-button" href="http://answers.pagelines.com/?utm_source=wordpress_org&utm_medium=resources&utm_campaign=dmslite" target="_blank">
 				<div class="the-icon"><i class="icon icon-support"></i></div>
 				<div class="the-text">Customization Answers <i class="icon icon-angle-right"></i>
 </div></a>
 			</div>
 			<div class="span2">
-				<a class="big-icon-button" href="http://pagelines.com/docs/DMS" target="_blank">
+				<a class="big-icon-button" href="http://pagelines.com/docs/DMS/?utm_source=wordpress_org&utm_medium=resources&utm_campaign=dmslite" target="_blank">
 				<div class="the-icon"><i class="icon icon-files-o"></i></div>
 				<div class="the-text">Installation Docs <i class="icon icon-angle-right"></i>
 </div></a>
 			</div>
 			<div class="span2">
-				<a class="big-icon-button" href="http://forum.pagelines.com/" target="_blank">
+				<a class="big-icon-button" href="http://forum.pagelines.com/?utm_source=wordpress_org&utm_medium=resources&utm_campaign=dmslite" target="_blank">
 				<div class="the-icon"><i class="icon icon-comments"></i></div>
 				<div class="the-text">Technical Support Forums <i class="icon icon-angle-right"></i>
 </div></a>
