@@ -4,6 +4,17 @@
 
 ********************************************************
 
+Version 1.1.2
+
+  (Synced with latest DMS2 branch)
+
+  Notable Fixes:
+    Use relative ajax url, fixes SSL issues.
+    Added regions to be disabled, header, footer and fixed.
+    Support URLs updated.
+    Update $content_width with layout width setting, fixes videos/images layout.
+    Add WP 4.1 support for wp_title()
+
 Version 1.1.1
 
 	Fixed various translation issues and removed old account code ( no longer used ).
@@ -13,4 +24,3 @@ Version 1.1.1
 Version 1.1.0
 
 	(Synced with latest DMS2 branch)
-

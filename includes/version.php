@@ -3,4 +3,4 @@
 // Internal build versions.
 
 
-$platform_build = '1.1.1';
+$platform_build = '1.1.2';
