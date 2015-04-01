@@ -129,14 +129,14 @@ class EditorInterface {
 			wp_enqueue_script( 'jquery-ui-resizable' );
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
-	
+
 			wp_enqueue_script( 'jquery-mousewheel', PL_JS . '/utils.mousewheel.js', array('jquery'), pl_get_cache_key(), true );
-			
+
 			// Global AjaxURL variable --> http://www.garyc40.com/2010/03/5-tips-for-using-ajax-in-wordpress/
-			$ajax_url = admin_url( 'admin-ajax.php' );
+			$ajax_url = admin_url( 'admin-ajax.php', 'relative' );
 			$ajax_url = str_replace( array( 'http://', 'https://' ), '//',  $ajax_url );
 			wp_localize_script( 'pl-editor-js', 'ajaxurl', array( $ajax_url ) );
-		
+
 			//if( is_front_page() && get_theme_mod( 'pl_installed' ) && true != get_theme_mod( 'import_from_child' ) && is_file( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json' ) )
 			//	wp_localize_script( 'pl-editor-js', 'plconfigfile', array( true ) );
 	}
