@@ -10,7 +10,7 @@
 	$.plWizard = {
 
 		init: function( ){
-						
+			
 			$.toolbox('hide')
 			
 			// alright, lets run this thing.
@@ -179,7 +179,7 @@
 					{
 						"name" 		: ".el-section-controls .offset-size",
 						"text"		: "<strong>Edit Column Offset</strong><br/> Adjust number of columns you want to offset the section. Note: It must be less than 12 columns wide (full width).",
-						"position"	: "TL",
+						"position"	: "TL", 
 						'pro'		: true,
 						beforeSend	: function(){
 							
@@ -198,7 +198,7 @@
 					{
 						"name" 		: ".el-section-controls .section-start-row",
 						"text"		: "<strong>Force To New Row</strong><br/> Force this section to a new row. This is useful if you're using complicated multi-section layouts.",
-						"position"	: "TL",
+						"position"	: "TL", 
 						'pro'		: true,
 						beforeSend	: function(){
 							
@@ -235,7 +235,7 @@
 					{
 						"name" 		: ".el-section-controls .section-clone",
 						"text"		: "<strong>Clone Section</strong><br/> Duplicate the section and its settings with one click!",
-						"position"	: "TR",
+						"position"	: "TR", 
 						'pro'		: true,
 						beforeSend	: function(){
 							
@@ -312,7 +312,7 @@
 					{
 						"name" 		: ".area-control-hover .area-save",
 						"text"		: "<strong>Custom User Sections</strong><br/> You can save full width sections as custom sections using this button. This allows you to store and reuse this section as well as its nested sections and all their settings.",
-						"position"	: "TL",
+						"position"	: "TL", 
 						'pro'		: true,
 						beforeSend	: function(){
 

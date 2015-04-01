@@ -5,10 +5,32 @@
 
 	// --> Initialize
 	$(document).ready(function() {
-
+		
+		$.CheckCustomize.init()
 		$.pageTools.startUp()
 
 	})
+	
+	$.CheckCustomize = {		
+		init: function() {
+			
+			// Check if we are in the customizer IFRAME, only way to get here is from wp-admin/themes.php.
+			// If we are, redirect to homepage, with editor open, seeing as thats what the user wants.
+			if (top != self){
+				var url = document.referrer			
+				// only redirect if the referrer is wp-admin, some people might actually still be using frames :o				
+				if( false != strpos( url, 'wp-admin/themes.php' ) ) {
+					top.location.replace($.pl.config.urls.siteURL + '?edtr=on&toolbox=open')
+				}					
+			}
+			
+			// If we are not in an iframe, check URL for toolbox=open
+			var toolbox = GetQueryStringParams('toolbox') || false
+			if( toolbox ) {
+				$.toolbox('show')
+			}
+		}
+	}
 	
 	$.plHotKeys = {
 		init: function(){
@@ -41,7 +63,6 @@
 		startUp: function(){
 			
 			$.plDev.init()
-
 			$.plHotKeys.init()
 
 			$(".dropdown-toggle").dropdown()
@@ -73,6 +94,7 @@
 			
 		}
 		
+
 		
 		, bindUIActions: function() {
 
@@ -692,8 +714,12 @@
 			
 			$.pl.data[templateMode]['custom-map'] = $.extend({}, { template: mapConfig.template.map })
 			
-			$.pl.data.global.regions = $.extend({}, { header: mapConfig.header.map, footer: mapConfig.footer.map })
-
+			if( plIsset(mapConfig.header) )
+				$.pl.data.global.regions = $.extend( $.pl.data.global.regions, { header: mapConfig.header.map })
+				
+			if( plIsset(mapConfig.footer) )
+				$.pl.data.global.regions = $.extend( $.pl.data.global.regions, { footer: mapConfig.footer.map })
+			
 			$(window).trigger('resize')
 
 			return mapConfig

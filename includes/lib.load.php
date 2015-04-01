@@ -6,30 +6,30 @@ add_filter('init', 'pl_check_sidebar_markup');
 function pl_check_sidebar_markup( ){
 
 	global $wp_registered_sidebars;
-	
+
 	foreach( $wp_registered_sidebars as &$sb ){
 		if( $sb['before_widget'] == '' ){
-			
+
 			$sb['before_widget'] = '<li id="%1$s" class="widget %2$s">';
 			$sb['after_widget']  = '</li>';
 			$sb['before_title']  = '<h2 class="widgettitle">';
 			$sb['after_title']   = '</h2>';
-			
+
 		}
 	}
 	unset($sb);
 
 }
 
-add_action( 'pagelines_hook_init', 'load_pagelines_admin' ); 
+add_action( 'pagelines_hook_init', 'load_pagelines_admin' );
 function load_pagelines_admin(){
-			
+
 	require_once( PL_ADMIN . '/admin.init.php' );
 }
 
-add_action( 'pagelines_hook_init', 'install_pagelines', 5 ); 
+add_action( 'pagelines_hook_init', 'install_pagelines', 5 );
 function install_pagelines(){
-	
+
 	if( class_exists('PageLinesInstallTheme') )
 		new PageLinesInstallTheme;
 	else
@@ -37,9 +37,9 @@ function install_pagelines(){
 }
 
 // Always best to load most stuff after WP loads fully.
-// The "after_setup_theme" hook is the point at which it has... 
+// The "after_setup_theme" hook is the point at which it has...
 // NOTE: pl_setting cannot be used BEFORE the 'after_setup_theme' hook
-add_action('after_setup_theme', 'pl_load_registers'); 
+add_action('after_setup_theme', 'pl_load_registers');
 function pl_load_registers(){
 
 	/**
@@ -57,7 +57,7 @@ function pl_load_registers(){
 	pagelines_register_hook( 'pagelines_setup' ); // Hook
 
 	$GLOBALS['render_css'] = new PageLinesRenderCSS;
-	
+
 	if ( pl_setting( 'enable_debug' ) )
 		require_once ( PL_INCLUDES . '/class.debug.php');
 }
@@ -67,13 +67,13 @@ function pl_load_registers(){
  */
 add_filter( 'pagelines_setup', 'load_section_persistent' );
 function load_section_persistent( ){
-	
+
 	// Load persistent section functions (e.g. custom post types)
 	global $pl_section_factory;
 	foreach($pl_section_factory->sections as $section){
 		$section->section_persistent();
 	}
-	
+
 }
 
 /**
@@ -83,26 +83,43 @@ add_action('after_setup_theme', 'pl_theme_support');
 function pl_theme_support(  ){
 
 	add_theme_support( 'post-thumbnails' );
-	
+
 	add_theme_support( 'post-formats', array('quote','video','audio','gallery','link') );
-	
+
 	add_image_size( 'aspect-thumb', 1200, 800, true );
 	add_image_size( 'basic-thumb', 500, 500, true );
 	add_image_size( 'landscape-thumb', 1000, 500, true );
 	add_image_size( 'tall-thumb', 500, 1000, true );
 	add_image_size( 'big-thumb', 1000, 1000, true );
-	
 	add_theme_support( 'menus' );
 	add_theme_support( 'automatic-feed-links' );
-	
 	add_theme_support( 'woocommerce' );
-
+	// Auto handle wp_title, added in WP 4.1
+	add_theme_support( 'title-tag' );
 }
 
+/**
+* Set WordPress $content_width variable to whatever content_width_px is.
+* Only happens if layout_mode is no set to percent.
+*/
+add_action('after_setup_theme', 'pl_theme_content_width' );
+function pl_theme_content_width() {
+	if( pl_setting( 'layout_mode' ) != 'percent' ) { // == 'pixel'
+		$contentpxwidth = pl_setting( 'content_width_px' );
+		$contentpxwidth = str_replace( 'px', '', $contentpxwidth ); //only allow numbers so 1100px changes to 1100
+		if( is_numeric( $contentpxwidth ) && ! empty( $contentpxwidth ) ) {
+			$contentpxwidth = intval( $contentpxwidth );
+		} else {
+			$contentpxwidth = 1100; //DMS' default if is not set yet by user
+		}
+		global $content_width;
+		$content_width = $contentpxwidth;
+	}
+}
 
 add_action( 'template_redirect', 'pagelines_check_lessdev', 9 );
 function pagelines_check_lessdev(){
-	
+
 	if( 1 == pl_setting( 'no_cache_mode' ) ) {
 		PageLinesRenderCSS::flush_version( false );
 		global $dms_cache;
@@ -119,7 +136,7 @@ add_action( 'init', 'pagelines_check_child_less' );
 function pagelines_check_child_less() {
 
 	// we might be a new standalone theme so we need to check tamplatedir too now.
-	if( defined( 'DMS_CORE' ) ) {		
+	if( defined( 'DMS_CORE' ) ) {
 
 		$lessfile = sprintf( '%s/style.less', get_template_directory() );
 		if ( is_file( $lessfile ) )
@@ -171,6 +188,6 @@ function pl_fix_login_image( ){
 	$image_url = (pl_setting('pl_login_image')) ? pl_setting('pl_login_image') : PL_IMAGES . '/default-login-image.png';
 
 	$css = sprintf('body #login h1 a{background: url(%s) no-repeat top center;height: 80px; background-size:auto; width:auto;}', $image_url);
-	
+
 	inline_css_markup('pagelines-login-css', $css);
 }

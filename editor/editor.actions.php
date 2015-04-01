@@ -229,8 +229,16 @@ function pl_dms_admin_actions(){
 	$field = $postdata['setting'];
 	$value = $postdata['value'];
 
-	pl_setting_update($field, $value);
+	if( 'custom_less' == $field || 'custom_scripts' == $field ) {
+		while( strchr( $value, '\\' ) ) { 
+			$value = stripslashes( $value ); 
+		}
+	}
 
+	pl_setting_update($field, $value );
+
+	$response['value'] = $value;
+	$response['field'] = $field;
 	echo json_encode(  pl_arrays_to_objects( $response ) );
 	if( $lessflush ) {
 		global $dms_cache;
@@ -288,7 +296,9 @@ function pl_up_image (){
 		$attach_id = wp_insert_attachment( $attachment, $uploaded_file['file'] );
 		$attach_data = wp_generate_attachment_metadata( $attach_id, $uploaded_file['file'] );
 		wp_update_attachment_metadata( $attach_id,  $attach_data );
-
+		
+		do_action( 'after_pl_up_image', $attach_id, $attach_data );
+		
 	} else
 		$uploaded_file['error'] = __( 'Unsupported file type!', 'pagelines' );
 
@@ -511,23 +521,3 @@ class PLImageUploader{
 		);
 	}
 }
-
-
-
-add_filter('manage_edit-page_columns', 'pl_add_new_page_columns' );
-add_action('manage_page_posts_custom_column', 'pl_manage_page_columns', 10, 2);
-
-function pl_manage_page_columns($column_name, $id) {
-
-	switch ($column_name) {
-		case 'template':
-			$set = pl_meta($id, PL_SETTINGS);
-			echo ( is_array( $set ) && isset( $set['live']['custom-map']['template']['ctemplate'] ) ) ? $set['live']['custom-map']['template']['ctemplate'] : 'None Set';
-		break;
-	} // end switch
-}
-	
-function pl_add_new_page_columns($columns) {
-	$columns['template'] = __( 'Template', 'pagelines' );
-	return $columns;
-}	

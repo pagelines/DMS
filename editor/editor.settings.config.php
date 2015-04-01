@@ -133,7 +133,8 @@ class EditorSettings {
 				'label'		=> __( 'Select icon for Social Counter', 'pagelines' ),
 				'default'	=> 'sun',
 				'title'		=> 'Social Counter',
-				'type'		=> 'select_icon'
+				'type'		=> 'select_icon',
+				'help'		=> '<a target="_blank" href="http://fortawesome.github.io/Font-Awesome/icons/">Click here</a> for a complete list of Font Awesome Icons'
 			),
 			array(
 				'key'		=> 'twittername',
@@ -182,10 +183,33 @@ class EditorSettings {
 	function advanced(){
 
 		$settings = array(
-			
+			array(
+				'key'	=> 'region_control',
+				'type'	=> 'multi',
+				'title'	=> __( 'Region Controls', 'pagelines' ),
+				'help'	=> __( 'If you are not using these global regions of your site, you can deactivate them to clean up your UI.', 'pagelines' ),
+				'opts'	=> array(
+					array(
+							'key'		=> 'region_disable_fixed',
+							'type'		=> 'check',
+							'label'		=> __( 'Disable Fixed Region?', 'pagelines' ),							  
+					),
+					array(
+							'key'		=> 'region_disable_header',
+							'type'		=> 'check',
+							'label'		=> __( 'Disable Header Region?', 'pagelines' ),							  
+					),
+					array(
+							'key'		=> 'region_disable_footer',
+							'type'		=> 'check',
+							'label'		=> __( 'Disable Footer Region?', 'pagelines' ),								  
+					),
+				)
+			),
 			array(
 				'key'	=> 'debug_settings',
 				'type'	=> 'multi',
+				'col'	=> 2,
 				'title'	=> __( 'Debug Options', 'pagelines' ),
 				'opts'	=> array(
 					array(
@@ -208,37 +232,46 @@ class EditorSettings {
 				)
 			),		
 			array(
-					'key'		=> 'load_prettify_libs',
-					'type'		=> 'check',
-					'label'		=> __( 'Enable Code Prettify?', 'pagelines' ),
-					'title'		=> __( 'Google Prettify Code', 'pagelines' ),
-					'help'		=> __( "Add a class of 'prettyprint' to code or pre tags, or optionally use the [pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if Wordpress inserts line breaks.", 'pagelines' )
-			),
-			array(
-					'col'		=> 2,
-					'key'		=> 'partner_link',
-					'type'		=> 'text',
-					'label'		=> __( 'Enter Partner Link', 'pagelines' ),
-					'title'		=> __( 'PageLines Affiliate/Partner Link', 'pagelines' ),
-					'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
-			),
-			array(
-					'col'		=> 2,
-					'key'		=> 'special_body_class',
-					'type'		=> 'text',
-					'label'		=> __( 'Install Class', 'pagelines' ),
-					'title'		=> __( 'Current Install Class', 'pagelines' ),
-					'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
+				'key'	=> 'misc_advanced_settings',
+				'type'	=> 'multi',
+				'col'	=> 3,
+				'title'	=> __( 'Miscellaneous Config', 'pagelines' ),
+				'opts'	=> array(
+					array(
+							'key'		=> 'load_prettify_libs',
+							'type'		=> 'check',
+							'label'		=> __( 'Enable Code Prettify?', 'pagelines' ),
+							'title'		=> __( 'Google Prettify Code', 'pagelines' ),
+							'help'		=> __( "Add a class of 'prettyprint' to code or pre tags, or optionally use the [pl_codebox] shortcode. Wrap the codebox shortcode using [pl_raw] if Wordpress inserts line breaks.", 'pagelines' )
+					),
+					array(
+							'col'		=> 2,
+							'key'		=> 'partner_link',
+							'type'		=> 'text',
+							'label'		=> __( 'Enter Partner Link', 'pagelines' ),
+							'title'		=> __( 'PageLines Affiliate/Partner Link', 'pagelines' ),
+							'help'		=> __( "If you are a <a target='_blank' href='http://www.pagelines.com/partners/'>PageLines Partner</a> enter your link here and the footer link will become a partner or affiliate link.", 'pagelines' )
+					),
+					array(
+							'col'		=> 2,
+							'key'		=> 'special_body_class',
+							'type'		=> 'text',
+							'label'		=> __( 'Install Class', 'pagelines' ),
+							'title'		=> __( 'Current Install Class', 'pagelines' ),
+							'help'		=> __( "Use this option to add a class to the &gt;body&lt; element of the website. This can be useful when using the same child theme on several installations or sub domains and can be used to control CSS customizations.", 'pagelines' )
+					),
+
+					array(
+						'key'		=> 'alternative_css',
+						'default'	=> false,
+						'type'		=> 'check',
+						'col'		=> 1,
+						'label'		=> __( 'Enable Alternative CSS URLS', 'pagelines' ),
+						'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.', 'pagelines' )				
+					)
+				)
 			),
 			
-			array(
-				'key'		=> 'alternative_css',
-				'default'	=> false,
-				'type'		=> 'check',
-				'col'		=> 1,
-				'label'		=> __( 'Enable Alternative CSS URLS', 'pagelines' ),
-				'help'		=> __( 'Some hosts with aggressive caches have issues with the CSS files, this is a possible workaround.', 'pagelines' )				
-			)
 			
 			
 		);

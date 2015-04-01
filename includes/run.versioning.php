@@ -29,6 +29,9 @@ function dms_update_two_point_ohh() {
 	if( pl_is_wporg() )
 		return false;
 
+	if( get_theme_mod( 'pl_installed' ) )
+		return false;
+
 	// run the 2.0 install routine.
 	$install = new PageLinesInstall;
 	$url = $install->run_installation_routine();

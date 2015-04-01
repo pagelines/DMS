@@ -27,7 +27,10 @@ class PageLinesMobileMenu {
 		?>
 		<div class="pl-mobile-menu">
 			
-			<?php pagelines_search_form( true, 'mm-search'); ?>
+			<?php if( '1' !== pl_setting( 'mobile_menus_disable_search' ) ) {
+				pagelines_search_form( true, 'mm-search');
+			}
+			?>				
 			<div class="mm-holder">
 				
 				

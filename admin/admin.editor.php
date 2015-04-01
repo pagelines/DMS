@@ -8,7 +8,7 @@ class EditorAdmin {
 		add_action( 'pagelines_options_dms_less', array( $this, 'dms_tools_less') );
 		add_action( 'pagelines_options_dms_scripts', array( $this, 'dms_scripts_template') );
 		add_action( 'pagelines_options_dms_intro', array( $this, 'dms_intro') );
-		
+		add_action( 'pagelines_options_dms_debug', array( $this, 'dms_debug') );
 	}
 	
 	function admin_array(){
@@ -39,6 +39,10 @@ class EditorAdmin {
 								'type'		=> 'dms_scripts',
 								'title'		=> __( 'DMS Header Scripts Fallback', 'pagelines' ),
 							), 
+							'debug'		=> array(
+								'type'	=> 'dms_debug',
+								'title'	=> __( 'Enable DMS Debug Mode.', 'pagelines' )
+			)
 						)
 					)
 				)
@@ -58,98 +62,7 @@ class EditorAdmin {
 		</a></p>
 		
 		<?php 
-		
-	}
-	
-	function get_account_data(){
-		
-		$data = array(
-			'email'		=> '', 
-			'key'		=> '',
-			'message'	=> '', 
-			'avatar'	=> '', 
-			'name'		=> '',
-			'description'	=> '',
-			'active'	=> false, 
-			'real_user'	=> false,
-			'url'		=> '',
-			'karma'		=> 0,
-			'lifetime_karma'	=> 0
 			
-		);
-		
-		$activation_data = (get_option( 'dms_activation' ) && is_array(get_option( 'dms_activation' ))) ? get_option( 'dms_activation' ) : array();
-		
-		$data = wp_parse_args( $activation_data, $data);
-		
-		return $data;
-		
-	}
-	
-	function pagelines_account(){
-
-		$disabled = '';
-		$email = '';
-		$key = '';
-		$activate_text = '<i class="icon icon-star"></i> Activate Pro';
-		$activate_btn_class = 'btn-primary'; 
-		
-		
-		$data = $this->get_account_data();
-		
-		$active = $data['active'];
-		
-		$disable = ($active) ? 'disabled' : '';
-
-		$activation_message = ($data['message'] == '') ? 'Site not activated.' : $data['message'];
-
-		?>
-		
-		<div class="account-details alert alert-warning" style="<?php if(! $active) echo 'display: block;';?>">
-			<?php if( ! $active || $active == ''):  ?>
-				<strong><i class="icon icon-star-half-empty"></i> <?php _e( 'Site Not Activated', 'pagelines' ); ?>
-				</strong>
-			<?php endif; ?>
-		</div>
-		<?php if( $active ):  ?>
-		
-			<div class="account-field alert">
-		
-				<label for="pl_activation">
-					<i class="icon icon-star"></i> <?php _e( 'Pro Activated!', 'pagelines' ); ?>
-					 
-					<small><?php printf($activation_message);  ?></small>
-				</label>
-				<button class="btn settings-action refresh-user btn-primary" data-action="pagelines_account"><i class="icon icon-refresh" ></i> <?php _e( 'Update Info', 'pagelines' ); ?>
-				</button>
-				<button class="btn settings-action deactivate-key" data-action="pagelines_account"><i class="icon icon-remove" style="color: #ff0000;"></i> <?php _e( 'Deactivate', 'pagelines' ); ?>
-				</button>
-		
-			</div>
-		
-		<?php endif; ?>
-		
-		<div class="pl-input-field">
-
-			<input type="text" class="pl-text-input" name="pl_email" id="pl_email" placeholder="Enter Account Email" value="<?php echo $data['email']; ?>" <?php echo $disable; ?> /> &nbsp; <span class="description"><?php _e( "Your PageLines account email.", 'pagelines' ); ?></span>
-			
-		</div>
-	
-		<div class="pl-input-field">	 
-			<input type="password" class="pl-text-input" name="pl_activation" id="pl_activation" placeholder="<?php _e( 'Enter Pro Key', 'pagelines' ); ?>" value="<?php echo $data['key']; ?>" <?php echo $disable; ?> /> &nbsp; <span class="description"><?php _e( "PageLines Updates and Support Activation Key.", 'pagelines' ); ?></span>
-		
-		</div>
-		
-		<?php if( ! $active ): ?>
-			<div class="pl-input-field">
-				<div class="submit-area account-field">
-					<button class="button button-primary settings-action" data-action="pagelines_account">
-					<?php _e( 'Update Account', 'pagelines' ); ?>
-					 <i class="icon icon-chevron-sign-right"></i></button>
-			
-				</div>
-			</div>
-		<?php endif; 
 	}
 	
 	function dms_tools_less(){
@@ -171,6 +84,17 @@ class EditorAdmin {
 				<textarea id="pl-dms-scripts" name="pl-dms-scripts" class="html-textarea code_textarea input_custom_scripts large-text" data-mode="htmlmixed"><?php echo stripslashes( pl_setting( 'custom_scripts' ) );?></textarea>
 				<p><input class="button button-primary" type="submit" value="<?php _e( 'Save Scripts', 'pagelines' ); ?>
 				" /><span class="saving-confirm"></span></p>
+			</form>
+		<?php
+	}
+	
+	function dms_debug() {
+		?>
+		<form id="pl-dms-debug-form" class="dms-update-setting" data-setting="enable_debug" data-type="check">
+			
+			<input type="checkbox" name="enable_debug" class="input_enable_debug" <?php checked( pl_setting( 'enable_debug' ), 1 ); ?> />
+			<input class="button button-primary" type="submit" value="<?php _e( 'Update', 'pagelines' ); ?>
+			" /><span class="saving-confirm"></span>
 			</form>
 		<?php
 	}

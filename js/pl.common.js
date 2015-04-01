@@ -306,16 +306,18 @@
 						 speed: 'fast',
 						 speedOut: 'fast',             
 						 animation:   {opacity:'show'}
-					});
+					})
 				} else {
 					$(this).superfish({
 						 delay: 800,
 						 speed: 'fast',
 						 speedOut: 'fast',             
 						 animation:   {opacity:'show'}
-					});
+					})
 				}
 				
+				// needs display: table for appro rendering. so we use visible
+				$(this).find('.sub-menu').css('visibility', 'visible')
 
 				var offset = $(this).data('offset') || false
 
@@ -434,14 +436,14 @@
 
 						if( windowHeight > (contentHeight + 20) ){
 							
-							theArea.height(windowHeight)
+							theArea.height(windowHeight).css('min-height', 'auto')
 							
 							
 						} else {
-							theArea.height(contentHeight + 20)
+							theArea.height(contentHeight + 20).css('min-height', 'auto')
 						}
 						
-						theContent.css('margin-top', offsetMargin)	
+						theContent.css('margin-top', offsetMargin).fadeIn(1000)
 					
 					})
 
@@ -467,7 +469,7 @@
 			,	siteWrap = $('.site-wrap')
 			, 	mobileMenu = $('.pl-mobile-menu')
 			
-			menuToggle.on('click.mmToggle touchstart.mmToggle', function(e){
+			menuToggle.on('click.mmToggle', function(e){
 				
 				e.stopPropagation()
 			//	mobileMenu.css('max-height', siteWrap.height())
@@ -478,25 +480,16 @@
 					mobileMenu.addClass('show-menu')
 					
 					
-					$('.site-wrap, .mm-close').one('click touchstart', function(){
+					$('.site-wrap, .mm-close').one('click', function(){
 						siteWrap.removeClass('show-mobile-menu')
 						mobileMenu.removeClass('show-menu')
-					})
-					
-					
-					
+					})					
 				} else {
 					siteWrap.removeClass('show-mobile-menu')
-					mobileMenu.removeClass('show-menu')
-					
-				}
-			
-			})
-			
-		
-			
-		}
-		
+					mobileMenu.removeClass('show-menu')					
+				}		
+			})			
+		}	
 	}
 
 	$.plSocial = {
@@ -505,15 +498,17 @@
 			
 			var that = this
 			
-			var title = $('title')
+			if ( $('.pl-social-counters').length) {
 			
-			that.shareTitle = encodeURI( $("meta[property='pl-share-title']").attr('content') )
-			that.shareDesc = encodeURI( $("meta[property='pl-share-desc']").attr('content') )
-			that.shareImg = encodeURI( $("meta[property='pl-share-img']").attr('content') )
-			that.shareLocation = window.location
+				var title = $('title')
 			
-			that.loadSocialCounts()
+				that.shareTitle = encodeURI( $("meta[property='pl-share-title']").attr('content') )
+				that.shareDesc = encodeURI( $("meta[property='pl-share-desc']").attr('content') )
+				that.shareImg = encodeURI( $("meta[property='pl-share-img']").attr('content') )
+				that.shareLocation = window.location
 			
+				that.loadSocialCounts()
+			}
 		
 		}
 		
@@ -626,6 +621,12 @@
 		, fetchCount: function( url, btn ){
 			
 			var that = this
+			,	editor = $( 'body' ).hasClass('pl-editor')	
+		
+			// if in the editor, dont do this ... saves loadtime!
+			if( editor ) {				
+				return false	
+			}
 			
 			// SHARE COUNT
 			$.getJSON( url, function( data ) {
@@ -642,10 +643,7 @@
 			
 			})
 			
-		}
-		
-		
-		
+		}		
 		, loadInButton: function(){
 			
 		}

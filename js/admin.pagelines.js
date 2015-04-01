@@ -28,8 +28,12 @@ $(document).ready(function(){
 		
 		var theSetting = $(this).data('setting')
 		,	theValue = $('.input_'+theSetting).val()
-		,	saveText = $(this).find('.saving-confirm');
-
+		,	saveText = $(this).find('.saving-confirm')
+		,	Type = $(this).data('type') || false
+		
+		if( 'check' == Type ) {
+			theValue = ( $('.input_'+theSetting).is(':checked') ) ? 1 : 0
+		}
 		$.ajax({
 			type: 'POST',
 			url: ajaxurl,
@@ -57,7 +61,7 @@ $(document).ready(function(){
 				window.clearInterval(interval); // clear dots...
 			
 				saveText.text('Saved!');
-				
+
 				saveText
 					.delay(800)
 					.fadeOut('slow')

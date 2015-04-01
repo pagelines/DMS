@@ -116,8 +116,13 @@ class EditorLayout {
 						'click' 	=> array('name' => __( 'On Click', 'pagelines' ))
 					),
 				),
-				
-			),
+				array(
+					'key'		=> 'mobile_menus_disable_search',
+					'type' 		=> 'check',
+					'label' 	=> __( 'Disable Mobile Menu Search Field', 'pagelines' ),
+					'default'	=> 'false'
+				)
+			)
 		);
 		
 		

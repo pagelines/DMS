@@ -83,7 +83,8 @@ class PLKarma {
 		
 		$defaults = array(
 			'classes'	=> '',
-			'attr'		=> ''
+			'attr'		=> '',
+			'icon'		=> ''
 		);
 		
 		$atts = wp_parse_args( $args, $defaults ); 
@@ -104,6 +105,8 @@ class PLKarma {
 		}
 		
 		$karma_icon = ( '' != pl_setting( 'karma_icon' ) ) ? pl_setting( 'karma_icon' ) : 'sun';
+		if( '' != $atts['icon'] )
+			$karma_icon = $atts['icon'];
 		
 		return sprintf('<a href="#" class="%s %s" id="pl-karma-%s" title="%s" data-social="pagelines" %s> <span class="pl-social-icon"><i class="icon icon-%s"></i></span> <span class="pl-social-count">%s</span></a>', 
 						$class, 

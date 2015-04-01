@@ -832,6 +832,7 @@
               }
             }());
 
+            posCalc += slider.itemW * slider.cloneOffset;
             return (posCalc * -1) + "px";
           }());
 
@@ -889,9 +890,10 @@
           }, (type === "init") ? 100 : 0);
         } else {
           slider.container.width((slider.count + slider.cloneCount) * 200 + "%");
-          slider.setProps(sliderOffset * slider.computedW, "init");
+          //slider.setProps(sliderOffset * slider.computedW, "init");
           setTimeout(function(){
             slider.doMath();
+            slider.setProps(sliderOffset * slider.computedW, "init");
             slider.newSlides.css({"width": slider.computedW, "float": "left", "display": "block"});
             // SMOOTH HEIGHT:
             if (slider.vars.smoothHeight) methods.smoothHeight();

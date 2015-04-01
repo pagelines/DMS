@@ -105,6 +105,10 @@ function basename (path, suffix) {
  */
 function pl_do_shortcode(opt) {
 	
+	/* If we are not a string, bail out! */
+	if( 'string' !== typeof opt || ! opt.length )
+		return opt
+
 	var match = opt.match( /\[([^\]]*)/ ) || false
 	var shortcode = (match) ? match[1] : false
 	
@@ -152,4 +156,29 @@ function localStorageSpace() {
 
 function pl_urldecode(str) {
 	return unescape(str)
+}
+
+function strpos(haystack, needle, offset) {
+  //  discuss at: http://phpjs.org/functions/strpos/
+  // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // improved by: Onno Marsman
+  // improved by: Brett Zamir (http://brett-zamir.me)
+  // bugfixed by: Daniel Esteban
+  //   example 1: strpos('Kevin van Zonneveld', 'e', 5);
+  //   returns 1: 14
+
+  var i = (haystack + '')
+    .indexOf(needle, (offset || 0));
+  return i === -1 ? false : i;
+}
+
+function GetQueryStringParams(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
 }

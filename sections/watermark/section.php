@@ -121,7 +121,9 @@ class PLWatermark extends PageLinesSection {
 		); 
 		
 		$watermark_image = $this->opt('watermark_image') ? $this->opt('watermark_image') : $this->base_url.'/default-watermark.png'; 
-		$watermark_link = $this->opt('watermark_link') ? $this->opt('watermark_link') : 'http://www.pagelines.com'; 
+		$watermark_link = $this->opt('watermark_link') ? $this->opt('watermark_link') : 'http://www.pagelines.com';
+		if( pl_setting( 'partner_link' ) )
+			$watermark_link = pl_setting( 'partner_link' );
 		$watermark_alt = $this->opt('watermark_alt') ? $this->opt('watermark_alt') : 'Build a website with PageLines'; 
 		
 		if(!$this->opt('watermark_hide')){
@@ -142,7 +144,7 @@ class PLWatermark extends PageLinesSection {
 			<?php 
 
 				if( ! $this->opt('pl_watermark_no_facebook') && ! has_action( 'pl_watermark_no_facebook' ) )
-		  			echo do_shortcode( sprintf( '[like_button url="http://www.facebook.com/%s"]', $facebook ));
+		  			echo do_shortcode( sprintf( '[like_button type="follow" url="http://www.facebook.com/%s"]', $facebook ));
 
 				if( ! $this->opt('pl_watermark_no_gplus') && ! has_action( 'pl_watermark_no_gplus' ) ) 
 		  			echo do_shortcode('[googleplus]');

@@ -9,6 +9,7 @@
 class PageLinesPage {
 
 	var $special_base = 70000000;
+	var $special_base_archive = 60000000;
 	var $opt_type_info = 'pl-type-info';
 
 	function __construct( $args = array() ) {
@@ -29,7 +30,7 @@ class PageLinesPage {
 
 			$this->type = $this->type();
 
-			$this->typeid = $this->special_id();
+			$this->typeid = $this->special_index_lookup( $this->type );
 
 			$this->template = $this->template();
 
@@ -38,8 +39,6 @@ class PageLinesPage {
 
 		}
 		
-
-
 	}
 
 	function defaults(){
@@ -52,8 +51,11 @@ class PageLinesPage {
 	}
 
 	function template_mode(){
-
-		if( $this->type == 'page' || $this->is_special()){
+		
+		$key = 'pl_template_mode';
+		$meta = pl_meta( $this->id, $key);
+		
+		if( ( $this->type == 'page' || $meta == 'local' ) && $meta != 'type' ){
 			return 'local';
 		} else {
 			return 'type';
@@ -78,24 +80,39 @@ class PageLinesPage {
 		if(!$this->is_special() && isset($post) && is_object($post) && 0 != $post->ID)
 			return $post->ID;
 		else
-			return $this->special_id();
+			return $this->special_id_category();
 
 	}
 
-	function special_id( $type = false ){
-
-		$index = $this->special_index_lookup( $type );
-
-		$id = $this->special_base + $index;
-
-		return $id;
-
+	// Creates a special ID based on taxonomy query params
+	function special_id_category(){
+		global $wp_query; 
+		
+		$type = $this->type();
+		
+		$obj = get_queried_object();
+		if( is_object( $obj ) && isset( $obj->term_id ) )
+			$type .= $obj->term_id;
+		
+		if( isset( $wp_query->query_vars ) ){
+			$vars = $wp_query->query_vars;
+			if( isset( $vars['year'] ) && ! empty( $vars['year'] ) )
+				$type .= $vars['year'];
+			
+			if( isset( $vars['monthnum'] ) && ! empty( $vars['monthnum'] ) )
+				$type .= $vars['monthnum'];
+			
+			if( isset( $vars['day'] ) && ! empty( $vars['day'] ) )
+				$type .= $vars['day'];
+			
+		} 
+		
+		
+		
+		return $this->special_index_lookup( $type );
 	}
-
-	function special_index_lookup( $type = false ){
-
-		$type = ( $type ) ? $type : $this->type();
-
+	
+	function lookup_array(){
 		$lookup_array = array(
 			'blog',
 			'category',
@@ -108,15 +125,21 @@ class PageLinesPage {
 			'404_page'
 		);
 		
+		return $lookup_array;
+	}
+
+	function special_index_lookup( $type = false ){
+
+		$type = ( $type ) ? $type : $this->type();
+
 		
-		
-		$index = array_search( $type, $lookup_array );
+		$index = array_search( $type, $this->lookup_array() );
 		
 		if( !$index ){
 			$index = pl_create_int_from_string( $type );	
 		} 
 
-		return $index;
+		return $this->special_base + $index;
 
 	}
 
@@ -159,15 +182,12 @@ class PageLinesPage {
 
 		else{
 			$type = 'other';
-		
+
 		}
-			
-
-		return $type;
-
+		return apply_filters( 'pl_breaker_type', $type );
 	}
-	
-	
+
+
 	function is_special(){
 
 		if ( is_404() || is_home() || is_search() || is_archive() )
@@ -179,20 +199,21 @@ class PageLinesPage {
 
 	function is_blog_page_type(){
 
-		if ( $this->type == 'blog' 
-			|| $this->type == 'category' 
-			|| $this->type == 'post' 
-			|| $this->type == 'archive' 
-			|| $this->type == 'author' 
-			|| $this->type == 'tag' 
-			|| $this->type == 'search' 
+		if ( $this->type == 'blog'
+			|| $this->type == 'category'
+			|| $this->type == 'post'
+			|| $this->type == 'archive'
+			|| $this->type == 'author'
+			|| $this->type == 'tag'
+			|| $this->type == 'search'
+			|| $this->type == 'tax'
 		)
 			return true;
 		else
 			return false;
 
 	}
-	
+
 	function is_posts_page(){
 
 		if ( is_home() || is_search() || is_archive() || is_category() )
@@ -201,12 +222,12 @@ class PageLinesPage {
 			return false;
 
 	}
-	
+
 	function pl_standard_post_page(){
 
 		if( $this->type == 'other' || false !== ( strpos( $this->type, 'forum') ) )
 			return false;
-		else 
+		else
 			return true;
 	}
 
@@ -214,27 +235,27 @@ class PageLinesPage {
 }
 
 function pl_page_id(){
-	global $plpg; 
-	return $plpg->id; 
+	global $plpg;
+	return $plpg->id;
 }
 
 function pl_type_id(){
-	global $plpg; 
-	return $plpg->typeid; 
+	global $plpg;
+	return $plpg->typeid;
 }
 
 function pl_type_slug(){
-	global $plpg; 
-	return $plpg->type; 
+	global $plpg;
+	return $plpg->type;
 }
 function pl_special_id( $type = false ){
-	
-	$page_handler = new PageLinesPage; 
-	return $page_handler->special_id( $type ); 
-	
+
+	$page_handler = new PageLinesPage;
+	return $page_handler->special_index_lookup( $type );
+
 }
 
 function pl_standard_post_page(){
-	global $plpg; 
+	global $plpg;
 	return $plpg->pl_standard_post_page();
 }

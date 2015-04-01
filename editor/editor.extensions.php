@@ -66,7 +66,7 @@ class EditorExtensions {
 				'thumb'		=> $s->screenshot,
 				'purchase'	=> '',
 				'overview'	=> '',
-
+				'docs_url'		=> ( isset( $s->docs_url ) ) ? $s->docs_url : false
 			);
 
 		}

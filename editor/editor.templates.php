@@ -65,7 +65,7 @@ class PageLinesTemplates {
 			
 			$map = false;
 			
-			$set = (is_page()) ? $this->set->local : $this->set->type;
+			$set = ($this->page->template_mode() == 'local') ? $this->set->local : $this->set->type;
 
 				
 			
@@ -226,6 +226,20 @@ class EditorTemplates {
 
 			$response['key'] = $this->handler->create( $data['config'] );
 
+		} 
+		// set editing scope
+		elseif ( $run == 'template_mode'){
+
+			$value = $data['value'];
+			
+			$pageID = $data['pageID'];
+			
+			$key = 'pl_template_mode';
+			
+			pl_meta_update( $pageID, $key, $value );
+
+			$response['result'] = pl_meta( $pageID, $key);
+
 		} elseif( $run == 'set_global' ){
 
 			$field = 'page-template';
@@ -242,7 +256,7 @@ class EditorTemplates {
 			$response['result'] = pl_global( $field );
 
 		}
-		
+		$response['hi'] = 'hello';
 		
 		
 		return $response;
@@ -270,7 +284,7 @@ class EditorTemplates {
 					'filter' => '*'
 				),
 				'tmp_save'	=> array(
-					'name'	=> __( 'Page Info', 'pagelines' ),
+					'name'	=> __( 'Page Handling', 'pagelines' ),
 					'call'	=> array( $this, 'page_controls'),
 					'icon'	=> 'icon-info'
 				),
@@ -411,6 +425,20 @@ class EditorTemplates {
 		
 		global $plpg;
 		
+		$info['template-mode'] = array(
+			'num'		=> $this->handling_selector(),
+			'label'		=> '',
+			'title'		=> __( 'Template Handling', 'pagelines' ),
+			'info'		=> __( 'The scope of template layout handling. Local applies only on this page, type applies across all of same type.', 'pagelines' )
+		);
+		
+		$info['template'] = array(
+			'num'		=> $plpg->template(),
+			'label'		=> '',
+			'title'		=> __( 'Template', 'pagelines' ),
+			'info'		=> __( 'The ID of the current template being used.', 'pagelines' )
+		);
+		
 		$info['type'] = array(
 			'num'		=> $plpg->type,
 			'label'		=> '',
@@ -432,23 +460,28 @@ class EditorTemplates {
 			'info'		=> __( 'A meta ID associated with this specific page.', 'pagelines' )
 		);
 		
-		$info['template-mode'] = array(
-			'num'		=> $plpg->template_mode(),
-			'label'		=> '',
-			'title'		=> __( 'Template Handling', 'pagelines' ),
-			'info'		=> __( 'The scope of template handling. "Page" or "type" wide.', 'pagelines' )
-		);
-		
-		$info['template'] = array(
-			'num'		=> $plpg->template(),
-			'label'		=> '',
-			'title'		=> __( 'Template', 'pagelines' ),
-			'info'		=> __( 'The ID of the current template being used.', 'pagelines' )
-		);
-	
 		
 		return $info;
 		
+	}
+	
+	function handling_selector(){
+		global $plpg;
+		$mode = $plpg->template_mode();
+		
+		ob_start();
+		?>
+		<div class="template-mode-selector">
+			<select class="template-mode-selector-select">
+				<option value="local" <?php if($mode == 'local') echo 'selected'; ?>>LOCAL - Layout is current page specific</option>
+				<option value="type" <?php if($mode == 'type') echo 'selected'; ?>>TYPE - Layout is current page type specific</option>
+			</select>
+			<a class="btn btn-mini btn-primary template-mode-selector-update">Update</a>
+		</div>
+		
+		<?php 
+		
+		return ob_get_clean();
 	}
 
 	function page_controls(){

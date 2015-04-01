@@ -1,16 +1,84 @@
 <?php
 
+function pl_faux_browser( $get = 'buttons' ){
+	return '<div class="pl-browser-header"><div class="browser-btns"><span class="bbtn-red"></span><span class="bbtn-orange"></span><span class="bbtn-green"></span></div></div>';
+}
+
+function pl_social_icons(){
+	$icons = array(
+		'facebook',
+		'linkedin',
+		'instagram',
+		'twitter',
+		'youtube',
+		'google-plus',
+		'pinterest',
+		'dribbble',
+		'flickr',
+		'github',
+	); 
+	
+	return $icons;
+}
+
+function pl_social_links_options(){
+	$the_urls = array(); 
+	
+	$icons = pl_social_icons();
+	
+	foreach($icons as $icon){
+		$the_urls[] = array(
+			'label'	=> ui_key($icon) . ' URL', 
+			'key'	=> 'sl_'.$icon,
+			'type'	=> 'text',
+			'scope'	=> 'global',
+		); 
+	}
+	
+	return $the_urls;
+}
+
+function pl_social_links(){
+	
+	$target = "target='_blank'";
+	ob_start(); 
+	?>
+	<div class="sl-links">
+	<?php 
+	
+	foreach( pl_social_icons() as $icon){
+	
+		$url = ( pl_setting('sl_'.$icon) ) ? pl_setting('sl_'.$icon) : false;
+	
+		if( $url )
+			printf('<a href="%s" class="sl-link" %s><i class="icon icon-%s"></i></a>', $url, $target, $icon); 
+	}
+	
+	if( ! pl_setting( 'sl_web_disable' ) ){
+		
+		?><span class="sl-web-links"><a class="sl-link"  title="CSS3 Valid"><i class="icon icon-css3"></i></a><a class="sl-link" title="HTML5 Valid"><i class="icon icon-html5"></i></a><a class="sl-link" href="http://www.pagelines.com" title="Built with PageLines DMS"><i class="icon icon-pagelines"></i></a>
+		</span>
+		<?php 
+		
+	}
+	
+	?> </div>
+	
+	<?php 
+	return ob_get_clean();
+}
+
 function pl_navigation( $args = array() ){
 	
 	$respond = ( isset( $args['respond'] ) && ! $args['respond'] ) ? '' : 'respond';
 	
 	$menu_classes = sprintf('menu-toggle mm-toggle %s', $respond);
-	
+		
 	$dropdown_theme = ( pl_setting('nav_dropdown_bg') ) ? sprintf('dd-theme-%s', pl_setting('nav_dropdown_bg')) : 'dd-theme-dark';
 	$dropdown_toggle = ( pl_setting('nav_dropdown_toggle') ) ? sprintf('dd-toggle-%s', pl_setting('nav_dropdown_toggle')) : 'dd-toggle-hover';
 	
 	$top_classes = $dropdown_theme . ' ' . $dropdown_toggle;
-	
+		
 	if( ( ! isset( $args['menu'] ) || empty( $args['menu'] ) ) && ! has_nav_menu( $args['theme_location'] ) ){
 		
 		$out = sprintf('<ul class="inline-list pl-nav"><li class="popup-nav"><a class="menu-toggle mm-toggle show-me"><i class="icon icon-reorder"></i></a></li></ul>');

@@ -2,10 +2,12 @@
 
 
 // switch up button class
-add_filter('woocommerce_loop_add_to_cart_link', 'pl_commerce_switch_buttons');
-function pl_commerce_switch_buttons( $button ){
+add_filter('woocommerce_loop_add_to_cart_link', 'pl_commerce_switch_buttons', 10, 2);
+function pl_commerce_switch_buttons( $button, $product ){
 	
 	$button = str_replace('button', 'btn btn-overlay', $button); 
+	
+	$button = str_replace('Add to cart', '<i class="icon icon-shopping-cart"></i>', $button); 
 	
 	return $button;
 	
@@ -13,6 +15,18 @@ function pl_commerce_switch_buttons( $button ){
 
 
 // --- Add to cart buttons --- // 
+// This output is HTML escaped so we can't add a shopping cart icon easily
+// instead we set to an easily replaceable value via str_replace 
+// and use the 'woocommerce_loop_add_to_cart_link' filter to replace it with icon
+// add_filter('woocommerce_product_single_add_to_cart_text', 'pl_add_to_cart_text'); 
+// add_filter('woocommerce_product_add_to_cart_text', 'pl_add_to_cart_text'); 
+// function pl_add_to_cart_text( $text ){
+// 	
+// 	$text = 'Cart';
+// 	
+// 	return $text;
+// 	
+// }
 
 // Remove normal button
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);

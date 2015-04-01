@@ -138,16 +138,14 @@ class PageLinesColumnizer extends PageLinesSection {
 		ob_start();
 		?>
 
-		<li id="the_default_widget_latest" class="span3 widget">
+		<li id="the_default_widget_latest_posts" class="span3 widget">
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('Latest Posts','pagelines'); ?></h3>
-				<ul class="media-list">
 				<?php pl_recent_posts(); ?>
-				</ul>
 			</div>
 		</li>
 
-		<li id="the_default_widget_latest" class="span3 widget">
+		<li id="the_default_widget_latest_comments" class="span3 widget">
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('Recent Comments','pagelines'); ?></h3>
 				<ul class="quote-list">
@@ -156,7 +154,7 @@ class PageLinesColumnizer extends PageLinesSection {
 			</div>
 		</li>
 		
-		<li id="the_default_widget_latest" class="span3 widget">
+		<li id="the_default_widget_latest_categories" class="span3 widget">
 			<div class="widget-pad">
 				<h3 class="widget-title"><?php _e('Top Categories','pagelines'); ?></h3>
 				<ul class="media-list">

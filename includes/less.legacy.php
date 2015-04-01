@@ -27,6 +27,7 @@ class EditorLessHandler{
 		$this->pless = $pless;
 		$this->lessfiles = get_core_lessfiles();
 		$this->draft_less_file = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'path' ) );
+		$this->draft_less_url = sprintf( '%s/editor-draft.css', pl_get_css_dir( 'url' ) );
 
 		if( pl_draft_mode() ){
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_draft_css' ) );
@@ -44,10 +45,10 @@ class EditorLessHandler{
 
 		if( ! current_user_can('manage_options' ) || false ===  get_theme_mod( 'less_last_error' ) )
 			return;
-		
+
 		if( false === ( strpos( $error, 'filesystem' ) ) ) {
 			// css error...
-			$message = sprintf( 'DMS Less System encountered an error<br /><kbd>%s</kbd>', $error ); 
+			$message = sprintf( 'DMS Less System encountered an error<br /><kbd>%s</kbd>', $error );
 		} else {
 			// this mssage can be suppressed.
 			if( true === pl_setting( 'disable_less_errors' ) )
@@ -120,17 +121,23 @@ class EditorLessHandler{
 	 *  @package PageLines DMS
 	 *  @since 3.0
 	 */
-	static function enqueue_draft_css() {
+	function enqueue_draft_css() {
 
-		// make url safe.
-		global $post;
+		if( is_file( $this->draft_less_file ) ) {
 
-		$url = ( is_object( $post ) && ! is_front_page() ) ? trailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
+			$url = str_replace( array( 'http://', 'https://' ), '//', $this->draft_less_url );
+			wp_register_style( 'pagelines-draft',  $url, false, pl_get_cache_key(), 'all' );
+		} else {
+			// make url safe.
+			global $post;
 
-		wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
+			$url = ( is_object( $post ) && ! is_front_page() ) ? trailingslashit( get_permalink( $post->ID ) ) : trailingslashit( site_url() );
 
+			wp_register_style( 'pagelines-draft',  add_query_arg( array( 'pagedraft' => 1 ), $url ), false, null, 'all' );
+
+
+		}
 		wp_enqueue_style( 'pagelines-draft' );
-
 	}
 
 
@@ -240,23 +247,11 @@ class EditorLessHandler{
 
 
 	function write_draft_less_file($css) {
+
 		$folder = pl_get_css_dir( 'path' );
 		$file = 'editor-draft.css';
-		if( !is_dir( $folder ) ) {
-			if( true !== wp_mkdir_p( $folder ) )
-				return false;
-		}
-		include_once( ABSPATH . 'wp-admin/includes/file.php' );
-		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials( site_url() );
-			if ( ! WP_Filesystem($creds) )
-				return false;
-		}
-		global $wp_filesystem;
-		if( is_object( $wp_filesystem ) )
-			$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $css, FS_CHMOD_FILE);
-		else
-			return false;
+
+		pl_css_write_file( $folder, $file, $css );
 	}
 }
 
@@ -453,7 +448,7 @@ class PageLinesRenderCSS {
 			$file = 'compiled-css-core.css';
 		else
 			$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );;
-						
+
 		if( file_exists( trailingslashit( $folder ) . $file ) ){
 			define( 'DYNAMIC_FILE_URL', trailingslashit( $url ) );
 			return;
@@ -467,56 +462,34 @@ class PageLinesRenderCSS {
 			$blog = sprintf( ' on blog [%s]', $blog_id );
 		else
 			$blog = '';
-			
+
 		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
-		$out .= sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'], $mem, $blog );		
-		
+		$out .= sprintf( __( '%s/* CSS was compiled at %s and took %s seconds using %sMB of unicorn dust%s.*/', 'pagelines' ), "\n", date( DATE_RFC822, $a['time'] ), $a['c_time'], $mem, $blog );
+
 		$this->write_css_file( 'core', $out );
-				
+
 		$this->write_css_file( 'sections', $b['sections'] );
 	}
 
-	function write_css_file( $area, $txt ){
-
-		add_filter('request_filesystem_credentials', '__return_true' );
-
-		$method = 'direct';
-		$url = 'themes.php?page=pagelines';
+	function write_css_file( $area, $css ){
 
 		$folder = pl_get_css_dir( 'path' );
-		
+
 		if( '1' == pl_setting( 'alternative_css' ) )
 			$file = sprintf( 'compiled-css-%s.css', $area );
 		else
 			$file = sprintf( 'compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
 
-		if( !is_dir( $folder ) ) {
-			if( true !== wp_mkdir_p( $folder ) )
-				return false;
-		}
+		$check = pl_css_write_file( $folder, $file, $css );
 
-		include_once( ABSPATH . 'wp-admin/includes/file.php' );
-
-		if ( is_writable( $folder ) ){
-			$creds = request_filesystem_credentials($url);
-			if ( ! WP_Filesystem($creds) )
-				return pl_less_save_last_error( 'Unable to set filesystem credentials', false );
-		}
-
-			global $wp_filesystem;
-			if( is_object( $wp_filesystem ) )
-				$wp_filesystem->put_contents( trailingslashit( $folder ) . $file, $txt, FS_CHMOD_FILE);
-			else
-				return pl_less_save_last_error( 'Unable to access filesystem. Possible permission issue on ' . $folder, false );;
+		if( $check ) {
 			$url = pl_get_css_dir( 'url' );
 			if( ! defined( 'DYNAMIC_FILE_URL') )
 				define( 'DYNAMIC_FILE_URL', $url );
 
 			pl_less_save_last_error( '', true );
+		}
 	}
-
-
-
 
 	function less_css_bar() {
 		foreach ( $this->types as $t ) {
@@ -576,19 +549,19 @@ class PageLinesRenderCSS {
 		if( defined( 'DYNAMIC_FILE_URL' ) ) {
 
 			$area = 'core';
-			
+
 			if( '1' == pl_setting( 'alternative_css' ) )
 				$file = sprintf( '/compiled-css-%s.css', $area );
 			else
 				$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
-			
+
 			$url = pl_get_css_dir( 'url' ) . $file;
 
 			if( '1' == pl_setting( 'alternative_css' ) )
 				wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, get_theme_mod( 'pl_save_version' ), 'all' );
 			else
 				wp_enqueue_style( 'pagelines-less-core',  $this->get_dynamic_url( $url ), false, null, 'all' );
-				
+
 
 
 			$area = 'sections';
@@ -596,7 +569,7 @@ class PageLinesRenderCSS {
 				$file = sprintf( '/compiled-css-%s.css', $area );
 			else
 				$file = sprintf( '/compiled-css-%s-%s.css', $area, get_theme_mod( 'pl_save_version' ) );
-				
+
 			$url = pl_get_css_dir( 'url' ) . $file;
 			if( '1' == pl_setting( 'alternative_css' ) )
 				wp_enqueue_style( 'pagelines-less-sections',  $this->get_dynamic_url( $url ), false, get_theme_mod( 'pl_save_version' ), 'all' );
@@ -621,10 +594,10 @@ class PageLinesRenderCSS {
 		$version = sprintf( '%s_%s', $id, $version );
 
 		$parent = apply_filters( 'pl_parent_css_url', PL_PARENT_URL );
-		
+
 		if ( ! defined( 'DYNAMIC_FILE_URL' ) )
 			$url = add_query_arg( 'pageless', $version, trailingslashit( site_url() ) );
-			
+
 		if ( has_action( 'pl_force_ssl' ) )
 			$url = str_replace( 'http://', 'https://', $url );
 

@@ -6,7 +6,7 @@ function pl_editor_regions(){
 	$regions = array(
 		'fixed', 'header', 'footer', 'template'
 	);
-	
+
 	return $regions;
 
 }
@@ -15,12 +15,12 @@ function pl_editor_regions(){
  *	Get index value in array, does shortcodes or default
  */
 function pl_array_get( $key, $array, $default = false ){
-	
+
 	if( isset( $array[$key] ) && $array[$key] != '' )
 		$val = $array[$key];
 	else
 		$val = $default;
-	
+
 	return do_shortcode( $val );
 }
 
@@ -40,7 +40,7 @@ function pl_deprecate_v2(){
 
 	if(pl_setting('enable_v2'))
 		return false;
-	else 
+	else
 		return true;
 
 }
@@ -50,32 +50,32 @@ function pl_use_editor(){
 	return true;
 }
 
-function pl_less_dev(){	
+function pl_less_dev(){
 	if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV )
-		return false; 
+		return false;
 	else
 		return false;
-	
+
 }
 
-function pl_has_dms_plugin(){	
-	
+function pl_has_dms_plugin(){
+
 	if( class_exists( 'DMSPluginPro' ) )
 		return true;
-	else 
-		return false;	
+	else
+		return false;
 }
 
 function pl_is_pro(){
 	return apply_filters( 'pl_is_pro', false );
 }
 
-function pl_pro_text(){	
+function pl_pro_text(){
 	return apply_filters( 'pl_pro_text', '' );
 }
 
 function pl_pro_disable_class(){
-	return apply_filters( 'pl_pro_disable_class', 'hidden' );	
+	return apply_filters( 'pl_pro_disable_class', 'hidden' );
 }
 
 function pl_is_activated(){
@@ -140,7 +140,7 @@ function process_old_opt( $key, $old, $otop = array()){
 		$type = 'color';
 	} elseif($old['type'] == 'check_multi'){
 		$type = 'multi';
-		
+
 		foreach($old['selectvalues'] as $key => &$info){
 			$info['type'] = 'check';
 		}
@@ -160,7 +160,7 @@ function process_old_opt( $key, $old, $otop = array()){
 
 	if ( isset( $old['scope'] ) )
 		$new['scope'] = $old['scope'];
-	
+
 	if ( isset( $old['template'] ) )
 		$new['template'] = $old['template'];
 
@@ -171,11 +171,11 @@ function process_old_opt( $key, $old, $otop = array()){
 
 	if($old['taxonomy_id'] != ''){
 		$new['taxonomy_id'] = $old['taxonomy_id'];
-	}	
+	}
 
 	if($old['post_type'] != '')
 		$new['post_type'] = $old['post_type'];
-		
+
 	if($old['default'] != '')
 		$new['default'] = $old['default'];
 
@@ -187,9 +187,9 @@ function pl_create_id( $string ){
 	if( ! empty($string) ){
 		$string = str_replace( ' ', '_', trim( strtolower( $string ) ) );
 		$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
-	} else 
+	} else
 		$string = pl_new_clone_id();
-	
+
 	return ( ! is_int($string) ) ? $string : 's'.$string;
 }
 
@@ -199,7 +199,7 @@ function pl_new_clone_id(){
 
 
 function pl_create_int_from_string( $str ){
-	
+
 	return (int) substr( preg_replace("/[^0-9,.]/", "", md5( $str )), -6);
 }
 
@@ -252,11 +252,11 @@ function pl_animation_array(){
 		'pla-fade'			=> __( 'Fade', 'pagelines' ),
 		'pla-scale'			=> __( 'Scale', 'pagelines' ),
 		'pla-from-left'		=> __( 'From Left', 'pagelines' ),
-		'pla-from-right'	=> __( 'From Right', 'pagelines' ), 
-		'pla-from-bottom'	=> __( 'From Bottom', 'pagelines' ), 
-		'pla-from-top'		=> __( 'From Top', 'pagelines' ), 
-	); 
-	
+		'pla-from-right'	=> __( 'From Right', 'pagelines' ),
+		'pla-from-bottom'	=> __( 'From Bottom', 'pagelines' ),
+		'pla-from-top'		=> __( 'From Top', 'pagelines' ),
+	);
+
 	return $animations;
 }
 
@@ -271,530 +271,602 @@ function pl_get_all_taxonomies(){
 function pl_icon_array(){
 
 	$icons = array(
-		'adjust',
-		'adn',
-		'align-center',
-		'align-justify',
-		'align-left',
-		'align-right',
-		'ambulance',
-		'anchor',
-		'android',
-		'angle-double-down',
-		'angle-double-left',
-		'angle-double-right',
-		'angle-double-up',
-		'angle-down',
-		'angle-left',
-		'angle-right',
-		'angle-up',
-		'apple',
-		'archive',
-		'arrow-circle-down',
-		'arrow-circle-left',
+		'glass',
+		'music',
+		'search',
+		'envelope-o',
+		'heart',
+		'star',
+		'star-o',
+		'user',
+		'film',
+		'th-large',
+		'th',
+		'th-list',
+		'check',
+		'remove',
+		'close',
+		'times',
+		'search-plus',
+		'search-minus',
+		'power-off',
+		'signal',
+		'gear',
+		'cog',
+		'trash-o',
+		'home',
+		'file-o',
+		'clock-o',
+		'road',
+		'download',
 		'arrow-circle-o-down',
-		'arrow-circle-o-left',
-		'arrow-circle-o-right',
 		'arrow-circle-o-up',
-		'arrow-circle-right',
-		'arrow-circle-up',
-		'arrow-down',
+		'inbox',
+		'play-circle-o',
+		'rotate-right',
+		'repeat',
+		'refresh',
+		'list-alt',
+		'lock',
+		'flag',
+		'headphones',
+		'volume-off',
+		'volume-down',
+		'volume-up',
+		'qrcode',
+		'barcode',
+		'tag',
+		'tags',
+		'book',
+		'bookmark',
+		'print',
+		'camera',
+		'font',
+		'bold',
+		'italic',
+		'text-height',
+		'text-width',
+		'align-left',
+		'align-center',
+		'align-right',
+		'align-justify',
+		'list',
+		'dedent',
+		'outdent',
+		'indent',
+		'video-camera',
+		'photo',
+		'image',
+		'picture-o',
+		'pencil',
+		'map-marker',
+		'adjust',
+		'tint',
+		'edit',
+		'pencil-square-o',
+		'share-square-o',
+		'check-square-o',
+		'arrows',
+		'step-backward',
+		'fast-backward',
+		'backward',
+		'play',
+		'pause',
+		'stop',
+		'forward',
+		'fast-forward',
+		'step-forward',
+		'eject',
+		'chevron-left',
+		'chevron-right',
+		'plus-circle',
+		'minus-circle',
+		'times-circle',
+		'check-circle',
+		'question-circle',
+		'info-circle',
+		'crosshairs',
+		'times-circle-o',
+		'check-circle-o',
+		'ban',
 		'arrow-left',
 		'arrow-right',
 		'arrow-up',
-		'arrows',
-		'arrows-alt',
-		'arrows-h',
-		'arrows-v',
+		'arrow-down',
+		'mail-forward',
+		'share',
+		'expand',
+		'compress',
+		'plus',
+		'minus',
 		'asterisk',
-		'backward',
-		'ban',
-		'ban-circle',
-		'bar-chart',
-		'bar-chart-o',
-		'barcode',
-		'bars',
-		'beaker',
-		'beer',
-		'bell',
-		'bell-alt',
-		'bell-o',
-		'bitbucket',
-		'bitbucket-sign',
-		'bitbucket-square',
-		'bitcoin',
-		'bold',
-		'bolt',
-		'book',
-		'bookmark',
-		'bookmark-empty',
-		'bookmark-o',
-		'briefcase',
-		'btc',
-		'bug',
-		'building',
-		'building-o',
-		'bullhorn',
-		'bullseye',
+		'exclamation-circle',
+		'gift',
+		'leaf',
+		'fire',
+		'eye',
+		'eye-slash',
+		'warning',
+		'exclamation-triangle',
+		'plane',
 		'calendar',
-		'calendar-empty',
-		'calendar-o',
-		'camera',
+		'random',
+		'comment',
+		'magnet',
+		'chevron-up',
+		'chevron-down',
+		'retweet',
+		'shopping-cart',
+		'folder',
+		'folder-open',
+		'arrows-v',
+		'arrows-h',
+		'bar-chart-o',
+		'bar-chart',
+		'twitter-square',
+		'facebook-square',
 		'camera-retro',
+		'key',
+		'gears',
+		'cogs',
+		'comments',
+		'thumbs-o-up',
+		'thumbs-o-down',
+		'star-half',
+		'heart-o',
+		'sign-out',
+		'linkedin-square',
+		'thumb-tack',
+		'external-link',
+		'sign-in',
+		'trophy',
+		'github-square',
+		'upload',
+		'lemon-o',
+		'phone',
+		'square-o',
+		'bookmark-o',
+		'phone-square',
+		'twitter',
+		'facebook',
+		'github',
+		'unlock',
+		'credit-card',
+		'rss',
+		'hdd-o',
+		'bullhorn',
+		'bell',
+		'certificate',
+		'hand-o-right',
+		'hand-o-left',
+		'hand-o-up',
+		'hand-o-down',
+		'arrow-circle-left',
+		'arrow-circle-right',
+		'arrow-circle-up',
+		'arrow-circle-down',
+		'globe',
+		'wrench',
+		'tasks',
+		'filter',
+		'briefcase',
+		'arrows-alt',
+		'group',
+		'users',
+		'chain',
+		'link',
+		'cloud',
+		'flask',
+		'cut',
+		'scissors',
+		'copy',
+		'files-o',
+		'paperclip',
+		'save',
+		'floppy-o',
+		'square',
+		'navicon',
+		'reorder',
+		'bars',
+		'list-ul',
+		'list-ol',
+		'strikethrough',
+		'underline',
+		'table',
+		'magic',
+		'truck',
+		'pinterest',
+		'pinterest-square',
+		'google-plus-square',
+		'google-plus',
+		'money',
 		'caret-down',
+		'caret-up',
 		'caret-left',
 		'caret-right',
-		'caret-square-o-down',
-		'caret-square-o-left',
-		'caret-square-o-right',
-		'caret-square-o-up',
-		'caret-up',
-		'certificate',
-		'chain',
+		'columns',
+		'unsorted',
+		'sort',
+		'sort-down',
+		'sort-desc',
+		'sort-up',
+		'sort-asc',
+		'envelope',
+		'linkedin',
+		'rotate-left',
+		'undo',
+		'legal',
+		'gavel',
+		'dashboard',
+		'tachometer',
+		'comment-o',
+		'comments-o',
+		'flash',
+		'bolt',
+		'sitemap',
+		'umbrella',
+		'paste',
+		'clipboard',
+		'lightbulb-o',
+		'exchange',
+		'cloud-download',
+		'cloud-upload',
+		'user-md',
+		'stethoscope',
+		'suitcase',
+		'bell-o',
+		'coffee',
+		'cutlery',
+		'file-text-o',
+		'building-o',
+		'hospital-o',
+		'ambulance',
+		'medkit',
+		'fighter-jet',
+		'beer',
+		'h-square',
+		'plus-square',
+		'angle-double-left',
+		'angle-double-right',
+		'angle-double-up',
+		'angle-double-down',
+		'angle-left',
+		'angle-right',
+		'angle-up',
+		'angle-down',
+		'desktop',
+		'laptop',
+		'tablet',
+		'mobile-phone',
+		'mobile',
+		'circle-o',
+		'quote-left',
+		'quote-right',
+		'spinner',
+		'circle',
+		'mail-reply',
+		'reply',
+		'github-alt',
+		'folder-o',
+		'folder-open-o',
+		'smile-o',
+		'frown-o',
+		'meh-o',
+		'gamepad',
+		'keyboard-o',
+		'flag-o',
+		'flag-checkered',
+		'terminal',
+		'code',
+		'mail-reply-all',
+		'reply-all',
+		'star-half-empty',
+		'star-half-full',
+		'star-half-o',
+		'location-arrow',
+		'crop',
+		'code-fork',
+		'unlink',
 		'chain-broken',
-		'check',
-		'check-circle',
-		'check-circle-o',
-		'check-empty',
-		'check-minus',
-		'check-sign',
-		'check-square',
-		'check-square-o',
-		'chevron-circle-down',
+		'question',
+		'info',
+		'exclamation',
+		'superscript',
+		'subscript',
+		'eraser',
+		'puzzle-piece',
+		'microphone',
+		'microphone-slash',
+		'shield',
+		'calendar-o',
+		'fire-extinguisher',
+		'rocket',
+		'maxcdn',
 		'chevron-circle-left',
 		'chevron-circle-right',
 		'chevron-circle-up',
-		'chevron-down',
-		'chevron-left',
-		'chevron-right',
-		'chevron-sign-down',
-		'chevron-sign-left',
-		'chevron-sign-right',
-		'chevron-sign-up',
-		'chevron-up',
-		'circle',
-		'circle-arrow-down',
-		'circle-arrow-left',
-		'circle-arrow-right',
-		'circle-arrow-up',
-		'circle-blank',
-		'circle-o',
-		'clipboard',
-		'clock-o',
-		'cloud',
-		'cloud-download',
-		'cloud-upload',
-		'cny',
-		'code',
-		'code-fork',
-		'coffee',
-		'cog',
-		'cogs',
-		'collapse',
-		'collapse-alt',
-		'collapse-top',
-		'columns',
-		'comment',
-		'comment-alt',
-		'comment-o',
-		'comments',
-		'comments-alt',
-		'comments-o',
-		'compass',
-		'compress',
-		'copy',
-		'credit-card',
-		'crop',
-		'crosshairs',
-		"css3",
-		'cut',
-		'cutlery',
-		'dashboard',
-		'dedent',
-		'desktop',
-		'dollar',
-		'dot-circle-o',
-		'double-angle-down',
-		'double-angle-left',
-		'double-angle-right',
-		'double-angle-up',
-		'download',
-		'download-alt',
-		'dribbble',
-		'dropbox',
-		'edit',
-		'edit-sign',
-		'eject',
+		'chevron-circle-down',
+		'html5',
+		'css3',
+		'anchor',
+		'unlock-alt',
+		'bullseye',
 		'ellipsis-h',
-		'ellipsis-horizontal',
 		'ellipsis-v',
-		'ellipsis-vertical',
-		'envelope',
-		'envelope-alt',
-		'envelope-o',
-		'eraser',
-		'eur',
-		'euro',
-		'exchange',
-		'exclamation',
-		'exclamation-circle',
-		'exclamation-sign',
-		'exclamation-triangle',
-		'expand',
-		'external-link',
-		'external-link-square',
-		'eye',
-		'eye-close',
-		'eye-open',
-		'eye-slash',
-		'facebook',
-		'facebook-sign',
-		'facebook-square',
-		'facetime-video',
-		'fast-backward',
-		'fast-forward',
-		'female',
-		'fighter-jet',
-		'file',
-		'file-alt',
-		'file-o',
-		'file-text',
-		'file-text-alt',
-		'file-text-o',
-		'files-o',
-		'film',
-		'filter',
-		'fire',
-		'fire-extinguisher',
-		'flag',
-		'flag-alt',
-		'flag-checkered',
-		'flag-o',
-		'flash',
-		'flask',
-		'flickr',
-		'floppy-o',
-		'folder',
-		'folder-o',
-		'folder-open',
-		'folder-open-o',
-		'font',
-		'food',
-		'forward',
-		'foursquare',
-		'frown',
-		'frown-o',
-		'fullscreen',
-		'gamepad',
-		'gavel',
-		'gbp',
-		'gear',
-		'gears',
-		'gift',
-		'github',
-		'github-alt',
-		'github-sign',
-		'github-square',
-		'gittip',
-		'glass',
-		'globe',
-		'google-plus',
-		'google-plus-sign',
-		'google-plus-square',
-		'group',
-		'h-sign',
-		'h-square',
-		'hand-down',
-		'hand-left',
-		'hand-o-down',
-		'hand-o-left',
-		'hand-o-right',
-		'hand-o-up',
-		'hand-right',
-		'hand-up',
-		'hdd',
-		'hdd-o',
-		'headphones',
-		'heart',
-		'heart-empty',
-		'heart-o',
-		'home',
-		'hospital',
-		'hospital-o',
-		"html5",
-		'inbox',
-		'indent',
-		'indent-left',
-		'indent-right',
-		'info',
-		'info-circle',
-		'info-sign',
-		'inr',
-		'instagram',
-		'italic',
-		'jpy',
-		'key',
-		'keyboard',
-		'keyboard-o',
-		'krw',
-		'laptop',
-		'leaf',
-		'legal',
-		'lemon',
-		'lemon-o',
-		'level-down',
-		'level-up',
-		'lightbulb',
-		'lightbulb-o',
-		'link',
-		'linkedin',
-		'linkedin-sign',
-		'linkedin-square',
-		'linux',
-		'list',
-		'list-alt',
-		'list-ol',
-		'list-ul',
-		'location-arrow',
-		'lock',
-		'long-arrow-down',
-		'long-arrow-left',
-		'long-arrow-right',
-		'long-arrow-up',
-		'magic',
-		'magnet',
-		'mail-forward',
-		'mail-reply',
-		'mail-reply-all',
-		'male',
-		'map-marker',
-		'maxcdn',
-		'medkit',
-		'meh',
-		'meh-o',
-		'microphone',
-		'microphone-off',
-		'microphone-slash',
-		'minus',
-		'minus-circle',
-		'minus-sign',
-		'minus-sign-alt',
+		'rss-square',
+		'play-circle',
+		'ticket',
 		'minus-square',
 		'minus-square-o',
-		'mobile',
-		'mobile-phone',
-		'money',
-		'moon',
-		'moon-o',
-		'move',
-		'music',
-		'off',
-		'ok',
-		'ok-circle',
-		'ok-sign',
-		'outdent',
-		'pagelines',
-		'paper-clip',
-		'paperclip',
-		'paste',
-		'pause',
-		'pencil',
+		'level-up',
+		'level-down',
+		'check-square',
 		'pencil-square',
-		'pencil-square-o',
-		'phone',
-		'phone-square',
-		'picture',
-		'picture-o',
-		'pinterest',
-		'pinterest-sign',
-		'pinterest-square',
-		'plane',
-		'play',
-		'play-circle',
-		'play-circle-o',
-		'plus',
-		'plus-circle',
-		'plus-sign',
-		'plus-square',
-		'plus-square-o',
-		'power-off',
-		'print',
-		'pushpin',
-		'puzzle-piece',
-		'qrcode',
-		'question',
-		'question-circle',
-		'question-sign',
-		'quote-left',
-		'quote-right',
-		'random',
-		'refresh',
-		'remove',
-		'remove-circle',
-		'remove-sign',
-		'renminbi',
-		'renren',
-		'reorder',
-		'repeat',
-		'reply',
-		'reply-all',
-		'resize-full',
-		'resize-horizontal',
-		'resize-small',
-		'resize-vertical',
-		'retweet',
-		'rmb',
-		'road',
-		'rocket',
-		'rotate-left',
-		'rotate-right',
-		'rouble',
-		'rss',
-		'rss-sign',
-		'rss-square',
-		'rub',
-		'ruble',
-		'rupee',
-		'save',
-		'scissors',
-		'screenshot',
-		'search',
-		'search-minus',
-		'search-plus',
-		'share',
-		'share-alt',
-		'share-sign',
+		'external-link-square',
 		'share-square',
-		'share-square-o',
-		'shield',
-		'shopping-cart',
-		'sign-blank',
-		'sign-in',
-		'sign-out',
-		'signal',
-		'signin',
-		'signout',
-		'sitemap',
-		'skype',
-		'smile',
-		'smile-o',
-		'sort',
+		'compass',
+		'toggle-down',
+		'caret-square-o-down',
+		'toggle-up',
+		'caret-square-o-up',
+		'toggle-right',
+		'caret-square-o-right',
+		'euro',
+		'eur',
+		'gbp',
+		'dollar',
+		'usd',
+		'rupee',
+		'inr',
+		'cny',
+		'rmb',
+		'yen',
+		'jpy',
+		'ruble',
+		'rouble',
+		'rub',
+		'won',
+		'krw',
+		'bitcoin',
+		'btc',
+		'file',
+		'file-text',
 		'sort-alpha-asc',
 		'sort-alpha-desc',
 		'sort-amount-asc',
 		'sort-amount-desc',
-		'sort-asc',
-		'sort-desc',
-		'sort-down',
 		'sort-numeric-asc',
 		'sort-numeric-desc',
-		'sort-up',
-		'spinner',
-		'square',
-		'square-o',
-		'stack-exchange',
-		'stack-overflow',
-		'stackexchange',
-		'star',
-		'star-empty',
-		'star-half',
-		'star-half-empty',
-		'star-half-full',
-		'star-half-o',
-		'star-o',
-		'step-backward',
-		'step-forward',
-		'stethoscope',
-		'stop',
-		'strikethrough',
-		'subscript',
-		'suitcase',
-		'sun',
-		'sun-o',
-		'superscript',
-		'table',
-		'tablet',
-		'tachometer',
-		'tag',
-		'tags',
-		'tasks',
-		'terminal',
-		'text-height',
-		'text-width',
-		'th',
-		'th-large',
-		'th-list',
-		'thumb-tack',
-		'thumbs-down',
-		'thumbs-down-alt',
-		'thumbs-o-down',
-		'thumbs-o-up',
 		'thumbs-up',
-		'thumbs-up-alt',
-		'ticket',
-		'time',
-		'times',
-		'times-circle',
-		'times-circle-o',
-		'tint',
-		'toggle-down',
-		'toggle-left',
-		'toggle-right',
-		'toggle-up',
-		'trash',
-		'trash-o',
-		'trello',
-		'trophy',
-		'truck',
-		'try',
-		'tumblr',
-		'tumblr-sign',
-		'tumblr-square',
-		'turkish-lira',
-		'twitter',
-		'twitter-sign',
-		'twitter-square',
-		'umbrella',
-		'unchecked',
-		'underline',
-		'undo',
-		'unlink',
-		'unlock',
-		'unlock-alt',
-		'unsorted',
-		'upload',
-		'upload-alt',
-		'usd',
-		'user',
-		'user-md',
-		'users',
-		'video-camera',
-		'vimeo-square',
-		'vk',
-		'volume-down',
-		'volume-off',
-		'volume-up',
-		'warning',
-		'warning-sign',
-		'weibo',
-		'wheelchair',
-		'windows',
-		'won',
-		'wrench',
+		'thumbs-down',
+		'youtube-square',
+		'youtube',
 		'xing',
 		'xing-square',
-		'yen',
-		'youtube',
 		'youtube-play',
-		'youtube-sign',
-		'youtube-square',
-		'zoom-in',
-		"zoom-out"
-	);	
+		'dropbox',
+		'stack-overflow',
+		'instagram',
+		'flickr',
+		'adn',
+		'bitbucket',
+		'bitbucket-square',
+		'tumblr',
+		'tumblr-square',
+		'long-arrow-down',
+		'long-arrow-up',
+		'long-arrow-left',
+		'long-arrow-right',
+		'apple',
+		'windows',
+		'android',
+		'linux',
+		'dribbble',
+		'skype',
+		'foursquare',
+		'trello',
+		'female',
+		'male',
+		'gittip',
+		'sun-o',
+		'moon-o',
+		'archive',
+		'bug',
+		'vk',
+		'weibo',
+		'renren',
+		'pagelines',
+		'stack-exchange',
+		'arrow-circle-o-right',
+		'arrow-circle-o-left',
+		'toggle-left',
+		'caret-square-o-left',
+		'dot-circle-o',
+		'wheelchair',
+		'vimeo-square',
+		'turkish-lira',
+		'try',
+		'plus-square-o',
+		'space-shuttle',
+		'slack',
+		'envelope-square',
+		'wordpress',
+		'openid',
+		'institution',
+		'bank',
+		'university',
+		'mortar-board',
+		'graduation-cap',
+		'yahoo',
+		'google',
+		'reddit',
+		'reddit-square',
+		'stumbleupon-circle',
+		'stumbleupon',
+		'delicious',
+		'digg',
+		'pied-piper',
+		'pied-piper-alt',
+		'drupal',
+		'joomla',
+		'language',
+		'fax',
+		'building',
+		'child',
+		'paw',
+		'spoon',
+		'cube',
+		'cubes',
+		'behance',
+		'behance-square',
+		'steam',
+		'steam-square',
+		'recycle',
+		'automobile',
+		'car',
+		'cab',
+		'taxi',
+		'tree',
+		'spotify',
+		'deviantart',
+		'soundcloud',
+		'database',
+		'file-pdf-o',
+		'file-word-o',
+		'file-excel-o',
+		'file-powerpoint-o',
+		'file-photo-o',
+		'file-picture-o',
+		'file-image-o',
+		'file-zip-o',
+		'file-archive-o',
+		'file-sound-o',
+		'file-audio-o',
+		'file-movie-o',
+		'file-video-o',
+		'file-code-o',
+		'vine',
+		'codepen',
+		'jsfiddle',
+		'life-bouy',
+		'life-buoy',
+		'life-saver',
+		'support',
+		'life-ring',
+		'circle-o-notch',
+		'ra',
+		'rebel',
+		'ge',
+		'empire',
+		'git-square',
+		'git',
+		'hacker-news',
+		'tencent-weibo',
+		'qq',
+		'wechat',
+		'weixin',
+		'send',
+		'paper-plane',
+		'send-o',
+		'paper-plane-o',
+		'history',
+		'circle-thin',
+		'header',
+		'paragraph',
+		'sliders',
+		'share-alt',
+		'share-alt-square',
+		'bomb',
+		'soccer-ball-o',
+		'futbol-o',
+		'tty',
+		'binoculars',
+		'plug',
+		'slideshare',
+		'twitch',
+		'yelp',
+		'newspaper-o',
+		'wifi',
+		'calculator',
+		'paypal',
+		'google-wallet',
+		'cc-visa',
+		'cc-mastercard',
+		'cc-discover',
+		'cc-amex',
+		'cc-paypal',
+		'cc-stripe',
+		'bell-slash',
+		'bell-slash-o',
+		'trash',
+		'copyright',
+		'at',
+		'eyedropper',
+		'paint-brush',
+		'birthday-cake',
+		'area-chart',
+		'pie-chart',
+		'line-chart',
+		'lastfm',
+		'lastfm-square',
+		'toggle-off',
+		'toggle-on',
+		'bicycle',
+		'bus',
+		'ioxhost',
+		'angellist',
+		'cc',
+		'shekel',
+		'sheqel',
+		'ils',
+		'meanpath',
+		'buysellads',
+		'cart-arrow-down',
+		'cart-plus',
+		'connectdevelop',
+		'dashcube',
+		'diamond',
+		'facebook-f',
+		'facebook-official',
+		'forumbee',
+		'genderless',
+		'gratipay',
+		'heartbeat',
+		'hotel',
+		'leanpub',
+		'mars',
+		'mars-double',
+		'mars-stroke',
+		'mars-stroke-h',
+		'mars-stroke-v',
+		'medium',
+		'mercury',
+		'motorcycle',
+		'neuter',
+		'pinterest-p',
+		'sellsy',
+		'server',
+		'ship',
+		'simplybuilt',
+		'skyatlas',
+		'street-view',
+		'subway',
+		'train',
+		'transgender',
+		'transgender-alt',
+		'user-plus',
+		'user-secret',
+		'user-times',
+		'venus',
+		'venus-double',
+		'venus-mars',
+		'viacoin',
+		'whatsapp'
+	);
 	asort($icons);
-	
+
 	$icons = array_values($icons);
-	
+
 	return apply_filters( 'pl_icon_array', $icons );
 }
 
@@ -811,7 +883,7 @@ function pl_button_classes(){
 		'btn-warning'		=> 'Orange',
 		'btn-important'		=> 'Red',
 		'btn-inverse'		=> 'Black',
-	); 
+	);
 	return $array;
 }
 
@@ -826,7 +898,7 @@ function pl_theme_classes(){
 		'pl-dark-img'	=> 'Black Background, White Text w Shadow',
 		'pl-light-img'	=> 'White Background, Black Text w Shadow',
 		'pl-base'		=> 'Base Color Background',
-	); 
+	);
 	return apply_filters( 'pl_theme_classes', $array );
 }
 
@@ -843,9 +915,9 @@ function pl_get_area_classes( $section, $set = array(), $namespace = false ){
 		'video'		=> ( $section->opt($namespace.'_video') ) ? 'bg-video-canvas' : '',
 		'repeat'	=> ( $section->opt($namespace.'_repeat') ) ? 'pl-bg-repeat' : 'pl-bg-cover'
 	);
-	
+
 	$class = wp_parse_args( $set, $class );
-	
+
 	return join(' ', $class);
 
 }
@@ -855,44 +927,44 @@ function pl_get_area_styles( $section, $namespace = false ){
 	$namespace = ( $namespace ) ? $namespace : $section->id;
 
 	$bg = $section->opt($namespace.'_background');
-	
+
 	$color = $section->opt($namespace.'_color');
-	
+
 	$color_enable = $section->opt($namespace.'_color_enable');
 
 	$style = array(
 		'background' => ( $bg ) ? sprintf('background-image: url(%s);', $bg) : '',
 		'color'		=> ( $color_enable ) ? sprintf('background-color: %s;', pl_hash($color)) : '',
-	); 
-	
+	);
+
 	return $style;
-	
-	
+
+
 }
 
 function pl_standard_video_bg( $section, $namespace = false ){
-	
+
 	$namespace = ( $namespace ) ? $namespace : $section->id;
 	$video = '';
 	if( $section->opt( $namespace.'_video') ){
-		
+
 		$videos = pl_get_video_sources( array( $section->opt( $namespace.'_video'), $section->opt( $namespace.'_video_2') ) );
 		$video = sprintf(
-			'<div class="bg-video-viewport"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>', 
-			pl_transparent_image(), 
+			'<div class="bg-video-viewport"><video poster="%s" class="bg-video" autoplay loop>%s</video></div>',
+			pl_transparent_image(),
 			$videos
 		);
 
 		return $video;
 	} else
 		return '';
-		
+
 }
 
 function pl_get_background_options( $section, $column = 3 ){
-	
+
 	$namespace = $section->id;
-	
+
 	$options = array(
 		'title' => __( 'Background Options', 'pagelines' ),
 		'type'	=> 'multi',
@@ -930,14 +1002,14 @@ function pl_get_background_options( $section, $column = 3 ){
 			),
 		)
 	);
-	
-	
+
+
 	return $options;
 }
 
 
 function pl_get_post_type_options( ){
-	
+
 
 	$opts = array(
 			array(
@@ -968,7 +1040,7 @@ function pl_get_post_type_options( ){
 			array(
 				'key'			=> 'meta_key',
 				'type' 			=> 'text_small',
-				'label' 	=> __( 'Meta Key', 'pagelines' ),	
+				'label' 	=> __( 'Meta Key', 'pagelines' ),
 			),
 			array(
 				'key'			=> 'meta_value',
@@ -977,8 +1049,8 @@ function pl_get_post_type_options( ){
 				'help'		=> __( 'Select only posts which have a certain meta key and corresponding meta value. Useful for featured posts, or similar.', 'pagelines' ),
 			),
 		);
-	
-	
+
+
 	return $opts;
 }
 
@@ -1011,24 +1083,24 @@ function pl_count_sidebar_widgets( $sidebar_id ){
 }
 
 function pl_enqueue_script(  $handle, $src = false, $deps = array(), $ver = false, $in_footer = false ){
-	
+
 	global $wp_scripts;
-	
+
 	wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 }
 
 function pl_add_theme_tab( $array ){
-	
+
 	global $pl_user_theme_tabs;
-	
+
 	if(!isset($pl_user_theme_tabs) || !is_array($pl_user_theme_tabs))
-		$pl_user_theme_tabs = array(); 
-		
-		
-	$pl_user_theme_tabs = array_merge($array, $pl_user_theme_tabs); 
-	
-	
-	
+		$pl_user_theme_tabs = array();
+
+
+	$pl_user_theme_tabs = array_merge($array, $pl_user_theme_tabs);
+
+
+
 }
 
 
@@ -1037,15 +1109,15 @@ function pl_add_theme_tab( $array ){
 function pl_blank_template( $name = '' ){
 	if ( current_user_can( 'edit_theme_options' ) )
 		return sprintf('<div class="blank-section-template pl-editor-only"><strong>%s</strong> is hidden or returned no output.</div>', $name);
-	else 
+	else
 		return '';
-	
+
 }
 
 
 function pl_shortcodize_url( $full_url ){
 	$url = str_replace(home_url(), '[pl_site_url]', $full_url);
-	
+
 	return $url;
 }
 

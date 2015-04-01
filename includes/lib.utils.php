@@ -625,10 +625,12 @@ function pl_detect_ie( $version = false ) {
 
 	global $is_IE;
 	if ( ! $version && $is_IE ) {
-
+		if (strpos($_SERVER['HTTP_USER_AGENT'], 'Trident/7.0; rv:11.0') !== false) {
+		    return round( substr($_SERVER['HTTP_USER_AGENT'], strpos($_SERVER['HTTP_USER_AGENT'], 'rv:') + 3, 4) );
+		} else {
 		return round( substr($_SERVER['HTTP_USER_AGENT'], strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') + 5, 3) );
+		}		
 	}
-
 	if ( $is_IE && is_int( $version ) && stristr( $_SERVER['HTTP_USER_AGENT'], sprintf( 'msie %s', $version ) ) )
 		return true;
 	else
@@ -1360,6 +1362,7 @@ function load_child_functions() {
 	}
 }
 
+
 // ------------------------------------------
 // DEVELOPMENT
 // ------------------------------------------
@@ -1514,4 +1517,12 @@ function pl_updater_txt() {
 	}
 	
 	return $message;
+}
+
+function pl_is_localhost() {
+    $whitelist = array( '127.0.0.1', '::1' );
+    if( in_array( $_SERVER['REMOTE_ADDR'], $whitelist) )
+        return true;
+	else
+		return false;
 }

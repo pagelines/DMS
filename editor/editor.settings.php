@@ -11,9 +11,6 @@
 function pl_setting( $key, $args = array() ){
 	global $plopts;
 
-	if( has_filter( "pl_setting-$key" ) )
-		return apply_filters( "pl_setting-$key", $val );
-
 	if(!is_object($plopts)){
 		$plpg = new PageLinesPage;
 		$pldraft = new EditorDraft;
@@ -21,6 +18,9 @@ function pl_setting( $key, $args = array() ){
 	}
 
 	$setting = $plopts->get_global_setting( $key, $args );
+
+	if( has_filter( "pl_setting-$key" ) )
+		return apply_filters( "pl_setting-$key", $setting );
 
 	if( is_array( $setting) )
 		return $setting; 
