@@ -8,12 +8,12 @@
  *
  */
 class PageLinesEditorUpdates {
-	
+
 
 	function __construct() {
 		$this->register_core();
 		add_action( 'init', array( $this, 'check_updater_status' ) );
-		add_filter( 'http_request_args', array( $this, 'pagelines_plugins_remove' ), 10, 2 );	
+		add_filter( 'http_request_args', array( $this, 'pagelines_plugins_remove' ), 10, 2 );
 	}
 
 	function pagelines_plugins_remove( $r, $url ) {
@@ -34,11 +34,11 @@ class PageLinesEditorUpdates {
 	}
 
 	function register_core() {
-		
+
 		// if we are parent theme OR a child theme, register as DMS.
-		// if we are a standalone, register as the standalone.		
+		// if we are a standalone, register as the standalone.
 		$themeslug = $this->get_themeslug();
-		
+
 		global $registered_pagelines_updates;
 		if( ! is_array( $registered_pagelines_updates ) )
 			$registered_pagelines_updates = array();
@@ -49,14 +49,14 @@ class PageLinesEditorUpdates {
 			'product_version'	=> '',
 			'product_desc'		=> __( 'Activating this will automatically give you updates to any PageLines Product detected.', 'pagelines' )
 			);
-						
+
 		$registered_pagelines_updates[$themeslug] = array(
 			'type' => 'theme',
 			'product_file_path'	=> $themeslug,
 			'product_name'	=> pl_get_theme_data( get_template_directory(), 'Name'),
 			'product_version'	=> pl_get_theme_data( get_template_directory(), 'Version'),
 			'product_desc'		=> pl_get_theme_data( get_template_directory(), 'Description')
-			);		
+			);
 	}
 
 	function get_themeslug() {
@@ -67,10 +67,10 @@ class PageLinesEditorUpdates {
 	}
 
 	function check_updater_status() {
-		
+
 		// if not installed, show link to install.
 		if( ! pl_check_updater_exists() ) {
-			add_filter( 'plugins_api', array( $this, 'pagelines_updater_install' ), 10, 3 );			
+			add_filter( 'plugins_api', array( $this, 'pagelines_updater_install' ), 10, 3 );
 		}
 		// if installed but not activated, lets activate it.
 		add_action( 'admin_notices', array( $this, 'updater_install' ), 9);
@@ -95,12 +95,15 @@ class PageLinesEditorUpdates {
 	}
 
 	function updater_install() {
-		
+
+		if( has_filter( 'dms_suppress_updaer_nag' ) )
+			return false;
+
 		$screen = get_current_screen();
-			
+
 		if( pl_is_wporg() && 'appearance_page_PageLines-Admin' != $screen->id )
 			return false;
-		
+
 		$message = pl_updater_txt();
 		if( $message )
 			echo '<div class="updated fade"><p>' . $message . '</p></div>' . "\n";
