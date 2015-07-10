@@ -4,6 +4,10 @@
 
 ********************************************************
 
+Version 2.1.9.4
+
+  CORE - WordPress Customizer now works, this is a requirement for WordPress 4.3 and above.
+
 Version 2.1.9.3
 
   CORE - Update FontAwesome to version 4.3, http://fortawesome.github.io/Font-Awesome/whats-new/
