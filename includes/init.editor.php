@@ -18,11 +18,20 @@ class PageLinesEditor {
 
 		// TEMPLATE ACTIONS
 		// !important - must load after $post variable
-		// ALSO, bbPress and other plugins make adjustments to queries which change pages from 404 to something else. 
+		// ALSO, bbPress and other plugins make adjustments to queries which change pages from 404 to something else.
 		// Therefore must come after WP_Query (parse query)
-		add_action( 'wp', array( $this, 'load_libs' ), 10); 
+
+		// workaround for customizer in WP >4.3
+		// default was 'wp' but customizer needs the libs loaded on 'init'
+		if( is_customize_preview() ) {
+			$hook = 'init';
+		} else {
+			$hook = 'wp';
+		}
+
+		add_action( $hook, array( $this, 'load_libs' ), 10);
 		add_action( 'admin_init', array( $this, 'load_libs' ), 5);
-		
+
 		add_filter( 'parse_request', array( $this, 'check_for_type' ) );
 
 		add_action('wp_enqueue_scripts', array( $this, 'process_styles' ));
@@ -53,7 +62,7 @@ class PageLinesEditor {
 		// User objects base class
 		require_once( PL_EDITOR . '/editor.objects.php' );
 		require_once( PL_EDITOR . '/editor.section.data.php' );
-		
+
 		require_once( PL_EDITOR . '/editor.templates.php' );
 
 		// Mobile
@@ -62,13 +71,13 @@ class PageLinesEditor {
 		// Interfaces
 		require_once( PL_EDITOR . '/editor.xlist.php' );
 		require_once( PL_EDITOR . '/panel.code.php' );
-		
+
 		require_once( PL_EDITOR . '/editor.updates.php' );
-		
+
 		require_once( PL_EDITOR . '/editor.sections.php' );
 		require_once( PL_EDITOR . '/panel.extend.php' );
 		require_once( PL_EDITOR . '/panel.themes.php' );
-	
+
 		require_once( PL_EDITOR . '/panel.settings.php' );
 
 		require_once( PL_EDITOR . '/editor.extensions.php' );
@@ -78,8 +87,8 @@ class PageLinesEditor {
 		require_once( PL_EDITOR . '/editor.areas.php' );
 		require_once( PL_EDITOR . '/editor.page.php' );
 		require_once( PL_EDITOR . '/editor.handler.php' );
-		require_once( PL_EDITOR . '/editor.loader.php' );	
-		require_once( PL_EDITOR . '/editor.help.php' );	
+		require_once( PL_EDITOR . '/editor.loader.php' );
+		require_once( PL_EDITOR . '/editor.help.php' );
 		require_once( PL_EDITOR . '/editor.api.php' );
 		require_once( PL_EDITOR . '/editor.fileopts.php' );
 		require_once( PL_EDITOR . '/editor.sections.register.php' );
@@ -133,17 +142,17 @@ class PageLinesEditor {
 		$this->color = new EditorColor;
 		$this->siteset = new EditorSettings;
 		$this->extensions = new EditorExtensions;
-		
+
 		$less_engine = new PageLinesLESSEngine;
-		
+
 		$pless = new PageLinesLess;
 		$fileOpts = new EditorFileOpts;
 		$this->editor_less = new EditorLessHandler($pless);
-		
+
 		$loader = new PageLinesPageLoader;
 		$help = new EditorHelpPanel;
-		
-		
+
+
 		pagelines_register_hook('pl_after_settings_load'); // hook
 
 		$plopts = $this->opts = new PageLinesOpts;
@@ -184,7 +193,7 @@ class PageLinesEditor {
 
 		if( pl_draft_mode() )
 			pagelines_add_bodyclass('pl-editor');
-			
+
 		$this->handler->process_styles();
 	}
 
@@ -192,7 +201,7 @@ class PageLinesEditor {
 
 		if( ! is_object( $this->handler ) )
 			return false;
-			
+
 		$this->handler->process_head();
 	}
 
@@ -212,7 +221,7 @@ class PageLinesEditor {
 		$this->handler->process_region('fixed');
 
 	}
-	
+
 	function process_header(){
 
 		if( ! is_object( $this->handler ) )
@@ -235,4 +244,3 @@ class PageLinesEditor {
 
 
 }
-

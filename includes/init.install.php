@@ -3,27 +3,27 @@
 
 
 class PageLinesInstall{
-	
+
 	function __construct(){
-		
-		
+
+
 		add_filter( 'pl_theme_default_settings', array($this, 'mod_default_settings') );
-		
+
 		// Add regions to settings
 		add_filter( 'pl_theme_default_regions', array($this, 'mod_default_regions') );
-		
+
 		// Add theme templates when default templates are set
 		add_filter( 'pl_default_templates', array($this, 'add_templates_at_default') );
-		
+
 		add_filter( 'pl_default_template_handler', array($this, 'default_template_handling') );
-		
+
 	//	add_action( 'wp', array($this, 'pagelines_check_install'), 15 );
 	//	add_action( 'admin_init', array( $this, 'pagelines_check_install' ), 10);
 		// MUST COME AFTER FILTERS!
 		$this->pagelines_check_install();
-		
+
 	}
-	
+
 	function pagelines_check_install() {
 
 		$install = false;
@@ -35,25 +35,18 @@ class PageLinesInstall{
 		if( is_admin() ){
 			global $pagenow;
 
-			if( $pagenow == 'customize.php' ){
-				
-				if( pl_is_wporg() ) {
-					// customizer wont work, so just redirect to front page.
-					wp_safe_redirect( site_url() );
-					exit();
-				} else {
-					$install = true;
-				}						
-			} 
-			
+			if( is_customize_preview() ) {
+				return false;
+			}
+
 			if( isset($_REQUEST['activated'] ) && $pagenow == "themes.php" && ! pl_is_wporg() ) {
 				$install = true;
 			}
-			
+
 			if( isset($_REQUEST['activated'] ) && $pagenow == "themes.php" && pl_is_wporg() ) {
 				add_action( 'admin_notices', array( $this, 'install_notice' ) );
 				$install = false;
-			}			
+			}
 
 
 		if( pl_is_wporg() && isset( $_REQUEST['i-love-wporg'] ) )
@@ -63,19 +56,19 @@ class PageLinesInstall{
 		}
 
 		if( $install == true  ){
-		
-			// Simon why do we need this?? 	
+
+			// Simon why do we need this??
 			if( get_theme_mod( 'pl_installed' ) ) {
 				wp_redirect( $url );
 				exit();
 			} else {
 				$url = $this->run_installation_routine();
-				wp_redirect( $url ); 
+				wp_redirect( $url );
 				exit();
-			}	
+			}
 		}
 	}
-	
+
 	function install_notice() {
 		?>
 		<div class="updated fade">
@@ -83,19 +76,19 @@ class PageLinesInstall{
 				<br />Click <a  href="<?php echo site_url(); ?>">here to go straight there.</a><br />Or why not let us create a draft page and apply a simple template to get you started? <a href="<?php echo admin_url( 'index.php?i-love-wporg=true' ); ?>">Yes please!<a>
 					</p>
 					</div>
-					<?php 
+					<?php
 	}
-	
-	
+
+
 	function run_installation_routine( $url = '' ){
-		
+
 		set_theme_mod( 'pl_installed', true );
-		
-		$settings = pl_get_global_settings(); 
-		
+
+		$settings = pl_get_global_settings();
+
 		// Only sets defaults if they are null
 		set_default_settings();
-		
+
 		if( is_file( trailingslashit( get_stylesheet_directory() ) . 'pl-config.json' ) ) {
 			$settings_handler = new PageLinesSettings;
 			$settings_handler->import_from_child();
@@ -108,99 +101,99 @@ class PageLinesInstall{
 		$tpl_handler = new PLCustomTemplates;
 		$tpl_handler->update_objects( 'publish' );
 
-		
+
 		// Add Templates
 		$id = $this->page_on_activation();
-		
-		
-		// Redirect 
+
+
+		// Redirect
 		$url = add_query_arg( 'pl-installed-theme', pl_theme_info('template'), get_permalink( $id ) );
-		
+
 		return $url;
-	
+
 	}
-	
+
 	function add_templates_at_default( $tpls ){
-	
+
 		$tpls = array_merge( $this->page_templates( ), $tpls );
-	
+
 		return $tpls;
-		
+
 	}
-	
+
 	function load_page_templates(){
-		
+
 		$page_templates = $this->page_templates();
-		
+
 		foreach( $page_templates as $tpl ){
 			$templateID = pl_add_or_update_template( $tpl );
 		}
-		
+
 	}
-	
+
 	function apply_page_templates(){
 		$mapping = $this->map_templates_to_pages();
-		
+
 		foreach( $mapping as $type => $tpl ){
-			
+
 			$id = pl_special_id( $type );
 			pl_set_page_template( $id, $tpl, 'both' );
 		}
 	}
-	
+
 	// Override this to set templates on install
 	function map_templates_to_pages(){
 		return array();
 	}
-	
+
 	function mod_default_regions( $defaults = array() ){
 
 		return $this->global_region_map();
-		
+
 	}
-	
+
 	function mod_default_settings( $defaults ){
-		
+
 		return wp_parse_args( $this->set_global_options(), $defaults );
-		
+
 	}
-	
+
 	// Override this function in core/child themes
 	// It will automatically load and/or update templates
 	function page_templates( ){
 		$templates = array(
 			'welcome'	=> $this->template_welcome()
 		);
-				
+
 		return $templates;
 	}
-	
+
 	// Override this function in core/child themes
 	// Use it to set global options on activation of theme
 	function set_global_options( ){
 		return array();
 	}
-	
+
 	// Override this to change default templates for various types of pages
 	function default_template_handling( $t ){
 		return $t;
 	}
-	
+
 	// Override this function in core/child themes
 	function global_region_map(){
-		
+
 		$map = array(
-			'header'	=> array(), 
+			'header'	=> array(),
 			'footer'	=> array(
 				array(
 					'settings'	=> array(
 						'pl_area_theme' 	=> 'pl-black',
 					),
 					'content'	=> array(
-						array( 
+						array(
 							'object'	=> 'PageLinesColumnizer',
 							'object'	=> 'PLWatermark'
-							
+
 						),
 					)
 				),
@@ -209,9 +202,9 @@ class PageLinesInstall{
 						'pl_area_theme' 	=> 'pl-grey',
 					),
 					'content'	=> array(
-						array( 
+						array(
 							'object'	=> 'PLSocialinks',
-							
+
 						),
 					)
 				)
@@ -220,26 +213,26 @@ class PageLinesInstall{
 				array( 'object'	=> 'PLNavi' )
 			)
 		);
-		
+
 		return $map;
-		
+
 	}
-	
+
 	// Override this function in core/child themes
 	function activation_page_data(){
 
 		return array();
 	}
-	
-	
+
+
 	function template_welcome(){
-		
+
 		$template['name'] = 'Welcome';
-		
+
 		$template['desc'] = 'Getting started guide &amp; template.';
-		
+
 		$template['map'] = array(
-			
+
 			array(
 				'object'	=> 'PLSectionArea',
 				'settings'	=> array(
@@ -248,7 +241,7 @@ class PageLinesInstall{
 					'pl_area_pad'		=> '80px',
 					'pl_area_parallax'	=> 'pl-parallax'
 				),
-				
+
 				'content'	=> array(
 					array(
 						'object'	=> 'PLMasthead',
@@ -293,7 +286,7 @@ class PageLinesInstall{
 						)
 					),
 				)
-			), 
+			),
 			array(
 				'settings'	=> array(
 					'pl_area_theme'	=> 'pl-black'
@@ -308,7 +301,7 @@ class PageLinesInstall{
 					),
 					array(
 						'object'	=> 'PageLinesMediaBox',
-						'span'		=> 10, 
+						'span'		=> 10,
 						'offset'	=> 1,
 						'settings'	=> array(
 							'mediabox_html'	=> '<iframe  class="scribd_iframe_embed" src="//www.scribd.com/embeds/213323278/content?start_page=1&view_mode=slideshow&access_key=key-1dzmy27btqjwamjd0dye&show_recommendations=false" data-auto-height="false" data-aspect-ratio="0.772922022279349" scrolling="no" id="doc_40327" width="100%" height="1000" frameborder="0"></iframe>'
@@ -327,7 +320,7 @@ class PageLinesInstall{
 					),
 					array(
 						'object'	=> 'PageLinesMediaBox',
-						'span'		=> 10, 
+						'span'		=> 10,
 						'offset'	=> 1,
 						'settings'	=> array(
 							'mediabox_html'	=> "<iframe width='700' height='420' src='//www.youtube.com/embed/BracDuhEHls?rel=0&vq=hd720' frameborder='0' allowfullscreen></iframe>"
@@ -353,18 +346,18 @@ class PageLinesInstall{
 					),
 				)
 			)
-		); 
-		
+		);
+
 		return $template;
 	}
-	
-	
+
+
 	function page_on_activation( $templateID = 'welcome' ){
-		
+
 		global $user_ID;
-		
+
 		$data = $this->activation_page_data();
-		
+
 		$page = array(
 			'post_type'		=> 'page',
 			'post_status'	=> 'draft',
@@ -374,47 +367,47 @@ class PageLinesInstall{
 			'post_name'		=> 'pl-getting-started',
 			'template'		=> 'welcome',
 		);
-		
+
 		$post_data = wp_parse_args( $data, $page );
-		
+
 		// Check or add page (leave in draft mode)
 		$pages = get_pages( array( 'post_status' => 'draft' ) );
 		$page_exists = false;
-		foreach ($pages as $page) { 
-			
+		foreach ($pages as $page) {
+
 			$name = $page->post_name;
-			
-			if ( $name == $post_data['post_name'] ) { 
+
+			if ( $name == $post_data['post_name'] ) {
 				$page_exists = true;
 				$id = $page->ID;
 			}
-			 
+
 		}
-		
+
 		if( ! $page_exists )
 			$id = wp_insert_post(  $post_data );
-			
-		
+
+
 		pl_set_page_template( $id, $post_data['template'], 'both' );
-		
+
 		return $id;
 	}
-	
-	
-	
+
+
+
 	function getting_started_content(){
-		
-		ob_start(); 
-		
+
+		ob_start();
+
 		?>
 		<h3 class="center"><?php printf( __( 'Welcome to PageLines %s.', 'pagelines' ), PL_NICETHEMENAME ) ?></h3>
 		<iframe  class="scribd_iframe_embed" src="//www.scribd.com/embeds/213323278/content?start_page=1&view_mode=slideshow&access_key=key-1dzmy27btqjwamjd0dye&show_recommendations=false" data-auto-height="false" data-aspect-ratio="0.772922022279349" scrolling="no" id="doc_40327" width="100%" height="1000" frameborder="0"></iframe>
-		
-		<?php 
-		
+
+		<?php
+
 		return ob_get_clean();
-		
+
 	}
-	
-	
+
+
 }
