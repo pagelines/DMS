@@ -4,6 +4,12 @@
 
 ********************************************************
 
+Version 2.1.9.5
+
+  CORE - Fixed an issue where clicking publish in the DMS editor was not clearing the varnish cache on WPENGINE.
+  CORE - Sections cache is now cleared when wp-admin is loaded, this will help during site migrations.
+  BUG  - Added a check to make sure the sections table is present in the database before attempting to add data.
+
 Version 2.1.9.4
 
   CORE - WordPress Customizer now works, this is a requirement for WordPress 4.3 and above.
