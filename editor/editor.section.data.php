@@ -1,14 +1,12 @@
 <?php
 
-
-
 class PLSectionData{
 
 	var $version_slug = "pl_db_version";
 	function __construct(){
 		global $wpdb;
 		$this->wpdb = $wpdb;
-		$this->current_db_version = 0.42;
+		$this->current_db_version = 0.43;
 		$this->table_name = $wpdb->prefix . "pl_data_sections";
 		$this->installed_db_version = get_option( $this->version_slug );
 
@@ -32,8 +30,8 @@ class PLSectionData{
 		$sql = "CREATE TABLE $this->table_name (
 				id mediumint(9) NOT NULL AUTO_INCREMENT,
 				uid VARCHAR(10) NOT NULL,
-				draft text NOT NULL,
-				live text NOT NULL,
+				draft LONGTEXT NOT NULL,
+				live LONGTEXT NOT NULL,
 				UNIQUE KEY id (id),
 				UNIQUE KEY uid (uid)
 			);";
