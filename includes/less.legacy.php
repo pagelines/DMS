@@ -779,21 +779,8 @@ class PageLinesRenderCSS {
 
 		$folder = trailingslashit( pl_get_css_dir( 'path' ) );
 
-
-		if( '1' == pl_setting( 'alternative_css' ) )
-			$file = 'compiled-css-core.css';
-		else
-			$file = sprintf( 'compiled-css-core-%s.css', get_theme_mod( 'pl_save_version' ) );
-		if( is_file( $folder . $file ) )
-			@unlink( $folder . $file );
-
-		if( '1' == pl_setting( 'alternative_css' ) )
-			$file = 'compiled-css-sections.css';
-		else
-			$file = sprintf( 'compiled-css-sections-%s.css', get_theme_mod( 'pl_save_version' ) );
-
-		if( is_file( $folder . $file ) )
-			@unlink( $folder . $file );
+		// clean css files
+		self::prune_css_files();
 
 		// Attempt to flush super-cache and w3 cache.
 
@@ -804,9 +791,9 @@ class PageLinesRenderCSS {
         	prune_super_cache( $cache_path, true );
 		}
 
-
 		if( $rules )
 			flush_rewrite_rules( true );
+
 		set_theme_mod( 'pl_save_version', time() );
 
 		$types = array( 'sections', 'core', 'custom' );
@@ -821,6 +808,16 @@ class PageLinesRenderCSS {
 
 			delete_transient( "pagelines_{$t}_css" );
 		}
+	}
+	/**
+	 * Prune all css files
+	 */
+	static function prune_css_files() {
+		$folder = trailingslashit( pl_get_css_dir( 'path' ) );
+		$files = glob( $folder . '*.css' );
+			foreach ($files as $file) {
+					unlink($file);
+			}
 	}
 
 	function pagelines_insert_core_less_callback( $code ) {
