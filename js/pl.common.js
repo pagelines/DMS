@@ -424,6 +424,11 @@
 			if( $('.pl-parallax-new').length >= 1){
 
 				$('.pl-parallax-new').each( function( element ){
+
+					if( $(this).find('.pl-area-controls').length >= 1 ) {
+						return false
+					}
+					
 					var bg = $(this).css('background-image');
         	bg = bg.replace('url(','').replace(')','');
 					var height = $(this).height()

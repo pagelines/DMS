@@ -87,6 +87,7 @@ class PLSectionArea extends PageLinesSection {
 
 
 			),
+			'help'	=> 'Improved Parallax does not work while the editor is active.'
 
 		);
 
@@ -103,14 +104,7 @@ class PLSectionArea extends PageLinesSection {
 
 		$scroll_effect = $this->opt('pl_area_parallax');
 
-		// if( $scroll_effect && $scroll_effect == 1 ){
-		// 	$scroll_effect = 'pl-parallax';
-		// }
-
-
-
 		$this->wrapper_classes['scroll'] = $scroll_effect;
-
 
 	}
 
