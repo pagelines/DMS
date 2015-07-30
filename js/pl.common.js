@@ -425,10 +425,10 @@
 
 				$('.pl-parallax-new').each( function( element ){
 
-					var height = $(this).height()
+
 					var image = $(element).data('image')
 					var section = $(this).closest( '.section-pl_area' )
-
+					var height = $(section).height()
 					$(section).css('background-image','none')
 
 					$(this).imageScroll({
