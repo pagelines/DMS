@@ -416,12 +416,22 @@
 			var that = this
 
 			if( $('.pl-parallax').length >= 1){
-
 				$('.pl-parallax').each( function( element ){
+					$(this).parallax( '50%', .5, true )
+				})
+			}
 
+			if( $('.pl-parallax-new').length >= 1){
 
-					$(this).parallax( '50%', .3, true, 'background' )
+				$('.pl-parallax-new').each( function( element ){
+					var bg = $(this).css('background-image');
+        	bg = bg.replace('url(','').replace(')','');
+					var height = $(this).height()
 
+					$(this).imageScroll({
+						image: bg,
+						holderMaxHeight: height,
+					})
 				})
 			}
 
@@ -432,10 +442,7 @@
 					$(this).parallax('50%', .4, true, 'translate')
 				})
 			}
-
 			that.windowSizer()
-
-
 		}
 
 		, windowSizer: function(){
