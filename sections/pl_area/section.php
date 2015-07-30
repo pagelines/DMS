@@ -103,20 +103,17 @@ class PLSectionArea extends PageLinesSection {
 
 		$scroll_effect = $this->opt('pl_area_parallax');
 
-		// if( $scroll_effect && $scroll_effect == 1 ){
-		// 	$scroll_effect = 'pl-parallax';
-		// }
-
-
-
-		$this->wrapper_classes['scroll'] = $scroll_effect;
-
-
+		// new paralax attaches to iner section element
+		if( $scroll_effect && $scroll_effect != 'pl-parallax-new' ){
+			$this->wrapper_classes['scroll'] = $scroll_effect;
+		}
 	}
 
 
 
 	function section_template( ) {
+
+		$scroll_effect = $this->opt('pl_area_parallax');
 
 		$section_output = (!$this->active_loading) ? render_nested_sections( $this->meta['content'], 1) : '';
 
@@ -130,7 +127,13 @@ class PLSectionArea extends PageLinesSection {
 		$inner_style .= ($this->opt('pl_area_height')) ? sprintf('min-height: %spx;', $this->opt('pl_area_height')) : '';
 		$inner_classes = 'pl-inner area-region pl-sortable-area editor-row';
 
-		$classes = '';
+		if( 'pl-parallax-new' == $scroll_effect ) {
+			$classes = 'pl-parallax-new';
+			$p_data = sprintf( ' data-image="%s"', $this->opt( $this->id.'_background' ) );
+		} else {
+			$classes = '';
+			$p_data = '';
+		}
 
 		// If there is no output, there should be no padding or else the empty area will have height.
 		if ( $section_output || $title != '' ) {
@@ -155,7 +158,7 @@ class PLSectionArea extends PageLinesSection {
 			$content_class = '';
 		}
 	?>
-	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>">
+	<div class="pl-area-wrap <?php echo $classes;?>" style="<?php echo $style;?>"<?php echo $p_data; ?>>
 
 		<div class="pl-content <?php echo $content_class;?>">
 			<?php echo $title; ?>

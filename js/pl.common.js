@@ -424,12 +424,15 @@
 			if( $('.pl-parallax-new').length >= 1){
 
 				$('.pl-parallax-new').each( function( element ){
-					var bg = $(this).css('background-image');
-        	bg = bg.replace('url(','').replace(')','');
+
 					var height = $(this).height()
+					var image = $(element).data('image')
+					var section = $(this).closest( '.section-pl_area' )
+
+					$(section).css('background-image','none')
 
 					$(this).imageScroll({
-						image: bg,
+						image: $(this).val(image),
 						holderMaxHeight: height,
 					})
 				})
