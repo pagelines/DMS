@@ -87,7 +87,7 @@ class PLSectionArea extends PageLinesSection {
 
 
 			),
-			'help'	=> 'Improved Parallax does not work while the editor is active.'
+			'help'	=> 'Improved Parallax has been tested on chrome, safari and ios devices.'
 
 		);
 
