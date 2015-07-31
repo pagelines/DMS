@@ -414,6 +414,7 @@
 		init: function(speed){
 
 			var that = this
+			var width = $(window).width()
 
 			if( $('.pl-parallax').length >= 1){
 				$('.pl-parallax').each( function( element ){
@@ -421,11 +422,19 @@
 				})
 			}
 
-			if( $('.pl-parallax-new').length >= 1){
-				$('.pl-parallax-new').each( function( element ){
-					$(this).attr('data-enllax-ratio', '0.5')
-				})
-				$(window).enllax()
+			if( $('.pl-parallax-new').length >= 1 ) {
+				if( width > 1024 ) {
+					$('.pl-parallax-new').each( function( element ){
+						var speed = $(this).attr("class").match(/paraspeed-([0-9])\b/)
+						var direction = $(this).attr("class").match(/paradirection-([a-z]+)\b/)
+						var layer = $(this).attr("class").match(/paralayer-([a-z]+)\b/)
+//						$(this).css('background-repeat', 'no-repeat')
+						$(this).attr('data-enllax-ratio', speed[1] / 10 )
+						$(this).attr('data-enllax-direction', direction[1] )
+						$(this).attr('data-enllax-type', layer[1] )
+					})
+					$(window).enllax()
+				}
 			}
 
 			if( $('.pl-scroll-translate').length >= 1){

@@ -84,15 +84,41 @@ class PLSectionArea extends PageLinesSection {
 					),
 					'label' 	=> __( 'Scrolling effects and sizing.', 'pagelines' ),
 				),
-
+				array(
+					'label' => 'Parallax speed (Improved Parallax)',
+					'key'	=> 'parallax_speed',
+					'type' => 'select',
+					'opts' => array(
+						'1'			=> array('name' => "0.1"),
+						'2'			=> array('name' => "0.2 (default)"),
+						'3'			=> array('name' => "0.3"),
+						'4'			=> array('name' => "0.4"),
+						'5'			=> array('name' => "0.5"),
+					)
+				),
+				array(
+					'label' => 'Parallax Direction (Improved Parallax)',
+					'key'	=> 'parallax_direction',
+					'type' => 'select',
+					'opts' => array(
+						'vertical'			=> array('name' => "Vertical (default)"),
+						'horizontal'		=> array('name' => "Horizontal")
+					)
+				),
+				array(
+					'label' => 'Parallax layer (Improved Parallax)',
+					'key'	=> 'parallax_layer',
+					'type' => 'select',
+					'opts' => array(
+						'background'			=> array('name' => "Background (default)"),
+						'foreground'		=> array('name' => "Foreground")
+					)
+				),
 
 			),
-			'help'	=> 'Improved Parallax has been tested on chrome, safari and ios devices.'
+			'help'	=> 'Improved Parallax has been tested on chrome, safari and firefox. It will trigger on screens larger than 1024px'
 
 		);
-
-
-
 		return $options;
 	}
 
@@ -105,6 +131,11 @@ class PLSectionArea extends PageLinesSection {
 		$scroll_effect = $this->opt('pl_area_parallax');
 
 		$this->wrapper_classes['scroll'] = $scroll_effect;
+
+		$this->wrapper_classes['paraspeed'] = sprintf( 'paraspeed-%s', $this->opt( 'parallax_speed', array( 'default' => '2' ) ) );
+		$this->wrapper_classes['paradirection'] = sprintf( 'paradirection-%s', $this->opt( 'parallax_direction', array( 'default' => 'vertical' ) ) );
+		$this->wrapper_classes['paralayer'] = sprintf( 'paralayer-%s', $this->opt( 'parallax_layer', array( 'default' => 'background' ) ) );
+
 
 	}
 

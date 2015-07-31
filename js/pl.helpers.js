@@ -20,7 +20,132 @@ function plPrint(variable){
 // =====================
 
 /* jQuery.enllax.js - v1.1.0 | copyright 2015, MMK Jony | https://github.com/mmkjony/enllax.js | released under the MIT license */
-!function(t){"use strict";t.fn.enllax=function(r){var a=t(window).height(),n=t(document).height(),o=t.extend({ratio:.5,type:"background",direction:"vertical"},r),e=t("[data-enllax-ratio]");e.each(function(){var r,e,s,i=t(this),c=i.offset().top,l=i.outerHeight(),p=i.data("enllax-ratio"),d=i.data("enllax-type"),x=i.data("enllax-direction");r=p?p:o.ratio,e=d?d:o.type,s=x?x:o.direction;var f=Math.round(c*r),u=Math.round((c-a/2+l)*r);"background"==e?"vertical"==s?i.css({"background-position":"center "+-f+"px"}):"horizontal"==s&&i.css({"background-position":-f+"px center"}):"foreground"==e&&("vertical"==s?i.css({"-webkit-transform":"translateY("+u+"px)","-moz-transform":"translateY("+u+"px)",transform:"translateY("+u+"px)"}):"horizontal"==s&&i.css({"-webkit-transform":"translateX("+u+"px)","-moz-transform":"translateX("+u+"px)",transform:"translateX("+u+"px)"})),t(window).on("scroll",function(){var o=t(this).scrollTop();f=Math.round((c-o)*r),u=Math.round((c-a/2+l-o)*r),"background"==e?"vertical"==s?i.css({"background-position":"center "+-f+"px"}):"horizontal"==s&&i.css({"background-position":-f+"px center"}):"foreground"==e&&n>o&&("vertical"==s?i.css({"-webkit-transform":"translateY("+u+"px)","-moz-transform":"translateY("+u+"px)",transform:"translateY("+u+"px)"}):"horizontal"==s&&i.css({"-webkit-transform":"translateX("+u+"px)","-moz-transform":"translateX("+u+"px)",transform:"translateX("+u+"px)"}))})})}}(jQuery);
+//!function(t){"use strict";t.fn.enllax=function(r){var a=t(window).height(),n=t(document).height(),o=t.extend({ratio:.5,type:"background",direction:"vertical"},r),e=t("[data-enllax-ratio]");e.each(function(){var r,e,s,i=t(this),c=i.offset().top,l=i.outerHeight(),p=i.data("enllax-ratio"),d=i.data("enllax-type"),x=i.data("enllax-direction");r=p?p:o.ratio,e=d?d:o.type,s=x?x:o.direction;var f=Math.round(c*r),u=Math.round((c-a/2+l)*r);"background"==e?"vertical"==s?i.css({"background-position":"center "+-f+"px"}):"horizontal"==s&&i.css({"background-position":-f+"px center"}):"foreground"==e&&("vertical"==s?i.css({"-webkit-transform":"translateY("+u+"px)","-moz-transform":"translateY("+u+"px)",transform:"translateY("+u+"px)"}):"horizontal"==s&&i.css({"-webkit-transform":"translateX("+u+"px)","-moz-transform":"translateX("+u+"px)",transform:"translateX("+u+"px)"})),t(window).on("scroll",function(){var o=t(this).scrollTop();f=Math.round((c-o)*r),u=Math.round((c-a/2+l-o)*r),"background"==e?"vertical"==s?i.css({"background-position":"center "+-f+"px"}):"horizontal"==s&&i.css({"background-position":-f+"px center"}):"foreground"==e&&n>o&&("vertical"==s?i.css({"-webkit-transform":"translateY("+u+"px)","-moz-transform":"translateY("+u+"px)",transform:"translateY("+u+"px)"}):"horizontal"==s&&i.css({"-webkit-transform":"translateX("+u+"px)","-moz-transform":"translateX("+u+"px)",transform:"translateX("+u+"px)"}))})})}}(jQuery);
+
+/**
+  * jQuery.enllax.js v1.1.0
+  * https://github.com/mmkjony/enllax.js
+  * demo: http://mmkjony.github.io/enllax.js/
+  *
+  * Copyright 2015, MMK Jony
+  * This content is released under the MIT license
+ **/
+
+(function($){
+    'use strict';
+
+    $.fn.enllax = function(opt){
+
+        var winHeight = $(window).height();
+        var docHeight = $(document).height();
+
+        var options = $.extend({
+            ratio: 0.5,
+            type: 'background', //foreground
+            direction: 'vertical' //horizontal
+        }, opt);
+
+        var elem = $('[data-enllax-ratio]');
+
+        elem.each(function(){
+            var ratio;
+            var type;
+            var dir;
+            var $this = $(this);
+            var offset = $this.offset().top;
+            var height = $this.outerHeight();
+            var dataRat = $this.data('enllax-ratio');
+            var dataType = $this.data('enllax-type');
+            var dataDir = $this.data('enllax-direction');
+
+            if(dataRat) {
+                ratio = dataRat;
+            }
+            else { ratio = options.ratio; }
+
+            if(dataType) {
+                type = dataType;
+            }
+            else { type = options.type; }
+
+            if(dataDir) {
+                dir = dataDir;
+            }
+            else { dir = options.direction; }
+
+            var bgY = Math.round(offset * ratio);
+            var transform = Math.round((offset - (winHeight / 2) + height) * ratio);
+
+            if(type == 'background') {
+                if(dir == 'vertical') {
+                    $this.css({
+                        'background-position': 'center ' + -bgY + 'px'
+                    });
+                }
+                else if(dir == 'horizontal') {
+                    $this.css({
+                        'background-position': -bgY + 'px' + ' center'
+                    });
+                }
+            }
+            else if(type == 'foreground') {
+                if(dir == 'vertical') {
+                    $this.css({
+                        '-webkit-transform': 'translateY(' + transform + 'px)',
+                        '-moz-transform': 'translateY(' + transform + 'px)',
+                        'transform': 'translateY(' + transform + 'px)'
+                    });
+                }
+                else if(dir == 'horizontal') {
+                    $this.css({
+                        '-webkit-transform': 'translateX(' + transform + 'px)',
+                        '-moz-transform': 'translateX(' + transform + 'px)',
+                        'transform': 'translateX(' + transform + 'px)'
+                    });
+                }
+            }
+
+            $(window).on('scroll', function(){
+                var scrolling = $(this).scrollTop();
+
+                bgY = Math.round((offset - scrolling) * ratio);
+                transform = Math.round(((offset - (winHeight / 2) + height) - scrolling) * ratio);
+
+                if(type == 'background') {
+                    if(dir == 'vertical') {
+                        $this.css({
+                            'background-position': 'center ' + -bgY + 'px'
+                        });
+                    }
+                    else if(dir == 'horizontal') {
+                        $this.css({
+                            'background-position': -bgY + 'px' + ' center'
+                        });
+                    }
+                }
+                else if((type == 'foreground') && (scrolling < docHeight)) {
+                    if(dir == 'vertical') {
+                        $this.css({
+                            '-webkit-transform': 'translateY(' + transform + 'px)',
+                            '-moz-transform': 'translateY(' + transform + 'px)',
+                            'transform': 'translateY(' + transform + 'px)'
+                        });
+                    }
+                    else if(dir == 'horizontal') {
+                        $this.css({
+                            '-webkit-transform': 'translateX(' + transform + 'px)',
+                            '-moz-transform': 'translateX(' + transform + 'px)',
+                            'transform': 'translateX(' + transform + 'px)'
+                        });
+                    }
+                }
+            });
+        });
+
+    };
+
+})(jQuery);
+
 
 /* TODO DEPRECATED
 Plugin: jQuery Parallax
