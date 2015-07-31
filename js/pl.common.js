@@ -417,27 +417,15 @@
 
 			if( $('.pl-parallax').length >= 1){
 				$('.pl-parallax').each( function( element ){
-					$(this).parallax( '50%', .5, true )
+					$(this).parallax( '50%', .5, true, 'background' )
 				})
 			}
 
 			if( $('.pl-parallax-new').length >= 1){
-
 				$('.pl-parallax-new').each( function( element ){
-
-					if( $(this).find('.pl-area-controls').length >= 1 ) {
-						return false
-					}
-					
-					var bg = $(this).css('background-image');
-        	bg = bg.replace('url(','').replace(')','');
-					var height = $(this).height()
-
-					$(this).imageScroll({
-						image: bg,
-						holderMaxHeight: height,
-					})
+					$(this).attr('data-enllax-ratio', '0.5')
 				})
+				$(window).enllax()
 			}
 
 			if( $('.pl-scroll-translate').length >= 1){
