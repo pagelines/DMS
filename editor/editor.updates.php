@@ -96,7 +96,7 @@ class PageLinesEditorUpdates {
 
 	function updater_install() {
 
-		if( has_filter( 'dms_suppress_updaer_nag' ) )
+		if( has_filter( 'dms_suppress_updater_nag' ) )
 			return false;
 
 		$screen = get_current_screen();
