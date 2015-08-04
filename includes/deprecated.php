@@ -6,7 +6,15 @@
  * @copyright	2011 PageLines
  */
 
-
+/**
+ * Wordpress 3.9.x does not have this function, some people refuse to use WP 4
+ */
+if( ! function_exists( 'is_customize_preview' ) ) {
+	function is_customize_preview() {
+			global $wp_customize;
+			return ( $wp_customize instanceof WP_Customize_Manager ) && $wp_customize->is_preview();
+	}
+}
 
 function pagelines_layout_mode( ){
 
