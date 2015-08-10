@@ -78,6 +78,7 @@ class PLSectionArea extends PageLinesSection {
 					'opts'			=> array(
 						''						=> array('name' => "No Scroll Effect"),
 						'pl-parallax'			=> array('name' => "Parallaxed Background Image"),
+						'pl-parallax-alt'			=> array('name' => "Alternative Parallaxed Background Image"),
 						'pl-parallax-new'			=> array('name' => "Improved Parallaxed Background Image"),
 						'pl-scroll-translate'	=> array('name' => "Translate Content on Scroll"),
 						'pl-window-height'		=> array('name' => "Set to height of window"),
@@ -132,11 +133,11 @@ class PLSectionArea extends PageLinesSection {
 
 		$this->wrapper_classes['scroll'] = $scroll_effect;
 
-		$this->wrapper_classes['paraspeed'] = sprintf( 'paraspeed-%s', $this->opt( 'parallax_speed', array( 'default' => '2' ) ) );
-		$this->wrapper_classes['paradirection'] = sprintf( 'paradirection-%s', $this->opt( 'parallax_direction', array( 'default' => 'vertical' ) ) );
-		$this->wrapper_classes['paralayer'] = sprintf( 'paralayer-%s', $this->opt( 'parallax_layer', array( 'default' => 'background' ) ) );
-
-
+		if( 'pl-parallax-new' == $this->opt( 'pl_area_parallax' ) ) {
+			$this->wrapper_classes['paraspeed'] = sprintf( 'paraspeed-%s', $this->opt( 'parallax_speed', array( 'default' => '2' ) ) );
+			$this->wrapper_classes['paradirection'] = sprintf( 'paradirection-%s', $this->opt( 'parallax_direction', array( 'default' => 'vertical' ) ) );
+			$this->wrapper_classes['paralayer'] = sprintf( 'paralayer-%s', $this->opt( 'parallax_layer', array( 'default' => 'background' ) ) );
+		}
 	}
 
 

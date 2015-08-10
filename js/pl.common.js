@@ -416,6 +416,26 @@
 			var that = this
 			var width = $(window).width()
 
+			if( $('.pl-parallax-alt').length >= 1){
+
+				$(window).scroll(function(){
+
+					$('.pl-parallax-alt').each( function( element ){
+
+						var scrolltop = $(window).scrollTop()
+						var scrollwindow = scrolltop + $(window).height();
+						var sectionoffset = $(this).offset().top;
+						var backgroundscroll = scrollwindow - sectionoffset;
+						if( scrollwindow > sectionoffset ) {
+							$(this).css("backgroundPosition", "50% " + -(backgroundscroll/6) + "px");
+							$(this).css("background-attachment", "fixed")
+							$(this).css("background-size", "cover")
+							$(this).css("background-repeat", "no-repeat")
+						}
+					})
+				})
+			}
+
 			if( $('.pl-parallax').length >= 1){
 				$('.pl-parallax').each( function( element ){
 					$(this).parallax( '50%', .5, true, 'background' )
