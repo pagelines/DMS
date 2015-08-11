@@ -53,7 +53,12 @@ function pagelines_admin_js_scripts() {
 		// MEDIA UPLOADER
 		wp_enqueue_media();
 
-
+		// STYLIZED SELECTS
+		wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
+		wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
+		// PageLines JS
+		wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
+		wp_enqueue_script( 'pagelines-admin', PL_ADMIN_URI . '/admin.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );
 
 		// COLOR PICKERS
 		wp_enqueue_style( 'wp-color-picker' );
@@ -62,12 +67,7 @@ function pagelines_admin_js_scripts() {
 		pl_enqueue_codemirror();
 
 	}
-	// STYLIZED SELECTS
-	wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
-	wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
-	// PageLines JS
-	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
-	wp_enqueue_script( 'pagelines-admin', PL_ADMIN_URI . '/admin.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );
+
 }
 
 
