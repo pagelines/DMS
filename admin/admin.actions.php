@@ -12,9 +12,9 @@ add_action( 'admin_menu', 'pagelines_add_admin_menu' );
 add_action( 'admin_menu', 'pagelines_add_admin_menus');
 
 if( ! function_exists( 'pagelines_add_admin_menu' ) ) {
-	
+
 	function pagelines_add_admin_menus() {}
-	
+
 	function pagelines_add_admin_menu() {
 		add_theme_page( PL_MAIN_DASH, __( 'DMS Tools', 'pagelines' ), 'edit_theme_options', PL_MAIN_DASH, 'pagelines_build_account_interface' );
 	}
@@ -26,7 +26,7 @@ if( ! function_exists( 'pagelines_add_admin_menu' ) ) {
  * Will handle adding additional sections, plugins, child themes
  */
 function pagelines_build_account_interface(){
-	
+
 	$admin_settings_config = new PLAdminSettings;
 
 	$args = array(
@@ -43,28 +43,28 @@ function pagelines_build_account_interface(){
 add_action('admin_enqueue_scripts', 'pagelines_admin_js_scripts');
 function pagelines_admin_js_scripts() {
 	wp_enqueue_style( 'pagelines-css', sprintf( '%s/admin.css', PL_ADMIN_URI ), array( 'dashicons' ), pl_get_cache_key() );
-	
+
 	// JS UTILS
 	wp_enqueue_script( 'pagelines-admin-tiptip', PL_JS .'/utils.tiptip.js', array( 'jquery' ) );
-	
-	// ONLY LOAD ON SETTINGS PAGES 
+
+	// ONLY LOAD ON SETTINGS PAGES
 	if( isset( $_GET['page'] ) && $_GET['page'] == 'PageLines-Admin' ){
-		
+
 		// MEDIA UPLOADER
 		wp_enqueue_media();
 
-		// STYLIZED SELECTS
-		wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
-		wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
+
 
 		// COLOR PICKERS
-		wp_enqueue_style( 'wp-color-picker' ); 
+		wp_enqueue_style( 'wp-color-picker' );
 
 		// CODEMIRROR for Scripts
 		pl_enqueue_codemirror();
-		
+
 	}
-	
+	// STYLIZED SELECTS
+	wp_enqueue_script( 'pl-chosen', PL_JS . '/chosen/chosen.jquery.min.js', array( 'jquery' ), pl_get_cache_key(), false );
+	wp_enqueue_style( 'pl-chosen', PL_JS . '/chosen/chosen.css', pl_get_cache_key() );
 	// PageLines JS
 	wp_enqueue_script( 'pl-library', PL_PARENT_URL . '/editor/js/pl.library.js', array( 'jquery' ), pl_get_cache_key() );
 	wp_enqueue_script( 'pagelines-admin', PL_ADMIN_URI . '/admin.js', array( 'jquery', 'pl-library', 'wp-color-picker' ), pl_get_cache_key() );
@@ -87,7 +87,7 @@ function pagelines_set_versions() {
 // make sure were running out of 'pagelines' folder.
 add_action( 'admin_notices', 'pagelines_check_folders' );
 function pagelines_check_folders() {
-		
+
 		if( defined( 'DMS_CORE' ) )
 			return;
 		$folder = basename( get_template_directory() );
@@ -101,9 +101,9 @@ function pagelines_check_folders() {
 }
 
 
-/* 
+/*
  *  SIMON CLEAN THIS UP, DOCUMENT, ORGANIZE
- */ 
+ */
 function dms_suggest_plugin( $name, $slug, $desc = false ) {
 	global $dms_suggest_plugins;
 
@@ -126,16 +126,16 @@ function dms_suggest_plugin( $name, $slug, $desc = false ) {
 	$dms_suggest_plugins[$slug] = array(
 		'name'		=> $name,
 		'desc'		=> $desc
-	);	
+	);
 }
 
-/* 
+/*
  *  SIMON CLEAN THIS UP, DOCUMENT, ORGANIZE
  */
 add_action( 'admin_notices', 'pagelines_recommended_plugins', 11 );
 function pagelines_recommended_plugins() {
 
-	global $dms_suggest_plugins, $pagenow;	
+	global $dms_suggest_plugins, $pagenow;
 	if( isset( $_REQUEST['dms_suggest_plugins'] ) )
 		set_theme_mod( 'dms_suggest_plugins', (bool) $_REQUEST['dms_suggest_plugins'] );
 
@@ -145,7 +145,7 @@ function pagelines_recommended_plugins() {
 	// Already dismissed.
 	if( true == get_theme_mod( 'dms_suggest_plugins' ) )
 		return false;
-	
+
 	$header = sprintf( '<div id="message" class="updated"><span class="alignright"><a href="%s">[%s]</a></span><p>%s %s %s</p>',
 		admin_url( '?dms_suggest_plugins=1' ),
 		__( 'dismiss this notice', 'pagelines' ),
@@ -153,20 +153,20 @@ function pagelines_recommended_plugins() {
 		_n( 'a plugin', 'some plugins', count( $dms_suggest_plugins ), 'pagelines' ),
 		__( 'from the WordPress Plugins Repository.', 'pagelines' )
 		);
-	
+
 	$footer = '</ul></div>';
 	$content = '<ul class="pl-rec-plugins">';
 	foreach( $dms_suggest_plugins as $slug => $plugin ) {
-		
+
 		$install_link = wp_nonce_url( network_admin_url( sprintf( 'update.php?action=install-plugin&plugin=%s', $slug ) ), sprintf( 'install-plugin_%s', $slug ) );
-		
+
 		$content .= sprintf( '<li><strong>%s</strong><br /><i>%s</i> <a href="%s"><strong>[Install Now]</strong></a>', $plugin['name'], $plugin['desc'], $install_link );
 	}
-	
+
 	echo $header . $content . $footer;
 }
 
-/* 
+/*
  *  SIMON CLEAN THIS UP, DOCUMENT, ORGANIZE
  */
 add_action('admin_enqueue_scripts', 'pagelines_enqueue_expander');
