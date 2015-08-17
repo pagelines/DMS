@@ -23,7 +23,7 @@
 
 			var that = this
 			,	layout = (key == 'pl-extend') ? 'masonry' : 'fitRows';
-		
+
 			var filter = (panel.find('.ui-tabs-active').data('filter')) ? panel.find('.ui-tabs-active').data('filter') : '*'
 
 			panel.imagesLoaded( function(){
@@ -35,11 +35,11 @@
 					, containerStyle: { position: 'relative', overflow: 'visible' }
 					, getSortData : {
 						name : function ( $elem ) {
-							return $elem.data('sid');
+							return jQuery($elem).data('sid');
 						}
 					}
 				})
-				
+
 			})
 
 			//this.listPopOverStart()
@@ -73,14 +73,14 @@
 
 		, loadPaneActions: function(panel) {
 
-			var that = this 
-			
+			var that = this
+
 			if(panel == 'x-store'){
 				$.plExtend.btnActions()
 			} else if ( panel == 'x-themes' ){
 				$.plThemes.btnActions()
 			}
-			
+
 
 			$('.x-close').on('click.paneAction ', function(e){
 
@@ -95,38 +95,38 @@
 				, 	unFilter = true
 
 				if( theAction == 'delete' ){
-					
+
 					var theSection = $(this).data('custom-section')
-					
+
 					$.toolbox('hide')
-					
+
 					bootbox.confirm(
 						'<h3>Are you sure?</h3> <p>This will delete this custom section and all linked sections in use.</p>'
 						, function( result ){
 							if( result === true ){
 
 								$.areaControl.deleteCustomSection( theSection )
-							
+
 								$('.filter-'+theSection).addClass('x-remove') // allows unFilter to remove the deleted item
 								removeItems = $('.x-remove')
 								that.unFilter( theFilter, removeItems, theIsotope )
-								
+
 							}
-								
+
 							$.toolbox('show')
-							
-							
+
+
 						})
-					
+
 				} else {
 					that.unFilter(theFilter, removeItems, theIsotope)
-				}	
-				
+				}
+
 			})
 		}
-		
+
 		, unFilter: function(theFilter, removeItems, theIsotope) {
-			
+
 			removeItems
 				.off('click')
 
@@ -134,15 +134,15 @@
 				.isotope({ filter: theFilter })
 				.isotope('remove', removeItems)
 				.removeClass('x-pane-mode')
-				
+
 		}
 
 		, extensionActions: function(){
 
 			var that = this
 			$('.x-extension').on('click.extensionItem', function(){
-				
-				
+
+
 				var theExtension = $(this)
 				,	theIsotope = $(this).parent()
 				,	theID = $(this).data('extend-id')
@@ -150,21 +150,21 @@
 				,	filterClass = '.'+filterID
 				,	ext = $.pl.config.extensions[theID] || false
 				,	panel = theIsotope.data('panel') || false
-	
+
 				if(!theIsotope.hasClass('x-pane-mode') && ext){
-				
+
 
 					var btnClose = sprintf('<a class="x-close x-remove %s btn btn-close" data-action="close" ><i class="icon icon-chevron-left"></i> %s</a>', filterID, $.pl.lang( "Close" ) )
-					
+
 					var btnDelete = ( theExtension.hasClass('custom-section') ) ? sprintf('<a class="x-close x-remove btn btn-important" data-action="delete" data-custom-section="%s"><i class="icon icon-remove"></i> %s</a>', theID, $.pl.lang( "Delete Section" ) ) : ''
-					
+
 					var btns = sprintf('<div class="x-pane-btns fix">%s %s %s</div>', that.loadButtons( panel, theExtension.data() ), btnClose, btnDelete)
-					
+
 					var desc = sprintf('<div class="x-pane-info"><strong>%s</strong><br/>%s</div>', $.pl.lang( "Description"), ext.desc)
-					
-					
-					
-					
+
+
+
+
 					var extPane = $( sprintf('<div class="x-pane x-remove x-item %s" data-extend-id="%s"><div class="x-pane-pad"><h3 class="x-pane-title">%s</h3>%s  %s</div></div>', filterID, theID, ext.name, btns, desc) )
 
 					if( panel == 'x-sections' ){
