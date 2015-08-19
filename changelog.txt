@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 2.1.9.7
+
+  CORE - Updated FontAwesome to 4.4.0 http://fontawesome.io/whats-new/
+  CORE - Added patch to use jQuery from WP 4.2 while editor is open.
+
 Version 2.1.9.6
 
   CORE - Make database entries LONGTEXT to follow WordPress database standards and allow for options bigger than 64kb
