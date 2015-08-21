@@ -165,24 +165,24 @@
 
 			$('.panel-section-options [data-tab-action]').hide()
 			$('[data-tab-action="'+panelScope+'"]').show()
-			
+
 			$('[data-panel="'+panelScope+'"]').data('key', theKey).attr('data-key', theKey)
 
 			if( panelScope == 'section' ){
-				
+
 				theTabs.tabs( "option", "active", 4 )
-				
+
 			} else if( panelScope == 'template' ){
-				
+
 				theTabs.tabs( "option", "active", 3 )
-				
+
 			} else if(panelScope == 'global'){
 
 				theTabs.tabs("option", {
 				    "disabled": [1]
 				})
 				theTabs.tabs( "option", "active", 0 )
-				
+
 
 			} else if(panelScope == 'local'){
 
@@ -196,7 +196,7 @@
 				    "disabled": [0]
 				})
 				theTabs.tabs( "option", "active", 1 )
-			
+
 			}
 
 
@@ -253,7 +253,7 @@
 					else
 					    checkToggle.val(0)
 
-					
+
 
 				}
 
@@ -268,46 +268,46 @@
 				,	uniqueID = (thePanel.attr('data-clone')) ? thePanel.attr('data-clone') : false
 				,	formData = that.activeForm.formParams()
 				,	myValue = pl_do_shortcode(theInput.val())
-				
-				
+
+
 				// need to extend list data on page for consistency
 				$.pl.data.list = $.extend(true, $.pl.data.list, formData)
-				
+
 				// this comes from old scope system, should reconcile between these two
 				$.pl.data[scope] = $.extend(true, $.pl.data[scope], formData)
 
-				
 				// for array option types, the extend is not allowing deletion, this corrects
 				// Also stop formdata from containing empty values and sending them. This clutters things up.
 				$.each( formData, function(i, o){
+					if( typeof(o) == 'object' ){
 					$.each( o, function(i2, o2){
 
 						if( ! plIsset(o2) )	// added by simon
 							return			// fixes null being passed as an array by multi_select
 
 						if( typeof(o2) == 'object' ){
-							
+
 							$.pl.data[scope][i][i2] = o2
-							
+
 							if( typeof(o2) == 'object' ){
-								
+
 								$.each( o2, function(i3, o3){
-									
+
 									if( typeof(o3) == 'object' ){
-								
+
 										$.each( o3, function(i4, o4){
-									
+
 											if( o4 == '' )
 												delete formData[i][i2][i3][i4]
-										
+
 										})
-								
 									}
 								})
 							}
 						}
-			
+
 					})
+				}
 					if( o == '' )
 						delete formData[i]
 				})
@@ -328,7 +328,7 @@
 						,	syncPost = el.data('sync-post') || ''
 						,	syncTarget = el.data('sync-target') || ''
 						,	tagName = el.prop('tagName')
-						
+
 
 						if( tagName == 'IMG'){
 
@@ -347,7 +347,7 @@
 					$.pl.flags.refreshOnSave = true
 					$('.li-refresh').show()
 				}
-				
+
 				if( e.type == 'blur' || ( e.type == 'change' && ( iType == 'checkbox' || iType == 'select') ) ){
 
 					$.plSave.save({
@@ -356,7 +356,7 @@
 						, scope: scope
 						, key: key
 						, uid: uniqueID
-						
+
 					})
 				}
 
@@ -399,18 +399,18 @@
 
 		, setPanel: function(){
 			var that = this
-			
+
 			$('.opt-form.isotope').isotope( 'destroy' )
-			
+
 			that.panel.find('.tab-panel').each(function(){
-			
+
 				if( $(this).is(":visible") || that.load == $(this).data('panel') ){
 
 					that.activeForm = $(this).find('.opt-form')
 					that.optScope = that.activeForm.data('scope')
 					that.optSID = that.activeForm.data('sid')
-					
-				
+
+
 
 					$(this).find('.opt-tabs').tabs()
 
@@ -512,20 +512,20 @@
 
 			// global settings are always related to 'global'
 			if (that.config.mode == 'settings' || that.config.mode == 'panel' || scope == 'global_setting'){
-				
+
 				scope = 'global'
 
 				// Set option value
 				if( pageData[ 'global' ] && pageData[ 'global' ][ 'settings' ] && pageData[ 'global' ][ 'settings' ][ key ]){
 					value = pl_html_input( pageData[ 'global' ][ 'settings' ][ key ] )
 				}
-				
+
 			} else if( sectionData[ that.uniqueID ] && sectionData[ that.uniqueID ][ key ]){
-				
+
 				value = pl_html_input( sectionData[ that.uniqueID ][ key ] )
-			
+
 			}
-				
+
 
 			if( value != '' && index && subkey ){
 
@@ -563,11 +563,11 @@
 				oNew.value =  that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
 				oNew.inputID = sprintf('%s_%s_%s', parent.key, parent.itemNumber, o.key )
 			} else if( o.scope == 'global' ){
-				
+
 				oNew.name = sprintf('settings[%s]', o.key )
 				oNew.value =  that.optValue( 'global_setting', o.key )
 				oNew.inputID = o.key
-			
+
 			} else {
 				oNew.name = sprintf('%s[%s]', that.uniqueID, o.key )
 				oNew.value =  that.optValue( tabIndex, o.key )
@@ -577,7 +577,7 @@
 			return oNew
 
 		}
-		
+
 		, addHiddenInput: function( key, itemNumber ){
 			var that = this
 			return sprintf( '<input type="hidden" class="lstn dont-change" id="%s_%s_showitem" name="%s[%s][%s][showitem]" value="1" />', key, itemNumber, that.uniqueID, key, itemNumber)
@@ -598,7 +598,7 @@
 			,	parent = parent || {}
 
 			o = that.addOptionObjectMeta( tabIndex, o, optLevel, parent )
-			
+
 
 			if( o.scope == 'global')
 				optLabel += ' ( <i class="icon icon-globe" title="Global Setting"></i> Global Option )'
@@ -627,14 +627,14 @@
 
 				var optionArray = ( typeof(o.value) == 'object' || typeof(o.value) == 'array' ) ? o.value : false
 				,	opts_cnt = o.opts_cnt || 3
-				
+
 				if( ! optionArray ) {
 					optionArray = new Array()
 					for ( var i = 0; i < opts_cnt; i++ ){
 						optionArray.push([]);
 					}
 				}
-			
+
 				var	itemType = o.post_type || 'Item'
 				, 	itemNumber = 1
 				, 	totalNum = optionArray.length || Object.keys(optionArray).length
@@ -657,10 +657,10 @@
 
 						})
 					}
-					
+
 					// adds a hidden input set to true, so that the item doesn't disappear
 					oHTML += that.addHiddenInput( o.key, o.itemNumber )
-					
+
 					oHTML += sprintf("</div></div>")
 
 					itemNumber++
@@ -669,31 +669,31 @@
 				oHTML += sprintf("</div><div class='accordion-tools'><span class='btn btn-mini add-accordion-item' data-uid='' data-scope='' data-key=''><i class='icon icon-plus-sign'></i> Add %s</span></div>", itemType)
 
 			}
-			
+
 			else if ( o.type == 'button_link' ){
-				
+
 				var buttonOpts = [
 					{type: 'text', key: o.key, label: 'URL', }
 					,	{type: 'text', key: o.key+'_text', label: 'Text'}
 					,	{type: 'select_button', key: o.key+'_style', label: 'Style'}
 				]
-				
+
 				oHTML += '<div class="button-link option-group">'
-				
+
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				
+
 				$.each( buttonOpts , function(index, osub) {
 
 					oHTML += that.optEngine(tabIndex, osub, level, parent) // recursive
 
 				})
-				
+
 				oHTML += '</div>'
-				
+
 			}
 
 			else if( o.type == 'disabled' ){ }
-			
+
 			else if( o.type == 'divider' ){ oHTML += '<hr />' }
 
 			else if( o.type == 'color' ){
@@ -720,22 +720,22 @@
 				oHTML += '<div class="upload-box image-uploader">'
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				
+
 				oHTML += '<div class="uploader-input">'
-				
-				
+
+
 
 					oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', o.inputID, o.name, o.value )
-				
+
 					that.optValue( tabIndex, parent.key, parent.itemNumber, o.key )
-					
-					
-					
+
+
+
 					var attach_key = o.key + "_attach_id"
 					,	oAttach = that.addOptionObjectMeta( tabIndex, {key: attach_key}, optLevel, parent )
 					,	attach_value =  oAttach.value
 					,	attach_name = (optLevel == 3) ? sprintf('%s[%s][%s][%s]', that.uniqueID, parent.key, parent.itemNumber, attach_key ) : sprintf('%s[%s]', that.uniqueID, attach_key )
-					
+
 				//	console.log(oAttach)
 
 					oHTML += sprintf('<input id="%1$s" name="%2$s" type="hidden" class="lstn hidden-input" value="%3$s" />', attach_key, attach_name, attach_value)
@@ -744,45 +744,45 @@
 
 
 				oHTML += '</div>'
-				
+
 				oHTML += sprintf( '<div class="opt-upload-thumb-%s opt-upload-thumb" >%s</div>', o.key, pl_do_shortcode(thm) );
 			if( has_alt ){
 				var alt = o.name.replace(']', '_alt]')
 				,	id = o.inputID + '_alt'
 				,	data = $.pl.data.list
-				,	name = o.name.substring(0,7)				
-				,	opt_data = data[name]			
+				,	name = o.name.substring(0,7)
+				,	opt_data = data[name]
 				,	img_alt = ''
 				if(plIsset(data[name]) && plIsset(data[name][id])) {
-					img_alt = data[name][id] 
+					img_alt = data[name][id]
 				}
 				oHTML += sprintf('<label for="%s">Image alt/title text</label>', id)
 				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn" placeholder="%4$s" value="%3$s" />', id, alt, img_alt, img_alt)
 			}
-				
+
 				oHTML += '</div>'
 
 			}
-			
+
 			else if( o.type == 'media_select_video' ){
 
 
-			
+
 
 				oHTML += '<div class="video-upload-inputs option-group">'
-				
-				
+
+
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				
-				
+
+
 				oHTML +=  that.addVideoOption( o.value, o.inputID, o.name, 'Video Format 1')
-				
+
 				o2 = that.addOptionObjectMeta( tabIndex, {key: o.key+'_2'}, level, parent )
-				
+
 				oHTML +=  that.addVideoOption( o2.value, o2.inputID, o2.name, 'Video Format 2')
 
 				oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About HTML5 Video"), $.pl.lang("Different browsers have different ways of handling html5 videos.<br />At the time of testing the best way to get cross browser support is to use an mp4 AND an ogv file.<br />mp4 = MPEG 4 files with H264 video codec and AAC audio<br />ogv = Ogg files with Theora video codec and Vorbis audio"))
-				
+
 
 				oHTML += '</div>'
 			}
@@ -791,12 +791,12 @@
 			else if( o.type == 'text' || o.type == 'text_small' ){
 
 				oHTML += sprintf('<label for="%s">%s</label>', o.inputID, optLabel )
-				
+
 				if( o.type == 'text_small' )
 					o.classes += ' pl-text-small'
-					
+
 				var place = o.place || ""
-				
+
 				oHTML += sprintf('<input id="%1$s" name="%2$s" type="text" class="%4$s lstn" placeholder="%5$s" value="%3$s" />', o.inputID, o.name, o.value, o.classes, place)
 
 			}
@@ -860,7 +860,7 @@
 
 
 				var stdCheck =  sprintf('<label class="checkbox check-standard" >%s<input id="%s" class="checkbox-input lstn" type="checkbox" %s>%s</label>', aux, o.inputID, checked, optLabel )
-				
+
 
 
 				oHTML +=  sprintf('<div class="checkbox-group scope-%s checkgroup-%s" data-checkgroup="%s">%s</div>', scope, o.key, o.key, stdCheck )
@@ -901,8 +901,8 @@
 						o.opts[ i+key_suffix ] = { name: i+suffix }
 					}
 				}
-				
-				
+
+
 				if(o.type == 'select_wp_tax'){
 
 					var taxes = $.pl.config.taxes
@@ -967,8 +967,8 @@
 							o.opts[ s ] = {name: s}
 						})
 
-						
-							
+
+
 					}
 
 				if(o.opts){
@@ -1013,9 +1013,9 @@
 				if( o.type == 'select_icon' ) {
 					oHTML += sprintf('&nbsp;&nbsp;<i class="icon icon-preview icon-2x icon-%s" id="preview-icon" data-name="%s" style=""></i>', o.value, o.name )
 				}
-				
+
 				if(o.type == 'select_taxonomy' && o.post_type){
-					
+
 					oHTML += sprintf(
 						'<div style="margin-bottom: 10px;"><a href="%sedit.php?post_type=%s" target="_blank" class="btn btn-mini btn-info"><i class="icon icon-edit"></i> %s</a></div>',
 						$.pl.config.urls.adminURL,
@@ -1023,7 +1023,7 @@
 						$.pl.lang("Edit Sets")
 					)
 				}
-				
+
 				if ( ! o.ref && o.type == 'select_imagesizes' ){
 					oHTML += sprintf('<div class="opt-ref"><a href="#" class="btn btn-info btn-mini btn-ref"><i class="icon icon-info-sign"></i> %s</a><div class="help-block">%s</div></div>', $.pl.lang("About Image Sizes"), $.pl.lang("Select which registered thumbnail size to use for the images. To add new sizes see: <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>The Codex</a>"))
 				}
@@ -1057,8 +1057,8 @@
 			}
 
 			else if( o.type == 'help'  || o.type == 'help_important' ){
-			
-				
+
+
 			} else {
 
 				oHTML += sprintf('<div class="needed">%s %s</div>', o.type, $.pl.lang( "Type Still Needed" ) )
@@ -1067,15 +1067,15 @@
 
 			// Add help block
 			if ( o.help ){
-				
+
 				var beforeHelp = ( o.type == 'help'  || o.type == 'help_important' ) ? sprintf('<label for="%s">%s</label>', o.inputID, o.label ) : ''
-				
+
 				oHTML += sprintf('<div class="help-block %s">%s %s</div>',  o.type, beforeHelp, o.help)
-				
+
 			}
-				
-				
-			
+
+
+
 
 			// Add help block
 			if ( o.ref )
@@ -1087,23 +1087,23 @@
 				return oHTML
 
 		}
-		
+
 		, addVideoOption: function( inputValue, inputID, inputName, inputLabel){
-			
+
 			var theOption = ''
-			
+
 			theOption += '<div class="upload-box media-select-video">'
-			
+
 			theOption += sprintf('<label for="%s">%s</label>', inputID, inputLabel )
 
 			theOption += sprintf('<input id="%1$s" name="%2$s" type="text" class="lstn text-input upload-input" placeholder="" value="%3$s" />', inputID, inputName, inputValue )
-			
+
 			theOption += '<a class="btn btn-mini btn-primary pl-load-media-lib" data-mimetype="video"><i class="icon icon-edit"></i> Select</a> '
 			theOption += sprintf(' <a class="btn btn-mini" href="%s"><i class="icon icon-upload"></i> Upload</a> <div class="btn  btn-mini rmv-upload"><i class="icon icon-remove"></i></div>', $.pl.config.urls.addMedia)
-			
-			
+
+
 			theOption += '</div>'
-			
+
 			return theOption
 		}
 
@@ -1133,14 +1133,14 @@
 				, 	theAction = btn.data('action')
 
 				if( theAction == 'reset_global' || theAction == 'reset_local' || theAction == 'reset_type' || theAction == 'reset_global_child' ){
-					
+
 					if( theAction == 'reset_global' )
 						var context = $.pl.lang("global site options")
 					else if ( theAction == 'reset_type' )
 						var context = $.pl.lang("post type options")
-					else 
+					else
 						var context = $.pl.lang("local page options")
-						
+
 					var confirmText = sprintf( $.pl.lang("<h3>Are you sure?</h3><p>This will reset <strong>%s</strong> to their defaults.<br/>(Once reset, this will still need to be published live.)</p>"), context)
 
 					,	page_tpl_import = $('[data-scope="importexport"] #page_tpl_import').attr('checked') || 'undefined'
@@ -1314,7 +1314,7 @@
 					,	collapsible: true
 					,	active: false
 				})
-				
+
 				// Work around til we get a better image uploader script.
 				// Can't figure out how to reinitialize so that it works
 				theNew
@@ -1329,8 +1329,8 @@
 				$('.lstn').off('keyup.optlstn blur.optlstn change.optlstn paste.optlstn')
 
 				that.setBinding()
-				
-				
+
+
 
 		    })
 
@@ -1367,14 +1367,14 @@
 
 				}
 				, complete: function (response) {
-					
+
 					plPrint(response)
 					var result = $.parseJSON(response.responseText)
 					,	error = result.import_error || false
-				
+
 				if( error ) {
 					window.onbeforeunload = null
-					
+
 					var txt = sprintf( '<h3>%s</h3>%s%s',
 					sprintf('<h3>%s</h3>', $.pl.lang("Import Failed!") ),
 					sprintf( '%s %s', $.pl.lang("Looks like you tried to upload"), error ),
@@ -1387,7 +1387,7 @@
 						var url = $.pl.config.urls.siteURL
 						pl_url_refresh(url, 2000)
 				}
-					
+
 				//	window.onbeforeunload = null
 				//	bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
 				//	var url = $.pl.config.siteURL
@@ -1428,18 +1428,18 @@
 				that.loadFontPreview( selector )
 
 			})
-			
-			
-			$('select').change(function(){						
+
+
+			$('select').change(function(){
 				var type = $(this).attr('data-type') || false
 				if ( type == 'select_icon' ) {
 					var name = $(this).attr('name')
-					,	new_class = 'icon icon-preview icon-2x icon-' + $(this).val();				
+					,	new_class = 'icon icon-preview icon-2x icon-' + $(this).val();
 					$(sprintf('i[data-name="%s"]',name)).removeAttr('class')
 					$(sprintf('i[data-name="%s"]',name)).addClass( new_class )
 				}
 			})
-			
+
 			$('.font-selector, .font-style').on('change', function(){
 
 				var selector = $(this).closest('.opt').find('.font-selector')
@@ -1466,7 +1466,7 @@
 
 				if( $(this).data('mimetype') == 'video' )
 					var mediaFrame = $.pl.config.urls.mediaLibraryVideo
-				else 
+				else
 					var mediaFrame = $.pl.config.urls.mediaLibrary
 
 				var theInput = $(this).closest('.upload-box').find('.upload-input')
@@ -1492,10 +1492,10 @@
 				$('.bootbox').on('hidden.mediaDialog', function () {
 
 					$.toolbox('show')
-					
-					
+
+
 					theInput.trigger('blur').closest('.ui-accordion').accordion('refresh')
-					
+
 					$('.bootbox').off('hidden.mediaDialog')
 
 				})
