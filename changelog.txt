@@ -4,6 +4,10 @@
 
 ********************************************************
 
+Version 2.1.9.9
+
+  CORE - Fix jQuery error with WP 4.3
+
 Version 2.1.9.7
 
   CORE - Updated FontAwesome to 4.4.0 http://fontawesome.io/whats-new/
