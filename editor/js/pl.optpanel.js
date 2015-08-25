@@ -250,13 +250,15 @@
 
 				// for array option types, the extend is not allowing deletion, this corrects
 				$.each( formData, function(i, o){
-					$.each( o, function(i2, o2){
-						if( typeof(o2) == 'object' ){
+					if( typeof(o) == 'object' ){
+						$.each( o, function(i2, o2){
+							if( typeof(o2) == 'object' ){
 
-							$.pl.data[scope][i][i2] = o2
-						}
+								$.pl.data[scope][i][i2] = o2
+							}
 
-					})
+						})
+					}
 				})
 
 				if(uniqueID)
@@ -1116,7 +1118,7 @@
 					,	collapsible: true
 					,	active: false
 				})
-				
+
 				// Work around til we get a better image uploader script.
 				// Can't figure out how to reinitialize so that it works
 				theNew
@@ -1131,8 +1133,8 @@
 				$('.lstn').off('keyup.optlstn blur.optlstn change.optlstn paste.optlstn')
 
 				that.setBinding()
-				
-				
+
+
 
 		    })
 
@@ -1169,14 +1171,14 @@
 
 				}
 				, complete: function (response) {
-					
+
 					console.log(response)
 					var result = $.parseJSON(response.responseText)
 					,	error = result.import_error || false
-				
+
 				if( error ) {
 					window.onbeforeunload = null
-					
+
 					var txt = sprintf( '<h3>%s</h3>%s%s',
 					sprintf('<h3>%s</h3>', $.pl.lang("Import Failed!") ),
 					sprintf( '%s %s', $.pl.lang("Looks like you tried to upload"), error ),
@@ -1189,7 +1191,7 @@
 						var url = $.pl.config.siteURL
 						pl_url_refresh(url, 2000)
 				}
-					
+
 				//	window.onbeforeunload = null
 				//	bootbox.dialog( $.pl.lang("<h3>Settings Imported</h3>") )
 				//	var url = $.pl.config.siteURL
@@ -1279,10 +1281,10 @@
 				$('.bootbox').on('hidden.mediaDialog', function () {
 
 					$.toolbox('show')
-					
-					
+
+
 					theInput.trigger('blur').closest('.ui-accordion').accordion('refresh')
-					
+
 					$('.bootbox').off('hidden.mediaDialog')
 
 				})
