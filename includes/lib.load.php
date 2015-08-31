@@ -191,3 +191,19 @@ function pl_fix_login_image( ){
 
 	inline_css_markup('pagelines-login-css', $css);
 }
+
+add_action( 'after_setup_theme', 'pagelines_dms_check_path', 9 );
+/**
+   * WordPress uses ABSPATH to determine the server path for scripts, so lets check it hasnt changed
+   * Fixes an issue on hosts such as pagely that migrate your site without letting you know, so db saved paths
+   * will result in a WSOD because section paths will be all wrong.
+   */
+  function pagelines_dms_check_path() {
+    $path       = ABSPATH;
+    $saved_path = get_theme_mod( 'pl_check_path', '' );
+    if( $path !== $saved_path ) {
+			global $editorsections;
+			$editorsections->reset_sections();
+      set_theme_mod( 'pl_check_path', ABSPATH );
+    }
+  }
