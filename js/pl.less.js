@@ -1,8 +1,6 @@
 !function ($) {
 
 	PL_Lessify = function () {
-
-		this.compiler = new ( less.Parser )
 		
 		this.core_less = $('#pl-less-inline')
 		
@@ -74,15 +72,14 @@
 		, 	compile : function ( code ) {
 				
 				var compiled = ''
-				this.compiler.parse( code, function ( err, tree ) {
-					if ( err )
-						return plPrint( err )
+
+				less.render(code, function (e, output) {
 					
-					
-					compiled = tree.toCSS()
-					
-				} )
-				return compiled || ''
+					compiled = output.css || ''
+
+				});
+				return compiled
+				
 			}
 
 

@@ -4,7 +4,6 @@ PL_Code = function () {
 	this.handletab = $('[data-action="pl-design"]')
 	this.panel = $('.panel-pl-design')
 	this.tabs     = $('[data-tab-action="user_less"], [data-tab-action="user_scripts"]')
-	this.compiler = new ( less.Parser )
 	this.txtarea  = {
 		less : $("#custom_less")
 		, htmlmixed : $("#custom_scripts")
@@ -34,12 +33,13 @@ PL_Code.prototype = {
 		code = core + code
 
 		var compiled = ''
-		this.compiler.parse( code, function ( err, tree ) {
-			if ( err )
-				return plPrint( err )
-			compiled = tree.toCSS()
-		} )
-		return compiled || ''
+		
+		less.render(code, function (e, output) {
+			
+			compiled = output.css || ''
+
+		});
+		return compiled
 	}
 
 	,	activateEditors : function() {
