@@ -4,6 +4,13 @@
 
 ********************************************************
 
+Version 2.2
+
+  CORE - Fix issue with global reset buttons throwing a javascript error in WP 4.3
+  CORE - Run a check at runtime to see if the ABSPATH has changed, if so reset sections data.
+         Fixes issues with certain hosts moving customer installs and changing the PATHS without notification.
+  CORE - Update less.js library to 2.5.1 
+
 Version 2.1.9.9
 
   CORE - Fix jQuery error with WP 4.3
