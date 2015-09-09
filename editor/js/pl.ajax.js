@@ -300,11 +300,11 @@
 
 				$('#stateTool').attr('class', 'dropup')
 
-				$.each(state, function(index, el){
-					
-					$('#stateTool').addClass(el)
-				})
-				
+				if( typeof(state) == 'object' ){
+					$.each(state, function(index, el){
+						$('#stateTool').addClass(el)
+					})
+				}
 			
 		}
 
