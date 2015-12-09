@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 2.2.1
+
+  CORE - Stop Twitter social link javascript from trying to use an API that is no longer public.
+  CORE - QuickCarousel,RevSlider - Support image alt using pl_get_image_id_from_src() function.
+
 Version 2.2
 
   CORE - Fix issue with global reset buttons throwing a javascript error in WP 4.3
