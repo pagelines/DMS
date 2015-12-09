@@ -592,11 +592,11 @@
 		, twitter: function(){
 
 			var that = this
-			,	url = '//urls.api.twitter.com/1/urls/count.json?url='+that.shareLocation+'&callback=?'
+			,	url = '//urls.api.twitter.com/1.1/urls/count.json?url='+that.shareLocation+'&callback=?'
 			,	shareBtn = $('[data-social="twitter"]')
 
-
-			that.fetchCount(url, shareBtn)
+			// twitter shutdown the open API
+				that.fetchCount(url, shareBtn)
 
 
 			shareBtn.click( function(){
