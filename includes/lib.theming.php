@@ -274,4 +274,21 @@ function pl_media_list( $title, $list ){
 	
 }
 
+function pl_get_image_id_from_src( $file_url ) {
+    
+		global $wpdb;
+		$file_path = ltrim( str_replace( wp_upload_dir()['baseurl'], '', $file_url ), '/');
 
+		$statement = $wpdb->prepare( "SELECT `ID` FROM {$wpdb->prefix}posts AS posts JOIN {$wpdb->prefix}postmeta AS meta on meta.`post_id`=posts.`ID` WHERE posts.`guid`='%s' OR (meta.`meta_key`='_wp_attached_file' AND meta.`meta_value` LIKE '%%%s');",
+				$file_url,
+        $file_path
+		);
+
+    $attachment = $wpdb->get_col($statement);
+
+    if (count($attachment) < 1) {
+        return false;
+    }
+
+    return $attachment[0]; 
+}
