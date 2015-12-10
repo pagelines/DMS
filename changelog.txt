@@ -4,6 +4,10 @@
 
 ********************************************************
 
+Version 2.2.1.1
+
+  CORE - Fix for unsupported PHP versions.
+
 Version 2.2.1
 
   CORE - Stop Twitter social link javascript from trying to use an API that is no longer public.
