@@ -4,6 +4,10 @@
 
 ********************************************************
 
+Version 2.2.1.2
+  
+  CORE - Fixed (again) Twitter API calls producing console errors. 
+
 Version 2.2.1.1
 
   CORE - Fix for unsupported PHP versions.
