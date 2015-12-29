@@ -563,7 +563,7 @@
 			var that = this
 
 			that.facebook()
-			that.twitter()
+			//that.twitter() // twitter API no longer public
 			that.pinterest()
 			that.linkedin()
 
