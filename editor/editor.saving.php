@@ -21,6 +21,8 @@ class PageLinesSave {
 			$response = $this->save_form( $response, $data );
 		} elseif (  $data['run'] == 'publish' ){
 			$response = $this->publish( $response, $data );
+		} elseif (  $data['run'] == 'refresh_less' ){
+			$response = $this->refresh_less( $response, $data );
 		} else 
 			$response['error'] = "No save operation set for ".$data['run'];
 
@@ -100,6 +102,13 @@ class PageLinesSave {
 		
 		
 		return $response;
+	}
+	
+	function refresh_less( $response, $data ){
+	
+	    pl_setting_update( 'pl_draft_less_refresh', true );
+		
+	    return $response;
 	}
 	
 	/* 

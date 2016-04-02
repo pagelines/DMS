@@ -196,6 +196,18 @@
 		, bindUIActions: function(){
 
 			var that = this
+			
+			$( '.btn-refresh-less' ).on('click.saveButton', function(){
+
+
+				$.plSave.save( { 
+					run: 'refresh_less'
+					, store: false
+					, log: true
+				} )
+
+
+			})
 
 			$( '.btn-publish' ).on('click.saveButton', function(){
 

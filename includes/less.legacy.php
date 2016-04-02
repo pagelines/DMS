@@ -683,7 +683,7 @@ class PageLinesRenderCSS {
 	 */
 	function get_compiled_custom() {
 
-		if ( ! pl_draft_mode() && is_array(  $a = get_transient( 'pagelines_custom_css' ) ) ) {
+		if ( (! pl_draft_mode() || ! pl_setting('pl_draft_less_refresh')) && is_array(  $a = get_transient( 'pagelines_custom_css' ) ) ) {
 			return $a;
 		} else {
 
@@ -702,6 +702,7 @@ class PageLinesRenderCSS {
 			if ( strpos( $custom, 'PARSE ERROR' ) === false ) {
 				set_transient( 'pagelines_custom_css', $a, $this->ctimeout );
 				set_transient( 'pagelines_custom_css_backup', $a, $this->btimeout );
+				pl_setting_update( 'pl_draft_less_refresh', false );
 				return $a;
 			} else {
 				return get_transient( 'pagelines_custom_css_backup' );
