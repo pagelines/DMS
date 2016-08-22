@@ -1,0 +1,17 @@
+{
+  "name": "pagelines/dms",
+  "type": "wordpress-theme",
+  "description": "Pagelines DMS",
+  "keywords": ["pagelines","wordpress","DMS","framework"],
+  "require": {
+    "composer/installers": "~1.0.6"
+  },
+  "authors": [
+        {
+            "name": "Pagelines DMS",
+            "email": "hello@pagelines.com",
+            "homepage": "http://www.pagelines.com",
+            "role": "Developer"
+        }
+    ]
+}
