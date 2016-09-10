@@ -825,12 +825,12 @@ class PL_ShortCodes_Libs extends PageLines_ShortCodes {
 	
 			global $shortcode_js; 
 
-			$shortcode_js['popover'] = '<script> jQuery(function(){ jQuery("a[rel=popover]").popover({ html:true, trigger: "hover" }).click(function(e) { e.preventDefault() }); }); </script>';
+			$shortcode_js['popover'] = '<script> jQuery(function(){ jQuery(".pl-popover").popover({ html:true, trigger: "hover" }).click(function(e) { e.preventDefault() }); }); </script>';
 
 	    ob_start();
 
 
-    	printf( '<a href="#" rel="popover" title="%s" data-content="%s" data-placement="%s">%s</a>',
+    	printf( '<span class="pl-popover" title="%s" data-content="%s" data-placement="%s">%s</span>',
 			$atts['title'],
 			$atts['content'],
 			$atts['position'],
