@@ -655,7 +655,7 @@ class EditorInterface {
 			$userid = $user_data->ID;
 
 			// explode the alowed users, if its a single name explode still returns an array.
-			$users = explode( ',', PL_EDITOR_LOCK );
+			$users = explode( ',', str_replace(' ','', PL_EDITOR_LOCK) );
 
 			// if current user is not in the array of allowed users return false.
 			if( ! in_array( $user, $users ) && ! in_array( $userid, $users ) )
