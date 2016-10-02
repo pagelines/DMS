@@ -8,40 +8,52 @@
  *
  * @since   DMS 1.2
  *
- * @param   $mode - mode either start, end of row
- * @param   $width - width of grid item in columns
+ * @param   $mode - start of row, end of row, or #spans
+ * @param   $item_cols - # of spans (i.e. width) of grid item
  * @param   $count - current count of item in grid
  * @param   $total - total items in grid
+ * @param   $class - used to add classes like row-closed
+ * @param   $grid_cols - max # of spans allowed in each row (default 12)
  *
  */
-function pl_grid_tool( $mode, $item_cols, $count = false, $total = false, $class = '' ){
-	
-	$per_row = 12 / $item_cols;
-	
+function pl_grid_tool( $mode, $item_cols, $count = false, $total = false, $class = '', $grid_cols = 12 ){
+
+	global $plgridtoolspans;
+
+	$per_row = $grid_cols / $item_cols;
+
 	$output = '';
-	
+
 	if( $mode == 'row_start' ){
-		
-		if( $count == 1 || ( $count - 1 ) % $per_row == 0 ){
-			
+
+		if( $count == 1 ){
+			$plgridtoolspans = 0;
+		}
+
+		if( $plgridtoolspans == 0 ){
 			$output .= sprintf('<div class="row %s">', $class);
 		}
-		
+
+		$plgridtoolspans += $item_cols;
+
 	} elseif( $mode == 'row_end' ){
-		
-		if( $count % $per_row == 0 || $count == $total ){
-			
+
+		if( $plgridtoolspans >= $grid_cols || $count == $total ){
+
 			$output .= '</div>';
+			$plgridtoolspans = 0;
 		}
-		
-	} elseif( $mode == 'item_class' ){
-		
-		$output .= 'span' . $item_cols;
-		
+
 	}
-	
+	elseif( $mode == 'item_class' ){
+
+		$output .= 'span' . $item_cols;
+
+	}
+
 	return $output;
 }
+
 
 /**
  * PageLines Default Widget
